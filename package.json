@@ -1,27 +1,48 @@
 {
   "name": "portfolio",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "license": "MIT",
+  "author": "Fahim Khan",
+  "description": "My personal portfolio website",
+  "keywords": [
+    "portfolio",
+    "fahim khan",
+    "software consultant",
+    "full stack developer",
+    "react",
+    "next.js",
+    "tailwind",
+    "typescript"
+  ],
+  "homepage": "https://fahim.shonif.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/M0rfes/portfolio.gits"
+  },
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "build": "next build && next export",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "lucide-react": "^0.525.0",
+    "motion": "^12.23.9",
+    "next": "15.4.4",
     "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "next": "15.4.4"
+    "react-dom": "19.1.0"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
+    "autoprefixer": "^10.4.21",
     "eslint": "^9",
     "eslint-config-next": "15.4.4",
-    "@eslint/eslintrc": "^3"
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5"
   }
 }
