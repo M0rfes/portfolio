@@ -10,6 +10,8 @@ import rehypeSanitize from 'rehype-sanitize';
 import rehypeHighlight from 'rehype-highlight';
 import { BlogPost } from '@/lib/blog';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import Image from 'next/image';
+import { ImgHTMLAttributes } from 'react';
 import 'highlight.js/styles/github-dark.css';
 
 interface BlogContentProps {
@@ -85,7 +87,7 @@ export function BlogContent({ post }: BlogContentProps) {
                   {post.keywords.map((keyword, idx) => (
                     <span
                       key={idx}
-                      className="inline-block px-3 py-1 text-sm font-medium bg-[var(--portfolio-primary)]/10 text-[var(--portfolio-primary)] rounded-full"
+                      className="inline-block px-3 py-1 text-sm font-medium bg-[var(--portfolio-primary)]/10 text-[var(--portfolio-primary)] rounded-full dark:text-[var(--portfolio-secondary)] dark:bg-[var(--portfolio-secondary)]/10"
                     >
                       {keyword}
                     </span>
@@ -102,26 +104,31 @@ export function BlogContent({ post }: BlogContentProps) {
               rehypePlugins={[rehypeRaw, rehypeSanitize, rehypeHighlight]}
               components={{
                 // Custom component for images
-                img: ({ alt, ...props }) => (
-                  <span className="block my-8">
-                    {alt && alt.trim() ? (
-                      <img
-                        {...props}
-                        alt={alt}
-                        className="rounded-lg shadow-md w-full"
+                img: (props: ImgHTMLAttributes<HTMLImageElement>) => {
+                  const { alt, src, width: w, height: h } = props as {
+                    alt?: string;
+                    src?: string;
+                    width?: number | string;
+                    height?: number | string;
+                  };
+                  if (!src) return null;
+                  const width = typeof w === 'string' ? parseInt(w, 10) : w || 1200;
+                  const height = typeof h === 'string' ? parseInt(h, 10) : h || 630;
+                  const hasAlt = !!(alt && alt.trim());
+                  return (
+                    <span className="block my-8">
+                      <Image
+                        src={src}
+                        alt={hasAlt ? alt! : ''}
+                        role={hasAlt ? undefined : 'presentation'}
+                        width={width}
+                        height={height}
                         loading="lazy"
+                        className="rounded-lg shadow-md w-full h-auto"
                       />
-                    ) : (
-                      <img
-                        {...props}
-                        alt=""
-                        role="presentation"
-                        className="rounded-lg shadow-md w-full"
-                        loading="lazy"
-                      />
-                    )}
-                  </span>
-                ),
+                    </span>
+                  );
+                },
                 // Custom component for videos
                 video: ({ ...props }) => (
                   <span className="block my-8">
@@ -136,7 +143,7 @@ export function BlogContent({ post }: BlogContentProps) {
                 a: ({ ...props }) => (
                   <a
                     {...props}
-                    className="text-[var(--portfolio-primary)] hover:text-[var(--portfolio-secondary)] underline"
+                    className="text-[var(--portfolio-primary)] hover:text-[var(--portfolio-secondary)] underline dark:text-[var(--portfolio-secondary)] dark:hover:text-[var(--portfolio-primary)] transition-colors"
                     target={props.href?.startsWith('http') ? '_blank' : undefined}
                     rel={props.href?.startsWith('http') ? 'noopener noreferrer' : undefined}
                   />
@@ -146,7 +153,7 @@ export function BlogContent({ post }: BlogContentProps) {
                   const isInline = !className;
                   return isInline ? (
                     <code
-                      className="bg-gray-100 dark:bg-gray-700 text-[var(--portfolio-primary)] px-2 py-1 rounded text-sm font-mono"
+                      className="bg-gray-100  text-[var(--portfolio-primary)] px-2 py-1 rounded text-sm font-mono"
                       {...props}
                     >
                       {children}

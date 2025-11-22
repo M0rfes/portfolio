@@ -23,7 +23,7 @@ keywords:
   - backend
 ---
 
-[text](https://github.com/M0rfes/multipart-mixed)
+[Github repo](https://github.com/M0rfes/multipart-mixed)
 
 You can stream JSON chunks using `Content-Type: multipart/mixed; boundary=boundary123abc` headers. This allows sending multiple JSON objects over a single HTTP connection as they become available, instead of waiting for all data to be processed.
 
@@ -31,7 +31,7 @@ You can stream JSON chunks using `Content-Type: multipart/mixed; boundary=bounda
 
 Multipart streaming uses HTTP chunked transfer encoding with multipart boundaries to separate individual JSON objects. Each JSON chunk is wrapped in a multipart section:
 
-```
+```json
 --boundary123abc
 Content-Type: application/json
 
