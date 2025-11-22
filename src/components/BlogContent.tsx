@@ -187,18 +187,22 @@ export function BlogContent({ post }: BlogContentProps) {
                 ),
                 // Custom component for paragraphs
                 p: ({ ...props }) => (
-                  <p className="text-gray-700 leading-relaxed mb-4" {...props} />
+                  <p className="text-gray-900 leading-relaxed mb-4 font-medium" {...props} />
                 ),
                 // Custom component for blockquotes
                 blockquote: ({ ...props }) => (
-                  <blockquote className="border-l-4 border-[var(--portfolio-primary)] pl-4 py-2 my-6 italic text-gray-600 bg-gray-50 rounded-r-lg" {...props} />
+                  <blockquote className="border-l-4 border-[var(--portfolio-primary)] pl-4 py-2 my-6 italic text-gray-800 font-medium bg-gray-50 rounded-r-lg" {...props} />
                 ),
                 // Custom component for lists
                 ul: ({ ...props }) => (
-                  <ul className="list-disc list-inside space-y-2 my-4 text-gray-700" {...props} />
+                  <ul className="list-disc list-inside space-y-2 my-4 text-gray-900 font-medium marker:text-gray-900" {...props} />
                 ),
                 ol: ({ ...props }) => (
-                  <ol className="list-decimal list-inside space-y-2 my-4 text-gray-700" {...props} />
+                  <ol className="list-decimal list-inside space-y-2 my-4 text-gray-900 font-medium marker:text-gray-900" {...props} />
+                ),
+                // Custom component for strong/bold text
+                strong: ({ ...props }) => (
+                  <strong className="font-bold text-gray-950" {...props} />
                 ),
               }}
             >
