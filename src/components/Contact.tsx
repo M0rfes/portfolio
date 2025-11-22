@@ -357,7 +357,7 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="py-20 px-4 bg-gradient-to-br from-[var(--portfolio-primary)] via-[var(--portfolio-secondary)] to-[var(--portfolio-accent)] text-white"
+      className="py-20 px-4 bg-primary text-primary-foreground"
       ref={ref}
     >
       <div className="max-w-6xl mx-auto">
