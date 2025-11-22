@@ -245,6 +245,12 @@ Multipart streaming provides a straightforward way to improve user experience wh
 
 Here are some demonstrations of multipart streaming in action:
 
-![Demo Video 1](https://github.com/user-attachments/assets/3775994e-e5c1-4e9b-b5e8-bab3d8168168)
+<video controls width="100%">
+  <source src="/videos/streaming-json-multipart-mixed/Stream.mov" type="video/quicktime" />
+  Your browser does not support the video tag. Please <a href="/videos/streaming-json-multipart-mixed/Stream.mov" download>download the video</a> to view it.
+</video>
 
-![Demo Video 2](https://github.com/user-attachments/assets/e8f9d11a-b24f-42cc-b3cd-25a065d275d5)
+<video controls width="100%">
+  <source src="/videos/streaming-json-multipart-mixed/dataloader.mov" type="video/quicktime" />
+  Your browser does not support the video tag. Please <a href="/videos/streaming-json-multipart-mixed/dataloader.mov" download>download the video</a> to view it.
+</video>
