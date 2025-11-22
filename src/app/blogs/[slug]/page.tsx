@@ -76,6 +76,12 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;
+  
+  // Validate slug exists and is a string
+  if (!slug || typeof slug !== 'string') {
+    notFound();
+  }
+  
   const post = getBlogPostBySlug(slug);
 
   if (!post) {

@@ -104,7 +104,7 @@ export function BlogContent({ post }: BlogContentProps) {
                 // Custom component for images
                 img: ({ alt, ...props }) => (
                   <span className="block my-8">
-                    {alt ? (
+                    {alt && alt.trim() ? (
                       <img
                         {...props}
                         alt={alt}
