@@ -1,5 +1,6 @@
 "use client";
 import { createContext, useContext, useEffect, useState } from "react";
+import { themes } from "@/lib/themes";
 
 type Theme = string;
 
@@ -17,12 +18,13 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     try {
       // Get theme from localStorage or use default
       const savedTheme = localStorage.getItem("theme") as Theme | null;
-      if (savedTheme) {
+      const defaultTheme = "theme-catppuccin-mocha";
+      
+      if (savedTheme && themes.some(t => t.id === savedTheme)) {
         setThemeState(savedTheme);
         document.documentElement.className = savedTheme;
       } else {
-        // Default to Catppuccin Mocha
-        const defaultTheme = "theme-catppuccin-mocha";
+        // Default to Catppuccin Mocha if no saved theme or invalid theme
         setThemeState(defaultTheme);
         document.documentElement.className = defaultTheme;
       }
