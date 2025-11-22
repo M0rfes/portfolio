@@ -187,4 +187,59 @@ export const themes: ThemeOption[] = [
       accent: "#cf256d",
     },
   },
+  {
+    id: "theme-tokyonight-storm",
+    name: "Storm",
+    category: "Tokyo Night",
+    preview: {
+      bg: "#24283b",
+      primary: "#7aa2f7",
+      secondary: "#9d7cd8",
+      accent: "#f7768e",
+    },
+  },
+  {
+    id: "theme-tokyonight-night",
+    name: "Night",
+    category: "Tokyo Night",
+    preview: {
+      bg: "#1a1b26",
+      primary: "#7aa2f7",
+      secondary: "#9d7cd8",
+      accent: "#f7768e",
+    },
+  },
+  {
+    id: "theme-tokyonight-moon",
+    name: "Moon",
+    category: "Tokyo Night",
+    preview: {
+      bg: "#222436",
+      primary: "#82aaff",
+      secondary: "#c099ff",
+      accent: "#ff757f",
+    },
+  },
+  {
+    id: "theme-nord",
+    name: "Nord",
+    category: "Nord",
+    preview: {
+      bg: "#2e3440",
+      primary: "#88c0d0",
+      secondary: "#81a1c1",
+      accent: "#bf616a",
+    },
+  },
+  {
+    id: "theme-nord-light",
+    name: "Light",
+    category: "Nord",
+    preview: {
+      bg: "#eceff4",
+      primary: "#5e81ac",
+      secondary: "#81a1c1",
+      accent: "#bf616a",
+    },
+  },
 ];

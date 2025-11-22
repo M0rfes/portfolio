@@ -20,6 +20,11 @@ const themeMap: Record<string, string> = {
   "theme-atom-light": "one-light.css",
   "theme-atom-dark": "one-dark.css",
   "theme-syntax-fm": "synthwave84.css",
+  "theme-tokyonight-storm": "vsc-dark-plus.css",
+  "theme-tokyonight-night": "vsc-dark-plus.css",
+  "theme-tokyonight-moon": "night-owl.css",
+  "theme-nord": "nord.css",
+  "theme-nord-light": "nord.css",
 };
 
 export function PrismThemeSync() {
