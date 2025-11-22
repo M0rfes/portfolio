@@ -1,6 +1,6 @@
 "use client";
 import { motion, useScroll, useTransform } from "motion/react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Menu, X, Home, User, Briefcase, Code, MessageCircle, BookOpen, Palette, ChevronDown } from "lucide-react";
@@ -15,11 +15,12 @@ export function Navigation() {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
   const { scrollY } = useScroll();
+  const themeMenuRef = useRef<HTMLDivElement>(null);
   
   const backgroundColor = useTransform(
     scrollY,
     [0, 100],
-    ["rgba(239, 241, 245, 0)", "rgba(239, 241, 245, 0.95)"]
+    ["rgba(var(--background-rgb), 0)", "rgba(var(--background-rgb), 0.95)"]
   );
   
   const backdropBlur = useTransform(scrollY, [0, 100], [0, 10]);
@@ -53,6 +54,20 @@ export function Navigation() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isHomePage]);
+
+  // Handle click outside to close theme menu
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (themeMenuRef.current && !themeMenuRef.current.contains(event.target as Node)) {
+        setShowThemeMenu(false);
+      }
+    };
+
+    if (showThemeMenu) {
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => document.removeEventListener('mousedown', handleClickOutside);
+    }
+  }, [showThemeMenu]);
 
   const handleNavigation = (item: typeof navItems[0]) => {
     if (isHomePage && item.id !== "blogs") {
@@ -141,10 +156,10 @@ export function Navigation() {
               ))}
               
               {/* Theme Selector Dropdown */}
-              <div className="relative">
+              <div className="relative" ref={themeMenuRef}>
                 <motion.button
                   onClick={() => setShowThemeMenu(!showThemeMenu)}
-                  className="flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 text-gray-700 hover:text-[var(--portfolio-primary)] hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
+                  className="flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 text-[var(--foreground)] hover:text-[var(--primary)] hover:bg-[var(--muted)]"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   initial={{ opacity: 0, y: -20 }}
@@ -197,13 +212,13 @@ export function Navigation() {
             <div className="md:hidden flex items-center gap-2">
               <motion.button
                 onClick={() => setShowThemeMenu(!showThemeMenu)}
-                className="p-2 rounded-lg bg-white/80 backdrop-blur-sm shadow-lg border border-gray-200/50 dark:bg-gray-800/80 dark:border-gray-700/50"
+                className="p-2 rounded-lg bg-[var(--card)]/80 backdrop-blur-sm shadow-lg border border-[var(--border)]"
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4 }}
                 aria-label="Select theme"
               >
-                <Palette className="w-5 h-5 text-[var(--portfolio-primary)]" />
+                <Palette className="w-5 h-5 text-[var(--primary)]" />
               </motion.button>
               
               {/* Mobile theme menu */}
@@ -243,7 +258,7 @@ export function Navigation() {
               )}
               
               <motion.button
-                className="p-2 rounded-lg bg-white/80 backdrop-blur-sm shadow-lg border border-gray-200/50 dark:bg-gray-800/80 dark:border-gray-700/50"
+                className="p-2 rounded-lg bg-[var(--card)]/80 backdrop-blur-sm shadow-lg border border-[var(--border)]"
               onClick={() => setIsOpen(!isOpen)}
               initial={{ opacity: 0, scale: 0 }}
               animate={{ opacity: 1, scale: 1 }}
