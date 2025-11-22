@@ -62,8 +62,7 @@ export function getAllBlogPosts(): BlogPostMetadata[] {
       if (!post) return null;
       
       // Return only metadata, not content
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const { content, ...metadata } = post;
+      const { content: _content, ...metadata } = post;
       return metadata;
     })
     .filter((post): post is BlogPostMetadata => post !== null)

@@ -31,14 +31,14 @@ export function BlogContent({ post }: BlogContentProps) {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Back Button */}
         <Link href="/blogs">
-          <motion.button
-            className="inline-flex items-center gap-2 text-[var(--portfolio-primary)] hover:text-[var(--portfolio-secondary)] mb-8 transition-colors"
+          <motion.div
+            className="inline-flex items-center gap-2 text-[var(--portfolio-primary)] hover:text-[var(--portfolio-secondary)] mb-8 transition-colors cursor-pointer"
             whileHover={{ x: -5 }}
             transition={{ duration: 0.2 }}
           >
             <ArrowLeft className="w-5 h-5" />
             <span>Back to Blogs</span>
-          </motion.button>
+          </motion.div>
         </Link>
 
         {/* Cover Image */}
@@ -104,12 +104,22 @@ export function BlogContent({ post }: BlogContentProps) {
                 // Custom component for images
                 img: ({ alt, ...props }) => (
                   <span className="block my-8">
-                    <img
-                      {...props}
-                      alt={alt || ''}
-                      className="rounded-lg shadow-md w-full"
-                      loading="lazy"
-                    />
+                    {alt ? (
+                      <img
+                        {...props}
+                        alt={alt}
+                        className="rounded-lg shadow-md w-full"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <img
+                        {...props}
+                        alt=""
+                        role="presentation"
+                        className="rounded-lg shadow-md w-full"
+                        loading="lazy"
+                      />
+                    )}
                   </span>
                 ),
                 // Custom component for videos
