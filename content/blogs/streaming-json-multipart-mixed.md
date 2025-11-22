@@ -23,6 +23,8 @@ keywords:
   - backend
 ---
 
+[text](https://github.com/M0rfes/multipart-mixed)
+
 You can stream JSON chunks using `Content-Type: multipart/mixed; boundary=boundary123abc` headers. This allows sending multiple JSON objects over a single HTTP connection as they become available, instead of waiting for all data to be processed.
 
 ## How Multipart Streaming Works
@@ -245,12 +247,18 @@ Multipart streaming provides a straightforward way to improve user experience wh
 
 Here are some demonstrations of multipart streaming in action:
 
-<video controls width="100%">
-  <source src="/videos/streaming-json-multipart-mixed/Stream.mov" type="video/quicktime" />
-  Your browser does not support the video tag. Please <a href="/videos/streaming-json-multipart-mixed/Stream.mov" download>download the video</a> to view it.
-</video>
+<!-- Demo Videos (YouTube Embeds) -->
+<div style="display:grid; gap:2rem;">
+    <div>
+        <p><strong>Streaming Multipart Flow Demo</strong></p>
+        <iframe width="560" height="315" style="max-width:100%; width:100%; aspect-ratio:16/9;" src="https://www.youtube.com/embed/38NifaQ1Tt4?si=QD3tz_5Pm3sithPG" title="Streaming Multipart Flow Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <p><a href="https://youtu.be/38NifaQ1Tt4" target="_blank" rel="noopener noreferrer">Open on YouTube</a></p>
+    </div>
+    <div>
+        <p><strong>Data Loader Streaming Demo</strong></p>
+        <iframe width="560" height="315" style="max-width:100%; width:100%; aspect-ratio:16/9;" src="https://www.youtube.com/embed/FS-CIA9cLq4?si=FIlpWcgBM1oa7WmR" title="Data Loader Streaming Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <p><a href="https://youtu.be/FS-CIA9cLq4" target="_blank" rel="noopener noreferrer">Open on YouTube</a></p>
+    </div>
+</div>
 
-<video controls width="100%">
-  <source src="/videos/streaming-json-multipart-mixed/dataloader.mov" type="video/quicktime" />
-  Your browser does not support the video tag. Please <a href="/videos/streaming-json-multipart-mixed/dataloader.mov" download>download the video</a> to view it.
-</video>
+<!-- Original local video elements replaced with YouTube embeds per user request. -->
