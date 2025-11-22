@@ -114,31 +114,31 @@ function CurrentFocus() {
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
     >
-      <div className="bg-gradient-to-br from-[var(--portfolio-primary)] to-[var(--portfolio-secondary)] p-8 rounded-2xl text-white shadow-xl">
-        <h3 className="text-2xl mb-6">Current Focus</h3>
+      <div className="bg-primary p-8 rounded-2xl shadow-xl border-2 border-primary">
+        <h3 className="text-2xl mb-6 font-bold text-primary-foreground">Current Focus</h3>
         
-        <div className="space-y-4 mb-6">
+        <div className="space-y-4 mb-6 text-primary-foreground">
           <div className="flex items-start gap-3">
-            <div className="w-2 h-2 bg-[var(--portfolio-accent)] rounded-full mt-2 flex-shrink-0"></div>
-            <p>Working at Presight AI developing LLM-powered dashboards and implementing agentic workflows</p>
+            <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
+            <p className="font-semibold">Working at Presight AI developing LLM-powered dashboards and implementing agentic workflows</p>
           </div>
           <div className="flex items-start gap-3">
-            <div className="w-2 h-2 bg-[var(--portfolio-success)] rounded-full mt-2 flex-shrink-0"></div>
-            <p>Freelancing for Promax Digital and Hurix Digital to maximize income</p>
+            <div className="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0"></div>
+            <p className="font-semibold">Freelancing for Promax Digital and Hurix Digital to maximize income</p>
           </div>
           <div className="flex items-start gap-3">
-            <div className="w-2 h-2 bg-[var(--portfolio-warning)] rounded-full mt-2 flex-shrink-0"></div>
-            <p>Supporting family while paying off 300K AED personal loan for home in India</p>
+            <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
+            <p className="font-semibold">Supporting family while paying off 300K AED personal loan for home in India</p>
           </div>
           <div className="flex items-start gap-3">
-            <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
-            <p>Planning for my daughter&apos;s education and building emergency funds</p>
+            <div className="w-2 h-2 bg-primary-foreground rounded-full mt-2 flex-shrink-0"></div>
+            <p className="font-semibold">Planning for my daughter&apos;s education and building emergency funds</p>
           </div>
         </div>
 
-        <div className="bg-white/20 backdrop-blur-sm p-4 rounded-xl">
-          <h4 className="text-lg mb-2">Life Goals</h4>
-          <ul className="text-sm space-y-1">
+        <div className="bg-card p-4 rounded-xl border border-border">
+          <h4 className="text-lg mb-2 font-bold text-card-foreground">Life Goals</h4>
+          <ul className="text-sm space-y-1 text-card-foreground font-semibold">
             <li>• Achieve debt-free life</li>
             <li>• Build 1-2 years of emergency funds</li>
             <li>• Retire at 40</li>
