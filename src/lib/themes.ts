@@ -176,4 +176,15 @@ export const themes: ThemeOption[] = [
       accent: "#e06c75",
     },
   },
+  {
+    id: "theme-syntax-fm",
+    name: "Syntax FM",
+    category: "Syntax",
+    preview: {
+      bg: "#000000",
+      primary: "#6dfff8",
+      secondary: "#fabf46",
+      accent: "#cf256d",
+    },
+  },
 ];

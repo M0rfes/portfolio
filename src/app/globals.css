@@ -654,6 +654,61 @@
   --blog-text: #abb2bf;
 }
 
+/* Syntax FM Theme */
+.theme-syntax-fm {
+  /* Background & foreground */
+  --background: #000000;
+  --foreground: #ffffff;
+
+  /* Panels & cards */
+  --card: #1d1d1d;
+  --card-foreground: #ffffff;
+  --popover: #1d1d1d;
+  --popover-foreground: #cccccc;
+
+  /* Primary & secondary */
+  --primary: #6dfff8;
+  --primary-foreground: #000000;
+  --secondary: #fabf46;
+  --secondary-foreground: #000000;
+
+  /* Muted */
+  --muted: #b0b0b0;
+  --muted-foreground: #515151;
+
+  /* Accent: error, warning, important */
+  --accent: #cf256d;
+  --accent-foreground: #000000;
+
+  /* Destructive: error, deleted diff */
+  --destructive: #eb5757;
+  --destructive-foreground: #000000;
+
+  /* Border & input */
+  --border: #1d1d1d;
+  --input: #1d1d1d;
+  --input-background: #1d1d1d;
+
+  --ring: #fabf46;
+  --chart-1: #6dfff8;
+  --chart-2: #fabf46;
+  --chart-3: #cf256d;
+  --chart-4: #cdff5c;
+  --chart-5: #eb5757;
+
+  /* Custom portfolio colors */
+  --portfolio-primary: #6dfff8;
+  --portfolio-secondary: #fabf46;
+  --portfolio-accent: #cf256d;
+  --portfolio-success: #cdff5c;
+  --portfolio-warning: #fabf46;
+  --portfolio-light: #b0b0b0;
+  --portfolio-dark: #000000;
+
+  /* Blog specific */
+  --blog-container: #1d1d1d;
+  --blog-text: #b0b0b0;
+}
 @layer base {
   * {
     @apply border-border;

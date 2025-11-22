@@ -7,12 +7,12 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import rehypeSanitize from 'rehype-sanitize';
-import rehypeHighlight from 'rehype-highlight';
+import rehypePrism from 'rehype-prism-plus';
 import { BlogPost } from '@/lib/blog';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import Image from 'next/image';
 import { ImgHTMLAttributes } from 'react';
-import 'highlight.js/styles/github-dark.css';
+import { PrismThemeSync } from './PrismThemeSync';
 
 interface BlogContentProps {
   post: BlogPost;
@@ -101,7 +101,7 @@ export function BlogContent({ post }: BlogContentProps) {
           <div className="prose prose-lg max-w-none">
             <ReactMarkdown
               remarkPlugins={[remarkGfm]}
-              rehypePlugins={[rehypeRaw, rehypeSanitize, rehypeHighlight]}
+              rehypePlugins={[rehypeRaw, rehypeSanitize, rehypePrism]}
               components={{
                 // Custom component for images
                 img: (props: ImgHTMLAttributes<HTMLImageElement>) => {
@@ -218,6 +218,7 @@ export function BlogContent({ post }: BlogContentProps) {
           </div>
         </motion.article>
       </div>
+      <PrismThemeSync />
     </div>
   );
 }
