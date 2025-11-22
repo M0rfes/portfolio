@@ -1,7 +1,7 @@
 "use client";
 import { motion, useInView } from "motion/react";
 import { useRef } from "react";
-import { Rocket, Heart, Target, Award } from "lucide-react";
+import { Rocket, Target, Award } from "lucide-react";
 
 function StatsGrid() {
   const ref = useRef(null);
@@ -10,8 +10,7 @@ function StatsGrid() {
   const stats = [
     { number: "7+", label: "Years Experience", icon: Award, color: "text-[var(--portfolio-primary)]" },
     { number: "20+", label: "Projects Delivered", icon: Rocket, color: "text-[var(--portfolio-secondary)]" },
-    { number: "5", label: "Companies", icon: Target, color: "text-[var(--portfolio-accent)]" },
-    { number: "40K", label: "AED Monthly Income", icon: Heart, color: "text-[var(--portfolio-success)]" }
+    { number: "5", label: "Companies", icon: Target, color: "text-[var(--portfolio-accent)]" }
   ];
 
   const containerVariants = {
@@ -43,7 +42,7 @@ function StatsGrid() {
       variants={containerVariants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
-      className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
+      className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-16"
     >
       {stats.map((stat, index) => (
         <motion.div
@@ -282,8 +281,7 @@ export function About() {
               </p>
               <p className="text-gray-700 leading-relaxed">
                 Today, I work multiple jobs - sometimes 20 hours a day - to support my growing family 
-                and achieve financial stability. Currently earning 40K AED monthly while supporting 
-                family back in India.
+                and achieve financial stability while supporting family back in India.
               </p>
             </StoryCard>
           </div>
