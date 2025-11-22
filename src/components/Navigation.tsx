@@ -1,12 +1,16 @@
 "use client";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useState, useEffect } from "react";
-import { Menu, X, Home, User, Briefcase, Code, MessageCircle } from "lucide-react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
+import { Menu, X, Home, User, Briefcase, Code, MessageCircle, BookOpen } from "lucide-react";
 import { ImageWithFallback } from './figma/ImageWithFallback';
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
   const { scrollY } = useScroll();
   const backgroundColor = useTransform(
     scrollY,
@@ -16,15 +20,18 @@ export function Navigation() {
   const backdropBlur = useTransform(scrollY, [0, 100], [0, 10]);
 
   const navItems = [
-    { id: "hero", label: "Home", icon: Home },
-    { id: "about", label: "About", icon: User },
-    { id: "experience", label: "Experience", icon: Briefcase },
-    { id: "skills", label: "Skills", icon: Code },
-    { id: "contact", label: "Contact", icon: MessageCircle }
+    { id: "hero", label: "Home", icon: Home, href: "/" },
+    { id: "about", label: "About", icon: User, href: "/#about" },
+    { id: "experience", label: "Experience", icon: Briefcase, href: "/#experience" },
+    { id: "skills", label: "Skills", icon: Code, href: "/#skills" },
+    { id: "blogs", label: "Blogs", icon: BookOpen, href: "/blogs" },
+    { id: "contact", label: "Contact", icon: MessageCircle, href: "/#contact" }
   ];
 
   // Handle scroll spy
   useEffect(() => {
+    if (!isHomePage) return;
+    
     const handleScroll = () => {
       const sections = navItems.map(item => document.getElementById(item.id));
       const scrollPosition = window.scrollY + 100;
@@ -40,12 +47,15 @@ export function Navigation() {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isHomePage]);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+  const handleNavigation = (item: typeof navItems[0]) => {
+    if (isHomePage && item.id !== "blogs") {
+      // Scroll to section on home page
+      const element = document.getElementById(item.id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
     }
     setIsOpen(false);
   };
@@ -87,22 +97,42 @@ export function Navigation() {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               {navItems.map((item, index) => (
-                <motion.button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className={`px-4 py-2 rounded-full transition-all duration-300 ${
-                    activeSection === item.id
-                      ? "bg-[var(--portfolio-primary)] text-white shadow-lg"
-                      : "text-gray-700 hover:text-[var(--portfolio-primary)] hover:bg-gray-100"
-                  }`}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                >
-                  {item.label}
-                </motion.button>
+                item.id === "blogs" ? (
+                  <Link key={item.id} href={item.href}>
+                    <motion.div
+                      className={`px-4 py-2 rounded-full transition-all duration-300 cursor-pointer ${
+                        pathname.startsWith('/blogs')
+                          ? "bg-[var(--portfolio-primary)] text-white shadow-lg"
+                          : "text-gray-700 hover:text-[var(--portfolio-primary)] hover:bg-gray-100"
+                      }`}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      initial={{ opacity: 0, y: -20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: index * 0.1 }}
+                    >
+                      {item.label}
+                    </motion.div>
+                  </Link>
+                ) : (
+                  <Link key={item.id} href={item.href}>
+                    <motion.div
+                      onClick={() => handleNavigation(item)}
+                      className={`px-4 py-2 rounded-full transition-all duration-300 cursor-pointer ${
+                        activeSection === item.id && isHomePage
+                          ? "bg-[var(--portfolio-primary)] text-white shadow-lg"
+                          : "text-gray-700 hover:text-[var(--portfolio-primary)] hover:bg-gray-100"
+                      }`}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      initial={{ opacity: 0, y: -20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: index * 0.1 }}
+                    >
+                      {item.label}
+                    </motion.div>
+                  </Link>
+                )
               ))}
             </motion.div>
 
@@ -167,22 +197,43 @@ export function Navigation() {
           {/* Mobile Navigation Items */}
           <div className="space-y-4">
             {navItems.map((item, index) => (
-              <motion.button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`w-full flex items-center gap-4 p-4 rounded-xl transition-all duration-300 ${
-                  activeSection === item.id
-                    ? "bg-[var(--portfolio-primary)] text-white shadow-lg"
-                    : "text-gray-700 hover:bg-gray-100"
-                }`}
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <item.icon className="w-5 h-5" />
-                <span>{item.label}</span>
-              </motion.button>
+              item.id === "blogs" ? (
+                <Link key={item.id} href={item.href}>
+                  <motion.div
+                    onClick={() => setIsOpen(false)}
+                    className={`w-full flex items-center gap-4 p-4 rounded-xl transition-all duration-300 cursor-pointer ${
+                      pathname.startsWith('/blogs')
+                        ? "bg-[var(--portfolio-primary)] text-white shadow-lg"
+                        : "text-gray-700 hover:bg-gray-100"
+                    }`}
+                    initial={{ opacity: 0, x: 50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <item.icon className="w-5 h-5" />
+                    <span>{item.label}</span>
+                  </motion.div>
+                </Link>
+              ) : (
+                <Link key={item.id} href={item.href}>
+                  <motion.div
+                    onClick={() => handleNavigation(item)}
+                    className={`w-full flex items-center gap-4 p-4 rounded-xl transition-all duration-300 cursor-pointer ${
+                      activeSection === item.id && isHomePage
+                        ? "bg-[var(--portfolio-primary)] text-white shadow-lg"
+                        : "text-gray-700 hover:bg-gray-100"
+                    }`}
+                    initial={{ opacity: 0, x: 50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <item.icon className="w-5 h-5" />
+                    <span>{item.label}</span>
+                  </motion.div>
+                </Link>
+              )
             ))}
           </div>
 
