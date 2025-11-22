@@ -47,17 +47,17 @@
 /* Catppuccin Frappé (Mid-dark) */
 [data-theme="catppuccin-frappe"] {
   --background: #303446;
-  --foreground: #c6d0f5;
+  --foreground: #e5e9f0;
   --card: #414559;
-  --card-foreground: #c6d0f5;
+  --card-foreground: #e5e9f0;
   --popover: #51576d;
-  --popover-foreground: #c6d0f5;
+  --popover-foreground: #e5e9f0;
   --primary: #8caaee;
   --primary-foreground: #303446;
   --secondary: #babbf1;
   --secondary-foreground: #303446;
   --muted: #51576d;
-  --muted-foreground: #a5adce;
+  --muted-foreground: #c6d0f5;
   --accent: #f4b8e4;
   --accent-foreground: #303446;
   --destructive: #e78284;
@@ -75,24 +75,24 @@
   --portfolio-accent: #f4b8e4;
   --portfolio-success: #a6d189;
   --portfolio-warning: #ef9f76;
-  --portfolio-light: #c6d0f5;
+  --portfolio-light: #e5e9f0;
   --portfolio-dark: #303446;
 }
 
 /* Catppuccin Macchiato (Dark) */
 [data-theme="catppuccin-macchiato"] {
   --background: #24273a;
-  --foreground: #cad3f5;
+  --foreground: #e5e9f0;
   --card: #363a4f;
-  --card-foreground: #cad3f5;
+  --card-foreground: #e5e9f0;
   --popover: #494d64;
-  --popover-foreground: #cad3f5;
+  --popover-foreground: #e5e9f0;
   --primary: #8aadf4;
   --primary-foreground: #24273a;
   --secondary: #b7bdf8;
   --secondary-foreground: #24273a;
   --muted: #494d64;
-  --muted-foreground: #a5adcb;
+  --muted-foreground: #cad3f5;
   --accent: #f5bde6;
   --accent-foreground: #24273a;
   --destructive: #ed8796;
@@ -110,24 +110,24 @@
   --portfolio-accent: #f5bde6;
   --portfolio-success: #a6da95;
   --portfolio-warning: #f5a97f;
-  --portfolio-light: #cad3f5;
+  --portfolio-light: #e5e9f0;
   --portfolio-dark: #24273a;
 }
 
 /* Catppuccin Mocha (Darkest) */
 [data-theme="catppuccin-mocha"] {
   --background: #1e1e2e;
-  --foreground: #cdd6f4;
+  --foreground: #e5e9f0;
   --card: #313244;
-  --card-foreground: #cdd6f4;
+  --card-foreground: #e5e9f0;
   --popover: #45475a;
-  --popover-foreground: #cdd6f4;
+  --popover-foreground: #e5e9f0;
   --primary: #89b4fa;
   --primary-foreground: #1e1e2e;
   --secondary: #b4befe;
   --secondary-foreground: #1e1e2e;
   --muted: #45475a;
-  --muted-foreground: #a6adc8;
+  --muted-foreground: #cdd6f4;
   --accent: #f5c2e7;
   --accent-foreground: #1e1e2e;
   --destructive: #f38ba8;
@@ -145,7 +145,7 @@
   --portfolio-accent: #f5c2e7;
   --portfolio-success: #a6e3a1;
   --portfolio-warning: #fab387;
-  --portfolio-light: #cdd6f4;
+  --portfolio-light: #e5e9f0;
   --portfolio-dark: #1e1e2e;
 }
 

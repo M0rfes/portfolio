@@ -11,6 +11,7 @@ export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
   const [showThemeMenu, setShowThemeMenu] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const { theme, setTheme } = useTheme();
   const pathname = usePathname();
   const isHomePage = pathname === "/";
@@ -39,6 +40,9 @@ export function Navigation() {
     if (!isHomePage) return;
     
     const handleScroll = () => {
+      // Update scroll state for navigation background
+      setIsScrolled(window.scrollY > 100);
+      
       const sections = navItems.map(item => document.getElementById(item.id));
       const scrollPosition = window.scrollY + 100;
 
@@ -84,8 +88,8 @@ export function Navigation() {
     <>
       {/* Desktop Navigation */}
       <motion.nav
-        className="fixed top-0 left-0 right-0 z-50 px-4 py-4"
-        style={{ backgroundColor, backdropFilter: `blur(${backdropBlur}px)` }}
+        className={`fixed top-0 left-0 right-0 z-50 px-4 py-4 transition-colors duration-300 ${isScrolled ? 'bg-[var(--background)] border-b border-[var(--border)] shadow-sm' : ''}`}
+        style={!isScrolled ? { backgroundColor, backdropFilter: `blur(${backdropBlur}px)` } : {}}
       >
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center justify-between">
@@ -96,7 +100,7 @@ export function Navigation() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="w-10 h-10 bg-gradient-to-r from-[var(--portfolio-primary)] to-[var(--portfolio-secondary)] rounded-lg flex items-center justify-center overflow-hidden">
+              <div className="w-10 h-10 bg-[var(--primary)] rounded-lg flex items-center justify-center overflow-hidden">
                 <ImageWithFallback 
                   src="/me.avif" 
                   alt="Fahim Khan Profile" 
@@ -104,8 +108,8 @@ export function Navigation() {
                 />
               </div>
               <div className="hidden sm:block">
-                <div className="text-lg text-[var(--portfolio-primary)]">Fahim Khan</div>
-                <div className="text-xs text-gray-600 dark:text-gray-400">Software Consultant</div>
+                <div className="text-lg text-[var(--primary)]">Fahim Khan</div>
+                <div className="text-xs text-[var(--muted-foreground)]">Software Consultant</div>
               </div>
             </motion.div>
 
@@ -295,7 +299,7 @@ export function Navigation() {
           {/* Mobile Header */}
           <div className="flex items-center justify-between mb-8">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-gradient-to-r from-[var(--portfolio-primary)] to-[var(--portfolio-secondary)] rounded-lg flex items-center justify-center overflow-hidden">
+              <div className="w-10 h-10 bg-[var(--primary)] rounded-lg flex items-center justify-center overflow-hidden">
                 <ImageWithFallback 
                   src="/me.avif" 
                   alt="Fahim Khan Profile" 
@@ -388,7 +392,7 @@ export function Navigation() {
       >
         <motion.a
           href="mailto:fahimkhan20148@gmail.com"
-          className="w-14 h-14 bg-gradient-to-r from-[var(--portfolio-primary)] to-[var(--portfolio-secondary)] rounded-full flex items-center justify-center shadow-xl"
+          className="w-14 h-14 bg-[var(--primary)] rounded-full flex items-center justify-center shadow-xl"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >
