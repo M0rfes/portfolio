@@ -291,7 +291,7 @@ function SummaryStats() {
           <motion.div
             key={index}
             variants={itemVariants}
-            className="p-6 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200/50"
+            className="p-6 bg-card backdrop-blur-sm rounded-xl shadow-lg border border-border"
             whileHover={{ scale: 1.05 }}
           >
             <div className={`text-3xl mb-2 ${stat.color}`}>
@@ -302,7 +302,7 @@ function SummaryStats() {
                 delay={getCountUpDelay(index)}
               />
             </div>
-            <div className="text-sm text-gray-600">{stat.label}</div>
+            <div className="text-sm text-muted-foreground">{stat.label}</div>
           </motion.div>
         ))}
       </div>
