@@ -117,6 +117,12 @@ export default function RootLayout({
   };
 
   return (
+    {/* 
+      suppressHydrationWarning is applied to <html> because the theme script
+      (see <Script id="theme-script" ... />) may change the <html> class before React hydrates,
+      causing a hydration mismatch only for the class attribute.
+      This suppression is intentionally broad due to Next.js limitations.
+    */}
     <html lang="en" suppressHydrationWarning>
       <head>
         <Script
