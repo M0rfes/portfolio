@@ -67,12 +67,12 @@ export function Hero() {
         {/* Tagline */}
         <motion.p 
           variants={itemVariants}
-          className="text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed"
+          className="text-lg md:text-xl text-foreground max-w-3xl mx-auto mb-8 leading-relaxed font-medium"
         >
           Crafting innovative solutions with{" "}
-          <span className="text-[var(--portfolio-accent)] font-semibold">Rust</span>,{" "}
-          <span className="text-[var(--portfolio-secondary)] font-semibold">Go</span>, and{" "}
-          <span className="text-[var(--portfolio-success)] font-semibold">TypeScript</span>
+          <span className="text-accent font-semibold">Rust</span>,{" "}
+          <span className="text-secondary font-semibold">Go</span>, and{" "}
+          <span className="text-primary font-semibold">TypeScript</span>
           {" "}• From Mumbai slums to global tech leadership
         </motion.p>
 
@@ -93,7 +93,7 @@ export function Hero() {
               transition={{ duration: 0.3, ease: "easeOut" }}
             >
               <item.icon className={`w-4 h-4 ${item.color}`} />
-              <span className="text-sm text-gray-800 dark:text-gray-200 font-medium">{item.text}</span>
+              <span className="text-sm text-foreground font-medium">{item.text}</span>
             </motion.div>
           ))}
         </motion.div>
@@ -128,7 +128,7 @@ export function Hero() {
           {["Rust", "Go", "React", "Node.js", "TypeScript"].map((tech, index) => (
             <motion.div
               key={tech}
-              className="absolute text-sm font-medium text-gray-500/70 select-none"
+              className="absolute text-sm font-medium text-muted-foreground/70 select-none"
               style={{
                 left: `${20 + (index * 15)}%`,
                 top: `${30 + (index % 2) * 40}%`,

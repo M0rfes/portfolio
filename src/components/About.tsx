@@ -54,7 +54,7 @@ function StatsGrid() {
         >
           <stat.icon className={`w-8 h-8 mx-auto mb-3 ${stat.color}`} />
           <div className={`text-3xl mb-2 ${stat.color}`}>{stat.number}</div>
-          <div className="text-sm text-gray-600">{stat.label}</div>
+          <div className="text-sm text-muted-foreground">{stat.label}</div>
         </motion.div>
       ))}
     </motion.div>
@@ -205,8 +205,8 @@ function CoreValues() {
             className="p-6 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200/50"
             whileHover={{ scale: 1.02 }}
           >
-            <h4 className="text-lg mb-2 text-[var(--portfolio-primary)]">{value.title}</h4>
-            <p className="text-gray-600 text-sm">{value.desc}</p>
+            <h4 className="text-lg mb-2 text-primary font-semibold">{value.title}</h4>
+            <p className="text-card-foreground text-sm">{value.desc}</p>
           </motion.div>
         ))}
       </div>
@@ -241,7 +241,7 @@ function SectionTitle() {
       <h2 className="text-4xl md:text-5xl mb-6 font-bold text-primary">
         My Journey
       </h2>
-      <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+      <p className="text-xl text-foreground max-w-3xl mx-auto font-medium">
         From the slums of Mumbai to leading software engineering teams across the globe
       </p>
     </motion.div>
@@ -262,24 +262,24 @@ export function About() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left Column - Story */}
           <div className="space-y-6">
-            <StoryCard title="The Beginning" colorClass="text-[var(--portfolio-primary)]">
-              <p className="text-gray-700 leading-relaxed mb-4">
+            <StoryCard title="The Beginning" colorClass="text-primary">
+              <p className="text-foreground leading-relaxed mb-4">
                 Born and raised in the slums of Bhandup, Sonapur - a suburb of Mumbai. Despite financial challenges, 
                 my family always prioritized education. There were times when having 5,000 INR was a big deal, 
                 and my father couldn&apos;t afford to pay for my glasses.
               </p>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-foreground leading-relaxed">
                 My first laptop was a second-hand Dell during my 11th grade. That machine became my gateway 
                 to the world of technology and changed everything.
               </p>
             </StoryCard>
 
-            <StoryCard title="The Transformation" colorClass="text-[var(--portfolio-secondary)]">
-              <p className="text-gray-700 leading-relaxed mb-4">
+            <StoryCard title="The Transformation" colorClass="text-secondary">
+              <p className="text-foreground leading-relaxed mb-4">
                 Completed my engineering from Rizvi College in 2020. Started my career and worked my way up 
                 through dedication, continuous learning, and an unwavering commitment to excellence.
               </p>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-foreground leading-relaxed">
                 Today, I work multiple jobs - sometimes 20 hours a day - to support my growing family 
                 and achieve financial stability while supporting family back in India.
               </p>

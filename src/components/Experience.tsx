@@ -261,7 +261,7 @@ export function Experience() {
             <h2 className="text-4xl md:text-5xl mb-6 font-bold text-primary">
               Professional Journey
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-foreground max-w-3xl mx-auto font-medium">
               7+ years of building scalable solutions and leading engineering teams
             </p>
           </motion.div>
