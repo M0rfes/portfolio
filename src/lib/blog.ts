@@ -53,8 +53,13 @@ export function getBlogPostBySlug(slug: string): BlogPost | null {
       content,
     };
   } catch (error) {
+    if (error && typeof error === 'object' && (error as NodeJS.ErrnoException).code === 'ENOENT') {
+      // File not found: return null
+      return null;
+    }
+    // Unexpected error: log and re-throw
     console.error(`Error reading blog post ${slug}:`, error);
-    return null;
+    throw error;
   }
 }
 

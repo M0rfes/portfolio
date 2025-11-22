@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
 import { Navigation } from "@/components/Navigation";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
@@ -116,8 +117,25 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      {/* suppressHydrationWarning is applied to <html> because the theme script
+          (see <Script id="theme-script" ... />) may change the <html> class before React hydrates,
+          causing a hydration mismatch only for the class attribute.
+          This suppression is intentionally broad due to Next.js limitations. */}
       <head>
+        <Script
+          id="theme-script"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                const theme = localStorage.getItem('theme') || 
+                  (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                document.documentElement.classList.toggle('dark', theme === 'dark');
+              } catch (e) {}
+            `,
+          }}
+        />
         <Script
           id="structured-data"
           type="application/ld+json"
@@ -129,10 +147,12 @@ export default function RootLayout({
       <body
         className={`antialiased min-h-screen bg-background overflow-x-clip`}
       >
-        <Analytics />
-        <SpeedInsights />
-        <Navigation />
-        {children}
+        <ThemeProvider>
+          <Analytics />
+          <SpeedInsights />
+          <Navigation />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

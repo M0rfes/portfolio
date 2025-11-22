@@ -46,7 +46,7 @@ export default function BlogsPage() {
           <h1 className="text-4xl md:text-5xl font-bold text-[var(--portfolio-primary)] mb-4">
             Blog
           </h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             Explore articles, tutorials, and insights about software development and technology
           </p>
         </div>

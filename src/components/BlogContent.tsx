@@ -59,20 +59,20 @@ export function BlogContent({ post }: BlogContentProps) {
 
         {/* Article Header */}
         <motion.article
-          className="bg-white rounded-2xl shadow-lg p-8 md:p-12"
+          className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 md:p-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           {/* Title */}
-          <h1 className="text-4xl md:text-5xl font-bold text-[var(--portfolio-primary)] mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-6">
             {post.title}
           </h1>
 
           {/* Meta Information */}
-          <div className="flex flex-wrap items-center gap-6 mb-8 pb-8 border-b border-gray-200">
+          <div className="flex flex-wrap items-center gap-6 mb-8 pb-8 border-b border-gray-200 dark:border-gray-700">
             {/* Date */}
-            <div className="flex items-center text-gray-600">
+            <div className="flex items-center text-gray-600 dark:text-gray-400">
               <Calendar className="w-5 h-5 mr-2" />
               <span>{formatDate(post.date)}</span>
             </div>
@@ -146,7 +146,7 @@ export function BlogContent({ post }: BlogContentProps) {
                   const isInline = !className;
                   return isInline ? (
                     <code
-                      className="bg-gray-100 text-[var(--portfolio-primary)] px-2 py-1 rounded text-sm font-mono"
+                      className="bg-gray-100 dark:bg-gray-700 text-[var(--portfolio-primary)] px-2 py-1 rounded text-sm font-mono"
                       {...props}
                     >
                       {children}
@@ -160,49 +160,49 @@ export function BlogContent({ post }: BlogContentProps) {
                 // Custom component for tables
                 table: ({ ...props }) => (
                   <div className="overflow-x-auto my-8">
-                    <table className="min-w-full divide-y divide-gray-200 border border-gray-200 rounded-lg" {...props} />
+                    <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700 border border-gray-200 dark:border-gray-700 rounded-lg" {...props} />
                   </div>
                 ),
                 thead: ({ ...props }) => (
-                  <thead className="bg-gray-50" {...props} />
+                  <thead className="bg-gray-50 dark:bg-gray-700" {...props} />
                 ),
                 tbody: ({ ...props }) => (
-                  <tbody className="bg-white divide-y divide-gray-200" {...props} />
+                  <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700" {...props} />
                 ),
                 th: ({ ...props }) => (
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" {...props} />
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider" {...props} />
                 ),
                 td: ({ ...props }) => (
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900" {...props} />
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100" {...props} />
                 ),
                 // Custom component for headings
                 h1: ({ ...props }) => (
-                  <h1 className="text-3xl font-bold text-[var(--portfolio-primary)] mt-8 mb-4" {...props} />
+                  <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mt-8 mb-4" {...props} />
                 ),
                 h2: ({ ...props }) => (
-                  <h2 className="text-2xl font-bold text-[var(--portfolio-primary)] mt-8 mb-4" {...props} />
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mt-8 mb-4" {...props} />
                 ),
                 h3: ({ ...props }) => (
-                  <h3 className="text-xl font-bold text-[var(--portfolio-primary)] mt-6 mb-3" {...props} />
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mt-6 mb-3" {...props} />
                 ),
                 // Custom component for paragraphs
                 p: ({ ...props }) => (
-                  <p className="text-gray-900 leading-relaxed mb-4 font-medium" {...props} />
+                  <p className="text-gray-900 dark:text-gray-100 leading-relaxed mb-4 font-medium" {...props} />
                 ),
                 // Custom component for blockquotes
                 blockquote: ({ ...props }) => (
-                  <blockquote className="border-l-4 border-[var(--portfolio-primary)] pl-4 py-2 my-6 italic text-gray-800 font-medium bg-gray-50 rounded-r-lg" {...props} />
+                  <blockquote className="border-l-4 border-[var(--portfolio-primary)] pl-4 py-2 my-6 italic text-gray-800 dark:text-gray-200 font-medium bg-gray-50 dark:bg-gray-700 rounded-r-lg" {...props} />
                 ),
                 // Custom component for lists
                 ul: ({ ...props }) => (
-                  <ul className="list-disc list-inside space-y-2 my-4 text-gray-900 font-medium marker:text-gray-900" {...props} />
+                  <ul className="list-disc list-inside space-y-2 my-4 text-gray-900 dark:text-gray-100 font-medium marker:text-gray-900 dark:marker:text-gray-100" {...props} />
                 ),
                 ol: ({ ...props }) => (
-                  <ol className="list-decimal list-inside space-y-2 my-4 text-gray-900 font-medium marker:text-gray-900" {...props} />
+                  <ol className="list-decimal list-inside space-y-2 my-4 text-gray-900 dark:text-gray-100 font-medium marker:text-gray-900 dark:marker:text-gray-100" {...props} />
                 ),
                 // Custom component for strong/bold text
                 strong: ({ ...props }) => (
-                  <strong className="font-bold text-gray-950" {...props} />
+                  <strong className="font-bold text-gray-950 dark:text-gray-50" {...props} />
                 ),
               }}
             >

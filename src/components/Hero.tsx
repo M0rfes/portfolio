@@ -59,7 +59,7 @@ export function Hero() {
         {/* Subtitle */}
         <motion.h2 
           variants={itemVariants}
-          className="text-2xl md:text-3xl text-[var(--portfolio-primary)] opacity-90 mb-4"
+          className="text-2xl md:text-3xl text-[var(--portfolio-primary)] dark:text-[var(--portfolio-secondary)] mb-4 font-semibold"
         >
           Senior Software Consultant
         </motion.h2>
@@ -67,12 +67,12 @@ export function Hero() {
         {/* Tagline */}
         <motion.p 
           variants={itemVariants}
-          className="text-lg md:text-xl text-gray-700 opacity-85 max-w-3xl mx-auto mb-8 leading-relaxed"
+          className="text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed"
         >
           Crafting innovative solutions with{" "}
-          <span className="text-[var(--portfolio-accent)] opacity-95">Rust</span>,{" "}
-          <span className="text-[var(--portfolio-secondary)] opacity-95">Go</span>, and{" "}
-          <span className="text-[var(--portfolio-success)] opacity-95">TypeScript</span>
+          <span className="text-[var(--portfolio-accent)] font-semibold">Rust</span>,{" "}
+          <span className="text-[var(--portfolio-secondary)] font-semibold">Go</span>, and{" "}
+          <span className="text-[var(--portfolio-success)] font-semibold">TypeScript</span>
           {" "}• From Mumbai slums to global tech leadership
         </motion.p>
 
@@ -88,12 +88,12 @@ export function Hero() {
           ].map((item, index) => (
             <motion.div
               key={index}
-              className="flex items-center gap-2 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-gray-200/50"
+              className="flex items-center gap-2 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-gray-200/50 dark:border-gray-700/50"
               whileHover={{ scale: 1.05, y: -2 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
             >
               <item.icon className={`w-4 h-4 ${item.color}`} />
-              <span className="text-sm text-gray-800 opacity-90">{item.text}</span>
+              <span className="text-sm text-gray-800 dark:text-gray-200 font-medium">{item.text}</span>
             </motion.div>
           ))}
         </motion.div>

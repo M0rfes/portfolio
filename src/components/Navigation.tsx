@@ -3,20 +3,31 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { Menu, X, Home, User, Briefcase, Code, MessageCircle, BookOpen } from "lucide-react";
+import { Menu, X, Home, User, Briefcase, Code, MessageCircle, BookOpen, Moon, Sun } from "lucide-react";
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import { useTheme } from './ThemeProvider';
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
+  const { theme, toggleTheme } = useTheme();
   const pathname = usePathname();
   const isHomePage = pathname === "/";
   const { scrollY } = useScroll();
-  const backgroundColor = useTransform(
+  
+  const lightBg = useTransform(
     scrollY,
     [0, 100],
     ["rgba(255, 255, 255, 0)", "rgba(255, 255, 255, 0.95)"]
   );
+  
+  const darkBg = useTransform(
+    scrollY,
+    [0, 100],
+    ["rgba(10, 15, 28, 0)", "rgba(10, 15, 28, 0.95)"]
+  );
+  
+  const backgroundColor = theme === "light" ? lightBg : darkBg;
   const backdropBlur = useTransform(scrollY, [0, 100], [0, 10]);
 
   const navItems = [
@@ -85,7 +96,7 @@ export function Navigation() {
               </div>
               <div className="hidden sm:block">
                 <div className="text-lg text-[var(--portfolio-primary)]">Fahim Khan</div>
-                <div className="text-xs text-gray-600">Software Consultant</div>
+                <div className="text-xs text-gray-600 dark:text-gray-400">Software Consultant</div>
               </div>
             </motion.div>
 
@@ -103,7 +114,7 @@ export function Navigation() {
                       className={`px-4 py-2 rounded-full transition-all duration-300 cursor-pointer ${
                         pathname.startsWith('/blogs')
                           ? "bg-[var(--portfolio-primary)] text-white shadow-lg"
-                          : "text-gray-700 hover:text-[var(--portfolio-primary)] hover:bg-gray-100"
+                          : "text-gray-700 hover:text-[var(--portfolio-primary)] hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
                       }`}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
@@ -121,7 +132,7 @@ export function Navigation() {
                       className={`px-4 py-2 rounded-full transition-all duration-300 cursor-pointer ${
                         activeSection === item.id && isHomePage
                           ? "bg-[var(--portfolio-primary)] text-white shadow-lg"
-                          : "text-gray-700 hover:text-[var(--portfolio-primary)] hover:bg-gray-100"
+                          : "text-gray-700 hover:text-[var(--portfolio-primary)] hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
                       }`}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
@@ -134,11 +145,44 @@ export function Navigation() {
                   </Link>
                 )
               ))}
+              
+              {/* Theme Toggle Button */}
+              <motion.button
+                onClick={toggleTheme}
+                className="p-2 rounded-full transition-all duration-300 text-gray-700 hover:text-[var(--portfolio-primary)] hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.6 }}
+                aria-label="Toggle theme"
+              >
+                {theme === "light" ? (
+                  <Moon className="w-5 h-5" />
+                ) : (
+                  <Sun className="w-5 h-5" />
+                )}
+              </motion.button>
             </motion.div>
 
-            {/* Mobile Menu Button */}
-            <motion.button
-              className="md:hidden p-2 rounded-lg bg-white/80 backdrop-blur-sm shadow-lg border border-gray-200/50"
+            {/* Mobile Menu Button and Theme Toggle */}
+            <div className="md:hidden flex items-center gap-2">
+              <motion.button
+                onClick={toggleTheme}
+                className="p-2 rounded-lg bg-white/80 backdrop-blur-sm shadow-lg border border-gray-200/50 dark:bg-gray-800/80 dark:border-gray-700/50"
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4 }}
+                aria-label="Toggle theme"
+              >
+                {theme === "light" ? (
+                  <Moon className="w-5 h-5 text-[var(--portfolio-primary)]" />
+                ) : (
+                  <Sun className="w-5 h-5 text-[var(--portfolio-primary)]" />
+                )}
+              </motion.button>
+              <motion.button
+                className="p-2 rounded-lg bg-white/80 backdrop-blur-sm shadow-lg border border-gray-200/50 dark:bg-gray-800/80 dark:border-gray-700/50"
               onClick={() => setIsOpen(!isOpen)}
               initial={{ opacity: 0, scale: 0 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -150,6 +194,7 @@ export function Navigation() {
                 <Menu className="w-6 h-6 text-[var(--portfolio-primary)]" />
               )}
             </motion.button>
+            </div>
           </div>
         </div>
       </motion.nav>
@@ -165,7 +210,7 @@ export function Navigation() {
 
       {/* Mobile Menu */}
       <motion.div
-        className="fixed top-0 right-0 bottom-0 w-80 bg-white shadow-2xl z-50 md:hidden"
+        className="fixed top-0 right-0 bottom-0 w-80 bg-white dark:bg-gray-900 shadow-2xl z-50 md:hidden"
         initial={{ x: "100%" }}
         animate={{ x: isOpen ? 0 : "100%" }}
         transition={{ type: "spring", damping: 20, stiffness: 300 }}
@@ -183,12 +228,12 @@ export function Navigation() {
               </div>
               <div>
                 <div className="text-lg text-[var(--portfolio-primary)]">Fahim Khan</div>
-                <div className="text-xs text-gray-600">Software Consultant</div>
+                <div className="text-xs text-gray-600 dark:text-gray-400">Software Consultant</div>
               </div>
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="p-2 rounded-lg hover:bg-gray-100"
+              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
             >
               <X className="w-6 h-6 text-[var(--portfolio-primary)]" />
             </button>
@@ -204,7 +249,7 @@ export function Navigation() {
                     className={`w-full flex items-center gap-4 p-4 rounded-xl transition-all duration-300 cursor-pointer ${
                       pathname.startsWith('/blogs')
                         ? "bg-[var(--portfolio-primary)] text-white shadow-lg"
-                        : "text-gray-700 hover:bg-gray-100"
+                        : "text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
                     }`}
                     initial={{ opacity: 0, x: 50 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -222,7 +267,7 @@ export function Navigation() {
                     className={`w-full flex items-center gap-4 p-4 rounded-xl transition-all duration-300 cursor-pointer ${
                       activeSection === item.id && isHomePage
                         ? "bg-[var(--portfolio-primary)] text-white shadow-lg"
-                        : "text-gray-700 hover:bg-gray-100"
+                        : "text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
                     }`}
                     initial={{ opacity: 0, x: 50 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -238,20 +283,20 @@ export function Navigation() {
           </div>
 
           {/* Mobile Contact Info */}
-          <div className="mt-8 pt-8 border-t border-gray-200">
-            <p className="text-sm text-gray-600 mb-4">Quick Contact</p>
+          <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
+            <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">Quick Contact</p>
             <div className="space-y-3 text-sm">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 bg-[var(--portfolio-primary)]/10 rounded-lg flex items-center justify-center">
                   <span className="text-[var(--portfolio-primary)] text-xs">✉</span>
                 </div>
-                <span className="text-gray-700">fahimkhan20148@gmail.com</span>
+                <span className="text-gray-700 dark:text-gray-300">fahimkhan20148@gmail.com</span>
               </div>
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 bg-[var(--portfolio-secondary)]/10 rounded-lg flex items-center justify-center">
                   <span className="text-[var(--portfolio-secondary)] text-xs">📱</span>
                 </div>
-                <span className="text-gray-700">+971 507 286 133</span>
+                <span className="text-gray-700 dark:text-gray-300">+971 507 286 133</span>
               </div>
             </div>
           </div>

@@ -55,11 +55,11 @@ export function BlogList({ initialPosts }: BlogListProps) {
             placeholder="Search blogs by title, keyword, or slug..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="block w-full pl-12 pr-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[var(--portfolio-primary)] focus:border-transparent bg-white shadow-sm text-gray-900 placeholder-gray-500"
+            className="block w-full pl-12 pr-4 py-4 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-[var(--portfolio-primary)] focus:border-transparent bg-white dark:bg-gray-800 shadow-sm text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400"
           />
         </div>
         {searchQuery && (
-          <p className="text-center text-gray-600 mt-4">
+          <p className="text-center text-gray-600 dark:text-gray-400 mt-4">
             Found {filteredPosts.length} {filteredPosts.length === 1 ? 'post' : 'posts'}
           </p>
         )}
@@ -68,7 +68,7 @@ export function BlogList({ initialPosts }: BlogListProps) {
       {/* Blog Grid */}
       {filteredPosts.length === 0 ? (
         <div className="text-center py-12">
-          <p className="text-gray-600 text-lg">
+          <p className="text-gray-600 dark:text-gray-400 text-lg">
             {searchQuery ? 'No posts found matching your search.' : 'No blog posts available yet.'}
           </p>
         </div>
@@ -82,7 +82,7 @@ export function BlogList({ initialPosts }: BlogListProps) {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <Link href={`/blogs/${post.slug}`}>
-                <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
+                <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
                   {/* Cover Image */}
                   <div className="relative h-48 bg-gradient-to-br from-[var(--portfolio-primary)] to-[var(--portfolio-secondary)] overflow-hidden">
                     {post.coverImage ? (
@@ -100,18 +100,18 @@ export function BlogList({ initialPosts }: BlogListProps) {
 
                   {/* Content */}
                   <div className="p-6 flex flex-col flex-grow">
-                    <h2 className="text-xl font-bold text-[var(--portfolio-primary)] mb-3 line-clamp-2">
+                    <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3 line-clamp-2">
                       {post.title}
                     </h2>
 
                     {post.excerpt && (
-                      <p className="text-gray-600 mb-4 line-clamp-3 flex-grow">
+                      <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-3 flex-grow">
                         {post.excerpt}
                       </p>
                     )}
 
                     {/* Date */}
-                    <div className="flex items-center text-sm text-gray-500 mb-3">
+                    <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3">
                       <Calendar className="w-4 h-4 mr-2" />
                       <span>{formatDate(post.date)}</span>
                     </div>
@@ -130,7 +130,7 @@ export function BlogList({ initialPosts }: BlogListProps) {
                             </span>
                           ))}
                           {post.keywords.length > 3 && (
-                            <span className="inline-block px-2 py-1 text-xs font-medium text-gray-500">
+                            <span className="inline-block px-2 py-1 text-xs font-medium text-gray-500 dark:text-gray-400">
                               +{post.keywords.length - 3} more
                             </span>
                           )}
