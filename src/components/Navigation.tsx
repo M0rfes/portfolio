@@ -50,12 +50,7 @@ export function Navigation() {
   }, [isHomePage]);
 
   const handleNavigation = (item: typeof navItems[0]) => {
-    if (item.id === "blogs") {
-      // Navigate to blogs page
-      return;
-    }
-    
-    if (isHomePage) {
+    if (isHomePage && item.id !== "blogs") {
       // Scroll to section on home page
       const element = document.getElementById(item.id);
       if (element) {
@@ -104,8 +99,8 @@ export function Navigation() {
               {navItems.map((item, index) => (
                 item.id === "blogs" ? (
                   <Link key={item.id} href={item.href}>
-                    <motion.button
-                      className={`px-4 py-2 rounded-full transition-all duration-300 ${
+                    <motion.div
+                      className={`px-4 py-2 rounded-full transition-all duration-300 cursor-pointer ${
                         pathname.startsWith('/blogs')
                           ? "bg-[var(--portfolio-primary)] text-white shadow-lg"
                           : "text-gray-700 hover:text-[var(--portfolio-primary)] hover:bg-gray-100"
@@ -117,25 +112,26 @@ export function Navigation() {
                       transition={{ duration: 0.4, delay: index * 0.1 }}
                     >
                       {item.label}
-                    </motion.button>
+                    </motion.div>
                   </Link>
                 ) : (
-                  <motion.button
-                    key={item.id}
-                    onClick={() => handleNavigation(item)}
-                    className={`px-4 py-2 rounded-full transition-all duration-300 ${
-                      activeSection === item.id && isHomePage
-                        ? "bg-[var(--portfolio-primary)] text-white shadow-lg"
-                        : "text-gray-700 hover:text-[var(--portfolio-primary)] hover:bg-gray-100"
-                    }`}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: index * 0.1 }}
-                  >
-                    <Link href={item.href}>{item.label}</Link>
-                  </motion.button>
+                  <Link key={item.id} href={item.href}>
+                    <motion.div
+                      onClick={() => handleNavigation(item)}
+                      className={`px-4 py-2 rounded-full transition-all duration-300 cursor-pointer ${
+                        activeSection === item.id && isHomePage
+                          ? "bg-[var(--portfolio-primary)] text-white shadow-lg"
+                          : "text-gray-700 hover:text-[var(--portfolio-primary)] hover:bg-gray-100"
+                      }`}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      initial={{ opacity: 0, y: -20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: index * 0.1 }}
+                    >
+                      {item.label}
+                    </motion.div>
+                  </Link>
                 )
               ))}
             </motion.div>
@@ -203,9 +199,9 @@ export function Navigation() {
             {navItems.map((item, index) => (
               item.id === "blogs" ? (
                 <Link key={item.id} href={item.href}>
-                  <motion.button
+                  <motion.div
                     onClick={() => setIsOpen(false)}
-                    className={`w-full flex items-center gap-4 p-4 rounded-xl transition-all duration-300 ${
+                    className={`w-full flex items-center gap-4 p-4 rounded-xl transition-all duration-300 cursor-pointer ${
                       pathname.startsWith('/blogs')
                         ? "bg-[var(--portfolio-primary)] text-white shadow-lg"
                         : "text-gray-700 hover:bg-gray-100"
@@ -217,27 +213,26 @@ export function Navigation() {
                   >
                     <item.icon className="w-5 h-5" />
                     <span>{item.label}</span>
-                  </motion.button>
+                  </motion.div>
                 </Link>
               ) : (
-                <motion.button
-                  key={item.id}
-                  onClick={() => handleNavigation(item)}
-                  className={`w-full flex items-center gap-4 p-4 rounded-xl transition-all duration-300 ${
-                    activeSection === item.id && isHomePage
-                      ? "bg-[var(--portfolio-primary)] text-white shadow-lg"
-                      : "text-gray-700 hover:bg-gray-100"
-                  }`}
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Link href={item.href} className="flex items-center gap-4 w-full">
+                <Link key={item.id} href={item.href}>
+                  <motion.div
+                    onClick={() => handleNavigation(item)}
+                    className={`w-full flex items-center gap-4 p-4 rounded-xl transition-all duration-300 cursor-pointer ${
+                      activeSection === item.id && isHomePage
+                        ? "bg-[var(--portfolio-primary)] text-white shadow-lg"
+                        : "text-gray-700 hover:bg-gray-100"
+                    }`}
+                    initial={{ opacity: 0, x: 50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
                     <item.icon className="w-5 h-5" />
                     <span>{item.label}</span>
-                  </Link>
-                </motion.button>
+                  </motion.div>
+                </Link>
               )
             ))}
           </div>
