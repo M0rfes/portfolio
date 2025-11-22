@@ -63,7 +63,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       // Additional metadata for various platforms
       'article:author': 'Fahim Khan',
       'article:published_time': post.date,
-      'article:tag': post.keywords.join(', '),
+      ...Object.fromEntries(post.keywords.map((tag, i) => [`article:tag:${i}`, tag])),
       // Schema.org for structured data
       'schema:type': 'Article',
       'schema:author': 'Fahim Khan',
