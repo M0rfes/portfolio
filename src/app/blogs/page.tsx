@@ -10,11 +10,29 @@ export const metadata: Metadata = {
     title: 'Blog | Fahim Khan',
     description: 'Read articles and insights about software development, React, Node.js, and cloud solutions.',
     type: 'website',
+    url: 'https://fahim.shonif.com/blogs',
+    siteName: 'Fahim Khan - Software Consultant',
+    locale: 'en_US',
+    images: [
+      {
+        url: 'https://fahim.shonif.com/me.avif',
+        alt: 'Fahim Khan - Software Consultant',
+        width: 1200,
+        height: 630,
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
+    site: '@M0rfes',
+    creator: '@M0rfes',
     title: 'Blog | Fahim Khan',
     description: 'Read articles and insights about software development, React, Node.js, and cloud solutions.',
+    images: ['https://fahim.shonif.com/me.avif'],
+  },
+  other: {
+    // Additional metadata for various platforms
+    'fediverse:creator': '@morfes',
   },
 };
 

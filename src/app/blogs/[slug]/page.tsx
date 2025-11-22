@@ -24,6 +24,9 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     };
   }
 
+  const url = `https://fahim.shonif.com/blogs/${slug}`;
+  const imageUrl = post.coverImage || 'https://fahim.shonif.com/me.avif';
+  
   return {
     title: `${post.title} | Fahim Khan`,
     description: post.excerpt || `Read ${post.title} by Fahim Khan`,
@@ -33,19 +36,40 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       title: post.title,
       description: post.excerpt || `Read ${post.title} by Fahim Khan`,
       type: 'article',
+      url: url,
+      siteName: 'Fahim Khan - Software Consultant',
+      locale: 'en_US',
       publishedTime: post.date,
-      images: post.coverImage ? [
+      authors: ['Fahim Khan'],
+      tags: post.keywords,
+      images: [
         {
-          url: post.coverImage,
+          url: imageUrl,
           alt: post.title,
+          width: 1200,
+          height: 630,
         },
-      ] : undefined,
+      ],
     },
     twitter: {
       card: 'summary_large_image',
+      site: '@M0rfes',
+      creator: '@M0rfes',
       title: post.title,
       description: post.excerpt || `Read ${post.title} by Fahim Khan`,
-      images: post.coverImage ? [post.coverImage] : undefined,
+      images: [imageUrl],
+    },
+    other: {
+      // Additional metadata for various platforms
+      'article:author': 'Fahim Khan',
+      'article:published_time': post.date,
+      'article:tag': post.keywords.join(', '),
+      // Schema.org for structured data
+      'schema:type': 'Article',
+      'schema:author': 'Fahim Khan',
+      'schema:datePublished': post.date,
+      // Bluesky and Mastodon use Open Graph, but these help with indexing
+      'fediverse:creator': '@morfes',
     },
   };
 }
