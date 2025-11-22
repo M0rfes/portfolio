@@ -39,7 +39,7 @@ export function Hero() {
   };
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative px-4 py-20">
+    <section id="hero" className="min-h-screen flex items-center justify-center relative px-4 py-20 overflow-x-clip">
       <motion.div 
         className="max-w-6xl mx-auto text-center"
         variants={containerVariants}
@@ -67,12 +67,12 @@ export function Hero() {
         {/* Tagline */}
         <motion.p 
           variants={itemVariants}
-          className="text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed"
+          className="text-lg md:text-xl text-foreground max-w-3xl mx-auto mb-8 leading-relaxed font-medium"
         >
           Crafting innovative solutions with{" "}
-          <span className="text-[var(--portfolio-accent)] font-semibold">Rust</span>,{" "}
-          <span className="text-[var(--portfolio-secondary)] font-semibold">Go</span>, and{" "}
-          <span className="text-[var(--portfolio-success)] font-semibold">TypeScript</span>
+          <span className="text-accent font-semibold">Rust</span>,{" "}
+          <span className="text-secondary font-semibold">Go</span>, and{" "}
+          <span className="text-primary font-semibold">TypeScript</span>
           {" "}• From Mumbai slums to global tech leadership
         </motion.p>
 
@@ -82,18 +82,18 @@ export function Hero() {
           className="flex flex-wrap justify-center gap-4 mb-12"
         >
           {[
-            { icon: MapPin, text: "Abu Dhabi, UAE", color: "text-[var(--portfolio-primary)]" },
-            { icon: Mail, text: "fahimkhan20148@gmail.com", color: "text-[var(--portfolio-secondary)]" },
-            { icon: Phone, text: "+971 507 286 133", color: "text-[var(--portfolio-accent)]" }
+            { icon: MapPin, text: "Abu Dhabi, UAE", color: "text-primary" },
+            { icon: Mail, text: "fahimkhan20148@gmail.com", color: "text-secondary" },
+            { icon: Phone, text: "+971 507 286 133", color: "text-accent" }
           ].map((item, index) => (
             <motion.div
               key={index}
-              className="flex items-center gap-2 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-gray-200/50 dark:border-gray-700/50"
+              className="flex items-center gap-2 bg-card backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-border"
               whileHover={{ scale: 1.05, y: -2 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
             >
               <item.icon className={`w-4 h-4 ${item.color}`} />
-              <span className="text-sm text-gray-800 dark:text-gray-200 font-medium">{item.text}</span>
+              <span className="text-sm text-card-foreground font-semibold">{item.text}</span>
             </motion.div>
           ))}
         </motion.div>
@@ -105,7 +105,7 @@ export function Hero() {
         >
           <motion.a
             href="#experience"
-            className="bg-[var(--portfolio-primary)] text-white px-8 py-4 rounded-full hover:bg-[var(--portfolio-secondary)] transition-colors duration-300 shadow-lg"
+            className="bg-primary text-primary-foreground px-8 py-4 rounded-full hover:bg-secondary hover:text-secondary-foreground transition-colors duration-300 shadow-lg"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
@@ -114,7 +114,7 @@ export function Hero() {
           </motion.a>
           <motion.a
             href="#contact"
-            className="border-2 border-[var(--portfolio-primary)] text-[var(--portfolio-primary)] px-8 py-4 rounded-full hover:bg-[var(--portfolio-primary)] hover:text-white transition-all duration-300"
+            className="border-2 border-primary text-primary px-8 py-4 rounded-full hover:bg-primary hover:text-primary-foreground transition-all duration-300"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
@@ -128,7 +128,7 @@ export function Hero() {
           {["Rust", "Go", "React", "Node.js", "TypeScript"].map((tech, index) => (
             <motion.div
               key={tech}
-              className="absolute text-sm font-medium text-gray-500/70 select-none"
+              className="absolute text-sm font-medium text-muted-foreground/70 select-none"
               style={{
                 left: `${20 + (index * 15)}%`,
                 top: `${30 + (index % 2) * 40}%`,

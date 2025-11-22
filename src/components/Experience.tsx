@@ -13,7 +13,6 @@ interface Experience {
   current: boolean;
   highlights: string[];
   technologies: string[];
-  color: string;
 }
 
 function ExperienceCard({ exp, index }: { exp: Experience, index: number }) {
@@ -68,28 +67,34 @@ function ExperienceCard({ exp, index }: { exp: Experience, index: number }) {
         index % 2 === 0 ? 'md:mr-auto md:pr-8' : 'md:ml-auto md:pl-8'
       }`}>
         <motion.div
-          className={`p-6 rounded-2xl shadow-xl border border-gray-200/50 bg-gradient-to-br ${exp.color} text-white relative overflow-hidden`}
+          className={`p-6 rounded-2xl shadow-xl border-2 ${
+            index === 0 ? 'bg-primary border-primary' :
+            index === 1 ? 'bg-secondary border-secondary' :
+            index === 2 ? 'bg-accent border-accent' :
+            index === 3 ? 'bg-secondary border-secondary' :
+            'bg-primary border-primary'
+          } relative overflow-hidden`}
           whileHover={{ scale: 1.02, y: -5 }}
           transition={{ duration: 0.3 }}
         >
           {/* Background pattern */}
           <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-4 right-4 w-20 h-20 border border-white/30 rounded-full"></div>
-            <div className="absolute bottom-4 left-4 w-16 h-16 border border-white/20 rounded-full"></div>
+            <div className="absolute top-4 right-4 w-20 h-20 border border-foreground/30 rounded-full"></div>
+            <div className="absolute bottom-4 left-4 w-16 h-16 border border-foreground/20 rounded-full"></div>
           </div>
 
           <div className="relative z-10">
             {/* Header */}
             <div className="mb-4">
               <div className="flex items-center gap-2 mb-2">
-                <Award className="w-5 h-5" />
-                <h3 className="text-xl">{exp.title}</h3>
+                <Award className="w-5 h-5 text-primary-foreground" />
+                <h3 className="text-xl font-bold text-primary-foreground">{exp.title}</h3>
                 {exp.current && (
-                  <span className="px-2 py-1 text-xs bg-white/20 rounded-full">Current</span>
+                  <span className="px-2 py-1 text-xs bg-card text-card-foreground rounded-full font-semibold">Current</span>
                 )}
               </div>
-              <h4 className="text-lg opacity-90 mb-2">{exp.company}</h4>
-              <div className="flex flex-wrap gap-4 text-sm opacity-80">
+              <h4 className="text-lg mb-2 font-bold text-primary-foreground">{exp.company}</h4>
+              <div className="flex flex-wrap gap-4 text-sm text-primary-foreground font-semibold">
                 <div className="flex items-center gap-1">
                   <MapPin className="w-4 h-4" />
                   {exp.location}
@@ -104,14 +109,14 @@ function ExperienceCard({ exp, index }: { exp: Experience, index: number }) {
             {/* Highlights */}
             <div className="mb-4">
               <div className="flex items-center gap-2 mb-3">
-                <TrendingUp className="w-4 h-4" />
-                <span className="text-sm">Key Achievements</span>
+                <TrendingUp className="w-4 h-4 text-primary-foreground" />
+                <span className="text-sm font-bold text-primary-foreground">Key Achievements</span>
               </div>
               <ul className="space-y-2 text-sm">
                 {exp.highlights.map((highlight: string, idx: number) => (
                   <li key={idx} className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 bg-white rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="opacity-90">{highlight}</span>
+                    <div className="w-1.5 h-1.5 bg-primary-foreground rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-primary-foreground font-semibold">{highlight}</span>
                   </li>
                 ))}
               </ul>
@@ -119,12 +124,12 @@ function ExperienceCard({ exp, index }: { exp: Experience, index: number }) {
 
             {/* Technologies */}
             <div>
-              <span className="text-xs opacity-70 mb-2 block">Technologies Used</span>
+              <span className="text-xs mb-2 block font-bold text-primary-foreground">Technologies Used</span>
               <div className="flex flex-wrap gap-2">
                 {exp.technologies.map((tech: string, idx: number) => (
                   <span
                     key={idx}
-                    className="px-2 py-1 text-xs bg-white/20 backdrop-blur-sm rounded-full"
+                    className="px-2 py-1 text-xs bg-card text-card-foreground rounded-full font-semibold"
                   >
                     {tech}
                   </span>
@@ -156,8 +161,7 @@ export function Experience() {
         "Implementing micro frontend tech enabling faster deployment",
         "Using GenAI with MCPs and Tool Call for true Agentic workflows"
       ],
-      technologies: ["Go", "Rust", "React", "Next.js", "LLMs", "GenAI", "AI Agent", "MCP"],
-      color: "from-[var(--portfolio-primary)] to-[var(--portfolio-secondary)]"
+      technologies: ["Go", "Rust", "React", "Next.js", "LLMs", "GenAI", "AI Agent", "MCP"]
     },
     {
       id: 2,
@@ -172,8 +176,7 @@ export function Experience() {
         "Migrated services from Java to Node.js with significant performance improvements",
         "Developed HTTP reverse proxy in Rust"
       ],
-      technologies: ["Rust", "Playwright", "Angular", "MongoDB", "Axum/Tokio", "API Automation"],
-      color: "from-[var(--portfolio-secondary)] to-[var(--portfolio-accent)]"
+      technologies: ["Rust", "Playwright", "Angular", "MongoDB", "Axum/Tokio", "API Automation"]
     },
     {
       id: 3,
@@ -188,8 +191,7 @@ export function Experience() {
         "Developed cross-platform mobile app with Apache Cordova",
         "Built CLI tool for benchmarking in Rust"
       ],
-      technologies: ["Go", "TypeScript", "Angular", "GraphQL", "Playwright", "CI/CD"],
-      color: "from-[var(--portfolio-accent)] to-[var(--portfolio-success)]"
+      technologies: ["Go", "TypeScript", "Angular", "GraphQL", "Playwright", "CI/CD"]
     },
     {
       id: 4,
@@ -204,8 +206,7 @@ export function Experience() {
         "Built high-performance API layer using Rust and Axum",
         "Mentored junior developers"
       ],
-      technologies: ["Rust", "PostgreSQL", "AWS", "React Native", "NestJS"],
-      color: "from-[var(--portfolio-success)] to-[var(--portfolio-warning)]"
+      technologies: ["Rust", "PostgreSQL", "AWS", "React Native", "NestJS"]
     },
     {
       id: 5,
@@ -220,8 +221,7 @@ export function Experience() {
         "Built WYSIWYG editor with LaTeX support",
         "Established automated testing processes"
       ],
-      technologies: ["Angular", "ReactJS", "TypeScript", "Koa", "LaTeX", "NestJS"],
-      color: "from-[var(--portfolio-warning)] to-[var(--portfolio-primary)]"
+      technologies: ["Angular", "ReactJS", "TypeScript", "Koa", "LaTeX", "NestJS"]
     }
   ];
 
@@ -249,7 +249,7 @@ export function Experience() {
   };
 
   return (
-    <section id="experience" className="py-20 px-4 bg-gradient-to-br from-blue-50/50 to-white" ref={ref}>
+    <section id="experience" className="py-20 px-4 bg-muted overflow-x-clip" ref={ref}>
       <div className="max-w-6xl mx-auto">
         <motion.div
           variants={containerVariants}
@@ -258,10 +258,10 @@ export function Experience() {
         >
           {/* Section Title */}
           <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl mb-6 bg-gradient-to-r from-[var(--portfolio-primary)] to-[var(--portfolio-secondary)] bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl mb-6 font-bold text-primary">
               Professional Journey
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-foreground max-w-3xl mx-auto font-medium">
               7+ years of building scalable solutions and leading engineering teams
             </p>
           </motion.div>
@@ -269,7 +269,7 @@ export function Experience() {
           {/* Timeline */}
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[var(--portfolio-primary)] via-[var(--portfolio-secondary)] to-[var(--portfolio-accent)] transform md:-translate-x-0.5"></div>
+            <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-0.5 bg-primary transform md:-translate-x-0.5"></div>
 
             {experiences.map((exp, index) => (
               <ExperienceCard key={exp.id} exp={exp} index={index} />

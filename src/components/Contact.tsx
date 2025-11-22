@@ -20,7 +20,6 @@ interface ContactInfo {
   label: string;
   value: string;
   link: string;
-  color: string;
 }
 
 interface SocialLink {
@@ -119,7 +118,7 @@ function ContactCard({
       ref={ref}
       key={index}
       href={contact.link}
-      className="flex items-center gap-4 p-4 bg-white/10 backdrop-blur-sm rounded-xl hover:bg-white/20 transition-all duration-300 group"
+      className="flex items-center gap-4 p-4 bg-card backdrop-blur-sm rounded-xl border border-border hover:shadow-lg transition-all duration-300 group"
       initial={{ y: 30, opacity: 0 }}
       animate={
         isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }
@@ -140,15 +139,15 @@ function ContactCard({
       }}
     >
       <div
-        className={`p-3 rounded-lg bg-white/20 ${contact.color} group-hover:scale-110 transition-transform duration-300`}
+        className="p-3 rounded-lg bg-primary group-hover:scale-110 transition-transform duration-300"
       >
-        <contact.icon className="w-5 h-5 text-white" />
+        <contact.icon className="w-5 h-5 text-primary-foreground" />
       </div>
       <div>
-        <div className="text-sm opacity-70">
+        <div className="text-sm text-muted-foreground">
           {contact.label}
         </div>
-        <div className="text-lg">{contact.value}</div>
+        <div className="text-lg text-foreground">{contact.value}</div>
       </div>
     </motion.a>
   );
@@ -175,7 +174,7 @@ function SocialCard({
       href={social.url}
       target="_blank"
       rel="noopener noreferrer"
-      className={`p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300 group ${social.color}`}
+      className={`p-4 bg-card backdrop-blur-sm rounded-xl border border-border hover:shadow-lg transition-all duration-300 group ${social.color}`}
       initial={{ y: 30, opacity: 0 }}
       animate={
         isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }
@@ -196,12 +195,12 @@ function SocialCard({
       }}
     >
       <div className="flex items-center gap-3">
-        <social.icon className="w-6 h-6 group-hover:scale-110 transition-transform duration-300" />
+        <social.icon className="w-6 h-6 text-foreground group-hover:scale-110 transition-transform duration-300" />
         <div>
-          <div className="text-sm opacity-70">
+          <div className="text-sm text-muted-foreground">
             {social.label}
           </div>
-          <div className="text-sm">{social.username}</div>
+          <div className="text-sm text-foreground">{social.username}</div>
         </div>
       </div>
     </motion.a>
@@ -253,18 +252,18 @@ function StatusCard({ delay = 0 }: { delay?: number }) {
   return (
     <motion.div
       ref={ref}
-      className="p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20"
+      className="p-6 bg-card backdrop-blur-sm rounded-xl border border-border"
       initial={{ y: 30, opacity: 0 }}
       animate={
         isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }
       }
       transition={{ duration: 0.6, ease: "easeOut", delay }}
     >
-      <h4 className="text-lg mb-4 flex items-center gap-2">
+      <h4 className="text-lg mb-4 flex items-center gap-2 text-foreground font-semibold">
         <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
         Currently Available
       </h4>
-      <p className="opacity-90 text-sm leading-relaxed">
+      <p className="text-foreground text-sm leading-relaxed">
         <TypeWriter
           text={statusText}
           delay={1200} // Start typing 1200ms after card animates in (400ms delay + 600ms animation + 200ms pause)
@@ -284,28 +283,24 @@ export function Contact() {
       label: "Email",
       value: "fahimkhan20148@gmail.com",
       link: "mailto:fahimkhan20148@gmail.com",
-      color: "text-[var(--portfolio-primary)]",
     },
     {
       icon: Phone,
       label: "UAE Mobile",
       value: "+971 507 286 133",
       link: "tel:+971507286133",
-      color: "text-[var(--portfolio-secondary)]",
     },
     {
       icon: Phone,
       label: "India Mobile",
       value: "+91 9167119031",
       link: "tel:+919167119031",
-      color: "text-[var(--portfolio-accent)]",
     },
     {
       icon: MapPin,
       label: "Location",
       value: "Abu Dhabi, UAE",
       link: "#",
-      color: "text-[var(--portfolio-success)]",
     },
   ];
 
@@ -357,16 +352,16 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="py-20 px-4 bg-gradient-to-br from-[var(--portfolio-primary)] via-[var(--portfolio-secondary)] to-[var(--portfolio-accent)] text-white"
+      className="py-20 px-4 overflow-x-clip"
       ref={ref}
     >
       <div className="max-w-6xl mx-auto">
         {/* Section Title */}
         <AnimatedSection className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl mb-6">
+          <h2 className="text-4xl md:text-5xl mb-6 text-foreground font-bold">
             Let&apos;s Build Something Amazing
           </h2>
-          <p className="text-xl opacity-90 max-w-3xl mx-auto">
+          <p className="text-xl text-foreground max-w-3xl mx-auto font-medium">
             Ready to collaborate on your next project? Let&apos;s
             connect and create innovative solutions together.
           </p>
@@ -376,7 +371,7 @@ export function Contact() {
           {/* Contact Information */}
           <div>
             <AnimatedSection delay={0.2}>
-              <h3 className="text-2xl mb-8 flex items-center gap-3">
+              <h3 className="text-2xl mb-8 flex items-center gap-3 text-foreground font-bold">
                 <Send className="w-6 h-6" />
                 Get In Touch
               </h3>
@@ -399,7 +394,7 @@ export function Contact() {
           {/* Social Links & CTA */}
           <div>
             <AnimatedSection delay={0.3}>
-              <h3 className="text-2xl mb-8">Connect With Me</h3>
+              <h3 className="text-2xl mb-8 text-foreground font-bold">Connect With Me</h3>
             </AnimatedSection>
 
             {/* Social Media Grid */}
@@ -415,23 +410,22 @@ export function Contact() {
 
             {/* Quick Stats */}
             <AnimatedSection className="space-y-4" delay={0.5}>
-              <h4 className="text-lg mb-4">Quick Facts</h4>
+              <h4 className="text-lg mb-4 text-foreground font-semibold">Quick Facts</h4>
               <div className="space-y-3 text-sm">
                 {[
                   "🚀 Currently working at Presight AI on LLM-powered solutions",
-                  "💼 Freelancing for multiple clients to maximize income",
                   "👨‍👩‍👧‍👦 Supporting family while building financial stability",
                   "🎯 Goal: Achieve debt-free life and retire at 40",
                   "⏰ Sometimes working 20 hours a day to meet deadlines",
                 ].map((fact, index) => (
                   <motion.div
                     key={index}
-                    className="flex items-start gap-3 p-3 bg-white/5 rounded-lg"
+                    className="flex items-start gap-3 p-3 bg-muted rounded-lg"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 + 0.5 }}
                   >
-                    <span>{fact}</span>
+                    <span className="text-foreground">{fact}</span>
                   </motion.div>
                 ))}
               </div>
@@ -441,7 +435,7 @@ export function Contact() {
             <AnimatedSection className="mt-8" delay={0.6}>
               <motion.a
                 href="mailto:fahimkhan20148@gmail.com"
-                className="inline-flex items-center gap-3 bg-white text-[var(--portfolio-primary)] px-8 py-4 rounded-full hover:bg-gray-100 transition-colors duration-300 shadow-lg"
+                className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-8 py-4 rounded-full hover:opacity-90 transition-opacity duration-300 shadow-lg font-semibold"
                 whileHover={{
                   scale: 1.05,
                   transition: {
@@ -466,10 +460,10 @@ export function Contact() {
 
         {/* Footer */}
         <AnimatedSection
-          className="mt-16 pt-8 border-t border-white/20 text-center"
+          className="mt-16 pt-8 border-t border-border text-center"
           delay={0.7}
         >
-          <p className="opacity-70">
+          <p className="text-muted-foreground">
             © 2025 Fahim Khan. Built with React, TypeScript,
             Tailwind CSS, and Framer Motion.
           </p>
