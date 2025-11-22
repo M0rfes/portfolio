@@ -124,15 +124,15 @@ function CurrentFocus() {
           </div>
           <div className="flex items-start gap-3">
             <div className="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0"></div>
-            <p className="font-semibold">Freelancing for Promax Digital and Hurix Digital to maximize income</p>
+            <p className="font-semibold">Learning new technologies and skills to stay up-to-date with industry trends</p>
           </div>
           <div className="flex items-start gap-3">
             <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
-            <p className="font-semibold">Supporting family while paying off 300K AED personal loan for home in India</p>
+            <p className="font-semibold">Focused on personal growth and financial independence</p>
           </div>
           <div className="flex items-start gap-3">
             <div className="w-2 h-2 bg-primary-foreground rounded-full mt-2 flex-shrink-0"></div>
-            <p className="font-semibold">Planning for my daughter&apos;s education and building emergency funds</p>
+            <p className="font-semibold">Education is still a priority for me and for the next generation</p>
           </div>
         </div>
 
@@ -140,7 +140,6 @@ function CurrentFocus() {
           <h4 className="text-lg mb-2 font-bold text-card-foreground">Life Goals</h4>
           <ul className="text-sm space-y-1 text-card-foreground font-semibold">
             <li>• Achieve debt-free life</li>
-            <li>• Build 1-2 years of emergency funds</li>
             <li>• Retire at 40</li>
             <li>• Travel the world with family</li>
           </ul>
@@ -178,7 +177,7 @@ function CoreValues() {
   };
 
   const values = [
-    { title: "Hard Work", desc: "Sometimes working 20 hours a day to meet deadlines and support family" },
+    { title: "Hard Work", desc: "Dedication to meeting deadlines and delivering excellence" },
     { title: "Family First", desc: "Everything I do is to provide better opportunities for my family" },
     { title: "Continuous Learning", desc: "Always exploring new technologies and improving my skills" }
   ];
@@ -280,8 +279,7 @@ export function About() {
                 through dedication, continuous learning, and an unwavering commitment to excellence.
               </p>
               <p className="text-foreground leading-relaxed">
-                Today, I work multiple jobs - sometimes 20 hours a day - to support my growing family 
-                and achieve financial stability while supporting family back in India.
+                Today I have a fulfilling full-time job and I am grateful for the journey.
               </p>
             </StoryCard>
           </div>

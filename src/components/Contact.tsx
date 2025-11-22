@@ -414,9 +414,9 @@ export function Contact() {
               <div className="space-y-3 text-sm">
                 {[
                   "🚀 Currently working at Presight AI on LLM-powered solutions",
-                  "👨‍👩‍👧‍👦 Supporting family while building financial stability",
+                  "👨‍👩‍👧‍👦 Focused on professional growth and family well-being",
                   "🎯 Goal: Achieve debt-free life and retire at 40",
-                  "⏰ Sometimes working 20 hours a day to meet deadlines",
+                  "⏰ Committed to delivering high-quality results on time",
                 ].map((fact, index) => (
                   <motion.div
                     key={index}
