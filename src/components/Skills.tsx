@@ -80,8 +80,8 @@ function SkillCard({ skill, index }: { skill: Skill, index: number }) {
     >
       {/* Skill Header */}
       <div className="flex items-center justify-between mb-4">
-        <h4 className="text-lg text-[var(--portfolio-primary)]">{skill.name}</h4>
-        <div className="flex items-center gap-1 text-sm text-gray-600">
+        <h4 className="text-lg text-primary font-semibold">{skill.name}</h4>
+        <div className="flex items-center gap-1 text-sm text-muted-foreground">
           <Clock className="w-3 h-3" />
           <span>{formatHours(skill.hours)} hrs</span>
         </div>
@@ -89,7 +89,7 @@ function SkillCard({ skill, index }: { skill: Skill, index: number }) {
 
       {/* Progress Bar */}
       <div className="mb-4">
-        <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+        <div className="h-2 bg-muted rounded-full overflow-hidden">
           <motion.div
             className={`h-full ${getHourColor(skill.hours)} rounded-full`}
             variants={progressVariants}
@@ -97,14 +97,14 @@ function SkillCard({ skill, index }: { skill: Skill, index: number }) {
             animate={isInView ? "visible" : "hidden"}
           />
         </div>
-        <div className="flex justify-between text-xs text-gray-500 mt-1">
+        <div className="flex justify-between text-xs text-muted-foreground mt-1">
           <span>0</span>
           <span>{skill.hours.toLocaleString()} hours</span>
         </div>
       </div>
 
       {/* Description */}
-      <p className="text-sm text-gray-600 leading-relaxed">
+      <p className="text-sm text-card-foreground leading-relaxed">
         {skill.description}
       </p>
 
@@ -179,8 +179,8 @@ function SkillCategory({ category, categoryIndex }: { category: SkillCategory, c
           <category.icon className="w-6 h-6 text-primary-foreground" />
         </div>
         <div>
-          <h3 className="text-2xl text-[var(--portfolio-primary)]">{category.title}</h3>
-          <p className="text-gray-600">
+          <h3 className="text-2xl text-primary font-bold">{category.title}</h3>
+          <p className="text-muted-foreground">
             {category.skills.reduce((sum: number, skill: Skill) => sum + skill.hours, 0).toLocaleString()} total hours
           </p>
         </div>
@@ -230,10 +230,10 @@ function SectionTitle() {
       <h2 className="text-4xl md:text-5xl mb-6 font-bold text-primary">
         Technical Expertise
       </h2>
-      <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+      <p className="text-xl text-foreground max-w-3xl mx-auto mb-8">
         Hours invested in mastering technologies that drive innovation
       </p>
-      <div className="flex items-center justify-center gap-2 text-sm text-gray-500">
+      <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
         <Clock className="w-4 h-4" />
         <span>Total: 25,000+ hours of hands-on experience</span>
       </div>

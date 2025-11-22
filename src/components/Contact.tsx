@@ -419,7 +419,6 @@ export function Contact() {
               <div className="space-y-3 text-sm">
                 {[
                   "🚀 Currently working at Presight AI on LLM-powered solutions",
-                  "💼 Freelancing for multiple clients to maximize income",
                   "👨‍👩‍👧‍👦 Supporting family while building financial stability",
                   "🎯 Goal: Achieve debt-free life and retire at 40",
                   "⏰ Sometimes working 20 hours a day to meet deadlines",
