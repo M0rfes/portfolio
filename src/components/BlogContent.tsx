@@ -34,7 +34,7 @@ export function BlogContent({ post }: BlogContentProps) {
         {/* Back Button */}
         <Link href="/blogs">
           <motion.div
-            className="inline-flex items-center gap-2 text-[var(--portfolio-primary)] hover:text-[var(--portfolio-secondary)] mb-8 transition-colors cursor-pointer"
+            className="inline-flex items-center gap-2 text-[var(--portfolio-primary)] hover:text-[var(--portfolio-secondary)] mb-8 transition-colors cursor-pointer dark:text-[var(--portfolio-secondary)] dark:hover:text-[var(--portfolio-primary)]"
             whileHover={{ x: -5 }}
             transition={{ duration: 0.2 }}
           >
