@@ -375,7 +375,7 @@ export function Skills() {
   ];
 
   return (
-    <section id="skills" className="py-20 px-4 bg-muted">
+    <section id="skills" className="py-20 px-4 bg-muted overflow-x-clip">
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
         <SectionTitle />

@@ -250,7 +250,7 @@ function SectionTitle() {
 
 export function About() {
   return (
-    <section id="about" className="py-20 px-4 bg-background">
+    <section id="about" className="py-20 px-4 bg-background overflow-x-clip">
       <div className="max-w-6xl mx-auto">
         {/* Section Title */}
         <SectionTitle />

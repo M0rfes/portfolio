@@ -39,7 +39,7 @@ export function Hero() {
   };
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative px-4 py-20">
+    <section id="hero" className="min-h-screen flex items-center justify-center relative px-4 py-20 overflow-x-clip">
       <motion.div 
         className="max-w-6xl mx-auto text-center"
         variants={containerVariants}

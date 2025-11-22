@@ -352,7 +352,7 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="py-20 px-4"
+      className="py-20 px-4 overflow-x-clip"
       ref={ref}
     >
       <div className="max-w-6xl mx-auto">

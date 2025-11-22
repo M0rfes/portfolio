@@ -249,7 +249,7 @@ export function Experience() {
   };
 
   return (
-    <section id="experience" className="py-20 px-4 bg-muted" ref={ref}>
+    <section id="experience" className="py-20 px-4 bg-muted overflow-x-clip" ref={ref}>
       <div className="max-w-6xl mx-auto">
         <motion.div
           variants={containerVariants}
