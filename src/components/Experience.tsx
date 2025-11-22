@@ -68,7 +68,7 @@ function ExperienceCard({ exp, index }: { exp: Experience, index: number }) {
         index % 2 === 0 ? 'md:mr-auto md:pr-8' : 'md:ml-auto md:pl-8'
       }`}>
         <motion.div
-          className={`p-6 rounded-2xl shadow-xl border border-gray-200/50 bg-gradient-to-br ${exp.color} text-white relative overflow-hidden`}
+          className={`p-6 rounded-2xl shadow-xl border border-[var(--border)] bg-[var(--primary)] text-[var(--primary-foreground)] relative overflow-hidden`}
           whileHover={{ scale: 1.02, y: -5 }}
           transition={{ duration: 0.3 }}
         >
@@ -249,7 +249,7 @@ export function Experience() {
   };
 
   return (
-    <section id="experience" className="py-20 px-4 bg-gradient-to-br from-blue-50/50 to-white" ref={ref}>
+    <section id="experience" className="py-20 px-4 bg-[var(--background)]" ref={ref}>
       <div className="max-w-6xl mx-auto">
         <motion.div
           variants={containerVariants}
@@ -258,7 +258,7 @@ export function Experience() {
         >
           {/* Section Title */}
           <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl mb-6 bg-gradient-to-r from-[var(--portfolio-primary)] to-[var(--portfolio-secondary)] bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl mb-6 text-[var(--primary)]">
               Professional Journey
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -269,7 +269,7 @@ export function Experience() {
           {/* Timeline */}
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[var(--portfolio-primary)] via-[var(--portfolio-secondary)] to-[var(--portfolio-accent)] transform md:-translate-x-0.5"></div>
+            <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-0.5 bg-[var(--primary)] transform md:-translate-x-0.5"></div>
 
             {experiences.map((exp, index) => (
               <ExperienceCard key={exp.id} exp={exp} index={index} />

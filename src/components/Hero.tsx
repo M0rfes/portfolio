@@ -51,7 +51,7 @@ export function Hero() {
           variants={itemVariants}
           className="relative"
         >
-          <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-[var(--portfolio-primary)] via-[var(--portfolio-secondary)] to-[var(--portfolio-accent)] bg-clip-text text-transparent mb-6 animate-gradient">
+          <h1 className="text-5xl md:text-7xl font-bold text-[var(--primary)] mb-6">
             FAHIM KHAN
           </h1>
         </motion.div>

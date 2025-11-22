@@ -1,5 +1,5 @@
 "use client";
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion } from "motion/react";
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
@@ -11,20 +11,10 @@ export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
   const [showThemeMenu, setShowThemeMenu] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const { theme, setTheme } = useTheme();
   const pathname = usePathname();
   const isHomePage = pathname === "/";
-  const { scrollY } = useScroll();
   const themeMenuRef = useRef<HTMLDivElement>(null);
-  
-  const backgroundColor = useTransform(
-    scrollY,
-    [0, 100],
-    ["rgba(var(--background-rgb), 0)", "rgba(var(--background-rgb), 0.95)"]
-  );
-  
-  const backdropBlur = useTransform(scrollY, [0, 100], [0, 10]);
 
   const navItems = [
     { id: "hero", label: "Home", icon: Home, href: "/" },
@@ -40,9 +30,6 @@ export function Navigation() {
     if (!isHomePage) return;
     
     const handleScroll = () => {
-      // Update scroll state for navigation background
-      setIsScrolled(window.scrollY > 100);
-      
       const sections = navItems.map(item => document.getElementById(item.id));
       const scrollPosition = window.scrollY + 100;
 
@@ -87,10 +74,7 @@ export function Navigation() {
   return (
     <>
       {/* Desktop Navigation */}
-      <motion.nav
-        className={`fixed top-0 left-0 right-0 z-50 px-4 py-4 transition-colors duration-300 ${isScrolled ? 'bg-[var(--background)] border-b border-[var(--border)] shadow-sm' : ''}`}
-        style={!isScrolled ? { backgroundColor, backdropFilter: `blur(${backdropBlur}px)` } : {}}
-      >
+      <nav className="sticky top-0 left-0 right-0 z-50 bg-[var(--background)] border-b border-[var(--border)] px-4 py-4">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center justify-between">
             {/* Logo */}
@@ -144,8 +128,8 @@ export function Navigation() {
                       onClick={() => handleNavigation(item)}
                       className={`px-4 py-2 rounded-full transition-all duration-300 cursor-pointer ${
                         activeSection === item.id && isHomePage
-                          ? "bg-[var(--portfolio-primary)] text-white shadow-lg"
-                          : "text-gray-700 hover:text-[var(--portfolio-primary)] hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
+                          ? "bg-[var(--primary)] text-[var(--primary-foreground)] shadow-lg"
+                          : "text-[var(--foreground)] hover:text-[var(--primary)] hover:bg-[var(--muted)]"
                       }`}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
@@ -277,7 +261,7 @@ export function Navigation() {
             </div>
           </div>
         </div>
-      </motion.nav>
+      </nav>
 
       {/* Mobile Menu Overlay */}
       <motion.div

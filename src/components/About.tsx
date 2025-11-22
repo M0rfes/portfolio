@@ -114,7 +114,7 @@ function CurrentFocus() {
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
     >
-      <div className="bg-gradient-to-br from-[var(--portfolio-primary)] to-[var(--portfolio-secondary)] p-8 rounded-2xl text-white shadow-xl">
+      <div className="bg-[var(--primary)] p-8 rounded-2xl text-[var(--primary-foreground)] shadow-xl">
         <h3 className="text-2xl mb-6">Current Focus</h3>
         
         <div className="space-y-4 mb-6">
@@ -238,7 +238,7 @@ function SectionTitle() {
       animate={isInView ? "visible" : "hidden"}
       className="text-center mb-16"
     >
-      <h2 className="text-4xl md:text-5xl mb-6 bg-gradient-to-r from-[var(--portfolio-primary)] to-[var(--portfolio-secondary)] bg-clip-text text-transparent">
+      <h2 className="text-4xl md:text-5xl mb-6 text-[var(--primary)]">
         My Journey
       </h2>
       <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -250,7 +250,7 @@ function SectionTitle() {
 
 export function About() {
   return (
-    <section id="about" className="py-20 px-4 bg-gradient-to-br from-white to-blue-50/50">
+    <section id="about" className="py-20 px-4 bg-[var(--background)]">
       <div className="max-w-6xl mx-auto">
         {/* Section Title */}
         <SectionTitle />

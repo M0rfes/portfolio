@@ -76,7 +76,7 @@ function SkillCard({ skill, index }: { skill: Skill, index: number }) {
   return (
     <div
       ref={ref}
-      className="group p-6 bg-gradient-to-br from-gray-50 to-white rounded-xl border border-gray-200/50 hover:shadow-lg transition-all duration-300"
+      className="group p-6 bg-[var(--card)] rounded-xl border border-[var(--border)] hover:shadow-lg transition-all duration-300"
     >
       {/* Skill Header */}
       <div className="flex items-center justify-between mb-4">
@@ -175,8 +175,8 @@ function SkillCategory({ category, categoryIndex }: { category: SkillCategory, c
     >
       {/* Category Header */}
       <div className="flex items-center gap-3 mb-8">
-        <div className={`p-3 rounded-xl bg-gradient-to-r ${category.color}`}>
-          <category.icon className="w-6 h-6 text-white" />
+        <div className="p-3 rounded-xl bg-[var(--primary)]">
+          <category.icon className="w-6 h-6 text-[var(--primary-foreground)]" />
         </div>
         <div>
           <h3 className="text-2xl text-[var(--portfolio-primary)]">{category.title}</h3>
@@ -227,7 +227,7 @@ function SectionTitle() {
       animate={isInView ? "visible" : "hidden"}
       className="text-center mb-16"
     >
-      <h2 className="text-4xl md:text-5xl mb-6 bg-gradient-to-r from-[var(--portfolio-primary)] to-[var(--portfolio-secondary)] bg-clip-text text-transparent">
+      <h2 className="text-4xl md:text-5xl mb-6 text-[var(--primary)]">
         Technical Expertise
       </h2>
       <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
@@ -375,7 +375,7 @@ export function Skills() {
   ];
 
   return (
-    <section id="skills" className="py-20 px-4 bg-gradient-to-br from-white to-blue-50/50">
+    <section id="skills" className="py-20 px-4 bg-[var(--background)]">
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
         <SectionTitle />
