@@ -3,6 +3,7 @@ import Script from "next/script";
 import "./globals.css";
 import { Navigation } from "@/components/Navigation";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { ViewTransition } from "@/components/ViewTransition";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
@@ -129,9 +130,8 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               try {
-                const theme = localStorage.getItem('theme') || 
-                  (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-                document.documentElement.classList.toggle('dark', theme === 'dark');
+                const theme = localStorage.getItem('theme') || 'catppuccin-mocha';
+                document.documentElement.setAttribute('data-theme', theme);
               } catch (e) {}
             `,
           }}
@@ -148,10 +148,12 @@ export default function RootLayout({
         className={`antialiased min-h-screen bg-background overflow-x-clip`}
       >
         <ThemeProvider>
-          <Analytics />
-          <SpeedInsights />
-          <Navigation />
-          {children}
+          <ViewTransition>
+            <Analytics />
+            <SpeedInsights />
+            <Navigation />
+            {children}
+          </ViewTransition>
         </ThemeProvider>
       </body>
     </html>

@@ -3,31 +3,25 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { Menu, X, Home, User, Briefcase, Code, MessageCircle, BookOpen, Moon, Sun } from "lucide-react";
+import { Menu, X, Home, User, Briefcase, Code, MessageCircle, BookOpen, Palette, ChevronDown } from "lucide-react";
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import { useTheme } from './ThemeProvider';
+import { useTheme, themeOptions } from './ThemeProvider';
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
-  const { theme, toggleTheme } = useTheme();
+  const [showThemeMenu, setShowThemeMenu] = useState(false);
+  const { theme, setTheme } = useTheme();
   const pathname = usePathname();
   const isHomePage = pathname === "/";
   const { scrollY } = useScroll();
   
-  const lightBg = useTransform(
+  const backgroundColor = useTransform(
     scrollY,
     [0, 100],
-    ["rgba(255, 255, 255, 0)", "rgba(255, 255, 255, 0.95)"]
+    ["rgba(239, 241, 245, 0)", "rgba(239, 241, 245, 0.95)"]
   );
   
-  const darkBg = useTransform(
-    scrollY,
-    [0, 100],
-    ["rgba(10, 15, 28, 0)", "rgba(10, 15, 28, 0.95)"]
-  );
-  
-  const backgroundColor = theme === "light" ? lightBg : darkBg;
   const backdropBlur = useTransform(scrollY, [0, 100], [0, 10]);
 
   const navItems = [
@@ -146,41 +140,108 @@ export function Navigation() {
                 )
               ))}
               
-              {/* Theme Toggle Button */}
-              <motion.button
-                onClick={toggleTheme}
-                className="p-2 rounded-full transition-all duration-300 text-gray-700 hover:text-[var(--portfolio-primary)] hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.6 }}
-                aria-label="Toggle theme"
-              >
-                {theme === "light" ? (
-                  <Moon className="w-5 h-5" />
-                ) : (
-                  <Sun className="w-5 h-5" />
+              {/* Theme Selector Dropdown */}
+              <div className="relative">
+                <motion.button
+                  onClick={() => setShowThemeMenu(!showThemeMenu)}
+                  className="flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 text-gray-700 hover:text-[var(--portfolio-primary)] hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.6 }}
+                  aria-label="Select theme"
+                >
+                  <Palette className="w-5 h-5" />
+                  <ChevronDown className={`w-4 h-4 transition-transform ${showThemeMenu ? 'rotate-180' : ''}`} />
+                </motion.button>
+                
+                {showThemeMenu && (
+                  <motion.div
+                    className="absolute right-0 mt-2 w-48 bg-[var(--card)] border border-[var(--border)] rounded-lg shadow-xl overflow-hidden z-50"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                  >
+                    {['Catppuccin', 'Dracula'].map((category) => (
+                      <div key={category}>
+                        <div className="px-4 py-2 text-xs font-semibold text-[var(--muted-foreground)] bg-[var(--muted)]">
+                          {category}
+                        </div>
+                        {themeOptions
+                          .filter(opt => opt.category === category)
+                          .map((option) => (
+                            <button
+                              key={option.value}
+                              onClick={() => {
+                                setTheme(option.value);
+                                setShowThemeMenu(false);
+                              }}
+                              className={`w-full text-left px-4 py-2 text-sm transition-colors ${
+                                theme === option.value
+                                  ? 'bg-[var(--primary)] text-[var(--primary-foreground)]'
+                                  : 'text-[var(--foreground)] hover:bg-[var(--muted)]'
+                              }`}
+                            >
+                              {option.label}
+                            </button>
+                          ))}
+                      </div>
+                    ))}
+                  </motion.div>
                 )}
-              </motion.button>
+              </div>
             </motion.div>
 
             {/* Mobile Menu Button and Theme Toggle */}
             <div className="md:hidden flex items-center gap-2">
               <motion.button
-                onClick={toggleTheme}
+                onClick={() => setShowThemeMenu(!showThemeMenu)}
                 className="p-2 rounded-lg bg-white/80 backdrop-blur-sm shadow-lg border border-gray-200/50 dark:bg-gray-800/80 dark:border-gray-700/50"
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4 }}
-                aria-label="Toggle theme"
+                aria-label="Select theme"
               >
-                {theme === "light" ? (
-                  <Moon className="w-5 h-5 text-[var(--portfolio-primary)]" />
-                ) : (
-                  <Sun className="w-5 h-5 text-[var(--portfolio-primary)]" />
-                )}
+                <Palette className="w-5 h-5 text-[var(--portfolio-primary)]" />
               </motion.button>
+              
+              {/* Mobile theme menu */}
+              {showThemeMenu && (
+                <motion.div
+                  className="fixed top-16 right-4 w-48 bg-[var(--card)] border border-[var(--border)] rounded-lg shadow-xl overflow-hidden z-50"
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                >
+                  {['Catppuccin', 'Dracula'].map((category) => (
+                    <div key={category}>
+                      <div className="px-4 py-2 text-xs font-semibold text-[var(--muted-foreground)] bg-[var(--muted)]">
+                        {category}
+                      </div>
+                      {themeOptions
+                        .filter(opt => opt.category === category)
+                        .map((option) => (
+                          <button
+                            key={option.value}
+                            onClick={() => {
+                              setTheme(option.value);
+                              setShowThemeMenu(false);
+                            }}
+                            className={`w-full text-left px-4 py-2 text-sm transition-colors ${
+                              theme === option.value
+                                ? 'bg-[var(--primary)] text-[var(--primary-foreground)]'
+                                : 'text-[var(--foreground)] hover:bg-[var(--muted)]'
+                            }`}
+                          >
+                            {option.label}
+                          </button>
+                        ))}
+                    </div>
+                  ))}
+                </motion.div>
+              )}
+              
               <motion.button
                 className="p-2 rounded-lg bg-white/80 backdrop-blur-sm shadow-lg border border-gray-200/50 dark:bg-gray-800/80 dark:border-gray-700/50"
               onClick={() => setIsOpen(!isOpen)}

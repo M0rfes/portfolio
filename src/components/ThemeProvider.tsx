@@ -1,52 +1,62 @@
 "use client";
 import { createContext, useContext, useEffect, useState } from "react";
 
-type Theme = "light" | "dark";
+export type Theme = 
+  | "catppuccin-latte"
+  | "catppuccin-frappe"
+  | "catppuccin-macchiato"
+  | "catppuccin-mocha"
+  | "dracula"
+  | "dracula-soft";
 
 type ThemeContextType = {
   theme: Theme;
-  toggleTheme: () => void;
+  setTheme: (theme: Theme) => void;
 };
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
+export const themeOptions: { value: Theme; label: string; category: string }[] = [
+  { value: "catppuccin-latte", label: "Latte", category: "Catppuccin" },
+  { value: "catppuccin-frappe", label: "Frappé", category: "Catppuccin" },
+  { value: "catppuccin-macchiato", label: "Macchiato", category: "Catppuccin" },
+  { value: "catppuccin-mocha", label: "Mocha", category: "Catppuccin" },
+  { value: "dracula", label: "Dracula", category: "Dracula" },
+  { value: "dracula-soft", label: "Dracula Soft", category: "Dracula" },
+];
+
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>("light");
+  const [theme, setThemeState] = useState<Theme>("catppuccin-mocha");
 
   useEffect(() => {
     try {
-      // Get theme from localStorage or system preference
+      // Get theme from localStorage or use default
       const savedTheme = localStorage.getItem("theme") as Theme | null;
-      if (savedTheme) {
-        setTheme(savedTheme);
-        document.documentElement.classList.toggle("dark", savedTheme === "dark");
+      if (savedTheme && themeOptions.some(opt => opt.value === savedTheme)) {
+        setThemeState(savedTheme);
+        document.documentElement.setAttribute("data-theme", savedTheme);
       } else {
-        const prefersDark = window.matchMedia(
-          "(prefers-color-scheme: dark)"
-        ).matches;
-        const initialTheme = prefersDark ? "dark" : "light";
-        setTheme(initialTheme);
-        document.documentElement.classList.toggle("dark", prefersDark);
+        // Default to catppuccin-mocha if no saved theme
+        document.documentElement.setAttribute("data-theme", "catppuccin-mocha");
       }
-    } catch (error) {
-      // Fallback to light theme if localStorage is not available
-      setTheme("light");
+    } catch {
+      // Fallback to catppuccin-mocha if localStorage is not available
+      setThemeState("catppuccin-mocha");
     }
   }, []);
 
-  const toggleTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
-    setTheme(newTheme);
+  const setTheme = (newTheme: Theme) => {
+    setThemeState(newTheme);
     try {
       localStorage.setItem("theme", newTheme);
-    } catch (error) {
+    } catch {
       // Ignore if localStorage is not available
     }
-    document.documentElement.classList.toggle("dark", newTheme === "dark");
+    document.documentElement.setAttribute("data-theme", newTheme);
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
       {children}
     </ThemeContext.Provider>
   );
@@ -56,7 +66,7 @@ export function useTheme() {
   const context = useContext(ThemeContext);
   // During SSR, return default values
   if (typeof window === "undefined") {
-    return { theme: "light" as Theme, toggleTheme: () => {} };
+    return { theme: "catppuccin-mocha" as Theme, setTheme: () => {} };
   }
   if (context === undefined) {
     throw new Error("useTheme must be used within a ThemeProvider");
