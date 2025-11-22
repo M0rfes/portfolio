@@ -74,6 +74,28 @@ export const themes: ThemeOption[] = [
     },
   },
   {
+    id: "theme-dracula-midnight",
+    name: "Midnight",
+    category: "Dracula",
+    preview: {
+      bg: "#21222c",
+      primary: "#80ffea",
+      secondary: "#9580ff",
+      accent: "#ff80bf",
+    },
+  },
+  {
+    id: "theme-dracula-pro",
+    name: "Pro",
+    category: "Dracula",
+    preview: {
+      bg: "#22212c",
+      primary: "#80ffea",
+      secondary: "#9580ff",
+      accent: "#ff80bf",
+    },
+  },
+  {
     id: "theme-solarized-light",
     name: "Light",
     category: "Solarized",
