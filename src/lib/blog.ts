@@ -34,6 +34,10 @@ export function getAllBlogSlugs(): string[] {
 }
 
 export function getBlogPostBySlug(slug: string): BlogPost | null {
+  // Validate slug to prevent path traversal
+  if (!/^[a-z0-9-]+$/i.test(slug)) {
+    return null;
+  }
   try {
     const fullPath = path.join(blogsDirectory, `${slug}.md`);
     const fileContents = fs.readFileSync(fullPath, 'utf8');
