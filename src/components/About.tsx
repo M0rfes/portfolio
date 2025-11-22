@@ -42,7 +42,7 @@ function StatsGrid() {
       variants={containerVariants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
-      className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16"
+      className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-16"
     >
       {stats.map((stat, index) => (
         <motion.div
