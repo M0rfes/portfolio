@@ -65,7 +65,7 @@ export function BlogContent({ post }: BlogContentProps) {
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           {/* Title */}
-          <h1 className="text-4xl md:text-5xl font-bold text-[var(--portfolio-primary)] mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-6">
             {post.title}
           </h1>
 
@@ -177,13 +177,13 @@ export function BlogContent({ post }: BlogContentProps) {
                 ),
                 // Custom component for headings
                 h1: ({ ...props }) => (
-                  <h1 className="text-3xl font-bold text-[var(--portfolio-primary)] mt-8 mb-4" {...props} />
+                  <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mt-8 mb-4" {...props} />
                 ),
                 h2: ({ ...props }) => (
-                  <h2 className="text-2xl font-bold text-[var(--portfolio-primary)] mt-8 mb-4" {...props} />
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mt-8 mb-4" {...props} />
                 ),
                 h3: ({ ...props }) => (
-                  <h3 className="text-xl font-bold text-[var(--portfolio-primary)] mt-6 mb-3" {...props} />
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mt-6 mb-3" {...props} />
                 ),
                 // Custom component for paragraphs
                 p: ({ ...props }) => (

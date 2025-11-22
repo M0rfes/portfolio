@@ -100,7 +100,7 @@ export function BlogList({ initialPosts }: BlogListProps) {
 
                   {/* Content */}
                   <div className="p-6 flex flex-col flex-grow">
-                    <h2 className="text-xl font-bold text-[var(--portfolio-primary)] mb-3 line-clamp-2">
+                    <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3 line-clamp-2">
                       {post.title}
                     </h2>
 
