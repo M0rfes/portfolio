@@ -82,18 +82,18 @@ export function Hero() {
           className="flex flex-wrap justify-center gap-4 mb-12"
         >
           {[
-            { icon: MapPin, text: "Abu Dhabi, UAE", color: "text-[var(--portfolio-primary)]" },
-            { icon: Mail, text: "fahimkhan20148@gmail.com", color: "text-[var(--portfolio-secondary)]" },
-            { icon: Phone, text: "+971 507 286 133", color: "text-[var(--portfolio-accent)]" }
+            { icon: MapPin, text: "Abu Dhabi, UAE", color: "text-primary" },
+            { icon: Mail, text: "fahimkhan20148@gmail.com", color: "text-secondary" },
+            { icon: Phone, text: "+971 507 286 133", color: "text-accent" }
           ].map((item, index) => (
             <motion.div
               key={index}
-              className="flex items-center gap-2 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-gray-200/50 dark:border-gray-700/50"
+              className="flex items-center gap-2 bg-card backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-border"
               whileHover={{ scale: 1.05, y: -2 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
             >
               <item.icon className={`w-4 h-4 ${item.color}`} />
-              <span className="text-sm text-foreground font-medium">{item.text}</span>
+              <span className="text-sm text-card-foreground font-semibold">{item.text}</span>
             </motion.div>
           ))}
         </motion.div>

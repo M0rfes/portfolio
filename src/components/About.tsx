@@ -8,9 +8,9 @@ function StatsGrid() {
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   const stats = [
-    { number: "7+", label: "Years Experience", icon: Award, color: "text-[var(--portfolio-primary)]" },
-    { number: "20+", label: "Projects Delivered", icon: Rocket, color: "text-[var(--portfolio-secondary)]" },
-    { number: "5", label: "Companies", icon: Target, color: "text-[var(--portfolio-accent)]" }
+    { number: "7+", label: "Years Experience", icon: Award, color: "text-primary" },
+    { number: "20+", label: "Projects Delivered", icon: Rocket, color: "text-secondary" },
+    { number: "5", label: "Companies", icon: Target, color: "text-accent" }
   ];
 
   const containerVariants = {
@@ -48,13 +48,13 @@ function StatsGrid() {
         <motion.div
           key={index}
           variants={itemVariants}
-          className="text-center p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200/50"
+          className="text-center p-6 bg-card backdrop-blur-sm rounded-2xl shadow-lg border border-border"
           whileHover={{ scale: 1.05, y: -5 }}
           transition={{ duration: 0.3 }}
         >
           <stat.icon className={`w-8 h-8 mx-auto mb-3 ${stat.color}`} />
-          <div className={`text-3xl mb-2 ${stat.color}`}>{stat.number}</div>
-          <div className="text-sm text-muted-foreground">{stat.label}</div>
+          <div className={`text-3xl mb-2 font-bold ${stat.color}`}>{stat.number}</div>
+          <div className="text-sm text-card-foreground font-medium">{stat.label}</div>
         </motion.div>
       ))}
     </motion.div>
@@ -83,9 +83,9 @@ function StoryCard({ title, children, colorClass }: { title: string, children: R
       variants={variants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
-      className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg border border-gray-200/50"
+      className="bg-card backdrop-blur-sm p-8 rounded-2xl shadow-lg border border-border"
     >
-      <h3 className={`text-2xl mb-4 ${colorClass}`}>{title}</h3>
+      <h3 className={`text-2xl mb-4 font-bold ${colorClass}`}>{title}</h3>
       {children}
     </motion.div>
   );
@@ -193,7 +193,7 @@ function CoreValues() {
     >
       <motion.h3 
         variants={itemVariants}
-        className="text-2xl mb-8 text-[var(--portfolio-primary)]"
+        className="text-2xl mb-8 font-bold text-primary"
       >
         Core Values
       </motion.h3>
@@ -202,11 +202,11 @@ function CoreValues() {
           <motion.div
             key={index}
             variants={itemVariants}
-            className="p-6 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200/50"
+            className="p-6 bg-card backdrop-blur-sm rounded-xl shadow-lg border border-border"
             whileHover={{ scale: 1.02 }}
           >
-            <h4 className="text-lg mb-2 text-primary font-semibold">{value.title}</h4>
-            <p className="text-card-foreground text-sm">{value.desc}</p>
+            <h4 className="text-lg mb-2 text-primary font-bold">{value.title}</h4>
+            <p className="text-card-foreground text-sm font-medium">{value.desc}</p>
           </motion.div>
         ))}
       </div>
