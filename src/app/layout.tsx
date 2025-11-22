@@ -129,9 +129,8 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               try {
-                const theme = localStorage.getItem('theme') || 
-                  (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-                document.documentElement.classList.toggle('dark', theme === 'dark');
+                const theme = localStorage.getItem('theme') || 'theme-catppuccin-mocha';
+                document.documentElement.className = theme;
               } catch (e) {}
             `,
           }}

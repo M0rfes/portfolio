@@ -3,31 +3,23 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { Menu, X, Home, User, Briefcase, Code, MessageCircle, BookOpen, Moon, Sun } from "lucide-react";
+import { Menu, X, Home, User, Briefcase, Code, MessageCircle, BookOpen } from "lucide-react";
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import { useTheme } from './ThemeProvider';
+import { ThemePicker } from './ThemePicker';
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
-  const { theme, toggleTheme } = useTheme();
   const pathname = usePathname();
   const isHomePage = pathname === "/";
   const { scrollY } = useScroll();
   
-  const lightBg = useTransform(
+  const navBg = useTransform(
     scrollY,
     [0, 100],
-    ["rgba(255, 255, 255, 0)", "rgba(255, 255, 255, 0.95)"]
+    ["rgba(0, 0, 0, 0)", "rgba(0, 0, 0, 0.8)"]
   );
   
-  const darkBg = useTransform(
-    scrollY,
-    [0, 100],
-    ["rgba(10, 15, 28, 0)", "rgba(10, 15, 28, 0.95)"]
-  );
-  
-  const backgroundColor = theme === "light" ? lightBg : darkBg;
   const backdropBlur = useTransform(scrollY, [0, 100], [0, 10]);
 
   const navItems = [
@@ -75,8 +67,8 @@ export function Navigation() {
     <>
       {/* Desktop Navigation */}
       <motion.nav
-        className="fixed top-0 left-0 right-0 z-50 px-4 py-4"
-        style={{ backgroundColor, backdropFilter: `blur(${backdropBlur}px)` }}
+        className="fixed top-0 left-0 right-0 z-50 px-4 py-4 bg-background border-b border-border"
+        style={{ backdropFilter: `blur(${backdropBlur}px)` }}
       >
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center justify-between">
@@ -87,7 +79,7 @@ export function Navigation() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="w-10 h-10 bg-gradient-to-r from-[var(--portfolio-primary)] to-[var(--portfolio-secondary)] rounded-lg flex items-center justify-center overflow-hidden">
+              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center overflow-hidden">
                 <ImageWithFallback 
                   src="/me.avif" 
                   alt="Fahim Khan Profile" 
@@ -95,8 +87,8 @@ export function Navigation() {
                 />
               </div>
               <div className="hidden sm:block">
-                <div className="text-lg text-[var(--portfolio-primary)]">Fahim Khan</div>
-                <div className="text-xs text-gray-600 dark:text-gray-400">Software Consultant</div>
+                <div className="text-lg text-primary">Fahim Khan</div>
+                <div className="text-xs text-muted-foreground">Software Consultant</div>
               </div>
             </motion.div>
 
@@ -113,8 +105,8 @@ export function Navigation() {
                     <motion.div
                       className={`px-4 py-2 rounded-full transition-all duration-300 cursor-pointer ${
                         pathname.startsWith('/blogs')
-                          ? "bg-[var(--portfolio-primary)] text-white shadow-lg"
-                          : "text-gray-700 hover:text-[var(--portfolio-primary)] hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
+                          ? "bg-primary text-primary-foreground"
+                          : "text-foreground hover:text-primary hover:bg-muted"
                       }`}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
@@ -131,8 +123,8 @@ export function Navigation() {
                       onClick={() => handleNavigation(item)}
                       className={`px-4 py-2 rounded-full transition-all duration-300 cursor-pointer ${
                         activeSection === item.id && isHomePage
-                          ? "bg-[var(--portfolio-primary)] text-white shadow-lg"
-                          : "text-gray-700 hover:text-[var(--portfolio-primary)] hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
+                          ? "bg-primary text-primary-foreground"
+                          : "text-foreground hover:text-primary hover:bg-muted"
                       }`}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
@@ -146,52 +138,24 @@ export function Navigation() {
                 )
               ))}
               
-              {/* Theme Toggle Button */}
-              <motion.button
-                onClick={toggleTheme}
-                className="p-2 rounded-full transition-all duration-300 text-gray-700 hover:text-[var(--portfolio-primary)] hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.6 }}
-                aria-label="Toggle theme"
-              >
-                {theme === "light" ? (
-                  <Moon className="w-5 h-5" />
-                ) : (
-                  <Sun className="w-5 h-5" />
-                )}
-              </motion.button>
+              {/* Theme Picker */}
+              <ThemePicker />
             </motion.div>
 
-            {/* Mobile Menu Button and Theme Toggle */}
+            {/* Mobile Menu Button and Theme Picker */}
             <div className="md:hidden flex items-center gap-2">
+              <ThemePicker />
               <motion.button
-                onClick={toggleTheme}
-                className="p-2 rounded-lg bg-white/80 backdrop-blur-sm shadow-lg border border-gray-200/50 dark:bg-gray-800/80 dark:border-gray-700/50"
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4 }}
-                aria-label="Toggle theme"
-              >
-                {theme === "light" ? (
-                  <Moon className="w-5 h-5 text-[var(--portfolio-primary)]" />
-                ) : (
-                  <Sun className="w-5 h-5 text-[var(--portfolio-primary)]" />
-                )}
-              </motion.button>
-              <motion.button
-                className="p-2 rounded-lg bg-white/80 backdrop-blur-sm shadow-lg border border-gray-200/50 dark:bg-gray-800/80 dark:border-gray-700/50"
+                className="p-2 rounded-lg bg-card border border-border"
               onClick={() => setIsOpen(!isOpen)}
               initial={{ opacity: 0, scale: 0 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4 }}
             >
               {isOpen ? (
-                <X className="w-6 h-6 text-[var(--portfolio-primary)]" />
+                <X className="w-6 h-6 text-primary" />
               ) : (
-                <Menu className="w-6 h-6 text-[var(--portfolio-primary)]" />
+                <Menu className="w-6 h-6 text-primary" />
               )}
             </motion.button>
             </div>
@@ -210,7 +174,7 @@ export function Navigation() {
 
       {/* Mobile Menu */}
       <motion.div
-        className="fixed top-0 right-0 bottom-0 w-80 bg-white dark:bg-gray-900 shadow-2xl z-50 md:hidden"
+        className="fixed top-0 right-0 bottom-0 w-80 bg-card shadow-2xl z-50 md:hidden border-l border-border"
         initial={{ x: "100%" }}
         animate={{ x: isOpen ? 0 : "100%" }}
         transition={{ type: "spring", damping: 20, stiffness: 300 }}
@@ -219,7 +183,7 @@ export function Navigation() {
           {/* Mobile Header */}
           <div className="flex items-center justify-between mb-8">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-gradient-to-r from-[var(--portfolio-primary)] to-[var(--portfolio-secondary)] rounded-lg flex items-center justify-center overflow-hidden">
+              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center overflow-hidden">
                 <ImageWithFallback 
                   src="/me.avif" 
                   alt="Fahim Khan Profile" 
@@ -227,15 +191,15 @@ export function Navigation() {
                 />
               </div>
               <div>
-                <div className="text-lg text-[var(--portfolio-primary)]">Fahim Khan</div>
-                <div className="text-xs text-gray-600 dark:text-gray-400">Software Consultant</div>
+                <div className="text-lg text-primary">Fahim Khan</div>
+                <div className="text-xs text-muted-foreground">Software Consultant</div>
               </div>
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+              className="p-2 rounded-lg hover:bg-muted"
             >
-              <X className="w-6 h-6 text-[var(--portfolio-primary)]" />
+              <X className="w-6 h-6 text-primary" />
             </button>
           </div>
 
@@ -248,8 +212,8 @@ export function Navigation() {
                     onClick={() => setIsOpen(false)}
                     className={`w-full flex items-center gap-4 p-4 rounded-xl transition-all duration-300 cursor-pointer ${
                       pathname.startsWith('/blogs')
-                        ? "bg-[var(--portfolio-primary)] text-white shadow-lg"
-                        : "text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
+                        ? "bg-primary text-primary-foreground"
+                        : "text-foreground hover:bg-muted"
                     }`}
                     initial={{ opacity: 0, x: 50 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -266,8 +230,8 @@ export function Navigation() {
                     onClick={() => handleNavigation(item)}
                     className={`w-full flex items-center gap-4 p-4 rounded-xl transition-all duration-300 cursor-pointer ${
                       activeSection === item.id && isHomePage
-                        ? "bg-[var(--portfolio-primary)] text-white shadow-lg"
-                        : "text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
+                        ? "bg-primary text-primary-foreground"
+                        : "text-foreground hover:bg-muted"
                     }`}
                     initial={{ opacity: 0, x: 50 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -283,20 +247,20 @@ export function Navigation() {
           </div>
 
           {/* Mobile Contact Info */}
-          <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
-            <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">Quick Contact</p>
+          <div className="mt-8 pt-8 border-t border-border">
+            <p className="text-sm text-muted-foreground mb-4">Quick Contact</p>
             <div className="space-y-3 text-sm">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 bg-[var(--portfolio-primary)]/10 rounded-lg flex items-center justify-center">
-                  <span className="text-[var(--portfolio-primary)] text-xs">✉</span>
+                <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
+                  <span className="text-primary text-xs">✉</span>
                 </div>
-                <span className="text-gray-700 dark:text-gray-300">fahimkhan20148@gmail.com</span>
+                <span className="text-foreground">fahimkhan20148@gmail.com</span>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 bg-[var(--portfolio-secondary)]/10 rounded-lg flex items-center justify-center">
-                  <span className="text-[var(--portfolio-secondary)] text-xs">📱</span>
+                <div className="w-8 h-8 bg-secondary/10 rounded-lg flex items-center justify-center">
+                  <span className="text-secondary text-xs">📱</span>
                 </div>
-                <span className="text-gray-700 dark:text-gray-300">+971 507 286 133</span>
+                <span className="text-foreground">+971 507 286 133</span>
               </div>
             </div>
           </div>
@@ -312,11 +276,11 @@ export function Navigation() {
       >
         <motion.a
           href="mailto:fahimkhan20148@gmail.com"
-          className="w-14 h-14 bg-gradient-to-r from-[var(--portfolio-primary)] to-[var(--portfolio-secondary)] rounded-full flex items-center justify-center shadow-xl"
+          className="w-14 h-14 bg-primary rounded-full flex items-center justify-center shadow-xl"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >
-          <MessageCircle className="w-6 h-6 text-white" />
+          <MessageCircle className="w-6 h-6 text-primary-foreground" />
         </motion.a>
       </motion.div>
     </>

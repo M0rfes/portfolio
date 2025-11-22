@@ -1,52 +1,49 @@
 "use client";
 import { createContext, useContext, useEffect, useState } from "react";
 
-type Theme = "light" | "dark";
+type Theme = string;
 
 type ThemeContextType = {
   theme: Theme;
-  toggleTheme: () => void;
+  setTheme: (theme: Theme) => void;
 };
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>("light");
+  const [theme, setThemeState] = useState<Theme>("theme-catppuccin-mocha");
 
   useEffect(() => {
     try {
-      // Get theme from localStorage or system preference
+      // Get theme from localStorage or use default
       const savedTheme = localStorage.getItem("theme") as Theme | null;
       if (savedTheme) {
-        setTheme(savedTheme);
-        document.documentElement.classList.toggle("dark", savedTheme === "dark");
+        setThemeState(savedTheme);
+        document.documentElement.className = savedTheme;
       } else {
-        const prefersDark = window.matchMedia(
-          "(prefers-color-scheme: dark)"
-        ).matches;
-        const initialTheme = prefersDark ? "dark" : "light";
-        setTheme(initialTheme);
-        document.documentElement.classList.toggle("dark", prefersDark);
+        // Default to Catppuccin Mocha
+        const defaultTheme = "theme-catppuccin-mocha";
+        setThemeState(defaultTheme);
+        document.documentElement.className = defaultTheme;
       }
-    } catch (error) {
-      // Fallback to light theme if localStorage is not available
-      setTheme("light");
+    } catch {
+      // Fallback to default theme if localStorage is not available
+      setThemeState("theme-catppuccin-mocha");
     }
   }, []);
 
-  const toggleTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
-    setTheme(newTheme);
+  const setTheme = (newTheme: Theme) => {
+    setThemeState(newTheme);
     try {
       localStorage.setItem("theme", newTheme);
-    } catch (error) {
+    } catch {
       // Ignore if localStorage is not available
     }
-    document.documentElement.classList.toggle("dark", newTheme === "dark");
+    document.documentElement.className = newTheme;
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
       {children}
     </ThemeContext.Provider>
   );
@@ -56,7 +53,7 @@ export function useTheme() {
   const context = useContext(ThemeContext);
   // During SSR, return default values
   if (typeof window === "undefined") {
-    return { theme: "light" as Theme, toggleTheme: () => {} };
+    return { theme: "theme-catppuccin-mocha" as Theme, setTheme: () => {} };
   }
   if (context === undefined) {
     throw new Error("useTheme must be used within a ThemeProvider");
