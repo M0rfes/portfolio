@@ -105,7 +105,7 @@ export function Hero() {
         >
           <motion.a
             href="#experience"
-            className="bg-[var(--portfolio-primary)] text-white px-8 py-4 rounded-full hover:bg-[var(--portfolio-secondary)] transition-colors duration-300 shadow-lg"
+            className="bg-primary text-primary-foreground px-8 py-4 rounded-full hover:bg-secondary hover:text-secondary-foreground transition-colors duration-300 shadow-lg"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
@@ -114,7 +114,7 @@ export function Hero() {
           </motion.a>
           <motion.a
             href="#contact"
-            className="border-2 border-[var(--portfolio-primary)] text-[var(--portfolio-primary)] px-8 py-4 rounded-full hover:bg-[var(--portfolio-primary)] hover:text-white transition-all duration-300"
+            className="border-2 border-primary text-primary px-8 py-4 rounded-full hover:bg-primary hover:text-primary-foreground transition-all duration-300"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
