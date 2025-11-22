@@ -87,7 +87,7 @@ export function Navigation() {
                 />
               </div>
               <div className="hidden sm:block">
-                <div className="text-lg text-primary">Fahim Khan</div>
+                <div className="text-lg text-secondary">Fahim Khan</div>
                 <div className="text-xs text-muted-foreground">Software Consultant</div>
               </div>
             </motion.div>
