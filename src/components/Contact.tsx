@@ -20,7 +20,6 @@ interface ContactInfo {
   label: string;
   value: string;
   link: string;
-  color: string;
 }
 
 interface SocialLink {
@@ -140,7 +139,7 @@ function ContactCard({
       }}
     >
       <div
-        className={`p-3 rounded-lg bg-primary ${contact.color} group-hover:scale-110 transition-transform duration-300`}
+        className="p-3 rounded-lg bg-primary group-hover:scale-110 transition-transform duration-300"
       >
         <contact.icon className="w-5 h-5 text-primary-foreground" />
       </div>
@@ -284,28 +283,24 @@ export function Contact() {
       label: "Email",
       value: "fahimkhan20148@gmail.com",
       link: "mailto:fahimkhan20148@gmail.com",
-      color: "text-[var(--portfolio-primary)]",
     },
     {
       icon: Phone,
       label: "UAE Mobile",
       value: "+971 507 286 133",
       link: "tel:+971507286133",
-      color: "text-[var(--portfolio-secondary)]",
     },
     {
       icon: Phone,
       label: "India Mobile",
       value: "+91 9167119031",
       link: "tel:+919167119031",
-      color: "text-[var(--portfolio-accent)]",
     },
     {
       icon: MapPin,
       label: "Location",
       value: "Abu Dhabi, UAE",
       link: "#",
-      color: "text-[var(--portfolio-success)]",
     },
   ];
 
