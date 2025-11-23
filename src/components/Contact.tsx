@@ -331,7 +331,7 @@ export function Contact() {
       label: "Instagram",
       username: "@m0rfes",
       url: "https://www.instagram.com/m0rfes/",
-      color: "hover:bg-secondary",
+      color: "hover:bg-primary",
     },
     {
       icon: Facebook,
@@ -345,7 +345,7 @@ export function Contact() {
       label: "BlueSky",
       username: "morfes.bsky.social",
       url: "https://bsky.app/profile/morfes.bsky.social",
-      color: "hover:bg-accent",
+      color: "hover:bg-primary",
     },
   ];
 
