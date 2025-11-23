@@ -242,4 +242,48 @@ export const themes: ThemeOption[] = [
       accent: "#bf616a",
     },
   },
+  {
+    id: "theme-rosepine",
+    name: "Rosé Pine",
+    category: "Rosé Pine",
+    preview: {
+      bg: "#191724",
+      primary: "#9ccfd8",
+      secondary: "#c4a7e7",
+      accent: "#ebbcba",
+    },
+  },
+  {
+    id: "theme-rosepine-moon",
+    name: "Moon",
+    category: "Rosé Pine",
+    preview: {
+      bg: "#232136",
+      primary: "#9ccfd8",
+      secondary: "#c4a7e7",
+      accent: "#ea9a97",
+    },
+  },
+  {
+    id: "theme-rosepine-dawn",
+    name: "Dawn",
+    category: "Rosé Pine",
+    preview: {
+      bg: "#faf4ed",
+      primary: "#286983",
+      secondary: "#907aa9",
+      accent: "#d7827e",
+    },
+  },
+  {
+    id: "theme-froot-loops",
+    name: "Froot Loops",
+    category: "Froot Loops",
+    preview: {
+      bg: "#1a1a2e",
+      primary: "#ff6b6b",
+      secondary: "#4ecdc4",
+      accent: "#ffe66d",
+    },
+  },
 ];
