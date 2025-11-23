@@ -925,6 +925,178 @@
   --blog-text: #d8dee9;
 }
 
+/* Rosé Pine Theme */
+.theme-rosepine {
+  --background: #191724;
+  --foreground: #e0def4;
+  --card: #1f1d2e;
+  --card-foreground: #e0def4;
+  --popover: #1f1d2e;
+  --popover-foreground: #e0def4;
+  --primary: #9ccfd8;
+  --primary-foreground: #191724;
+  --secondary: #c4a7e7;
+  --secondary-foreground: #191724;
+  --muted: #26233a;
+  --muted-foreground: #908caa;
+  --accent: #ebbcba;
+  --accent-foreground: #191724;
+  --destructive: #eb6f92;
+  --destructive-foreground: #191724;
+  --border: #403d52;
+  --input: #1f1d2e;
+  --input-background: #1f1d2e;
+  --switch-background: #26233a;
+  --ring: #9ccfd8;
+  --chart-1: #9ccfd8;
+  --chart-2: #c4a7e7;
+  --chart-3: #ebbcba;
+  --chart-4: #31748f;
+  --chart-5: #f6c177;
+  
+  /* Custom portfolio colors */
+  --portfolio-primary: #9ccfd8;
+  --portfolio-secondary: #c4a7e7;
+  --portfolio-accent: #ebbcba;
+  --portfolio-success: #31748f;
+  --portfolio-warning: #f6c177;
+  --portfolio-light: #e0def4;
+  --portfolio-dark: #191724;
+  
+  /* Blog specific */
+  --blog-container: #1f1d2e;
+  --blog-text: #e0def4;
+}
+
+/* Rosé Pine Moon Theme */
+.theme-rosepine-moon {
+  --background: #232136;
+  --foreground: #e0def4;
+  --card: #2a273f;
+  --card-foreground: #e0def4;
+  --popover: #2a273f;
+  --popover-foreground: #e0def4;
+  --primary: #9ccfd8;
+  --primary-foreground: #232136;
+  --secondary: #c4a7e7;
+  --secondary-foreground: #232136;
+  --muted: #393552;
+  --muted-foreground: #908caa;
+  --accent: #ea9a97;
+  --accent-foreground: #232136;
+  --destructive: #eb6f92;
+  --destructive-foreground: #232136;
+  --border: #44415a;
+  --input: #2a273f;
+  --input-background: #2a273f;
+  --switch-background: #393552;
+  --ring: #9ccfd8;
+  --chart-1: #9ccfd8;
+  --chart-2: #c4a7e7;
+  --chart-3: #ea9a97;
+  --chart-4: #3e8fb0;
+  --chart-5: #f6c177;
+  
+  /* Custom portfolio colors */
+  --portfolio-primary: #9ccfd8;
+  --portfolio-secondary: #c4a7e7;
+  --portfolio-accent: #ea9a97;
+  --portfolio-success: #3e8fb0;
+  --portfolio-warning: #f6c177;
+  --portfolio-light: #e0def4;
+  --portfolio-dark: #232136;
+  
+  /* Blog specific */
+  --blog-container: #2a273f;
+  --blog-text: #e0def4;
+}
+
+/* Rosé Pine Dawn Theme */
+.theme-rosepine-dawn {
+  --background: #faf4ed;
+  --foreground: #575279;
+  --card: #fffaf3;
+  --card-foreground: #575279;
+  --popover: #fffaf3;
+  --popover-foreground: #575279;
+  --primary: #286983;
+  --primary-foreground: #faf4ed;
+  --secondary: #907aa9;
+  --secondary-foreground: #faf4ed;
+  --muted: #f2e9e1;
+  --muted-foreground: #797593;
+  --accent: #d7827e;
+  --accent-foreground: #faf4ed;
+  --destructive: #b4637a;
+  --destructive-foreground: #faf4ed;
+  --border: #dfdad9;
+  --input: #fffaf3;
+  --input-background: #fffaf3;
+  --switch-background: #f2e9e1;
+  --ring: #286983;
+  --chart-1: #286983;
+  --chart-2: #907aa9;
+  --chart-3: #d7827e;
+  --chart-4: #56949f;
+  --chart-5: #ea9d34;
+  
+  /* Custom portfolio colors */
+  --portfolio-primary: #286983;
+  --portfolio-secondary: #907aa9;
+  --portfolio-accent: #d7827e;
+  --portfolio-success: #56949f;
+  --portfolio-warning: #ea9d34;
+  --portfolio-light: #575279;
+  --portfolio-dark: #faf4ed;
+  
+  /* Blog specific */
+  --blog-container: #575279;
+  --blog-text: #faf4ed;
+}
+
+/* Root Loops Theme */
+.theme-root-loops {
+  --background: #1a1a2e;
+  --foreground: #eaeaea;
+  --card: #16213e;
+  --card-foreground: #eaeaea;
+  --popover: #16213e;
+  --popover-foreground: #eaeaea;
+  --primary: #ff6b6b;
+  --primary-foreground: #1a1a2e;
+  --secondary: #4ecdc4;
+  --secondary-foreground: #1a1a2e;
+  --muted: #0f3460;
+  --muted-foreground: #a8dadc;
+  --accent: #ffe66d;
+  --accent-foreground: #1a1a2e;
+  --destructive: #ff6b6b;
+  --destructive-foreground: #1a1a2e;
+  --border: #0f3460;
+  --input: #16213e;
+  --input-background: #16213e;
+  --switch-background: #0f3460;
+  --ring: #4ecdc4;
+  --chart-1: #ff6b6b;
+  --chart-2: #4ecdc4;
+  --chart-3: #ffe66d;
+  --chart-4: #95e1d3;
+  --chart-5: #f38181;
+  
+  /* Custom portfolio colors */
+  --portfolio-primary: #ff6b6b;
+  --portfolio-secondary: #4ecdc4;
+  --portfolio-accent: #ffe66d;
+  --portfolio-success: #95e1d3;
+  --portfolio-warning: #ffe66d;
+  --portfolio-light: #eaeaea;
+  --portfolio-dark: #1a1a2e;
+  
+  /* Blog specific */
+  --blog-container: #16213e;
+  --blog-text: #eaeaea;
+}
+
 @layer base {
   * {
     @apply border-border;

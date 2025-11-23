@@ -111,10 +111,10 @@ function SkillCard({ skill, index }: { skill: Skill, index: number }) {
       {/* Experience Level Badge */}
       <div className="mt-4">
         <span className={`px-3 py-1 text-xs rounded-full ${
-          skill.hours >= 3000 ? 'bg-[var(--portfolio-primary)] text-white' :
-          skill.hours >= 2000 ? 'bg-[var(--portfolio-secondary)] text-white' :
-          skill.hours >= 1000 ? 'bg-[var(--portfolio-accent)] text-white' :
-          'bg-[var(--portfolio-success)] text-white'
+          skill.hours >= 3000 ? 'bg-[var(--portfolio-primary)] text-primary-foreground' :
+          skill.hours >= 2000 ? 'bg-[var(--portfolio-secondary)] text-secondary-foreground' :
+          skill.hours >= 1000 ? 'bg-[var(--portfolio-accent)] text-accent-foreground' :
+          'bg-[var(--portfolio-success)] text-primary-foreground'
         }`}>
           {skill.hours >= 3000 ? 'Expert' :
            skill.hours >= 2000 ? 'Advanced' :
