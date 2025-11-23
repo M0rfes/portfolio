@@ -276,9 +276,9 @@ export const themes: ThemeOption[] = [
     },
   },
   {
-    id: "theme-froot-loops",
-    name: "Froot Loops",
-    category: "Froot Loops",
+    id: "theme-root-loops",
+    name: "Root Loops",
+    category: "Root Loops",
     preview: {
       bg: "#1a1a2e",
       primary: "#ff6b6b",
