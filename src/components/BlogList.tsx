@@ -124,7 +124,7 @@ export function BlogList({ initialPosts }: BlogListProps) {
                           {post.keywords.slice(0, 3).map((keyword, idx) => (
                             <span
                               key={idx}
-                              className="inline-block px-2 py-1 text-xs font-medium bg-[var(--portfolio-primary)]/10 text-[var(--portfolio-primary)] rounded-full dark:text-[var(--portfolio-secondary)] dark:bg-[var(--portfolio-secondary)]/10"
+                              className="inline-block px-2 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full"
                             >
                               {keyword}
                             </span>
