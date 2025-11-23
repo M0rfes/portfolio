@@ -92,7 +92,7 @@ export function BlogList({ initialPosts }: BlogListProps) {
                         className="w-full h-full object-cover"
                       />
                     ) : (
-                      <div className="w-full h-full flex items-center justify-center text-white text-2xl font-bold">
+                      <div className="w-full h-full flex items-center justify-center text-primary-foreground text-2xl font-bold">
                         {post.title.charAt(0)}
                       </div>
                     )}
