@@ -21,7 +21,7 @@ keywords:
   - tracing
 ---
 
-[Github repo](https://github.com/M0rfes/express-logger)
+[GitHub repo](https://github.com/M0rfes/express-logger)
 
 # AsyncLocalStorage in Node.js: Eliminating Context Passing Hell
 
