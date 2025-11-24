@@ -32,6 +32,8 @@ const themeMap: Record<string, string> = {
   "theme-cyberpunk-neon-tweetdeck": "cyberpunk-neon.css",
   "theme-cyberpunk-neon-startpage": "cyberpunk-neon.css",
   "theme-cyberpunk-neon-mastodon": "cyberpunk-neon.css",
+  "theme-monochrome-dark": "monochrome-dark.css",
+  "theme-monochrome-light": "monochrome-light.css",
 };
 
 export function PrismThemeSync() {

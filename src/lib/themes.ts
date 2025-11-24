@@ -319,4 +319,26 @@ export const themes: ThemeOption[] = [
       accent: "#ea00d9",
     },
   },
+  {
+    id: "theme-monochrome-dark",
+    name: "Dark",
+    category: "Monochrome",
+    preview: {
+      bg: "#0a0a0a",
+      primary: "#e0e0e0",
+      secondary: "#a0a0a0",
+      accent: "#ffffff",
+    },
+  },
+  {
+    id: "theme-monochrome-light",
+    name: "Light",
+    category: "Monochrome",
+    preview: {
+      bg: "#ffffff",
+      primary: "#1a1a1a",
+      secondary: "#505050",
+      accent: "#0a0a0a",
+    },
+  },
 ];
