@@ -286,4 +286,37 @@ export const themes: ThemeOption[] = [
       accent: "#ffe66d",
     },
   },
+  {
+    id: "theme-cyberpunk-neon-tweetdeck",
+    name: "Tweetdeck",
+    category: "Cyberpunk Neon",
+    preview: {
+      bg: "#000b1e",
+      primary: "#0abdc6",
+      secondary: "#711c91",
+      accent: "#ea00d9",
+    },
+  },
+  {
+    id: "theme-cyberpunk-neon-startpage",
+    name: "Startpage",
+    category: "Cyberpunk Neon",
+    preview: {
+      bg: "#000b1e",
+      primary: "#0abdc6",
+      secondary: "#711c91",
+      accent: "#ea00d9",
+    },
+  },
+  {
+    id: "theme-cyberpunk-neon-mastodon",
+    name: "Mastodon",
+    category: "Cyberpunk Neon",
+    preview: {
+      bg: "#000b1e",
+      primary: "#0abdc6",
+      secondary: "#711c91",
+      accent: "#ea00d9",
+    },
+  },
 ];
