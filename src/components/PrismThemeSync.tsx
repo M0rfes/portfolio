@@ -29,6 +29,9 @@ const themeMap: Record<string, string> = {
   "theme-rosepine-moon": "material-oceanic.css",
   "theme-rosepine-dawn": "one-light.css",
   "theme-root-loops": "synthwave84.css",
+  "theme-cyberpunk-neon": "cyberpunk-neon.css",
+  "theme-monochrome-dark": "monochrome-dark.css",
+  "theme-monochrome-light": "monochrome-light.css",
 };
 
 export function PrismThemeSync() {

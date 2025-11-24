@@ -1097,6 +1097,135 @@
   --blog-text: #eaeaea;
 }
 
+/* Cyberpunk Neon Theme */
+.theme-cyberpunk-neon {
+  --background: #000b1e;
+  --foreground: #0abdc6;
+  --card: #091833;
+  --card-foreground: #0abdc6;
+  --popover: #091833;
+  --popover-foreground: #0abdc6;
+  --primary: #0abdc6;
+  --primary-foreground: #000b1e;
+  --secondary: #711c91;
+  --secondary-foreground: #0abdc6;
+  --muted: #133e7c;
+  --muted-foreground: #0abdc6;
+  --accent: #ea00d9;
+  --accent-foreground: #000b1e;
+  --destructive: #ff0000;
+  --destructive-foreground: #0abdc6;
+  --border: #0abdc6;
+  --input: #091833;
+  --input-background: #091833;
+  --switch-background: #133e7c;
+  --ring: #ea00d9;
+  --chart-1: #0abdc6;
+  --chart-2: #ea00d9;
+  --chart-3: #ffff00;
+  --chart-4: #00ff00;
+  --chart-5: #f57800;
+  
+  /* Custom portfolio colors */
+  --portfolio-primary: #0abdc6;
+  --portfolio-secondary: #711c91;
+  --portfolio-accent: #ea00d9;
+  --portfolio-success: #00ff00;
+  --portfolio-warning: #ffff00;
+  --portfolio-light: #0abdc6;
+  --portfolio-dark: #000b1e;
+  
+  /* Blog specific */
+  --blog-container: #091833;
+  --blog-text: #0abdc6;
+}
+
+/* Monochrome Dark Theme */
+.theme-monochrome-dark {
+  --background: #0a0a0a;
+  --foreground: #f5f5f5;
+  --card: #1a1a1a;
+  --card-foreground: #f5f5f5;
+  --popover: #1a1a1a;
+  --popover-foreground: #f5f5f5;
+  --primary: #e0e0e0;
+  --primary-foreground: #0a0a0a;
+  --secondary: #a0a0a0;
+  --secondary-foreground: #0a0a0a;
+  --muted: #2a2a2a;
+  --muted-foreground: #d0d0d0;
+  --accent: #ffffff;
+  --accent-foreground: #0a0a0a;
+  --destructive: #c0c0c0;
+  --destructive-foreground: #0a0a0a;
+  --border: #404040;
+  --input: #1a1a1a;
+  --input-background: #1a1a1a;
+  --switch-background: #2a2a2a;
+  --ring: #e0e0e0;
+  --chart-1: #f5f5f5;
+  --chart-2: #d0d0d0;
+  --chart-3: #a0a0a0;
+  --chart-4: #707070;
+  --chart-5: #505050;
+  
+  /* Custom portfolio colors */
+  --portfolio-primary: #e0e0e0;
+  --portfolio-secondary: #a0a0a0;
+  --portfolio-accent: #ffffff;
+  --portfolio-success: #c0c0c0;
+  --portfolio-warning: #d0d0d0;
+  --portfolio-light: #f5f5f5;
+  --portfolio-dark: #0a0a0a;
+  
+  /* Blog specific */
+  --blog-container: #1a1a1a;
+  --blog-text: #f5f5f5;
+}
+
+/* Monochrome Light Theme */
+.theme-monochrome-light {
+  --background: #ffffff;
+  --foreground: #0a0a0a;
+  --card: #f5f5f5;
+  --card-foreground: #0a0a0a;
+  --popover: #f5f5f5;
+  --popover-foreground: #0a0a0a;
+  --primary: #1a1a1a;
+  --primary-foreground: #ffffff;
+  --secondary: #505050;
+  --secondary-foreground: #ffffff;
+  --muted: #e0e0e0;
+  --muted-foreground: #2a2a2a;
+  --accent: #0a0a0a;
+  --accent-foreground: #ffffff;
+  --destructive: #404040;
+  --destructive-foreground: #ffffff;
+  --border: #d0d0d0;
+  --input: #f5f5f5;
+  --input-background: #f5f5f5;
+  --switch-background: #e0e0e0;
+  --ring: #1a1a1a;
+  --chart-1: #0a0a0a;
+  --chart-2: #2a2a2a;
+  --chart-3: #505050;
+  --chart-4: #808080;
+  --chart-5: #a0a0a0;
+  
+  /* Custom portfolio colors */
+  --portfolio-primary: #1a1a1a;
+  --portfolio-secondary: #505050;
+  --portfolio-accent: #0a0a0a;
+  --portfolio-success: #404040;
+  --portfolio-warning: #2a2a2a;
+  --portfolio-light: #0a0a0a;
+  --portfolio-dark: #ffffff;
+  
+  /* Blog specific */
+  --blog-container: #f5f5f5;
+  --blog-text: #0a0a0a;
+}
+
 @layer base {
   * {
     @apply border-border;
