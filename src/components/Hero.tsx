@@ -82,20 +82,38 @@ export function Hero() {
           className="flex flex-wrap justify-center gap-4 mb-12"
         >
           {[
-            { icon: MapPin, text: "Abu Dhabi, UAE", color: "text-primary" },
-            { icon: Mail, text: "fahimkhan20148@gmail.com", color: "text-secondary" },
-            { icon: Phone, text: "+971 507 286 133", color: "text-accent" }
-          ].map((item, index) => (
-            <motion.div
-              key={index}
-              className="flex items-center gap-2 bg-card backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-border"
-              whileHover={{ scale: 1.05, y: -2 }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
-            >
-              <item.icon className={`w-4 h-4 ${item.color}`} />
-              <span className="text-sm text-card-foreground font-semibold">{item.text}</span>
-            </motion.div>
-          ))}
+            { icon: MapPin, text: "Abu Dhabi, UAE", color: "text-primary", href: null },
+            { icon: Mail, text: "fahimkhan20148@gmail.com", color: "text-secondary", href: "mailto:fahimkhan20148@gmail.com" },
+            { icon: Phone, text: "+971 507 286 133", color: "text-accent", href: "tel:+971507286133" }
+          ].map((item, index) => {
+            const content = (
+              <>
+                <item.icon className={`w-4 h-4 ${item.color}`} />
+                <span className="text-sm text-card-foreground font-semibold">{item.text}</span>
+              </>
+            );
+            
+            return item.href ? (
+              <motion.a
+                key={index}
+                href={item.href}
+                className="flex items-center gap-2 bg-card backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-border hover:border-primary/50 cursor-pointer"
+                whileHover={{ scale: 1.05, y: -2 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+              >
+                {content}
+              </motion.a>
+            ) : (
+              <motion.div
+                key={index}
+                className="flex items-center gap-2 bg-card backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-border"
+                whileHover={{ scale: 1.05, y: -2 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+              >
+                {content}
+              </motion.div>
+            );
+          })}
         </motion.div>
 
         {/* CTA Buttons */}

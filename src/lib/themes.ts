@@ -178,7 +178,7 @@ export const themes: ThemeOption[] = [
   },
   {
     id: "theme-syntax-fm",
-    name: "Syntax FM",
+    name: "Syntax",
     category: "Syntax",
     preview: {
       bg: "#000000",
