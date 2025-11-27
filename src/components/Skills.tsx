@@ -43,29 +43,7 @@ function CountUp({ value, suffix = "", duration = 2, delay = 0 }: { value: numbe
   );
 }
 
-function SkillCard({ skill, index }: { skill: Skill, index: number }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
-
-  const progressVariants = {
-    hidden: { width: 0 },
-    visible: {
-      width: `${Math.min((skill.hours / 3500) * 100, 100)}%`,
-      transition: {
-        duration: 1.5,
-        ease: [0.25, 0.46, 0.45, 0.94] as const,
-        delay: 0.3
-      }
-    }
-  };
-
-  const getHourColor = (hours: number) => {
-    if (hours >= 3000) return "bg-[var(--portfolio-primary)]";
-    if (hours >= 2000) return "bg-[var(--portfolio-secondary)]";
-    if (hours >= 1000) return "bg-[var(--portfolio-accent)]";
-    return "bg-[var(--portfolio-success)]";
-  };
-
+function SkillCard({ skill }: { skill: Skill }) {
   const formatHours = (hours: number) => {
     if (hours >= 1000) {
       return `${(hours / 1000).toFixed(1)}k`;
@@ -74,32 +52,13 @@ function SkillCard({ skill, index }: { skill: Skill, index: number }) {
   };
 
   return (
-    <div
-      ref={ref}
-      className="group p-6 bg-card rounded-xl border border-border hover:shadow-lg transition-all duration-300"
-    >
+    <div className="group p-4 bg-card rounded-lg border border-border hover:shadow-lg hover:border-primary/50 transition-all duration-300">
       {/* Skill Header */}
-      <div className="flex items-center justify-between mb-4">
-        <h4 className="text-lg text-primary font-semibold">{skill.name}</h4>
-        <div className="flex items-center gap-1 text-sm text-muted-foreground">
-          <Clock className="w-3 h-3" />
-          <span>{formatHours(skill.hours)} hrs</span>
-        </div>
-      </div>
-
-      {/* Progress Bar */}
-      <div className="mb-4">
-        <div className="h-2 bg-muted rounded-full overflow-hidden">
-          <motion.div
-            className={`h-full ${getHourColor(skill.hours)} rounded-full`}
-            variants={progressVariants}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-          />
-        </div>
-        <div className="flex justify-between text-xs text-muted-foreground mt-1">
-          <span>0</span>
-          <span>{skill.hours.toLocaleString()} hours</span>
+      <div className="flex items-center justify-between mb-2">
+        <h4 className="text-base text-primary font-semibold">{skill.name}</h4>
+        <div className="flex items-center gap-1 px-2 py-1 bg-primary/20 rounded-full">
+          <Clock className="w-3 h-3 text-primary" />
+          <span className="text-sm font-bold text-primary">{formatHours(skill.hours)} hrs</span>
         </div>
       </div>
 
@@ -107,26 +66,11 @@ function SkillCard({ skill, index }: { skill: Skill, index: number }) {
       <p className="text-sm text-card-foreground leading-relaxed">
         {skill.description}
       </p>
-
-      {/* Experience Level Badge */}
-      <div className="mt-4">
-        <span className={`px-3 py-1 text-xs rounded-full ${
-          skill.hours >= 3000 ? 'bg-[var(--portfolio-primary)] text-primary-foreground' :
-          skill.hours >= 2000 ? 'bg-[var(--portfolio-secondary)] text-secondary-foreground' :
-          skill.hours >= 1000 ? 'bg-[var(--portfolio-accent)] text-accent-foreground' :
-          'bg-[var(--portfolio-success)] text-primary-foreground'
-        }`}>
-          {skill.hours >= 3000 ? 'Expert' :
-           skill.hours >= 2000 ? 'Advanced' :
-           skill.hours >= 1000 ? 'Proficient' :
-           'Intermediate'}
-        </span>
-      </div>
     </div>
   );
 }
 
-function SkillCategory({ category, categoryIndex }: { category: SkillCategory, categoryIndex: number }) {
+function SkillCategory({ category }: { category: SkillCategory }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -135,19 +79,19 @@ function SkillCategory({ category, categoryIndex }: { category: SkillCategory, c
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.05,
         duration: 0.6
       }
     }
   };
 
   const cardVariants = {
-    hidden: { y: 30, opacity: 0 },
+    hidden: { y: 20, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.5,
+        duration: 0.4,
         ease: [0.25, 0.46, 0.45, 0.94] as const
       }
     }
@@ -171,31 +115,31 @@ function SkillCategory({ category, categoryIndex }: { category: SkillCategory, c
       variants={categoryVariants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
-      className="bg-card backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-border"
+      className="bg-card backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-border"
     >
       {/* Category Header */}
-      <div className="flex items-center gap-3 mb-8">
+      <div className="flex items-center gap-3 mb-6">
         <div className={`p-3 rounded-xl bg-primary`}>
           <category.icon className="w-6 h-6 text-primary-foreground" />
         </div>
         <div>
-          <h3 className="text-2xl text-primary font-bold">{category.title}</h3>
-          <p className="text-muted-foreground">
+          <h3 className="text-xl text-primary font-bold">{category.title}</h3>
+          <p className="text-muted-foreground text-sm">
             {category.skills.reduce((sum: number, skill: Skill) => sum + skill.hours, 0).toLocaleString()} total hours
           </p>
         </div>
       </div>
 
-      {/* Skills Grid */}
+      {/* Skills Grid - More compact */}
       <motion.div 
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
-        className="grid md:grid-cols-2 xl:grid-cols-3 gap-6"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4"
       >
         {category.skills.map((skill: Skill, skillIndex: number) => (
           <motion.div key={skillIndex} variants={cardVariants}>
-            <SkillCard skill={skill} index={skillIndex} />
+            <SkillCard skill={skill} />
           </motion.div>
         ))}
       </motion.div>
@@ -284,7 +228,7 @@ function SummaryStats() {
       variants={containerVariants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
-      className="mt-16 text-center"
+      className="text-center"
     >
       <div className="grid md:grid-cols-4 gap-6">
         {stats.map((stat, index) => (
@@ -380,15 +324,15 @@ export function Skills() {
         {/* Section Title */}
         <SectionTitle />
 
+        {/* Summary Stats - Moved to top */}
+        <SummaryStats />
+
         {/* Skills Categories */}
-        <div className="space-y-12">
+        <div className="space-y-8 mt-12">
           {skillCategories.map((category, categoryIndex) => (
-            <SkillCategory key={categoryIndex} category={category} categoryIndex={categoryIndex} />
+            <SkillCategory key={categoryIndex} category={category} />
           ))}
         </div>
-
-        {/* Summary Stats */}
-        <SummaryStats />
       </div>
     </section>
   );

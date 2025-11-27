@@ -1,67 +1,23 @@
 "use client";
 import { motion, useScroll, useTransform } from "motion/react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { Menu, X, Home, User, Briefcase, Code, MessageCircle, BookOpen } from "lucide-react";
+import { Menu, X, User, MessageCircle, BookOpen } from "lucide-react";
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { ThemePicker } from './ThemePicker';
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("hero");
   const pathname = usePathname();
-  const isHomePage = pathname === "/";
   const { scrollY } = useScroll();
-  
-  const navBg = useTransform(
-    scrollY,
-    [0, 100],
-    ["rgba(0, 0, 0, 0)", "rgba(0, 0, 0, 0.8)"]
-  );
   
   const backdropBlur = useTransform(scrollY, [0, 100], [0, 10]);
 
   const navItems = [
-    { id: "hero", label: "Home", icon: Home, href: "/" },
-    { id: "about", label: "About", icon: User, href: "/#about" },
-    { id: "experience", label: "Experience", icon: Briefcase, href: "/#experience" },
-    { id: "skills", label: "Skills", icon: Code, href: "/#skills" },
+    { id: "about", label: "About", icon: User, href: "/about" },
     { id: "blogs", label: "Blogs", icon: BookOpen, href: "/blogs" },
-    { id: "contact", label: "Contact", icon: MessageCircle, href: "/#contact" }
   ];
-
-  // Handle scroll spy
-  useEffect(() => {
-    if (!isHomePage) return;
-    
-    const handleScroll = () => {
-      const sections = navItems.map(item => document.getElementById(item.id));
-      const scrollPosition = window.scrollY + 100;
-
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i];
-        if (section && section.offsetTop <= scrollPosition) {
-          setActiveSection(navItems[i].id);
-          break;
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [isHomePage]);
-
-  const handleNavigation = (item: typeof navItems[0]) => {
-    if (isHomePage && item.id !== "blogs") {
-      // Scroll to section on home page
-      const element = document.getElementById(item.id);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
-    }
-    setIsOpen(false);
-  };
 
   return (
     <>
@@ -72,25 +28,29 @@ export function Navigation() {
       >
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center justify-between">
-            {/* Logo */}
-            <motion.div
-              className="flex items-center gap-3"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center overflow-hidden">
-                <ImageWithFallback 
-                  src="/me.avif" 
-                  alt="Fahim Khan Profile" 
-                  className="w-full h-full object-cover rounded-lg"
-                />
-              </div>
-              <div className="hidden sm:block">
-                <div className="text-lg text-secondary">Fahim Khan</div>
-                <div className="text-xs text-muted-foreground">Software Consultant</div>
-              </div>
-            </motion.div>
+            {/* Logo - Clicking redirects to home */}
+            <Link href="/">
+              <motion.div
+                className="flex items-center gap-3 cursor-pointer"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center overflow-hidden">
+                  <ImageWithFallback 
+                    src="/me.avif" 
+                    alt="Fahim Khan Profile" 
+                    className="w-full h-full object-cover rounded-lg"
+                  />
+                </div>
+                <div className="hidden sm:block">
+                  <div className="text-lg text-secondary">Fahim Khan</div>
+                  <div className="text-xs text-muted-foreground">Software Consultant</div>
+                </div>
+              </motion.div>
+            </Link>
 
             {/* Desktop Menu */}
             <motion.div
@@ -100,42 +60,23 @@ export function Navigation() {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               {navItems.map((item, index) => (
-                item.id === "blogs" ? (
-                  <Link key={item.id} href={item.href}>
-                    <motion.div
-                      className={`px-4 py-2 rounded-full transition-all duration-300 cursor-pointer ${
-                        pathname.startsWith('/blogs')
-                          ? "bg-primary text-primary-foreground"
-                          : "text-foreground hover:text-primary hover:bg-muted"
-                      }`}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      initial={{ opacity: 0, y: -20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.4, delay: index * 0.1 }}
-                    >
-                      {item.label}
-                    </motion.div>
-                  </Link>
-                ) : (
-                  <Link key={item.id} href={item.href}>
-                    <motion.div
-                      onClick={() => handleNavigation(item)}
-                      className={`px-4 py-2 rounded-full transition-all duration-300 cursor-pointer ${
-                        activeSection === item.id && isHomePage
-                          ? "bg-primary text-primary-foreground"
-                          : "text-foreground hover:text-primary hover:bg-muted"
-                      }`}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      initial={{ opacity: 0, y: -20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.4, delay: index * 0.1 }}
-                    >
-                      {item.label}
-                    </motion.div>
-                  </Link>
-                )
+                <Link key={item.id} href={item.href}>
+                  <motion.div
+                    className={`px-4 py-2 rounded-full transition-all duration-300 cursor-pointer ${
+                      (item.id === "blogs" && pathname.startsWith('/blogs')) ||
+                      (item.id === "about" && pathname === '/about')
+                        ? "bg-primary text-primary-foreground"
+                        : "text-foreground hover:text-primary hover:bg-muted"
+                    }`}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                  >
+                    {item.label}
+                  </motion.div>
+                </Link>
               ))}
               
               {/* Theme Picker */}
@@ -182,19 +123,21 @@ export function Navigation() {
         <div className="p-6">
           {/* Mobile Header */}
           <div className="flex items-center justify-between mb-8">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center overflow-hidden">
-                <ImageWithFallback 
-                  src="/me.avif" 
-                  alt="Fahim Khan Profile" 
-                  className="w-full h-full object-cover rounded-lg"
-                />
+            <Link href="/" onClick={() => setIsOpen(false)}>
+              <div className="flex items-center gap-3 cursor-pointer">
+                <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center overflow-hidden">
+                  <ImageWithFallback 
+                    src="/me.avif" 
+                    alt="Fahim Khan Profile" 
+                    className="w-full h-full object-cover rounded-lg"
+                  />
+                </div>
+                <div>
+                  <div className="text-lg text-primary">Fahim Khan</div>
+                  <div className="text-xs text-muted-foreground">Software Consultant</div>
+                </div>
               </div>
-              <div>
-                <div className="text-lg text-primary">Fahim Khan</div>
-                <div className="text-xs text-muted-foreground">Software Consultant</div>
-              </div>
-            </div>
+            </Link>
             <button
               onClick={() => setIsOpen(false)}
               className="p-2 rounded-lg hover:bg-muted"
@@ -206,43 +149,24 @@ export function Navigation() {
           {/* Mobile Navigation Items */}
           <div className="space-y-4">
             {navItems.map((item, index) => (
-              item.id === "blogs" ? (
-                <Link key={item.id} href={item.href}>
-                  <motion.div
-                    onClick={() => setIsOpen(false)}
-                    className={`w-full flex items-center gap-4 p-4 rounded-xl transition-all duration-300 cursor-pointer ${
-                      pathname.startsWith('/blogs')
-                        ? "bg-primary text-primary-foreground"
-                        : "text-foreground hover:bg-muted"
-                    }`}
-                    initial={{ opacity: 0, x: 50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.4, delay: index * 0.1 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <item.icon className="w-5 h-5" />
-                    <span>{item.label}</span>
-                  </motion.div>
-                </Link>
-              ) : (
-                <Link key={item.id} href={item.href}>
-                  <motion.div
-                    onClick={() => handleNavigation(item)}
-                    className={`w-full flex items-center gap-4 p-4 rounded-xl transition-all duration-300 cursor-pointer ${
-                      activeSection === item.id && isHomePage
-                        ? "bg-primary text-primary-foreground"
-                        : "text-foreground hover:bg-muted"
-                    }`}
-                    initial={{ opacity: 0, x: 50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.4, delay: index * 0.1 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <item.icon className="w-5 h-5" />
-                    <span>{item.label}</span>
-                  </motion.div>
-                </Link>
-              )
+              <Link key={item.id} href={item.href}>
+                <motion.div
+                  onClick={() => setIsOpen(false)}
+                  className={`w-full flex items-center gap-4 p-4 rounded-xl transition-all duration-300 cursor-pointer ${
+                    (item.id === "blogs" && pathname.startsWith('/blogs')) ||
+                    (item.id === "about" && pathname === '/about')
+                      ? "bg-primary text-primary-foreground"
+                      : "text-foreground hover:bg-muted"
+                  }`}
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <item.icon className="w-5 h-5" />
+                  <span>{item.label}</span>
+                </motion.div>
+              </Link>
             ))}
           </div>
 
