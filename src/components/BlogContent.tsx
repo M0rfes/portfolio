@@ -3,22 +3,23 @@
 import { motion } from 'motion/react';
 import Link from 'next/link';
 import { ArrowLeft, Calendar, Tag } from 'lucide-react';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import rehypeRaw from 'rehype-raw';
-import rehypeSanitize from 'rehype-sanitize';
-import rehypePrism from 'rehype-prism-plus';
-import { BlogPost } from '@/lib/blog';
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import Image from 'next/image';
-import { ImgHTMLAttributes } from 'react';
 import { PrismThemeSync } from './PrismThemeSync';
+import { ReactNode } from 'react';
 
 interface BlogContentProps {
-  post: BlogPost;
+  post: {
+    slug: string;
+    title: string;
+    coverImage: string;
+    excerpt?: string;
+    date: string;
+    keywords: string[];
+  };
+  children: ReactNode;
 }
 
-export function BlogContent({ post }: BlogContentProps) {
+export function BlogContent({ post, children }: BlogContentProps) {
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     return date.toLocaleDateString('en-US', {
@@ -97,124 +98,9 @@ export function BlogContent({ post }: BlogContentProps) {
             )}
           </div>
 
-          {/* Markdown Content */}
+          {/* MDX Content */}
           <div className="prose prose-lg max-w-none">
-            <ReactMarkdown
-              remarkPlugins={[remarkGfm]}
-              rehypePlugins={[rehypeRaw, rehypeSanitize, rehypePrism]}
-              components={{
-                // Custom component for images
-                img: (props: ImgHTMLAttributes<HTMLImageElement>) => {
-                  const { alt, src, width: w, height: h } = props as {
-                    alt?: string;
-                    src?: string;
-                    width?: number | string;
-                    height?: number | string;
-                  };
-                  if (!src) return null;
-                  const width = typeof w === 'string' ? parseInt(w, 10) : w || 1200;
-                  const height = typeof h === 'string' ? parseInt(h, 10) : h || 630;
-                  const hasAlt = !!(alt && alt.trim());
-                  return (
-                    <span className="block my-8">
-                      <Image
-                        src={src}
-                        alt={hasAlt ? alt! : ''}
-                        role={hasAlt ? undefined : 'presentation'}
-                        width={width}
-                        height={height}
-                        loading="lazy"
-                        className="rounded-lg shadow-md w-full h-auto"
-                      />
-                    </span>
-                  );
-                },
-                // Custom component for videos
-                video: ({ ...props }) => (
-                  <span className="block my-8">
-                    <video
-                      {...props}
-                      className="rounded-lg shadow-md w-full"
-                      controls
-                    />
-                  </span>
-                ),
-                // Custom component for links
-                a: ({ ...props }) => (
-                  <a
-                    {...props}
-                    className="blog-link"
-                    target={props.href?.startsWith('http') ? '_blank' : undefined}
-                    rel={props.href?.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  />
-                ),
-                // Custom component for code blocks
-                code: ({ className, children, ...props }) => {
-                  const isInline = !className;
-                  return isInline ? (
-                    <code
-                      className="blog-inline-code"
-                      {...props}
-                    >
-                      {children}
-                    </code>
-                  ) : (
-                    <code className={className} {...props}>
-                      {children}
-                    </code>
-                  );
-                },
-                // Custom component for tables
-                table: ({ ...props }) => (
-                  <div className="overflow-x-auto my-8">
-                    <table className="blog-table" {...props} />
-                  </div>
-                ),
-                thead: ({ ...props }) => (
-                  <thead className="blog-thead" {...props} />
-                ),
-                tbody: ({ ...props }) => (
-                  <tbody className="blog-tbody" {...props} />
-                ),
-                th: ({ ...props }) => (
-                  <th className="blog-th" {...props} />
-                ),
-                td: ({ ...props }) => (
-                  <td className="blog-td" {...props} />
-                ),
-                // Custom component for headings
-                h1: ({ ...props }) => (
-                  <h1 className="blog-h1" {...props} />
-                ),
-                h2: ({ ...props }) => (
-                  <h2 className="blog-h2" {...props} />
-                ),
-                h3: ({ ...props }) => (
-                  <h3 className="blog-h3" {...props} />
-                ),
-                // Custom component for paragraphs
-                p: ({ ...props }) => (
-                  <p className="blog-p" {...props} />
-                ),
-                // Custom component for blockquotes
-                blockquote: ({ ...props }) => (
-                  <blockquote className="blog-blockquote" {...props} />
-                ),
-                // Custom component for lists
-                ul: ({ ...props }) => (
-                  <ul className="blog-ul" {...props} />
-                ),
-                ol: ({ ...props }) => (
-                  <ol className="blog-ol" {...props} />
-                ),
-                // Custom component for strong/bold text
-                strong: ({ ...props }) => (
-                  <strong className="blog-strong" {...props} />
-                ),
-              }}
-            >
-              {post.content}
-            </ReactMarkdown>
+            {children}
           </div>
         </motion.article>
       </div>

@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { getAllBlogSlugs, getBlogPostBySlug } from '@/lib/blog';
+import { getAllBlogSlugs, getBlogBySlug } from '@/lib/blog';
 import { BlogContent } from '@/components/BlogContent';
 
 interface BlogPostPageProps {
@@ -16,36 +16,37 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const post = getBlogPostBySlug(slug);
+  const blog = getBlogBySlug(slug);
 
-  if (!post) {
+  if (!blog) {
     return {
       title: 'Post Not Found',
     };
   }
 
+  const { meta } = blog;
   const url = `https://fahim.shonif.com/blogs/${slug}`;
-  const imageUrl = post.coverImage || 'https://fahim.shonif.com/me.avif';
+  const imageUrl = meta.coverImage || 'https://fahim.shonif.com/me.avif';
   
   return {
-    title: `${post.title} | Fahim Khan`,
-    description: post.excerpt || `Read ${post.title} by Fahim Khan`,
-    keywords: post.keywords.join(', '),
+    title: `${meta.title} | Fahim Khan`,
+    description: meta.excerpt || `Read ${meta.title} by Fahim Khan`,
+    keywords: meta.keywords.join(', '),
     authors: [{ name: 'Fahim Khan' }],
     openGraph: {
-      title: post.title,
-      description: post.excerpt || `Read ${post.title} by Fahim Khan`,
+      title: meta.title,
+      description: meta.excerpt || `Read ${meta.title} by Fahim Khan`,
       type: 'article',
       url: url,
       siteName: 'Fahim Khan - Software Consultant',
       locale: 'en_US',
-      publishedTime: post.date,
+      publishedTime: meta.date,
       authors: ['Fahim Khan'],
-      tags: post.keywords,
+      tags: meta.keywords,
       images: [
         {
           url: imageUrl,
-          alt: post.title,
+          alt: meta.title,
           width: 1200,
           height: 630,
         },
@@ -55,20 +56,17 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       card: 'summary_large_image',
       site: '@M0rfes',
       creator: '@M0rfes',
-      title: post.title,
-      description: post.excerpt || `Read ${post.title} by Fahim Khan`,
+      title: meta.title,
+      description: meta.excerpt || `Read ${meta.title} by Fahim Khan`,
       images: [imageUrl],
     },
     other: {
-      // Additional metadata for various platforms
       'article:author': 'Fahim Khan',
-      'article:published_time': post.date,
-      ...Object.fromEntries(post.keywords.map((tag, i) => [`article:tag:${i}`, tag])),
-      // Schema.org for structured data
+      'article:published_time': meta.date,
+      ...Object.fromEntries(meta.keywords.map((tag, i) => [`article:tag:${i}`, tag])),
       'schema:type': 'Article',
       'schema:author': 'Fahim Khan',
-      'schema:datePublished': post.date,
-      // Bluesky and Mastodon use Open Graph, but these help with indexing
+      'schema:datePublished': meta.date,
       'fediverse:creator': '@morfes',
     },
   };
@@ -77,16 +75,21 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;
   
-  // Validate slug exists and is a string
   if (!slug || typeof slug !== 'string') {
     notFound();
   }
   
-  const post = getBlogPostBySlug(slug);
+  const blog = getBlogBySlug(slug);
 
-  if (!post) {
+  if (!blog) {
     notFound();
   }
 
-  return <BlogContent post={post} />;
+  const { meta, Content } = blog;
+
+  return (
+    <BlogContent post={{ slug, ...meta }}>
+      <Content />
+    </BlogContent>
+  );
 }
