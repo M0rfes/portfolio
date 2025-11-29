@@ -19,8 +19,8 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       // Get theme from localStorage or use default
       const savedTheme = localStorage.getItem("theme") as Theme | null;
       const defaultTheme = "theme-catppuccin-mocha";
-      
-      if (savedTheme && themes.some(t => t.id === savedTheme)) {
+
+      if (savedTheme && themes.some((t) => t.id === savedTheme)) {
         setThemeState(savedTheme);
         document.documentElement.className = savedTheme;
       } else {

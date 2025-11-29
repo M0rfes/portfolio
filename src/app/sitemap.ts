@@ -1,16 +1,16 @@
-import { MetadataRoute } from 'next'
+import { MetadataRoute } from "next";
 
-export const dynamic = 'force-static'
+export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://fahim.shonif.com'
-  
+  const baseUrl = "https://fahim.shonif.com";
+
   return [
     {
       url: baseUrl,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: "monthly",
       priority: 1,
     },
-  ]
-} 
+  ];
+}

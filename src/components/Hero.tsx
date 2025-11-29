@@ -10,9 +10,9 @@ export function Hero() {
       transition: {
         staggerChildren: 0.15,
         duration: 0.8,
-        ease: "easeOut" as const
-      }
-    }
+        ease: "easeOut" as const,
+      },
+    },
   };
 
   const itemVariants = {
@@ -22,9 +22,9 @@ export function Hero() {
       opacity: 1,
       transition: {
         duration: 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94] as const
-      }
-    }
+        ease: [0.25, 0.46, 0.45, 0.94] as const,
+      },
+    },
   };
 
   const floatingVariants = {
@@ -33,31 +33,31 @@ export function Hero() {
       transition: {
         duration: 5,
         repeat: Infinity,
-        ease: "easeInOut" as const
-      }
-    }
+        ease: "easeInOut" as const,
+      },
+    },
   };
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative px-4 py-20 overflow-x-clip">
-      <motion.div 
+    <section
+      id="hero"
+      className="min-h-screen flex items-center justify-center relative px-4 py-20 overflow-x-clip"
+    >
+      <motion.div
         className="max-w-6xl mx-auto text-center"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
         {/* Main heading */}
-        <motion.div
-          variants={itemVariants}
-          className="relative"
-        >
+        <motion.div variants={itemVariants} className="relative">
           <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-[var(--portfolio-primary)] via-[var(--portfolio-secondary)] to-[var(--portfolio-accent)] bg-clip-text text-transparent mb-6 animate-gradient">
             FAHIM KHAN
           </h1>
         </motion.div>
 
         {/* Subtitle */}
-        <motion.h2 
+        <motion.h2
           variants={itemVariants}
           className="text-2xl md:text-3xl text-[var(--portfolio-primary)] dark:text-[var(--portfolio-secondary)] mb-4 font-semibold"
         >
@@ -65,34 +65,51 @@ export function Hero() {
         </motion.h2>
 
         {/* Tagline */}
-        <motion.p 
+        <motion.p
           variants={itemVariants}
           className="text-lg md:text-xl text-foreground max-w-3xl mx-auto mb-8 leading-relaxed font-medium"
         >
           Crafting innovative solutions with{" "}
           <span className="text-accent font-semibold">Rust</span>,{" "}
           <span className="text-secondary font-semibold">Go</span>, and{" "}
-          <span className="text-primary font-semibold">TypeScript</span>
-          {" "}• From Mumbai slums to global tech leadership
+          <span className="text-primary font-semibold">TypeScript</span> • From
+          Mumbai slums to global tech leadership
         </motion.p>
 
         {/* Quick info cards */}
-        <motion.div 
+        <motion.div
           variants={itemVariants}
           className="flex flex-wrap justify-center gap-4 mb-12"
         >
           {[
-            { icon: MapPin, text: "Abu Dhabi, UAE", color: "text-primary", href: null },
-            { icon: Mail, text: "fahimkhan20148@gmail.com", color: "text-secondary", href: "mailto:fahimkhan20148@gmail.com" },
-            { icon: Phone, text: "+971 507 286 133", color: "text-accent", href: "tel:+971507286133" }
+            {
+              icon: MapPin,
+              text: "Abu Dhabi, UAE",
+              color: "text-primary",
+              href: null,
+            },
+            {
+              icon: Mail,
+              text: "fahimkhan20148@gmail.com",
+              color: "text-secondary",
+              href: "mailto:fahimkhan20148@gmail.com",
+            },
+            {
+              icon: Phone,
+              text: "+971 507 286 133",
+              color: "text-accent",
+              href: "tel:+971507286133",
+            },
           ].map((item, index) => {
             const content = (
               <>
                 <item.icon className={`w-4 h-4 ${item.color}`} />
-                <span className="text-sm text-card-foreground font-semibold">{item.text}</span>
+                <span className="text-sm text-card-foreground font-semibold">
+                  {item.text}
+                </span>
               </>
             );
-            
+
             return item.href ? (
               <motion.a
                 key={index}
@@ -117,7 +134,7 @@ export function Hero() {
         </motion.div>
 
         {/* CTA Buttons */}
-        <motion.div 
+        <motion.div
           variants={itemVariants}
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
@@ -143,28 +160,30 @@ export function Hero() {
 
         {/* Floating tech icons */}
         <div className="absolute inset-0 pointer-events-none">
-          {["Rust", "Go", "React", "Node.js", "TypeScript"].map((tech, index) => (
-            <motion.div
-              key={tech}
-              className="absolute text-sm font-medium text-muted-foreground/70 select-none"
-              style={{
-                left: `${20 + (index * 15)}%`,
-                top: `${30 + (index % 2) * 40}%`,
-              }}
-              animate={{
-                y: [-15, 15, -15],
-                opacity: [0.4, 0.7, 0.4],
-              }}
-              transition={{
-                duration: 4 + index * 0.5,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: index * 0.8,
-              }}
-            >
-              {tech}
-            </motion.div>
-          ))}
+          {["Rust", "Go", "React", "Node.js", "TypeScript"].map(
+            (tech, index) => (
+              <motion.div
+                key={tech}
+                className="absolute text-sm font-medium text-muted-foreground/70 select-none"
+                style={{
+                  left: `${20 + index * 15}%`,
+                  top: `${30 + (index % 2) * 40}%`,
+                }}
+                animate={{
+                  y: [-15, 15, -15],
+                  opacity: [0.4, 0.7, 0.4],
+                }}
+                transition={{
+                  duration: 4 + index * 0.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: index * 0.8,
+                }}
+              >
+                {tech}
+              </motion.div>
+            ),
+          )}
         </div>
       </motion.div>
 

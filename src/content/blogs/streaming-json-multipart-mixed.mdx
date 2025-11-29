@@ -1,7 +1,9 @@
 export const meta = {
   title: "Streaming JSON Data with Multipart/Mixed and Meros",
-  coverImage: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1200&h=630&fit=crop",
-  excerpt: "Learn how to stream JSON chunks using multipart/mixed content type and Meros library for better perceived performance and immediate user feedback.",
+  coverImage:
+    "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1200&h=630&fit=crop",
+  excerpt:
+    "Learn how to stream JSON chunks using multipart/mixed content type and Meros library for better perceived performance and immediate user feedback.",
   date: "2024-01-15",
   keywords: [
     "multipart",
@@ -20,8 +22,8 @@ export const meta = {
     "webapi",
     "nodejs",
     "frontend",
-    "backend"
-  ]
+    "backend",
+  ],
 };
 
 [Github repo](https://github.com/M0rfes/multipart-mixed)
@@ -55,23 +57,23 @@ func streamTableData(w http.ResponseWriter, r *http.Request) {
     boundary := "boundary123abc"
     w.Header().Set("Content-Type", fmt.Sprintf("multipart/mixed; boundary=%s", boundary))
     w.Header().Set("Transfer-Encoding", "chunked")
-    
+
     flusher, ok := w.(http.Flusher)
     if !ok {
         http.Error(w, "Streaming unsupported!", http.StatusInternalServerError)
         return
     }
-    
+
     // Process each row individually
     for _, row := range dataRows {
         // CPU-bound operation for each row
         processedData := performHeavyCalculation(row)
-        
+
         json, err := json.Marshal(processedData)
         if err != nil {
             continue
         }
-        
+
         // Send this row immediately
         fmt.Fprintf(w, "--%s\r\n", boundary)
         fmt.Fprint(w, "Content-Type: application/json\r\n\r\n")
@@ -79,7 +81,7 @@ func streamTableData(w http.ResponseWriter, r *http.Request) {
         fmt.Fprint(w, "\r\n")
         flusher.Flush()
     }
-    
+
     // End the multipart stream
     fmt.Fprintf(w, "--%s--\r\n", boundary)
     flusher.Flush()
@@ -91,32 +93,33 @@ func streamTableData(w http.ResponseWriter, r *http.Request) {
 Meros is a JavaScript library that parses multipart streams:
 
 ```javascript
-import { meros } from 'https://cdn.skypack.dev/meros';
+import { meros } from "https://cdn.skypack.dev/meros";
 
 async function streamMultipartWithMeros(url, onPart) {
-    const response = await fetch(url, {
-        headers: { Accept: "multipart/mixed" }
-    });
-    
-    const parts = await meros(response);
-    for await (const part of parts) {
-        onPart(part.body);
-    }
+  const response = await fetch(url, {
+    headers: { Accept: "multipart/mixed" },
+  });
+
+  const parts = await meros(response);
+  for await (const part of parts) {
+    onPart(part.body);
+  }
 }
 
 // Usage
 const tableRows = [];
 streamMultipartWithMeros("/table-data", (rowData) => {
-    tableRows.push(rowData);
-    updateTable(); // Update UI immediately
+  tableRows.push(rowData);
+  updateTable(); // Update UI immediately
 });
 ```
 
 ## Table Data Scenario
 
 Consider a scenario where calculating data for each table row involves CPU-bound operations like:
+
 - Complex mathematical computations
-- Data aggregations from multiple sources  
+- Data aggregations from multiple sources
 - Heavy data processing or transformations
 
 Without streaming, users wait for all rows to be calculated before seeing any results. With multipart streaming, each row appears as soon as its calculation completes.
@@ -130,17 +133,17 @@ func streamMultipleSources(w http.ResponseWriter, r *http.Request) {
     boundary := "boundary123abc"
     w.Header().Set("Content-Type", fmt.Sprintf("multipart/mixed; boundary=%s", boundary))
     w.Header().Set("Transfer-Encoding", "chunked")
-    
+
     flusher := w.(http.Flusher)
-    
+
     postCh := make(chan string)
     commentCh := make(chan string)
     userCh := make(chan string)
-    
+
     go fetchPosts(postCh)
     go fetchComments(commentCh)
     go fetchUsers(userCh)
-    
+
     sendPart := func(jsonData string) {
         fmt.Fprintf(w, "--%s\r\n", boundary)
         fmt.Fprint(w, "Content-Type: application/json\r\n\r\n")
@@ -148,7 +151,7 @@ func streamMultipleSources(w http.ResponseWriter, r *http.Request) {
         fmt.Fprint(w, "\r\n")
         flusher.Flush()
     }
-    
+
     // Send data as it becomes available from any source
     for {
         select {
@@ -171,12 +174,12 @@ func streamMultipleSources(w http.ResponseWriter, r *http.Request) {
                 sendPart(user)
             }
         }
-        
+
         if postCh == nil && commentCh == nil && userCh == nil {
             break
         }
     }
-    
+
     fmt.Fprintf(w, "--%s--\r\n", boundary)
     flusher.Flush()
 }
@@ -188,41 +191,42 @@ When receiving data from multiple sources, use Maps to track what's loaded:
 
 ```javascript
 const posts = new Map();
-const comments = new Map(); 
+const comments = new Map();
 const users = new Map();
 
 streamMultipartWithMeros("/stream", (data) => {
-    if (data.type === "post") {
-        posts.set(data.id, data);
-    } else if (data.type === "comment") {
-        comments.set(data.id, data);
-    } else if (data.type === "user") {
-        users.set(data.id, data);
-    }
-    
-    renderData(); // Update UI with current state
+  if (data.type === "post") {
+    posts.set(data.id, data);
+  } else if (data.type === "comment") {
+    comments.set(data.id, data);
+  } else if (data.type === "user") {
+    users.set(data.id, data);
+  }
+
+  renderData(); // Update UI with current state
 });
 
 function renderData() {
-    posts.forEach(post => {
-        const postComments = post.comments.map(commentId => {
-            const comment = comments.get(commentId);
-            if (!comment) return `<div>Loading comment...</div>`;
-            
-            const user = users.get(comment.userId);
-            const userName = user ? user.name : "Loading user...";
-            
-            return `<div>${comment.text} - ${userName}</div>`;
-        });
-        
-        // Render post with available data
+  posts.forEach((post) => {
+    const postComments = post.comments.map((commentId) => {
+      const comment = comments.get(commentId);
+      if (!comment) return `<div>Loading comment...</div>`;
+
+      const user = users.get(comment.userId);
+      const userName = user ? user.name : "Loading user...";
+
+      return `<div>${comment.text} - ${userName}</div>`;
     });
+
+    // Render post with available data
+  });
 }
 ```
 
 ## When to Use Multipart Streaming
 
 Use multipart streaming when:
+
 - Individual data pieces can be processed independently
 - Computing each piece takes significant time
 - Users benefit from seeing partial results immediately
@@ -249,15 +253,56 @@ Multipart streaming provides a straightforward way to improve user experience wh
 Here are some demonstrations of multipart streaming in action:
 
 {/* Demo Videos (YouTube Embeds) */}
-<div style={{display: "grid", gap: "2rem"}}>
-    <div>
-        <p><strong>Streaming Multipart Flow Demo</strong></p>
-        <iframe width="560" height="315" style={{maxWidth: "100%", width: "100%", aspectRatio: "16/9"}} src="https://www.youtube.com/embed/38NifaQ1Tt4?si=QD3tz_5Pm3sithPG" title="Streaming Multipart Flow Demo" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
-        <p><a href="https://youtu.be/38NifaQ1Tt4" target="_blank" rel="noopener noreferrer">Open on YouTube</a></p>
-    </div>
-    <div>
-        <p><strong>Data Loader Streaming Demo</strong></p>
-        <iframe width="560" height="315" style={{maxWidth: "100%", width: "100%", aspectRatio: "16/9"}} src="https://www.youtube.com/embed/FS-CIA9cLq4?si=FIlpWcgBM1oa7WmR" title="Data Loader Streaming Demo" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
-        <p><a href="https://youtu.be/FS-CIA9cLq4" target="_blank" rel="noopener noreferrer">Open on YouTube</a></p>
-    </div>
+
+<div style={{ display: "grid", gap: "2rem" }}>
+  <div>
+    <p>
+      <strong>Streaming Multipart Flow Demo</strong>
+    </p>
+    <iframe
+      width="560"
+      height="315"
+      style={{ maxWidth: "100%", width: "100%", aspectRatio: "16/9" }}
+      src="https://www.youtube.com/embed/38NifaQ1Tt4?si=QD3tz_5Pm3sithPG"
+      title="Streaming Multipart Flow Demo"
+      frameBorder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerPolicy="strict-origin-when-cross-origin"
+      allowFullScreen
+    ></iframe>
+    <p>
+      <a
+        href="https://youtu.be/38NifaQ1Tt4"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Open on YouTube
+      </a>
+    </p>
+  </div>
+  <div>
+    <p>
+      <strong>Data Loader Streaming Demo</strong>
+    </p>
+    <iframe
+      width="560"
+      height="315"
+      style={{ maxWidth: "100%", width: "100%", aspectRatio: "16/9" }}
+      src="https://www.youtube.com/embed/FS-CIA9cLq4?si=FIlpWcgBM1oa7WmR"
+      title="Data Loader Streaming Demo"
+      frameBorder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerPolicy="strict-origin-when-cross-origin"
+      allowFullScreen
+    ></iframe>
+    <p>
+      <a
+        href="https://youtu.be/FS-CIA9cLq4"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Open on YouTube
+      </a>
+    </p>
+  </div>
 </div>

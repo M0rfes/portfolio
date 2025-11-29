@@ -1,31 +1,31 @@
 "use client";
 
-import { useState, useMemo } from 'react';
-import Link from 'next/link';
-import { motion } from 'motion/react';
-import { Search, Calendar, Tag } from 'lucide-react';
-import { BlogPostMetadata } from '@/lib/blog';
-import { ImageWithFallback } from './figma/ImageWithFallback';
+import { useState, useMemo } from "react";
+import Link from "next/link";
+import { motion } from "motion/react";
+import { Search, Calendar, Tag } from "lucide-react";
+import { BlogPostMetadata } from "@/lib/blog";
+import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 interface BlogListProps {
   initialPosts: BlogPostMetadata[];
 }
 
 export function BlogList({ initialPosts }: BlogListProps) {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
 
   const filteredPosts = useMemo(() => {
-    if (!searchQuery || searchQuery.trim() === '') {
+    if (!searchQuery || searchQuery.trim() === "") {
       return initialPosts;
     }
 
     const searchTerm = searchQuery.toLowerCase().trim();
-    
+
     return initialPosts.filter((post) => {
       const titleMatch = post.title.toLowerCase().includes(searchTerm);
       const slugMatch = post.slug.toLowerCase().includes(searchTerm);
       const keywordsMatch = post.keywords.some((keyword) =>
-        keyword.toLowerCase().includes(searchTerm)
+        keyword.toLowerCase().includes(searchTerm),
       );
       const excerptMatch = post.excerpt?.toLowerCase().includes(searchTerm);
 
@@ -35,10 +35,10 @@ export function BlogList({ initialPosts }: BlogListProps) {
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
+    return date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
     });
   };
 
@@ -60,7 +60,8 @@ export function BlogList({ initialPosts }: BlogListProps) {
         </div>
         {searchQuery && (
           <p className="text-center text-muted-foreground mt-4">
-            Found {filteredPosts.length} {filteredPosts.length === 1 ? 'post' : 'posts'}
+            Found {filteredPosts.length}{" "}
+            {filteredPosts.length === 1 ? "post" : "posts"}
           </p>
         )}
       </div>
@@ -69,7 +70,9 @@ export function BlogList({ initialPosts }: BlogListProps) {
       {filteredPosts.length === 0 ? (
         <div className="text-center py-12">
           <p className="text-muted-foreground text-lg">
-            {searchQuery ? 'No posts found matching your search.' : 'No blog posts available yet.'}
+            {searchQuery
+              ? "No posts found matching your search."
+              : "No blog posts available yet."}
           </p>
         </div>
       ) : (

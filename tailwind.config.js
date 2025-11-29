@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: 'class',
+  darkMode: "class",
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -43,11 +43,11 @@ module.exports = {
         input: "var(--input)",
         ring: "var(--ring)",
         chart: {
-          "1": "var(--chart-1)",
-          "2": "var(--chart-2)",
-          "3": "var(--chart-3)",
-          "4": "var(--chart-4)",
-          "5": "var(--chart-5)",
+          1: "var(--chart-1)",
+          2: "var(--chart-2)",
+          3: "var(--chart-3)",
+          4: "var(--chart-4)",
+          5: "var(--chart-5)",
         },
         portfolio: {
           primary: "var(--portfolio-primary)",

@@ -6,7 +6,7 @@ export {
   searchBlogPosts,
   type BlogPostMeta,
   type BlogEntry,
-} from '@/content/blogs';
+} from "@/content/blogs";
 
 // Legacy type for backwards compatibility
 export interface BlogPostMetadata {

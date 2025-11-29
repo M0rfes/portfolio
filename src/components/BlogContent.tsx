@@ -1,11 +1,11 @@
 "use client";
 
-import { motion } from 'motion/react';
-import Link from 'next/link';
-import { ArrowLeft, Calendar, Tag } from 'lucide-react';
-import { ImageWithFallback } from './figma/ImageWithFallback';
-import { PrismThemeSync } from './PrismThemeSync';
-import { ReactNode } from 'react';
+import { motion } from "motion/react";
+import Link from "next/link";
+import { ArrowLeft, Calendar, Tag } from "lucide-react";
+import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { PrismThemeSync } from "./PrismThemeSync";
+import { ReactNode } from "react";
 
 interface BlogContentProps {
   post: {
@@ -22,10 +22,10 @@ interface BlogContentProps {
 export function BlogContent({ post, children }: BlogContentProps) {
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
+    return date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
     });
   };
 
@@ -68,9 +68,7 @@ export function BlogContent({ post, children }: BlogContentProps) {
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           {/* Title */}
-          <h1 className="blog-title">
-            {post.title}
-          </h1>
+          <h1 className="blog-title">{post.title}</h1>
 
           {/* Meta Information */}
           <div className="blog-meta">
@@ -86,10 +84,7 @@ export function BlogContent({ post, children }: BlogContentProps) {
                 <Tag className="w-5 h-5 text-muted-foreground" />
                 <div className="flex flex-wrap gap-2">
                   {post.keywords.map((keyword, idx) => (
-                    <span
-                      key={idx}
-                      className="blog-keyword"
-                    >
+                    <span key={idx} className="blog-keyword">
                       {keyword}
                     </span>
                   ))}
@@ -99,9 +94,7 @@ export function BlogContent({ post, children }: BlogContentProps) {
           </div>
 
           {/* MDX Content */}
-          <div className="prose prose-lg max-w-none">
-            {children}
-          </div>
+          <div className="prose prose-lg max-w-none">{children}</div>
         </motion.article>
       </div>
       <PrismThemeSync />

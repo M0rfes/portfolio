@@ -1,7 +1,9 @@
 export const meta = {
   title: "Implementing Resumable Downloads in React and Node.js",
-  coverImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&h=630&fit=crop",
-  excerpt: "Learn how to implement resumable downloads for large files using HTTP Range requests, IndexedDB, and React hooks. Solve connection interruptions and enable pause/resume functionality for better user experience.",
+  coverImage:
+    "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&h=630&fit=crop",
+  excerpt:
+    "Learn how to implement resumable downloads for large files using HTTP Range requests, IndexedDB, and React hooks. Solve connection interruptions and enable pause/resume functionality for better user experience.",
   date: "2024-11-23",
   keywords: [
     "React",
@@ -21,8 +23,8 @@ export const meta = {
     "file",
     "binary",
     "progressive",
-    "API"
-  ]
+    "API",
+  ],
 };
 
 [Github repo](https://github.com/M0rfes/resume-downlaod)
@@ -37,13 +39,23 @@ Modern HTTP servers and browsers support the Range header, which allows partial 
 
 Express and NestJS servers handle HTTP Range headers, serving only the requested byte range of a file, with status 206 to indicate partial content.
 
-<img width="1396" height="1984" alt="express" src="https://github.com/user-attachments/assets/38320a11-a68e-47f8-9aad-fdbb7c249ea8" />
+<img
+  width="1396"
+  height="1984"
+  alt="express"
+  src="https://github.com/user-attachments/assets/38320a11-a68e-47f8-9aad-fdbb7c249ea8"
+/>
 
 ## Frontend Implementation
 
 A React hook stores partial downloads in IndexedDB, tracks byte offsets, and resumes at the correct point after pause, reload, or disconnect. Once all chunks are downloaded, it assembles the file for the user:
 
-<img width="1728" height="2344" alt="downloadChunk" src="https://github.com/user-attachments/assets/4c19be1f-6732-4c27-a80d-40356141e6f0" />
+<img
+  width="1728"
+  height="2344"
+  alt="downloadChunk"
+  src="https://github.com/user-attachments/assets/4c19be1f-6732-4c27-a80d-40356141e6f0"
+/>
 
 ### Key Technical Points
 
@@ -85,7 +97,25 @@ This architecture improves reliability, user experience, and resource efficiency
 
 Check out the [GitHub repository](https://github.com/M0rfes/resume-downlaod) for a live demo and complete implementation details.
 
-<div style={{margin: "2rem 0"}}>
-  <iframe width="560" height="315" style={{maxWidth: "100%", width: "100%", aspectRatio: "16/9"}} src="https://www.youtube.com/embed/jIApFQmkeX0?si=5GZYytLr9xurRUfD" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
-  <p><a href="https://youtu.be/jIApFQmkeX0?si=4KplT_mGYaujJHAV" target="_blank" rel="noopener noreferrer">Open on YouTube</a></p>
+<div style={{ margin: "2rem 0" }}>
+  <iframe
+    width="560"
+    height="315"
+    style={{ maxWidth: "100%", width: "100%", aspectRatio: "16/9" }}
+    src="https://www.youtube.com/embed/jIApFQmkeX0?si=5GZYytLr9xurRUfD"
+    title="YouTube video player"
+    frameBorder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerPolicy="strict-origin-when-cross-origin"
+    allowFullScreen
+  ></iframe>
+  <p>
+    <a
+      href="https://youtu.be/jIApFQmkeX0?si=4KplT_mGYaujJHAV"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Open on YouTube
+    </a>
+  </p>
 </div>

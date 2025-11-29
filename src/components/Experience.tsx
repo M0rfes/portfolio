@@ -15,7 +15,7 @@ interface Experience {
   technologies: string[];
 }
 
-function ExperienceCard({ exp, index }: { exp: Experience, index: number }) {
+function ExperienceCard({ exp, index }: { exp: Experience; index: number }) {
   const cardRef = useRef(null);
   const isCardInView = useInView(cardRef, { once: true, margin: "-50px" });
 
@@ -26,9 +26,9 @@ function ExperienceCard({ exp, index }: { exp: Experience, index: number }) {
       opacity: 1,
       transition: {
         duration: 0.8,
-        ease: "easeOut" as const
-      }
-    }
+        ease: "easeOut" as const,
+      },
+    },
   };
 
   const rightItemVariants = {
@@ -38,9 +38,9 @@ function ExperienceCard({ exp, index }: { exp: Experience, index: number }) {
       opacity: 1,
       transition: {
         duration: 0.8,
-        ease: "easeOut" as const
-      }
-    }
+        ease: "easeOut" as const,
+      },
+    },
   };
 
   return (
@@ -50,29 +50,39 @@ function ExperienceCard({ exp, index }: { exp: Experience, index: number }) {
       animate={isCardInView ? "visible" : "hidden"}
       variants={index % 2 === 0 ? leftItemVariants : rightItemVariants}
       className={`relative flex items-center mb-12 ${
-        index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+        index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
       }`}
     >
       {/* Timeline dot */}
-      <div className={`absolute left-6 md:left-1/2 w-4 h-4 rounded-full border-4 border-white transform md:-translate-x-2 ${
-        exp.current ? 'bg-[var(--portfolio-accent)] animate-pulse' : 'bg-[var(--portfolio-primary)]'
-      } shadow-lg z-10`}>
+      <div
+        className={`absolute left-6 md:left-1/2 w-4 h-4 rounded-full border-4 border-white transform md:-translate-x-2 ${
+          exp.current
+            ? "bg-[var(--portfolio-accent)] animate-pulse"
+            : "bg-[var(--portfolio-primary)]"
+        } shadow-lg z-10`}
+      >
         {exp.current && (
           <div className="absolute inset-0 rounded-full bg-[var(--portfolio-accent)] animate-ping"></div>
         )}
       </div>
 
       {/* Content */}
-      <div className={`w-full md:w-5/12 ml-16 md:ml-0 ${
-        index % 2 === 0 ? 'md:mr-auto md:pr-8' : 'md:ml-auto md:pl-8'
-      }`}>
+      <div
+        className={`w-full md:w-5/12 ml-16 md:ml-0 ${
+          index % 2 === 0 ? "md:mr-auto md:pr-8" : "md:ml-auto md:pl-8"
+        }`}
+      >
         <motion.div
           className={`p-6 rounded-2xl shadow-xl border-2 ${
-            index === 0 ? 'bg-primary border-primary' :
-            index === 1 ? 'bg-secondary border-secondary' :
-            index === 2 ? 'bg-accent border-accent' :
-            index === 3 ? 'bg-secondary border-secondary' :
-            'bg-primary border-primary'
+            index === 0
+              ? "bg-primary border-primary"
+              : index === 1
+                ? "bg-secondary border-secondary"
+                : index === 2
+                  ? "bg-accent border-accent"
+                  : index === 3
+                    ? "bg-secondary border-secondary"
+                    : "bg-primary border-primary"
           } relative overflow-hidden`}
           whileHover={{ scale: 1.02, y: -5 }}
           transition={{ duration: 0.3 }}
@@ -88,12 +98,18 @@ function ExperienceCard({ exp, index }: { exp: Experience, index: number }) {
             <div className="mb-4">
               <div className="flex items-center gap-2 mb-2">
                 <Award className="w-5 h-5 text-primary-foreground" />
-                <h3 className="text-xl font-bold text-primary-foreground">{exp.title}</h3>
+                <h3 className="text-xl font-bold text-primary-foreground">
+                  {exp.title}
+                </h3>
                 {exp.current && (
-                  <span className="px-2 py-1 text-xs bg-card text-card-foreground rounded-full font-semibold">Current</span>
+                  <span className="px-2 py-1 text-xs bg-card text-card-foreground rounded-full font-semibold">
+                    Current
+                  </span>
                 )}
               </div>
-              <h4 className="text-lg mb-2 font-bold text-primary-foreground">{exp.company}</h4>
+              <h4 className="text-lg mb-2 font-bold text-primary-foreground">
+                {exp.company}
+              </h4>
               <div className="flex flex-wrap gap-4 text-sm text-primary-foreground font-semibold">
                 <div className="flex items-center gap-1">
                   <MapPin className="w-4 h-4" />
@@ -110,13 +126,17 @@ function ExperienceCard({ exp, index }: { exp: Experience, index: number }) {
             <div className="mb-4">
               <div className="flex items-center gap-2 mb-3">
                 <TrendingUp className="w-4 h-4 text-primary-foreground" />
-                <span className="text-sm font-bold text-primary-foreground">Key Achievements</span>
+                <span className="text-sm font-bold text-primary-foreground">
+                  Key Achievements
+                </span>
               </div>
               <ul className="space-y-2 text-sm">
                 {exp.highlights.map((highlight: string, idx: number) => (
                   <li key={idx} className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 bg-primary-foreground rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-primary-foreground font-semibold">{highlight}</span>
+                    <span className="text-primary-foreground font-semibold">
+                      {highlight}
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -124,7 +144,9 @@ function ExperienceCard({ exp, index }: { exp: Experience, index: number }) {
 
             {/* Technologies */}
             <div>
-              <span className="text-xs mb-2 block font-bold text-primary-foreground">Technologies Used</span>
+              <span className="text-xs mb-2 block font-bold text-primary-foreground">
+                Technologies Used
+              </span>
               <div className="flex flex-wrap gap-2">
                 {exp.technologies.map((tech: string, idx: number) => (
                   <span
@@ -159,9 +181,18 @@ export function Experience() {
         "Developing Dashboard for end Customers and Service Engineers",
         "Leveraging LLMs to enrich user experience and improve efficiency",
         "Implementing micro frontend tech enabling faster deployment",
-        "Using GenAI with MCPs and Tool Call for true Agentic workflows"
+        "Using GenAI with MCPs and Tool Call for true Agentic workflows",
       ],
-      technologies: ["Go", "Rust", "React", "Next.js", "LLMs", "GenAI", "AI Agent", "MCP"]
+      technologies: [
+        "Go",
+        "Rust",
+        "React",
+        "Next.js",
+        "LLMs",
+        "GenAI",
+        "AI Agent",
+        "MCP",
+      ],
     },
     {
       id: 2,
@@ -174,9 +205,16 @@ export function Experience() {
         "Developing backend services using Rust for high performance",
         "Automating testing with Playwright and Appium",
         "Migrated services from Java to Node.js with significant performance improvements",
-        "Developed HTTP reverse proxy in Rust"
+        "Developed HTTP reverse proxy in Rust",
       ],
-      technologies: ["Rust", "Playwright", "Angular", "MongoDB", "Axum/Tokio", "API Automation"]
+      technologies: [
+        "Rust",
+        "Playwright",
+        "Angular",
+        "MongoDB",
+        "Axum/Tokio",
+        "API Automation",
+      ],
     },
     {
       id: 3,
@@ -189,9 +227,16 @@ export function Experience() {
         "Led development of Bridgecrest car loan management application",
         "Architected microservices using Angular, Apollo GraphQL",
         "Developed cross-platform mobile app with Apache Cordova",
-        "Built CLI tool for benchmarking in Rust"
+        "Built CLI tool for benchmarking in Rust",
       ],
-      technologies: ["Go", "TypeScript", "Angular", "GraphQL", "Playwright", "CI/CD"]
+      technologies: [
+        "Go",
+        "TypeScript",
+        "Angular",
+        "GraphQL",
+        "Playwright",
+        "CI/CD",
+      ],
     },
     {
       id: 4,
@@ -204,9 +249,9 @@ export function Experience() {
         "Developed Slack bot for meeting workflow optimization",
         "Integrated NLP for task identification and ticket conversion",
         "Built high-performance API layer using Rust and Axum",
-        "Mentored junior developers"
+        "Mentored junior developers",
       ],
-      technologies: ["Rust", "PostgreSQL", "AWS", "React Native", "NestJS"]
+      technologies: ["Rust", "PostgreSQL", "AWS", "React Native", "NestJS"],
     },
     {
       id: 5,
@@ -219,10 +264,17 @@ export function Experience() {
         "Developed comprehensive veterinary management tool",
         "Integrated Zoom for virtual consultations",
         "Built WYSIWYG editor with LaTeX support",
-        "Established automated testing processes"
+        "Established automated testing processes",
       ],
-      technologies: ["Angular", "ReactJS", "TypeScript", "Koa", "LaTeX", "NestJS"]
-    }
+      technologies: [
+        "Angular",
+        "ReactJS",
+        "TypeScript",
+        "Koa",
+        "LaTeX",
+        "NestJS",
+      ],
+    },
   ];
 
   const containerVariants = {
@@ -231,9 +283,9 @@ export function Experience() {
       opacity: 1,
       transition: {
         staggerChildren: 0.2,
-        duration: 0.6
-      }
-    }
+        duration: 0.6,
+      },
+    },
   };
 
   const itemVariants = {
@@ -243,13 +295,17 @@ export function Experience() {
       opacity: 1,
       transition: {
         duration: 0.6,
-        ease: "easeOut" as const
-      }
-    }
+        ease: "easeOut" as const,
+      },
+    },
   };
 
   return (
-    <section id="experience" className="py-20 px-4 bg-muted overflow-x-clip" ref={ref}>
+    <section
+      id="experience"
+      className="py-20 px-4 bg-muted overflow-x-clip"
+      ref={ref}
+    >
       <div className="max-w-6xl mx-auto">
         <motion.div
           variants={containerVariants}
@@ -262,7 +318,8 @@ export function Experience() {
               Professional Journey
             </h2>
             <p className="text-xl text-foreground max-w-3xl mx-auto font-medium">
-              7+ years of building scalable solutions and leading engineering teams
+              7+ years of building scalable solutions and leading engineering
+              teams
             </p>
           </motion.div>
 

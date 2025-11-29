@@ -120,9 +120,7 @@ function ContactCard({
       href={contact.link}
       className="flex items-center gap-4 p-4 bg-card backdrop-blur-sm rounded-xl border border-border hover:shadow-lg transition-all duration-300 group"
       initial={{ y: 30, opacity: 0 }}
-      animate={
-        isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }
-      }
+      animate={isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
       transition={{
         duration: 0.6,
         ease: "easeOut",
@@ -138,15 +136,11 @@ function ContactCard({
         transition: { duration: 0.1, ease: "easeOut" },
       }}
     >
-      <div
-        className="p-3 rounded-lg bg-primary group-hover:scale-110 transition-transform duration-300"
-      >
+      <div className="p-3 rounded-lg bg-primary group-hover:scale-110 transition-transform duration-300">
         <contact.icon className="w-5 h-5 text-primary-foreground" />
       </div>
       <div>
-        <div className="text-sm text-muted-foreground">
-          {contact.label}
-        </div>
+        <div className="text-sm text-muted-foreground">{contact.label}</div>
         <div className="text-lg text-foreground">{contact.value}</div>
       </div>
     </motion.a>
@@ -154,13 +148,7 @@ function ContactCard({
 }
 
 // Individual Social Card Component
-function SocialCard({
-  social,
-  index,
-}: {
-  social: SocialLink;
-  index: number;
-}) {
+function SocialCard({ social, index }: { social: SocialLink; index: number }) {
   const ref = useRef(null);
   const isInView = useInView(ref, {
     once: true,
@@ -176,9 +164,7 @@ function SocialCard({
       rel="noopener noreferrer"
       className={`p-4 bg-card backdrop-blur-sm rounded-xl border border-border hover:shadow-lg transition-all duration-300 group ${social.color}`}
       initial={{ y: 30, opacity: 0 }}
-      animate={
-        isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }
-      }
+      animate={isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
       transition={{
         duration: 0.6,
         ease: "easeOut",
@@ -197,9 +183,7 @@ function SocialCard({
       <div className="flex items-center gap-3">
         <social.icon className="w-6 h-6 text-foreground group-hover:scale-110 transition-transform duration-300" />
         <div>
-          <div className="text-sm text-muted-foreground">
-            {social.label}
-          </div>
+          <div className="text-sm text-muted-foreground">{social.label}</div>
           <div className="text-sm text-foreground">{social.username}</div>
         </div>
       </div>
@@ -228,9 +212,7 @@ function AnimatedSection({
       ref={ref}
       className={className}
       initial={{ y: 30, opacity: 0 }}
-      animate={
-        isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }
-      }
+      animate={isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
       transition={{ duration: 0.6, ease: "easeOut", delay }}
     >
       {children}
@@ -254,9 +236,7 @@ function StatusCard({ delay = 0 }: { delay?: number }) {
       ref={ref}
       className="p-6 bg-card backdrop-blur-sm rounded-xl border border-border"
       initial={{ y: 30, opacity: 0 }}
-      animate={
-        isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }
-      }
+      animate={isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
       transition={{ duration: 0.6, ease: "easeOut", delay }}
     >
       <h4 className="text-lg mb-4 flex items-center gap-2 text-foreground font-semibold">
@@ -350,11 +330,7 @@ export function Contact() {
   ];
 
   return (
-    <section
-      id="contact"
-      className="py-20 px-4 overflow-x-clip"
-      ref={ref}
-    >
+    <section id="contact" className="py-20 px-4 overflow-x-clip" ref={ref}>
       <div className="max-w-6xl mx-auto">
         {/* Section Title */}
         <AnimatedSection className="text-center mb-16">
@@ -362,8 +338,8 @@ export function Contact() {
             Let&apos;s Build Something Amazing
           </h2>
           <p className="text-xl text-foreground max-w-3xl mx-auto font-medium">
-            Ready to collaborate on your next project? Let&apos;s
-            connect and create innovative solutions together.
+            Ready to collaborate on your next project? Let&apos;s connect and
+            create innovative solutions together.
           </p>
         </AnimatedSection>
 
@@ -379,11 +355,7 @@ export function Contact() {
 
             <div className="space-y-6 mb-12">
               {contactInfo.map((contact, index) => (
-                <ContactCard
-                  key={index}
-                  contact={contact}
-                  index={index}
-                />
+                <ContactCard key={index} contact={contact} index={index} />
               ))}
             </div>
 
@@ -394,23 +366,23 @@ export function Contact() {
           {/* Social Links & CTA */}
           <div>
             <AnimatedSection delay={0.3}>
-              <h3 className="text-2xl mb-8 text-foreground font-bold">Connect With Me</h3>
+              <h3 className="text-2xl mb-8 text-foreground font-bold">
+                Connect With Me
+              </h3>
             </AnimatedSection>
 
             {/* Social Media Grid */}
             <div className="grid grid-cols-2 gap-4 mb-12">
               {socialLinks.map((social, index) => (
-                <SocialCard
-                  key={index}
-                  social={social}
-                  index={index}
-                />
+                <SocialCard key={index} social={social} index={index} />
               ))}
             </div>
 
             {/* Quick Stats */}
             <AnimatedSection className="space-y-4" delay={0.5}>
-              <h4 className="text-lg mb-4 text-foreground font-semibold">Quick Facts</h4>
+              <h4 className="text-lg mb-4 text-foreground font-semibold">
+                Quick Facts
+              </h4>
               <div className="space-y-3 text-sm">
                 {[
                   "🚀 Currently working at Presight AI on LLM-powered solutions",
@@ -464,8 +436,8 @@ export function Contact() {
           delay={0.7}
         >
           <p className="text-muted-foreground">
-            © 2025 Fahim Khan. Built with React, TypeScript,
-            Tailwind CSS, and Framer Motion.
+            © 2025 Fahim Khan. Built with React, TypeScript, Tailwind CSS, and
+            Framer Motion.
           </p>
         </AnimatedSection>
       </div>

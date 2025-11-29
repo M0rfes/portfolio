@@ -1,6 +1,6 @@
-declare module '*.mdx' {
-  import type { ComponentType } from 'react';
-  
+declare module "*.mdx" {
+  import type { ComponentType } from "react";
+
   export const meta: {
     title: string;
     coverImage: string;
@@ -8,7 +8,7 @@ declare module '*.mdx' {
     date: string;
     keywords: string[];
   };
-  
+
   const MDXComponent: ComponentType;
   export default MDXComponent;
 }

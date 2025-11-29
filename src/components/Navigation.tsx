@@ -4,14 +4,14 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Menu, X, User, MessageCircle, BookOpen } from "lucide-react";
-import { ImageWithFallback } from './figma/ImageWithFallback';
-import { ThemePicker } from './ThemePicker';
+import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { ThemePicker } from "./ThemePicker";
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const { scrollY } = useScroll();
-  
+
   const backdropBlur = useTransform(scrollY, [0, 100], [0, 10]);
 
   const navItems = [
@@ -39,15 +39,17 @@ export function Navigation() {
                 whileTap={{ scale: 0.98 }}
               >
                 <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center overflow-hidden">
-                  <ImageWithFallback 
-                    src="/me.avif" 
-                    alt="Fahim Khan Profile" 
+                  <ImageWithFallback
+                    src="/me.avif"
+                    alt="Fahim Khan Profile"
                     className="w-full h-full object-cover rounded-lg"
                   />
                 </div>
                 <div className="hidden sm:block">
                   <div className="text-lg text-secondary">Fahim Khan</div>
-                  <div className="text-xs text-muted-foreground">Software Consultant</div>
+                  <div className="text-xs text-muted-foreground">
+                    Software Consultant
+                  </div>
                 </div>
               </motion.div>
             </Link>
@@ -63,8 +65,8 @@ export function Navigation() {
                 <Link key={item.id} href={item.href}>
                   <motion.div
                     className={`px-4 py-2 rounded-full transition-all duration-300 cursor-pointer ${
-                      (item.id === "blogs" && pathname.startsWith('/blogs')) ||
-                      (item.id === "about" && pathname === '/about')
+                      (item.id === "blogs" && pathname.startsWith("/blogs")) ||
+                      (item.id === "about" && pathname === "/about")
                         ? "bg-primary text-primary-foreground"
                         : "text-foreground hover:text-primary hover:bg-muted"
                     }`}
@@ -78,7 +80,7 @@ export function Navigation() {
                   </motion.div>
                 </Link>
               ))}
-              
+
               {/* Theme Picker */}
               <ThemePicker />
             </motion.div>
@@ -88,17 +90,17 @@ export function Navigation() {
               <ThemePicker />
               <motion.button
                 className="p-2 rounded-lg bg-card border border-border"
-              onClick={() => setIsOpen(!isOpen)}
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4 }}
-            >
-              {isOpen ? (
-                <X className="w-6 h-6 text-primary" />
-              ) : (
-                <Menu className="w-6 h-6 text-primary" />
-              )}
-            </motion.button>
+                onClick={() => setIsOpen(!isOpen)}
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4 }}
+              >
+                {isOpen ? (
+                  <X className="w-6 h-6 text-primary" />
+                ) : (
+                  <Menu className="w-6 h-6 text-primary" />
+                )}
+              </motion.button>
             </div>
           </div>
         </div>
@@ -126,15 +128,17 @@ export function Navigation() {
             <Link href="/" onClick={() => setIsOpen(false)}>
               <div className="flex items-center gap-3 cursor-pointer">
                 <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center overflow-hidden">
-                  <ImageWithFallback 
-                    src="/me.avif" 
-                    alt="Fahim Khan Profile" 
+                  <ImageWithFallback
+                    src="/me.avif"
+                    alt="Fahim Khan Profile"
                     className="w-full h-full object-cover rounded-lg"
                   />
                 </div>
                 <div>
                   <div className="text-lg text-primary">Fahim Khan</div>
-                  <div className="text-xs text-muted-foreground">Software Consultant</div>
+                  <div className="text-xs text-muted-foreground">
+                    Software Consultant
+                  </div>
                 </div>
               </div>
             </Link>
@@ -153,8 +157,8 @@ export function Navigation() {
                 <motion.div
                   onClick={() => setIsOpen(false)}
                   className={`w-full flex items-center gap-4 p-4 rounded-xl transition-all duration-300 cursor-pointer ${
-                    (item.id === "blogs" && pathname.startsWith('/blogs')) ||
-                    (item.id === "about" && pathname === '/about')
+                    (item.id === "blogs" && pathname.startsWith("/blogs")) ||
+                    (item.id === "about" && pathname === "/about")
                       ? "bg-primary text-primary-foreground"
                       : "text-foreground hover:bg-muted"
                   }`}
@@ -178,7 +182,9 @@ export function Navigation() {
                 <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
                   <span className="text-primary text-xs">✉</span>
                 </div>
-                <span className="text-foreground">fahimkhan20148@gmail.com</span>
+                <span className="text-foreground">
+                  fahimkhan20148@gmail.com
+                </span>
               </div>
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 bg-secondary/10 rounded-lg flex items-center justify-center">

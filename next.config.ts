@@ -4,12 +4,12 @@ import remarkGfm from "remark-gfm";
 import rehypePrism from "rehype-prism-plus";
 
 const nextConfig: NextConfig = {
-  output: 'export',
+  output: "export",
   trailingSlash: true,
   images: {
-    unoptimized: true
+    unoptimized: true,
   },
-  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
+  pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
 };
 
 const withMDX = createMDX({

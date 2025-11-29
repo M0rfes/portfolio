@@ -11,9 +11,19 @@ function StatsGrid() {
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   const stats = [
-    { number: "7+", label: "Years Experience", icon: Award, color: "text-primary" },
-    { number: "20+", label: "Projects Delivered", icon: Rocket, color: "text-secondary" },
-    { number: "5", label: "Companies", icon: Target, color: "text-accent" }
+    {
+      number: "7+",
+      label: "Years Experience",
+      icon: Award,
+      color: "text-primary",
+    },
+    {
+      number: "20+",
+      label: "Projects Delivered",
+      icon: Rocket,
+      color: "text-secondary",
+    },
+    { number: "5", label: "Companies", icon: Target, color: "text-accent" },
   ];
 
   const containerVariants = {
@@ -22,9 +32,9 @@ function StatsGrid() {
       opacity: 1,
       transition: {
         staggerChildren: 0.1,
-        duration: 0.6
-      }
-    }
+        duration: 0.6,
+      },
+    },
   };
 
   const itemVariants = {
@@ -34,13 +44,13 @@ function StatsGrid() {
       opacity: 1,
       transition: {
         duration: 0.5,
-        ease: "easeOut" as const
-      }
-    }
+        ease: "easeOut" as const,
+      },
+    },
   };
 
   return (
-    <motion.div 
+    <motion.div
       ref={ref}
       variants={containerVariants}
       initial="hidden"
@@ -56,8 +66,12 @@ function StatsGrid() {
           transition={{ duration: 0.3 }}
         >
           <stat.icon className={`w-8 h-8 mx-auto mb-3 ${stat.color}`} />
-          <div className={`text-3xl mb-2 font-bold ${stat.color}`}>{stat.number}</div>
-          <div className="text-sm text-card-foreground font-medium">{stat.label}</div>
+          <div className={`text-3xl mb-2 font-bold ${stat.color}`}>
+            {stat.number}
+          </div>
+          <div className="text-sm text-card-foreground font-medium">
+            {stat.label}
+          </div>
         </motion.div>
       ))}
     </motion.div>
@@ -74,9 +88,9 @@ function LatestBlogs({ posts }: { posts: BlogPostMetadata[] }) {
       opacity: 1,
       transition: {
         staggerChildren: 0.15,
-        duration: 0.6
-      }
-    }
+        duration: 0.6,
+      },
+    },
   };
 
   const itemVariants = {
@@ -86,17 +100,17 @@ function LatestBlogs({ posts }: { posts: BlogPostMetadata[] }) {
       opacity: 1,
       transition: {
         duration: 0.5,
-        ease: "easeOut" as const
-      }
-    }
+        ease: "easeOut" as const,
+      },
+    },
   };
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
+    return date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
     });
   };
 
@@ -111,7 +125,7 @@ function LatestBlogs({ posts }: { posts: BlogPostMetadata[] }) {
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
     >
-      <motion.h3 
+      <motion.h3
         variants={itemVariants}
         className="text-2xl mb-8 font-bold text-primary text-center"
       >
@@ -119,10 +133,7 @@ function LatestBlogs({ posts }: { posts: BlogPostMetadata[] }) {
       </motion.h3>
       <div className="grid md:grid-cols-3 gap-6">
         {posts.map((post) => (
-          <motion.div
-            key={post.slug}
-            variants={itemVariants}
-          >
+          <motion.div key={post.slug} variants={itemVariants}>
             <Link href={`/blogs/${post.slug}`}>
               <div className="bg-card rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 h-full flex flex-col border border-border hover:border-primary/50">
                 {/* Cover Image */}
@@ -180,10 +191,7 @@ function LatestBlogs({ posts }: { posts: BlogPostMetadata[] }) {
           </motion.div>
         ))}
       </div>
-      <motion.div
-        variants={itemVariants}
-        className="text-center mt-8"
-      >
+      <motion.div variants={itemVariants} className="text-center mt-8">
         <Link href="/blogs">
           <span className="text-primary hover:text-secondary font-semibold transition-colors duration-300">
             View all blogs →
@@ -205,9 +213,9 @@ function SectionTitle() {
       opacity: 1,
       transition: {
         duration: 0.6,
-        ease: "easeOut" as const
-      }
-    }
+        ease: "easeOut" as const,
+      },
+    },
   };
 
   return (

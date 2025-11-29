@@ -38,7 +38,7 @@ export function ThemePicker() {
       acc[theme.category].push(theme);
       return acc;
     },
-    {} as Record<string, ThemeOption[]>
+    {} as Record<string, ThemeOption[]>,
   );
 
   return (
@@ -70,58 +70,67 @@ export function ThemePicker() {
             </div>
 
             <div className="theme-picker-content">
-              {Object.entries(groupedThemes).map(([category, categoryThemes]) => (
-                <div key={category} className="theme-category">
-                  <h3 className="theme-category-title">{category}</h3>
-                  <div className="theme-options">
-                    {categoryThemes.map((themeOption) => (
-                      <motion.button
-                        key={themeOption.id}
-                        onClick={() => {
-                          setTheme(themeOption.id);
-                          setIsOpen(false);
-                        }}
-                        className={`theme-option ${
-                          theme === themeOption.id ? "theme-option-active" : ""
-                        }`}
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                      >
-                        <div className="theme-preview">
-                          <div
-                            className="theme-preview-bg"
-                            style={{ backgroundColor: themeOption.preview.bg }}
-                          />
-                          <div className="theme-preview-colors">
+              {Object.entries(groupedThemes).map(
+                ([category, categoryThemes]) => (
+                  <div key={category} className="theme-category">
+                    <h3 className="theme-category-title">{category}</h3>
+                    <div className="theme-options">
+                      {categoryThemes.map((themeOption) => (
+                        <motion.button
+                          key={themeOption.id}
+                          onClick={() => {
+                            setTheme(themeOption.id);
+                            setIsOpen(false);
+                          }}
+                          className={`theme-option ${
+                            theme === themeOption.id
+                              ? "theme-option-active"
+                              : ""
+                          }`}
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                        >
+                          <div className="theme-preview">
                             <div
-                              className="theme-preview-color"
+                              className="theme-preview-bg"
                               style={{
-                                backgroundColor: themeOption.preview.primary,
+                                backgroundColor: themeOption.preview.bg,
                               }}
                             />
-                            <div
-                              className="theme-preview-color"
-                              style={{
-                                backgroundColor: themeOption.preview.secondary,
-                              }}
-                            />
-                            <div
-                              className="theme-preview-color"
-                              style={{
-                                backgroundColor: themeOption.preview.accent,
-                              }}
-                            />
+                            <div className="theme-preview-colors">
+                              <div
+                                className="theme-preview-color"
+                                style={{
+                                  backgroundColor: themeOption.preview.primary,
+                                }}
+                              />
+                              <div
+                                className="theme-preview-color"
+                                style={{
+                                  backgroundColor:
+                                    themeOption.preview.secondary,
+                                }}
+                              />
+                              <div
+                                className="theme-preview-color"
+                                style={{
+                                  backgroundColor: themeOption.preview.accent,
+                                }}
+                              />
+                            </div>
                           </div>
-                        </div>
-                        <span className="theme-option-name">{themeOption.name}</span>
-                        {theme === themeOption.id && (
-                          <Check className="theme-option-check" />
-                        )}
-                      </motion.button>
-                    ))}
+                          <span className="theme-option-name">
+                            {themeOption.name}
+                          </span>
+                          {theme === themeOption.id && (
+                            <Check className="theme-option-check" />
+                          )}
+                        </motion.button>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              ))}
+                ),
+              )}
             </div>
           </motion.div>
         )}

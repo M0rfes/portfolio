@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -36,7 +35,7 @@
   --chart-3: #d20f39;
   --chart-4: #179299;
   --chart-5: #fe640b;
-  
+
   /* Custom portfolio colors */
   --portfolio-primary: #1e66f5;
   --portfolio-secondary: #8839ef;
@@ -45,7 +44,7 @@
   --portfolio-warning: #df8e1d;
   --portfolio-light: #4c4f69;
   --portfolio-dark: #eff1f5;
-  
+
   /* Blog specific */
   --blog-container: #1e1e2e;
   --blog-text: #cdd6f4;
@@ -79,7 +78,7 @@
   --chart-3: #ea999c;
   --chart-4: #81c8be;
   --chart-5: #ef9f76;
-  
+
   /* Custom portfolio colors */
   --portfolio-primary: #8caaee;
   --portfolio-secondary: #ca9ee6;
@@ -88,7 +87,7 @@
   --portfolio-warning: #e5c890;
   --portfolio-light: #c6d0f5;
   --portfolio-dark: #303446;
-  
+
   /* Blog specific */
   --blog-container: #292c3c;
   --blog-text: #c6d0f5;
@@ -122,7 +121,7 @@
   --chart-3: #ee99a0;
   --chart-4: #8bd5ca;
   --chart-5: #f5a97f;
-  
+
   /* Custom portfolio colors */
   --portfolio-primary: #8aadf4;
   --portfolio-secondary: #c6a0f6;
@@ -131,7 +130,7 @@
   --portfolio-warning: #eed49f;
   --portfolio-light: #cad3f5;
   --portfolio-dark: #24273a;
-  
+
   /* Blog specific */
   --blog-container: #1e2030;
   --blog-text: #cad3f5;
@@ -165,7 +164,7 @@
   --chart-3: #f38ba8;
   --chart-4: #94e2d5;
   --chart-5: #fab387;
-  
+
   /* Custom portfolio colors */
   --portfolio-primary: #89b4fa;
   --portfolio-secondary: #cba6f7;
@@ -174,12 +173,11 @@
   --portfolio-warning: #f9e2af;
   --portfolio-light: #cdd6f4;
   --portfolio-dark: #1e1e2e;
-  
+
   /* Blog specific */
   --blog-container: #181825;
   --blog-text: #cdd6f4;
 }
-
 
 /* Dracula Theme */
 .theme-dracula {
@@ -209,7 +207,7 @@
   --chart-3: #ff79c6;
   --chart-4: #50fa7b;
   --chart-5: #ffb86c;
-  
+
   /* Custom portfolio colors */
   --portfolio-primary: #8be9fd;
   --portfolio-secondary: #bd93f9;
@@ -218,7 +216,7 @@
   --portfolio-warning: #f1fa8c;
   --portfolio-light: #f8f8f2;
   --portfolio-dark: #282a36;
-  
+
   /* Blog specific */
   --blog-container: #21222c;
   --blog-text: #f8f8f2;
@@ -252,7 +250,7 @@
   --chart-3: #ff80bf;
   --chart-4: #8aff80;
   --chart-5: #ffca80;
-  
+
   /* Custom portfolio colors */
   --portfolio-primary: #80ffea;
   --portfolio-secondary: #9580ff;
@@ -261,7 +259,7 @@
   --portfolio-warning: #ffff80;
   --portfolio-light: #f8f8f2;
   --portfolio-dark: #21222c;
-  
+
   /* Blog specific */
   --blog-container: #1a1b26;
   --blog-text: #f8f8f2;
@@ -295,7 +293,7 @@
   --chart-3: #ff80bf;
   --chart-4: #8aff80;
   --chart-5: #ffca80;
-  
+
   /* Custom portfolio colors */
   --portfolio-primary: #80ffea;
   --portfolio-secondary: #9580ff;
@@ -304,7 +302,7 @@
   --portfolio-warning: #ffff80;
   --portfolio-light: #f8f8f2;
   --portfolio-dark: #22212c;
-  
+
   /* Blog specific */
   --blog-container: #1b1a24;
   --blog-text: #f8f8f2;
@@ -338,7 +336,7 @@
   --chart-3: #d33682;
   --chart-4: #859900;
   --chart-5: #b58900;
-  
+
   /* Custom portfolio colors */
   --portfolio-primary: #268bd2;
   --portfolio-secondary: #2aa198;
@@ -347,7 +345,7 @@
   --portfolio-warning: #b58900;
   --portfolio-light: #657b83;
   --portfolio-dark: #fdf6e3;
-  
+
   /* Blog specific */
   --blog-container: #002b36;
   --blog-text: #fdf6e3;
@@ -381,7 +379,7 @@
   --chart-3: #d33682;
   --chart-4: #859900;
   --chart-5: #b58900;
-  
+
   /* Custom portfolio colors */
   --portfolio-primary: #268bd2;
   --portfolio-secondary: #2aa198;
@@ -390,7 +388,7 @@
   --portfolio-warning: #b58900;
   --portfolio-light: #fdf6e3;
   --portfolio-dark: #002b36;
-  
+
   /* Blog specific */
   --blog-container: #001e27;
   --blog-text: #fdf6e3;
@@ -424,7 +422,7 @@
   --chart-3: #f92672;
   --chart-4: #e6db74;
   --chart-5: #fd971f;
-  
+
   /* Custom portfolio colors */
   --portfolio-primary: #66d9ef;
   --portfolio-secondary: #a6e22e;
@@ -433,7 +431,7 @@
   --portfolio-warning: #e6db74;
   --portfolio-light: #f8f8f2;
   --portfolio-dark: #272822;
-  
+
   /* Blog specific */
   --blog-container: #1e1f1c;
   --blog-text: #f8f8f2;
@@ -467,7 +465,7 @@
   --chart-3: #ff6188;
   --chart-4: #ffd866;
   --chart-5: #fc9867;
-  
+
   /* Custom portfolio colors */
   --portfolio-primary: #78dce8;
   --portfolio-secondary: #a9dc76;
@@ -476,7 +474,7 @@
   --portfolio-warning: #ffd866;
   --portfolio-light: #fcfcfa;
   --portfolio-dark: #2d2a2e;
-  
+
   /* Blog specific */
   --blog-container: #221f22;
   --blog-text: #fcfcfa;
@@ -510,7 +508,7 @@
   --chart-3: #9d0006;
   --chart-4: #427b58;
   --chart-5: #b57614;
-  
+
   /* Custom portfolio colors */
   --portfolio-primary: #076678;
   --portfolio-secondary: #79740e;
@@ -519,7 +517,7 @@
   --portfolio-warning: #b57614;
   --portfolio-light: #3c3836;
   --portfolio-dark: #fbf1c7;
-  
+
   /* Blog specific */
   --blog-container: #282828;
   --blog-text: #ebdbb2;
@@ -553,7 +551,7 @@
   --chart-3: #fb4934;
   --chart-4: #8ec07c;
   --chart-5: #fabd2f;
-  
+
   /* Custom portfolio colors */
   --portfolio-primary: #83a598;
   --portfolio-secondary: #b8bb26;
@@ -562,7 +560,7 @@
   --portfolio-warning: #fabd2f;
   --portfolio-light: #ebdbb2;
   --portfolio-dark: #282828;
-  
+
   /* Blog specific */
   --blog-container: #1d2021;
   --blog-text: #ebdbb2;
@@ -596,7 +594,7 @@
   --chart-3: #e45649;
   --chart-4: #0184bc;
   --chart-5: #c18401;
-  
+
   /* Custom portfolio colors */
   --portfolio-primary: #4078f2;
   --portfolio-secondary: #50a14f;
@@ -605,7 +603,7 @@
   --portfolio-warning: #c18401;
   --portfolio-light: #383a42;
   --portfolio-dark: #fafafa;
-  
+
   /* Blog specific */
   --blog-container: #282c34;
   --blog-text: #abb2bf;
@@ -639,7 +637,7 @@
   --chart-3: #e06c75;
   --chart-4: #56b6c2;
   --chart-5: #e5c07b;
-  
+
   /* Custom portfolio colors */
   --portfolio-primary: #61afef;
   --portfolio-secondary: #98c379;
@@ -648,7 +646,7 @@
   --portfolio-warning: #e5c07b;
   --portfolio-light: #abb2bf;
   --portfolio-dark: #282c34;
-  
+
   /* Blog specific */
   --blog-container: #21252b;
   --blog-text: #abb2bf;
@@ -738,7 +736,7 @@
   --chart-3: #f7768e;
   --chart-4: #7dcfff;
   --chart-5: #e0af68;
-  
+
   /* Custom portfolio colors */
   --portfolio-primary: #7aa2f7;
   --portfolio-secondary: #9d7cd8;
@@ -747,7 +745,7 @@
   --portfolio-warning: #e0af68;
   --portfolio-light: #c0caf5;
   --portfolio-dark: #24283b;
-  
+
   /* Blog specific */
   --blog-container: #1f2335;
   --blog-text: #c0caf5;
@@ -781,7 +779,7 @@
   --chart-3: #f7768e;
   --chart-4: #7dcfff;
   --chart-5: #e0af68;
-  
+
   /* Custom portfolio colors */
   --portfolio-primary: #7aa2f7;
   --portfolio-secondary: #9d7cd8;
@@ -790,7 +788,7 @@
   --portfolio-warning: #e0af68;
   --portfolio-light: #c0caf5;
   --portfolio-dark: #1a1b26;
-  
+
   /* Blog specific */
   --blog-container: #16161e;
   --blog-text: #c0caf5;
@@ -824,7 +822,7 @@
   --chart-3: #ff757f;
   --chart-4: #86e1fc;
   --chart-5: #ffc777;
-  
+
   /* Custom portfolio colors */
   --portfolio-primary: #82aaff;
   --portfolio-secondary: #c099ff;
@@ -833,7 +831,7 @@
   --portfolio-warning: #ffc777;
   --portfolio-light: #c8d3f5;
   --portfolio-dark: #222436;
-  
+
   /* Blog specific */
   --blog-container: #1e2030;
   --blog-text: #c8d3f5;
@@ -867,7 +865,7 @@
   --chart-3: #bf616a;
   --chart-4: #8fbcbb;
   --chart-5: #ebcb8b;
-  
+
   /* Custom portfolio colors */
   --portfolio-primary: #88c0d0;
   --portfolio-secondary: #81a1c1;
@@ -876,7 +874,7 @@
   --portfolio-warning: #ebcb8b;
   --portfolio-light: #d8dee9;
   --portfolio-dark: #2e3440;
-  
+
   /* Blog specific */
   --blog-container: #3b4252;
   --blog-text: #d8dee9;
@@ -910,7 +908,7 @@
   --chart-3: #bf616a;
   --chart-4: #8fbcbb;
   --chart-5: #ebcb8b;
-  
+
   /* Custom portfolio colors */
   --portfolio-primary: #5e81ac;
   --portfolio-secondary: #81a1c1;
@@ -919,7 +917,7 @@
   --portfolio-warning: #d08770;
   --portfolio-light: #2e3440;
   --portfolio-dark: #eceff4;
-  
+
   /* Blog specific */
   --blog-container: #2e3440;
   --blog-text: #d8dee9;
@@ -953,7 +951,7 @@
   --chart-3: #ebbcba;
   --chart-4: #31748f;
   --chart-5: #f6c177;
-  
+
   /* Custom portfolio colors */
   --portfolio-primary: #9ccfd8;
   --portfolio-secondary: #c4a7e7;
@@ -962,7 +960,7 @@
   --portfolio-warning: #f6c177;
   --portfolio-light: #e0def4;
   --portfolio-dark: #191724;
-  
+
   /* Blog specific */
   --blog-container: #1f1d2e;
   --blog-text: #e0def4;
@@ -996,7 +994,7 @@
   --chart-3: #ea9a97;
   --chart-4: #3e8fb0;
   --chart-5: #f6c177;
-  
+
   /* Custom portfolio colors */
   --portfolio-primary: #9ccfd8;
   --portfolio-secondary: #c4a7e7;
@@ -1005,7 +1003,7 @@
   --portfolio-warning: #f6c177;
   --portfolio-light: #e0def4;
   --portfolio-dark: #232136;
-  
+
   /* Blog specific */
   --blog-container: #2a273f;
   --blog-text: #e0def4;
@@ -1039,7 +1037,7 @@
   --chart-3: #d7827e;
   --chart-4: #56949f;
   --chart-5: #ea9d34;
-  
+
   /* Custom portfolio colors */
   --portfolio-primary: #286983;
   --portfolio-secondary: #907aa9;
@@ -1048,7 +1046,7 @@
   --portfolio-warning: #ea9d34;
   --portfolio-light: #575279;
   --portfolio-dark: #faf4ed;
-  
+
   /* Blog specific */
   --blog-container: #575279;
   --blog-text: #faf4ed;
@@ -1082,7 +1080,7 @@
   --chart-3: #ffe66d;
   --chart-4: #95e1d3;
   --chart-5: #f38181;
-  
+
   /* Custom portfolio colors */
   --portfolio-primary: #ff6b6b;
   --portfolio-secondary: #4ecdc4;
@@ -1091,7 +1089,7 @@
   --portfolio-warning: #ffe66d;
   --portfolio-light: #eaeaea;
   --portfolio-dark: #1a1a2e;
-  
+
   /* Blog specific */
   --blog-container: #16213e;
   --blog-text: #eaeaea;
@@ -1125,7 +1123,7 @@
   --chart-3: #ffff00;
   --chart-4: #00ff00;
   --chart-5: #f57800;
-  
+
   /* Custom portfolio colors */
   --portfolio-primary: #0abdc6;
   --portfolio-secondary: #711c91;
@@ -1134,7 +1132,7 @@
   --portfolio-warning: #ffff00;
   --portfolio-light: #0abdc6;
   --portfolio-dark: #000b1e;
-  
+
   /* Blog specific */
   --blog-container: #091833;
   --blog-text: #0abdc6;
@@ -1168,7 +1166,7 @@
   --chart-3: #a0a0a0;
   --chart-4: #707070;
   --chart-5: #505050;
-  
+
   /* Custom portfolio colors */
   --portfolio-primary: #e0e0e0;
   --portfolio-secondary: #a0a0a0;
@@ -1177,7 +1175,7 @@
   --portfolio-warning: #d0d0d0;
   --portfolio-light: #f5f5f5;
   --portfolio-dark: #0a0a0a;
-  
+
   /* Blog specific */
   --blog-container: #1a1a1a;
   --blog-text: #f5f5f5;
@@ -1211,7 +1209,7 @@
   --chart-3: #505050;
   --chart-4: #808080;
   --chart-5: #a0a0a0;
-  
+
   /* Custom portfolio colors */
   --portfolio-primary: #1a1a1a;
   --portfolio-secondary: #505050;
@@ -1220,7 +1218,7 @@
   --portfolio-warning: #2a2a2a;
   --portfolio-light: #0a0a0a;
   --portfolio-dark: #ffffff;
-  
+
   /* Blog specific */
   --blog-container: #f5f5f5;
   --blog-text: #0a0a0a;
@@ -1233,7 +1231,7 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'JetBrains Mono', 'Courier New', 'Courier', monospace;
+    font-family: "JetBrains Mono", "Courier New", "Courier", monospace;
     font-weight: 500;
     overflow-x: clip;
   }
@@ -1250,7 +1248,7 @@
 @layer base {
   :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
     h1 {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: "JetBrains Mono", monospace;
       font-size: 2.5rem;
       font-weight: 800;
       line-height: 1.2;
@@ -1258,7 +1256,7 @@
     }
 
     h2 {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: "JetBrains Mono", monospace;
       font-size: 2rem;
       font-weight: 700;
       line-height: 1.3;
@@ -1266,7 +1264,7 @@
     }
 
     h3 {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: "JetBrains Mono", monospace;
       font-size: 1.5rem;
       font-weight: 700;
       line-height: 1.4;
@@ -1274,7 +1272,7 @@
     }
 
     h4 {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: "JetBrains Mono", monospace;
       font-size: 1.25rem;
       font-weight: 600;
       line-height: 1.5;
@@ -1282,28 +1280,28 @@
     }
 
     p {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: "JetBrains Mono", monospace;
       font-size: 1rem;
       font-weight: 500;
       line-height: 1.6;
     }
 
     label {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: "JetBrains Mono", monospace;
       font-size: 1rem;
       font-weight: 600;
       line-height: 1.5;
     }
 
     button {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: "JetBrains Mono", monospace;
       font-size: 1rem;
       font-weight: 600;
       line-height: 1.5;
     }
 
     input {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: "JetBrains Mono", monospace;
       font-size: 1rem;
       font-weight: 500;
       line-height: 1.5;
@@ -1340,7 +1338,9 @@
   background-color: var(--card);
   border: 1px solid var(--border);
   border-radius: 0.75rem;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
   z-index: 50;
 }
 
@@ -1463,13 +1463,23 @@
 
 /* Custom animations */
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 @keyframes pulse-slow {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
 }
 
 .animate-float {
@@ -1485,7 +1495,9 @@
   background-color: var(--blog-container);
   color: var(--blog-text);
   border-radius: 1rem;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
   padding: 2rem;
 }
 
