@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getAllBlogSlugs, getBlogBySlug } from "@/lib/blog";
 import { BlogContent } from "@/components/BlogContent";
+import { Suspense } from "react";
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
@@ -18,7 +19,7 @@ export async function generateMetadata({
   params,
 }: BlogPostPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const blog = getBlogBySlug(slug);
+  const blog = await getBlogBySlug(slug);
 
   if (!blog) {
     return {
@@ -26,7 +27,7 @@ export async function generateMetadata({
     };
   }
 
-  const { meta } = blog;
+  const meta = await blog.meta;
   const url = `https://fahim.shonif.com/blogs/${slug}`;
   const imageUrl = meta.coverImage || "https://fahim.shonif.com/me.avif";
 
@@ -92,8 +93,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { meta, Content } = blog;
 
   return (
-    <BlogContent post={{ slug, ...meta }}>
-      <Content />
+    <BlogContent post={{ slug, ...(await meta) }}>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Content />
+      </Suspense>
     </BlogContent>
   );
 }

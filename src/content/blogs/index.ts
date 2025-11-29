@@ -1,4 +1,4 @@
-import { ComponentType } from "react";
+import { ComponentType, lazy } from "react";
 
 // Import meta and components directly from MDX files
 import AsyncLocalStorageContent, {
@@ -21,7 +21,7 @@ export interface BlogPostMeta {
 
 export interface BlogEntry {
   slug: string;
-  meta: BlogPostMeta;
+  meta: Promise<BlogPostMeta>;
   Content: ComponentType;
 }
 
@@ -29,18 +29,18 @@ export interface BlogEntry {
 export const blogRegistry: Record<string, BlogEntry> = {
   "asynclocalstorage-express-logger": {
     slug: "asynclocalstorage-express-logger",
-    meta: asyncLocalStorageMeta,
-    Content: AsyncLocalStorageContent,
+    meta: import("./asynclocalstorage-express-logger.mdx").then((m) => m.meta),
+    Content: lazy(() => import("./asynclocalstorage-express-logger.mdx")),
   },
   "resumable-downloads-react-nodejs": {
     slug: "resumable-downloads-react-nodejs",
-    meta: resumableDownloadsMeta,
-    Content: ResumableDownloadsContent,
+    meta: import("./resumable-downloads-react-nodejs.mdx").then((m) => m.meta),
+    Content: lazy(() => import("./resumable-downloads-react-nodejs.mdx")),
   },
   "streaming-json-multipart-mixed": {
     slug: "streaming-json-multipart-mixed",
-    meta: streamingJsonMeta,
-    Content: StreamingJsonContent,
+    meta: import("./streaming-json-multipart-mixed.mdx").then((m) => m.meta),
+    Content: lazy(() => import("./streaming-json-multipart-mixed.mdx")),
   },
 };
 
@@ -55,20 +55,26 @@ export function getBlogBySlug(slug: string): BlogEntry | null {
 }
 
 // Get all blog posts metadata sorted by date
-export function getAllBlogPosts(): (BlogPostMeta & { slug: string })[] {
-  return Object.values(blogRegistry)
-    .map((entry) => ({
-      slug: entry.slug,
-      ...entry.meta,
-    }))
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+export async function getAllBlogPosts(): Promise<
+  (BlogPostMeta & { slug: string })[]
+> {
+  const blogs = Object.values(blogRegistry);
+  return await Promise.all(
+    blogs.map(async (b) => {
+      const meta = await b.meta;
+      return {
+        ...meta,
+        slug: b.slug,
+      };
+    }),
+  );
 }
 
 // Search blog posts
-export function searchBlogPosts(
+export async function searchBlogPosts(
   query: string,
-): (BlogPostMeta & { slug: string })[] {
-  const allPosts = getAllBlogPosts();
+): Promise<(BlogPostMeta & { slug: string })[]> {
+  const allPosts = await getAllBlogPosts();
 
   if (!query || query.trim() === "") {
     return allPosts;

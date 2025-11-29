@@ -40,8 +40,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default function BlogsPage() {
-  const posts = getAllBlogPosts();
+export default async function BlogsPage() {
+  const posts = await getAllBlogPosts();
 
   return (
     <div className="min-h-screen pt-24 pb-16">
