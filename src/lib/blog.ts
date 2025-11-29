@@ -40,27 +40,89 @@ export function getAllBlogSlugs(): string[] {
     .map((fileName) => fileName.replace(/\.mdx$/, ''));
 }
 
+// Find the matching closing brace for the meta object
+function findMetaObjectEnd(content: string, startIndex: number): number {
+  let depth = 0;
+  let inString = false;
+  let stringChar = '';
+  
+  for (let i = startIndex; i < content.length; i++) {
+    const char = content[i];
+    const prevChar = i > 0 ? content[i - 1] : '';
+    
+    // Handle string boundaries (skip escaped quotes)
+    if ((char === '"' || char === "'") && prevChar !== '\\') {
+      if (!inString) {
+        inString = true;
+        stringChar = char;
+      } else if (char === stringChar) {
+        inString = false;
+      }
+      continue;
+    }
+    
+    // Skip characters inside strings
+    if (inString) continue;
+    
+    if (char === '{') {
+      depth++;
+    } else if (char === '}') {
+      depth--;
+      if (depth === 0) {
+        return i;
+      }
+    }
+  }
+  
+  return -1;
+}
+
 // Extract meta export from MDX file content
-function extractMetaFromMdx(content: string): BlogPostMeta | null {
-  // Match export const meta = { ... }; pattern
-  const metaMatch = content.match(/export\s+const\s+meta\s*=\s*(\{[\s\S]*?\});/);
-  if (!metaMatch) return null;
+function extractMetaFromMdx(content: string, filePath?: string): BlogPostMeta | null {
+  // Find the start of the meta export
+  const metaStartMatch = content.match(/export\s+const\s+meta\s*=\s*\{/);
+  if (!metaStartMatch || metaStartMatch.index === undefined) return null;
+  
+  const objectStartIndex = metaStartMatch.index + metaStartMatch[0].length - 1;
+  const objectEndIndex = findMetaObjectEnd(content, objectStartIndex);
+  
+  if (objectEndIndex === -1) {
+    console.error(`Failed to find closing brace for meta in ${filePath || 'unknown file'}`);
+    return null;
+  }
+  
+  const metaString = content.slice(objectStartIndex, objectEndIndex + 1);
   
   try {
-    // Use Function constructor to safely evaluate the object literal
-    const metaString = metaMatch[1];
+    // Note: new Function() is used here intentionally for evaluating trusted MDX content
+    // from the repository's content/blogs directory. This runs at build time only.
     const meta = new Function(`return ${metaString}`)();
     return meta as BlogPostMeta;
-  } catch {
-    console.error('Failed to parse meta from MDX');
+  } catch (error) {
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+    console.error(`Failed to parse meta from ${filePath || 'unknown file'}: ${errorMessage}`);
     return null;
   }
 }
 
 // Get content without the meta export for rendering
 function getContentWithoutMeta(content: string): string {
-  // Remove the export const meta = { ... }; line
-  return content.replace(/export\s+const\s+meta\s*=\s*\{[\s\S]*?\};\s*\n?/, '');
+  // Find and remove the entire export const meta = { ... }; statement
+  const metaStartMatch = content.match(/export\s+const\s+meta\s*=\s*\{/);
+  if (!metaStartMatch || metaStartMatch.index === undefined) return content;
+  
+  const objectStartIndex = metaStartMatch.index + metaStartMatch[0].length - 1;
+  const objectEndIndex = findMetaObjectEnd(content, objectStartIndex);
+  
+  if (objectEndIndex === -1) return content;
+  
+  // Find the semicolon and newline after the closing brace
+  let endIndex = objectEndIndex + 1;
+  while (endIndex < content.length && (content[endIndex] === ';' || content[endIndex] === '\n' || content[endIndex] === '\r' || content[endIndex] === ' ')) {
+    endIndex++;
+  }
+  
+  return content.slice(0, metaStartMatch.index) + content.slice(endIndex);
 }
 
 export function getBlogPostBySlug(slug: string): BlogPost | null {
@@ -71,10 +133,10 @@ export function getBlogPostBySlug(slug: string): BlogPost | null {
   try {
     const fullPath = path.join(blogsDirectory, `${slug}.mdx`);
     const fileContents = fs.readFileSync(fullPath, 'utf8');
-    const meta = extractMetaFromMdx(fileContents);
+    const meta = extractMetaFromMdx(fileContents, fullPath);
     
     if (!meta) {
-      console.error(`No meta found in ${slug}.mdx`);
+      console.error(`No meta found in ${fullPath}`);
       return null;
     }
 
@@ -107,7 +169,7 @@ export function getAllBlogPosts(): BlogPostMetadata[] {
       try {
         const fullPath = path.join(blogsDirectory, `${slug}.mdx`);
         const fileContents = fs.readFileSync(fullPath, 'utf8');
-        const meta = extractMetaFromMdx(fileContents);
+        const meta = extractMetaFromMdx(fileContents, fullPath);
         
         if (!meta) return null;
         
