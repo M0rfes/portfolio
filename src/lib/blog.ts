@@ -1,6 +1,13 @@
 import fs from 'fs';
 import path from 'path';
-import matter from 'gray-matter';
+
+export interface BlogPostMeta {
+  title: string;
+  coverImage: string;
+  excerpt?: string;
+  date: string;
+  keywords: string[];
+}
 
 export interface BlogPost {
   slug: string;
@@ -29,8 +36,31 @@ export function getAllBlogSlugs(): string[] {
   }
   const fileNames = fs.readdirSync(blogsDirectory);
   return fileNames
-    .filter((fileName) => fileName.endsWith('.md'))
-    .map((fileName) => fileName.replace(/\.md$/, ''));
+    .filter((fileName) => fileName.endsWith('.mdx'))
+    .map((fileName) => fileName.replace(/\.mdx$/, ''));
+}
+
+// Extract meta export from MDX file content
+function extractMetaFromMdx(content: string): BlogPostMeta | null {
+  // Match export const meta = { ... }; pattern
+  const metaMatch = content.match(/export\s+const\s+meta\s*=\s*(\{[\s\S]*?\});/);
+  if (!metaMatch) return null;
+  
+  try {
+    // Use Function constructor to safely evaluate the object literal
+    const metaString = metaMatch[1];
+    const meta = new Function(`return ${metaString}`)();
+    return meta as BlogPostMeta;
+  } catch {
+    console.error('Failed to parse meta from MDX');
+    return null;
+  }
+}
+
+// Get content without the meta export for rendering
+function getContentWithoutMeta(content: string): string {
+  // Remove the export const meta = { ... }; line
+  return content.replace(/export\s+const\s+meta\s*=\s*\{[\s\S]*?\};\s*\n?/, '');
 }
 
 export function getBlogPostBySlug(slug: string): BlogPost | null {
@@ -39,17 +69,24 @@ export function getBlogPostBySlug(slug: string): BlogPost | null {
     return null;
   }
   try {
-    const fullPath = path.join(blogsDirectory, `${slug}.md`);
+    const fullPath = path.join(blogsDirectory, `${slug}.mdx`);
     const fileContents = fs.readFileSync(fullPath, 'utf8');
-    const { data, content } = matter(fileContents);
+    const meta = extractMetaFromMdx(fileContents);
+    
+    if (!meta) {
+      console.error(`No meta found in ${slug}.mdx`);
+      return null;
+    }
+
+    const content = getContentWithoutMeta(fileContents);
 
     return {
       slug,
-      title: data.title || '',
-      coverImage: data.coverImage || '',
-      excerpt: data.excerpt || '',
-      date: data.date || '',
-      keywords: data.keywords || [],
+      title: meta.title || '',
+      coverImage: meta.coverImage || '',
+      excerpt: meta.excerpt || '',
+      date: meta.date || '',
+      keywords: meta.keywords || [],
       content,
     };
   } catch (error) {
@@ -66,13 +103,25 @@ export function getBlogPostBySlug(slug: string): BlogPost | null {
 export function getAllBlogPosts(): BlogPostMetadata[] {
   const slugs = getAllBlogSlugs();
   const posts = slugs
-    .map((slug) => {
-      const post = getBlogPostBySlug(slug);
-      if (!post) return null;
-      
-      // Return only metadata, not content
-      const { content: _content, ...metadata } = post;
-      return metadata;
+    .map((slug): BlogPostMetadata | null => {
+      try {
+        const fullPath = path.join(blogsDirectory, `${slug}.mdx`);
+        const fileContents = fs.readFileSync(fullPath, 'utf8');
+        const meta = extractMetaFromMdx(fileContents);
+        
+        if (!meta) return null;
+        
+        return {
+          slug,
+          title: meta.title || '',
+          coverImage: meta.coverImage || '',
+          excerpt: meta.excerpt,
+          date: meta.date || '',
+          keywords: meta.keywords || [],
+        };
+      } catch {
+        return null;
+      }
     })
     .filter((post): post is BlogPostMetadata => post !== null)
     .sort((a, b) => {
