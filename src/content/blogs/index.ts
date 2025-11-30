@@ -1,16 +1,5 @@
 import { ComponentType, lazy } from "react";
 
-// Import meta and components directly from MDX files
-import AsyncLocalStorageContent, {
-  meta as asyncLocalStorageMeta,
-} from "./asynclocalstorage-express-logger.mdx";
-import ResumableDownloadsContent, {
-  meta as resumableDownloadsMeta,
-} from "./resumable-downloads-react-nodejs.mdx";
-import StreamingJsonContent, {
-  meta as streamingJsonMeta,
-} from "./streaming-json-multipart-mixed.mdx";
-
 export interface BlogPostMeta {
   title: string;
   coverImage: string;
@@ -41,6 +30,11 @@ export const blogRegistry: Record<string, BlogEntry> = {
     slug: "streaming-json-multipart-mixed",
     meta: import("./streaming-json-multipart-mixed.mdx").then((m) => m.meta),
     Content: lazy(() => import("./streaming-json-multipart-mixed.mdx")),
+  },
+  "deferred-commit-pattern": {
+    slug: "deferred-commit-pattern",
+    meta: import("./deferred-commit-pattern.mdx").then((m) => m.meta),
+    Content: lazy(() => import("./deferred-commit-pattern.mdx")),
   },
 };
 
