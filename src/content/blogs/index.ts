@@ -62,6 +62,7 @@ export async function getAllBlogPosts(): Promise<
   return await Promise.all(
     blogs.map(async (b) => {
       const meta = await b.meta;
+
       return {
         ...meta,
         slug: b.slug,
