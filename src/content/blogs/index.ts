@@ -36,6 +36,13 @@ export const blogRegistry: Record<string, BlogEntry> = {
     meta: import("./deferred-commit-pattern.mdx").then((m) => m.meta),
     Content: lazy(() => import("./deferred-commit-pattern.mdx")),
   },
+  "group-by-rollup-grouping-sets-and-cube": {
+    slug: "group-by-rollup-grouping-sets-and-cube",
+    meta: import("./group-by-rollup-grouping-sets-and-cube.mdx").then(
+      (m) => m.meta,
+    ),
+    Content: lazy(() => import("./group-by-rollup-grouping-sets-and-cube.mdx")),
+  },
 };
 
 // Get all blog slugs
