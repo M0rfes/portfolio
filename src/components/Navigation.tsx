@@ -89,6 +89,8 @@ export function Navigation() {
             <div className="md:hidden flex items-center gap-2">
               <ThemePicker />
               <motion.button
+                aria-label="Toggle menu"
+                aria-expanded={isOpen}
                 className="p-2 rounded-lg bg-card border border-border"
                 onClick={() => setIsOpen(!isOpen)}
                 initial={{ opacity: 0, scale: 0 }}
@@ -143,6 +145,7 @@ export function Navigation() {
               </div>
             </Link>
             <button
+              aria-label="Close menu"
               onClick={() => setIsOpen(false)}
               className="p-2 rounded-lg hover:bg-muted"
             >
@@ -205,6 +208,7 @@ export function Navigation() {
         transition={{ delay: 1, type: "spring" }}
       >
         <motion.a
+          aria-label="Contact via Email"
           href="mailto:fahimkhan20148@gmail.com"
           className="w-14 h-14 bg-primary rounded-full flex items-center justify-center shadow-xl"
           whileHover={{ scale: 1.1 }}

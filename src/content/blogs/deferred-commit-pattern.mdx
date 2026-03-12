@@ -1,5 +1,6 @@
 export const meta = {
-  title: "The Deferred Commit Pattern: Building Clean SaaS Onboarding with Node.js and Redis",
+  title:
+    "The Deferred Commit Pattern: Building Clean SaaS Onboarding with Node.js and Redis",
   coverImage:
     "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=1200&h=630&fit=crop",
   excerpt:
@@ -203,7 +204,7 @@ app. post('/api/onboarding/payment', validateOnboardingSession, async (req, res)
     await client.hMSet(
       `flow:${req.flowId}`,
       {
-          payment_method_id: paymentToken, // In reality, this would be the PM ID from Stripe/etc 
+          payment_method_id: paymentToken, // In reality, this would be the PM ID from Stripe/etc
           payment_method_type: paymentMethodType,
           step_reached: 'payment',
           last_activity: Date.now()
