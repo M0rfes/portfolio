@@ -17,6 +17,13 @@ export function Navigation() {
   const navItems = [
     { id: "about", label: "About", icon: User, href: "/about" },
     { id: "blogs", label: "Blogs", icon: BookOpen, href: "/blogs" },
+    {
+      id: "resume",
+      label: "Resume",
+      icon: Download,
+      href: "/fahim_resume.pdf",
+      download: true,
+    },
   ];
 
   return (
@@ -61,40 +68,43 @@ export function Navigation() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              {navItems.map((item, index) => (
-                <Link key={item.id} href={item.href}>
-                  <motion.div
-                    className={`px-4 py-2 rounded-full transition-all duration-300 cursor-pointer ${
-                      (item.id === "blogs" && pathname.startsWith("/blogs")) ||
-                      (item.id === "about" && pathname === "/about")
-                        ? "bg-primary text-primary-foreground"
-                        : "text-foreground hover:text-primary hover:bg-muted"
-                    }`}
+              {navItems.map((item, index) =>
+                item.download ? (
+                  <motion.a
+                    key={item.id}
+                    href={item.href}
+                    download
+                    className="flex items-center gap-2 px-4 py-2 rounded-full border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 cursor-pointer"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: index * 0.1 }}
                   >
+                    <item.icon className="w-4 h-4" />
                     {item.label}
-                  </motion.div>
-                </Link>
-              ))}
-
-              {/* Resume Download */}
-              <motion.a
-                href="/fahim_resume.pdf"
-                download
-                className="flex items-center gap-2 px-4 py-2 rounded-full border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 cursor-pointer"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: navItems.length * 0.1 }}
-              >
-                <Download className="w-4 h-4" />
-                Resume
-              </motion.a>
+                  </motion.a>
+                ) : (
+                  <Link key={item.id} href={item.href}>
+                    <motion.div
+                      className={`px-4 py-2 rounded-full transition-all duration-300 cursor-pointer ${
+                        (item.id === "blogs" &&
+                          pathname.startsWith("/blogs")) ||
+                        (item.id === "about" && pathname === "/about")
+                          ? "bg-primary text-primary-foreground"
+                          : "text-foreground hover:text-primary hover:bg-muted"
+                      }`}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      initial={{ opacity: 0, y: -20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: index * 0.1 }}
+                    >
+                      {item.label}
+                    </motion.div>
+                  </Link>
+                ),
+              )}
 
               {/* Theme Picker */}
               <ThemePicker />
@@ -167,16 +177,14 @@ export function Navigation() {
 
           {/* Mobile Navigation Items */}
           <div className="space-y-4">
-            {navItems.map((item, index) => (
-              <Link key={item.id} href={item.href}>
-                <motion.div
+            {navItems.map((item, index) =>
+              item.download ? (
+                <motion.a
+                  key={item.id}
+                  href={item.href}
+                  download
                   onClick={() => setIsOpen(false)}
-                  className={`w-full flex items-center gap-4 p-4 rounded-xl transition-all duration-300 cursor-pointer ${
-                    (item.id === "blogs" && pathname.startsWith("/blogs")) ||
-                    (item.id === "about" && pathname === "/about")
-                      ? "bg-primary text-primary-foreground"
-                      : "text-foreground hover:bg-muted"
-                  }`}
+                  className="w-full flex items-center gap-4 p-4 rounded-xl border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 cursor-pointer"
                   initial={{ opacity: 0, x: 50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
@@ -184,24 +192,29 @@ export function Navigation() {
                 >
                   <item.icon className="w-5 h-5" />
                   <span>{item.label}</span>
-                </motion.div>
-              </Link>
-            ))}
-
-            {/* Resume Download */}
-            <motion.a
-              href="/fahim_resume.pdf"
-              download
-              onClick={() => setIsOpen(false)}
-              className="w-full flex items-center gap-4 p-4 rounded-xl border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 cursor-pointer"
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.4, delay: navItems.length * 0.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Download className="w-5 h-5" />
-              <span>Resume</span>
-            </motion.a>
+                </motion.a>
+              ) : (
+                <Link key={item.id} href={item.href}>
+                  <motion.div
+                    onClick={() => setIsOpen(false)}
+                    className={`w-full flex items-center gap-4 p-4 rounded-xl transition-all duration-300 cursor-pointer ${
+                      (item.id === "blogs" &&
+                        pathname.startsWith("/blogs")) ||
+                      (item.id === "about" && pathname === "/about")
+                        ? "bg-primary text-primary-foreground"
+                        : "text-foreground hover:bg-muted"
+                    }`}
+                    initial={{ opacity: 0, x: 50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <item.icon className="w-5 h-5" />
+                    <span>{item.label}</span>
+                  </motion.div>
+                </Link>
+              ),
+            )}
           </div>
 
           {/* Mobile Contact Info */}
