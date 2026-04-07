@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { Menu, X, User, MessageCircle, BookOpen } from "lucide-react";
+import { Menu, X, User, MessageCircle, BookOpen, Download } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { ThemePicker } from "./ThemePicker";
 
@@ -80,6 +80,21 @@ export function Navigation() {
                   </motion.div>
                 </Link>
               ))}
+
+              {/* Resume Download */}
+              <motion.a
+                href="/fahim_resume.pdf"
+                download
+                className="flex items-center gap-2 px-4 py-2 rounded-full border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 cursor-pointer"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: navItems.length * 0.1 }}
+              >
+                <Download className="w-4 h-4" />
+                Resume
+              </motion.a>
 
               {/* Theme Picker */}
               <ThemePicker />
@@ -172,6 +187,21 @@ export function Navigation() {
                 </motion.div>
               </Link>
             ))}
+
+            {/* Resume Download */}
+            <motion.a
+              href="/fahim_resume.pdf"
+              download
+              onClick={() => setIsOpen(false)}
+              className="w-full flex items-center gap-4 p-4 rounded-xl border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 cursor-pointer"
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.4, delay: navItems.length * 0.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Download className="w-5 h-5" />
+              <span>Resume</span>
+            </motion.a>
           </div>
 
           {/* Mobile Contact Info */}
