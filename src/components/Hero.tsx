@@ -61,7 +61,7 @@ export function Hero() {
           variants={itemVariants}
           className="text-2xl md:text-3xl text-[var(--portfolio-primary)] dark:text-[var(--portfolio-secondary)] mb-4 font-semibold"
         >
-          Senior Software Consultant
+          Senior Software Engineer
         </motion.h2>
 
         {/* Tagline */}
@@ -69,7 +69,7 @@ export function Hero() {
           variants={itemVariants}
           className="text-lg md:text-xl text-foreground max-w-3xl mx-auto mb-8 leading-relaxed font-medium"
         >
-          Crafting innovative solutions with{" "}
+          Distributed systems, performance, and AI/agent tooling with{" "}
           <span className="text-accent font-semibold">Rust</span>,{" "}
           <span className="text-secondary font-semibold">Go</span>, and{" "}
           <span className="text-primary font-semibold">TypeScript</span> • From
@@ -160,7 +160,7 @@ export function Hero() {
 
         {/* Floating tech icons */}
         <div className="absolute inset-0 pointer-events-none">
-          {["Rust", "Go", "React", "Node.js", "TypeScript"].map(
+          {["Rust", "Go", "TypeScript", "Kubernetes", "LLMs"].map(
             (tech, index) => (
               <motion.div
                 key={tech}

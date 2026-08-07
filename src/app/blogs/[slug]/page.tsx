@@ -41,7 +41,7 @@ export async function generateMetadata({
       description: meta.excerpt || `Read ${meta.title} by Fahim Khan`,
       type: "article",
       url: url,
-      siteName: "Fahim Khan - Software Consultant",
+      siteName: "Fahim Khan - Senior Software Engineer",
       locale: "en_US",
       publishedTime: meta.date,
       authors: ["Fahim Khan"],

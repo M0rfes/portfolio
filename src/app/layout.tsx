@@ -8,11 +8,11 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title:
-    "Fahim Khan | Senior Software Consultant | React & Node.js Expert | Dubai",
+    "Fahim Khan | Senior Software Engineer | Distributed Systems & AI | Abu Dhabi",
   description:
-    "Senior Software Consultant specializing in React, Node.js, and cloud solutions. Currently at Presight AI, Dubai. Available for freelance projects and full-time opportunities globally.",
+    "Senior Software Engineer building high-performance services, distributed systems, and AI/agent tooling. Rust, TypeScript, and cloud infrastructure. Currently at Presight AI, Abu Dhabi.",
   keywords:
-    "Fahim Khan, Software Consultant, Full-Stack Developer, React, Node.js, TypeScript, Dubai, UAE, Mumbai, Freelance, Remote Work",
+    "Fahim Khan, Senior Software Engineer, Distributed Systems, Rust, TypeScript, LLMs, AI Agents, Kubernetes, Fintech, Abu Dhabi, UAE",
   authors: [{ name: "Fahim Khan" }],
   robots: "index, follow",
   viewport: "width=device-width, initial-scale=1.0",
@@ -23,13 +23,13 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "Fahim Khan | Senior Software Consultant | React & Node.js Expert | Dubai",
+      "Fahim Khan | Senior Software Engineer | Distributed Systems & AI | Abu Dhabi",
     description:
-      "Senior Software Consultant specializing in React, Node.js, and cloud solutions. Currently at Presight AI, Dubai. Available for freelance projects and full-time opportunities globally.",
+      "Senior Software Engineer building high-performance services, distributed systems, and AI/agent tooling. Rust, TypeScript, and cloud infrastructure.",
     images: [
       {
         url: "/me.avif",
-        alt: "Fahim Khan - Software Consultant Profile Picture",
+        alt: "Fahim Khan - Senior Software Engineer",
         width: 1200,
         height: 630,
       },
@@ -43,13 +43,13 @@ export const metadata: Metadata = {
     site: "@M0rfes",
     creator: "@M0rfes",
     title:
-      "Fahim Khan | Senior Software Consultant | React & Node.js Expert | Dubai",
+      "Fahim Khan | Senior Software Engineer | Distributed Systems & AI | Abu Dhabi",
     description:
-      "Senior Software Consultant specializing in React, Node.js, and cloud solutions. Currently at Presight AI, Dubai. Available for freelance projects and full-time opportunities globally.",
+      "Senior Software Engineer building high-performance services, distributed systems, and AI/agent tooling.",
     images: [
       {
         url: "/me.avif",
-        alt: "Fahim Khan - Software Consultant Profile Picture",
+        alt: "Fahim Khan - Senior Software Engineer",
       },
     ],
   },
@@ -60,10 +60,10 @@ export const metadata: Metadata = {
     "apple-mobile-web-app-capable": "yes",
     "apple-mobile-web-app-status-bar-style": "default",
     "apple-mobile-web-app-title": "Fahim Khan",
-    profession: "Software Consultant",
+    profession: "Senior Software Engineer",
     experience: "Senior Level",
-    location: "Dubai, UAE",
-    availability: "Available for freelance and full-time opportunities",
+    location: "Abu Dhabi, UAE",
+    availability: "Available for full-time opportunities",
   },
 };
 
@@ -76,9 +76,9 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Fahim Khan",
-    jobTitle: "Senior Software Consultant",
+    jobTitle: "Senior Software Engineer",
     description:
-      "Senior Software Consultant specializing in React, Node.js, and cloud solutions",
+      "Senior Software Engineer building high-performance services, distributed systems, and AI/agent tooling",
     url: "https://fahimkhan.dev",
     image: "/me.avif",
     sameAs: [
@@ -95,7 +95,7 @@ export default function RootLayout({
     },
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Dubai",
+      addressLocality: "Abu Dhabi",
       addressCountry: "UAE",
     },
     contactPoint: {
@@ -105,14 +105,16 @@ export default function RootLayout({
       contactType: "professional",
     },
     knowsAbout: [
-      "React",
-      "Node.js",
+      "Distributed Systems",
+      "Rust",
       "TypeScript",
-      "Full-Stack Development",
-      "Cloud Solutions",
-      "Software Architecture",
-      "API Development",
-      "Database Design",
+      "Go",
+      "LLMs",
+      "AI Agents",
+      "Kubernetes",
+      "System Design",
+      "Event-Driven Architecture",
+      "Observability",
     ],
   };
 

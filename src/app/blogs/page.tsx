@@ -3,23 +3,23 @@ import { BlogList } from "@/components/BlogList";
 import { getAllBlogPosts } from "@/lib/blog";
 
 export const metadata: Metadata = {
-  title: "Blog | Fahim Khan - Software Consultant",
+  title: "Blog | Fahim Khan - Senior Software Engineer",
   description:
-    "Read articles and insights about software development, React, Node.js, and cloud solutions by Fahim Khan.",
+    "Articles on software engineering, distributed systems, Node.js, databases, and applied AI by Fahim Khan.",
   keywords:
-    "blog, articles, software development, React, Node.js, TypeScript, tutorials, insights",
+    "blog, articles, software engineering, distributed systems, TypeScript, Rust, Node.js, tutorials",
   openGraph: {
     title: "Blog | Fahim Khan",
     description:
-      "Read articles and insights about software development, React, Node.js, and cloud solutions.",
+      "Articles on software engineering, distributed systems, and applied AI.",
     type: "website",
     url: "https://fahim.shonif.com/blogs",
-    siteName: "Fahim Khan - Software Consultant",
+    siteName: "Fahim Khan - Senior Software Engineer",
     locale: "en_US",
     images: [
       {
         url: "https://fahim.shonif.com/me.avif",
-        alt: "Fahim Khan - Software Consultant",
+        alt: "Fahim Khan - Senior Software Engineer",
         width: 1200,
         height: 630,
       },
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     creator: "@M0rfes",
     title: "Blog | Fahim Khan",
     description:
-      "Read articles and insights about software development, React, Node.js, and cloud solutions.",
+      "Articles on software engineering, distributed systems, and applied AI.",
     images: ["https://fahim.shonif.com/me.avif"],
   },
   other: {

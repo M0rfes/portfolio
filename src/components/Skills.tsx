@@ -300,84 +300,83 @@ function SummaryStats() {
 export function Skills() {
   const skillCategories: SkillCategory[] = [
     {
-      title: "Backend Technologies",
+      title: "Languages & Systems",
       icon: Code,
       color: "from-[var(--portfolio-primary)] to-[var(--portfolio-secondary)]",
       skills: [
         {
           name: "Rust",
           hours: 2500,
-          description: "High-performance systems, HTTP proxies, CLI tools",
+          description: "High-performance services, reverse proxies, concurrency",
         },
         {
           name: "Go",
           hours: 2000,
-          description: "Microservices, REST/GraphQL APIs, backend services",
-        },
-        {
-          name: "Node.js",
-          hours: 3000,
-          description:
-            "Backend services, API development, real-time processing",
+          description: "Microservices, APIs, backend services",
         },
         {
           name: "TypeScript",
           hours: 3500,
-          description: "Type-safe development, large-scale applications",
+          description: "Type-safe services and large-scale application code",
+        },
+        {
+          name: "Node.js",
+          hours: 3000,
+          description: "Backend services, APIs, real-time processing",
         },
         {
           name: "NestJS",
           hours: 1800,
-          description: "Enterprise applications, scalable architectures",
+          description: "Enterprise services, modular architectures",
         },
       ],
     },
     {
-      title: "Frontend Technologies",
+      title: "Distributed Systems",
       icon: Zap,
       color: "from-[var(--portfolio-secondary)] to-[var(--portfolio-accent)]",
       skills: [
         {
-          name: "React",
-          hours: 3200,
-          description: "Component libraries, complex UIs, state management",
+          name: "Event-Driven / Queues",
+          hours: 1600,
+          description: "Async jobs, backpressure, fan-out, durable workflows",
         },
         {
-          name: "Next.js",
+          name: "GraphQL",
           hours: 1500,
-          description: "SSR, SSG, modern web applications",
+          description: "Apollo Federation, schema design, service boundaries",
         },
         {
-          name: "Angular",
-          hours: 2800,
-          description: "Enterprise applications, complex dashboards",
+          name: "SLOs / On-Call",
+          hours: 900,
+          description: "Reliability ownership, incident response, uptime targets",
         },
         {
-          name: "React Native",
-          hours: 1200,
-          description: "Cross-platform mobile applications",
-        },
-        {
-          name: "Vue.js",
+          name: "Observability",
           hours: 800,
-          description: "Progressive web applications",
+          description: "Dynatrace, latency budgets, production health",
+        },
+        {
+          name: "WebSockets / WebRTC",
+          hours: 700,
+          description: "Low-latency streaming for live inference surfaces",
         },
       ],
     },
     {
-      title: "Database & Storage",
+      title: "Data & Storage",
       icon: Database,
       color: "from-[var(--portfolio-accent)] to-[var(--portfolio-success)]",
       skills: [
         {
-          name: "MongoDB",
-          hours: 2200,
-          description: "Document databases, aggregation pipelines",
-        },
-        {
           name: "PostgreSQL",
           hours: 1800,
-          description: "Relational databases, complex queries, optimization",
+          description: "Relational design, PostGIS, query optimization",
+        },
+        {
+          name: "MongoDB",
+          hours: 2200,
+          description: "Document stores, aggregation pipelines",
         },
         {
           name: "Neo4j",
@@ -385,14 +384,14 @@ export function Skills() {
           description: "Graph databases, relationship modeling",
         },
         {
-          name: "DynamoDB",
-          hours: 800,
-          description: "NoSQL, serverless architectures",
-        },
-        {
           name: "Redis",
           hours: 1000,
-          description: "Caching, session management, pub/sub",
+          description: "Caching, queues, pub/sub, session state",
+        },
+        {
+          name: "DynamoDB",
+          hours: 800,
+          description: "NoSQL, serverless data access patterns",
         },
       ],
     },
@@ -404,22 +403,22 @@ export function Skills() {
         {
           name: "AWS",
           hours: 2000,
-          description: "EC2, S3, Lambda, RDS, CloudFormation",
+          description: "EC2, S3, API Gateway, Lambda, RDS",
         },
         {
           name: "Docker",
           hours: 1500,
-          description: "Containerization, microservices deployment",
+          description: "Containerization, service packaging",
         },
         {
           name: "Kubernetes",
           hours: 1200,
-          description: "Container orchestration, scaling",
+          description: "Orchestration, scaling, production deploys",
         },
         {
           name: "CI/CD",
           hours: 1800,
-          description: "Jenkins, GitHub Actions, deployment automation",
+          description: "GitHub Actions, release trains, automated rollback",
         },
         {
           name: "Monitoring",
@@ -429,34 +428,34 @@ export function Skills() {
       ],
     },
     {
-      title: "Emerging Technologies",
+      title: "AI & Product Surfaces",
       icon: Zap,
       color: "from-[var(--portfolio-warning)] to-[var(--portfolio-primary)]",
       skills: [
         {
-          name: "LLMs/GenAI",
+          name: "LLMs / Agents",
           hours: 800,
-          description: "AI Agents, MCP, Tool calling, prompt engineering",
+          description: "RAG, MCP, tool-calling, agentic workflows",
         },
         {
           name: "Playwright",
           hours: 1200,
-          description: "API automation, web UI testing, E2E testing",
+          description: "API/UI automation, E2E reliability gates",
         },
         {
-          name: "GraphQL",
-          hours: 1500,
-          description: "Apollo Federation, schema design, optimization",
+          name: "React / Next.js",
+          hours: 3200,
+          description: "Secondary product UIs when a client surface is needed",
         },
         {
-          name: "Web3/Solidity",
-          hours: 600,
-          description: "Smart contracts, blockchain development",
+          name: "Angular",
+          hours: 2800,
+          description: "Enterprise operator dashboards (fintech)",
         },
         {
-          name: "LaTeX",
-          hours: 400,
-          description: "Document generation, WYSIWYG editors",
+          name: "Ionic / Capacitor",
+          hours: 1200,
+          description: "Cross-platform clients on shared APIs",
         },
       ],
     },

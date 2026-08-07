@@ -2,23 +2,23 @@ import { Metadata } from "next";
 import { AboutContent } from "@/components/AboutContent";
 
 export const metadata: Metadata = {
-  title: "About | Fahim Khan - Software Consultant",
+  title: "About | Fahim Khan - Senior Software Engineer",
   description:
-    "Learn about Fahim Khan's journey from Mumbai slums to global tech leadership. Senior Software Consultant specializing in React, Node.js, and cloud solutions.",
+    "Learn about Fahim Khan's journey from Mumbai slums to global tech leadership. Senior Software Engineer focused on distributed systems, performance, and AI/agent tooling.",
   keywords:
-    "about, Fahim Khan, software consultant, journey, background, career",
+    "about, Fahim Khan, senior software engineer, distributed systems, journey, background, career",
   openGraph: {
     title: "About | Fahim Khan",
     description:
       "Learn about Fahim Khan's journey from Mumbai slums to global tech leadership.",
     type: "website",
     url: "https://fahim.shonif.com/about",
-    siteName: "Fahim Khan - Software Consultant",
+    siteName: "Fahim Khan - Senior Software Engineer",
     locale: "en_US",
     images: [
       {
         url: "https://fahim.shonif.com/me.avif",
-        alt: "Fahim Khan - Software Consultant",
+        alt: "Fahim Khan - Senior Software Engineer",
         width: 1200,
         height: 630,
       },

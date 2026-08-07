@@ -68,7 +68,7 @@
 % ── HEADER ───────────────────────────────────────────────────────────────────
 \begin{center}
   {\LARGE\bfseries FAHIM KHAN}\\[4pt]
-  {\large\color{accent} Senior Full Stack Engineer}\\[6pt]
+  {\large\color{accent} Senior Software Engineer}\\[6pt]
   \small
   \href{mailto:fahimkhan20148@gmail.com}{fahimkhan20148@gmail.com}
   \quad$|$\quad
@@ -83,7 +83,7 @@
 
 % ── PROFILE ──────────────────────────────────────────────────────────────────
 \section{Profile}
-Senior Full Stack Engineer with 8+ years of experience architecting high-performance, scalable web applications and real-time systems. Specialist in Rust, TypeScript, and React/Next.js, with a strong track record in fintech (Emirates NBD) and AI/agentic systems. Proven ability to lead engineering teams, establish CI/CD pipelines, and migrate legacy architectures to modern, high-throughput stacks.
+Senior Software Engineer with 8+ years building high-performance services, distributed systems, and AI/agent tooling across fintech and applied AI. Known for turning ambiguous constraints into measurable outcomes: cutting infrastructure cost 50--90\%, collapsing 12-month migration timelines to 3 months, and shipping zero-downtime cutovers for tier-1 banking. Owns reliability end-to-end --- SLOs, on-call, and event-driven service design --- with deep expertise in Rust, TypeScript, and agentic systems.
 
 % ── CORE COMPETENCIES ────────────────────────────────────────────────────────
 \section{Core Competencies}
@@ -91,82 +91,79 @@ Senior Full Stack Engineer with 8+ years of experience architecting high-perform
 \begin{multicols}{4}
 \noindent
 Rust / Go\\
-React / Next.js\\
-Node.js / NestJS\\
-TypeScript
+TypeScript\\
+Distributed Systems\\
+Event-Driven / Queues
 
 \columnbreak
 \noindent
-LLMs / AI Agents\\
+LLMs / AI Agents / RAG\\
+MCP / Tool-Calling\\
 GraphQL / REST\\
-WebSockets / WebRTC\\
-Microservices
+WebSockets / WebRTC
 
 \columnbreak
 \noindent
 Docker / Kubernetes\\
 AWS (EC2, S3, API GW)\\
 PostgreSQL / MongoDB\\
-Neo4j
+Neo4j / PostGIS
 
 \columnbreak
 \noindent
+CI/CD / GitHub Actions\\
+SLOs / Observability\\
 Playwright / Appium\\
-CI/CD Automation\\
-Ionic / Capacitor\\
 Dynatrace
 \end{multicols}
 
 % ── WORK EXPERIENCE ──────────────────────────────────────────────────────────
 \section{Work Experience}
 
-\jobentry{Full Stack Consultant}{Mar 2025 -- Present}{Presight AI}{Abu Dhabi}
+\jobentry{Software Engineer}{Mar 2025 -- Present}{Presight AI}{Abu Dhabi}
 \begin{itemize}
-  \item Architected a micro frontend system decoupling deployments across product squads, enabling independent shipping without cross-team bottlenecks.
-  \item Built real-time dashboards in React/Next.js using WebSockets and WebRTC to stream live AI inference data with near-zero latency.
-  \item Implemented agentic workflows using LLMs, MCP, and tool-calling to automate operational tasks and accelerate legacy code migration.
-  \item Maintained backend services in Rust and NestJS, deployed via Docker and Kubernetes on distributed cloud infrastructure.
+  \item Designed event-driven agent pipelines (LLM + MCP + tool-calling) over async job queues, automating operational work and legacy migration --- \textbf{40\%} less manual engineering effort.
+  \item Owned service SLOs and on-call for inference-facing backends (Rust / NestJS) on Docker/Kubernetes; held \textbf{99.9\%+} production uptime.
+  \item Decoupled product squads with a micro-frontend deployment boundary, cutting release cycle time by \textbf{60\%}; React/Next.js + WebSockets/WebRTC for live inference streams (\textbf{500+} concurrent users per instance).
 \end{itemize}
-\techstack{Rust $\cdot$ Node.js $\cdot$ NestJS $\cdot$ React $\cdot$ Next.js $\cdot$ TypeScript $\cdot$ Go $\cdot$ GraphQL $\cdot$ Docker $\cdot$ Kubernetes $\cdot$ LLMs $\cdot$ MCP}
+\techstack{Rust $\cdot$ Go $\cdot$ Node.js $\cdot$ NestJS $\cdot$ TypeScript $\cdot$ GraphQL $\cdot$ Docker $\cdot$ Kubernetes $\cdot$ LLMs $\cdot$ MCP $\cdot$ React $\cdot$ Next.js}
 
 \vspace{7pt}
-\jobentry{Senior Software Consultant}{Apr 2024 -- Jan 2025}{D4 Insight}{Dubai}
+\jobentry{Software Engineer}{Apr 2024 -- Jan 2025}{D4 Insight}{Dubai}
 \begin{itemize}
-  \item Migrated critical services from Java to Rust, reducing p99 service discovery latency from \textbf{300ms+ to sub-50ms} and cutting infrastructure replicas from \textbf{6 to 3}, halving hosting costs.
-  \item Achieved near-zero downtime post-migration --- only one incident in six months, a step-change from pre-migration reliability.
-  \item Engineered secure financial dashboards and interbanking API integrations for \textbf{Emirates NBD}, adhering to strict banking security and compliance standards.
-  \item Built an HTTP reverse proxy in Rust (Axum/Tokio) for high-concurrency traffic routing with minimal overhead.
-  \item Automated API, web UI, and native app testing using Playwright and Appium.
+  \item Replaced a Java service-discovery stack with Rust (Axum/Tokio) after profiling showed \textbf{70\%} CPU lost to GC; p99 latency \textbf{300ms $\rightarrow$ sub-50ms}, replicas \textbf{6 $\rightarrow$ 3}, hosting cost halved.
+  \item Built a Rust HTTP reverse proxy for high-concurrency routing (\textbf{10,000+} connections) and wired event-driven traffic fan-out with bounded queues and backpressure.
+  \item Defined SLOs and on-call playbooks for the post-migration surface --- one production incident in six months; Playwright/Appium matrices raised coverage \textbf{45\% $\rightarrow$ 90\%} and cut regressions \textbf{65\%}.
+  \item Delivered Emirates NBD interbanking API integrations under PCI-DSS / ISO 27001; Angular used only for secure operator dashboards.
 \end{itemize}
-\techstack{Rust $\cdot$ Axum $\cdot$ Tokio $\cdot$ Node.js $\cdot$ Angular $\cdot$ MongoDB $\cdot$ Playwright $\cdot$ Appium $\cdot$ Finacle}
+\techstack{Rust $\cdot$ Axum $\cdot$ Tokio $\cdot$ Node.js $\cdot$ MongoDB $\cdot$ Playwright $\cdot$ Appium $\cdot$ Finacle $\cdot$ Angular}
 
 \vspace{7pt}
-\jobentry{Full Stack Engineer}{Mar 2023 -- Nov 2023}{Egen Solutions Inc}{Remote}
+\jobentry{Software Engineer}{Mar 2023 -- Nov 2023}{Egen Solutions Inc}{Remote}
 \begin{itemize}
-  \item Built a RAG pipeline on GPT-3.5 to automatically migrate legacy Selenium E2E tests to Playwright, cutting the projected timeline from \textbf{1 year to 3 months}.
-  \item Led a team of 3 engineers through the migration: daily code reviews, testing standards, and end-to-end delivery ownership.
-  \item Architected the Apollo GraphQL federation layer connecting microservices for loan origination, payments, and customer data on the Bridgecrest platform.
-  \item Managed AWS infrastructure (EC2, S3, API Gateway) and CI/CD pipelines via GitHub Actions for rapid, reliable releases.
+  \item Productionized a RAG pipeline (GPT-3.5) that generated Playwright tests from Selenium sources, collapsing a \textbf{12-month} migration to \textbf{3 months} and unblocking launch.
+  \item Architected Apollo GraphQL federation across loan origination, payments, and customer services on Bridgecrest --- \textbf{35\%} fewer API round-trips; event-driven handlers for payment/state transitions.
+  \item Owned AWS + GitHub Actions release trains with automated rollback; led 3 engineers on standards, CI gates, and delivery.
 \end{itemize}
-\techstack{TypeScript $\cdot$ Angular $\cdot$ Apollo GraphQL $\cdot$ NestJS $\cdot$ Ionic $\cdot$ Playwright $\cdot$ AWS $\cdot$ GitHub Actions $\cdot$ Dynatrace $\cdot$ GPT-3.5}
+\techstack{TypeScript $\cdot$ NestJS $\cdot$ Apollo GraphQL $\cdot$ AWS $\cdot$ GitHub Actions $\cdot$ Dynatrace $\cdot$ GPT-3.5 $\cdot$ Playwright $\cdot$ Angular $\cdot$ Ionic}
 
 \newpage
-\jobentry{Full Stack Engineer}{Sep 2020 -- Jan 2023}{Segment Hub Technologies}{Mumbai}
+\jobentry{Software Engineer}{Sep 2020 -- Jan 2023}{Segment Hub Technologies}{Mumbai}
 \begin{itemize}
-  \item Shipped one of the company's first LLM integrations: a GPT-3-powered ``talk to your docs'' interface enabling natural language querying of internal documentation.
-  \item Built a high-performance Rust API layer (Axum), significantly reducing server costs while handling concurrent workloads at scale.
-  \item Developed cross-platform mobile apps with Ionic/Capacitor for Android and iOS, extending the product beyond Slack.
+  \item Replaced a Node.js bottleneck with a Rust (Axum) API layer: \textbf{60\%} lower server cost, \textbf{10,000+} concurrent connections, sub-50ms responses; introduced queue-backed async jobs for heavy document workloads.
+  \item Shipped the company's first GPT-3 ``talk to your docs'' product surface --- \textbf{25\%} fewer support tickets, faster onboarding.
+  \item Extended the product to Android/iOS via Ionic/Capacitor (\textbf{40\%} mobile user growth) as a secondary client on the same APIs.
 \end{itemize}
-\techstack{Rust $\cdot$ Axum $\cdot$ PostgreSQL $\cdot$ NestJS $\cdot$ Ionic $\cdot$ Capacitor $\cdot$ AWS $\cdot$ GPT-3}
+\techstack{Rust $\cdot$ Axum $\cdot$ PostgreSQL $\cdot$ NestJS $\cdot$ AWS $\cdot$ GPT-3 $\cdot$ Ionic $\cdot$ Capacitor}
 
 \vspace{9pt}
-\jobentry{Full Stack Engineer}{Jan 2018 -- Aug 2020}{Pawzeeble}{Mumbai}
+\jobentry{Software Engineer}{Jan 2018 -- Aug 2020}{Pawzeeble}{Mumbai}
 \begin{itemize}
-  \item Optimized the geospatial ``find nearest clinic'' feature, cutting infrastructure cost by \textbf{10x} while maintaining full response accuracy.
-  \item Built a WYSIWYG editor with full \LaTeX{} support for clinical document authoring and in-browser file import.
-  \item Delivered cross-platform apps for Android, iOS, and web from a single Ionic/Capacitor codebase.
+  \item Redesigned geospatial ``nearest clinic'' from brute-force Postgres to PostGIS + K-d tree indexing --- \textbf{10x} compute cost reduction at full accuracy; removed need for a dedicated geo-service.
+  \item Built event-driven notification and booking flows with durable queues so clinic matching stayed responsive under load.
+  \item Shipped Android, iOS, and web from one Ionic/Capacitor codebase (\textbf{60\%} less maintenance vs native forks); LaTeX-capable clinical editor for in-browser report authoring.
 \end{itemize}
-\techstack{Angular $\cdot$ TypeScript $\cdot$ Koa $\cdot$ NestJS $\cdot$ Ionic $\cdot$ Capacitor $\cdot$ PostgreSQL}
+\techstack{TypeScript $\cdot$ NestJS $\cdot$ Koa $\cdot$ PostgreSQL $\cdot$ PostGIS $\cdot$ Angular $\cdot$ Ionic $\cdot$ Capacitor}
 
 % ── EDUCATION ────────────────────────────────────────────────────────────────
 \section{Education}

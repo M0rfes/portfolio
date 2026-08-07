@@ -72,15 +72,15 @@ function CurrentFocus() {
           <div className="flex items-start gap-3">
             <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
             <p className="font-semibold">
-              Working at Presight AI developing LLM-powered dashboards and
-              implementing agentic workflows
+              Building event-driven agent pipelines (LLM + MCP) and owning SLOs
+              / on-call for inference-facing services at Presight AI
             </p>
           </div>
           <div className="flex items-start gap-3">
             <div className="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0"></div>
             <p className="font-semibold">
-              Learning new technologies and skills to stay up-to-date with
-              industry trends
+              Deepening systems work — performance, reliability, and
+              distributed service design
             </p>
           </div>
           <div className="flex items-start gap-3">

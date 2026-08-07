@@ -12,7 +12,7 @@ function StatsGrid() {
 
   const stats = [
     {
-      number: "7+",
+      number: "8+",
       label: "Years Experience",
       icon: Award,
       color: "text-primary",
