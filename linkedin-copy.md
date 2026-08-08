@@ -32,10 +32,10 @@ Leadership through architecture reviews, mentoring, and cross-team coordination.
 Core languages: Rust · Go · TypeScript
 
 Highlights:
+• Built a Go PaaS that bootstraps fresh VM fleets into ready Kubernetes clusters (kubeadm/kubectl, networking, namespaces)
 • Platform engineering with 3 product squads (~15 engineers, ~40-person eng org) on event-driven LLM agent pipelines — ops ~25 hrs/week → ~15 hrs/week
 • Service ownership of Java → Rust service discovery with a ~12-person platform/fintech team: 6→3 replicas, p99 300ms → <50ms
 • Infra automation + mentoring a 3-engineer pod (~400 tests) inside a ~25-person eng org — 12 months → 3 months
-• Service ownership of GraphQL federation across 6 microservices (~10 service owners) — 35% fewer API round-trips
 
 Stack: Rust, Go, TypeScript/Node, PostgreSQL, GraphQL, Docker/Kubernetes, AWS, CI/CD, observability.
 
@@ -52,12 +52,13 @@ Use **Software Engineer** for every role (LinkedIn “Title”). Keep company na
 **Mar 2025 – Present · Abu Dhabi**
 
 ```
-• Platform engineering for event-driven microservices and LLM agent pipelines (MCP, tool-calling); cross-team coordination with 3 product squads (~15 engineers in a ~40-person eng org) — ops ~25 hrs/week → ~15 hrs/week (40%).
+• Platform engineering: built a Go PaaS that provisions fresh VM clusters into production-ready Kubernetes — kubeadm/kubectl bootstrap, CNI networking, namespaces, and required cluster tooling for service ownership by product squads.
+• Event-driven microservices and LLM agent pipelines (MCP, tool-calling); cross-team coordination with 3 product squads (~15 engineers in a ~40-person eng org) — ops ~25 hrs/week → ~15 hrs/week (40%).
 • Service ownership for inference APIs (Rust / NestJS) on Docker/Kubernetes: SLOs, on-call, observability — 99.9%+ uptime on ~2M requests/month, MTTR ~45 min → <15 min.
-• Infra automation and architecture reviews for CI/CD / independent deploys across squads — release cycle 10 days → 4 days (60%); WebSockets/WebRTC for 500+ concurrent users per instance.
+• Infra automation and architecture reviews for CI/CD / independent deploys across squads — release cycle 10 days → 4 days (60%).
 ```
 
-**Skills to tag:** Platform Engineering, Service Ownership, Infra Automation, Distributed Systems, Rust, Kubernetes, LLMs, CI/CD
+**Skills to tag:** Platform Engineering, PaaS, Kubernetes, Go, Service Ownership, Infra Automation, Distributed Systems, Rust, LLMs, CI/CD
 
 ---
 
