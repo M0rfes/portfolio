@@ -79,7 +79,7 @@ function CurrentFocus() {
           <div className="flex items-start gap-3">
             <div className="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0"></div>
             <p className="font-semibold">
-              Deepening systems work — performance, reliability, and
+              Deepening systems work - performance, reliability, and
               distributed service design
             </p>
           </div>

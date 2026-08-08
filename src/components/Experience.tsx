@@ -178,10 +178,10 @@ export function Experience() {
       dates: "Mar 2025 - Present",
       current: true,
       highlights: [
-        "Platform engineering: built a Go PaaS that provisions fresh VM clusters into production-ready Kubernetes — kubeadm/kubectl bootstrap, CNI networking, namespaces, and required cluster tooling for service ownership by product squads",
-        "Event-driven microservices and LLM agent pipelines (MCP, tool-calling); cross-team coordination with 3 product squads (~15 engineers in a ~40-person eng org) — ops ~25 hrs/week → ~15 hrs/week (40%)",
-        "Service ownership for inference APIs (Rust / NestJS) on Docker/Kubernetes: SLOs, on-call, observability — 99.9%+ uptime on ~2M requests/month, MTTR ~45 min → <15 min",
-        "Infra automation and architecture reviews for CI/CD / independent deploys across squads — release cycle 10 days → 4 days (60%)",
+        "Platform engineering: built a Go PaaS that provisions fresh VM clusters into production-ready Kubernetes - kubeadm/kubectl bootstrap, CNI networking, namespaces, and required cluster tooling for service ownership by product squads",
+        "Event-driven microservices and LLM agent pipelines (MCP, tool-calling); cross-team coordination with 3 product squads (~15 engineers in a ~40-person eng org) - ops ~25 hrs/week → ~15 hrs/week (40%)",
+        "Service ownership for inference APIs (Rust / NestJS) on Docker/Kubernetes: SLOs, on-call, observability - 99.9%+ uptime on ~2M requests/month, MTTR ~45 min → <15 min",
+        "Infra automation and architecture reviews for CI/CD / independent deploys across squads - release cycle 10 days → 4 days (60%)",
       ],
       technologies: [
         "Go",
@@ -208,8 +208,8 @@ export function Experience() {
       current: false,
       highlights: [
         "Platform engineering: service-discovery redesign (Java→Rust/Axum/Tokio) via architecture reviews with a ~12-person platform/fintech delivery team and bank stakeholders; 6→3 replicas, p99 300ms → <50ms, hosting cost halved",
-        "Service ownership of reverse-proxy and traffic routing with event-driven fan-out, queues, and backpressure — 10,000+ concurrent connections at ~5k RPS, stable p99",
-        "Infra automation for Playwright/Appium CI; mentoring 4 engineers on SLOs/on-call — 1 incident in six months across ~50 weekly releases; coverage 45% → 90%, regressions -65%",
+        "Service ownership of reverse-proxy and traffic routing with event-driven fan-out, queues, and backpressure - 10,000+ concurrent connections at ~5k RPS, stable p99",
+        "Infra automation for Playwright/Appium CI; mentoring 4 engineers on SLOs/on-call - 1 incident in six months across ~50 weekly releases; coverage 45% → 90%, regressions -65%",
         "Cross-team coordination with Emirates NBD eng (~8 partner contacts) on interbanking REST/API integrations (12+ endpoints, ~8k daily settlement messages); reconciliation 2 days → same-day",
       ],
       technologies: [
@@ -232,9 +232,9 @@ export function Experience() {
       dates: "Mar 2023 - Nov 2023",
       current: false,
       highlights: [
-        "Infra automation: RAG / LLM pipeline (GPT-3.5) migrating Selenium→Playwright; mentoring a pod of 3 engineers (~400-test suite) inside a ~25-person Bridgecrest eng org — 12 months → 3 months",
-        "Service ownership of Apollo GraphQL federation across loan, payments, and customer microservices (6 services, ~10 service owners) — 35% fewer API round-trips",
-        "Platform engineering for AWS CI/CD (GitHub Actions) with automated rollback and observability — daily deploys (~20/month) from weekly; architecture reviews for squad standards",
+        "Infra automation: RAG / LLM pipeline (GPT-3.5) migrating Selenium→Playwright; mentoring a pod of 3 engineers (~400-test suite) inside a ~25-person Bridgecrest eng org - 12 months → 3 months",
+        "Service ownership of Apollo GraphQL federation across loan, payments, and customer microservices (6 services, ~10 service owners) - 35% fewer API round-trips",
+        "Platform engineering for AWS CI/CD (GitHub Actions) with automated rollback and observability - daily deploys (~20/month) from weekly; architecture reviews for squad standards",
       ],
       technologies: [
         "TypeScript",
@@ -257,9 +257,9 @@ export function Experience() {
       dates: "Sep 2020 - Jan 2023",
       current: false,
       highlights: [
-        "Platform engineering / service ownership: Node.js→Rust (Axum) API microservices with PostgreSQL and queue-backed jobs for a ~10-engineer product team — 60% lower server cost (8→3 instances), 10,000+ connections, sub-50ms p99",
-        "Cross-team coordination with product and support (~6 stakeholders) on first LLM / GPT-3 RAG 'talk to your docs' rollout (~5k-doc corpus) — tickets ~200/mo → ~150/mo (-25%), onboarding ~30% faster",
-        "Infra automation for mobile CI delivery (Ionic/Capacitor) on shared REST/GraphQL APIs — 40% mobile growth from ~2.5k MAU",
+        "Platform engineering / service ownership: Node.js→Rust (Axum) API microservices with PostgreSQL and queue-backed jobs for a ~10-engineer product team - 60% lower server cost (8→3 instances), 10,000+ connections, sub-50ms p99",
+        "Cross-team coordination with product and support (~6 stakeholders) on first LLM / GPT-3 RAG 'talk to your docs' rollout (~5k-doc corpus) - tickets ~200/mo → ~150/mo (-25%), onboarding ~30% faster",
+        "Infra automation for mobile CI delivery (Ionic/Capacitor) on shared REST/GraphQL APIs - 40% mobile growth from ~2.5k MAU",
       ],
       technologies: [
         "Rust",
@@ -280,9 +280,9 @@ export function Experience() {
       dates: "Jan 2018 - Aug 2020",
       current: false,
       highlights: [
-        "Service ownership of geospatial nearest-clinic (PostGIS + K-d tree) for a ~6-engineer startup — ~1,200 clinics, ~50k queries/day, 10x compute cost reduction; retired a dedicated geo-service",
-        "Platform engineering for event-driven notification/booking microservices with durable queues — 2,000+ concurrent bookings, p95 under 200ms (from ~1.2s)",
-        "Cross-team coordination of web and mobile delivery from one Ionic/Capacitor codebase (3 platforms, 2 client teams) — 60% less maintenance vs native forks",
+        "Service ownership of geospatial nearest-clinic (PostGIS + K-d tree) for a ~6-engineer startup - ~1,200 clinics, ~50k queries/day, 10x compute cost reduction; retired a dedicated geo-service",
+        "Platform engineering for event-driven notification/booking microservices with durable queues - 2,000+ concurrent bookings, p95 under 200ms (from ~1.2s)",
+        "Cross-team coordination of web and mobile delivery from one Ionic/Capacitor codebase (3 platforms, 2 client teams) - 60% less maintenance vs native forks",
       ],
       technologies: [
         "TypeScript",
