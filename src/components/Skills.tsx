@@ -337,6 +337,16 @@ export function Skills() {
       color: "from-[var(--portfolio-secondary)] to-[var(--portfolio-accent)]",
       skills: [
         {
+          name: "System Design",
+          hours: 2000,
+          description: "Service boundaries, scalability, failure modes, trade-offs",
+        },
+        {
+          name: "Architecture",
+          hours: 1800,
+          description: "End-to-end service and platform architecture ownership",
+        },
+        {
           name: "Event-Driven / Queues",
           hours: 1600,
           description: "Async jobs, backpressure, fan-out, durable workflows",
@@ -350,16 +360,6 @@ export function Skills() {
           name: "SLOs / On-Call",
           hours: 900,
           description: "Reliability ownership, incident response, uptime targets",
-        },
-        {
-          name: "Observability",
-          hours: 800,
-          description: "Dynatrace, latency budgets, production health",
-        },
-        {
-          name: "WebSockets / WebRTC",
-          hours: 700,
-          description: "Low-latency streaming for live inference surfaces",
         },
       ],
     },

@@ -178,9 +178,9 @@ export function Experience() {
       dates: "Mar 2025 - Present",
       current: true,
       highlights: [
-        "Designed event-driven agent pipelines (LLM + MCP + tool-calling) over async job queues — ~40% less manual engineering effort",
-        "Owned service SLOs and on-call for inference-facing backends (Rust / NestJS) on Docker/Kubernetes; 99.9%+ production uptime",
-        "Decoupled product squads with independent deploy boundaries, cutting release cycle time ~60%; React/Next.js + WebSockets/WebRTC for live inference streams as a secondary client surface",
+        "Platform engineering for event-driven microservices and LLM agent pipelines (MCP, tool-calling); cross-team coordination with 3 product squads (~15 engineers in a ~40-person eng org) — ops ~25 hrs/week → ~15 hrs/week (40%)",
+        "Service ownership for inference APIs (Rust / NestJS) on Docker/Kubernetes: SLOs, on-call, observability — 99.9%+ uptime on ~2M requests/month, MTTR ~45 min → <15 min",
+        "Infra automation and architecture reviews for CI/CD / independent deploys across squads — release cycle 10 days → 4 days (60%); WebSockets/WebRTC for 500+ concurrent users per instance",
       ],
       technologies: [
         "Rust",
@@ -205,10 +205,10 @@ export function Experience() {
       dates: "Apr 2024 - Jan 2025",
       current: false,
       highlights: [
-        "Replaced Java service-discovery with Rust (Axum/Tokio) after GC profiling — p99 300ms → sub-50ms, replicas 6 → 3, hosting cost halved",
-        "Built a Rust HTTP reverse proxy for 10,000+ concurrent connections with event-driven fan-out, bounded queues, and backpressure",
-        "Defined SLOs and on-call playbooks post-migration — one incident in six months; raised automated coverage 45% → 90%",
-        "Delivered Emirates NBD interbanking API integrations under PCI-DSS / ISO 27001; Angular only for secure operator dashboards",
+        "Platform engineering: service-discovery redesign (Java→Rust/Axum/Tokio) via architecture reviews with a ~12-person platform/fintech delivery team and bank stakeholders; 6→3 replicas, p99 300ms → <50ms, hosting cost halved",
+        "Service ownership of reverse-proxy and traffic routing with event-driven fan-out, queues, and backpressure — 10,000+ concurrent connections at ~5k RPS, stable p99",
+        "Infra automation for Playwright/Appium CI; mentoring 4 engineers on SLOs/on-call — 1 incident in six months across ~50 weekly releases; coverage 45% → 90%, regressions -65%",
+        "Cross-team coordination with Emirates NBD eng (~8 partner contacts) on interbanking REST/API integrations (12+ endpoints, ~8k daily settlement messages); reconciliation 2 days → same-day",
       ],
       technologies: [
         "Rust",
@@ -230,9 +230,9 @@ export function Experience() {
       dates: "Mar 2023 - Nov 2023",
       current: false,
       highlights: [
-        "Productionized a RAG pipeline (GPT-3.5) that generated Playwright tests from Selenium — collapsed a 12-month migration to 3 months",
-        "Architected Apollo GraphQL federation across loan, payments, and customer services — ~35% fewer API round-trips; event-driven payment/state handlers",
-        "Owned AWS + GitHub Actions release trains with automated rollback; led 3 engineers on standards and delivery",
+        "Infra automation: RAG / LLM pipeline (GPT-3.5) migrating Selenium→Playwright; mentoring a pod of 3 engineers (~400-test suite) inside a ~25-person Bridgecrest eng org — 12 months → 3 months",
+        "Service ownership of Apollo GraphQL federation across loan, payments, and customer microservices (6 services, ~10 service owners) — 35% fewer API round-trips",
+        "Platform engineering for AWS CI/CD (GitHub Actions) with automated rollback and observability — daily deploys (~20/month) from weekly; architecture reviews for squad standards",
       ],
       technologies: [
         "TypeScript",
@@ -255,9 +255,9 @@ export function Experience() {
       dates: "Sep 2020 - Jan 2023",
       current: false,
       highlights: [
-        "Replaced a Node.js bottleneck with a Rust (Axum) API layer — ~60% lower server cost, 10,000+ concurrent connections, sub-50ms responses; queue-backed async jobs for heavy workloads",
-        "Shipped the company's first GPT-3 'talk to your docs' product surface — ~25% fewer support tickets",
-        "Extended the product to Android/iOS via Ionic/Capacitor as a secondary client on the same APIs",
+        "Platform engineering / service ownership: Node.js→Rust (Axum) API microservices with PostgreSQL and queue-backed jobs for a ~10-engineer product team — 60% lower server cost (8→3 instances), 10,000+ connections, sub-50ms p99",
+        "Cross-team coordination with product and support (~6 stakeholders) on first LLM / GPT-3 RAG 'talk to your docs' rollout (~5k-doc corpus) — tickets ~200/mo → ~150/mo (-25%), onboarding ~30% faster",
+        "Infra automation for mobile CI delivery (Ionic/Capacitor) on shared REST/GraphQL APIs — 40% mobile growth from ~2.5k MAU",
       ],
       technologies: [
         "Rust",
@@ -278,9 +278,9 @@ export function Experience() {
       dates: "Jan 2018 - Aug 2020",
       current: false,
       highlights: [
-        "Redesigned geospatial nearest-clinic from brute-force Postgres to PostGIS + K-d tree — 10x compute cost reduction at full accuracy",
-        "Built event-driven notification and booking flows with durable queues under load",
-        "Shipped Android, iOS, and web from one Ionic/Capacitor codebase; LaTeX-capable clinical editor as a secondary product surface",
+        "Service ownership of geospatial nearest-clinic (PostGIS + K-d tree) for a ~6-engineer startup — ~1,200 clinics, ~50k queries/day, 10x compute cost reduction; retired a dedicated geo-service",
+        "Platform engineering for event-driven notification/booking microservices with durable queues — 2,000+ concurrent bookings, p95 under 200ms (from ~1.2s)",
+        "Cross-team coordination of web and mobile delivery from one Ionic/Capacitor codebase (3 platforms, 2 client teams) — 60% less maintenance vs native forks",
       ],
       technologies: [
         "TypeScript",
