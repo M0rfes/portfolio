@@ -1,0 +1,39 @@
+{
+  "slug": [
+    "coding",
+    "concurrency",
+    "scalability"
+  ],
+  "href": "/notes/coding/concurrency/scalability/",
+  "title": "Scalability",
+  "tags": [
+    "concurrency",
+    "architecture",
+    "scalability"
+  ],
+  "created": "2026-08-21",
+  "updatedAt": "2026-08-21",
+  "vaultPath": "Coding/Concurrency/Scalability.md",
+  "folder": "Coding",
+  "markdown": "# Scalability\n\n[Concurrency](../concurrency/) can help us achieve scalability by allowing us to scale out (scale horizontally) rather than scale up (scale vertically).\n- Scaling vertically means buying more RAM or a faster processor to get only marginal improvements, and vertical scaling stops once you have already bought the fastest system.\n- But we can scale horizontally by distributing the work across multiple machines.\n\n[Concurrency](../concurrency/) can be used to decouple the system. If only one service needs to scale, that can be done easily in a [decoupled](../../../architecture/coupling/) system rather than to scale everything on a [tightly coupled](../../../architecture/coupling/) system.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "books",
+        "grokking-concurrency",
+        "introducing-concurrency"
+      ],
+      "href": "/notes/books/grokking-concurrency/introducing-concurrency/",
+      "title": "Introducing Concurrency"
+    },
+    {
+      "slug": [
+        "architecture",
+        "case-for-monolith",
+        "case-for-monolith"
+      ],
+      "href": "/notes/architecture/case-for-monolith/case-for-monolith/",
+      "title": "Modular Monolith"
+    }
+  ]
+}

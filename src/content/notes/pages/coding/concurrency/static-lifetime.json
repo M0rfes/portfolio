@@ -1,0 +1,19 @@
+{
+  "slug": [
+    "coding",
+    "concurrency",
+    "static-lifetime"
+  ],
+  "href": "/notes/coding/concurrency/static-lifetime/",
+  "title": "Static Lifetime",
+  "tags": [
+    "concurrency",
+    "memory"
+  ],
+  "created": "2026-08-18",
+  "updatedAt": "2026-08-18",
+  "vaultPath": "Coding/Concurrency/Static Lifetime.md",
+  "folder": "Coding",
+  "markdown": "# Static Lifetime\n\nA static lifetime means the value will exist until the end of the program, so any value with a static lifetime can be shared across [threads](../threads/).\n\nAny variable declared static exists before main and remains in scope until the program ends. Values can also be leaked on the heap to guarantee they exist for the program's entire duration.\n",
+  "linkedFrom": []
+}

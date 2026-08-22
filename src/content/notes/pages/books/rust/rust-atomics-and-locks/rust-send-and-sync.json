@@ -1,0 +1,33 @@
+{
+  "slug": [
+    "books",
+    "rust",
+    "rust-atomics-and-locks",
+    "rust-send-and-sync"
+  ],
+  "href": "/notes/books/rust/rust-atomics-and-locks/rust-send-and-sync/",
+  "title": "Send Sync",
+  "tags": [
+    "rust",
+    "concurrency",
+    "thread-safety",
+    "auto-traits"
+  ],
+  "created": "2026-08-18",
+  "updatedAt": "2026-08-18",
+  "vaultPath": "Books/rust/Rust Atomics and Locks/Rust Send and Sync.md",
+  "folder": "Books",
+  "markdown": "# Thread Safety in Rust: Send and Sync\n\nThread safety markers determine how types can cross thread boundaries:\n\n- **Send**: A type `T` is `Send` if its ownership can be transferred to another [thread](../../../../coding/concurrency/threads/).\n- **Sync**: A type `T` is `Sync` if its shared reference is of type `Send` (i.e., `T` is `Sync` if `&T` is `Send`).\n\nAll primitive types are `Send` and `Sync`. Types are automatically `Send` and `Sync` if all of their fields are `Send` and `Sync`.\n\n## Send\n\nA type `T` is `Send` if its ownership can be transferred to another thread.\ne.g., `Arc<T>` is `Send`, but `Rc<T>` is not.\n\n## Sync\n\nA type `T` is `Sync` if its shared reference is of type `Send` (i.e., `T` is `Sync` if `&T` is `Send`).\ne.g., `i32` is `Sync`, but `Cell<i32>` is not `Sync`.\n\nAll primitive types are `Send` and `Sync`.\n\n## Auto Traits\n\nAuto traits are traits which are implemented for a type if all of its fields implement them.\n\ni.e.\n\n```rust\nstruct User {\n\tid: i32,\n}\n```\n\nHere, `User` is both `Send` and `Sync` because `id` is `Send` and `Sync`.\n\nTo opt out, you can add a property that's not `Send` or `Sync`, like a `Cell`:\n\n```rust\nuse std::cell::Cell;\nuse std::marker::PhantomData;\n\nstruct User {\n\tid: i32,\n\t__not_sync: PhantomData<Cell<()>>,\n}\n```\n\nNow `User` is not `Sync` or `Send`.\n\nRaw pointers like `*const T` and `*mut T` are neither `Send` nor `Sync` as the compiler cannot guarantee thread safety for them.\n\n```rust\nstruct Org {\n\tuser: *mut usize,\n}\n\nunsafe impl Send for Org {}\nunsafe impl Sync for Org {}\n```\n\nWe need to use `unsafe` because the compiler can't guarantee that the value the user references is `Send` or `Sync`.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "basics-of-rust-concurrency"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+      "title": "Rust Concurrency"
+    }
+  ]
+}

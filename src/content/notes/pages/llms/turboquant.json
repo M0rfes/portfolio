@@ -1,0 +1,38 @@
+{
+  "slug": [
+    "llms",
+    "turboquant"
+  ],
+  "href": "/notes/llms/turboquant/",
+  "title": "TurboQuant",
+  "tags": [
+    "llm",
+    "quantization",
+    "performance",
+    "inference"
+  ],
+  "summary": "A specialized inference kernel optimized for fast, quantized LLM execution.",
+  "created": "2026-03-30",
+  "updatedAt": "2026-03-30",
+  "vaultPath": "LLMs/TurboQuant.md",
+  "folder": "LLMs",
+  "markdown": "# TurboQuant\n\n**[TurboQuant](./)** is an optimized inference kernel designed for extremely fast **quantized** **[LLM](../llm/)** inference on GPUs.\n\n### Key Features\n- **Optimized Kernels**: Hand-tuned CUDA kernels for specific low-precision operations.\n- **Minimal Overhead**: Reduces the compute overhead of de-quantizing weights on the fly.\n\n#TODO: Compare TurboQuant with other kernels like BitsAndBytes or AutoGPTQ.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "llms",
+        "llm"
+      ],
+      "href": "/notes/llms/llm/",
+      "title": "LLMs"
+    },
+    {
+      "slug": [
+        "llms",
+        "quantisation"
+      ],
+      "href": "/notes/llms/quantisation/",
+      "title": "Quantization"
+    }
+  ]
+}

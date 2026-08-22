@@ -1,0 +1,47 @@
+{
+  "slug": [
+    "llms",
+    "encoder"
+  ],
+  "href": "/notes/llms/encoder/",
+  "title": "Encoder",
+  "tags": [
+    "llm",
+    "encoder",
+    "transformer",
+    "attention",
+    "nlp"
+  ],
+  "summary": "Encoder layers in transformers extract features from the full input via bidirectional attention; used alone for NLU tasks or with a decoder in seq2seq models.",
+  "created": "2026-07-26",
+  "updatedAt": "2026-07-26",
+  "vaultPath": "LLMs/Encoder.md",
+  "folder": "LLMs",
+  "markdown": "# Encoder\n\nEncoders, when talking about [LLM](../llm/), are referring to the feature extracting layer rather then talking about changing the fomrat in which the information is stored. typecly encoder is the peace of software which takes data in one format and outputs it in another format. but encoder in llm refer to a layer of transformer and attention that can look at the full text and extract the features which is fead to the [decoder](../decoder/) layer that then generates the output text one token at a time. not all models use both encoder and decoder although they wear introduced togather. encoder only models are useful for tasks like fill in the balnk or sentiment analysis. encoders can look at the full text and generate attention from both direction left and right.\n\n## Examples\n- **BERT**, **RoBERTa**: encoder-only; pretrain with masked language modeling (fill-in-the-blank), then fine-tune for classification, NER, etc.\n- **T5**, **BART**, original Transformer (translation): encoder–decoder; encoder reads source, decoder generates target.\n- Input `\"The cat sat on the mat\"`: every token can attend to every other token (bidirectional self-attention).\n\n## Facts\n- Introduced with the decoder in *Attention Is All You Need* (Vaswani et al., 2017) for machine translation.\n- Bidirectional (non-causal) self-attention: position *i* may attend to positions *j* for all *j* in the sequence.\n- Encoder-only models map tokens → contextual embeddings; they do not generate open-ended text autoregressively.\n- Common NLU uses: sentiment, classification, extractive QA, embeddings for [retrieval](../rag/).\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "llms",
+        "decoder"
+      ],
+      "href": "/notes/llms/decoder/",
+      "title": "Decoder"
+    },
+    {
+      "slug": [
+        "llms",
+        "llm"
+      ],
+      "href": "/notes/llms/llm/",
+      "title": "LLMs"
+    },
+    {
+      "slug": [
+        "llms",
+        "speculative-decoding"
+      ],
+      "href": "/notes/llms/speculative-decoding/",
+      "title": "Speculative Decoding"
+    }
+  ]
+}

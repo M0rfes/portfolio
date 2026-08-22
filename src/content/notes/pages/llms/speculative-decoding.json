@@ -1,0 +1,31 @@
+{
+  "slug": [
+    "llms",
+    "speculative-decoding"
+  ],
+  "href": "/notes/llms/speculative-decoding/",
+  "title": "Speculative Decoding",
+  "tags": [
+    "llm",
+    "speculative-decoding",
+    "optimization",
+    "inference",
+    "throughput"
+  ],
+  "summary": "An optimization technique using a smaller model to generate candidate tokens validated in a single pass by a larger model to increase token throughput.",
+  "created": "2026-07-31",
+  "updatedAt": "2026-07-31",
+  "vaultPath": "LLMs/Speculative Decoding.md",
+  "folder": "LLMs",
+  "markdown": "# Speculative Decoding\n\n**[Speculative Decoding](./)** is an optimisation technique used to increase token generation speed and token throughput in [LLM](../llm/).\n\n### Context & Motivation\n- **Autoregressive Constraint**: Due to the [autoregressive](../decoder/) nature of the [transformer](../encoder/) architecture, standard inference generates only one token at a time, meaning one forward pass results in one token.\n- **Resource Intensity**: Bigger models require significantly more resources and time to generate new tokens.\n- **Efficiency Gap**: In most cases, a [smaller model](../../slm/slm/) could generate the exact same tokens with significantly fewer resources and in far less time.\n\n### Core Mechanism\n- **Draft Generation**: A smaller model generates $X$ new candidate tokens along with their confidence scores.\n- **Parallel Validation**: A bigger model validates all $X$ tokens in a single forward pass.\n- **Throughput Yield**:\n  - **Best Case**: Yields up to $X$ tokens in a single pass of the larger model.\n  - **Worst Case**: Yields 1 token in a single pass (otherwise generates one token and repeats).\n\n#### Example\n1. The smaller model generates $5$ tokens ($X_1, X_2, X_3, X_4, X_5$) with corresponding confidence scores ($S_1, S_2, S_3, S_4, S_5$).\n2. The bigger model verifies all $5$ tokens in a single pass, accepting anywhere from $0$ to $5$ tokens.\n\n### Implementation Approaches\n- **Two-Model Architecture**: Using a separate smaller model alongside the main larger model.\n- **Single-Model Integration**: Baking draft-generation capability directly into the model architecture.\n\n### Drawbacks & Trade-offs\n- **Wasted Compute**: Across draft iterations, if a large chunk of draft tokens is rejected, compute is wasted on generating those $X$ draft tokens and subsequently rejecting them.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "llms",
+        "llm"
+      ],
+      "href": "/notes/llms/llm/",
+      "title": "LLMs"
+    }
+  ]
+}

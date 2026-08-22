@@ -1,0 +1,31 @@
+{
+  "slug": [
+    "llms",
+    "mcp"
+  ],
+  "href": "/notes/llms/mcp/",
+  "title": "MCP",
+  "tags": [
+    "llm",
+    "mcp",
+    "tool-calling",
+    "anthropic",
+    "protocol"
+  ],
+  "summary": "A standard protocol by Anthropic built on top of tool calling that exposes JSON-RPC endpoints for LLMs to communicate with external services as plugins.",
+  "created": "2026-08-02",
+  "updatedAt": "2026-08-02",
+  "vaultPath": "LLMs/MCP.md",
+  "folder": "LLMs",
+  "markdown": "# Model Context Protocol (MCP)\n\n**MCP** is a protocol built on top of **[Tool calling](../../agents/tool-calling/)**.\n\n### Overview\n- **Standard by Anthropic**: Establishes a standard for **[LLM](../llm/)** to communicate with external services.\n- **Mechanism**: Exposes **JSON-RPC** endpoints for the **[LLM](../llm/)** to call.\n\n### How It Compares to Regular Tool Calls\n- **Plugin Architecture**: Unlike regular tool calls which are defined within the Harness, MCPs can be added like plugins.\n- **Extensibility**: Adds extra tools and functionality to **[LLM](../llm/)**.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "agents",
+        "agents"
+      ],
+      "href": "/notes/agents/agents/",
+      "title": "Agents"
+    }
+  ]
+}

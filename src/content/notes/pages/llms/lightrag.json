@@ -1,0 +1,38 @@
+{
+  "slug": [
+    "llms",
+    "lightrag"
+  ],
+  "href": "/notes/llms/lightrag/",
+  "title": "LightRAG",
+  "tags": [
+    "graph-rag",
+    "light-rag",
+    "research",
+    "rag"
+  ],
+  "summary": "A specialized implementation of GraphRAG designed for efficiency and streamlined retrieval.",
+  "created": "2026-03-29",
+  "updatedAt": "2026-03-30",
+  "vaultPath": "LLMs/LightRAG.md",
+  "folder": "LLMs",
+  "markdown": "# LightRAG\n\nA specialized implementation of **GraphRAG** developed by **hkuds**.\n\n[RAG](../rag/) Strategy | [Knowledge Graphs](../knowledge-graphs/)\n\n[GitHub Repository](https://github.com/hkuds/lightrag)\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "llms",
+        "knowledge-graphs"
+      ],
+      "href": "/notes/llms/knowledge-graphs/",
+      "title": "Knowledge Graphs"
+    },
+    {
+      "slug": [
+        "llms",
+        "llm"
+      ],
+      "href": "/notes/llms/llm/",
+      "title": "LLMs"
+    }
+  ]
+}

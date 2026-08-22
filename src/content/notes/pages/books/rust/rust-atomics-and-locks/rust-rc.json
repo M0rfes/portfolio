@@ -1,0 +1,32 @@
+{
+  "slug": [
+    "books",
+    "rust",
+    "rust-atomics-and-locks",
+    "rust-rc"
+  ],
+  "href": "/notes/books/rust/rust-atomics-and-locks/rust-rc/",
+  "title": "Rust Rc",
+  "tags": [
+    "rust",
+    "reference-counting",
+    "smart-pointers"
+  ],
+  "created": "2026-08-18",
+  "updatedAt": "2026-08-18",
+  "vaultPath": "Books/rust/Rust Atomics and Locks/Rust Rc.md",
+  "folder": "Books",
+  "markdown": "# Rc in Rust\n\nReference counting is a smart pointer mechanism that gives you a reference-counted value. It keeps a count of all owners and drops the value only when the counter reaches 0.\n\nThe count increases by 1 each time the pointer is cloned. Unlike deep cloning, this does not create a new value on the heap; instead, it increments the counter next to the value. Each time a clone is dropped, the counter is decremented; if the counter reaches 0, the actual value is dropped.\n\nStandard reference counting gives a read-only reference by default and is not thread-safe if the counter increments and decrements are non-atomic.\n\n`std::rc::Rc` is a smart pointer that gives you a reference-counted value. It keeps a count of all owners and drops the value only when the counter reaches 0. The count goes up by one each time the pointer is cloned with `Rc::clone(&rc)`.\n\nUnlike `Box::new().clone()`, these do not create a new value on the heap; instead, it just increments the counter next to the value. Each time a clone is dropped, the counter is decremented; if the counter reaches 0, the actual value is dropped.\n\nNote: `Rc` gives a read-only reference; to get a mutable reference, you can either use [interior mutability](../../../../coding/concurrency/interior-mutability/) or `Rc::get_mut` or `Rc::make_mut` to get a mutable reference. It only works with a single reference; to get the number of references an `Rc` has, use `Rc::strong_count`.\n\n```rust\nuse std::rc::Rc;\n\nfn main() {\n\tlet mut num = Rc::new(5);\n\tif let Some(val) = Rc::get_mut(&mut num) {\n\t\t*val = 42;\n\t}\n\t\n\tprintln!(\"{num:?}\"); // 42\n}\n```\n\nIt's a zero-cost abstraction way of taking a mutable reference from an `Rc`.\n\n`Rc` can't be sent across threads because it's not thread-safe and doesn't implement [Send and Sync](../../../../coding/concurrency/send-and-sync/), because if two threads try to update the count at once, it will result in inconsistent behaviour.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "basics-of-rust-concurrency"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+      "title": "Rust Concurrency"
+    }
+  ]
+}

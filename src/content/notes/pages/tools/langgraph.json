@@ -1,0 +1,47 @@
+{
+  "slug": [
+    "tools",
+    "langgraph"
+  ],
+  "href": "/notes/tools/langgraph/",
+  "title": "LangGraph",
+  "tags": [
+    "agent",
+    "langgraph",
+    "orchestration",
+    "multi-agent",
+    "framework"
+  ],
+  "summary": "A graph-based framework for orchestrating stateful, multi-agent workflows with loops, branching, and state persistence.",
+  "created": "2026-07-31",
+  "updatedAt": "2026-07-31",
+  "vaultPath": "tools/LangGraph.md",
+  "folder": "tools",
+  "markdown": "# LangGraph\n\n**[LangGraph](./)** is a specialized framework designed to build stateful, multi-actor applications with **[LLMs](../../llms/llm/)**.\n\n### Key Capabilities\n- **Cyclic & Graph Workflows**: Allows loops and conditional edges, making it ideal for ReAct loops, iterative refinement, and multi-agent debate.\n- **State Management**: Uses central state schemas updated deterministically as execution moves across graph nodes.\n- **Human-in-the-Loop**: Supports pausing execution for human approval or feedback before resuming node transitions.\n- **Time-Travel Debugging**: Enables rewinding state to inspect or fork execution paths during agent testing.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "agents",
+        "communication"
+      ],
+      "href": "/notes/agents/communication/",
+      "title": "Agent Communication"
+    },
+    {
+      "slug": [
+        "llms",
+        "agentic-rag"
+      ],
+      "href": "/notes/llms/agentic-rag/",
+      "title": "Agentic RAG"
+    },
+    {
+      "slug": [
+        "agents",
+        "agents"
+      ],
+      "href": "/notes/agents/agents/",
+      "title": "Agents"
+    }
+  ]
+}

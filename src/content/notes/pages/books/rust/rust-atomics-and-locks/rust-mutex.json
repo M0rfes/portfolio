@@ -1,0 +1,33 @@
+{
+  "slug": [
+    "books",
+    "rust",
+    "rust-atomics-and-locks",
+    "rust-mutex"
+  ],
+  "href": "/notes/books/rust/rust-atomics-and-locks/rust-mutex/",
+  "title": "Rust Mutex",
+  "tags": [
+    "rust",
+    "concurrency",
+    "locks",
+    "mutex"
+  ],
+  "created": "2026-08-18",
+  "updatedAt": "2026-08-18",
+  "vaultPath": "Books/rust/Rust Atomics and Locks/Rust Mutex.md",
+  "folder": "Books",
+  "markdown": "# Mutex in Rust\n\nA Mutex (mutual exclusion) works as an exclusive reference: only one [thread](../../../../coding/concurrency/threads/) can hold the lock at a time.\n\nWhen sharing data between threads via a Mutex, conflicting access does not cause a panic; instead, waiting threads are put to sleep and woken up when the lock is released.\n\nWhen we share data between threads via a `Mutex` or `RwLock`, unlike with `RefCell`, removing conflicting references doesn't cause a panic; instead, the thread is put to sleep and is woken up when the lock is dropped, so it can try to take a reference.\n\n`std::sync::Mutex`\nA mutex works as an exclusive reference, i.e. only one thread can hold the lock.\n\n```rust\nuse std::sync::Mutex;\n\nfn main() {\n\tlet count = Mutex::new(0);\n\t\n\tthread::scope(|s| {\n\t\tfor n in 0..10 {\n\t\t\ts.spawn(|| {\n\t\t\t\tlet mut guard = count.lock().unwrap();\n\t\t\t\tfor _ in 0..100 {\n\t\t\t\t\t*guard += 1;\n\t\t\t\t}\n\t\t\t});\n\t\t}\n\t});\n\tassert_eq!(count.into_inner().unwrap(), 1000);\n}\n```\n\nIn the above example, we spawn 10 threads, all to increment `count` 100 times. Each thread sees the count as 0, 100, 200, ..., 900, runs its execution and drops the guard.\n\nWe don't have `unlock` methods on `Mutex` because `lock` returns a `MutexGuard`; it lets us access the internal data like an exclusive reference through the `DerefMut` trait.\nDropping the guard frees the lock via the `Drop` trait.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "basics-of-rust-concurrency"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+      "title": "Rust Concurrency"
+    }
+  ]
+}

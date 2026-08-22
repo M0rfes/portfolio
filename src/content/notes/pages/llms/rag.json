@@ -1,0 +1,85 @@
+{
+  "slug": [
+    "llms",
+    "rag"
+  ],
+  "href": "/notes/llms/rag/",
+  "title": "RAG",
+  "tags": [
+    "rag",
+    "research",
+    "ai-architecture"
+  ],
+  "summary": "Overview of RAG modalities and strategies for augmenting LLM queries with external, up-to-date, or private data.",
+  "created": "2026-03-29",
+  "updatedAt": "2026-03-30",
+  "vaultPath": "LLMs/RAG.md",
+  "folder": "LLMs",
+  "markdown": "# Retrieval-Augmented Generation (RAG)\n\n[RAG](./) or **Retrieval-augmented generation** means augmenting the query before passing it to the [LLM](../llm/) for final inference. We need [RAG](./) to pass up-to-date or private data that the LLM might not have been trained on.\n\nIn traditional [RAG](./), we **chunk** our data and generate **embeddings** that are stored in a **Vector Database**. This allows us to perform a syntactic search to add context to the user query.\n\n---\n\n## Modalities of RAG\n\nThere are multiple ways to approach the data modality in [RAG](./):\n\n### 1. Everything as Text RAG\nWe turn everything into text and generate an embedding from it.\n- **Process**: Images are run through an image-to-caption service; audio and video are turned into transcripts.\n- **Storage**: Results are saved in a Vector Database.\n- **Pros/Cons**: Simple, but causes loss of context. It is only as good as the captioning and transcript models. If an image is poorly summarized, the LLM's answer will be suboptimal.\n\n### 2. Hybrid Multimodal RAG (HYMMRag)\nHere, we save not only the summary of the media but also the location of the media.\n- **Process**: This data is sent to a **MLLM** (Multimodal LLM) which can perform inference directly on images, audio, and video.\n- **Result**: Allows the LLM to answer with much richer context.\n\n### 3. Full Multimodal RAG (FMMRag)\nWe use a multimodal embedding stack trained to put text, images, audio, and video into a shared **vector** space.\n- **Process**: The retrieval process pulls out text, images, video frames, or audio timestamps.\n- **Result**: Enables the system to be more grounded and accurate, managing large contexts by pulling specific relevant segments.\n\n---\n\n## RAG Strategies\n\nWhile the above covers modalities, we also have different strategies to execute [RAG](./):\n\n1. **[Re-ranking](../re-ranking/)**\n2. **[Agentic RAG](../agentic-rag/)**\n3. **[Knowledge Graphs](../knowledge-graphs/)** (GraphRAG)\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "llms",
+        "agentic-rag"
+      ],
+      "href": "/notes/llms/agentic-rag/",
+      "title": "Agentic RAG"
+    },
+    {
+      "slug": [
+        "agents",
+        "agents"
+      ],
+      "href": "/notes/agents/agents/",
+      "title": "Agents"
+    },
+    {
+      "slug": [
+        "llms",
+        "encoder"
+      ],
+      "href": "/notes/llms/encoder/",
+      "title": "Encoder"
+    },
+    {
+      "slug": [
+        "llms",
+        "knowledge-graphs"
+      ],
+      "href": "/notes/llms/knowledge-graphs/",
+      "title": "Knowledge Graphs"
+    },
+    {
+      "slug": [
+        "llms",
+        "lightrag"
+      ],
+      "href": "/notes/llms/lightrag/",
+      "title": "LightRAG"
+    },
+    {
+      "slug": [
+        "llms",
+        "llm"
+      ],
+      "href": "/notes/llms/llm/",
+      "title": "LLMs"
+    },
+    {
+      "slug": [
+        "llms",
+        "microsoft-graphrag"
+      ],
+      "href": "/notes/llms/microsoft-graphrag/",
+      "title": "Microsoft GraphRAG"
+    },
+    {
+      "slug": [
+        "llms",
+        "re-ranking"
+      ],
+      "href": "/notes/llms/re-ranking/",
+      "title": "Re-ranking"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "slug": [
+    "llms",
+    "quantisation"
+  ],
+  "href": "/notes/llms/quantisation/",
+  "title": "Quantization",
+  "tags": [
+    "llm",
+    "quantization",
+    "optimization",
+    "model-compression"
+  ],
+  "summary": "Techniques for reducing the precision of model weights to decrease memory usage and speed up inference.",
+  "created": "2026-03-30",
+  "updatedAt": "2026-03-30",
+  "vaultPath": "LLMs/Quantisation.md",
+  "folder": "LLMs",
+  "markdown": "# Quantization\n\n**Quantization** is the process of mapping high-precision floating-point numbers (e.g., FP32 or FP16) to lower-precision formats (e.g., INT8, INT4, or even 1.58-bit).\n\n### Purpose\n- **Memory Reduction**: Fits larger models into smaller VRAM (e.g., consumer GPUs).\n- **Speed**: Improves inference throughput by utilizing specialized low-precision hardware instructions.\n\n### Common Formats\n- **GPTQ**: Post-training quantization for weight-only.\n- **AWQ**: Activation-aware Weight Quantization.\n- **[TurboQuant](../turboquant/)**: A specialized kernel for fast quantized inference.\n- **BitNet**: 1-bit LLMs that utilize binary or ternary weights.\n\n#TODO: Deep dive into the trade-offs between precision and perplexity.\n",
+  "linkedFrom": []
+}

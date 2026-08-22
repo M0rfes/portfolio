@@ -1,0 +1,38 @@
+{
+  "slug": [
+    "llms",
+    "lmcache"
+  ],
+  "href": "/notes/llms/lmcache/",
+  "title": "LMCache",
+  "tags": [
+    "llm",
+    "caching",
+    "performance",
+    "infrastructure"
+  ],
+  "summary": "A specialized system for sharing token caches (KV caches) across multiple requests or instances to optimize LLM performance.",
+  "created": "2026-03-30",
+  "updatedAt": "2026-03-30",
+  "vaultPath": "LLMs/LMCache.md",
+  "folder": "LLMs",
+  "markdown": "# LMCache\n\n**[LMCache](./)** is a specialized framework designed to improve the performance of **[LLM](../llm/)** by enabling the sharing of **[KV Caches](../token-caching/)** across multiple instances or user sessions.\n\n### Key Features\n- **Shared Cache**: Reuses pre-computed token states for common prompts across different requests.\n- **Latency Reduction**: Drastically reduces the \"Time to First Token\" (TTFT) for recurring queries.\n\n#TODO: Detailed implementation analysis.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "llms",
+        "llm"
+      ],
+      "href": "/notes/llms/llm/",
+      "title": "LLMs"
+    },
+    {
+      "slug": [
+        "llms",
+        "token-caching"
+      ],
+      "href": "/notes/llms/token-caching/",
+      "title": "Token Caching"
+    }
+  ]
+}

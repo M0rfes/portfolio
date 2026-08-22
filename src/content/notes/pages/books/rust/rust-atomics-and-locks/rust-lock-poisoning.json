@@ -1,0 +1,32 @@
+{
+  "slug": [
+    "books",
+    "rust",
+    "rust-atomics-and-locks",
+    "rust-lock-poisoning"
+  ],
+  "href": "/notes/books/rust/rust-atomics-and-locks/rust-lock-poisoning/",
+  "title": "Lock Poisoning",
+  "tags": [
+    "rust",
+    "concurrency",
+    "locks"
+  ],
+  "created": "2026-08-18",
+  "updatedAt": "2026-08-18",
+  "vaultPath": "Books/rust/Rust Atomics and Locks/Rust Lock Poisoning.md",
+  "folder": "Books",
+  "markdown": "# Lock Poisoning in Rust\n\nLock poisoning occurs when a [thread](../../../../coding/concurrency/threads/) panics while holding a [Mutex](../../../../coding/concurrency/mutex/) or [Reader-Writer Lock](../../../../coding/concurrency/reader-writer-lock/).\n\nSubsequent attempts to acquire the lock for read or write will return an error indicating the lock is poisoned. The lock still behaves as it should by putting other threads to sleep, but signals that the protected state may be invalid.\n\nThe call to `unwrap` at the end of each lock call should tell you the locking operation returns a `Result` type. If a thread panics while holding the lock, subsequent calls to lock for read and write will result in errors. The lock still behaves as it should, i.e. putting other threads to sleep, but no data will be returned from the lock.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "basics-of-rust-concurrency"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+      "title": "Rust Concurrency"
+    }
+  ]
+}

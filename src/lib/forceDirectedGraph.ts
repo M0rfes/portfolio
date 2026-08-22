@@ -1,3 +1,4 @@
+import { lighten } from "./colorContrast";
 import {
   drag as d3Drag,
   forceCenter,
@@ -86,6 +87,12 @@ const LINK_STRENGTH = 0.65;
 const COLLIDE_PADDING = 5;
 const VELOCITY_DECAY = 0.32;
 const REHEAT_ALPHA = 0.3;
+const LINK_REST_OPACITY = 0.45;
+const LINK_DIM_OPACITY = 0.16;
+const LINK_LIT_OPACITY = 0.95;
+const LINK_WIDTH = 1;
+const NODE_LIT = 0.24;
+const NODE_LIT_SELF = 0.36;
 
 function linkId(link: ForceLink) {
   const source = typeof link.source === "string" ? link.source : link.source.id;
@@ -130,6 +137,8 @@ export class ForceDirectedGraph {
   private transform: ZoomTransform = zoomIdentity;
   private maxDegree = 1;
   private destroyed = false;
+  private hoveredId: string | null = null;
+  private readonly litNodes = new Set<string>();
 
   constructor(options: ForceDirectedGraphOptions) {
     this.container = options.container;
@@ -375,8 +384,8 @@ export class ForceDirectedGraph {
       .enter()
       .append("line")
       .attr("stroke", this.colors.link)
-      .attr("stroke-opacity", 0.45)
-      .attr("stroke-width", 1);
+      .attr("stroke-opacity", LINK_REST_OPACITY)
+      .attr("stroke-width", LINK_WIDTH);
 
     const node = this.nodeLayer
       .selectAll<SVGGElement, ForceNode>("g.node")
@@ -393,7 +402,9 @@ export class ForceDirectedGraph {
       .on("click", (event, item) => {
         if (event.defaultPrevented) return;
         this.onNodeClick?.(item);
-      });
+      })
+      .on("pointerenter", (_, item) => this.setHover(item.id))
+      .on("pointerleave", () => this.setHover(null));
 
     enter.append("circle");
     enter
@@ -407,6 +418,7 @@ export class ForceDirectedGraph {
       .attr("stroke", this.colors.background)
       .attr("font-family", "sans-serif");
 
+    this.styleLinks();
     this.styleNodes();
     this.styleLabels();
   }
@@ -425,12 +437,25 @@ export class ForceDirectedGraph {
       .attr("transform", (node) => `translate(${node.x ?? 0},${node.y ?? 0})`);
   }
 
+  private styleLinks() {
+    this.linkLayer
+      .selectAll<SVGLineElement, ForceLink>("line")
+      .attr("stroke", (link) =>
+        this.isLitLink(link) ? lighten(this.colors.link, 0.5) : this.colors.link,
+      )
+      .attr("stroke-opacity", (link) => {
+        if (!this.hoveredId) return LINK_REST_OPACITY;
+        return this.isLitLink(link) ? LINK_LIT_OPACITY : LINK_DIM_OPACITY;
+      })
+      .attr("stroke-width", LINK_WIDTH);
+  }
+
   private styleNodes() {
     this.nodeLayer
       .selectAll<SVGGElement, ForceNode>("g.node")
       .select("circle")
       .attr("r", (node) => this.radius(node))
-      .attr("fill", (node) => this.fill(node))
+      .attr("fill", (node) => this.litFill(node))
       .attr("stroke", (node) =>
         node.cluster == null ? this.colors.isolatedStroke : "none",
       )
@@ -503,6 +528,39 @@ export class ForceDirectedGraph {
 
   private fill(node: ForceNode) {
     return node.color ?? this.colors.isolatedFill;
+  }
+
+  private litFill(node: ForceNode) {
+    const base = this.fill(node);
+    if (node.id === this.hoveredId) return lighten(base, NODE_LIT_SELF);
+    if (this.litNodes.has(node.id)) return lighten(base, NODE_LIT);
+    return base;
+  }
+
+  private isLitLink(link: ForceLink) {
+    if (!this.hoveredId) return false;
+    return (
+      nodeId(link.source) === this.hoveredId ||
+      nodeId(link.target) === this.hoveredId
+    );
+  }
+
+  private setHover(id: string | null) {
+    if (this.destroyed) return;
+    if (id === this.hoveredId) return;
+    this.hoveredId = id;
+    this.litNodes.clear();
+    if (id) {
+      this.litNodes.add(id);
+      for (const link of this.links) {
+        const source = nodeId(link.source);
+        const target = nodeId(link.target);
+        if (source === id) this.litNodes.add(target);
+        if (target === id) this.litNodes.add(source);
+      }
+    }
+    this.styleLinks();
+    this.styleNodes();
   }
 
   private degree(id: string) {

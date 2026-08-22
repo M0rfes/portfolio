@@ -1,0 +1,78 @@
+{
+  "slug": [
+    "coding",
+    "concurrency",
+    "atomic-operations"
+  ],
+  "href": "/notes/coding/concurrency/atomic-operations/",
+  "title": "Atomic Operations",
+  "tags": [
+    "concurrency",
+    "atomics"
+  ],
+  "created": "2026-08-18",
+  "updatedAt": "2026-08-18",
+  "vaultPath": "Coding/Concurrency/Atomic Operations.md",
+  "folder": "Coding",
+  "markdown": "# Atomic Operations\n\nThe word _atomic_ comes from the Greek word _ἄτομος_, meaning an indivisible item that can't be cut into further smaller parts.\n\nAtomic operations are the smallest operations on data that either occur or do not; there is no half-done state. Two [threads](../threads/) can update an atomic variable without creating an inconsistent state where both reads return the same value and update it at the same time.\n\nThe implementation of atomics and which types are available depends on the system architecture and OS.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "coding",
+        "concurrency",
+        "atomic-reference-counting"
+      ],
+      "href": "/notes/coding/concurrency/atomic-reference-counting/",
+      "title": "Atomic Refcounting"
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "atomics"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/atomics/",
+      "title": "Atomics"
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-memory-ordering"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-memory-ordering/",
+      "title": "Memory Ordering"
+    },
+    {
+      "slug": [
+        "coding",
+        "concurrency",
+        "memory-ordering"
+      ],
+      "href": "/notes/coding/concurrency/memory-ordering/",
+      "title": "Memory Ordering"
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-arc"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-arc/",
+      "title": "Rust Arc"
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "basics-of-rust-concurrency"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+      "title": "Rust Concurrency"
+    }
+  ]
+}

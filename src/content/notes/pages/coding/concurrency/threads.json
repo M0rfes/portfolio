@@ -1,0 +1,276 @@
+{
+  "slug": [
+    "coding",
+    "concurrency",
+    "threads"
+  ],
+  "href": "/notes/coding/concurrency/threads/",
+  "title": "Threads",
+  "tags": [
+    "concurrency",
+    "threads"
+  ],
+  "created": "2026-08-18",
+  "updatedAt": "2026-08-18",
+  "vaultPath": "Coding/Concurrency/Threads.md",
+  "folder": "Coding",
+  "markdown": "# Threads\n\nEvery program starts with one OS thread, and the thread remains alive as long as the program runs. Once the program stops executing, the thread is cleaned up.\n\nWhen the main thread is terminated, all threads forked or spawned from it are also cleaned up, whether they have finished executing or not.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "coding",
+        "concurrency",
+        "atomic-operations"
+      ],
+      "href": "/notes/coding/concurrency/atomic-operations/",
+      "title": "Atomic Operations"
+    },
+    {
+      "slug": [
+        "coding",
+        "concurrency",
+        "atomic-reference-counting"
+      ],
+      "href": "/notes/coding/concurrency/atomic-reference-counting/",
+      "title": "Atomic Refcounting"
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "atomics"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/atomics/",
+      "title": "Atomics"
+    },
+    {
+      "slug": [
+        "coding",
+        "concurrency",
+        "concurrency"
+      ],
+      "href": "/notes/coding/concurrency/concurrency/",
+      "title": "Concurrency"
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-condition-variables"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-condition-variables/",
+      "title": "Condition Variables"
+    },
+    {
+      "slug": [
+        "coding",
+        "concurrency",
+        "condition-variables"
+      ],
+      "href": "/notes/coding/concurrency/condition-variables/",
+      "title": "Condition Variables"
+    },
+    {
+      "slug": [
+        "books",
+        "grokking-concurrency",
+        "introducing-concurrency"
+      ],
+      "href": "/notes/books/grokking-concurrency/introducing-concurrency/",
+      "title": "Introducing Concurrency"
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-lazy-initialization"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-lazy-initialization/",
+      "title": "Lazy Initialization"
+    },
+    {
+      "slug": [
+        "coding",
+        "concurrency",
+        "lazy-initialization"
+      ],
+      "href": "/notes/coding/concurrency/lazy-initialization/",
+      "title": "Lazy Initialization"
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-lock-poisoning"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-lock-poisoning/",
+      "title": "Lock Poisoning"
+    },
+    {
+      "slug": [
+        "coding",
+        "concurrency",
+        "lock-poisoning"
+      ],
+      "href": "/notes/coding/concurrency/lock-poisoning/",
+      "title": "Lock Poisoning"
+    },
+    {
+      "slug": [
+        "coding",
+        "concurrency",
+        "mutex"
+      ],
+      "href": "/notes/coding/concurrency/mutex/",
+      "title": "Mutex"
+    },
+    {
+      "slug": [
+        "coding",
+        "concurrency",
+        "race-conditions"
+      ],
+      "href": "/notes/coding/concurrency/race-conditions/",
+      "title": "Race Conditions"
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-arc"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-arc/",
+      "title": "Rust Arc"
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-atomics"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-atomics/",
+      "title": "Rust Atomics"
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "basics-of-rust-concurrency"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+      "title": "Rust Concurrency"
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-mutex"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-mutex/",
+      "title": "Rust Mutex"
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-statics-and-leaking"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-statics-and-leaking/",
+      "title": "Rust Statics"
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-threads"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-threads/",
+      "title": "Rust Threads"
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-scoped-threads"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-scoped-threads/",
+      "title": "Scoped Threads"
+    },
+    {
+      "slug": [
+        "coding",
+        "concurrency",
+        "scoped-threads"
+      ],
+      "href": "/notes/coding/concurrency/scoped-threads/",
+      "title": "Scoped Threads"
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-send-and-sync"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-send-and-sync/",
+      "title": "Send Sync"
+    },
+    {
+      "slug": [
+        "coding",
+        "concurrency",
+        "send-and-sync"
+      ],
+      "href": "/notes/coding/concurrency/send-and-sync/",
+      "title": "Send Sync"
+    },
+    {
+      "slug": [
+        "coding",
+        "concurrency",
+        "static-lifetime"
+      ],
+      "href": "/notes/coding/concurrency/static-lifetime/",
+      "title": "Static Lifetime"
+    },
+    {
+      "slug": [
+        "coding",
+        "concurrency",
+        "thread-joining"
+      ],
+      "href": "/notes/coding/concurrency/thread-joining/",
+      "title": "Thread Joining"
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-thread-parking"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-thread-parking/",
+      "title": "Thread Parking"
+    },
+    {
+      "slug": [
+        "coding",
+        "concurrency",
+        "thread-parking"
+      ],
+      "href": "/notes/coding/concurrency/thread-parking/",
+      "title": "Thread Parking"
+    }
+  ]
+}

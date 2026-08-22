@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { describe, test } from "node:test";
 import {
   buildIndex,
+  collectLinkedFrom,
   convertNote,
   notesNeedingRebuild,
   parseNote,
@@ -392,5 +393,54 @@ Hello
 
     const rebuild = notesNeedingRebuild(index, {});
     assert.equal(rebuild.has("New.md"), true);
+  });
+});
+
+describe("collectLinkedFrom", () => {
+  test("lists notes that wikilink to a target and skips isolates", () => {
+    const notes = [
+      { vaultPath: "A.md", slug: ["a"], title: "Alpha" },
+      { vaultPath: "B.md", slug: ["b"], title: "Beta" },
+      { vaultPath: "C.md", slug: ["c"], title: "Gamma" },
+    ];
+    const linksByPath = new Map<string, string[]>([
+      ["A.md", ["B.md"]],
+      ["C.md", ["B.md"]],
+      ["B.md", []],
+    ]);
+
+    const linkedFrom = collectLinkedFrom(
+      notes,
+      linksByPath,
+      (slug) => `/notes/${slug.join("/")}/`,
+    );
+
+    assert.deepEqual(linkedFrom.get("B.md"), [
+      { slug: ["a"], href: "/notes/a/", title: "Alpha" },
+      { slug: ["c"], href: "/notes/c/", title: "Gamma" },
+    ]);
+    assert.deepEqual(linkedFrom.get("A.md"), []);
+    assert.deepEqual(linkedFrom.get("C.md"), []);
+  });
+
+  test("deduplicates and ignores unknown or self links", () => {
+    const notes = [
+      { vaultPath: "A.md", slug: ["a"], title: "Alpha" },
+      { vaultPath: "B.md", slug: ["b"], title: "Beta" },
+    ];
+    const linksByPath = new Map<string, string[]>([
+      ["A.md", ["B.md", "B.md", "A.md", "Missing.md"]],
+    ]);
+
+    const linkedFrom = collectLinkedFrom(
+      notes,
+      linksByPath,
+      (slug) => `/notes/${slug.join("/")}/`,
+    );
+
+    assert.deepEqual(linkedFrom.get("B.md"), [
+      { slug: ["a"], href: "/notes/a/", title: "Alpha" },
+    ]);
+    assert.deepEqual(linkedFrom.get("A.md"), []);
   });
 });

@@ -1,0 +1,16 @@
+{
+  "slug": [
+    "books",
+    "rust",
+    "rust-atomics-and-locks",
+    "memory-ordering"
+  ],
+  "href": "/notes/books/rust/rust-atomics-and-locks/memory-ordering/",
+  "title": "Memory Ordering",
+  "tags": [],
+  "updatedAt": "2026-08-22",
+  "vaultPath": "Books/rust/Rust Atomics and Locks/Memory Ordering.md",
+  "folder": "Books",
+  "markdown": "\n",
+  "linkedFrom": []
+}

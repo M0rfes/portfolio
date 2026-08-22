@@ -1,0 +1,33 @@
+{
+  "slug": [
+    "books",
+    "rust",
+    "rust-atomics-and-locks",
+    "rust-statics-and-leaking"
+  ],
+  "href": "/notes/books/rust/rust-atomics-and-locks/rust-statics-and-leaking/",
+  "title": "Rust Statics",
+  "tags": [
+    "rust",
+    "concurrency",
+    "statics",
+    "memory"
+  ],
+  "created": "2026-08-18",
+  "updatedAt": "2026-08-18",
+  "vaultPath": "Books/rust/Rust Atomics and Locks/Rust Statics and Leaking.md",
+  "folder": "Books",
+  "markdown": "# Statics in Rust\n\nA static lifetime means the value will exist until the end of the program, so any value with a static lifetime can be shared across [threads](../../../../coding/concurrency/threads/).\n\nAny variable declared static exists before main and remains in scope until the program ends. Values can also be leaked on the heap to guarantee they exist for the program's entire duration.\n\n`'static` is a lifetime that says the value will exist till the end of the program, so any value with a static lifetime can be shared across [threads](../../../../coding/concurrency/threads/).\n\n```rust\nstatic X: [i32; 3] = [1, 2, 3];\n\nthread::spawn(|| dbg!(&X));\nthread::spawn(|| dbg!(&X));\n```\n\nAny variable defined by static exists before `main` and remains until the program ends.\n\n## Leaking with Box::leak\n\n```rust\nuse std::thread;\n\nfn main() {\n\tlet x: &'static [i32; 3] = Box::leak(Box::new([1, 2, 3]));\n\t\n\tthread::spawn(move || dbg!(x));\n\tthread::spawn(move || dbg!(x));\n}\n```\n\nWe are moving the static reference using the `move` keyword, not the value. `Box::leak` lets us leak a value on the heap, guaranteeing that no one can free it and that it will exist as long as the program runs.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "basics-of-rust-concurrency"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+      "title": "Rust Concurrency"
+    }
+  ]
+}

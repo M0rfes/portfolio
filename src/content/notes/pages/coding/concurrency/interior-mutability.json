@@ -1,0 +1,40 @@
+{
+  "slug": [
+    "coding",
+    "concurrency",
+    "interior-mutability"
+  ],
+  "href": "/notes/coding/concurrency/interior-mutability/",
+  "title": "Interior Mutability",
+  "tags": [
+    "memory",
+    "type-system"
+  ],
+  "created": "2026-08-18",
+  "updatedAt": "2026-08-18",
+  "vaultPath": "Coding/Concurrency/Interior Mutability.md",
+  "folder": "Coding",
+  "markdown": "# Interior Mutability\n\nInterior mutability lets you mutate a value via a shared/read reference.\n\nNormally, the type system guarantees there cannot be an active read reference while a write reference exists to the same value. Interior mutability enables mutating values behind a shared reference by either copying/replacing values (single-threaded cell types) or tracking borrows at runtime (borrow-checked cells or thread-safe locks).\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "basics-of-rust-concurrency"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+      "title": "Rust Concurrency"
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-rc"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-rc/",
+      "title": "Rust Rc"
+    }
+  ]
+}

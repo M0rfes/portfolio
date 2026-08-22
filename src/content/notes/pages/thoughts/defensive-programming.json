@@ -1,0 +1,22 @@
+{
+  "slug": [
+    "thoughts",
+    "defensive-programming"
+  ],
+  "href": "/notes/thoughts/defensive-programming/",
+  "title": "Defensive Programming",
+  "tags": [
+    "defensive-programming",
+    "frontend",
+    "backend",
+    "error-handling",
+    "software-engineering"
+  ],
+  "summary": "Perspectives on when to apply defensive programming at input boundaries versus avoiding excessive defensive checks against internal backend services and broken invariants.",
+  "created": "2026-08-18",
+  "updatedAt": "2026-08-18",
+  "vaultPath": "Thoughts/Defensive Programming.md",
+  "folder": "Thoughts",
+  "markdown": "# Defensive Programming\n\nThere is a time and a place for [defensive programming](./).\n\n## Validating User Input\n\nThe advice is not to trust user input and be defensive there. We put validators on form values; we put validators on the HTTP request body and query.\n\n## Internal Boundaries and Backend Services\n\nBut we should draw a line at putting validators on responses to [services](../../architecture/coupling/) managed by our own BE team. If you need to be defensive against the code of your own team members, you have gone too far; these will introduce too many edge cases.\n\n## Invariants and UI Failures\n\nThe attitude that, no matter what, the UI should not break is one I push back against. If the BE starts returning a string instead of what should be an array, the FE should not be the one validating it and falling back to an empty array; the UI can show an error using error boundary or simply break cause your invariants have broken.\n\n## Team Dynamics\n\nAlso, if you see the BE as an antagonist to your code, you will soon start to see the BE devs as antagonists to you.\n",
+  "linkedFrom": []
+}

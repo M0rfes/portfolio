@@ -1,0 +1,158 @@
+{
+  "slug": [
+    "llms",
+    "llm"
+  ],
+  "href": "/notes/llms/llm/",
+  "title": "LLMs",
+  "tags": [
+    "llm",
+    "index",
+    "research",
+    "ai"
+  ],
+  "summary": "Central hub for all notes related to Large Language Models (LLMs), including architecture, retrieval, and optimization.",
+  "created": "2026-03-30",
+  "updatedAt": "2026-07-26",
+  "vaultPath": "LLMs/LLM.md",
+  "folder": "LLMs",
+  "markdown": "# Large Language Models (LLMs) MOC\n\nA central index for exploring concepts, architectures, and strategies related to **[LLM](./)**.\n\n## Core Concepts\n- **[Tokenization](../tokenization/)**: Character, word, and sub-word (BPE) techniques.\n- **[Encoder](../encoder/)** / **[decoder](../decoder/)**: Feature extraction (bidirectional) vs autoregressive generation (causal).\n- **Needle-in-a-Haystack**: Benchmarking long-context retrieval and biases.\n\n## Retrieval-Augmented Generation (RAG)\n- **[RAG Overview](../rag/)**: Modalities (Text, Hybrid, Full Multimodal).\n- **RAG Strategies MOC**: (Candidate MOC)\n  - **[Re-ranking](../re-ranking/)**: Two-stage retrieval for precision.\n  - **[Agentic RAG](../agentic-rag/)**: Autonomous tool selection.\n  - **[Knowledge Graphs](../knowledge-graphs/) (GraphRAG)**: Relational retrieval.\n    - **[Microsoft GraphRAG](../microsoft-graphrag/)**\n    - **[LightRAG](../lightrag/)**\n\n## Performance & Optimization\n- **Quantization**: Model compression (GPTQ, AWQ, 1.58-bit).\n  - **[TurboQuant](../turboquant/)**: Fast quantized kernels.\n- **[Token Caching](../token-caching/)**: Reusing [KV caches](../token-caching/) for speed.\n- **[Speculative Decoding](../speculative-decoding/)**: Draft model generation with target validation.\n- **Serving Engines**:\n  - **[vLLM](../vllm/)**: High-throughput serving with PagedAttention.\n  - **[LMCache](../lmcache/)**: Shared cache infrastructure.\n\n## Multimodal Models\n- **MLLM**: Multimodal LLMs capable of processing images, audio, and video.\n- **HYMMRag**: Hybrid Multimodal RAG.\n- **FMMRag**: Full Multimodal RAG.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "agents",
+        "agents"
+      ],
+      "href": "/notes/agents/agents/",
+      "title": "Agents"
+    },
+    {
+      "slug": [
+        "llms",
+        "decoder"
+      ],
+      "href": "/notes/llms/decoder/",
+      "title": "Decoder"
+    },
+    {
+      "slug": [
+        "llms",
+        "encoder"
+      ],
+      "href": "/notes/llms/encoder/",
+      "title": "Encoder"
+    },
+    {
+      "slug": [
+        "tools",
+        "langgraph"
+      ],
+      "href": "/notes/tools/langgraph/",
+      "title": "LangGraph"
+    },
+    {
+      "slug": [
+        "llms",
+        "lmcache"
+      ],
+      "href": "/notes/llms/lmcache/",
+      "title": "LMCache"
+    },
+    {
+      "slug": [
+        "llms",
+        "mcp"
+      ],
+      "href": "/notes/llms/mcp/",
+      "title": "MCP"
+    },
+    {
+      "slug": [
+        "llms",
+        "needle-in-a-haystack-20-03-2026"
+      ],
+      "href": "/notes/llms/needle-in-a-haystack-20-03-2026/",
+      "title": "Needle Haystack"
+    },
+    {
+      "slug": [
+        "llms",
+        "rag"
+      ],
+      "href": "/notes/llms/rag/",
+      "title": "RAG"
+    },
+    {
+      "slug": [
+        "llms",
+        "re-ranking"
+      ],
+      "href": "/notes/llms/re-ranking/",
+      "title": "Re-ranking"
+    },
+    {
+      "slug": [
+        "llms",
+        "router-pattern"
+      ],
+      "href": "/notes/llms/router-pattern/",
+      "title": "Router Pattern"
+    },
+    {
+      "slug": [
+        "slm",
+        "slm"
+      ],
+      "href": "/notes/slm/slm/",
+      "title": "SLM"
+    },
+    {
+      "slug": [
+        "llms",
+        "speculative-decoding"
+      ],
+      "href": "/notes/llms/speculative-decoding/",
+      "title": "Speculative Decoding"
+    },
+    {
+      "slug": [
+        "llms",
+        "token-caching"
+      ],
+      "href": "/notes/llms/token-caching/",
+      "title": "Token Caching"
+    },
+    {
+      "slug": [
+        "llms",
+        "tokenization"
+      ],
+      "href": "/notes/llms/tokenization/",
+      "title": "Tokenization"
+    },
+    {
+      "slug": [
+        "agents",
+        "tool-calling"
+      ],
+      "href": "/notes/agents/tool-calling/",
+      "title": "Tool Calling"
+    },
+    {
+      "slug": [
+        "llms",
+        "turboquant"
+      ],
+      "href": "/notes/llms/turboquant/",
+      "title": "TurboQuant"
+    },
+    {
+      "slug": [
+        "llms",
+        "vllm"
+      ],
+      "href": "/notes/llms/vllm/",
+      "title": "vLLM"
+    }
+  ]
+}

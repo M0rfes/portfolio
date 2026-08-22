@@ -1,0 +1,33 @@
+{
+  "slug": [
+    "books",
+    "rust",
+    "rust-atomics-and-locks",
+    "rust-memory-ordering"
+  ],
+  "href": "/notes/books/rust/rust-atomics-and-locks/rust-memory-ordering/",
+  "title": "Memory Ordering",
+  "tags": [
+    "rust",
+    "concurrency",
+    "atomics",
+    "memory-ordering"
+  ],
+  "created": "2026-08-18",
+  "updatedAt": "2026-08-18",
+  "vaultPath": "Books/rust/Rust Atomics and Locks/Rust Memory Ordering.md",
+  "folder": "Books",
+  "markdown": "# Memory Ordering in Rust\n\nAll [atomic operations](../../../../coding/concurrency/atomic-operations/) take an ordering parameter that controls what guarantees we get about the relative ordering of operations.\n\n> [!NOTE]\n> The CPU might decide to perform operations out of order, i.e., group all assignments together even if, in the code, they are not in that order. So T1 might see V1 V2 V3 getting assigned but T2 might see V2 V3 V1 in that order.\n\nAll atomic operations take in an `Ordering` parameter `std::sync::atomic::Ordering`, which controls what guarantees we get about the relative ordering of operations.\n\n```rust\nuse std::thread;\nuse std::sync::atomic::AtomicBool;\nuse std::sync::atomic::Ordering::Relaxed;\n\nfn main() {\n\tstatic STOP: AtomicBool = AtomicBool::new(false);\n\t\n\tlet bgt = thread::spawn(|| {\n\t\twhile !STOP.load(Relaxed) {\n\t\t\tsome_work();\n\t\t}\n\t});\n\t\n\tfor line in std::io::stdin().lines() {\n\t\tmatch line.unwrap().as_str() {\n\t\t\t\"help\" => println!(\"{}\", help()),\n\t\t\t\"stop\" => break,\n\t\t\tcmd => println!(\"unknown command {cmd:?}\"),\n\t\t}\n\t}\n\t\n\tSTOP.store(true, Relaxed);\n\t\n\tbgt.join().unwrap();\n}\n```\n\nThe above code runs an infinite loop on a background thread till the user enters a stop command.\n\n> [!NOTE]\n> If `some_work()` is blocking and/or takes a while to finish, entering stop might not immediately stop the program; it will keep running until the last call to `some_work` completes.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "atomics"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/atomics/",
+      "title": "Atomics"
+    }
+  ]
+}

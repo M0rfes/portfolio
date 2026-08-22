@@ -1,0 +1,19 @@
+{
+  "slug": [
+    "coding",
+    "concurrency",
+    "thread-parking"
+  ],
+  "href": "/notes/coding/concurrency/thread-parking/",
+  "title": "Thread Parking",
+  "tags": [
+    "concurrency",
+    "threads"
+  ],
+  "created": "2026-08-18",
+  "updatedAt": "2026-08-18",
+  "vaultPath": "Coding/Concurrency/Thread Parking.md",
+  "folder": "Coding",
+  "markdown": "# Thread Parking\n\nThread parking lets a [thread](../threads/) park itself so it no longer consumes CPU cycles while waiting for other threads to wake it.\n\nOther threads can call `unpark` on the thread handle to wake it up. If `unpark` is called before the thread is parked, the wake-up token is saved and the next `park` returns immediately without sleeping. Calling `unpark` multiple times only skips the first `park`.\n",
+  "linkedFrom": []
+}

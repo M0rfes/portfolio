@@ -1,0 +1,32 @@
+{
+  "slug": [
+    "books",
+    "rust",
+    "rust-atomics-and-locks",
+    "rust-condition-variables"
+  ],
+  "href": "/notes/books/rust/rust-atomics-and-locks/rust-condition-variables/",
+  "title": "Condition Variables",
+  "tags": [
+    "rust",
+    "concurrency",
+    "condvar"
+  ],
+  "created": "2026-08-18",
+  "updatedAt": "2026-08-18",
+  "vaultPath": "Books/rust/Rust Atomics and Locks/Rust Condition Variables.md",
+  "folder": "Books",
+  "markdown": "# Condition Variables in Rust\n\nA Condition Variable is used to notify one or more [threads](../../../../coding/concurrency/threads/) of an event when the shared data is protected by a [Mutex](../../../../coding/concurrency/mutex/).\n\nA condition variable takes the lock guard, unlocks the mutex, and puts the thread to sleep. When a notification is received, it re-acquires the mutex lock and returns the guard.\n\n`std::sync::Condvar`\n\n`Condvar` can be used to notify one or more threads of an event if the data is protected by a mutex.\n\n```rust\nuse std::collections::VecDeque;\nuse std::sync::{Condvar, Mutex};\nuse std::thread;\nuse std::time::Duration;\n\nfn main() {\n\tlet queue = Mutex::new(VecDeque::new());\n\tlet not_empty = Condvar::new();\n\t\n\tthread::scope(|s| {\n\t\ts.spawn(|| {\n\t\t\tloop {\n\t\t\t\tlet mut q = queue.lock().unwrap();\n\t\t\t\tlet item = loop {\n\t\t\t\t\tif let Some(item) = q.pop_front() {\n\t\t\t\t\t\tbreak item;\n\t\t\t\t\t} else {\n\t\t\t\t\t\tq = not_empty.wait(q).unwrap();\n\t\t\t\t\t}\n\t\t\t\t};\n\t\t\t\tdrop(q);\n\t\t\t\tdbg!(item);\n\t\t\t}\n\t\t});\n\t\tfor i in 0.. {\n\t\t\tlet mut q = queue.lock().unwrap();\n\t\t\tq.push_back(i);\n\t\t\tnot_empty.notify_one();\n\t\t\tthread::sleep(Duration::from_secs(1));\n\t\t}\n\t});\n}\n```\n\n`Condvar` takes the `MutexGuard`, unlocks it, and goes to sleep, and when a notification is received, it locks the `Mutex` and returns the guard.\nWe can use `notify_one` or `notify_all` to notify a single thread or all threads.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "basics-of-rust-concurrency"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+      "title": "Rust Concurrency"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "slug": [
+    "books",
+    "rust",
+    "rust-atomics-and-locks",
+    "rust-rwlock"
+  ],
+  "href": "/notes/books/rust/rust-atomics-and-locks/rust-rwlock/",
+  "title": "Rust RwLock",
+  "tags": [
+    "rust",
+    "concurrency",
+    "locks",
+    "rwlock"
+  ],
+  "created": "2026-08-18",
+  "updatedAt": "2026-08-18",
+  "vaultPath": "Books/rust/Rust Atomics and Locks/Rust RwLock.md",
+  "folder": "Books",
+  "markdown": "# Reader-Writer Lock in Rust\n\nWhere a [Mutex](../../../../coding/concurrency/mutex/) only lets you take exclusive access even when a shared reference would have been enough, a Reader-Writer Lock (RwLock) lets you have one exclusive mutable reference OR multiple shared read references.\n\nAn RwLock is optimal for data that is read frequently but written to infrequently.\n\n`std::sync::RwLock`\n\nWhere a mutex only lets you take exclusive access even when a shared reference would have been enough, an `RwLock` lets us have one exclusive `&mut T` or multiple shared `&T` references; it does this by `Deref` and `DerefMut` traits. It's a thread-safe version of `RefCell`. `RwLock` is good for data that is read more often than it's written to.\n\nIt has `read` and `write` methods that return `RwLockReadGuard` and `RwLockWriteGuard`, respectively. `RwLockReadGuard` only implements `Deref`, and `RwLockWriteGuard` implements both `DerefMut` and `Deref`.\n\n```rust\nuse std::sync::{Arc, RwLock};\nuse std::thread;\n\nfn main() {\n\tlet vec = Arc::new(RwLock::new(vec![1, 2, 3]));\n\t\n\tlet vec1 = vec.clone();\n\tlet t1 = thread::spawn(move || {\n\t\tlet read_guard = vec1.read().unwrap();\n\t\tfor n in &read_guard {\n\t\t\tprintln!(\"{n}\");\n\t\t}\n\t});\n\t\t\n\tlet vec2 = vec.clone();\t\n\tlet t2 = thread::spawn(move || {\n\t\tlet mut write_guard = vec2.write().unwrap();\n\t\twrite_guard.push(4);\n\t});\n\t\n\tt1.join().unwrap();\n\tt2.join().unwrap();\n}\n```\n\nWe need `Arc` in the above example so we can move the reference to other threads.\n\n```rust\nuse std::sync::RwLock;\nuse std::thread;\n\nfn main() {\n\tlet vec = RwLock::new(vec![1, 2, 3]);\n\t\n\tthread::scope(|s| {\n\t\ts.spawn(|| {\n\t\t\tlet read_guard = vec.read().unwrap();\n\t\t\tfor n in &read_guard {\n\t\t\t\tprintln!(\"{n}\");\n\t\t\t}\n\t\t});\n\t\t\t\t\n\t\ts.spawn(|| {\n\t\t\tlet mut write_guard = vec.write().unwrap();\n\t\t\twrite_guard.push(4);\n\t\t});\n\t});\n}\n```\n\nHere we don't need `Arc` because a scoped thread finishes execution before the main function ends, so we can drop `vec`.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "basics-of-rust-concurrency"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+      "title": "Rust Concurrency"
+    }
+  ]
+}

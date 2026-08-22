@@ -10,6 +10,12 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
+  transpilePackages: [
+    "3d-force-graph",
+    "three-forcegraph",
+    "three-render-objects",
+    "three-spritetext",
+  ],
 };
 
 const withMDX = createMDX({

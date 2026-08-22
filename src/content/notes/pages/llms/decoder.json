@@ -1,0 +1,47 @@
+{
+  "slug": [
+    "llms",
+    "decoder"
+  ],
+  "href": "/notes/llms/decoder/",
+  "title": "Decoder",
+  "tags": [
+    "llm",
+    "decoder",
+    "transformer",
+    "attention",
+    "autoregressive"
+  ],
+  "summary": "Decoder layers generate tokens autoregressively with causal (left-to-right) attention; the dominant architecture for modern generative LLMs.",
+  "created": "2026-07-26",
+  "updatedAt": "2026-07-26",
+  "vaultPath": "LLMs/decoder.md",
+  "folder": "LLMs",
+  "markdown": "# Decoder\n\nDecoders are a layer of [LLM](../llm/) that generate the next token in autoregressive models.\nUnlike [encoders](../encoder/), decoders can't see the full text; when calculating attention, they can only do it from start to end, i.e., left to right for English.\nIn general, decoding is the piece of software that takes the encoded format and turns it into the original format. But in LLMs, decoders are the layer that generates one token at a time. The name decoder comes from the original paper where transformers were used to translate text from language A to language B [encoder](../encoder/) extracted features from language A, aka encoded it, and the decoder generated the language B, aka decoded the vectors.\nDecoder-only models are good for language generation tasks.\n\n## Examples\n- **GPT-2 / GPT-3 / GPT-4-class**, **LLaMA**, **Mistral**: decoder-only; train with next-token prediction.\n- Original Transformer / **T5**: decoder attends to its own past tokens (causal mask) and to encoder outputs (cross-attention).\n- Generating `\"The cat sat\"`: when predicting `sat`, attention may use `The` and `cat` only—not future tokens.\n\n## Facts\n- Causal (masked) self-attention: position *i* attends only to positions *j ≤ i*.\n- Autoregressive loop: predict token → append → repeat until EOS or max length.\n- Name comes from *Attention Is All You Need* (2017): decode target language from encoder representations of the source.\n- Decoder-only models dominate open-ended generation; KV [caching](../token-caching/) speeds repeated left-to-right steps at inference.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "llms",
+        "encoder"
+      ],
+      "href": "/notes/llms/encoder/",
+      "title": "Encoder"
+    },
+    {
+      "slug": [
+        "llms",
+        "llm"
+      ],
+      "href": "/notes/llms/llm/",
+      "title": "LLMs"
+    },
+    {
+      "slug": [
+        "llms",
+        "speculative-decoding"
+      ],
+      "href": "/notes/llms/speculative-decoding/",
+      "title": "Speculative Decoding"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "slug": [
+    "architecture",
+    "ddia-14-03-2026"
+  ],
+  "href": "/notes/architecture/ddia-14-03-2026/",
+  "title": "Metastable Failures",
+  "tags": [
+    "distributed-systems",
+    "resilience",
+    "reliability",
+    "ddia"
+  ],
+  "summary": "Analysis of metastable failures, retry storms, and mitigation strategies like exponential backoff and circuit breakers in high-load systems.",
+  "created": "2026-03-14",
+  "updatedAt": "2026-08-22",
+  "vaultPath": "Architecture/DDIA-14-03-2026.md",
+  "folder": "Architecture",
+  "markdown": "# Reliability and Metastable Failures\n\nIf a system is close to overload, with throughput pushed to the limit, it can sometimes enter a vicious cycle in which it becomes less efficient and hence even more overloaded.\n\nFor example, if a long queue of requests is waiting to be handled, response times may increase to the point that clients time out and resend their requests. This causes the rate of requests to increase even further, making the problem worse—a **Retry Storm**. Even when the load is reduced again, such a system may remain in an overloaded state until it is rebooted or otherwise reset. This phenomenon is called a **Metastable Failure**, and it can cause serious outages in production systems.\n\nTo avoid retries overloading a service, you can:\n- **Exponential Backoff**: Increase and randomize the time between successive retries on the client side.\n- **Circuit Breaker**: Temporarily stop sending requests to a service that has returned errors or timed out recently.\n- **Token Bucket**: Use a token bucket algorithm to rate limit requests.\n- **Load Shedding**: Detect when approaching overload and start proactively rejecting requests.\n- **Backpressure**: Send back responses asking clients to slow down.\n\nThe choice of queueing and load balancing algorithms can also make a significant difference.\n",
+  "linkedFrom": []
+}

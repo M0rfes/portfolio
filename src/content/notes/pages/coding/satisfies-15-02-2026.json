@@ -1,0 +1,20 @@
+{
+  "slug": [
+    "coding",
+    "satisfies-15-02-2026"
+  ],
+  "href": "/notes/coding/satisfies-15-02-2026/",
+  "title": "TypeScript Satisfies",
+  "tags": [
+    "typescript",
+    "coding",
+    "pattern-matching"
+  ],
+  "summary": "Demonstration of using the TypeScript 'satisfies' operator with switch statements to achieve exhaustive pattern matching.",
+  "created": "2026-02-15",
+  "updatedAt": "2026-08-22",
+  "vaultPath": "Coding/satisfies-15-02-2026.md",
+  "folder": "Coding",
+  "markdown": "# TypeScript Satisfies Operator\n\nThis demonstrates how we can use the `satisfies` operator in TypeScript with a `switch` statement to achieve exhaustive matching.\n\n### Demo\n![satisfies-15-02-2026.png](images/satisfies-15-02-2026.png)\n\n```typescript\ntype Role = 'admin' | 'editor' | 'viewer' | \"superadmin\";\n\nfunction setRole(role: Role) {\n    switch (role) {\n    case 'admin':\n        console.log('You have full access.');\n        break;\n    case 'editor':\n        console.log('You can edit content.');\n        break;\n    case 'viewer':\n        console.log('You can view content.');\n        break;\n    default:\n        // This will give an error if a role (like 'superadmin') is unhandled\n        console.log(`Unknown role. ${role satisfies never}`);\n    }\n}\n```\n\n### Explanation\nThe above code should give a compilation error:\n```bash\nType '\"superadmin\"' does not satisfy the expected type 'never'.\n```\n\nThis ensures that whenever a new `Role` is added, the compiler forces us to handle it in the `switch` statement. This is similar to exhaustive pattern matching in languages like **Rust**. It provides a safety net that is much better than discovering unhandled cases in runtime logs.\n",
+  "linkedFrom": []
+}

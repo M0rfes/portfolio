@@ -5,32 +5,75 @@ import { useRouter } from "next/navigation";
 import { X } from "lucide-react";
 import { NotesGraphData } from "@/lib/notes";
 
+type GraphView = "2d" | "3d";
+
 interface NotesGraphProps {
   graph: NotesGraphData;
 }
 
 export function NotesGraph({ graph }: NotesGraphProps) {
   const router = useRouter();
-  const [Canvas, setCanvas] = useState<
+  const [view, setView] = useState<GraphView>("2d");
+  const [Canvas2D, setCanvas2D] = useState<
+    ComponentType<{ graph: NotesGraphData }> | null
+  >(null);
+  const [Canvas3D, setCanvas3D] = useState<
     ComponentType<{ graph: NotesGraphData }> | null
   >(null);
 
   useEffect(() => {
-    import("./NotesGraphCanvas").then((module) => {
-      setCanvas(() => module.NotesGraphCanvas);
-    });
-  }, []);
+    if (view === "2d" && !Canvas2D) {
+      import("./NotesGraphCanvas").then((module) => {
+        setCanvas2D(() => module.NotesGraphCanvas);
+      });
+    }
+    if (view === "3d" && !Canvas3D) {
+      import("./NotesGraphCanvas3D").then((module) => {
+        setCanvas3D(() => module.NotesGraphCanvas3D);
+      });
+    }
+  }, [view, Canvas2D, Canvas3D]);
+
+  const Canvas = view === "3d" ? Canvas3D : Canvas2D;
 
   return (
     <div className="fixed inset-0 z-[100] bg-background">
-      <button
-        type="button"
-        onClick={() => router.push("/notes/")}
-        className="absolute top-4 left-4 z-[101] inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border text-foreground hover:bg-muted"
-      >
-        <X className="w-4 h-4" />
-        Close
-      </button>
+      <div className="absolute top-4 left-4 z-[101] flex items-center gap-2">
+        <button
+          type="button"
+          onClick={() => router.push("/notes/")}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border text-foreground hover:bg-muted"
+        >
+          <X className="w-4 h-4" />
+          Close
+        </button>
+        <div className="inline-flex rounded-full border border-border bg-card p-1">
+          <button
+            type="button"
+            aria-pressed={view === "2d"}
+            onClick={() => setView("2d")}
+            className={`rounded-full px-3 py-1 text-sm ${
+              view === "2d"
+                ? "bg-muted text-foreground"
+                : "text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            2D
+          </button>
+          <button
+            type="button"
+            aria-pressed={view === "3d"}
+            onClick={() => setView("3d")}
+            className={`rounded-full px-3 py-1 text-sm ${
+              view === "3d"
+                ? "bg-muted text-foreground"
+                : "text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            3D
+          </button>
+        </div>
+      </div>
       {Canvas ? <Canvas graph={graph} /> : null}
     </div>
   );

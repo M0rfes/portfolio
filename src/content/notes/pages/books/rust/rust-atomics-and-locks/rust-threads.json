@@ -1,0 +1,32 @@
+{
+  "slug": [
+    "books",
+    "rust",
+    "rust-atomics-and-locks",
+    "rust-threads"
+  ],
+  "href": "/notes/books/rust/rust-atomics-and-locks/rust-threads/",
+  "title": "Rust Threads",
+  "tags": [
+    "rust",
+    "concurrency",
+    "threads"
+  ],
+  "created": "2026-08-18",
+  "updatedAt": "2026-08-18",
+  "vaultPath": "Books/rust/Rust Atomics and Locks/Rust Threads.md",
+  "folder": "Books",
+  "markdown": "# Threads in Rust\n\nEvery program starts with one OS thread, and the thread remains alive as long as the program runs. Once the program stops executing, the thread is cleaned up.\n\nWhen the main thread is terminated, all threads forked or spawned from it are also cleaned up, whether they have finished executing or not.\n\nRust can spawn as many [threads](../../../../coding/concurrency/threads/) as needed using `std::thread::spawn`.\n\n```rust\nuse std::thread;\n\nfn main() {\n\tthread::spawn(f);\n\tthread::spawn(f);\n\t\n\tprintln!(\"Hello from main thread\");\n}\n\nfn f() {\n\tprintln!(\"hello from another thread\");\n\tlet id = thread::current().id();\n\t\n\tprintln!(\"this is my thread id {id:?}\");\n}\n```\n\nThe above function spawns `f` in 2 threads, but the main thread exits before the 2 threads have enough time to finish executing. This is because when the main thread is terminated, all threads forked/spawned from it are also cleaned up, whether they have finished executing or not.\n\n## Joining Threads\n\nTo wait for spawned [threads](../../../../coding/concurrency/threads/) to finish their execution before exiting from main, we can join the thread handle.\n\nJoining waits for the target thread to finish and returns its result or indicates if the thread panicked.\n\nTo wait for the spawned threads to finish their execution before we exit from main, we can use the `JoinHandle` returned by the `thread::spawn` function.\n\n```rust\nuse std::thread;\n\nfn main() {\n\tlet t1 = thread::spawn(f);\n\tlet t2 = thread::spawn(f);\n\n\tprintln!(\"hello from main thread\");\n\t\n\tt1.join().unwrap();\n\tt2.join().unwrap();\n}\n```\n\nThe above change fixes the bug by waiting for `t1` and `t2` to finish.\nThe call to `join()` returns a `std::thread::Result`, which has an `Err` if the thread panicked or an `Ok<T>` where `T` is the return value from the thread. Calling `.unwrap()` on it will cause the main thread to panic as well.\n\n## Closures and Move Semantics\n\n```rust\nuse std::thread;\n\nfn main() {\n\tlet list = vec![1, 2, 3];\n\tthread::spawn(move || {\n\t\tfor n in &list {\n\t\t\tprintln!(\"{n:?}\");\n\t\t}\n\t});\n}\n```\n\nThe above example shows a closure being passed to the new thread. It's capturing the surrounding `list` variable via `move` semantics. The ownership of the vector `list` has been transferred to the new thread from `main`.\n\n```rust\nuse std::thread;\n\nfn main() {\n\tlet list = Vec::from_iter(0..=1000);\n\tlet t1 = thread::spawn(move || {\n\t\tlet len = list.len();\n\t\tlet sum = list.iter().sum::<usize>();\n\t\treturn sum;\n\t});\n\t\n\tlet sum = t1.join().unwrap();\n\t\n\tprintln!(\"{sum:?}\");\n}\n```\n\nThe above example shows how to pass data into and out of a thread.\n\n## Thread Builder\n\n`std::thread::spawn` is a shorthand for `std::thread::Builder::new().spawn(f).unwrap()`.\nThe `Builder` methods let us pass configuration to the thread, such as a stack size and name, which will be available via `std::thread::current().name()`, used in the panic message, and visible in most profiling tools.\nIt returns a `std::io::Result`; it will indicate an error if the OS failed to spawn a new thread.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "basics-of-rust-concurrency"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+      "title": "Rust Concurrency"
+    }
+  ]
+}

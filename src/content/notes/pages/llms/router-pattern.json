@@ -1,0 +1,39 @@
+{
+  "slug": [
+    "llms",
+    "router-pattern"
+  ],
+  "href": "/notes/llms/router-pattern/",
+  "title": "Router Pattern",
+  "tags": [
+    "llm",
+    "agent",
+    "router-pattern",
+    "routing",
+    "rag"
+  ],
+  "summary": "An architectural pattern where an LLM or classifier acts as a dispatcher to direct incoming queries to specialized tools, indexes, or prompt pathways.",
+  "created": "2026-07-31",
+  "updatedAt": "2026-07-31",
+  "vaultPath": "LLMs/Router Pattern.md",
+  "folder": "LLMs",
+  "markdown": "# Router Pattern\n\nThe **[Router Pattern](./)** is an architectural pattern used in **[AI Agents](../../agents/agents/)** and **[Agentic RAG](../agentic-rag/)** where a classifier or [LLM](../llm/) acts as a dispatcher, evaluating incoming user queries and routing them to the most appropriate execution path, index, or tool.\n\n### Core Functions\n- **Query Classification**: Classifies intent (e.g., technical support vs. billing vs. general conversation).\n- **Index/Tool Selection**: Directs queries to specific search indexes (e.g., `vector_search()`, `sql_query()`, or `web_search()`).\n- **Cost & Latency Optimization**: Can route simpler queries to SLMs (Small Language Models) or cache, reserving larger models for complex tasks.\n\n### Common Approaches\n1. **LLM-based Routing**: Using [function calling](../../agents/tool-calling/) or structured outputs (Pydantic/JSON schema) to return a destination route.\n2. **Semantic Routing**: Computing query embeddings and using vector distance against fixed route vectors for ultra-fast, low-cost routing.\n3. **Keyword / Heuristic Routing**: Using deterministic rules or BM25 classifiers for predictable routing.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "llms",
+        "agentic-rag"
+      ],
+      "href": "/notes/llms/agentic-rag/",
+      "title": "Agentic RAG"
+    },
+    {
+      "slug": [
+        "agents",
+        "agents"
+      ],
+      "href": "/notes/agents/agents/",
+      "title": "Agents"
+    }
+  ]
+}

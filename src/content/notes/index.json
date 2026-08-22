@@ -1,0 +1,4558 @@
+{
+  "notes": [
+    {
+      "slug": [
+        "productivity",
+        "eat-the-frog-14-02-2026"
+      ],
+      "href": "/notes/productivity/eat-the-frog-14-02-2026/",
+      "title": "Eat Frog",
+      "tags": [
+        "productivity",
+        "focus",
+        "time-management"
+      ],
+      "summary": "Core concepts and actionable steps from Brian Tracy's 'Eat That Frog!' for overcoming procrastination and focusing on high-value tasks.",
+      "created": "2026-02-14",
+      "updatedAt": "2026-08-22",
+      "vaultPath": "Productivity/eat-the-frog-14-02-2026.md",
+      "folder": "Productivity",
+      "linkedFrom": []
+    },
+    {
+      "slug": [
+        "thoughts",
+        "function-abstration"
+      ],
+      "href": "/notes/thoughts/function-abstration/",
+      "title": "Function Abstraction",
+      "tags": [
+        "clean-code",
+        "refactoring",
+        "software-design",
+        "local-reasoning",
+        "dry",
+        "single-responsibility"
+      ],
+      "summary": "The real reason to extract functions is to maintain local reasoning, not just DRY reuse, preventing monolithic function bloat and multiple reasons to change.",
+      "created": "2026-08-22",
+      "updatedAt": "2026-08-22",
+      "vaultPath": "Thoughts/Function Abstration.md",
+      "folder": "Thoughts",
+      "linkedFrom": []
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "memory-ordering"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/memory-ordering/",
+      "title": "Memory Ordering",
+      "tags": [],
+      "updatedAt": "2026-08-22",
+      "vaultPath": "Books/rust/Rust Atomics and Locks/Memory Ordering.md",
+      "folder": "Books",
+      "linkedFrom": []
+    },
+    {
+      "slug": [
+        "architecture",
+        "ddia-14-03-2026"
+      ],
+      "href": "/notes/architecture/ddia-14-03-2026/",
+      "title": "Metastable Failures",
+      "tags": [
+        "distributed-systems",
+        "resilience",
+        "reliability",
+        "ddia"
+      ],
+      "summary": "Analysis of metastable failures, retry storms, and mitigation strategies like exponential backoff and circuit breakers in high-load systems.",
+      "created": "2026-03-14",
+      "updatedAt": "2026-08-22",
+      "vaultPath": "Architecture/DDIA-14-03-2026.md",
+      "folder": "Architecture",
+      "linkedFrom": []
+    },
+    {
+      "slug": [
+        "coding",
+        "satisfies-15-02-2026"
+      ],
+      "href": "/notes/coding/satisfies-15-02-2026/",
+      "title": "TypeScript Satisfies",
+      "tags": [
+        "typescript",
+        "coding",
+        "pattern-matching"
+      ],
+      "summary": "Demonstration of using the TypeScript 'satisfies' operator with switch statements to achieve exhaustive pattern matching.",
+      "created": "2026-02-15",
+      "updatedAt": "2026-08-22",
+      "vaultPath": "Coding/satisfies-15-02-2026.md",
+      "folder": "Coding",
+      "linkedFrom": []
+    },
+    {
+      "slug": [
+        "coding",
+        "concurrency",
+        "concurrency"
+      ],
+      "href": "/notes/coding/concurrency/concurrency/",
+      "title": "Concurrency",
+      "tags": [
+        "concurrency",
+        "performance"
+      ],
+      "created": "2026-08-21",
+      "updatedAt": "2026-08-21",
+      "vaultPath": "Coding/Concurrency/Concurrency.md",
+      "folder": "Coding",
+      "linkedFrom": [
+        {
+          "slug": [
+            "books",
+            "grokking-concurrency",
+            "introducing-concurrency"
+          ],
+          "href": "/notes/books/grokking-concurrency/introducing-concurrency/",
+          "title": "Introducing Concurrency"
+        },
+        {
+          "slug": [
+            "coding",
+            "concurrency",
+            "latency-vs-throughput"
+          ],
+          "href": "/notes/coding/concurrency/latency-vs-throughput/",
+          "title": "Latency Throughput"
+        },
+        {
+          "slug": [
+            "coding",
+            "concurrency",
+            "scalability"
+          ],
+          "href": "/notes/coding/concurrency/scalability/",
+          "title": "Scalability"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "books",
+        "grokking-concurrency",
+        "introducing-concurrency"
+      ],
+      "href": "/notes/books/grokking-concurrency/introducing-concurrency/",
+      "title": "Introducing Concurrency",
+      "tags": [
+        "concurrency",
+        "performance",
+        "latency",
+        "throughput",
+        "scalability"
+      ],
+      "created": "2026-08-21",
+      "updatedAt": "2026-08-21",
+      "vaultPath": "Books/Grokking Concurrency/Introducing concurrency.md",
+      "folder": "Books",
+      "linkedFrom": []
+    },
+    {
+      "slug": [
+        "coding",
+        "concurrency",
+        "latency-vs-throughput"
+      ],
+      "href": "/notes/coding/concurrency/latency-vs-throughput/",
+      "title": "Latency Throughput",
+      "tags": [
+        "concurrency",
+        "performance",
+        "latency",
+        "throughput"
+      ],
+      "created": "2026-08-21",
+      "updatedAt": "2026-08-21",
+      "vaultPath": "Coding/Concurrency/Latency vs Throughput.md",
+      "folder": "Coding",
+      "linkedFrom": [
+        {
+          "slug": [
+            "books",
+            "grokking-concurrency",
+            "introducing-concurrency"
+          ],
+          "href": "/notes/books/grokking-concurrency/introducing-concurrency/",
+          "title": "Introducing Concurrency"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "coding",
+        "concurrency",
+        "scalability"
+      ],
+      "href": "/notes/coding/concurrency/scalability/",
+      "title": "Scalability",
+      "tags": [
+        "concurrency",
+        "architecture",
+        "scalability"
+      ],
+      "created": "2026-08-21",
+      "updatedAt": "2026-08-21",
+      "vaultPath": "Coding/Concurrency/Scalability.md",
+      "folder": "Coding",
+      "linkedFrom": [
+        {
+          "slug": [
+            "books",
+            "grokking-concurrency",
+            "introducing-concurrency"
+          ],
+          "href": "/notes/books/grokking-concurrency/introducing-concurrency/",
+          "title": "Introducing Concurrency"
+        },
+        {
+          "slug": [
+            "architecture",
+            "case-for-monolith",
+            "case-for-monolith"
+          ],
+          "href": "/notes/architecture/case-for-monolith/case-for-monolith/",
+          "title": "Modular Monolith"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "coding",
+        "concurrency",
+        "atomic-operations"
+      ],
+      "href": "/notes/coding/concurrency/atomic-operations/",
+      "title": "Atomic Operations",
+      "tags": [
+        "concurrency",
+        "atomics"
+      ],
+      "created": "2026-08-18",
+      "updatedAt": "2026-08-18",
+      "vaultPath": "Coding/Concurrency/Atomic Operations.md",
+      "folder": "Coding",
+      "linkedFrom": [
+        {
+          "slug": [
+            "coding",
+            "concurrency",
+            "atomic-reference-counting"
+          ],
+          "href": "/notes/coding/concurrency/atomic-reference-counting/",
+          "title": "Atomic Refcounting"
+        },
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "atomics"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/atomics/",
+          "title": "Atomics"
+        },
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "rust-memory-ordering"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/rust-memory-ordering/",
+          "title": "Memory Ordering"
+        },
+        {
+          "slug": [
+            "coding",
+            "concurrency",
+            "memory-ordering"
+          ],
+          "href": "/notes/coding/concurrency/memory-ordering/",
+          "title": "Memory Ordering"
+        },
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "rust-arc"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/rust-arc/",
+          "title": "Rust Arc"
+        },
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "basics-of-rust-concurrency"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+          "title": "Rust Concurrency"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "coding",
+        "concurrency",
+        "atomic-reference-counting"
+      ],
+      "href": "/notes/coding/concurrency/atomic-reference-counting/",
+      "title": "Atomic Refcounting",
+      "tags": [
+        "concurrency",
+        "smart-pointers",
+        "atomics"
+      ],
+      "created": "2026-08-18",
+      "updatedAt": "2026-08-18",
+      "vaultPath": "Coding/Concurrency/Atomic Reference Counting.md",
+      "folder": "Coding",
+      "linkedFrom": []
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "atomics"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/atomics/",
+      "title": "Atomics",
+      "tags": [
+        "rust",
+        "concurrency",
+        "atomics",
+        "memory-ordering",
+        "lazy-initialization",
+        "race-condition"
+      ],
+      "created": "2026-08-18",
+      "updatedAt": "2026-08-18",
+      "vaultPath": "Books/rust/Rust Atomics and Locks/Atomics.md",
+      "folder": "Books",
+      "linkedFrom": []
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-condition-variables"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-condition-variables/",
+      "title": "Condition Variables",
+      "tags": [
+        "rust",
+        "concurrency",
+        "condvar"
+      ],
+      "created": "2026-08-18",
+      "updatedAt": "2026-08-18",
+      "vaultPath": "Books/rust/Rust Atomics and Locks/Rust Condition Variables.md",
+      "folder": "Books",
+      "linkedFrom": [
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "basics-of-rust-concurrency"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+          "title": "Rust Concurrency"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "coding",
+        "concurrency",
+        "condition-variables"
+      ],
+      "href": "/notes/coding/concurrency/condition-variables/",
+      "title": "Condition Variables",
+      "tags": [
+        "concurrency",
+        "synchronization"
+      ],
+      "created": "2026-08-18",
+      "updatedAt": "2026-08-18",
+      "vaultPath": "Coding/Concurrency/Condition Variables.md",
+      "folder": "Coding",
+      "linkedFrom": []
+    },
+    {
+      "slug": [
+        "thoughts",
+        "defensive-programming"
+      ],
+      "href": "/notes/thoughts/defensive-programming/",
+      "title": "Defensive Programming",
+      "tags": [
+        "defensive-programming",
+        "frontend",
+        "backend",
+        "error-handling",
+        "software-engineering"
+      ],
+      "summary": "Perspectives on when to apply defensive programming at input boundaries versus avoiding excessive defensive checks against internal backend services and broken invariants.",
+      "created": "2026-08-18",
+      "updatedAt": "2026-08-18",
+      "vaultPath": "Thoughts/Defensive Programming.md",
+      "folder": "Thoughts",
+      "linkedFrom": []
+    },
+    {
+      "slug": [
+        "coding",
+        "concurrency",
+        "interior-mutability"
+      ],
+      "href": "/notes/coding/concurrency/interior-mutability/",
+      "title": "Interior Mutability",
+      "tags": [
+        "memory",
+        "type-system"
+      ],
+      "created": "2026-08-18",
+      "updatedAt": "2026-08-18",
+      "vaultPath": "Coding/Concurrency/Interior Mutability.md",
+      "folder": "Coding",
+      "linkedFrom": [
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "basics-of-rust-concurrency"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+          "title": "Rust Concurrency"
+        },
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "rust-rc"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/rust-rc/",
+          "title": "Rust Rc"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-lazy-initialization"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-lazy-initialization/",
+      "title": "Lazy Initialization",
+      "tags": [
+        "rust",
+        "concurrency",
+        "atomics",
+        "lazy-initialization"
+      ],
+      "created": "2026-08-18",
+      "updatedAt": "2026-08-18",
+      "vaultPath": "Books/rust/Rust Atomics and Locks/Rust Lazy Initialization.md",
+      "folder": "Books",
+      "linkedFrom": [
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "atomics"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/atomics/",
+          "title": "Atomics"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "coding",
+        "concurrency",
+        "lazy-initialization"
+      ],
+      "href": "/notes/coding/concurrency/lazy-initialization/",
+      "title": "Lazy Initialization",
+      "tags": [
+        "concurrency",
+        "patterns"
+      ],
+      "created": "2026-08-18",
+      "updatedAt": "2026-08-18",
+      "vaultPath": "Coding/Concurrency/Lazy Initialization.md",
+      "folder": "Coding",
+      "linkedFrom": []
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-lock-poisoning"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-lock-poisoning/",
+      "title": "Lock Poisoning",
+      "tags": [
+        "rust",
+        "concurrency",
+        "locks"
+      ],
+      "created": "2026-08-18",
+      "updatedAt": "2026-08-18",
+      "vaultPath": "Books/rust/Rust Atomics and Locks/Rust Lock Poisoning.md",
+      "folder": "Books",
+      "linkedFrom": [
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "basics-of-rust-concurrency"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+          "title": "Rust Concurrency"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "coding",
+        "concurrency",
+        "lock-poisoning"
+      ],
+      "href": "/notes/coding/concurrency/lock-poisoning/",
+      "title": "Lock Poisoning",
+      "tags": [
+        "concurrency",
+        "locks",
+        "error-handling"
+      ],
+      "created": "2026-08-18",
+      "updatedAt": "2026-08-18",
+      "vaultPath": "Coding/Concurrency/Lock Poisoning.md",
+      "folder": "Coding",
+      "linkedFrom": []
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-memory-ordering"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-memory-ordering/",
+      "title": "Memory Ordering",
+      "tags": [
+        "rust",
+        "concurrency",
+        "atomics",
+        "memory-ordering"
+      ],
+      "created": "2026-08-18",
+      "updatedAt": "2026-08-18",
+      "vaultPath": "Books/rust/Rust Atomics and Locks/Rust Memory Ordering.md",
+      "folder": "Books",
+      "linkedFrom": [
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "atomics"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/atomics/",
+          "title": "Atomics"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "coding",
+        "concurrency",
+        "memory-ordering"
+      ],
+      "href": "/notes/coding/concurrency/memory-ordering/",
+      "title": "Memory Ordering",
+      "tags": [
+        "concurrency",
+        "atomics",
+        "memory-model"
+      ],
+      "created": "2026-08-18",
+      "updatedAt": "2026-08-18",
+      "vaultPath": "Coding/Concurrency/Memory Ordering.md",
+      "folder": "Coding",
+      "linkedFrom": []
+    },
+    {
+      "slug": [
+        "coding",
+        "concurrency",
+        "mutex"
+      ],
+      "href": "/notes/coding/concurrency/mutex/",
+      "title": "Mutex",
+      "tags": [
+        "concurrency",
+        "locks"
+      ],
+      "created": "2026-08-18",
+      "updatedAt": "2026-08-18",
+      "vaultPath": "Coding/Concurrency/Mutex.md",
+      "folder": "Coding",
+      "linkedFrom": [
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "rust-condition-variables"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/rust-condition-variables/",
+          "title": "Condition Variables"
+        },
+        {
+          "slug": [
+            "coding",
+            "concurrency",
+            "condition-variables"
+          ],
+          "href": "/notes/coding/concurrency/condition-variables/",
+          "title": "Condition Variables"
+        },
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "rust-lock-poisoning"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/rust-lock-poisoning/",
+          "title": "Lock Poisoning"
+        },
+        {
+          "slug": [
+            "coding",
+            "concurrency",
+            "lock-poisoning"
+          ],
+          "href": "/notes/coding/concurrency/lock-poisoning/",
+          "title": "Lock Poisoning"
+        },
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "basics-of-rust-concurrency"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+          "title": "Rust Concurrency"
+        },
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "rust-rwlock"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/rust-rwlock/",
+          "title": "Rust RwLock"
+        },
+        {
+          "slug": [
+            "coding",
+            "concurrency",
+            "reader-writer-lock"
+          ],
+          "href": "/notes/coding/concurrency/reader-writer-lock/",
+          "title": "RwLock"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "coding",
+        "concurrency",
+        "race-conditions"
+      ],
+      "href": "/notes/coding/concurrency/race-conditions/",
+      "title": "Race Conditions",
+      "tags": [
+        "concurrency"
+      ],
+      "created": "2026-08-18",
+      "updatedAt": "2026-08-18",
+      "vaultPath": "Coding/Concurrency/Race Conditions.md",
+      "folder": "Coding",
+      "linkedFrom": [
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "atomics"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/atomics/",
+          "title": "Atomics"
+        },
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "rust-lazy-initialization"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/rust-lazy-initialization/",
+          "title": "Lazy Initialization"
+        },
+        {
+          "slug": [
+            "coding",
+            "concurrency",
+            "lazy-initialization"
+          ],
+          "href": "/notes/coding/concurrency/lazy-initialization/",
+          "title": "Lazy Initialization"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "coding",
+        "concurrency",
+        "reference-counting"
+      ],
+      "href": "/notes/coding/concurrency/reference-counting/",
+      "title": "Reference Counting",
+      "tags": [
+        "memory-management",
+        "smart-pointers"
+      ],
+      "created": "2026-08-18",
+      "updatedAt": "2026-08-18",
+      "vaultPath": "Coding/Concurrency/Reference Counting.md",
+      "folder": "Coding",
+      "linkedFrom": [
+        {
+          "slug": [
+            "coding",
+            "concurrency",
+            "atomic-reference-counting"
+          ],
+          "href": "/notes/coding/concurrency/atomic-reference-counting/",
+          "title": "Atomic Refcounting"
+        },
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "rust-arc"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/rust-arc/",
+          "title": "Rust Arc"
+        },
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "basics-of-rust-concurrency"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+          "title": "Rust Concurrency"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-arc"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-arc/",
+      "title": "Rust Arc",
+      "tags": [
+        "rust",
+        "concurrency",
+        "reference-counting",
+        "smart-pointers",
+        "atomics"
+      ],
+      "created": "2026-08-18",
+      "updatedAt": "2026-08-18",
+      "vaultPath": "Books/rust/Rust Atomics and Locks/Rust Arc.md",
+      "folder": "Books",
+      "linkedFrom": [
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "basics-of-rust-concurrency"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+          "title": "Rust Concurrency"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-atomics"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-atomics/",
+      "title": "Rust Atomics",
+      "tags": [
+        "rust",
+        "concurrency",
+        "atomics"
+      ],
+      "created": "2026-08-18",
+      "updatedAt": "2026-08-18",
+      "vaultPath": "Books/rust/Rust Atomics and Locks/Rust Atomics.md",
+      "folder": "Books",
+      "linkedFrom": [
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "atomics"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/atomics/",
+          "title": "Atomics"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-cell-and-refcell"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-cell-and-refcell/",
+      "title": "Rust Cell",
+      "tags": [
+        "rust",
+        "interior-mutability"
+      ],
+      "created": "2026-08-18",
+      "updatedAt": "2026-08-18",
+      "vaultPath": "Books/rust/Rust Atomics and Locks/Rust Cell and RefCell.md",
+      "folder": "Books",
+      "linkedFrom": [
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "basics-of-rust-concurrency"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+          "title": "Rust Concurrency"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-mutex"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-mutex/",
+      "title": "Rust Mutex",
+      "tags": [
+        "rust",
+        "concurrency",
+        "locks",
+        "mutex"
+      ],
+      "created": "2026-08-18",
+      "updatedAt": "2026-08-18",
+      "vaultPath": "Books/rust/Rust Atomics and Locks/Rust Mutex.md",
+      "folder": "Books",
+      "linkedFrom": [
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "basics-of-rust-concurrency"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+          "title": "Rust Concurrency"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-rc"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-rc/",
+      "title": "Rust Rc",
+      "tags": [
+        "rust",
+        "reference-counting",
+        "smart-pointers"
+      ],
+      "created": "2026-08-18",
+      "updatedAt": "2026-08-18",
+      "vaultPath": "Books/rust/Rust Atomics and Locks/Rust Rc.md",
+      "folder": "Books",
+      "linkedFrom": [
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "basics-of-rust-concurrency"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+          "title": "Rust Concurrency"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-rwlock"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-rwlock/",
+      "title": "Rust RwLock",
+      "tags": [
+        "rust",
+        "concurrency",
+        "locks",
+        "rwlock"
+      ],
+      "created": "2026-08-18",
+      "updatedAt": "2026-08-18",
+      "vaultPath": "Books/rust/Rust Atomics and Locks/Rust RwLock.md",
+      "folder": "Books",
+      "linkedFrom": [
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "basics-of-rust-concurrency"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+          "title": "Rust Concurrency"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-statics-and-leaking"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-statics-and-leaking/",
+      "title": "Rust Statics",
+      "tags": [
+        "rust",
+        "concurrency",
+        "statics",
+        "memory"
+      ],
+      "created": "2026-08-18",
+      "updatedAt": "2026-08-18",
+      "vaultPath": "Books/rust/Rust Atomics and Locks/Rust Statics and Leaking.md",
+      "folder": "Books",
+      "linkedFrom": [
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "basics-of-rust-concurrency"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+          "title": "Rust Concurrency"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-threads"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-threads/",
+      "title": "Rust Threads",
+      "tags": [
+        "rust",
+        "concurrency",
+        "threads"
+      ],
+      "created": "2026-08-18",
+      "updatedAt": "2026-08-18",
+      "vaultPath": "Books/rust/Rust Atomics and Locks/Rust Threads.md",
+      "folder": "Books",
+      "linkedFrom": [
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "basics-of-rust-concurrency"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+          "title": "Rust Concurrency"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "coding",
+        "concurrency",
+        "reader-writer-lock"
+      ],
+      "href": "/notes/coding/concurrency/reader-writer-lock/",
+      "title": "RwLock",
+      "tags": [
+        "concurrency",
+        "locks"
+      ],
+      "created": "2026-08-18",
+      "updatedAt": "2026-08-18",
+      "vaultPath": "Coding/Concurrency/Reader-Writer Lock.md",
+      "folder": "Coding",
+      "linkedFrom": [
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "rust-lock-poisoning"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/rust-lock-poisoning/",
+          "title": "Lock Poisoning"
+        },
+        {
+          "slug": [
+            "coding",
+            "concurrency",
+            "lock-poisoning"
+          ],
+          "href": "/notes/coding/concurrency/lock-poisoning/",
+          "title": "Lock Poisoning"
+        },
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "basics-of-rust-concurrency"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+          "title": "Rust Concurrency"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-scoped-threads"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-scoped-threads/",
+      "title": "Scoped Threads",
+      "tags": [
+        "rust",
+        "concurrency",
+        "threads"
+      ],
+      "created": "2026-08-18",
+      "updatedAt": "2026-08-18",
+      "vaultPath": "Books/rust/Rust Atomics and Locks/Rust Scoped Threads.md",
+      "folder": "Books",
+      "linkedFrom": [
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "basics-of-rust-concurrency"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+          "title": "Rust Concurrency"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "coding",
+        "concurrency",
+        "scoped-threads"
+      ],
+      "href": "/notes/coding/concurrency/scoped-threads/",
+      "title": "Scoped Threads",
+      "tags": [
+        "concurrency",
+        "threads"
+      ],
+      "created": "2026-08-18",
+      "updatedAt": "2026-08-18",
+      "vaultPath": "Coding/Concurrency/Scoped Threads.md",
+      "folder": "Coding",
+      "linkedFrom": []
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-send-and-sync"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-send-and-sync/",
+      "title": "Send Sync",
+      "tags": [
+        "rust",
+        "concurrency",
+        "thread-safety",
+        "auto-traits"
+      ],
+      "created": "2026-08-18",
+      "updatedAt": "2026-08-18",
+      "vaultPath": "Books/rust/Rust Atomics and Locks/Rust Send and Sync.md",
+      "folder": "Books",
+      "linkedFrom": [
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "basics-of-rust-concurrency"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+          "title": "Rust Concurrency"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "coding",
+        "concurrency",
+        "send-and-sync"
+      ],
+      "href": "/notes/coding/concurrency/send-and-sync/",
+      "title": "Send Sync",
+      "tags": [
+        "concurrency",
+        "type-system",
+        "thread-safety"
+      ],
+      "created": "2026-08-18",
+      "updatedAt": "2026-08-18",
+      "vaultPath": "Coding/Concurrency/Send and Sync.md",
+      "folder": "Coding",
+      "linkedFrom": [
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "basics-of-rust-concurrency"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+          "title": "Rust Concurrency"
+        },
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "rust-rc"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/rust-rc/",
+          "title": "Rust Rc"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "coding",
+        "concurrency",
+        "static-lifetime"
+      ],
+      "href": "/notes/coding/concurrency/static-lifetime/",
+      "title": "Static Lifetime",
+      "tags": [
+        "concurrency",
+        "memory"
+      ],
+      "created": "2026-08-18",
+      "updatedAt": "2026-08-18",
+      "vaultPath": "Coding/Concurrency/Static Lifetime.md",
+      "folder": "Coding",
+      "linkedFrom": []
+    },
+    {
+      "slug": [
+        "coding",
+        "concurrency",
+        "thread-joining"
+      ],
+      "href": "/notes/coding/concurrency/thread-joining/",
+      "title": "Thread Joining",
+      "tags": [
+        "concurrency",
+        "threads"
+      ],
+      "created": "2026-08-18",
+      "updatedAt": "2026-08-18",
+      "vaultPath": "Coding/Concurrency/Thread Joining.md",
+      "folder": "Coding",
+      "linkedFrom": []
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-thread-parking"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-thread-parking/",
+      "title": "Thread Parking",
+      "tags": [
+        "rust",
+        "concurrency",
+        "threads"
+      ],
+      "created": "2026-08-18",
+      "updatedAt": "2026-08-18",
+      "vaultPath": "Books/rust/Rust Atomics and Locks/Rust Thread Parking.md",
+      "folder": "Books",
+      "linkedFrom": [
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "basics-of-rust-concurrency"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+          "title": "Rust Concurrency"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "coding",
+        "concurrency",
+        "thread-parking"
+      ],
+      "href": "/notes/coding/concurrency/thread-parking/",
+      "title": "Thread Parking",
+      "tags": [
+        "concurrency",
+        "threads"
+      ],
+      "created": "2026-08-18",
+      "updatedAt": "2026-08-18",
+      "vaultPath": "Coding/Concurrency/Thread Parking.md",
+      "folder": "Coding",
+      "linkedFrom": []
+    },
+    {
+      "slug": [
+        "coding",
+        "concurrency",
+        "threads"
+      ],
+      "href": "/notes/coding/concurrency/threads/",
+      "title": "Threads",
+      "tags": [
+        "concurrency",
+        "threads"
+      ],
+      "created": "2026-08-18",
+      "updatedAt": "2026-08-18",
+      "vaultPath": "Coding/Concurrency/Threads.md",
+      "folder": "Coding",
+      "linkedFrom": [
+        {
+          "slug": [
+            "coding",
+            "concurrency",
+            "atomic-operations"
+          ],
+          "href": "/notes/coding/concurrency/atomic-operations/",
+          "title": "Atomic Operations"
+        },
+        {
+          "slug": [
+            "coding",
+            "concurrency",
+            "atomic-reference-counting"
+          ],
+          "href": "/notes/coding/concurrency/atomic-reference-counting/",
+          "title": "Atomic Refcounting"
+        },
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "atomics"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/atomics/",
+          "title": "Atomics"
+        },
+        {
+          "slug": [
+            "coding",
+            "concurrency",
+            "concurrency"
+          ],
+          "href": "/notes/coding/concurrency/concurrency/",
+          "title": "Concurrency"
+        },
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "rust-condition-variables"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/rust-condition-variables/",
+          "title": "Condition Variables"
+        },
+        {
+          "slug": [
+            "coding",
+            "concurrency",
+            "condition-variables"
+          ],
+          "href": "/notes/coding/concurrency/condition-variables/",
+          "title": "Condition Variables"
+        },
+        {
+          "slug": [
+            "books",
+            "grokking-concurrency",
+            "introducing-concurrency"
+          ],
+          "href": "/notes/books/grokking-concurrency/introducing-concurrency/",
+          "title": "Introducing Concurrency"
+        },
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "rust-lazy-initialization"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/rust-lazy-initialization/",
+          "title": "Lazy Initialization"
+        },
+        {
+          "slug": [
+            "coding",
+            "concurrency",
+            "lazy-initialization"
+          ],
+          "href": "/notes/coding/concurrency/lazy-initialization/",
+          "title": "Lazy Initialization"
+        },
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "rust-lock-poisoning"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/rust-lock-poisoning/",
+          "title": "Lock Poisoning"
+        },
+        {
+          "slug": [
+            "coding",
+            "concurrency",
+            "lock-poisoning"
+          ],
+          "href": "/notes/coding/concurrency/lock-poisoning/",
+          "title": "Lock Poisoning"
+        },
+        {
+          "slug": [
+            "coding",
+            "concurrency",
+            "mutex"
+          ],
+          "href": "/notes/coding/concurrency/mutex/",
+          "title": "Mutex"
+        },
+        {
+          "slug": [
+            "coding",
+            "concurrency",
+            "race-conditions"
+          ],
+          "href": "/notes/coding/concurrency/race-conditions/",
+          "title": "Race Conditions"
+        },
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "rust-arc"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/rust-arc/",
+          "title": "Rust Arc"
+        },
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "rust-atomics"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/rust-atomics/",
+          "title": "Rust Atomics"
+        },
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "basics-of-rust-concurrency"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+          "title": "Rust Concurrency"
+        },
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "rust-mutex"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/rust-mutex/",
+          "title": "Rust Mutex"
+        },
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "rust-statics-and-leaking"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/rust-statics-and-leaking/",
+          "title": "Rust Statics"
+        },
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "rust-threads"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/rust-threads/",
+          "title": "Rust Threads"
+        },
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "rust-scoped-threads"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/rust-scoped-threads/",
+          "title": "Scoped Threads"
+        },
+        {
+          "slug": [
+            "coding",
+            "concurrency",
+            "scoped-threads"
+          ],
+          "href": "/notes/coding/concurrency/scoped-threads/",
+          "title": "Scoped Threads"
+        },
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "rust-send-and-sync"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/rust-send-and-sync/",
+          "title": "Send Sync"
+        },
+        {
+          "slug": [
+            "coding",
+            "concurrency",
+            "send-and-sync"
+          ],
+          "href": "/notes/coding/concurrency/send-and-sync/",
+          "title": "Send Sync"
+        },
+        {
+          "slug": [
+            "coding",
+            "concurrency",
+            "static-lifetime"
+          ],
+          "href": "/notes/coding/concurrency/static-lifetime/",
+          "title": "Static Lifetime"
+        },
+        {
+          "slug": [
+            "coding",
+            "concurrency",
+            "thread-joining"
+          ],
+          "href": "/notes/coding/concurrency/thread-joining/",
+          "title": "Thread Joining"
+        },
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "rust-thread-parking"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/rust-thread-parking/",
+          "title": "Thread Parking"
+        },
+        {
+          "slug": [
+            "coding",
+            "concurrency",
+            "thread-parking"
+          ],
+          "href": "/notes/coding/concurrency/thread-parking/",
+          "title": "Thread Parking"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "basics-of-rust-concurrency"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+      "title": "Rust Concurrency",
+      "tags": [
+        "rust",
+        "concurrency",
+        "threads",
+        "statics",
+        "reference-counting",
+        "interior-mutability",
+        "atomics",
+        "locks",
+        "mutex",
+        "rwlock"
+      ],
+      "created": "2026-08-15",
+      "updatedAt": "2026-08-15",
+      "vaultPath": "Books/rust/Rust Atomics and Locks/Basics of Rust Concurrency.md",
+      "folder": "Books",
+      "linkedFrom": [
+        {
+          "slug": [
+            "architecture",
+            "how-to-split-a-microservice"
+          ],
+          "href": "/notes/architecture/how-to-split-a-microservice/",
+          "title": "Splitting Microservices"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "slm",
+        "slm"
+      ],
+      "href": "/notes/slm/slm/",
+      "title": "SLM",
+      "tags": [
+        "slm",
+        "llm",
+        "ai",
+        "edge-computing",
+        "data-privacy",
+        "fine-tuning"
+      ],
+      "created": "2026-08-14",
+      "updatedAt": "2026-08-14",
+      "vaultPath": "SLM/SLM.md",
+      "folder": "SLM",
+      "linkedFrom": [
+        {
+          "slug": [
+            "llms",
+            "speculative-decoding"
+          ],
+          "href": "/notes/llms/speculative-decoding/",
+          "title": "Speculative Decoding"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "llms",
+        "mcp"
+      ],
+      "href": "/notes/llms/mcp/",
+      "title": "MCP",
+      "tags": [
+        "llm",
+        "mcp",
+        "tool-calling",
+        "anthropic",
+        "protocol"
+      ],
+      "summary": "A standard protocol by Anthropic built on top of tool calling that exposes JSON-RPC endpoints for LLMs to communicate with external services as plugins.",
+      "created": "2026-08-02",
+      "updatedAt": "2026-08-02",
+      "vaultPath": "LLMs/MCP.md",
+      "folder": "LLMs",
+      "linkedFrom": [
+        {
+          "slug": [
+            "agents",
+            "agents"
+          ],
+          "href": "/notes/agents/agents/",
+          "title": "Agents"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "tools",
+        "langgraph"
+      ],
+      "href": "/notes/tools/langgraph/",
+      "title": "LangGraph",
+      "tags": [
+        "agent",
+        "langgraph",
+        "orchestration",
+        "multi-agent",
+        "framework"
+      ],
+      "summary": "A graph-based framework for orchestrating stateful, multi-agent workflows with loops, branching, and state persistence.",
+      "created": "2026-07-31",
+      "updatedAt": "2026-07-31",
+      "vaultPath": "tools/LangGraph.md",
+      "folder": "tools",
+      "linkedFrom": [
+        {
+          "slug": [
+            "agents",
+            "communication"
+          ],
+          "href": "/notes/agents/communication/",
+          "title": "Agent Communication"
+        },
+        {
+          "slug": [
+            "llms",
+            "agentic-rag"
+          ],
+          "href": "/notes/llms/agentic-rag/",
+          "title": "Agentic RAG"
+        },
+        {
+          "slug": [
+            "agents",
+            "agents"
+          ],
+          "href": "/notes/agents/agents/",
+          "title": "Agents"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "llms",
+        "router-pattern"
+      ],
+      "href": "/notes/llms/router-pattern/",
+      "title": "Router Pattern",
+      "tags": [
+        "llm",
+        "agent",
+        "router-pattern",
+        "routing",
+        "rag"
+      ],
+      "summary": "An architectural pattern where an LLM or classifier acts as a dispatcher to direct incoming queries to specialized tools, indexes, or prompt pathways.",
+      "created": "2026-07-31",
+      "updatedAt": "2026-07-31",
+      "vaultPath": "LLMs/Router Pattern.md",
+      "folder": "LLMs",
+      "linkedFrom": [
+        {
+          "slug": [
+            "llms",
+            "agentic-rag"
+          ],
+          "href": "/notes/llms/agentic-rag/",
+          "title": "Agentic RAG"
+        },
+        {
+          "slug": [
+            "agents",
+            "agents"
+          ],
+          "href": "/notes/agents/agents/",
+          "title": "Agents"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "llms",
+        "speculative-decoding"
+      ],
+      "href": "/notes/llms/speculative-decoding/",
+      "title": "Speculative Decoding",
+      "tags": [
+        "llm",
+        "speculative-decoding",
+        "optimization",
+        "inference",
+        "throughput"
+      ],
+      "summary": "An optimization technique using a smaller model to generate candidate tokens validated in a single pass by a larger model to increase token throughput.",
+      "created": "2026-07-31",
+      "updatedAt": "2026-07-31",
+      "vaultPath": "LLMs/Speculative Decoding.md",
+      "folder": "LLMs",
+      "linkedFrom": [
+        {
+          "slug": [
+            "llms",
+            "llm"
+          ],
+          "href": "/notes/llms/llm/",
+          "title": "LLMs"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "llms",
+        "vllm"
+      ],
+      "href": "/notes/llms/vllm/",
+      "title": "vLLM",
+      "tags": [
+        "llm",
+        "vllm",
+        "inference",
+        "performance",
+        "infrastructure"
+      ],
+      "summary": "A high-throughput and memory-efficient inference engine for LLMs, featuring PagedAttention.",
+      "created": "2026-03-30",
+      "updatedAt": "2026-07-31",
+      "vaultPath": "LLMs/vLLM.md",
+      "folder": "LLMs",
+      "linkedFrom": [
+        {
+          "slug": [
+            "llms",
+            "llm"
+          ],
+          "href": "/notes/llms/llm/",
+          "title": "LLMs"
+        },
+        {
+          "slug": [
+            "llms",
+            "token-caching"
+          ],
+          "href": "/notes/llms/token-caching/",
+          "title": "Token Caching"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "llms",
+        "decoder"
+      ],
+      "href": "/notes/llms/decoder/",
+      "title": "Decoder",
+      "tags": [
+        "llm",
+        "decoder",
+        "transformer",
+        "attention",
+        "autoregressive"
+      ],
+      "summary": "Decoder layers generate tokens autoregressively with causal (left-to-right) attention; the dominant architecture for modern generative LLMs.",
+      "created": "2026-07-26",
+      "updatedAt": "2026-07-26",
+      "vaultPath": "LLMs/decoder.md",
+      "folder": "LLMs",
+      "linkedFrom": [
+        {
+          "slug": [
+            "llms",
+            "encoder"
+          ],
+          "href": "/notes/llms/encoder/",
+          "title": "Encoder"
+        },
+        {
+          "slug": [
+            "llms",
+            "llm"
+          ],
+          "href": "/notes/llms/llm/",
+          "title": "LLMs"
+        },
+        {
+          "slug": [
+            "llms",
+            "speculative-decoding"
+          ],
+          "href": "/notes/llms/speculative-decoding/",
+          "title": "Speculative Decoding"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "llms",
+        "encoder"
+      ],
+      "href": "/notes/llms/encoder/",
+      "title": "Encoder",
+      "tags": [
+        "llm",
+        "encoder",
+        "transformer",
+        "attention",
+        "nlp"
+      ],
+      "summary": "Encoder layers in transformers extract features from the full input via bidirectional attention; used alone for NLU tasks or with a decoder in seq2seq models.",
+      "created": "2026-07-26",
+      "updatedAt": "2026-07-26",
+      "vaultPath": "LLMs/Encoder.md",
+      "folder": "LLMs",
+      "linkedFrom": [
+        {
+          "slug": [
+            "llms",
+            "decoder"
+          ],
+          "href": "/notes/llms/decoder/",
+          "title": "Decoder"
+        },
+        {
+          "slug": [
+            "llms",
+            "llm"
+          ],
+          "href": "/notes/llms/llm/",
+          "title": "LLMs"
+        },
+        {
+          "slug": [
+            "llms",
+            "speculative-decoding"
+          ],
+          "href": "/notes/llms/speculative-decoding/",
+          "title": "Speculative Decoding"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "llms",
+        "llm"
+      ],
+      "href": "/notes/llms/llm/",
+      "title": "LLMs",
+      "tags": [
+        "llm",
+        "index",
+        "research",
+        "ai"
+      ],
+      "summary": "Central hub for all notes related to Large Language Models (LLMs), including architecture, retrieval, and optimization.",
+      "created": "2026-03-30",
+      "updatedAt": "2026-07-26",
+      "vaultPath": "LLMs/LLM.md",
+      "folder": "LLMs",
+      "linkedFrom": [
+        {
+          "slug": [
+            "agents",
+            "agents"
+          ],
+          "href": "/notes/agents/agents/",
+          "title": "Agents"
+        },
+        {
+          "slug": [
+            "llms",
+            "decoder"
+          ],
+          "href": "/notes/llms/decoder/",
+          "title": "Decoder"
+        },
+        {
+          "slug": [
+            "llms",
+            "encoder"
+          ],
+          "href": "/notes/llms/encoder/",
+          "title": "Encoder"
+        },
+        {
+          "slug": [
+            "tools",
+            "langgraph"
+          ],
+          "href": "/notes/tools/langgraph/",
+          "title": "LangGraph"
+        },
+        {
+          "slug": [
+            "llms",
+            "lmcache"
+          ],
+          "href": "/notes/llms/lmcache/",
+          "title": "LMCache"
+        },
+        {
+          "slug": [
+            "llms",
+            "mcp"
+          ],
+          "href": "/notes/llms/mcp/",
+          "title": "MCP"
+        },
+        {
+          "slug": [
+            "llms",
+            "needle-in-a-haystack-20-03-2026"
+          ],
+          "href": "/notes/llms/needle-in-a-haystack-20-03-2026/",
+          "title": "Needle Haystack"
+        },
+        {
+          "slug": [
+            "llms",
+            "rag"
+          ],
+          "href": "/notes/llms/rag/",
+          "title": "RAG"
+        },
+        {
+          "slug": [
+            "llms",
+            "re-ranking"
+          ],
+          "href": "/notes/llms/re-ranking/",
+          "title": "Re-ranking"
+        },
+        {
+          "slug": [
+            "llms",
+            "router-pattern"
+          ],
+          "href": "/notes/llms/router-pattern/",
+          "title": "Router Pattern"
+        },
+        {
+          "slug": [
+            "slm",
+            "slm"
+          ],
+          "href": "/notes/slm/slm/",
+          "title": "SLM"
+        },
+        {
+          "slug": [
+            "llms",
+            "speculative-decoding"
+          ],
+          "href": "/notes/llms/speculative-decoding/",
+          "title": "Speculative Decoding"
+        },
+        {
+          "slug": [
+            "llms",
+            "token-caching"
+          ],
+          "href": "/notes/llms/token-caching/",
+          "title": "Token Caching"
+        },
+        {
+          "slug": [
+            "llms",
+            "tokenization"
+          ],
+          "href": "/notes/llms/tokenization/",
+          "title": "Tokenization"
+        },
+        {
+          "slug": [
+            "agents",
+            "tool-calling"
+          ],
+          "href": "/notes/agents/tool-calling/",
+          "title": "Tool Calling"
+        },
+        {
+          "slug": [
+            "llms",
+            "turboquant"
+          ],
+          "href": "/notes/llms/turboquant/",
+          "title": "TurboQuant"
+        },
+        {
+          "slug": [
+            "llms",
+            "vllm"
+          ],
+          "href": "/notes/llms/vllm/",
+          "title": "vLLM"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "agents",
+        "tool-calling"
+      ],
+      "href": "/notes/agents/tool-calling/",
+      "title": "Tool Calling",
+      "tags": [
+        "ai",
+        "agents",
+        "llm",
+        "tool-calling",
+        "function-calling",
+        "niah"
+      ],
+      "summary": "Tool calling enables LLMs to run code and perform tasks beyond text generation, introducing a 4-message architecture and requiring careful context and tool design for long-horizon agentic tasks.",
+      "created": "2026-07-25",
+      "updatedAt": "2026-07-25",
+      "vaultPath": "Agents/Tool calling.md",
+      "folder": "Agents",
+      "linkedFrom": [
+        {
+          "slug": [
+            "agents",
+            "agents"
+          ],
+          "href": "/notes/agents/agents/",
+          "title": "Agents"
+        },
+        {
+          "slug": [
+            "llms",
+            "mcp"
+          ],
+          "href": "/notes/llms/mcp/",
+          "title": "MCP"
+        },
+        {
+          "slug": [
+            "llms",
+            "router-pattern"
+          ],
+          "href": "/notes/llms/router-pattern/",
+          "title": "Router Pattern"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "architecture",
+        "splitting-the-monolith"
+      ],
+      "href": "/notes/architecture/splitting-the-monolith/",
+      "title": "Splitting Monolith",
+      "tags": [
+        "architecture",
+        "microservices",
+        "refactoring"
+      ],
+      "summary": "A guide on strategies and considerations for decomposing a monolith into microservices, focusing on extraction priorities and verification techniques.",
+      "created": "2026-04-26",
+      "updatedAt": "2026-04-26",
+      "vaultPath": "Architecture/Splitting the Monolith.md",
+      "folder": "Architecture",
+      "linkedFrom": [
+        {
+          "slug": [
+            "architecture",
+            "case-for-monolith",
+            "case-for-monolith"
+          ],
+          "href": "/notes/architecture/case-for-monolith/case-for-monolith/",
+          "title": "Modular Monolith"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "architecture",
+        "case-for-monolith",
+        "case-for-monolith"
+      ],
+      "href": "/notes/architecture/case-for-monolith/case-for-monolith/",
+      "title": "Modular Monolith",
+      "tags": [
+        "architecture",
+        "monolith",
+        "modularity",
+        "velocity",
+        "volatility"
+      ],
+      "summary": "A deep dive into why Modular Monoliths are often the best choice for maximizing development velocity and managing volatility without the \"distributed system tax.\"",
+      "created": "2026-04-20",
+      "updatedAt": "2026-04-20",
+      "vaultPath": "Architecture/Case For Monolith/Case For Monolith.md",
+      "folder": "Architecture",
+      "linkedFrom": [
+        {
+          "slug": [
+            "architecture",
+            "splitting-the-monolith"
+          ],
+          "href": "/notes/architecture/splitting-the-monolith/",
+          "title": "Splitting Monolith"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "architecture",
+        "how-to-split-a-microservice"
+      ],
+      "href": "/notes/architecture/how-to-split-a-microservice/",
+      "title": "Splitting Microservices",
+      "tags": [
+        "architecture",
+        "microservices",
+        "ddd",
+        "strategy"
+      ],
+      "summary": "A comprehensive guide on decomposing systems into microservices using DDD, volatility, data compliance, technology runtimes, and organizational structure.",
+      "created": "2026-04-19",
+      "updatedAt": "2026-04-19",
+      "vaultPath": "Architecture/How to split a microservice.md",
+      "folder": "Architecture",
+      "linkedFrom": [
+        {
+          "slug": [
+            "architecture",
+            "coupling"
+          ],
+          "href": "/notes/architecture/coupling/",
+          "title": "Coupling"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "architecture",
+        "ddd",
+        "ddd"
+      ],
+      "href": "/notes/architecture/ddd/ddd/",
+      "title": "Domain-Driven Design",
+      "tags": [
+        "architecture",
+        "ddd",
+        "microservices"
+      ],
+      "summary": "A foundational overview of Domain-Driven Design core concepts including Ubiquitous Language, Aggregates, and Bounded Contexts within a microservices architecture.",
+      "created": "2026-04-18",
+      "updatedAt": "2026-04-18",
+      "vaultPath": "Architecture/DDD/DDD.md",
+      "folder": "Architecture",
+      "linkedFrom": [
+        {
+          "slug": [
+            "architecture",
+            "how-to-split-a-microservice"
+          ],
+          "href": "/notes/architecture/how-to-split-a-microservice/",
+          "title": "Splitting Microservices"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "architecture",
+        "coupling"
+      ],
+      "href": "/notes/architecture/coupling/",
+      "title": "Coupling",
+      "tags": [
+        "microservices",
+        "architecture",
+        "coupling"
+      ],
+      "summary": "An overview of the four main coupling types in microservice systems — Domain, Temporal, Pass-Through, and Common — with strategies for minimising or replacing each.",
+      "created": "2026-04-15",
+      "updatedAt": "2026-04-15",
+      "vaultPath": "Architecture/Coupling.md",
+      "folder": "Architecture",
+      "linkedFrom": [
+        {
+          "slug": [
+            "architecture",
+            "building-microservices-17-02-2026"
+          ],
+          "href": "/notes/architecture/building-microservices-17-02-2026/",
+          "title": "Coupling Cohesion"
+        },
+        {
+          "slug": [
+            "thoughts",
+            "defensive-programming"
+          ],
+          "href": "/notes/thoughts/defensive-programming/",
+          "title": "Defensive Programming"
+        },
+        {
+          "slug": [
+            "books",
+            "grokking-concurrency",
+            "introducing-concurrency"
+          ],
+          "href": "/notes/books/grokking-concurrency/introducing-concurrency/",
+          "title": "Introducing Concurrency"
+        },
+        {
+          "slug": [
+            "coding",
+            "concurrency",
+            "scalability"
+          ],
+          "href": "/notes/coding/concurrency/scalability/",
+          "title": "Scalability"
+        },
+        {
+          "slug": [
+            "architecture",
+            "how-to-split-a-microservice"
+          ],
+          "href": "/notes/architecture/how-to-split-a-microservice/",
+          "title": "Splitting Microservices"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "agents",
+        "communication"
+      ],
+      "href": "/notes/agents/communication/",
+      "title": "Agent Communication",
+      "tags": [
+        "multi-agent-systems",
+        "architecture",
+        "orchestration"
+      ],
+      "summary": "An overview of different communication topologies and patterns for multi-agent systems, including linear, hierarchical, and network-based flows.",
+      "created": "2026-04-11",
+      "updatedAt": "2026-04-11",
+      "vaultPath": "Agents/Communication.md",
+      "folder": "Agents",
+      "linkedFrom": [
+        {
+          "slug": [
+            "agents",
+            "agents"
+          ],
+          "href": "/notes/agents/agents/",
+          "title": "Agents"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "agents",
+        "agents"
+      ],
+      "href": "/notes/agents/agents/",
+      "title": "Agents",
+      "tags": [
+        "research",
+        "ai",
+        "agents"
+      ],
+      "summary": "An exploration of what defines an AI agent, focusing on the transition from simple chatbots to autonomous systems using reasoning, tools, and frameworks like ReAct.",
+      "created": "2026-04-01",
+      "updatedAt": "2026-04-01",
+      "vaultPath": "Agents/Agents.md",
+      "folder": "Agents",
+      "linkedFrom": [
+        {
+          "slug": [
+            "agents",
+            "communication"
+          ],
+          "href": "/notes/agents/communication/",
+          "title": "Agent Communication"
+        },
+        {
+          "slug": [
+            "llms",
+            "needle-in-a-haystack-20-03-2026"
+          ],
+          "href": "/notes/llms/needle-in-a-haystack-20-03-2026/",
+          "title": "Needle Haystack"
+        },
+        {
+          "slug": [
+            "llms",
+            "router-pattern"
+          ],
+          "href": "/notes/llms/router-pattern/",
+          "title": "Router Pattern"
+        },
+        {
+          "slug": [
+            "slm",
+            "slm"
+          ],
+          "href": "/notes/slm/slm/",
+          "title": "SLM"
+        },
+        {
+          "slug": [
+            "agents",
+            "tool-calling"
+          ],
+          "href": "/notes/agents/tool-calling/",
+          "title": "Tool Calling"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "llms",
+        "re-ranking"
+      ],
+      "href": "/notes/llms/re-ranking/",
+      "title": "Re-ranking",
+      "tags": [
+        "rag",
+        "re-ranking",
+        "research",
+        "search-optimization"
+      ],
+      "summary": "A two-stage retrieval process where initial candidates from a broad search are filtered by a specialized ranking engine to improve precision.",
+      "created": "2026-03-29",
+      "updatedAt": "2026-03-31",
+      "vaultPath": "LLMs/Re-ranking.md",
+      "folder": "LLMs",
+      "linkedFrom": [
+        {
+          "slug": [
+            "llms",
+            "llm"
+          ],
+          "href": "/notes/llms/llm/",
+          "title": "LLMs"
+        },
+        {
+          "slug": [
+            "llms",
+            "rag"
+          ],
+          "href": "/notes/llms/rag/",
+          "title": "RAG"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "llms",
+        "agentic-rag"
+      ],
+      "href": "/notes/llms/agentic-rag/",
+      "title": "Agentic RAG",
+      "tags": [
+        "rag",
+        "ai-agents",
+        "research",
+        "agentic-rag"
+      ],
+      "summary": "Evolution of RAG into dynamic, autonomous systems where an LLM uses reasoning to manage the retrieval process, tool selection, and self-correction.",
+      "created": "2026-03-29",
+      "updatedAt": "2026-03-30",
+      "vaultPath": "LLMs/Agentic RAG.md",
+      "folder": "LLMs",
+      "linkedFrom": [
+        {
+          "slug": [
+            "agents",
+            "communication"
+          ],
+          "href": "/notes/agents/communication/",
+          "title": "Agent Communication"
+        },
+        {
+          "slug": [
+            "agents",
+            "agents"
+          ],
+          "href": "/notes/agents/agents/",
+          "title": "Agents"
+        },
+        {
+          "slug": [
+            "llms",
+            "llm"
+          ],
+          "href": "/notes/llms/llm/",
+          "title": "LLMs"
+        },
+        {
+          "slug": [
+            "llms",
+            "rag"
+          ],
+          "href": "/notes/llms/rag/",
+          "title": "RAG"
+        },
+        {
+          "slug": [
+            "llms",
+            "router-pattern"
+          ],
+          "href": "/notes/llms/router-pattern/",
+          "title": "Router Pattern"
+        },
+        {
+          "slug": [
+            "slm",
+            "slm"
+          ],
+          "href": "/notes/slm/slm/",
+          "title": "SLM"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "llms",
+        "knowledge-graphs"
+      ],
+      "href": "/notes/llms/knowledge-graphs/",
+      "title": "Knowledge Graphs",
+      "tags": [
+        "graph-rag",
+        "knowledge-graphs",
+        "rag",
+        "research"
+      ],
+      "summary": "Combining vector search with graph databases to capture complex entity relationships missed by pure semantic search.",
+      "created": "2026-03-29",
+      "updatedAt": "2026-03-30",
+      "vaultPath": "LLMs/Knowledge Graphs.md",
+      "folder": "LLMs",
+      "linkedFrom": [
+        {
+          "slug": [
+            "agents",
+            "agents"
+          ],
+          "href": "/notes/agents/agents/",
+          "title": "Agents"
+        },
+        {
+          "slug": [
+            "llms",
+            "lightrag"
+          ],
+          "href": "/notes/llms/lightrag/",
+          "title": "LightRAG"
+        },
+        {
+          "slug": [
+            "llms",
+            "llm"
+          ],
+          "href": "/notes/llms/llm/",
+          "title": "LLMs"
+        },
+        {
+          "slug": [
+            "llms",
+            "microsoft-graphrag"
+          ],
+          "href": "/notes/llms/microsoft-graphrag/",
+          "title": "Microsoft GraphRAG"
+        },
+        {
+          "slug": [
+            "llms",
+            "rag"
+          ],
+          "href": "/notes/llms/rag/",
+          "title": "RAG"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "llms",
+        "lightrag"
+      ],
+      "href": "/notes/llms/lightrag/",
+      "title": "LightRAG",
+      "tags": [
+        "graph-rag",
+        "light-rag",
+        "research",
+        "rag"
+      ],
+      "summary": "A specialized implementation of GraphRAG designed for efficiency and streamlined retrieval.",
+      "created": "2026-03-29",
+      "updatedAt": "2026-03-30",
+      "vaultPath": "LLMs/LightRAG.md",
+      "folder": "LLMs",
+      "linkedFrom": [
+        {
+          "slug": [
+            "llms",
+            "knowledge-graphs"
+          ],
+          "href": "/notes/llms/knowledge-graphs/",
+          "title": "Knowledge Graphs"
+        },
+        {
+          "slug": [
+            "llms",
+            "llm"
+          ],
+          "href": "/notes/llms/llm/",
+          "title": "LLMs"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "llms",
+        "lmcache"
+      ],
+      "href": "/notes/llms/lmcache/",
+      "title": "LMCache",
+      "tags": [
+        "llm",
+        "caching",
+        "performance",
+        "infrastructure"
+      ],
+      "summary": "A specialized system for sharing token caches (KV caches) across multiple requests or instances to optimize LLM performance.",
+      "created": "2026-03-30",
+      "updatedAt": "2026-03-30",
+      "vaultPath": "LLMs/LMCache.md",
+      "folder": "LLMs",
+      "linkedFrom": [
+        {
+          "slug": [
+            "llms",
+            "llm"
+          ],
+          "href": "/notes/llms/llm/",
+          "title": "LLMs"
+        },
+        {
+          "slug": [
+            "llms",
+            "token-caching"
+          ],
+          "href": "/notes/llms/token-caching/",
+          "title": "Token Caching"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "llms",
+        "microsoft-graphrag"
+      ],
+      "href": "/notes/llms/microsoft-graphrag/",
+      "title": "Microsoft GraphRAG",
+      "tags": [
+        "microsoft",
+        "graph-rag",
+        "research",
+        "rag"
+      ],
+      "summary": "Microsoft's framework for building knowledge graph-enhanced retrieval-augmented generation systems.",
+      "created": "2026-03-29",
+      "updatedAt": "2026-03-30",
+      "vaultPath": "LLMs/Microsoft graphRag.md",
+      "folder": "LLMs",
+      "linkedFrom": [
+        {
+          "slug": [
+            "llms",
+            "knowledge-graphs"
+          ],
+          "href": "/notes/llms/knowledge-graphs/",
+          "title": "Knowledge Graphs"
+        },
+        {
+          "slug": [
+            "llms",
+            "llm"
+          ],
+          "href": "/notes/llms/llm/",
+          "title": "LLMs"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "llms",
+        "needle-in-a-haystack-20-03-2026"
+      ],
+      "href": "/notes/llms/needle-in-a-haystack-20-03-2026/",
+      "title": "Needle Haystack",
+      "tags": [
+        "llm",
+        "research",
+        "long-context",
+        "retrieval",
+        "benchmark"
+      ],
+      "summary": "Exploration of the needle-in-a-haystack problem, highlighting context retrieval biases and architectural limitations in long-context LLMs.",
+      "created": "2026-03-20",
+      "updatedAt": "2026-03-30",
+      "vaultPath": "LLMs/needle-in-a-haystack-20-03-2026.md",
+      "folder": "LLMs",
+      "linkedFrom": [
+        {
+          "slug": [
+            "agents",
+            "tool-calling"
+          ],
+          "href": "/notes/agents/tool-calling/",
+          "title": "Tool Calling"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "llms",
+        "quantisation"
+      ],
+      "href": "/notes/llms/quantisation/",
+      "title": "Quantization",
+      "tags": [
+        "llm",
+        "quantization",
+        "optimization",
+        "model-compression"
+      ],
+      "summary": "Techniques for reducing the precision of model weights to decrease memory usage and speed up inference.",
+      "created": "2026-03-30",
+      "updatedAt": "2026-03-30",
+      "vaultPath": "LLMs/Quantisation.md",
+      "folder": "LLMs",
+      "linkedFrom": []
+    },
+    {
+      "slug": [
+        "llms",
+        "rag"
+      ],
+      "href": "/notes/llms/rag/",
+      "title": "RAG",
+      "tags": [
+        "rag",
+        "research",
+        "ai-architecture"
+      ],
+      "summary": "Overview of RAG modalities and strategies for augmenting LLM queries with external, up-to-date, or private data.",
+      "created": "2026-03-29",
+      "updatedAt": "2026-03-30",
+      "vaultPath": "LLMs/RAG.md",
+      "folder": "LLMs",
+      "linkedFrom": [
+        {
+          "slug": [
+            "llms",
+            "agentic-rag"
+          ],
+          "href": "/notes/llms/agentic-rag/",
+          "title": "Agentic RAG"
+        },
+        {
+          "slug": [
+            "agents",
+            "agents"
+          ],
+          "href": "/notes/agents/agents/",
+          "title": "Agents"
+        },
+        {
+          "slug": [
+            "llms",
+            "encoder"
+          ],
+          "href": "/notes/llms/encoder/",
+          "title": "Encoder"
+        },
+        {
+          "slug": [
+            "llms",
+            "knowledge-graphs"
+          ],
+          "href": "/notes/llms/knowledge-graphs/",
+          "title": "Knowledge Graphs"
+        },
+        {
+          "slug": [
+            "llms",
+            "lightrag"
+          ],
+          "href": "/notes/llms/lightrag/",
+          "title": "LightRAG"
+        },
+        {
+          "slug": [
+            "llms",
+            "llm"
+          ],
+          "href": "/notes/llms/llm/",
+          "title": "LLMs"
+        },
+        {
+          "slug": [
+            "llms",
+            "microsoft-graphrag"
+          ],
+          "href": "/notes/llms/microsoft-graphrag/",
+          "title": "Microsoft GraphRAG"
+        },
+        {
+          "slug": [
+            "llms",
+            "re-ranking"
+          ],
+          "href": "/notes/llms/re-ranking/",
+          "title": "Re-ranking"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "llms",
+        "token-caching"
+      ],
+      "href": "/notes/llms/token-caching/",
+      "title": "Token Caching",
+      "tags": [
+        "llm",
+        "caching",
+        "performance",
+        "inference"
+      ],
+      "summary": "A mechanism for reusing previously computed token states to speed up LLM inference and reduce computational costs.",
+      "created": "2026-03-30",
+      "updatedAt": "2026-03-30",
+      "vaultPath": "LLMs/Token Caching.md",
+      "folder": "LLMs",
+      "linkedFrom": [
+        {
+          "slug": [
+            "llms",
+            "decoder"
+          ],
+          "href": "/notes/llms/decoder/",
+          "title": "Decoder"
+        },
+        {
+          "slug": [
+            "llms",
+            "llm"
+          ],
+          "href": "/notes/llms/llm/",
+          "title": "LLMs"
+        },
+        {
+          "slug": [
+            "llms",
+            "lmcache"
+          ],
+          "href": "/notes/llms/lmcache/",
+          "title": "LMCache"
+        },
+        {
+          "slug": [
+            "llms",
+            "vllm"
+          ],
+          "href": "/notes/llms/vllm/",
+          "title": "vLLM"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "llms",
+        "tokenization"
+      ],
+      "href": "/notes/llms/tokenization/",
+      "title": "Tokenization",
+      "tags": [
+        "llm",
+        "tokenization",
+        "research",
+        "nlp"
+      ],
+      "summary": "A research note exploring different tokenization methods used in LLMs, including character-level, word-level, and sub-word techniques like BPE.",
+      "created": "2026-03-29",
+      "updatedAt": "2026-03-30",
+      "vaultPath": "LLMs/Tokenization.md",
+      "folder": "LLMs",
+      "linkedFrom": [
+        {
+          "slug": [
+            "llms",
+            "llm"
+          ],
+          "href": "/notes/llms/llm/",
+          "title": "LLMs"
+        },
+        {
+          "slug": [
+            "slm",
+            "slm"
+          ],
+          "href": "/notes/slm/slm/",
+          "title": "SLM"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "llms",
+        "turboquant"
+      ],
+      "href": "/notes/llms/turboquant/",
+      "title": "TurboQuant",
+      "tags": [
+        "llm",
+        "quantization",
+        "performance",
+        "inference"
+      ],
+      "summary": "A specialized inference kernel optimized for fast, quantized LLM execution.",
+      "created": "2026-03-30",
+      "updatedAt": "2026-03-30",
+      "vaultPath": "LLMs/TurboQuant.md",
+      "folder": "LLMs",
+      "linkedFrom": [
+        {
+          "slug": [
+            "llms",
+            "llm"
+          ],
+          "href": "/notes/llms/llm/",
+          "title": "LLMs"
+        },
+        {
+          "slug": [
+            "llms",
+            "quantisation"
+          ],
+          "href": "/notes/llms/quantisation/",
+          "title": "Quantization"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "architecture",
+        "building-microservices-17-02-2026"
+      ],
+      "href": "/notes/architecture/building-microservices-17-02-2026/",
+      "title": "Coupling Cohesion",
+      "tags": [
+        "microservices",
+        "architecture",
+        "coupling",
+        "cohesion"
+      ],
+      "summary": "Discusses the importance of loose coupling and high cohesion in microservice architectures, referencing Constantine's Law.",
+      "created": "2026-02-17",
+      "updatedAt": "2026-03-29",
+      "vaultPath": "Architecture/building-microservices-17-02-2026.md",
+      "folder": "Architecture",
+      "linkedFrom": [
+        {
+          "slug": [
+            "architecture",
+            "coupling"
+          ],
+          "href": "/notes/architecture/coupling/",
+          "title": "Coupling"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "architecture",
+        "building-microservices-16-02-2026"
+      ],
+      "href": "/notes/architecture/building-microservices-16-02-2026/",
+      "title": "Service Boundaries",
+      "tags": [
+        "microservices",
+        "architecture",
+        "modularity"
+      ],
+      "summary": "Exploration of service boundaries and information hiding in microservice architecture based on Sam Newman's Building Microservices.",
+      "created": "2026-02-16",
+      "updatedAt": "2026-03-29",
+      "vaultPath": "Architecture/building-microservices-16-02-2026.md",
+      "folder": "Architecture",
+      "linkedFrom": [
+        {
+          "slug": [
+            "architecture",
+            "building-microservices-17-02-2026"
+          ],
+          "href": "/notes/architecture/building-microservices-17-02-2026/",
+          "title": "Coupling Cohesion"
+        }
+      ]
+    }
+  ],
+  "graph": {
+    "nodes": [
+      {
+        "id": "productivity/eat-the-frog-14-02-2026",
+        "title": "Eat Frog",
+        "href": "/notes/productivity/eat-the-frog-14-02-2026/",
+        "tags": [
+          "productivity",
+          "focus",
+          "time-management"
+        ],
+        "color": "#89b4fa"
+      },
+      {
+        "id": "thoughts/function-abstration",
+        "title": "Function Abstraction",
+        "href": "/notes/thoughts/function-abstration/",
+        "tags": [
+          "clean-code",
+          "refactoring",
+          "software-design",
+          "local-reasoning",
+          "dry",
+          "single-responsibility"
+        ],
+        "color": "#89b4fa"
+      },
+      {
+        "id": "books/rust/rust-atomics-and-locks/memory-ordering",
+        "title": "Memory Ordering",
+        "href": "/notes/books/rust/rust-atomics-and-locks/memory-ordering/",
+        "tags": [],
+        "color": "#89b4fa"
+      },
+      {
+        "id": "architecture/ddia-14-03-2026",
+        "title": "Metastable Failures",
+        "href": "/notes/architecture/ddia-14-03-2026/",
+        "tags": [
+          "distributed-systems",
+          "resilience",
+          "reliability",
+          "ddia"
+        ],
+        "color": "#5252e0"
+      },
+      {
+        "id": "coding/satisfies-15-02-2026",
+        "title": "TypeScript Satisfies",
+        "href": "/notes/coding/satisfies-15-02-2026/",
+        "tags": [
+          "typescript",
+          "coding",
+          "pattern-matching"
+        ],
+        "color": "#89b4fa"
+      },
+      {
+        "id": "coding/concurrency/concurrency",
+        "title": "Concurrency",
+        "href": "/notes/coding/concurrency/concurrency/",
+        "tags": [
+          "concurrency",
+          "performance"
+        ],
+        "color": "#e98686"
+      },
+      {
+        "id": "books/grokking-concurrency/introducing-concurrency",
+        "title": "Introducing Concurrency",
+        "href": "/notes/books/grokking-concurrency/introducing-concurrency/",
+        "tags": [
+          "concurrency",
+          "performance",
+          "latency",
+          "throughput",
+          "scalability"
+        ],
+        "color": "#e98686"
+      },
+      {
+        "id": "coding/concurrency/latency-vs-throughput",
+        "title": "Latency Throughput",
+        "href": "/notes/coding/concurrency/latency-vs-throughput/",
+        "tags": [
+          "concurrency",
+          "performance",
+          "latency",
+          "throughput"
+        ],
+        "color": "#e98686"
+      },
+      {
+        "id": "coding/concurrency/scalability",
+        "title": "Scalability",
+        "href": "/notes/coding/concurrency/scalability/",
+        "tags": [
+          "concurrency",
+          "architecture",
+          "scalability"
+        ],
+        "color": "#b1e052"
+      },
+      {
+        "id": "coding/concurrency/atomic-operations",
+        "title": "Atomic Operations",
+        "href": "/notes/coding/concurrency/atomic-operations/",
+        "tags": [
+          "concurrency",
+          "atomics"
+        ],
+        "color": "#e98686"
+      },
+      {
+        "id": "coding/concurrency/atomic-reference-counting",
+        "title": "Atomic Refcounting",
+        "href": "/notes/coding/concurrency/atomic-reference-counting/",
+        "tags": [
+          "concurrency",
+          "smart-pointers",
+          "atomics"
+        ],
+        "color": "#e98686"
+      },
+      {
+        "id": "books/rust/rust-atomics-and-locks/atomics",
+        "title": "Atomics",
+        "href": "/notes/books/rust/rust-atomics-and-locks/atomics/",
+        "tags": [
+          "rust",
+          "concurrency",
+          "atomics",
+          "memory-ordering",
+          "lazy-initialization",
+          "race-condition"
+        ],
+        "color": "#ce422b"
+      },
+      {
+        "id": "books/rust/rust-atomics-and-locks/rust-condition-variables",
+        "title": "Condition Variables",
+        "href": "/notes/books/rust/rust-atomics-and-locks/rust-condition-variables/",
+        "tags": [
+          "rust",
+          "concurrency",
+          "condvar"
+        ],
+        "color": "#ce422b"
+      },
+      {
+        "id": "coding/concurrency/condition-variables",
+        "title": "Condition Variables",
+        "href": "/notes/coding/concurrency/condition-variables/",
+        "tags": [
+          "concurrency",
+          "synchronization"
+        ],
+        "color": "#e98686"
+      },
+      {
+        "id": "thoughts/defensive-programming",
+        "title": "Defensive Programming",
+        "href": "/notes/thoughts/defensive-programming/",
+        "tags": [
+          "defensive-programming",
+          "frontend",
+          "backend",
+          "error-handling",
+          "software-engineering"
+        ],
+        "color": "#89b4fa"
+      },
+      {
+        "id": "coding/concurrency/interior-mutability",
+        "title": "Interior Mutability",
+        "href": "/notes/coding/concurrency/interior-mutability/",
+        "tags": [
+          "memory",
+          "type-system"
+        ],
+        "color": "#89b4fa"
+      },
+      {
+        "id": "books/rust/rust-atomics-and-locks/rust-lazy-initialization",
+        "title": "Lazy Initialization",
+        "href": "/notes/books/rust/rust-atomics-and-locks/rust-lazy-initialization/",
+        "tags": [
+          "rust",
+          "concurrency",
+          "atomics",
+          "lazy-initialization"
+        ],
+        "color": "#ce422b"
+      },
+      {
+        "id": "coding/concurrency/lazy-initialization",
+        "title": "Lazy Initialization",
+        "href": "/notes/coding/concurrency/lazy-initialization/",
+        "tags": [
+          "concurrency",
+          "patterns"
+        ],
+        "color": "#e98686"
+      },
+      {
+        "id": "books/rust/rust-atomics-and-locks/rust-lock-poisoning",
+        "title": "Lock Poisoning",
+        "href": "/notes/books/rust/rust-atomics-and-locks/rust-lock-poisoning/",
+        "tags": [
+          "rust",
+          "concurrency",
+          "locks"
+        ],
+        "color": "#ce422b"
+      },
+      {
+        "id": "coding/concurrency/lock-poisoning",
+        "title": "Lock Poisoning",
+        "href": "/notes/coding/concurrency/lock-poisoning/",
+        "tags": [
+          "concurrency",
+          "locks",
+          "error-handling"
+        ],
+        "color": "#e98686"
+      },
+      {
+        "id": "books/rust/rust-atomics-and-locks/rust-memory-ordering",
+        "title": "Memory Ordering",
+        "href": "/notes/books/rust/rust-atomics-and-locks/rust-memory-ordering/",
+        "tags": [
+          "rust",
+          "concurrency",
+          "atomics",
+          "memory-ordering"
+        ],
+        "color": "#ce422b"
+      },
+      {
+        "id": "coding/concurrency/memory-ordering",
+        "title": "Memory Ordering",
+        "href": "/notes/coding/concurrency/memory-ordering/",
+        "tags": [
+          "concurrency",
+          "atomics",
+          "memory-model"
+        ],
+        "color": "#e98686"
+      },
+      {
+        "id": "coding/concurrency/mutex",
+        "title": "Mutex",
+        "href": "/notes/coding/concurrency/mutex/",
+        "tags": [
+          "concurrency",
+          "locks"
+        ],
+        "color": "#e98686"
+      },
+      {
+        "id": "coding/concurrency/race-conditions",
+        "title": "Race Conditions",
+        "href": "/notes/coding/concurrency/race-conditions/",
+        "tags": [
+          "concurrency"
+        ],
+        "color": "#e98686"
+      },
+      {
+        "id": "coding/concurrency/reference-counting",
+        "title": "Reference Counting",
+        "href": "/notes/coding/concurrency/reference-counting/",
+        "tags": [
+          "memory-management",
+          "smart-pointers"
+        ],
+        "color": "#89b4fa"
+      },
+      {
+        "id": "books/rust/rust-atomics-and-locks/rust-arc",
+        "title": "Rust Arc",
+        "href": "/notes/books/rust/rust-atomics-and-locks/rust-arc/",
+        "tags": [
+          "rust",
+          "concurrency",
+          "reference-counting",
+          "smart-pointers",
+          "atomics"
+        ],
+        "color": "#ce422b"
+      },
+      {
+        "id": "books/rust/rust-atomics-and-locks/rust-atomics",
+        "title": "Rust Atomics",
+        "href": "/notes/books/rust/rust-atomics-and-locks/rust-atomics/",
+        "tags": [
+          "rust",
+          "concurrency",
+          "atomics"
+        ],
+        "color": "#ce422b"
+      },
+      {
+        "id": "books/rust/rust-atomics-and-locks/rust-cell-and-refcell",
+        "title": "Rust Cell",
+        "href": "/notes/books/rust/rust-atomics-and-locks/rust-cell-and-refcell/",
+        "tags": [
+          "rust",
+          "interior-mutability"
+        ],
+        "color": "#ce422b"
+      },
+      {
+        "id": "books/rust/rust-atomics-and-locks/rust-mutex",
+        "title": "Rust Mutex",
+        "href": "/notes/books/rust/rust-atomics-and-locks/rust-mutex/",
+        "tags": [
+          "rust",
+          "concurrency",
+          "locks",
+          "mutex"
+        ],
+        "color": "#ce422b"
+      },
+      {
+        "id": "books/rust/rust-atomics-and-locks/rust-rc",
+        "title": "Rust Rc",
+        "href": "/notes/books/rust/rust-atomics-and-locks/rust-rc/",
+        "tags": [
+          "rust",
+          "reference-counting",
+          "smart-pointers"
+        ],
+        "color": "#ce422b"
+      },
+      {
+        "id": "books/rust/rust-atomics-and-locks/rust-rwlock",
+        "title": "Rust RwLock",
+        "href": "/notes/books/rust/rust-atomics-and-locks/rust-rwlock/",
+        "tags": [
+          "rust",
+          "concurrency",
+          "locks",
+          "rwlock"
+        ],
+        "color": "#ce422b"
+      },
+      {
+        "id": "books/rust/rust-atomics-and-locks/rust-statics-and-leaking",
+        "title": "Rust Statics",
+        "href": "/notes/books/rust/rust-atomics-and-locks/rust-statics-and-leaking/",
+        "tags": [
+          "rust",
+          "concurrency",
+          "statics",
+          "memory"
+        ],
+        "color": "#ce422b"
+      },
+      {
+        "id": "books/rust/rust-atomics-and-locks/rust-threads",
+        "title": "Rust Threads",
+        "href": "/notes/books/rust/rust-atomics-and-locks/rust-threads/",
+        "tags": [
+          "rust",
+          "concurrency",
+          "threads"
+        ],
+        "color": "#ce422b"
+      },
+      {
+        "id": "coding/concurrency/reader-writer-lock",
+        "title": "RwLock",
+        "href": "/notes/coding/concurrency/reader-writer-lock/",
+        "tags": [
+          "concurrency",
+          "locks"
+        ],
+        "color": "#e98686"
+      },
+      {
+        "id": "books/rust/rust-atomics-and-locks/rust-scoped-threads",
+        "title": "Scoped Threads",
+        "href": "/notes/books/rust/rust-atomics-and-locks/rust-scoped-threads/",
+        "tags": [
+          "rust",
+          "concurrency",
+          "threads"
+        ],
+        "color": "#ce422b"
+      },
+      {
+        "id": "coding/concurrency/scoped-threads",
+        "title": "Scoped Threads",
+        "href": "/notes/coding/concurrency/scoped-threads/",
+        "tags": [
+          "concurrency",
+          "threads"
+        ],
+        "color": "#e98686"
+      },
+      {
+        "id": "books/rust/rust-atomics-and-locks/rust-send-and-sync",
+        "title": "Send Sync",
+        "href": "/notes/books/rust/rust-atomics-and-locks/rust-send-and-sync/",
+        "tags": [
+          "rust",
+          "concurrency",
+          "thread-safety",
+          "auto-traits"
+        ],
+        "color": "#ce422b"
+      },
+      {
+        "id": "coding/concurrency/send-and-sync",
+        "title": "Send Sync",
+        "href": "/notes/coding/concurrency/send-and-sync/",
+        "tags": [
+          "concurrency",
+          "type-system",
+          "thread-safety"
+        ],
+        "color": "#e98686"
+      },
+      {
+        "id": "coding/concurrency/static-lifetime",
+        "title": "Static Lifetime",
+        "href": "/notes/coding/concurrency/static-lifetime/",
+        "tags": [
+          "concurrency",
+          "memory"
+        ],
+        "color": "#e98686"
+      },
+      {
+        "id": "coding/concurrency/thread-joining",
+        "title": "Thread Joining",
+        "href": "/notes/coding/concurrency/thread-joining/",
+        "tags": [
+          "concurrency",
+          "threads"
+        ],
+        "color": "#e98686"
+      },
+      {
+        "id": "books/rust/rust-atomics-and-locks/rust-thread-parking",
+        "title": "Thread Parking",
+        "href": "/notes/books/rust/rust-atomics-and-locks/rust-thread-parking/",
+        "tags": [
+          "rust",
+          "concurrency",
+          "threads"
+        ],
+        "color": "#ce422b"
+      },
+      {
+        "id": "coding/concurrency/thread-parking",
+        "title": "Thread Parking",
+        "href": "/notes/coding/concurrency/thread-parking/",
+        "tags": [
+          "concurrency",
+          "threads"
+        ],
+        "color": "#e98686"
+      },
+      {
+        "id": "coding/concurrency/threads",
+        "title": "Threads",
+        "href": "/notes/coding/concurrency/threads/",
+        "tags": [
+          "concurrency",
+          "threads"
+        ],
+        "color": "#e98686"
+      },
+      {
+        "id": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
+        "title": "Rust Concurrency",
+        "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+        "tags": [
+          "rust",
+          "concurrency",
+          "threads",
+          "statics",
+          "reference-counting",
+          "interior-mutability",
+          "atomics",
+          "locks",
+          "mutex",
+          "rwlock"
+        ],
+        "color": "#ce422b"
+      },
+      {
+        "id": "slm/slm",
+        "title": "SLM",
+        "href": "/notes/slm/slm/",
+        "tags": [
+          "slm",
+          "llm",
+          "ai",
+          "edge-computing",
+          "data-privacy",
+          "fine-tuning"
+        ],
+        "color": "#e0dc52"
+      },
+      {
+        "id": "llms/mcp",
+        "title": "MCP",
+        "href": "/notes/llms/mcp/",
+        "tags": [
+          "llm",
+          "mcp",
+          "tool-calling",
+          "anthropic",
+          "protocol"
+        ],
+        "color": "#e0dc52"
+      },
+      {
+        "id": "tools/langgraph",
+        "title": "LangGraph",
+        "href": "/notes/tools/langgraph/",
+        "tags": [
+          "agent",
+          "langgraph",
+          "orchestration",
+          "multi-agent",
+          "framework"
+        ],
+        "color": "#b152e0"
+      },
+      {
+        "id": "llms/router-pattern",
+        "title": "Router Pattern",
+        "href": "/notes/llms/router-pattern/",
+        "tags": [
+          "llm",
+          "agent",
+          "router-pattern",
+          "routing",
+          "rag"
+        ],
+        "color": "#e0dc52"
+      },
+      {
+        "id": "llms/speculative-decoding",
+        "title": "Speculative Decoding",
+        "href": "/notes/llms/speculative-decoding/",
+        "tags": [
+          "llm",
+          "speculative-decoding",
+          "optimization",
+          "inference",
+          "throughput"
+        ],
+        "color": "#e0dc52"
+      },
+      {
+        "id": "llms/vllm",
+        "title": "vLLM",
+        "href": "/notes/llms/vllm/",
+        "tags": [
+          "llm",
+          "vllm",
+          "inference",
+          "performance",
+          "infrastructure"
+        ],
+        "color": "#e0dc52"
+      },
+      {
+        "id": "llms/decoder",
+        "title": "Decoder",
+        "href": "/notes/llms/decoder/",
+        "tags": [
+          "llm",
+          "decoder",
+          "transformer",
+          "attention",
+          "autoregressive"
+        ],
+        "color": "#e0dc52"
+      },
+      {
+        "id": "llms/encoder",
+        "title": "Encoder",
+        "href": "/notes/llms/encoder/",
+        "tags": [
+          "llm",
+          "encoder",
+          "transformer",
+          "attention",
+          "nlp"
+        ],
+        "color": "#e0dc52"
+      },
+      {
+        "id": "llms/llm",
+        "title": "LLMs",
+        "href": "/notes/llms/llm/",
+        "tags": [
+          "llm",
+          "index",
+          "research",
+          "ai"
+        ],
+        "color": "#e0dc52"
+      },
+      {
+        "id": "agents/tool-calling",
+        "title": "Tool Calling",
+        "href": "/notes/agents/tool-calling/",
+        "tags": [
+          "ai",
+          "agents",
+          "llm",
+          "tool-calling",
+          "function-calling",
+          "niah"
+        ],
+        "color": "#e0dc52"
+      },
+      {
+        "id": "architecture/splitting-the-monolith",
+        "title": "Splitting Monolith",
+        "href": "/notes/architecture/splitting-the-monolith/",
+        "tags": [
+          "architecture",
+          "microservices",
+          "refactoring"
+        ],
+        "color": "#b1e052"
+      },
+      {
+        "id": "architecture/case-for-monolith/case-for-monolith",
+        "title": "Modular Monolith",
+        "href": "/notes/architecture/case-for-monolith/case-for-monolith/",
+        "tags": [
+          "architecture",
+          "monolith",
+          "modularity",
+          "velocity",
+          "volatility"
+        ],
+        "color": "#b1e052"
+      },
+      {
+        "id": "architecture/how-to-split-a-microservice",
+        "title": "Splitting Microservices",
+        "href": "/notes/architecture/how-to-split-a-microservice/",
+        "tags": [
+          "architecture",
+          "microservices",
+          "ddd",
+          "strategy"
+        ],
+        "color": "#b1e052"
+      },
+      {
+        "id": "architecture/ddd/ddd",
+        "title": "Domain-Driven Design",
+        "href": "/notes/architecture/ddd/ddd/",
+        "tags": [
+          "architecture",
+          "ddd",
+          "microservices"
+        ],
+        "color": "#b1e052"
+      },
+      {
+        "id": "architecture/coupling",
+        "title": "Coupling",
+        "href": "/notes/architecture/coupling/",
+        "tags": [
+          "microservices",
+          "architecture",
+          "coupling"
+        ],
+        "color": "#b1e052"
+      },
+      {
+        "id": "agents/communication",
+        "title": "Agent Communication",
+        "href": "/notes/agents/communication/",
+        "tags": [
+          "multi-agent-systems",
+          "architecture",
+          "orchestration"
+        ],
+        "color": "#b1e052"
+      },
+      {
+        "id": "agents/agents",
+        "title": "Agents",
+        "href": "/notes/agents/agents/",
+        "tags": [
+          "research",
+          "ai",
+          "agents"
+        ],
+        "color": "#52e0b1"
+      },
+      {
+        "id": "llms/re-ranking",
+        "title": "Re-ranking",
+        "href": "/notes/llms/re-ranking/",
+        "tags": [
+          "rag",
+          "re-ranking",
+          "research",
+          "search-optimization"
+        ],
+        "color": "#52b1e0"
+      },
+      {
+        "id": "llms/agentic-rag",
+        "title": "Agentic RAG",
+        "href": "/notes/llms/agentic-rag/",
+        "tags": [
+          "rag",
+          "ai-agents",
+          "research",
+          "agentic-rag"
+        ],
+        "color": "#52b1e0"
+      },
+      {
+        "id": "llms/knowledge-graphs",
+        "title": "Knowledge Graphs",
+        "href": "/notes/llms/knowledge-graphs/",
+        "tags": [
+          "graph-rag",
+          "knowledge-graphs",
+          "rag",
+          "research"
+        ],
+        "color": "#52b1e0"
+      },
+      {
+        "id": "llms/lightrag",
+        "title": "LightRAG",
+        "href": "/notes/llms/lightrag/",
+        "tags": [
+          "graph-rag",
+          "light-rag",
+          "research",
+          "rag"
+        ],
+        "color": "#52b1e0"
+      },
+      {
+        "id": "llms/lmcache",
+        "title": "LMCache",
+        "href": "/notes/llms/lmcache/",
+        "tags": [
+          "llm",
+          "caching",
+          "performance",
+          "infrastructure"
+        ],
+        "color": "#e0dc52"
+      },
+      {
+        "id": "llms/microsoft-graphrag",
+        "title": "Microsoft GraphRAG",
+        "href": "/notes/llms/microsoft-graphrag/",
+        "tags": [
+          "microsoft",
+          "graph-rag",
+          "research",
+          "rag"
+        ],
+        "color": "#52b1e0"
+      },
+      {
+        "id": "llms/needle-in-a-haystack-20-03-2026",
+        "title": "Needle Haystack",
+        "href": "/notes/llms/needle-in-a-haystack-20-03-2026/",
+        "tags": [
+          "llm",
+          "research",
+          "long-context",
+          "retrieval",
+          "benchmark"
+        ],
+        "color": "#e0dc52"
+      },
+      {
+        "id": "llms/quantisation",
+        "title": "Quantization",
+        "href": "/notes/llms/quantisation/",
+        "tags": [
+          "llm",
+          "quantization",
+          "optimization",
+          "model-compression"
+        ],
+        "color": "#e0dc52"
+      },
+      {
+        "id": "llms/rag",
+        "title": "RAG",
+        "href": "/notes/llms/rag/",
+        "tags": [
+          "rag",
+          "research",
+          "ai-architecture"
+        ],
+        "color": "#52b1e0"
+      },
+      {
+        "id": "llms/token-caching",
+        "title": "Token Caching",
+        "href": "/notes/llms/token-caching/",
+        "tags": [
+          "llm",
+          "caching",
+          "performance",
+          "inference"
+        ],
+        "color": "#e0dc52"
+      },
+      {
+        "id": "llms/tokenization",
+        "title": "Tokenization",
+        "href": "/notes/llms/tokenization/",
+        "tags": [
+          "llm",
+          "tokenization",
+          "research",
+          "nlp"
+        ],
+        "color": "#e0dc52"
+      },
+      {
+        "id": "llms/turboquant",
+        "title": "TurboQuant",
+        "href": "/notes/llms/turboquant/",
+        "tags": [
+          "llm",
+          "quantization",
+          "performance",
+          "inference"
+        ],
+        "color": "#e0dc52"
+      },
+      {
+        "id": "architecture/building-microservices-17-02-2026",
+        "title": "Coupling Cohesion",
+        "href": "/notes/architecture/building-microservices-17-02-2026/",
+        "tags": [
+          "microservices",
+          "architecture",
+          "coupling",
+          "cohesion"
+        ],
+        "color": "#b1e052"
+      },
+      {
+        "id": "architecture/building-microservices-16-02-2026",
+        "title": "Service Boundaries",
+        "href": "/notes/architecture/building-microservices-16-02-2026/",
+        "tags": [
+          "microservices",
+          "architecture",
+          "modularity"
+        ],
+        "color": "#b1e052"
+      }
+    ],
+    "edges": [
+      {
+        "source": "coding/concurrency/concurrency",
+        "target": "coding/concurrency/threads"
+      },
+      {
+        "source": "books/grokking-concurrency/introducing-concurrency",
+        "target": "coding/concurrency/concurrency"
+      },
+      {
+        "source": "books/grokking-concurrency/introducing-concurrency",
+        "target": "coding/concurrency/threads"
+      },
+      {
+        "source": "books/grokking-concurrency/introducing-concurrency",
+        "target": "coding/concurrency/latency-vs-throughput"
+      },
+      {
+        "source": "books/grokking-concurrency/introducing-concurrency",
+        "target": "coding/concurrency/scalability"
+      },
+      {
+        "source": "books/grokking-concurrency/introducing-concurrency",
+        "target": "architecture/coupling"
+      },
+      {
+        "source": "coding/concurrency/latency-vs-throughput",
+        "target": "coding/concurrency/concurrency"
+      },
+      {
+        "source": "coding/concurrency/scalability",
+        "target": "coding/concurrency/concurrency"
+      },
+      {
+        "source": "coding/concurrency/scalability",
+        "target": "architecture/coupling"
+      },
+      {
+        "source": "coding/concurrency/atomic-operations",
+        "target": "coding/concurrency/threads"
+      },
+      {
+        "source": "coding/concurrency/atomic-reference-counting",
+        "target": "coding/concurrency/reference-counting"
+      },
+      {
+        "source": "coding/concurrency/atomic-reference-counting",
+        "target": "coding/concurrency/atomic-operations"
+      },
+      {
+        "source": "coding/concurrency/atomic-reference-counting",
+        "target": "coding/concurrency/threads"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/atomics",
+        "target": "books/rust/rust-atomics-and-locks/rust-atomics"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/atomics",
+        "target": "coding/concurrency/threads"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/atomics",
+        "target": "books/rust/rust-atomics-and-locks/rust-memory-ordering"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/atomics",
+        "target": "coding/concurrency/atomic-operations"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/atomics",
+        "target": "books/rust/rust-atomics-and-locks/rust-lazy-initialization"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/atomics",
+        "target": "coding/concurrency/race-conditions"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/rust-condition-variables",
+        "target": "coding/concurrency/threads"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/rust-condition-variables",
+        "target": "coding/concurrency/mutex"
+      },
+      {
+        "source": "coding/concurrency/condition-variables",
+        "target": "coding/concurrency/threads"
+      },
+      {
+        "source": "coding/concurrency/condition-variables",
+        "target": "coding/concurrency/mutex"
+      },
+      {
+        "source": "thoughts/defensive-programming",
+        "target": "thoughts/defensive-programming"
+      },
+      {
+        "source": "thoughts/defensive-programming",
+        "target": "architecture/coupling"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/rust-lazy-initialization",
+        "target": "coding/concurrency/race-conditions"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/rust-lazy-initialization",
+        "target": "coding/concurrency/threads"
+      },
+      {
+        "source": "coding/concurrency/lazy-initialization",
+        "target": "coding/concurrency/race-conditions"
+      },
+      {
+        "source": "coding/concurrency/lazy-initialization",
+        "target": "coding/concurrency/threads"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/rust-lock-poisoning",
+        "target": "coding/concurrency/threads"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/rust-lock-poisoning",
+        "target": "coding/concurrency/mutex"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/rust-lock-poisoning",
+        "target": "coding/concurrency/reader-writer-lock"
+      },
+      {
+        "source": "coding/concurrency/lock-poisoning",
+        "target": "coding/concurrency/threads"
+      },
+      {
+        "source": "coding/concurrency/lock-poisoning",
+        "target": "coding/concurrency/mutex"
+      },
+      {
+        "source": "coding/concurrency/lock-poisoning",
+        "target": "coding/concurrency/reader-writer-lock"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/rust-memory-ordering",
+        "target": "coding/concurrency/atomic-operations"
+      },
+      {
+        "source": "coding/concurrency/memory-ordering",
+        "target": "coding/concurrency/atomic-operations"
+      },
+      {
+        "source": "coding/concurrency/mutex",
+        "target": "coding/concurrency/threads"
+      },
+      {
+        "source": "coding/concurrency/race-conditions",
+        "target": "coding/concurrency/threads"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/rust-arc",
+        "target": "coding/concurrency/reference-counting"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/rust-arc",
+        "target": "coding/concurrency/atomic-operations"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/rust-arc",
+        "target": "coding/concurrency/threads"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/rust-atomics",
+        "target": "coding/concurrency/threads"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/rust-mutex",
+        "target": "coding/concurrency/threads"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/rust-rc",
+        "target": "coding/concurrency/interior-mutability"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/rust-rc",
+        "target": "coding/concurrency/send-and-sync"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/rust-rwlock",
+        "target": "coding/concurrency/mutex"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/rust-statics-and-leaking",
+        "target": "coding/concurrency/threads"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/rust-threads",
+        "target": "coding/concurrency/threads"
+      },
+      {
+        "source": "coding/concurrency/reader-writer-lock",
+        "target": "coding/concurrency/mutex"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/rust-scoped-threads",
+        "target": "coding/concurrency/threads"
+      },
+      {
+        "source": "coding/concurrency/scoped-threads",
+        "target": "coding/concurrency/threads"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/rust-send-and-sync",
+        "target": "coding/concurrency/threads"
+      },
+      {
+        "source": "coding/concurrency/send-and-sync",
+        "target": "coding/concurrency/threads"
+      },
+      {
+        "source": "coding/concurrency/static-lifetime",
+        "target": "coding/concurrency/threads"
+      },
+      {
+        "source": "coding/concurrency/thread-joining",
+        "target": "coding/concurrency/threads"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/rust-thread-parking",
+        "target": "coding/concurrency/threads"
+      },
+      {
+        "source": "coding/concurrency/thread-parking",
+        "target": "coding/concurrency/threads"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
+        "target": "books/rust/rust-atomics-and-locks/rust-threads"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
+        "target": "coding/concurrency/threads"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
+        "target": "books/rust/rust-atomics-and-locks/rust-scoped-threads"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
+        "target": "books/rust/rust-atomics-and-locks/rust-statics-and-leaking"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
+        "target": "books/rust/rust-atomics-and-locks/rust-rc"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
+        "target": "coding/concurrency/interior-mutability"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
+        "target": "coding/concurrency/send-and-sync"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
+        "target": "books/rust/rust-atomics-and-locks/rust-arc"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
+        "target": "coding/concurrency/reference-counting"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
+        "target": "coding/concurrency/atomic-operations"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
+        "target": "books/rust/rust-atomics-and-locks/rust-cell-and-refcell"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
+        "target": "books/rust/rust-atomics-and-locks/rust-send-and-sync"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
+        "target": "books/rust/rust-atomics-and-locks/rust-mutex"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
+        "target": "books/rust/rust-atomics-and-locks/rust-rwlock"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
+        "target": "coding/concurrency/mutex"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
+        "target": "books/rust/rust-atomics-and-locks/rust-lock-poisoning"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
+        "target": "coding/concurrency/reader-writer-lock"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
+        "target": "books/rust/rust-atomics-and-locks/rust-thread-parking"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
+        "target": "books/rust/rust-atomics-and-locks/rust-condition-variables"
+      },
+      {
+        "source": "slm/slm",
+        "target": "llms/llm"
+      },
+      {
+        "source": "slm/slm",
+        "target": "agents/agents"
+      },
+      {
+        "source": "slm/slm",
+        "target": "llms/agentic-rag"
+      },
+      {
+        "source": "slm/slm",
+        "target": "llms/tokenization"
+      },
+      {
+        "source": "llms/mcp",
+        "target": "agents/tool-calling"
+      },
+      {
+        "source": "llms/mcp",
+        "target": "llms/llm"
+      },
+      {
+        "source": "tools/langgraph",
+        "target": "tools/langgraph"
+      },
+      {
+        "source": "tools/langgraph",
+        "target": "llms/llm"
+      },
+      {
+        "source": "llms/router-pattern",
+        "target": "llms/router-pattern"
+      },
+      {
+        "source": "llms/router-pattern",
+        "target": "agents/agents"
+      },
+      {
+        "source": "llms/router-pattern",
+        "target": "llms/agentic-rag"
+      },
+      {
+        "source": "llms/router-pattern",
+        "target": "llms/llm"
+      },
+      {
+        "source": "llms/router-pattern",
+        "target": "agents/tool-calling"
+      },
+      {
+        "source": "llms/speculative-decoding",
+        "target": "llms/speculative-decoding"
+      },
+      {
+        "source": "llms/speculative-decoding",
+        "target": "llms/llm"
+      },
+      {
+        "source": "llms/speculative-decoding",
+        "target": "llms/decoder"
+      },
+      {
+        "source": "llms/speculative-decoding",
+        "target": "llms/encoder"
+      },
+      {
+        "source": "llms/speculative-decoding",
+        "target": "slm/slm"
+      },
+      {
+        "source": "llms/vllm",
+        "target": "llms/vllm"
+      },
+      {
+        "source": "llms/vllm",
+        "target": "llms/llm"
+      },
+      {
+        "source": "llms/vllm",
+        "target": "llms/token-caching"
+      },
+      {
+        "source": "llms/decoder",
+        "target": "llms/llm"
+      },
+      {
+        "source": "llms/decoder",
+        "target": "llms/encoder"
+      },
+      {
+        "source": "llms/decoder",
+        "target": "llms/token-caching"
+      },
+      {
+        "source": "llms/encoder",
+        "target": "llms/llm"
+      },
+      {
+        "source": "llms/encoder",
+        "target": "llms/decoder"
+      },
+      {
+        "source": "llms/encoder",
+        "target": "llms/rag"
+      },
+      {
+        "source": "llms/llm",
+        "target": "llms/llm"
+      },
+      {
+        "source": "llms/llm",
+        "target": "llms/tokenization"
+      },
+      {
+        "source": "llms/llm",
+        "target": "llms/encoder"
+      },
+      {
+        "source": "llms/llm",
+        "target": "llms/decoder"
+      },
+      {
+        "source": "llms/llm",
+        "target": "llms/rag"
+      },
+      {
+        "source": "llms/llm",
+        "target": "llms/re-ranking"
+      },
+      {
+        "source": "llms/llm",
+        "target": "llms/agentic-rag"
+      },
+      {
+        "source": "llms/llm",
+        "target": "llms/knowledge-graphs"
+      },
+      {
+        "source": "llms/llm",
+        "target": "llms/microsoft-graphrag"
+      },
+      {
+        "source": "llms/llm",
+        "target": "llms/lightrag"
+      },
+      {
+        "source": "llms/llm",
+        "target": "llms/turboquant"
+      },
+      {
+        "source": "llms/llm",
+        "target": "llms/token-caching"
+      },
+      {
+        "source": "llms/llm",
+        "target": "llms/speculative-decoding"
+      },
+      {
+        "source": "llms/llm",
+        "target": "llms/vllm"
+      },
+      {
+        "source": "llms/llm",
+        "target": "llms/lmcache"
+      },
+      {
+        "source": "agents/tool-calling",
+        "target": "llms/llm"
+      },
+      {
+        "source": "agents/tool-calling",
+        "target": "agents/agents"
+      },
+      {
+        "source": "agents/tool-calling",
+        "target": "llms/needle-in-a-haystack-20-03-2026"
+      },
+      {
+        "source": "architecture/splitting-the-monolith",
+        "target": "architecture/case-for-monolith/case-for-monolith"
+      },
+      {
+        "source": "architecture/case-for-monolith/case-for-monolith",
+        "target": "coding/concurrency/scalability"
+      },
+      {
+        "source": "architecture/case-for-monolith/case-for-monolith",
+        "target": "architecture/splitting-the-monolith"
+      },
+      {
+        "source": "architecture/how-to-split-a-microservice",
+        "target": "architecture/ddd/ddd"
+      },
+      {
+        "source": "architecture/how-to-split-a-microservice",
+        "target": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency"
+      },
+      {
+        "source": "architecture/how-to-split-a-microservice",
+        "target": "architecture/coupling"
+      },
+      {
+        "source": "architecture/coupling",
+        "target": "architecture/how-to-split-a-microservice"
+      },
+      {
+        "source": "architecture/coupling",
+        "target": "architecture/building-microservices-17-02-2026"
+      },
+      {
+        "source": "agents/communication",
+        "target": "agents/agents"
+      },
+      {
+        "source": "agents/communication",
+        "target": "llms/agentic-rag"
+      },
+      {
+        "source": "agents/communication",
+        "target": "tools/langgraph"
+      },
+      {
+        "source": "agents/agents",
+        "target": "llms/llm"
+      },
+      {
+        "source": "agents/agents",
+        "target": "agents/tool-calling"
+      },
+      {
+        "source": "agents/agents",
+        "target": "agents/communication"
+      },
+      {
+        "source": "agents/agents",
+        "target": "llms/router-pattern"
+      },
+      {
+        "source": "agents/agents",
+        "target": "llms/rag"
+      },
+      {
+        "source": "agents/agents",
+        "target": "llms/agentic-rag"
+      },
+      {
+        "source": "agents/agents",
+        "target": "llms/mcp"
+      },
+      {
+        "source": "agents/agents",
+        "target": "tools/langgraph"
+      },
+      {
+        "source": "agents/agents",
+        "target": "llms/knowledge-graphs"
+      },
+      {
+        "source": "llms/re-ranking",
+        "target": "llms/rag"
+      },
+      {
+        "source": "llms/re-ranking",
+        "target": "llms/llm"
+      },
+      {
+        "source": "llms/agentic-rag",
+        "target": "llms/rag"
+      },
+      {
+        "source": "llms/agentic-rag",
+        "target": "llms/router-pattern"
+      },
+      {
+        "source": "llms/agentic-rag",
+        "target": "tools/langgraph"
+      },
+      {
+        "source": "llms/knowledge-graphs",
+        "target": "llms/rag"
+      },
+      {
+        "source": "llms/knowledge-graphs",
+        "target": "llms/knowledge-graphs"
+      },
+      {
+        "source": "llms/knowledge-graphs",
+        "target": "llms/microsoft-graphrag"
+      },
+      {
+        "source": "llms/knowledge-graphs",
+        "target": "llms/lightrag"
+      },
+      {
+        "source": "llms/lightrag",
+        "target": "llms/rag"
+      },
+      {
+        "source": "llms/lightrag",
+        "target": "llms/knowledge-graphs"
+      },
+      {
+        "source": "llms/lmcache",
+        "target": "llms/lmcache"
+      },
+      {
+        "source": "llms/lmcache",
+        "target": "llms/llm"
+      },
+      {
+        "source": "llms/lmcache",
+        "target": "llms/token-caching"
+      },
+      {
+        "source": "llms/microsoft-graphrag",
+        "target": "llms/rag"
+      },
+      {
+        "source": "llms/microsoft-graphrag",
+        "target": "llms/knowledge-graphs"
+      },
+      {
+        "source": "llms/needle-in-a-haystack-20-03-2026",
+        "target": "llms/llm"
+      },
+      {
+        "source": "llms/needle-in-a-haystack-20-03-2026",
+        "target": "agents/agents"
+      },
+      {
+        "source": "llms/quantisation",
+        "target": "llms/turboquant"
+      },
+      {
+        "source": "llms/rag",
+        "target": "llms/rag"
+      },
+      {
+        "source": "llms/rag",
+        "target": "llms/llm"
+      },
+      {
+        "source": "llms/rag",
+        "target": "llms/re-ranking"
+      },
+      {
+        "source": "llms/rag",
+        "target": "llms/agentic-rag"
+      },
+      {
+        "source": "llms/rag",
+        "target": "llms/knowledge-graphs"
+      },
+      {
+        "source": "llms/token-caching",
+        "target": "llms/llm"
+      },
+      {
+        "source": "llms/token-caching",
+        "target": "llms/vllm"
+      },
+      {
+        "source": "llms/token-caching",
+        "target": "llms/lmcache"
+      },
+      {
+        "source": "llms/tokenization",
+        "target": "llms/tokenization"
+      },
+      {
+        "source": "llms/tokenization",
+        "target": "llms/llm"
+      },
+      {
+        "source": "llms/turboquant",
+        "target": "llms/turboquant"
+      },
+      {
+        "source": "llms/turboquant",
+        "target": "llms/llm"
+      },
+      {
+        "source": "architecture/building-microservices-17-02-2026",
+        "target": "architecture/building-microservices-16-02-2026"
+      },
+      {
+        "source": "architecture/building-microservices-17-02-2026",
+        "target": "architecture/coupling"
+      }
+    ]
+  }
+}

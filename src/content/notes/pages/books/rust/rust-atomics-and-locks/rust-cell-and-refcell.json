@@ -1,0 +1,31 @@
+{
+  "slug": [
+    "books",
+    "rust",
+    "rust-atomics-and-locks",
+    "rust-cell-and-refcell"
+  ],
+  "href": "/notes/books/rust/rust-atomics-and-locks/rust-cell-and-refcell/",
+  "title": "Rust Cell",
+  "tags": [
+    "rust",
+    "interior-mutability"
+  ],
+  "created": "2026-08-18",
+  "updatedAt": "2026-08-18",
+  "vaultPath": "Books/rust/Rust Atomics and Locks/Rust Cell and RefCell.md",
+  "folder": "Books",
+  "markdown": "# Interior Mutability in Rust\n\nInterior mutability lets you mutate a value via a shared/read reference.\n\nNormally, the type system guarantees there cannot be an active read reference while a write reference exists to the same value. Interior mutability enables mutating values behind a shared reference by either copying/replacing values (single-threaded cell types) or tracking borrows at runtime (borrow-checked cells or thread-safe locks).\n\n## Cell\n\n`std::cell::Cell<T>` lets you mutate a value via a shared/read reference to avoid undefined behaviour; it only lets you copy `T` if `T` implements `Copy` or replace `T`.\nIt can also be used only in a single thread.\n\n```rust\nfn f(a: &i32, b: &mut i32) {\n\tlet before = *a;\n\t*b += 1;\n\tlet after = *a;\n\tif before != after {\n\t\tx(); // never happens\n\t}\n}\n```\n\n`x` is never called because Rust guarantees that both `a` and `b` can't reference the same number, as there can't be a read reference `&a` while we have a write reference `&mut b` to the same value.\n\nBut with `Cell`:\n\n```rust\nuse std::cell::Cell;\n\nfn f(a: &Cell<i32>, b: &Cell<i32>) {\n\tlet before = a.get();\n\tb.set(b.get() + 1);\n\tlet after = a.get();\n\tif before != after {\n\t\tx();\n\t}\n}\n```\n\n`x` might be called now, as both `a` and `b` can point to the same value.\n\nUse `cell.take()` when `T` doesn't implement `Copy`.\n\n```rust\nuse std::cell::Cell;\n\nfn f(vec: &Cell<Vec<i32>>) {\n\tlet mut v = vec.take();\n\tv.push(4);\n\tvec.set(v);\n}\n```\n\n`take` replaces the internal vector with an empty vector.\n\n## RefCell\n\n`std::cell::RefCell` lets you take a mutable reference to the value without cloning it, at a small runtime cost. It maintains a count along with the value, and taking a mutable reference while there are shared references, or vice versa, causes a panic.\n\n```rust\nuse std::cell::RefCell;\n\nfn f(vec: &RefCell<Vec<i32>>) {\n\tvec.borrow_mut().push(1);\n}\n```\n\nBut both `Cell` and `RefCell` can't be sent across threads.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "basics-of-rust-concurrency"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+      "title": "Rust Concurrency"
+    }
+  ]
+}

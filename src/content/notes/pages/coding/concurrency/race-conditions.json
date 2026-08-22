@@ -1,0 +1,48 @@
+{
+  "slug": [
+    "coding",
+    "concurrency",
+    "race-conditions"
+  ],
+  "href": "/notes/coding/concurrency/race-conditions/",
+  "title": "Race Conditions",
+  "tags": [
+    "concurrency"
+  ],
+  "created": "2026-08-18",
+  "updatedAt": "2026-08-18",
+  "vaultPath": "Coding/Concurrency/Race Conditions.md",
+  "folder": "Coding",
+  "markdown": "# Race Conditions\n\nA race condition occurs when multiple [threads](../threads/) access and attempt to modify shared state concurrently, and the final outcome depends on the timing or interleaving of execution.\n\nIf two threads check a condition and both see an uninitialized state, both may restart the computation, whichever finishes first.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "atomics"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/atomics/",
+      "title": "Atomics"
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-lazy-initialization"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-lazy-initialization/",
+      "title": "Lazy Initialization"
+    },
+    {
+      "slug": [
+        "coding",
+        "concurrency",
+        "lazy-initialization"
+      ],
+      "href": "/notes/coding/concurrency/lazy-initialization/",
+      "title": "Lazy Initialization"
+    }
+  ]
+}

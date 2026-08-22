@@ -1,0 +1,34 @@
+{
+  "slug": [
+    "books",
+    "rust",
+    "rust-atomics-and-locks",
+    "rust-arc"
+  ],
+  "href": "/notes/books/rust/rust-atomics-and-locks/rust-arc/",
+  "title": "Rust Arc",
+  "tags": [
+    "rust",
+    "concurrency",
+    "reference-counting",
+    "smart-pointers",
+    "atomics"
+  ],
+  "created": "2026-08-18",
+  "updatedAt": "2026-08-18",
+  "vaultPath": "Books/rust/Rust Atomics and Locks/Rust Arc.md",
+  "folder": "Books",
+  "markdown": "# Arc in Rust\n\nAtomic [Reference Counting](../../../../coding/concurrency/reference-counting/) provides reference counting with a guarantee that any increment or decrement operation is [atomic](../../../../coding/concurrency/atomic-operations/), meaning no two [threads](../../../../coding/concurrency/threads/) can simultaneously mutate the count.\n\nThis allows the reference-counted pointer to be safely shared and sent across threads.\n\n`std::sync::Arc`: `Arc` stands for Atomically Reference Counted; it's the same as `Rc`, with a guarantee that any increment/decrement operation on `Arc` is [atomic](../../../../coding/concurrency/atomic-operations/), i.e., no two [threads](../../../../coding/concurrency/threads/) can simultaneously mutate the count.\n\nTo get the count of references, use `std::sync::Arc::strong_count` and `std::sync::Arc::get_mut` to get a mutable reference.\n\n```rust\nuse std::sync::Arc;\n\nfn main() {\n\tlet mut num = Arc::new(45);\n\tif let Some(val) = Arc::get_mut(&mut num) {\n\t\t*val = 42;\n\t}\n\t\n\tprintln!(\"{num:?}\");\n}\n```\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "basics-of-rust-concurrency"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+      "title": "Rust Concurrency"
+    }
+  ]
+}

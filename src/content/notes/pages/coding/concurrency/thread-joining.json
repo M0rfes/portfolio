@@ -1,0 +1,19 @@
+{
+  "slug": [
+    "coding",
+    "concurrency",
+    "thread-joining"
+  ],
+  "href": "/notes/coding/concurrency/thread-joining/",
+  "title": "Thread Joining",
+  "tags": [
+    "concurrency",
+    "threads"
+  ],
+  "created": "2026-08-18",
+  "updatedAt": "2026-08-18",
+  "vaultPath": "Coding/Concurrency/Thread Joining.md",
+  "folder": "Coding",
+  "markdown": "# Thread Joining\n\nTo wait for spawned [threads](../threads/) to finish their execution before exiting from main, we can join the thread handle.\n\nJoining waits for the target thread to finish and returns its result or indicates if the thread panicked.\n",
+  "linkedFrom": []
+}

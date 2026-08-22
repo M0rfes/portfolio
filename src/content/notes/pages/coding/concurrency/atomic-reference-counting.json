@@ -1,0 +1,20 @@
+{
+  "slug": [
+    "coding",
+    "concurrency",
+    "atomic-reference-counting"
+  ],
+  "href": "/notes/coding/concurrency/atomic-reference-counting/",
+  "title": "Atomic Refcounting",
+  "tags": [
+    "concurrency",
+    "smart-pointers",
+    "atomics"
+  ],
+  "created": "2026-08-18",
+  "updatedAt": "2026-08-18",
+  "vaultPath": "Coding/Concurrency/Atomic Reference Counting.md",
+  "folder": "Coding",
+  "markdown": "# Atomic Reference Counting\n\nAtomic [Reference Counting](../reference-counting/) provides reference counting with a guarantee that any increment or decrement operation is [atomic](../atomic-operations/), meaning no two [threads](../threads/) can simultaneously mutate the count.\n\nThis allows the reference-counted pointer to be safely shared and sent across threads.\n",
+  "linkedFrom": []
+}

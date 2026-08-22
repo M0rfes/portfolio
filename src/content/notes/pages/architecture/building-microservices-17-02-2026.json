@@ -1,0 +1,30 @@
+{
+  "slug": [
+    "architecture",
+    "building-microservices-17-02-2026"
+  ],
+  "href": "/notes/architecture/building-microservices-17-02-2026/",
+  "title": "Coupling Cohesion",
+  "tags": [
+    "microservices",
+    "architecture",
+    "coupling",
+    "cohesion"
+  ],
+  "summary": "Discusses the importance of loose coupling and high cohesion in microservice architectures, referencing Constantine's Law.",
+  "created": "2026-02-17",
+  "updatedAt": "2026-03-29",
+  "vaultPath": "Architecture/building-microservices-17-02-2026.md",
+  "folder": "Architecture",
+  "markdown": "Keeping the theme of boundaries mentioned in [my last post](../building-microservices-16-02-2026/), let's talk about **[Coupling](../coupling/)** and **Cohesion**.\n\nWhen services are loosely coupled, a change to one service should not require a change to another. The whole point of a microservice is being able to make a change to one service and deploy it without needing to change any other part of the system. This is really quite important.\n\n**Coupling** is caused by picking an integration that causes change in one service to cause a change in multiple services in your system.\n\nThis can happen if a service is exposing too many endpoints or doing a lot of \"chatty\" services, which not only cause potential performance problems but also cause tight coupling.\n\nAs we’ve already touched on, the concepts of coupling and cohesion are obviously related. Logically, if related functionality is spread across our system, changes to this functionality will ripple across those boundaries, implying tighter coupling. **Constantine’s Law**, named for structured design pioneer Larry Constantine, sums this up neatly:\n\n> A structure is stable if cohesion is strong and coupling is low.\n\n**Cohesion** applies to the relationship between things inside a boundary (a microservice in our context), whereas **Coupling** describes the relationship between things across a boundary. There is no absolute best way to organize our code; coupling and cohesion are just one way to articulate the various trade-offs we make around where we group code, and why. All we can strive to do is to find the right balance between these two ideas, one that makes the most sense for your given context and the problems you are currently facing.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "architecture",
+        "coupling"
+      ],
+      "href": "/notes/architecture/coupling/",
+      "title": "Coupling"
+    }
+  ]
+}

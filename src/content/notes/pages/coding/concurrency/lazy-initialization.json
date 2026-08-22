@@ -1,0 +1,19 @@
+{
+  "slug": [
+    "coding",
+    "concurrency",
+    "lazy-initialization"
+  ],
+  "href": "/notes/coding/concurrency/lazy-initialization/",
+  "title": "Lazy Initialization",
+  "tags": [
+    "concurrency",
+    "patterns"
+  ],
+  "created": "2026-08-18",
+  "updatedAt": "2026-08-18",
+  "vaultPath": "Coding/Concurrency/Lazy Initialization.md",
+  "folder": "Coding",
+  "markdown": "# Lazy Initialization\n\nLazy initialization is a pattern where a constant or expensive resource is calculated only when first requested and then stored for subsequent use.\n\nIn concurrent programs, lazy initialization must be synchronized to prevent [race conditions](../race-conditions/) where multiple [threads](../threads/) attempt initialization simultaneously.\n",
+  "linkedFrom": []
+}

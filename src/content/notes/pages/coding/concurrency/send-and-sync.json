@@ -1,0 +1,41 @@
+{
+  "slug": [
+    "coding",
+    "concurrency",
+    "send-and-sync"
+  ],
+  "href": "/notes/coding/concurrency/send-and-sync/",
+  "title": "Send Sync",
+  "tags": [
+    "concurrency",
+    "type-system",
+    "thread-safety"
+  ],
+  "created": "2026-08-18",
+  "updatedAt": "2026-08-18",
+  "vaultPath": "Coding/Concurrency/Send and Sync.md",
+  "folder": "Coding",
+  "markdown": "# Send and Sync\n\nThread safety markers determine how types can cross thread boundaries:\n\n- **Send**: A type `T` is `Send` if its ownership can be transferred to another [thread](../threads/).\n- **Sync**: A type `T` is `Sync` if its shared reference is of type `Send` (i.e., `T` is `Sync` if `&T` is `Send`).\n\nAll primitive types are `Send` and `Sync`. Types are automatically `Send` and `Sync` if all of their fields are `Send` and `Sync`.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "basics-of-rust-concurrency"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+      "title": "Rust Concurrency"
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-rc"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-rc/",
+      "title": "Rust Rc"
+    }
+  ]
+}

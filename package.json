@@ -22,9 +22,8 @@
   },
   "scripts": {
     "dev": "next dev",
-    "predev": "npm run notes:build",
-    "prebuild": "npm run notes:build",
-    "notes:build": "tsx scripts/notes/build.ts",
+    "notes:sync": "tsx scripts/notes/build.ts",
+    "notes:build": "tsx scripts/notes/build.ts --skip-git",
     "notes:test": "tsx --test scripts/notes/*.test.ts",
     "build": "next build",
     "start": "next start",
@@ -38,7 +37,9 @@
     "@next/mdx": "^16.0.5",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
+    "3d-force-graph": "^1.80.0",
     "d3": "^7.9.0",
+    "d3-force-3d": "^3.0.6",
     "highlight.js": "^11.11.1",
     "lucide-react": "^0.525.0",
     "motion": "^12.23.9",
@@ -52,7 +53,8 @@
     "react-markdown": "^10.1.0",
     "rehype-highlight": "^7.0.2",
     "rehype-prism-plus": "^2.0.1",
-    "remark-gfm": "^4.0.1"
+    "remark-gfm": "^4.0.1",
+    "three-spritetext": "^1.10.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

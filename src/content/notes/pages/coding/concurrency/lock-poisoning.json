@@ -1,0 +1,20 @@
+{
+  "slug": [
+    "coding",
+    "concurrency",
+    "lock-poisoning"
+  ],
+  "href": "/notes/coding/concurrency/lock-poisoning/",
+  "title": "Lock Poisoning",
+  "tags": [
+    "concurrency",
+    "locks",
+    "error-handling"
+  ],
+  "created": "2026-08-18",
+  "updatedAt": "2026-08-18",
+  "vaultPath": "Coding/Concurrency/Lock Poisoning.md",
+  "folder": "Coding",
+  "markdown": "# Lock Poisoning\n\nLock poisoning occurs when a [thread](../threads/) panics while holding a [Mutex](../mutex/) or [Reader-Writer Lock](../reader-writer-lock/).\n\nSubsequent attempts to acquire the lock for read or write will return an error indicating the lock is poisoned. The lock still behaves as it should by putting other threads to sleep, but signals that the protected state may be invalid.\n",
+  "linkedFrom": []
+}

@@ -1,0 +1,31 @@
+{
+  "slug": [
+    "llms",
+    "needle-in-a-haystack-20-03-2026"
+  ],
+  "href": "/notes/llms/needle-in-a-haystack-20-03-2026/",
+  "title": "Needle Haystack",
+  "tags": [
+    "llm",
+    "research",
+    "long-context",
+    "retrieval",
+    "benchmark"
+  ],
+  "summary": "Exploration of the needle-in-a-haystack problem, highlighting context retrieval biases and architectural limitations in long-context LLMs.",
+  "created": "2026-03-20",
+  "updatedAt": "2026-03-30",
+  "vaultPath": "LLMs/needle-in-a-haystack-20-03-2026.md",
+  "folder": "LLMs",
+  "markdown": "# Needle-in-a-Haystack Problem\n\nThe **Needle-in-a-Haystack** (NIAH) problem is a benchmark test of whether an **[LLM](../llm/)** can find a small piece of relevant information buried inside a long context window, especially when that information is placed in the middle rather than near the beginning or end.\n\n### Retrieval Biases\nMany models show **Primacy Bias** and **Recency Bias**:\n- **Primacy Bias**: Paying more attention to content at the start of the prompt.\n- **Recency Bias**: Paying more attention to content at the end of the prompt.\n- **Lost in the Middle**: A phenomenon where facts buried in the center of a long prompt are significantly harder for models to retrieve.\n\n### Significance\nThis benchmark measures **Long-Context Retrieval**, not just general intelligence. A model that performs well can locate and use evidence consistently even when surrounded by many distractors.\n\n### Impact on [Agent](../../agents/agents/) Systems\nThe same bias can affect **Tool Selection** in agentic workflows:\n- LLMs may favor tools listed first in the system prompt.\n- Ordering of tools influences behavior unrelated to their actual utility.\n\n### Mitigation Strategies\nSince this is largely an architectural limitation, the best practical approach involves smarter system design:\n1. **Prompt Structuring**: Place critical information near the start or end.\n2. **Multi-Agent Flows**: Use fewer tools per agent to reduce the selection choice set.\n3. **Complexity Reduction**: Keep prompts as concise as possible to avoid saturating the context window.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "agents",
+        "tool-calling"
+      ],
+      "href": "/notes/agents/tool-calling/",
+      "title": "Tool Calling"
+    }
+  ]
+}

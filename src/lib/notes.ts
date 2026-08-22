@@ -1,6 +1,12 @@
 import fs from "node:fs";
 import path from "node:path";
 
+export type NoteBacklink = {
+  slug: string[];
+  href: string;
+  title: string;
+};
+
 export type NoteMeta = {
   slug: string[];
   href: string;
@@ -11,6 +17,7 @@ export type NoteMeta = {
   updatedAt: string;
   vaultPath: string;
   folder: string;
+  linkedFrom: NoteBacklink[];
 };
 
 export type NotePage = NoteMeta & {
@@ -44,7 +51,10 @@ function readIndex(): NotesIndex {
 }
 
 export function getAllNotes(): NoteMeta[] {
-  return readIndex().notes;
+  return readIndex().notes.map((note) => ({
+    ...note,
+    linkedFrom: note.linkedFrom ?? [],
+  }));
 }
 
 export function getNotesGraph(): NotesGraphData {
@@ -55,5 +65,6 @@ export function getNoteBySlug(slug: string[]): NotePage | null {
   if (!slug.length) return null;
   const file = path.join(PAGES_DIR, ...slug) + ".json";
   if (!fs.existsSync(file)) return null;
-  return JSON.parse(fs.readFileSync(file, "utf8")) as NotePage;
+  const page = JSON.parse(fs.readFileSync(file, "utf8")) as NotePage;
+  return { ...page, linkedFrom: page.linkedFrom ?? [] };
 }

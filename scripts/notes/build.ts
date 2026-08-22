@@ -4,8 +4,10 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import {
   buildIndex,
+  collectLinkedFrom,
   convertNote,
   notesNeedingRebuild,
+  type LinkedFrom,
   type VaultNote,
 } from "./convert";
 
@@ -42,6 +44,7 @@ type NoteMeta = {
   updatedAt: string;
   vaultPath: string;
   folder: string;
+  linkedFrom: LinkedFrom[];
 };
 
 function updateSubmodule() {
@@ -187,7 +190,7 @@ export function buildNotes(options: { skipGit?: boolean } = {}) {
   for (const note of index.notes) {
     if (!rebuild.has(note.vaultPath)) continue;
     const converted = convertNote(note, index);
-    const meta: NoteMeta = {
+    const meta = {
       slug: note.slug,
       href: hrefForSlug(note.slug),
       title: note.title,
@@ -238,8 +241,21 @@ export function buildNotes(options: { skipGit?: boolean } = {}) {
       updatedAt: note.updatedAt,
       vaultPath: note.vaultPath,
       folder: folderName(note),
+      linkedFrom: [] as LinkedFrom[],
     }))
     .sort((a, b) => b.updatedAt.localeCompare(a.updatedAt) || a.title.localeCompare(b.title));
+
+  const linkedFrom = collectLinkedFrom(notes, linksByPath, hrefForSlug);
+  for (const note of notes) {
+    note.linkedFrom = linkedFrom.get(note.vaultPath) ?? [];
+    const outFile = pagePathForSlug(note.slug);
+    if (!fs.existsSync(outFile)) continue;
+    const page = JSON.parse(fs.readFileSync(outFile, "utf8")) as NoteMeta & {
+      markdown?: string;
+    };
+    page.linkedFrom = note.linkedFrom;
+    fs.writeFileSync(outFile, JSON.stringify(page, null, 2));
+  }
 
   const graph = {
     nodes: notes.map((note) => ({

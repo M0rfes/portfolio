@@ -1,0 +1,49 @@
+{
+  "slug": [
+    "coding",
+    "concurrency",
+    "reference-counting"
+  ],
+  "href": "/notes/coding/concurrency/reference-counting/",
+  "title": "Reference Counting",
+  "tags": [
+    "memory-management",
+    "smart-pointers"
+  ],
+  "created": "2026-08-18",
+  "updatedAt": "2026-08-18",
+  "vaultPath": "Coding/Concurrency/Reference Counting.md",
+  "folder": "Coding",
+  "markdown": "# Reference Counting\n\nReference counting is a smart pointer mechanism that gives you a reference-counted value. It keeps a count of all owners and drops the value only when the counter reaches 0.\n\nThe count increases by 1 each time the pointer is cloned. Unlike deep cloning, this does not create a new value on the heap; instead, it increments the counter next to the value. Each time a clone is dropped, the counter is decremented; if the counter reaches 0, the actual value is dropped.\n\nStandard reference counting gives a read-only reference by default and is not thread-safe if the counter increments and decrements are non-atomic.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "coding",
+        "concurrency",
+        "atomic-reference-counting"
+      ],
+      "href": "/notes/coding/concurrency/atomic-reference-counting/",
+      "title": "Atomic Refcounting"
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-arc"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-arc/",
+      "title": "Rust Arc"
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "basics-of-rust-concurrency"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+      "title": "Rust Concurrency"
+    }
+  ]
+}

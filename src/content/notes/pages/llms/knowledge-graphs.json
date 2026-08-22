@@ -1,0 +1,62 @@
+{
+  "slug": [
+    "llms",
+    "knowledge-graphs"
+  ],
+  "href": "/notes/llms/knowledge-graphs/",
+  "title": "Knowledge Graphs",
+  "tags": [
+    "graph-rag",
+    "knowledge-graphs",
+    "rag",
+    "research"
+  ],
+  "summary": "Combining vector search with graph databases to capture complex entity relationships missed by pure semantic search.",
+  "created": "2026-03-29",
+  "updatedAt": "2026-03-30",
+  "vaultPath": "LLMs/Knowledge Graphs.md",
+  "folder": "LLMs",
+  "markdown": "# Knowledge Graphs (GraphRAG)\n\n[RAG](../rag/) Strategy (Source: [Ottomator Agents](https://github.com/coleam00/ottomator-agents/tree/main/all-rag-strategies#3-knowledge-graphs))\n\n### What It Is\nCombines Vector Search with **[Knowledge Graphs](./)** (stored in databases like **Neo4j** or **FalkorDB**) to capture complex entity relationships that pure vector embeddings might miss.\n\n[Reference Video](https://youtu.be/EUG65dIY-2k?si=uOf6JurMc74Pimbu)\n\n### Implementations\nSeveral libraries facilitate **GraphRAG**:\n1. **[Microsoft GraphRAG](../microsoft-graphrag/)**\n2. **[LightRAG](../lightrag/)**\n\n#TODO: Deep dive into specific implementation differences.\n\n### Pros & Cons\n- ✅ **Pros**: Captures deep relationships missed by vectors; excellent for highly interconnected data.\n- ❌ **Cons**: Requires setup (e.g., Neo4j), entity extraction, and graph maintenance. Slower and more expensive than pure vector retrieval.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "agents",
+        "agents"
+      ],
+      "href": "/notes/agents/agents/",
+      "title": "Agents"
+    },
+    {
+      "slug": [
+        "llms",
+        "lightrag"
+      ],
+      "href": "/notes/llms/lightrag/",
+      "title": "LightRAG"
+    },
+    {
+      "slug": [
+        "llms",
+        "llm"
+      ],
+      "href": "/notes/llms/llm/",
+      "title": "LLMs"
+    },
+    {
+      "slug": [
+        "llms",
+        "microsoft-graphrag"
+      ],
+      "href": "/notes/llms/microsoft-graphrag/",
+      "title": "Microsoft GraphRAG"
+    },
+    {
+      "slug": [
+        "llms",
+        "rag"
+      ],
+      "href": "/notes/llms/rag/",
+      "title": "RAG"
+    }
+  ]
+}

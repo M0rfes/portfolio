@@ -1,0 +1,39 @@
+{
+  "slug": [
+    "llms",
+    "vllm"
+  ],
+  "href": "/notes/llms/vllm/",
+  "title": "vLLM",
+  "tags": [
+    "llm",
+    "vllm",
+    "inference",
+    "performance",
+    "infrastructure"
+  ],
+  "summary": "A high-throughput and memory-efficient inference engine for LLMs, featuring PagedAttention.",
+  "created": "2026-03-30",
+  "updatedAt": "2026-07-31",
+  "vaultPath": "LLMs/vLLM.md",
+  "folder": "LLMs",
+  "markdown": "# vLLM\n\n**[vLLM](./)** is a library for high-throughput and memory-efficient **[LLM](../llm/)** serving and inference.\n\n### Key Innovations\n- **PagedAttention**: A new attention algorithm that manages attention keys and values ([KV cache](../token-caching/)) more efficiently, similar to virtual memory paging in operating systems.\n- **Dynamic Batching**: Optimizes hardware utilization by grouping requests on the fly.\n\n[GitHub Repository](https://github.com/vllm-project/vllm)\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "llms",
+        "llm"
+      ],
+      "href": "/notes/llms/llm/",
+      "title": "LLMs"
+    },
+    {
+      "slug": [
+        "llms",
+        "token-caching"
+      ],
+      "href": "/notes/llms/token-caching/",
+      "title": "Token Caching"
+    }
+  ]
+}

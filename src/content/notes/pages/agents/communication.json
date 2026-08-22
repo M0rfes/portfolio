@@ -1,0 +1,29 @@
+{
+  "slug": [
+    "agents",
+    "communication"
+  ],
+  "href": "/notes/agents/communication/",
+  "title": "Agent Communication",
+  "tags": [
+    "multi-agent-systems",
+    "architecture",
+    "orchestration"
+  ],
+  "summary": "An overview of different communication topologies and patterns for multi-agent systems, including linear, hierarchical, and network-based flows.",
+  "created": "2026-04-11",
+  "updatedAt": "2026-04-11",
+  "vaultPath": "Agents/Communication.md",
+  "folder": "Agents",
+  "markdown": "When running a multi-agent system, we need a way for [agents](../agents/) to communicate with one another. There are quite a few ways for the agents to talk/pass info to each other.\n\n# Linear\nThis is when the flow is set to a series of steps, one after another, just a simple workflow like drafting replies to a set of emails or generating captions for images.\n\n# Hierarchical\nWhen we have an agent or an agent harness that orchestrates multiple sub-agents to get a job done. These orchestrators can be deterministic code or another agent.\n\n### Deterministic Orchestrator\n- **Generate-and-Critic Pattern**: Your code spawns one model to generate text and an adversarial model to poke holes and give feedback. \n- **Planner Agent**: Implements the generate-and-critic pattern where one model generates a plan to achieve the goal, hands it to the orchestrator, and the orchestrator asks the adversarial model to identify issues with the plan.\n\n### Agent as Orchestrator\n- **Decomposition**: A pattern in which a single query is split into multiple subqueries, each handled in parallel. For instance, if the query requires facts from multiple sources (web search, database lookup, internal docs). [Agentic RAG](../../llms/agentic-rag/) is an example of such a pattern.\n\n# Networks or [Graph](../../tools/langgraph/)\nWhen we have a system with multiple agents communicating, all are free to communicate with each other without depending on a central harness. These are for fully autonomous agents where they can spawn other agents and work together to achieve a task.\n\n### Council Pattern\n- **Multiple Experts**: A single query is sent to multiple specialised agents (e.g., a security expert, a performance expert, and a UX expert).\n- **Consensus or Synthesis**: The agents share their findings to reach a consensus, or a final \"moderator\" agent synthesises their independent responses into a single, comprehensive output.\n\n### Multi-Agent Debate\n- **Adversarial Collaboration**: Two or more agents are given a task and are encouraged to critique each other's work over multiple rounds. \n- **Self-Correction**: This iterative peer-review process within the network helps eliminate hallucinations and improve the technical accuracy of the final result.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "agents",
+        "agents"
+      ],
+      "href": "/notes/agents/agents/",
+      "title": "Agents"
+    }
+  ]
+}

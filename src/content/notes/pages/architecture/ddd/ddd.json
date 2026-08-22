@@ -1,0 +1,30 @@
+{
+  "slug": [
+    "architecture",
+    "ddd",
+    "ddd"
+  ],
+  "href": "/notes/architecture/ddd/ddd/",
+  "title": "Domain-Driven Design",
+  "tags": [
+    "architecture",
+    "ddd",
+    "microservices"
+  ],
+  "summary": "A foundational overview of Domain-Driven Design core concepts including Ubiquitous Language, Aggregates, and Bounded Contexts within a microservices architecture.",
+  "created": "2026-04-18",
+  "updatedAt": "2026-04-18",
+  "vaultPath": "Architecture/DDD/DDD.md",
+  "folder": "Architecture",
+  "markdown": "## Ubiquitous Language\nUbiquitous Language refers to technical terms and jargon that make sense within the domain. These words, when used in code, have the same meaning as when they are used by the delivery team. Having a Ubiquitous language makes it easy for the team to talk about a problem, and we don't have to translate it between teams. It allows a dev to pick up any story and start working without needing someone to translate it into technical terms.\n\n## Aggregate\nAn Aggregate is something very similar to an object in OOP. It is some data and behaviour bundled together, managed by a microservice. All aggregates have a lifecycle, and those can be implemented as a State Machine. One microservice can manage multiple aggregates, but each aggregate should be managed by only one service. If another service needs to change the state of an aggregate, it should ask the aggregate to make the change, or the aggregate should react to some event. Give the aggregate the ability to say no to a state change request, i.e., make invalid states impossible. \n\nThese are the properties of an aggregate, but it doesn't define what an aggregate is. An aggregate is a data model that makes sense within the domain. If we model a bookstore and a warehouse, and check out the same aggregate Book, it can have a different meaning in each. The book will have properties such as Author, Genre, page count, Review rating, and price. For the warehouse, the book aggregate will include size, weight, unit count, and the physical location of each book. For checkout, it will have properties such as Customer discounts, final price, and shipping address. The aggregate will have different states and behaviour in each domain. \n\nThe properties of an aggregate only make sense in the aggregate context (e.g., page count has no meaning outside of the book aggregate). One aggregate can have relationships with other aggregates. Our book aggregate has User and Author relationships. These can be modelled with a foreign key managed by the same domain. But if the aggregates are in different services, we can simply use the REST-style URI `/user/123`, and the services can dereference it when they need user info. Or each service can maintain a copy of the data it needs, but that adds to syncing issues. Each solution should be implemented as needed.\n\n## Bounded Context\nA Bounded Context is a group of aggregates in a single domain. For example, both the warehouse and finance have the aggregate Stock and employees, and they have different properties. Where Warehouse cares about the physical location of the stock and implements processes such as accepting deliveries, preparing for shipment, and processing returns. Finance cares about the quantity of stock and unit price to calculate the value of holding by the organisation. Both the warehouse and finance might share some data, or we might have a global context in which the stock aggregate includes the item's size, weight, physical location, quantity, and cost.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "architecture",
+        "how-to-split-a-microservice"
+      ],
+      "href": "/notes/architecture/how-to-split-a-microservice/",
+      "title": "Splitting Microservices"
+    }
+  ]
+}

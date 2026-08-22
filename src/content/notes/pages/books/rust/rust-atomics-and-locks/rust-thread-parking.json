@@ -1,0 +1,32 @@
+{
+  "slug": [
+    "books",
+    "rust",
+    "rust-atomics-and-locks",
+    "rust-thread-parking"
+  ],
+  "href": "/notes/books/rust/rust-atomics-and-locks/rust-thread-parking/",
+  "title": "Thread Parking",
+  "tags": [
+    "rust",
+    "concurrency",
+    "threads"
+  ],
+  "created": "2026-08-18",
+  "updatedAt": "2026-08-18",
+  "vaultPath": "Books/rust/Rust Atomics and Locks/Rust Thread Parking.md",
+  "folder": "Books",
+  "markdown": "# Thread Parking in Rust\n\nThread parking lets a [thread](../../../../coding/concurrency/threads/) park itself so it no longer consumes CPU cycles while waiting for other threads to wake it.\n\nOther threads can call `unpark` on the thread handle to wake it up. If `unpark` is called before the thread is parked, the wake-up token is saved and the next `park` returns immediately without sleeping. Calling `unpark` multiple times only skips the first `park`.\n\n`std::thread::park`\nThread parking lets a thread park itself so it no longer consumes CPU cycles while waiting for other threads to wake it. Other threads can call the `unpark` method on the thread object they get from `spawn` or `std::thread::current()`.\n\n```rust\nuse std::collections::VecDeque;\nuse std::sync::Mutex;\nuse std::thread;\nuse std::time::Duration;\n\nfn main() {\n\tlet queue = Mutex::new(VecDeque::new());\n\t\n\tthread::scope(|s| {\n\t\tlet t = s.spawn(|| loop {\n\t\t\tlet item = queue.lock().unwrap().pop_front();\n\t\t\tif let Some(item) = item {\n\t\t\t\tdbg!(item);\n\t\t\t} else {\n\t\t\t\tthread::park();\n\t\t\t}\n\t\t});\n\t\t\n\t\tfor i in 0.. {\n\t\t\tqueue.lock().unwrap().push_back(i);\n\t\t\tt.thread().unpark();\n\t\t\tthread::sleep(Duration::from_secs(1));\n\t\t}\n\t});\n}\n```\n\nThe main thread keeps pushing a number into the queue every second, then unparks. The thread is in an infinite loop that pops all the elements one by one, and when the queue is empty, it parks itself.\n\nNote: if we call `unpark` before the thread is parked, it immediately resumes and never sleeps. But if we call `unpark` twice and `park` twice, only the first `park` is skipped; the second `park` will still put the thread to sleep.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "basics-of-rust-concurrency"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+      "title": "Rust Concurrency"
+    }
+  ]
+}

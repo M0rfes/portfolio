@@ -1,0 +1,32 @@
+{
+  "slug": [
+    "books",
+    "rust",
+    "rust-atomics-and-locks",
+    "rust-atomics"
+  ],
+  "href": "/notes/books/rust/rust-atomics-and-locks/rust-atomics/",
+  "title": "Rust Atomics",
+  "tags": [
+    "rust",
+    "concurrency",
+    "atomics"
+  ],
+  "created": "2026-08-18",
+  "updatedAt": "2026-08-18",
+  "vaultPath": "Books/rust/Rust Atomics and Locks/Rust Atomics.md",
+  "folder": "Books",
+  "markdown": "# Atomics in Rust\n\nThe word _atomic_ comes from the Greek word _ἄτομος_, meaning an indivisible item that can't be cut into further smaller parts.\n\nAtomic operations are the smallest operations on data that either occur or do not; there is no half-done state. Two [threads](../../../../coding/concurrency/threads/) can update an atomic variable without creating an inconsistent state where both reads return the same value and update it at the same time.\n\nThe implementation of atomics and which types are available depends on the system architecture and OS.\n\nTwo [threads](../../../../coding/concurrency/threads/) can update an `AtomicI32` without creating an inconsistent state in which both reads return the same value and update it at the same time.\n\nThe implementation of atomics and which ones are available depends on the system architecture and OS.\n\nUnlike other types, we don't have an `Atomic<T>`; we only get `AtomicBool`, `AtomicI32`, etc., up to the word size, i.e., `AtomicUsize`.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "atomics"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/atomics/",
+      "title": "Atomics"
+    }
+  ]
+}

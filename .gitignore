@@ -40,8 +40,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# generated notes
-src/content/notes/index.json
+# notes build cache
 src/content/notes/.cache.json
-src/content/notes/pages/
-public/notes/

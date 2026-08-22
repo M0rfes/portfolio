@@ -1,0 +1,54 @@
+{
+  "slug": [
+    "llms",
+    "token-caching"
+  ],
+  "href": "/notes/llms/token-caching/",
+  "title": "Token Caching",
+  "tags": [
+    "llm",
+    "caching",
+    "performance",
+    "inference"
+  ],
+  "summary": "A mechanism for reusing previously computed token states to speed up LLM inference and reduce computational costs.",
+  "created": "2026-03-30",
+  "updatedAt": "2026-03-30",
+  "vaultPath": "LLMs/Token Caching.md",
+  "folder": "LLMs",
+  "markdown": "# Token Caching\n\n**Token Caching** (often referring to **KV Cache** or **Prompt Caching**) is a technique used to speed up **[LLM](../llm/)** inference by storing the keys and values of previously processed tokens.\n\n### Key Concepts\n- **KV Cache**: Stores the Key and Value vectors for each token in the context window to avoid recomputing them for every new token generated.\n- **Prompt Caching**: Specifically caches the hidden states of common system prompts or long context headers.\n\n### Implementations\n- **[vLLM](../vllm/)**: Uses PagedAttention to efficiently manage KV caches.\n- **[LMCache](../lmcache/)**: A specialized system for sharing caches across multiple requests or instances.\n\n#TODO: Expand on LMCache vs standard KV caching.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "llms",
+        "decoder"
+      ],
+      "href": "/notes/llms/decoder/",
+      "title": "Decoder"
+    },
+    {
+      "slug": [
+        "llms",
+        "llm"
+      ],
+      "href": "/notes/llms/llm/",
+      "title": "LLMs"
+    },
+    {
+      "slug": [
+        "llms",
+        "lmcache"
+      ],
+      "href": "/notes/llms/lmcache/",
+      "title": "LMCache"
+    },
+    {
+      "slug": [
+        "llms",
+        "vllm"
+      ],
+      "href": "/notes/llms/vllm/",
+      "title": "vLLM"
+    }
+  ]
+}

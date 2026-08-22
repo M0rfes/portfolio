@@ -1,0 +1,70 @@
+{
+  "slug": [
+    "llms",
+    "agentic-rag"
+  ],
+  "href": "/notes/llms/agentic-rag/",
+  "title": "Agentic RAG",
+  "tags": [
+    "rag",
+    "ai-agents",
+    "research",
+    "agentic-rag"
+  ],
+  "summary": "Evolution of RAG into dynamic, autonomous systems where an LLM uses reasoning to manage the retrieval process, tool selection, and self-correction.",
+  "created": "2026-03-29",
+  "updatedAt": "2026-03-30",
+  "vaultPath": "LLMs/Agentic RAG.md",
+  "folder": "LLMs",
+  "markdown": "# Agentic RAG\n\n[RAG](../rag/) (Source: [Ottomator Agents](https://github.com/coleam00/ottomator-agents/tree/main/all-rag-strategies#2-agentic-rag))\n\n**Agentic RAG** represents a shift from static \"retrieve-then-generate\" pipelines to dynamic, autonomous systems. Instead of a fixed linear flow, an Agent uses a reasoning loop to decide how to find, evaluate, and use information.\n\n### Core Architectural Patterns\n\n1.  **[Router Pattern](../router-pattern/)**: The LLM acts as a dispatcher, classifying the query and routing it to the most relevant index or tool (e.g., \"Documentation Index\" vs. \"Web Search\" vs. \"SQL Database\").\n2.  **Query Decomposition**: Complex, multi-part questions are broken down into simpler sub-queries. The agent executes these in parallel or sequence and synthesises the results.\n3.  **Self-Reflective / Corrective RAG (CRAG)**:\n    *   **Retrieve**: Pull initial documents.\n    *   **Grade**: An agent evaluates the relevance of the retrieved chunks.\n    *   **Correct**: If relevance is low, the agent triggers a secondary search (e.g., web search) or reformulates the query to try again.\n4.  **Multi-Agent Collaboration**: Specialised agents handle different stages (e.g., a \"Researcher\" finds data, a \"Grader\" verifies it, and a \"Writer\" compiles the final response).\n\n### Key Tools & Frameworks\n\n| Framework | Primary Strength | Use Case |\n| :--- | :--- | :--- |\n| **[LangGraph](../../tools/langgraph/)** | Graph-based state management | Complex, cyclical workflows with \"time-travel\" debugging. |\n| **LlamaIndex** | Data-centric retrieval | Advanced indexing, chunking, and metadata filtering. |\n| **CrewAI** | Role-based agent teams | Orchestrating multiple agents with specific roles and backstories. |\n| **Haystack** | Modular pipelines | Production-ready, highly customizable retrieval components. |\n\n### How It Works: The Decision Loop\nUnlike traditional [RAG](../rag/), the agent has access to a suite of **Retrieval Tools**:\n- `semantic_search()`: For deep conceptual matching using Vector Database.\n- `keyword_search()`: Using BM25 for exact terminology and names.\n- `web_search()`: For up-to-the-minute info outside the local knowledge base.\n- `sql_query()`: For precise retrieval from structured databases.\n\n**Hybrid Search** (Vector + BM25) is the baseline, but the agent decides *which* tool to use and *when* to stop searching.\n\n# When to use\n- **Multi-hop Queries**: Questions that require connecting facts from different documents.\n- **Ambiguous Queries**: When the system needs to ask for clarification or try multiple search strategies.\n- **Structured Data**: When dealing with CSVs or SQL tables where semantic embeddings might truncate context.\n- **High-Precision Tasks**: Where \"hallucinating\" on poor retrieval is not an option (e.g., legal or medical).\n\n### Comparison: Traditional vs. Agentic RAG\n| Feature | Traditional RAG | Agentic RAG |\n| :--- | :--- | :--- |\n| **Workflow** | Linear (Retrieve -> Generate) | Iterative (Looping/Reasoning) |\n| **Decision Making** | Predefined by code | Autonomous (LLM-driven) |\n| **Complexity** | Low | High |\n| **Latency** | Predictable | Variable (Multiple iterations) |\n| **Accuracy** | Fixed by initial search | High (Self-correcting) |\n\n### Pros & Cons\n- ✅ **Pros**: Highly flexible; self-correcting; handles complex/ambiguous queries better than fixed pipelines.\n- ❌ **Cons**: Higher latency and cost due to multiple LLM calls; non-deterministic behavior makes testing harder.\n\n### Emerging Trends\n- **Model Context Protocol (MCP)**: A standardized way to connect agents to tools and data.\n- **Small Language Models (SLMs)**: Using faster, specialized models for the \"[routing](../router-pattern/)\" and \"grading\" steps to reduce latency.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "agents",
+        "communication"
+      ],
+      "href": "/notes/agents/communication/",
+      "title": "Agent Communication"
+    },
+    {
+      "slug": [
+        "agents",
+        "agents"
+      ],
+      "href": "/notes/agents/agents/",
+      "title": "Agents"
+    },
+    {
+      "slug": [
+        "llms",
+        "llm"
+      ],
+      "href": "/notes/llms/llm/",
+      "title": "LLMs"
+    },
+    {
+      "slug": [
+        "llms",
+        "rag"
+      ],
+      "href": "/notes/llms/rag/",
+      "title": "RAG"
+    },
+    {
+      "slug": [
+        "llms",
+        "router-pattern"
+      ],
+      "href": "/notes/llms/router-pattern/",
+      "title": "Router Pattern"
+    },
+    {
+      "slug": [
+        "slm",
+        "slm"
+      ],
+      "href": "/notes/slm/slm/",
+      "title": "SLM"
+    }
+  ]
+}

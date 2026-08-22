@@ -41,6 +41,12 @@ export type ConvertedNote = {
 
 export type NotesCache = Record<string, { updatedAt: string }>;
 
+export type LinkedFrom = {
+  slug: string[];
+  href: string;
+  title: string;
+};
+
 export function stripTitleFormatting(title: string): string {
   let value = title.trim();
   value = value.replace(/^#+\s+/, "");
@@ -564,4 +570,42 @@ export function notesNeedingRebuild(
   }
 
   return rebuild;
+}
+
+export function collectLinkedFrom(
+  notes: { vaultPath: string; slug: string[]; title: string }[],
+  linksByPath: Map<string, string[]>,
+  hrefForSlug: (slug: string[]) => string,
+): Map<string, LinkedFrom[]> {
+  const byPath = new Map(notes.map((note) => [note.vaultPath, note]));
+  const linkedFrom = new Map<string, LinkedFrom[]>();
+  for (const note of notes) linkedFrom.set(note.vaultPath, []);
+
+  for (const source of notes) {
+    const seen = new Set<string>();
+    for (const targetPath of linksByPath.get(source.vaultPath) ?? []) {
+      if (seen.has(targetPath) || targetPath === source.vaultPath) continue;
+      seen.add(targetPath);
+      const target = byPath.get(targetPath);
+      if (!target) continue;
+      const inbound = linkedFrom.get(target.vaultPath);
+      if (!inbound) continue;
+      if (inbound.some((item) => item.href === hrefForSlug(source.slug))) {
+        continue;
+      }
+      inbound.push({
+        slug: source.slug,
+        href: hrefForSlug(source.slug),
+        title: source.title,
+      });
+    }
+  }
+
+  for (const inbound of linkedFrom.values()) {
+    inbound.sort(
+      (a, b) => a.title.localeCompare(b.title) || a.href.localeCompare(b.href),
+    );
+  }
+
+  return linkedFrom;
 }

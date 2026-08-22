@@ -1,0 +1,61 @@
+{
+  "slug": [
+    "agents",
+    "agents"
+  ],
+  "href": "/notes/agents/agents/",
+  "title": "Agents",
+  "tags": [
+    "research",
+    "ai",
+    "agents"
+  ],
+  "summary": "An exploration of what defines an AI agent, focusing on the transition from simple chatbots to autonomous systems using reasoning, tools, and frameworks like ReAct.",
+  "created": "2026-04-01",
+  "updatedAt": "2026-04-01",
+  "vaultPath": "Agents/Agents.md",
+  "folder": "Agents",
+  "markdown": "In short, an **Agent** is an [LLM](../../llms/llm/) with [tools](../tool-calling/). But when does an LLM with a tool go from a chatbot that can look up stuff on the web or in a database and become an agent that can automate almost anything?\n\nIt all starts from a workflow where we use the LLM as a **reasoning agent**, and most of the work is done by deterministic code.\n\n> **Example:** If we have a list of customer emails, you can write a workflow that uses the LLM to generate a personalised email based on customer data and craft it. And your code can send the email. Put it behind a scheduler, and you have an automated outreach service that will send emails.\n\nWhen we start chaining together workflows, we get agents. Your agent can be fully automated or very narrow, which depends on the tools and harness you build around the LLM.\n\n### The ReAct Framework\nThe most popular framework to build agents is to use ReAct (different than react.js). It stands for **Reason and Act**. It's when your workflow can affect the environment, observe the effects, reason about it, and decide to either stop (when the goal has been reached) or trigger another loop of ReAct.\n\n### [Multi-Agent](../communication/) Workflows & Patterns\nA less narrow agent would be something like a social media post engine. We can use two LLMs: one to generate and another to critique. \n\n1. Our harness (deterministic code) reads content from a file containing the research outline.\n2. You prompt the **Generation LLM** to generate a post.\n3. You ask the **Critique LLM** to generate feedback or output a `NO_FEEDBACK` token. \n4. Your harness takes the feedback and the draft, and prompts the Generation LLM to generate a new post. \n\nThis loop continues until you receive a `NO_FEEDBACK` token or the harness reaches a set number of tries. This is a form of **Self-Reflective / Corrective** workflow.\n\nOther common patterns include:\n- **[Router Pattern](../../llms/router-pattern/)**: The LLM acts as a dispatcher, classifying the query and routing it to the most relevant index or tool (e.g., \"Documentation Index\" vs. \"Web Search\").\n- **Query Decomposition**: Breaking down complex questions into simpler sub-queries executed in parallel or sequence.\n\n### Application: Agentic RAG\nThe evolution of [RAG](../../llms/rag/) has led to **[Agentic RAG](../../llms/agentic-rag/)**. Instead of a fixed \"retrieve-then-generate\" pipeline, the agent uses a reasoning loop to decide how to find, evaluate, and use information. It can choose between `semantic_search()`, `keyword_search()`, or even `web_search()` depending on the need.\n\n### Fully Autonomous Agents\nThis takes us to fully autonomous agents the likes of Copilot, CloudCode, Codex, etc. They focus on code generation but are fully autonomous and can be used to do almost anything as long as you can give them tools to bridge it with text.\n\nFor example, these agents let you create sub-agents just by using text. You can simulate both the email engine and the post engine with a fully autonomous agent. Your agent can spawn sub-agents: one acting as the harness and others acting as the generation and critique agents. Add Playwright, [MCP](../../llms/mcp/), and they can post for you.\n\n### Ecosystem & Frameworks\nModern agent development relies on specialised frameworks:\n- **[LangGraph](../../tools/langgraph/)**: [Graph](../../llms/knowledge-graphs/)-based state management for complex, cyclical workflows.\n- **CrewAI**: Role-based agent teams (e.g., Researcher, Editor, Publisher).\n- **MCP**: A standardised protocol for connecting agents to tools and data sources.\n\n**An agent is a system that enables LLMs to affect the world and achieve a goal.**\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "agents",
+        "communication"
+      ],
+      "href": "/notes/agents/communication/",
+      "title": "Agent Communication"
+    },
+    {
+      "slug": [
+        "llms",
+        "needle-in-a-haystack-20-03-2026"
+      ],
+      "href": "/notes/llms/needle-in-a-haystack-20-03-2026/",
+      "title": "Needle Haystack"
+    },
+    {
+      "slug": [
+        "llms",
+        "router-pattern"
+      ],
+      "href": "/notes/llms/router-pattern/",
+      "title": "Router Pattern"
+    },
+    {
+      "slug": [
+        "slm",
+        "slm"
+      ],
+      "href": "/notes/slm/slm/",
+      "title": "SLM"
+    },
+    {
+      "slug": [
+        "agents",
+        "tool-calling"
+      ],
+      "href": "/notes/agents/tool-calling/",
+      "title": "Tool Calling"
+    }
+  ]
+}

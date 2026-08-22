@@ -1,0 +1,32 @@
+{
+  "slug": [
+    "books",
+    "rust",
+    "rust-atomics-and-locks",
+    "rust-scoped-threads"
+  ],
+  "href": "/notes/books/rust/rust-atomics-and-locks/rust-scoped-threads/",
+  "title": "Scoped Threads",
+  "tags": [
+    "rust",
+    "concurrency",
+    "threads"
+  ],
+  "created": "2026-08-18",
+  "updatedAt": "2026-08-18",
+  "vaultPath": "Books/rust/Rust Atomics and Locks/Rust Scoped Threads.md",
+  "folder": "Books",
+  "markdown": "# Scoped Threads in Rust\n\nScoped [threads](../../../../coding/concurrency/threads/) are used to spawn threads that finish execution before the scope is exited. This lets threads borrow local variables because the data outlives their scope.\n\nAll threads spawned in the scope will be joined before the scope exits. Multiple read references can be shared across threads, but only one mutable reference is allowed at a time.\n\n`std::thread::scope` is used to spawn threads that finish execution before the scope is exited; this lets us borrow local variables.\n\n```rust\nuse std::thread;\n\nfn main() {\n\tlet list = Vec::from_iter(0..=1000);\n\tthread::scope(|s| {\n\t\ts.spawn(|| {\n\t\t\tprintln!(\"{}\", list.len());\n\t\t});\n\t\t\n\t\ts.spawn(|| {\n\t\t\tfor n in &list {\n\t\t\t\tprintln!(\"{n}\");\n\t\t\t}\n\t\t});\n\t});\n}\n```\n\nThe 2 threads above can reference the `list` because it outlives their scope. All the threads spawned in the callback to `std::thread::scope` will be joined before the function exits. The above code works because both references are read references. If we were to call `list.push(1001)` in any of the threads, the code wouldn't compile because we can only have one mutable reference, while multiple read references are allowed. Note that it doesn't mean we have one mutable reference and multiple read references; we can have only one at a time.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "basics-of-rust-concurrency"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+      "title": "Rust Concurrency"
+    }
+  ]
+}

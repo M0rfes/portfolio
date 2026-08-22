@@ -1,0 +1,87 @@
+{
+  "slug": [
+    "coding",
+    "concurrency",
+    "mutex"
+  ],
+  "href": "/notes/coding/concurrency/mutex/",
+  "title": "Mutex",
+  "tags": [
+    "concurrency",
+    "locks"
+  ],
+  "created": "2026-08-18",
+  "updatedAt": "2026-08-18",
+  "vaultPath": "Coding/Concurrency/Mutex.md",
+  "folder": "Coding",
+  "markdown": "# Mutex\n\nA Mutex (mutual exclusion) works as an exclusive reference: only one [thread](../threads/) can hold the lock at a time.\n\nWhen sharing data between threads via a Mutex, conflicting access does not cause a panic; instead, waiting threads are put to sleep and woken up when the lock is released.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-condition-variables"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-condition-variables/",
+      "title": "Condition Variables"
+    },
+    {
+      "slug": [
+        "coding",
+        "concurrency",
+        "condition-variables"
+      ],
+      "href": "/notes/coding/concurrency/condition-variables/",
+      "title": "Condition Variables"
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-lock-poisoning"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-lock-poisoning/",
+      "title": "Lock Poisoning"
+    },
+    {
+      "slug": [
+        "coding",
+        "concurrency",
+        "lock-poisoning"
+      ],
+      "href": "/notes/coding/concurrency/lock-poisoning/",
+      "title": "Lock Poisoning"
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "basics-of-rust-concurrency"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+      "title": "Rust Concurrency"
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-rwlock"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-rwlock/",
+      "title": "Rust RwLock"
+    },
+    {
+      "slug": [
+        "coding",
+        "concurrency",
+        "reader-writer-lock"
+      ],
+      "href": "/notes/coding/concurrency/reader-writer-lock/",
+      "title": "RwLock"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "slug": [
+    "coding",
+    "concurrency",
+    "reader-writer-lock"
+  ],
+  "href": "/notes/coding/concurrency/reader-writer-lock/",
+  "title": "RwLock",
+  "tags": [
+    "concurrency",
+    "locks"
+  ],
+  "created": "2026-08-18",
+  "updatedAt": "2026-08-18",
+  "vaultPath": "Coding/Concurrency/Reader-Writer Lock.md",
+  "folder": "Coding",
+  "markdown": "# Reader-Writer Lock\n\nWhere a [Mutex](../mutex/) only lets you take exclusive access even when a shared reference would have been enough, a Reader-Writer Lock (RwLock) lets you have one exclusive mutable reference OR multiple shared read references.\n\nAn RwLock is optimal for data that is read frequently but written to infrequently.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-lock-poisoning"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-lock-poisoning/",
+      "title": "Lock Poisoning"
+    },
+    {
+      "slug": [
+        "coding",
+        "concurrency",
+        "lock-poisoning"
+      ],
+      "href": "/notes/coding/concurrency/lock-poisoning/",
+      "title": "Lock Poisoning"
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "basics-of-rust-concurrency"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+      "title": "Rust Concurrency"
+    }
+  ]
+}

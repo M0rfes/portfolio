@@ -1,0 +1,38 @@
+{
+  "slug": [
+    "llms",
+    "tokenization"
+  ],
+  "href": "/notes/llms/tokenization/",
+  "title": "Tokenization",
+  "tags": [
+    "llm",
+    "tokenization",
+    "research",
+    "nlp"
+  ],
+  "summary": "A research note exploring different tokenization methods used in LLMs, including character-level, word-level, and sub-word techniques like BPE.",
+  "created": "2026-03-29",
+  "updatedAt": "2026-03-30",
+  "vaultPath": "LLMs/Tokenization.md",
+  "folder": "LLMs",
+  "markdown": "# Tokenization\n\nThere are multiple ways to approach **[Tokenization](./)** in **[LLM](../llm/)**:\n\n1. **Character-Level Tokenization**\n2. **Word-Level Tokenization**\n3. **Sub-word Tokenization**\n\n## Character-Level Tokenization\n#Character-Level-Tokenization\nWe treat each character as a token. This is very inefficient because the model will have to learn spelling from scratch instead of the relation between words, and would need thousands of tokens to write a simple paragraph.\n\n## Word-Level Tokenization\n#Word-level-tokenization\nIn this approach, we treat every word in our vocabulary as a distinct token. \n\n**Drawbacks:**\n- There are over 171,000 words in common use. Including every variation (e.g., \"run\", \"runs\", \"ran\", \"running\") would require millions of entries, which is too computationally expensive.\n- **Vocabulary Cut-off:** To work around this, vocabularies are cut off at the most frequently used words. This forces the use of a special token `<|unk|>` to mark an unknown word.\n- If a sentence is full of `<|unk|>` tokens, the model loses the meaning completely.\n\n### Special Tokens\nWe also need special tokens for:\n- **`<|bos|>` (Beginning of Sequence):** Marks the start of a conversation.\n- **`<|eos|>` (End of Sequence):** Marks the end of a conversation. Without this, the model might just cut off mid-sentence or ramble forever.\n- **`<|pad|>` (Padding):** Crucial for the math behind the scenes.\n\n**Padding** is needed because models are trained to process batches of words. If the model works on a group of 5 words and our sentence cannot be chunked into a group of 5, we add the `<|pad|>` token to ensure 5 tokens per batch.\n\n## ChatML Format\n#ChatML_format \n**ChatML** is a specific format for structuring conversations:\n- **`<|im_start|>`**: Marks the beginning of a message from a specific role.\n- **`<|im_sep|>`**: Separates the role name (system, user, assistant) from the actual message content.\n- **`<|im_end|>`**: Marks the end of that message.\n\n**Structure:**\n```\n<|im_start|>role<|im_sep|>content goes here<|im_end|>\n```\n\nThis allows the model to clearly understand: \"Who is speaking?\" and \"What did they say?\" Without these special token markers, the model would see a single continuous blob of text, with no way to tell where the system instructions end and the user's question begins.\n\n## Sub-word Tokenization\n#Sub-word-Tokenization\nThis is the modern standard for [LLM](../llm/). It breaks words into smaller meaningful units, balancing the efficiency of word-level tokenization with the flexibility of character-level.\n\n- **Byte Pair Encoding (BPE)**: Used by GPT models. It iteratively merges the most frequent pairs of characters or character sequences.\n- **WordPiece**: Used by BERT. Similar to BPE but uses a likelihood-based merge rule rather than just frequency.\n- **Unigram**: Used by T5. It starts with a large vocabulary and removes tokens that increase the overall loss the least.\n\nSub-word tokenization allows the model to handle \"unseen\" words by breaking them into known sub-components (e.g., \"unfriendly\" -> \"un\" + \"friendly\").\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "llms",
+        "llm"
+      ],
+      "href": "/notes/llms/llm/",
+      "title": "LLMs"
+    },
+    {
+      "slug": [
+        "slm",
+        "slm"
+      ],
+      "href": "/notes/slm/slm/",
+      "title": "SLM"
+    }
+  ]
+}
