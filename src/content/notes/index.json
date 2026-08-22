@@ -2,6 +2,35 @@
   "notes": [
     {
       "slug": [
+        "architecture",
+        "splitting-the-monolith"
+      ],
+      "href": "/notes/architecture/splitting-the-monolith/",
+      "title": "Splitting Monolith",
+      "tags": [
+        "architecture",
+        "microservices",
+        "refactoring"
+      ],
+      "summary": "A guide on strategies and considerations for decomposing a monolith into microservices, focusing on extraction priorities and verification techniques.",
+      "created": "2026-04-26",
+      "updatedAt": "2026-09-22",
+      "vaultPath": "Architecture/Splitting the Monolith.md",
+      "folder": "Architecture",
+      "linkedFrom": [
+        {
+          "slug": [
+            "architecture",
+            "case-for-monolith",
+            "case-for-monolith"
+          ],
+          "href": "/notes/architecture/case-for-monolith/case-for-monolith/",
+          "title": "Modular Monolith"
+        }
+      ]
+    },
+    {
+      "slug": [
         "productivity",
         "eat-the-frog-14-02-2026"
       ],
@@ -2118,35 +2147,6 @@
     {
       "slug": [
         "architecture",
-        "splitting-the-monolith"
-      ],
-      "href": "/notes/architecture/splitting-the-monolith/",
-      "title": "Splitting Monolith",
-      "tags": [
-        "architecture",
-        "microservices",
-        "refactoring"
-      ],
-      "summary": "A guide on strategies and considerations for decomposing a monolith into microservices, focusing on extraction priorities and verification techniques.",
-      "created": "2026-04-26",
-      "updatedAt": "2026-04-26",
-      "vaultPath": "Architecture/Splitting the Monolith.md",
-      "folder": "Architecture",
-      "linkedFrom": [
-        {
-          "slug": [
-            "architecture",
-            "case-for-monolith",
-            "case-for-monolith"
-          ],
-          "href": "/notes/architecture/case-for-monolith/case-for-monolith/",
-          "title": "Modular Monolith"
-        }
-      ]
-    },
-    {
-      "slug": [
-        "architecture",
         "case-for-monolith",
         "case-for-monolith"
       ],
@@ -2983,6 +2983,17 @@
   "graph": {
     "nodes": [
       {
+        "id": "architecture/splitting-the-monolith",
+        "title": "Splitting Monolith",
+        "href": "/notes/architecture/splitting-the-monolith/",
+        "tags": [
+          "architecture",
+          "microservices",
+          "refactoring"
+        ],
+        "color": "#b1e052"
+      },
+      {
         "id": "productivity/eat-the-frog-14-02-2026",
         "title": "Eat Frog",
         "href": "/notes/productivity/eat-the-frog-14-02-2026/",
@@ -3605,17 +3616,6 @@
         "color": "#e0dc52"
       },
       {
-        "id": "architecture/splitting-the-monolith",
-        "title": "Splitting Monolith",
-        "href": "/notes/architecture/splitting-the-monolith/",
-        "tags": [
-          "architecture",
-          "microservices",
-          "refactoring"
-        ],
-        "color": "#b1e052"
-      },
-      {
         "id": "architecture/case-for-monolith/case-for-monolith",
         "title": "Modular Monolith",
         "href": "/notes/architecture/case-for-monolith/case-for-monolith/",
@@ -3853,6 +3853,10 @@
       }
     ],
     "edges": [
+      {
+        "source": "architecture/splitting-the-monolith",
+        "target": "architecture/case-for-monolith/case-for-monolith"
+      },
       {
         "source": "coding/concurrency/concurrency",
         "target": "coding/concurrency/threads"
@@ -4340,10 +4344,6 @@
       {
         "source": "agents/tool-calling",
         "target": "llms/needle-in-a-haystack-20-03-2026"
-      },
-      {
-        "source": "architecture/splitting-the-monolith",
-        "target": "architecture/case-for-monolith/case-for-monolith"
       },
       {
         "source": "architecture/case-for-monolith/case-for-monolith",

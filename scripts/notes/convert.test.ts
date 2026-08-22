@@ -108,13 +108,14 @@ Hello
   });
 });
 
-function indexFrom(files: Record<string, string>) {
+function indexFrom(files: Record<string, string>, attachments: string[] = []) {
   return buildIndex(
     Object.entries(files).map(([vaultPath, raw]) => ({
       vaultPath,
       raw,
       mtimeIso: "2026-01-01",
     })),
+    attachments,
   );
 }
 
@@ -292,22 +293,31 @@ Move semantics.
     assert.equal(converted.markdown.includes("Intro"), false);
   });
 
-  test("turns image embeds into relative markdown images", () => {
-    const index = indexFrom({
-      "Architecture/Coupling.md": `---
+  test("turns image embeds into site-root markdown images from the vault images folder", () => {
+    const index = indexFrom(
+      {
+        "Architecture/Coupling.md": `---
 title: Coupling
 updated: 2026-04-15
 ---
 
 ![[Pasted image 20260414192702.png]]
 `,
-    });
+      },
+      ["images/Pasted image 20260414192702.png"],
+    );
 
     const converted = convertNote(index.byPath.get("Architecture/Coupling.md")!, index);
     assert.match(
       converted.markdown,
-      /!\[Pasted image 20260414192702\]\(\.\/pasted-image-20260414192702\.png\)/,
+      /!\[Pasted image 20260414192702\]\(\/note-assets\/architecture\/coupling\/pasted-image-20260414192702\.png\)/,
     );
+    assert.deepEqual(converted.attachments, [
+      {
+        vaultPath: "images/Pasted image 20260414192702.png",
+        publicRel: "architecture/coupling/pasted-image-20260414192702.png",
+      },
+    ]);
   });
 
   test("converts wikilinks inside inlined embeds relative to the host page", () => {

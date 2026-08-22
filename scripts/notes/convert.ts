@@ -30,6 +30,7 @@ export type VaultIndex = {
   notes: VaultNote[];
   byPath: Map<string, VaultNote>;
   byBasename: Map<string, VaultNote[]>;
+  attachments: string[];
 };
 
 export type ConvertedNote = {
@@ -231,6 +232,7 @@ export function parseNote(
 
 export function buildIndex(
   files: { vaultPath: string; raw: string; mtimeIso: string }[],
+  attachmentPaths: string[] = [],
 ): VaultIndex {
   const notes = files.map((file) =>
     parseNote(file.vaultPath, file.raw, file.mtimeIso),
@@ -250,7 +252,7 @@ export function buildIndex(
     byBasename.set(basename.toLowerCase(), bucket);
   }
 
-  return { notes, byPath, byBasename };
+  return { notes, byPath, byBasename, attachments: attachmentPaths };
 }
 
 export function resolveWikilinkTarget(
@@ -352,7 +354,7 @@ function transformOutsideCode(
   return parts.join("");
 }
 
-function isAttachment(target: string): boolean {
+export function isAttachment(target: string): boolean {
   return IMAGE_EXTS.has(path.posix.extname(target).toLowerCase());
 }
 
@@ -362,12 +364,34 @@ function attachmentPublicName(target: string): string {
   return `${slugifySegment(base)}${ext.toLowerCase()}`;
 }
 
-function findAttachmentVaultPath(hostPath: string, target: string): string {
+export function attachmentHref(slug: string[], fileName: string): string {
+  return `/note-assets/${slug.join("/")}/${fileName}`;
+}
+
+function findAttachmentVaultPath(
+  hostPath: string,
+  target: string,
+  index: VaultIndex,
+): string {
   const cleaned = target.replace(/\\/g, "/").replace(/^\.\//, "");
+  const base = path.posix.basename(cleaned);
+  const known = index.attachments;
+
+  if (known.includes(cleaned)) return cleaned;
+
+  const matches = known.filter(
+    (item) => path.posix.basename(item) === base,
+  );
+  if (matches.length === 1) return matches[0];
+
+  const hostDir = path.posix.dirname(hostPath);
+  const beside = matches.find((item) => path.posix.dirname(item) === hostDir);
+  if (beside) return beside;
+  if (matches.length > 0) return matches[0];
+
   if (cleaned.includes("/")) return cleaned;
-  const dir = path.posix.dirname(hostPath);
-  if (dir === ".") return cleaned;
-  return path.posix.join(dir, cleaned);
+  if (hostDir === ".") return cleaned;
+  return path.posix.join(hostDir, cleaned);
 }
 
 function extractSection(body: string, heading: string): string {
@@ -455,15 +479,20 @@ function resolveEmbedTree(
 
       if (isAttachment(hit.target)) {
         const fileName = attachmentPublicName(hit.target);
+        const publicRel = path.posix.join(root.slug.join("/"), fileName);
         attachments.push({
-          vaultPath: findAttachmentVaultPath(current.vaultPath, hit.target),
-          publicRel: path.posix.join(root.slug.join("/"), fileName),
+          vaultPath: findAttachmentVaultPath(
+            current.vaultPath,
+            hit.target,
+            index,
+          ),
+          publicRel,
         });
         const alt = stripTitleFormatting(
           hit.alias ||
             path.posix.basename(hit.target, path.posix.extname(hit.target)),
         );
-        return `![${alt}](./${fileName})`;
+        return `![${alt}](${attachmentHref(root.slug, fileName)})`;
       }
 
       const targetNote = resolveWikilinkTarget(hit.target, index);

@@ -6,18 +6,19 @@ import {
   buildIndex,
   collectLinkedFrom,
   convertNote,
+  isAttachment,
   notesNeedingRebuild,
   type LinkedFrom,
   type VaultNote,
 } from "./convert";
 
-export const CACHE_VERSION = 1;
+export const CACHE_VERSION = 2;
 
 const ROOT = process.cwd();
 const VAULT_DIR = path.join(ROOT, "vault");
 const OUT_DIR = path.join(ROOT, "src/content/notes");
 const PAGES_DIR = path.join(OUT_DIR, "pages");
-const PUBLIC_DIR = path.join(ROOT, "public/notes");
+const PUBLIC_DIR = path.join(ROOT, "public/note-assets");
 const CACHE_PATH = path.join(OUT_DIR, ".cache.json");
 const INDEX_PATH = path.join(OUT_DIR, "index.json");
 const SKIP_DIRS = new Set([".obsidian", ".agent", ".git", ".trash", "node_modules"]);
@@ -52,6 +53,24 @@ function updateSubmodule() {
     cwd: ROOT,
     stdio: "inherit",
   });
+}
+
+function walkAttachments(dir: string, base: string): string[] {
+  const out: string[] = [];
+  if (!fs.existsSync(dir)) return out;
+
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    if (SKIP_DIRS.has(entry.name) || entry.name.startsWith(".")) continue;
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      out.push(...walkAttachments(full, base));
+      continue;
+    }
+    if (entry.isFile() && isAttachment(entry.name)) {
+      out.push(path.relative(base, full).split(path.sep).join("/"));
+    }
+  }
+  return out;
 }
 
 function walkMarkdown(dir: string, base: string): string[] {
@@ -133,9 +152,11 @@ function copyAttachment(
   vaultRel: string,
   publicRel: string,
 ): void {
+  const basename = path.posix.basename(vaultRel);
   const candidates = [
     path.join(VAULT_DIR, vaultRel),
-    path.join(VAULT_DIR, path.posix.basename(vaultRel)),
+    path.join(VAULT_DIR, "images", basename),
+    path.join(VAULT_DIR, basename),
   ];
   const source = candidates.find((candidate) => fs.existsSync(candidate));
   if (!source) return;
@@ -168,7 +189,7 @@ export function buildNotes(options: { skipGit?: boolean } = {}) {
     };
   });
 
-  const index = buildIndex(files);
+  const index = buildIndex(files, walkAttachments(VAULT_DIR, VAULT_DIR));
   const cache = readCache();
   const rebuild = notesNeedingRebuild(index, cache.notes);
 
