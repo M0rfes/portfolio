@@ -1,0 +1,36 @@
+{
+  "source": {
+    "type": "note",
+    "id": "coding/satisfies-15-02-2026",
+    "title": "TypeScript Satisfies",
+    "href": "/notes/coding/satisfies-15-02-2026/",
+    "tags": ["typescript", "coding", "pattern-matching"]
+  },
+  "cards": [
+    {
+      "id": "note:coding/satisfies-15-02-2026:0",
+      "question": "What does TypeScript `satisfies` in a switch default achieve?",
+      "answer": "Exhaustive matching: unhandled union members fail to compile."
+    },
+    {
+      "id": "note:coding/satisfies-15-02-2026:1",
+      "question": "How does `role satisfies never` catch an unhandled Role?",
+      "answer": "The default branch treats `role` as `never`. An unhandled case such as `'superadmin'` is not `never`, so compilation fails."
+    },
+    {
+      "id": "note:coding/satisfies-15-02-2026:2",
+      "question": "What error appears when `'superadmin'` is missing from the switch?",
+      "answer": "Type '\"superadmin\"' does not satisfy the expected type 'never'."
+    },
+    {
+      "id": "note:coding/satisfies-15-02-2026:3",
+      "question": "What happens when a new Role is added to the union?",
+      "answer": "The compiler forces that role to be handled in the switch statement."
+    },
+    {
+      "id": "note:coding/satisfies-15-02-2026:4",
+      "question": "How does this compare to Rust pattern matching?",
+      "answer": "It is similar to exhaustive pattern matching in Rust: unhandled cases are caught at compile time instead of in runtime logs."
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "source": {
+    "type": "note",
+    "id": "coding/concurrency/atomic-reference-counting",
+    "title": "Atomic Refcounting",
+    "href": "/notes/coding/concurrency/atomic-reference-counting/",
+    "tags": ["concurrency", "smart-pointers", "atomics"]
+  },
+  "cards": [
+    {
+      "id": "note:coding/concurrency/atomic-reference-counting:0",
+      "question": "What guarantee does atomic reference counting add to increment and decrement?",
+      "answer": "Each increment or decrement is atomic, so no two threads can simultaneously mutate the count."
+    },
+    {
+      "id": "note:coding/concurrency/atomic-reference-counting:1",
+      "question": "Why must the reference count's increment and decrement be atomic?",
+      "answer": "So two threads cannot mutate the count at the same time."
+    },
+    {
+      "id": "note:coding/concurrency/atomic-reference-counting:2",
+      "question": "What does atomic reference counting allow you to do with the pointer?",
+      "answer": "Safely share and send the reference-counted pointer across threads."
+    }
+  ]
+}

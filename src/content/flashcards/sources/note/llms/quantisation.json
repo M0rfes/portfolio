@@ -1,0 +1,36 @@
+{
+  "source": {
+    "type": "note",
+    "id": "llms/quantisation",
+    "title": "Quantization",
+    "href": "/notes/llms/quantisation/",
+    "tags": ["llm", "quantization", "optimization", "model-compression"]
+  },
+  "cards": [
+    {
+      "id": "note:llms/quantisation:0",
+      "question": "What is quantization?",
+      "answer": "Mapping high-precision floating-point numbers (e.g. FP32 or FP16) to lower-precision formats such as INT8, INT4, or even 1.58-bit."
+    },
+    {
+      "id": "note:llms/quantisation:1",
+      "question": "Why quantize model weights?",
+      "answer": "It fits larger models into smaller VRAM and improves inference throughput by using specialized low-precision hardware instructions."
+    },
+    {
+      "id": "note:llms/quantisation:2",
+      "question": "What is GPTQ?",
+      "answer": "Post-training quantization for weight-only."
+    },
+    {
+      "id": "note:llms/quantisation:3",
+      "question": "What does AWQ stand for?",
+      "answer": "Activation-aware Weight Quantization."
+    },
+    {
+      "id": "note:llms/quantisation:4",
+      "question": "What is BitNet?",
+      "answer": "1-bit LLMs that use binary or ternary weights."
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "source": {
+    "type": "note",
+    "id": "books/rust/rust-atomics-and-locks/rust-thread-parking",
+    "title": "Thread Parking",
+    "href": "/notes/books/rust/rust-atomics-and-locks/rust-thread-parking/",
+    "tags": [
+      "rust",
+      "concurrency",
+      "threads"
+    ]
+  },
+  "cards": [
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-thread-parking:0",
+      "question": "What does thread parking do?",
+      "answer": "A thread parks itself so it no longer consumes CPU cycles while waiting for other threads to wake it."
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-thread-parking:1",
+      "question": "How do other threads wake a parked thread?",
+      "answer": "They call unpark on the thread handle from spawn or from std::thread::current()."
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-thread-parking:2",
+      "question": "What happens if unpark is called before park?",
+      "answer": "The wake-up token is saved and the next park returns immediately without sleeping."
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-thread-parking:3",
+      "question": "What happens if unpark is called twice before two parks?",
+      "answer": "Only the first park is skipped. The second park still puts the thread to sleep."
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-thread-parking:4",
+      "question": "In the queue example, when does the consumer park?",
+      "answer": "It pops items in a loop and parks itself when the queue is empty. The producer pushes a number, then unparks."
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "source": {
+    "type": "note",
+    "id": "llms/encoder",
+    "title": "Encoder",
+    "href": "/notes/llms/encoder/",
+    "tags": ["llm", "encoder", "transformer", "attention", "nlp"]
+  },
+  "cards": [
+    {
+      "id": "note:llms/encoder:0",
+      "question": "What does an encoder layer do in an LLM?",
+      "answer": "It is a transformer attention layer that looks at the full text and extracts features, which can be fed to a decoder."
+    },
+    {
+      "id": "note:llms/encoder:1",
+      "question": "How does encoder self-attention differ from causal decoder attention?",
+      "answer": "It is bidirectional (non-causal): position i may attend to every position j in the sequence."
+    },
+    {
+      "id": "note:llms/encoder:2",
+      "question": "What tasks are encoder-only models useful for?",
+      "answer": "Fill-in-the-blank, sentiment analysis, classification, NER, extractive QA, and embeddings for retrieval."
+    },
+    {
+      "id": "note:llms/encoder:3",
+      "question": "How are BERT and RoBERTa typically pretrained?",
+      "answer": "As encoder-only models with masked language modeling (fill-in-the-blank), then fine-tuned for classification, NER, and similar tasks."
+    },
+    {
+      "id": "note:llms/encoder:4",
+      "question": "Do encoder-only models generate open-ended text autoregressively?",
+      "answer": "No. They map tokens to contextual embeddings."
+    },
+    {
+      "id": "note:llms/encoder:5",
+      "question": "When were encoder and decoder layers introduced together?",
+      "answer": "In Attention Is All You Need (Vaswani et al., 2017) for machine translation."
+    }
+  ]
+}

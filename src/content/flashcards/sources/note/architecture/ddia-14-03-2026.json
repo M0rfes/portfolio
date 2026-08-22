@@ -1,0 +1,46 @@
+{
+  "source": {
+    "type": "note",
+    "id": "architecture/ddia-14-03-2026",
+    "title": "Metastable Failures",
+    "href": "/notes/architecture/ddia-14-03-2026/",
+    "tags": ["distributed-systems", "resilience", "reliability", "ddia"]
+  },
+  "cards": [
+    {
+      "id": "note:architecture/ddia-14-03-2026:0",
+      "question": "What vicious cycle can a near-overloaded system enter?",
+      "answer": "It becomes less efficient and therefore even more overloaded. A long request queue can raise response times until clients time out and resend, increasing the request rate further."
+    },
+    {
+      "id": "note:architecture/ddia-14-03-2026:1",
+      "question": "What is a retry storm?",
+      "answer": "Clients time out, resend their requests, and the request rate rises further, making overload worse."
+    },
+    {
+      "id": "note:architecture/ddia-14-03-2026:2",
+      "question": "What is a metastable failure?",
+      "answer": "Even after load is reduced, the system can stay overloaded until it is rebooted or otherwise reset. That lingering overloaded state is a metastable failure and can cause serious production outages."
+    },
+    {
+      "id": "note:architecture/ddia-14-03-2026:3",
+      "question": "How does exponential backoff reduce retry overload?",
+      "answer": "The client increases and randomizes the time between successive retries so retries do not keep overloading the service."
+    },
+    {
+      "id": "note:architecture/ddia-14-03-2026:4",
+      "question": "What does a circuit breaker do?",
+      "answer": "It temporarily stops sending requests to a service that has recently returned errors or timed out."
+    },
+    {
+      "id": "note:architecture/ddia-14-03-2026:5",
+      "question": "How do load shedding and backpressure differ?",
+      "answer": "Load shedding detects approaching overload and proactively rejects requests. Backpressure sends responses asking clients to slow down."
+    },
+    {
+      "id": "note:architecture/ddia-14-03-2026:6",
+      "question": "What is a token bucket used for when avoiding retry overload?",
+      "answer": "A token bucket algorithm rate-limits requests."
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "source": {
+    "type": "note",
+    "id": "books/rust/rust-atomics-and-locks/rust-memory-ordering",
+    "title": "Memory Ordering",
+    "href": "/notes/books/rust/rust-atomics-and-locks/rust-memory-ordering/",
+    "tags": [
+      "rust",
+      "concurrency",
+      "atomics",
+      "memory-ordering"
+    ]
+  },
+  "cards": [
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-memory-ordering:0",
+      "question": "What does the Ordering parameter on atomic operations control?",
+      "answer": "What guarantees we get about the relative ordering of operations. All atomic operations take std::sync::atomic::Ordering."
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-memory-ordering:1",
+      "question": "How can a CPU reorder operations relative to source order?",
+      "answer": "It might group assignments even if they are not written in that order. One thread may see V1 V2 V3 assigned while another sees V2 V3 V1."
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-memory-ordering:2",
+      "question": "How does a Relaxed AtomicBool stop flag work in the example?",
+      "answer": "A background thread loops while STOP.load(Relaxed) is false. After the user enters stop, the main thread stores true and joins the background thread."
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-memory-ordering:3",
+      "question": "Why might stop not halt the program immediately?",
+      "answer": "If some_work is blocking or slow, the program keeps running until the last call to some_work completes."
+    }
+  ]
+}

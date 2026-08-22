@@ -1,0 +1,36 @@
+{
+  "source": {
+    "type": "note",
+    "id": "tools/langgraph",
+    "title": "LangGraph",
+    "href": "/notes/tools/langgraph/",
+    "tags": ["agent", "langgraph", "orchestration", "multi-agent", "framework"]
+  },
+  "cards": [
+    {
+      "id": "note:tools/langgraph:0",
+      "question": "What is LangGraph?",
+      "answer": "A specialized framework for building stateful, multi-actor applications with LLMs."
+    },
+    {
+      "id": "note:tools/langgraph:1",
+      "question": "What do cyclic and graph workflows enable?",
+      "answer": "Loops and conditional edges. That makes LangGraph a fit for ReAct loops, iterative refinement, and multi-agent debate."
+    },
+    {
+      "id": "note:tools/langgraph:2",
+      "question": "How does LangGraph manage state as execution moves?",
+      "answer": "It uses central state schemas that are updated deterministically as execution moves across graph nodes."
+    },
+    {
+      "id": "note:tools/langgraph:3",
+      "question": "What does human-in-the-loop support in LangGraph?",
+      "answer": "Pausing execution for human approval or feedback before resuming node transitions."
+    },
+    {
+      "id": "note:tools/langgraph:4",
+      "question": "What is time-travel debugging in LangGraph?",
+      "answer": "Rewinding state to inspect or fork execution paths during agent testing."
+    }
+  ]
+}

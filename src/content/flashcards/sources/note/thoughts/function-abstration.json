@@ -1,0 +1,46 @@
+{
+  "source": {
+    "type": "note",
+    "id": "thoughts/function-abstration",
+    "title": "Function Abstraction",
+    "href": "/notes/thoughts/function-abstration/",
+    "tags": ["clean-code", "refactoring", "software-design", "local-reasoning", "dry", "single-responsibility"]
+  },
+  "cards": [
+    {
+      "id": "note:thoughts/function-abstration:0",
+      "question": "What is the real reason to extract a function, versus DRY reuse?",
+      "answer": "DRY is a decent starting rule, but the real reason to create, refactor to, or abstract to a function is to maintain local reasoning."
+    },
+    {
+      "id": "note:thoughts/function-abstration:1",
+      "question": "What happens if you only extract a function when you need to reuse it?",
+      "answer": "You get a 300-line function. The same steps are not required anywhere else, so the function never gets split."
+    },
+    {
+      "id": "note:thoughts/function-abstration:2",
+      "question": "Why are functions more for humans than for machines?",
+      "answer": "A human sees your code before a machine does. The CPU does not see functions; the compiler does extra work to turn them into instructions, managing return and parameter addresses and inlining where possible."
+    },
+    {
+      "id": "note:thoughts/function-abstration:3",
+      "question": "How can DRY bloat a license-granting function?",
+      "answer": "Sales attach-on-behalf and anonymous checkout (create user if missing) get added to the same method because that is where users and licenses are linked. The function grows past 100 lines of if-checks that create different resources."
+    },
+    {
+      "id": "note:thoughts/function-abstration:4",
+      "question": "When should you refactor for local reasoning, even with a single call site?",
+      "answer": "Refactor when you can reason about what a function does at a glance. Link-licenses-to-user should be its own function even if no other code calls it and it happens in only one spot."
+    },
+    {
+      "id": "note:thoughts/function-abstration:5",
+      "question": "What should a link-licenses-to-user function take instead of IDs?",
+      "answer": "Valid user and license objects, not userId or licenseId. IDs would require validity checks; the function should just link them, even if the call is user.link(license)."
+    },
+    {
+      "id": "note:thoughts/function-abstration:6",
+      "question": "How does a bloated link flow violate Single Responsibility?",
+      "answer": "A function should have one reason to change. That link flow changes if user creation changes, and also if which products sales may link changes."
+    }
+  ]
+}

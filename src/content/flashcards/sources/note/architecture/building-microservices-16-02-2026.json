@@ -1,0 +1,36 @@
+{
+  "source": {
+    "type": "note",
+    "id": "architecture/building-microservices-16-02-2026",
+    "title": "Service Boundaries",
+    "href": "/notes/architecture/building-microservices-16-02-2026/",
+    "tags": ["microservices", "architecture", "modularity"]
+  },
+  "cards": [
+    {
+      "id": "note:architecture/building-microservices-16-02-2026:0",
+      "question": "How are microservices a form of modular decomposition?",
+      "answer": "They are another form of modular decomposition, with network-based interaction between the modules."
+    },
+    {
+      "id": "note:architecture/building-microservices-16-02-2026:1",
+      "question": "What is information hiding, and who developed the idea?",
+      "answer": "David Parnas developed information hiding as a way to define module boundaries: hide as many details as possible behind a module (or microservice) boundary."
+    },
+    {
+      "id": "note:architecture/building-microservices-16-02-2026:2",
+      "question": "What three benefits did Parnas say modules should theoretically give?",
+      "answer": "Improved development time by allowing independent, parallel work; comprehensibility by understanding each module in isolation; and flexibility by changing modules independently and combining them in new ways."
+    },
+    {
+      "id": "note:architecture/building-microservices-16-02-2026:3",
+      "question": "What are the connections between modules?",
+      "answer": "The assumptions that modules make about each other."
+    },
+    {
+      "id": "note:architecture/building-microservices-16-02-2026:4",
+      "question": "Why keep the number of assumptions between modules small?",
+      "answer": "Fewer assumptions make it easier to change one module without impacting others. If a developer knows how the module is used, they can change it so upstream callers do not also have to change."
+    }
+  ]
+}

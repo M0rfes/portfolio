@@ -1,0 +1,69 @@
+{
+  "source": {
+    "type": "blog",
+    "id": "group-by-rollup-grouping-sets-and-cube",
+    "title": "SQL Aggregation Magic: GROUP BY, ROLLUP, GROUPING SETS, and CUBE",
+    "href": "/blogs/group-by-rollup-grouping-sets-and-cube",
+    "tags": [
+      "SQL",
+      "database",
+      "aggregation",
+      "groupby",
+      "rollup",
+      "groupingsets",
+      "cube",
+      "dataanalysis",
+      "OLAP",
+      "reporting",
+      "query",
+      "MySQL",
+      "PostgreSQL",
+      "SQLServer",
+      "Oracle",
+      "analytics",
+      "data"
+    ]
+  },
+  "cards": [
+    {
+      "id": "blog:group-by-rollup-grouping-sets-and-cube:0",
+      "question": "What does GROUP BY actor_id return in the film example?",
+      "answer": "One row per actor with that actor’s total film count."
+    },
+    {
+      "id": "blog:group-by-rollup-grouping-sets-and-cube:1",
+      "question": "How do you get film counts per actor and rating?",
+      "answer": "GROUP BY both actor_id and rating. Each row is one actor–rating pair with its film count."
+    },
+    {
+      "id": "blog:group-by-rollup-grouping-sets-and-cube:2",
+      "question": "What extra rows does WITH ROLLUP add to GROUP BY actor_id, rating?",
+      "answer": "Subtotals where rating is NULL (total per actor) and a grand total where both actor_id and rating are NULL."
+    },
+    {
+      "id": "blog:group-by-rollup-grouping-sets-and-cube:3",
+      "question": "In which direction does ROLLUP aggregate?",
+      "answer": "Right to left through the GROUP BY columns, following the hierarchy defined by column order."
+    },
+    {
+      "id": "blog:group-by-rollup-grouping-sets-and-cube:4",
+      "question": "Why doesn’t ROLLUP on actor_id, rating give totals per rating?",
+      "answer": "ROLLUP only follows that hierarchy, so it produces per-actor totals and a grand total, not totals per rating across all actors."
+    },
+    {
+      "id": "blog:group-by-rollup-grouping-sets-and-cube:5",
+      "question": "What does GROUPING SETS let you control?",
+      "answer": "The exact groupings in one query, such as (actor_id, rating), (actor_id), (rating), and () for the grand total."
+    },
+    {
+      "id": "blog:group-by-rollup-grouping-sets-and-cube:6",
+      "question": "How does CUBE relate to GROUPING SETS?",
+      "answer": "CUBE generates every combination of the grouped columns, equivalent to listing those sets by hand. Two columns yield 2^2 = 4 combinations; three yield 2^3 = 8."
+    },
+    {
+      "id": "blog:group-by-rollup-grouping-sets-and-cube:7",
+      "question": "When is CUBE the right choice?",
+      "answer": "For OLAP and multi-dimensional reporting where you need every possible cross-tabulation. It is available in SQL Server, PostgreSQL, Oracle, and similar databases."
+    }
+  ]
+}

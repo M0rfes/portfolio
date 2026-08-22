@@ -1,0 +1,36 @@
+{
+  "source": {
+    "type": "note",
+    "id": "books/rust/rust-atomics-and-locks/rust-mutex",
+    "title": "Rust Mutex",
+    "href": "/notes/books/rust/rust-atomics-and-locks/rust-mutex/",
+    "tags": [
+      "rust",
+      "concurrency",
+      "locks",
+      "mutex"
+    ]
+  },
+  "cards": [
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-mutex:0",
+      "question": "What does a Mutex guarantee?",
+      "answer": "Mutual exclusion: it works as an exclusive reference, so only one thread can hold the lock at a time."
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-mutex:1",
+      "question": "How does Mutex conflicting access differ from RefCell?",
+      "answer": "Unlike RefCell, conflicting access does not panic. The waiting thread is put to sleep and woken when the lock is dropped so it can try to take a reference."
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-mutex:2",
+      "question": "Why does Mutex have no unlock method?",
+      "answer": "lock returns a MutexGuard that accesses the data as an exclusive reference through DerefMut. Dropping the guard frees the lock via Drop."
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-mutex:3",
+      "question": "In the 10-thread increment example, what does each thread observe?",
+      "answer": "Each of the 10 threads increments 100 times. Each thread sees the count as 0, 100, 200, through 900, runs, then drops the guard, for a final value of 1000."
+    }
+  ]
+}

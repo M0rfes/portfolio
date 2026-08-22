@@ -1,0 +1,51 @@
+{
+  "source": {
+    "type": "note",
+    "id": "slm/slm",
+    "title": "SLM",
+    "href": "/notes/slm/slm/",
+    "tags": ["slm", "llm", "ai", "edge-computing", "data-privacy", "fine-tuning"]
+  },
+  "cards": [
+    {
+      "id": "note:slm/slm:0",
+      "question": "What is an SLM, and what size range does it cover?",
+      "answer": "An SLM is a small language model. They range from a few million to 10 billion parameters."
+    },
+    {
+      "id": "note:slm/slm:1",
+      "question": "How do SLMs relate to LLMs architecturally?",
+      "answer": "SLMs are not a new technology. They use the same Transformer architecture as LLMs, introduced in Attention Is All You Need."
+    },
+    {
+      "id": "note:slm/slm:2",
+      "question": "Why can SLMs be fine-tuned without a huge cluster?",
+      "answer": "They have smaller footprints and low resource needs for inference and fine-tuning. Unlike an LLM, you can fine-tune an SLM on domain-specific or proprietary data on commodity hardware instead of a multi-billion-USD cluster."
+    },
+    {
+      "id": "note:slm/slm:3",
+      "question": "Why do fields like healthcare and finance need SLMs?",
+      "answer": "Data privacy is not optional there. You cannot afford data attached to a prompt leaking out."
+    },
+    {
+      "id": "note:slm/slm:4",
+      "question": "Why are SLMs a good fit for agentic applications?",
+      "answer": "Agentic apps do not need frontier LLMs. NVIDIA argues SLMs are the future of agentic AI, and they fit deployment on the edge or on end-user devices."
+    },
+    {
+      "id": "note:slm/slm:5",
+      "question": "What is model or version drift when using an external LLM provider?",
+      "answer": "A provider can update a model without notice. That can change the behaviour and accuracy of applications built on top of it."
+    },
+    {
+      "id": "note:slm/slm:6",
+      "question": "How do intrinsic and extrinsic hallucinations differ, and which is harder with a closed provider?",
+      "answer": "Intrinsic hallucination conflicts with the source; extrinsic hallucination is unverifiable from the available source. Extrinsic hallucinations cannot be mitigated when you lack access to or knowledge of the training data."
+    },
+    {
+      "id": "note:slm/slm:7",
+      "question": "How does using a provider LLM create vendor lock-in?",
+      "answer": "You are tied to the options and prices they set. If they drop a working model or change price or performance on short or no notice, an organisation cannot plan long-running toolchains."
+    }
+  ]
+}

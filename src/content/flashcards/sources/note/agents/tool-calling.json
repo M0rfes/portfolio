@@ -1,0 +1,46 @@
+{
+  "source": {
+    "type": "note",
+    "id": "agents/tool-calling",
+    "title": "Tool Calling",
+    "href": "/notes/agents/tool-calling/",
+    "tags": ["ai", "agents", "llm", "tool-calling", "function-calling", "niah"]
+  },
+  "cards": [
+    {
+      "id": "note:agents/tool-calling:0",
+      "question": "What is tool calling, and why do agents need it?",
+      "answer": "Tool calling is an LLM feature that lets models run code or perform tasks beyond producing text. Tool calls are the core capability that makes agents possible."
+    },
+    {
+      "id": "note:agents/tool-calling:1",
+      "question": "How does chat message architecture change after tool calling?",
+      "answer": "Before tool calling there were two message types: user and AI. Agentic architectures add tool-call messages (assistant requesting execution) and tool-response messages (tool returning results), for four types total."
+    },
+    {
+      "id": "note:agents/tool-calling:2",
+      "question": "Which tool-calling messages does the harness hide from the end user?",
+      "answer": "The chat interface hides Tool Call and Tool Response messages from the end user."
+    },
+    {
+      "id": "note:agents/tool-calling:3",
+      "question": "What are the three steps of a tool-call round trip?",
+      "answer": "The harness gives the LLM available tool names (functions it implements). The LLM returns a function name and arguments in a Tool Call message. The harness executes the function and sends the result back in a Tool Response message."
+    },
+    {
+      "id": "note:agents/tool-calling:4",
+      "question": "How does LLM tool calling differ from traditional NLP chatbot workflows?",
+      "answer": "Traditional NLP chatbots require the user to explicitly ask for a workflow and then run a single predefined one. An LLM can autonomously choose which tool to run and chain multiple workflows to achieve a goal."
+    },
+    {
+      "id": "note:agents/tool-calling:5",
+      "question": "How does needle-in-a-haystack performance affect tool selection?",
+      "answer": "As the context window grows, the model may hallucinate tools or lose the ability to pick the right one. Long-horizon tasks still require correct tool selection when context is huge; some models are fine-tuned to mitigate that degradation."
+    },
+    {
+      "id": "note:agents/tool-calling:6",
+      "question": "What two practices help prevent tool-calling failures?",
+      "answer": "Avoid context bloat by not using too many tools. Eliminate redundant tools that perform the same task so the model is less confused."
+    }
+  ]
+}

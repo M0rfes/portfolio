@@ -1,0 +1,51 @@
+{
+  "source": {
+    "type": "note",
+    "id": "architecture/coupling",
+    "title": "Coupling",
+    "href": "/notes/architecture/coupling/",
+    "tags": ["microservices", "architecture", "coupling"]
+  },
+  "cards": [
+    {
+      "id": "note:architecture/coupling:0",
+      "question": "What is domain coupling?",
+      "answer": "One service interacts with another because it needs functionality that service provides. This coupling is unavoidable in a microservice system and is a form of loose coupling."
+    },
+    {
+      "id": "note:architecture/coupling:1",
+      "question": "What two signals show domain coupling is getting out of hand?",
+      "answer": "A service doing too much means logic is over-centralised and may need domain decomposition. Passing overly complex data structures means internal implementation details are leaking; expose only what is required and return the least data possible."
+    },
+    {
+      "id": "note:architecture/coupling:2",
+      "question": "What is temporal coupling, and how can it be avoided?",
+      "answer": "Two or more services must be up at the same time to service a request; a sync call blocks and fails if the other service is unreachable. Use async communication, such as a message broker."
+    },
+    {
+      "id": "note:architecture/coupling:3",
+      "question": "What is pass-through coupling, and why is it costly?",
+      "answer": "Data from a downstream caller is passed through an intermediary to a later service. That leaks implementation details and tightly couples services so a contract change forces many services to change and roll out together."
+    },
+    {
+      "id": "note:architecture/coupling:4",
+      "question": "How can making a pass-through payload opaque reduce coupling?",
+      "answer": "The intermediary still forwards the data but does not know its structure. A change to that payload then requires updates only at the producer and the final consumer, not at the intermediary."
+    },
+    {
+      "id": "note:architecture/coupling:5",
+      "question": "What is common coupling?",
+      "answer": "Multiple services use the same shared resource, such as a shared database or a shared table or entity."
+    },
+    {
+      "id": "note:architecture/coupling:6",
+      "question": "Why is wrapping a shared table in a thin CRUD service often a poor fix for common coupling?",
+      "answer": "The new service is just a thin wrapper. Cohesion drops and coupling rises because every consumer must know the shared states and handle errors when transitions are invalid."
+    },
+    {
+      "id": "note:architecture/coupling:7",
+      "question": "What is the goal when dealing with coupling types?",
+      "answer": "Not to avoid all coupling, but to notice it and choose which couplings to trade for others. Hide details and isolate components so one service can change without forcing others to change."
+    }
+  ]
+}

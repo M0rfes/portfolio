@@ -1,0 +1,46 @@
+{
+  "source": {
+    "type": "note",
+    "id": "books/rust/rust-atomics-and-locks/rust-send-and-sync",
+    "title": "Send Sync",
+    "href": "/notes/books/rust/rust-atomics-and-locks/rust-send-and-sync/",
+    "tags": [
+      "rust",
+      "concurrency",
+      "thread-safety",
+      "auto-traits"
+    ]
+  },
+  "cards": [
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-send-and-sync:0",
+      "question": "When is a type T Send?",
+      "answer": "When its ownership can be transferred to another thread. For example Arc<T> is Send, but Rc<T> is not."
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-send-and-sync:1",
+      "question": "When is a type T Sync?",
+      "answer": "When its shared reference is Send, i.e. T is Sync if &T is Send. For example i32 is Sync, but Cell<i32> is not."
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-send-and-sync:2",
+      "question": "Which types are automatically Send and Sync?",
+      "answer": "All primitive types are Send and Sync. A type is automatically Send and Sync if all of its fields are."
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-send-and-sync:3",
+      "question": "What is an auto trait?",
+      "answer": "A trait implemented for a type if all of its fields implement it, which is how Send and Sync propagate."
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-send-and-sync:4",
+      "question": "How can you opt a struct out of Sync or Send?",
+      "answer": "Add a field that is not Send or Sync, such as PhantomData<Cell<()>>."
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-send-and-sync:5",
+      "question": "Why are raw pointers neither Send nor Sync?",
+      "answer": "The compiler cannot guarantee thread safety for *const T and *mut T. Implementing Send or Sync for a type that holds them requires unsafe."
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "source": {
+    "type": "note",
+    "id": "architecture/case-for-monolith/case-for-monolith",
+    "title": "Modular Monolith",
+    "href": "/notes/architecture/case-for-monolith/case-for-monolith/",
+    "tags": ["architecture", "monolith", "modularity", "velocity", "volatility"]
+  },
+  "cards": [
+    {
+      "id": "note:architecture/case-for-monolith/case-for-monolith:0",
+      "question": "When should you migrate to a microservice architecture?",
+      "answer": "Only if you cannot find a simpler way to reach your end goal with the current architecture. Microservices are not the goal."
+    },
+    {
+      "id": "note:architecture/case-for-monolith/case-for-monolith:1",
+      "question": "What should you try before building a microservice to handle volatility?",
+      "answer": "A refactoring / code-restructuring check can unlock tied-up volatility. Only build a microservice if no other solution works; poorly structured monoliths are the problem, not monoliths themselves."
+    },
+    {
+      "id": "note:architecture/case-for-monolith/case-for-monolith:2",
+      "question": "Why avoid premature decomposition?",
+      "answer": "Without enough domain understanding you can decompose too early and end up with incorrect service boundaries and overlapping contexts."
+    },
+    {
+      "id": "note:architecture/case-for-monolith/case-for-monolith:3",
+      "question": "What is a modular monolith?",
+      "answer": "A code structure organised into separate modules. Well-defined boundaries enable parallel work with a simpler deployment topology because all modules deploy together."
+    },
+    {
+      "id": "note:architecture/case-for-monolith/case-for-monolith:4",
+      "question": "How does a modular monolith typically treat data?",
+      "answer": "All modules still talk to the same database; there is no data-level decomposition unless you go one step further and decompose the data as well."
+    },
+    {
+      "id": "note:architecture/case-for-monolith/case-for-monolith:5",
+      "question": "Why decompose data inside a modular monolith?",
+      "answer": "It lets you extract a single module into a microservice later, while still unlocking development velocity with high separation between modules."
+    },
+    {
+      "id": "note:architecture/case-for-monolith/case-for-monolith:6",
+      "question": "If velocity is the primary goal, why not start with microservices?",
+      "answer": "Microservices add distributed-system complexity. Much of the velocity gain can come from a modular structure, and scaling can often use other architecture patterns first."
+    }
+  ]
+}

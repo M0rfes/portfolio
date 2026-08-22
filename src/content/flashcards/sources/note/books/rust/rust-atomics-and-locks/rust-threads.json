@@ -1,0 +1,45 @@
+{
+  "source": {
+    "type": "note",
+    "id": "books/rust/rust-atomics-and-locks/rust-threads",
+    "title": "Rust Threads",
+    "href": "/notes/books/rust/rust-atomics-and-locks/rust-threads/",
+    "tags": [
+      "rust",
+      "concurrency",
+      "threads"
+    ]
+  },
+  "cards": [
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-threads:0",
+      "question": "What happens to spawned threads when the main thread terminates?",
+      "answer": "Every program starts with one OS thread. When the main thread terminates, all threads forked or spawned from it are cleaned up, whether they have finished or not."
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-threads:1",
+      "question": "How do you wait for a spawned thread to finish?",
+      "answer": "Join the JoinHandle returned by thread::spawn. Joining waits for the thread and returns its result or indicates if it panicked."
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-threads:2",
+      "question": "What does join() return, and what does unwrap do to it?",
+      "answer": "It returns std::thread::Result: Err if the thread panicked, or Ok with the thread's return value. unwrap panics the main thread as well if the join was Err."
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-threads:3",
+      "question": "What does move do when spawning a closure?",
+      "answer": "The closure captures surrounding variables via move semantics, transferring ownership into the new thread."
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-threads:4",
+      "question": "How does thread::spawn relate to thread::Builder?",
+      "answer": "spawn is a shorthand for Builder::new().spawn(f).unwrap(). Builder can set stack size and a name used in panic messages and profiling tools."
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-threads:5",
+      "question": "What error type does Builder::spawn return?",
+      "answer": "std::io::Result. It indicates an error if the OS failed to spawn a new thread."
+    }
+  ]
+}

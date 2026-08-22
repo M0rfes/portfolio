@@ -157,6 +157,7 @@ export default function RootLayout({
       </head>
       <body
         className={`antialiased min-h-screen bg-background overflow-x-clip`}
+        suppressHydrationWarning
       >
         <ThemeProvider>
           <Analytics />

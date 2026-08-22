@@ -1,0 +1,53 @@
+{
+  "slug": [
+    "teach",
+    "c17",
+    "lessons",
+    "0001-c17-standards-and-modern-toolchain"
+  ],
+  "href": "/notes/teach/c17/lessons/0001-c17-standards-and-modern-toolchain/",
+  "title": "Lesson 0001: ISO C17 Standards, Compiler Diagnostics & CMake with SDL2",
+  "tags": [
+    "teach/c17",
+    "lesson",
+    "cmake",
+    "toolchain",
+    "chip8"
+  ],
+  "created": "2026-08-22",
+  "updatedAt": "2026-08-22",
+  "vaultPath": "Teach/C17/Lessons/0001-c17-standards-and-modern-toolchain.md",
+  "folder": "Teach",
+  "markdown": "[← C17 MOC](../../c17/) · [🎯 Mission](../../mission/) · [📖 Glossary](../../glossary/)\n\n# Lesson 0001: ISO C17 Standards, Compiler Diagnostics & CMake with SDL2\n\n> [!NOTE] Tangible Win\n> By the end of this lesson, you will be able to: **Equip your `chip-8-emu` codebase with a production `CMakeLists.txt` that links SDL2, enforces strict ISO C17 diagnostics (`-Wall -Wextra -Wpedantic -Wstrict-prototypes`), exports `compile_commands.json` for editor LSP, and runs with live AddressSanitizer (ASan) & UndefinedBehaviorSanitizer (UBSan).**\n\n---\n\n## 1. What is ISO C17?\n\nThe C standard evolved through **C89/C90** → **C99** → **C11** → **C17** (ISO/IEC 9899:2018) → **C23**.\n\n**C17 is the bug-fix and refinement release of C11**. It introduced no new language features, but resolved over 40 technical defect reports (DRs). In modern systems programming, **C17 is the gold standard for production codebases** because it is universally supported across GCC, Clang, and MSVC without experimental volatility.\n\nThe standard version macro in C17 is:\n```c\n#if __STDC_VERSION__ != 201710L\n#error \"This codebase requires an ISO C17 conforming compiler!\"\n#endif\n```\n\n---\n\n## 2. The Systems Mental Model vs Node.js / Rust / Go\n\nComing from Node.js (V8) and Rust/Go:\n\n```mermaid\ngraph LR\n    subgraph Node_JS[\"Node.js\"]\n        JS[JavaScript Source] --> V8[V8 JIT / Bytecode Engine]\n        V8 --> GC[Garbage Collector & Runtime]\n        GC --> OS1[OS Syscalls]\n    end\n\n    subgraph ISO_C17[\"ISO C17\"]\n        C[C17 Source] --> CC[Clang / GCC]\n        CC --> ASM[Machine Assembly]\n        ASM --> LD[Linker]\n        LD --> BIN[Bare-Metal Native Binary]\n        BIN --> OS2[Direct Syscalls & Raw Memory]\n    end\n```\n\n- **In Node.js**: Memory is abstracted behind garbage collection (V8). You cannot manage cache lines, alignment, or raw stack frames.\n- **In Rust/Go**: The compiler prevents invalid memory operations at compile time or via runtime garbage collection.\n- **In C17**: You have direct control over hardware and memory layout. In your CHIP-8 emulator, `Memory.memory[4096]` represents the physical RAM directly. If you index beyond `4095`, C will not stop you—it will trigger [Undefined Behavior (UB)](../../glossary/#undefined-behavior-ub).\n\n> [!TIP] The Function Prototype Trap in C\n> In Node.js, Go, Rust, and C++, `void foo()` declares a function taking **zero** arguments.\n> In C, `void foo()` declares a function taking an **unspecified number of arguments** (legacy C89 artifact).\n> In modern C, you must **always** write `void foo(void)` to declare a zero-argument function. We enforce `-Wstrict-prototypes` to catch this error automatically.\n\n---\n\n## 3. The Modern C17 Compilation Pipeline\n\n```mermaid\nsequenceDiagram\n    participant S as src/*.c & include/*.h\n    participant P as Preprocessor (cpp)\n    participant C as Compiler (clang / gcc)\n    participant A as Assembler (as)\n    participant L as Linker (ld + libSDL2)\n    participant B as ./bin/chip8 (Binary)\n\n    S->>P: #include, #define, #if\n    P->>C: Expanded Translation Units (.i)\n    C->>A: Assembly Code (.s)\n    A->>L: Object Files (.o)\n    L->>B: Final Executable with ASan/UBSan Hooks\n```\n\nTo catch errors early in this pipeline, we equip Clang/GCC with two critical dynamic instrumentation tools:\n1. **[AddressSanitizer (ASan)](../../glossary/#addresssanitizer-asan)**: Detects buffer overflows, stack/heap out-of-bounds access, and memory leaks.\n2. **[UndefinedBehaviorSanitizer (UBSan)](../../glossary/#undefinedbehaviorsanitizer-ubsan)**: Detects integer overflows, null-pointer dereferences, and misalignment at runtime.\n\n---\n\n## 4. Production `CMakeLists.txt` for `chip-8-emu/c`\n\nPlace this `CMakeLists.txt` directly in `/Users/morfes/projects/chip-8-emu/c/CMakeLists.txt`:\n\n```cmake\ncmake_minimum_required(VERSION 3.20)\nproject(chip8_emu C)\n\n# 1. Enforce ISO C17 Standard strictly (disable non-standard compiler extensions)\nset(CMAKE_C_STANDARD 17)\nset(CMAKE_C_STANDARD_REQUIRED ON)\nset(CMAKE_C_EXTENSIONS OFF)\n\n# 2. Export compile_commands.json for clangd / Neovim / VS Code LSP\nset(CMAKE_EXPORT_COMPILE_COMMANDS ON)\n\n# 3. Find SDL2 dependency across macOS (Homebrew) and Linux\nfind_package(SDL2 REQUIRED)\n\n# 4. Include project headers\ninclude_directories(include ${SDL2_INCLUDE_DIRS})\n\n# 5. Gather source files\nfile(GLOB_RECURSE SOURCES \"src/*.c\")\n\n# 6. Define Target Executable\nadd_executable(chip8 ${SOURCES})\n\n# 7. Link SDL2\ntarget_link_libraries(chip8 PRIVATE ${SDL2_LIBRARIES})\n\n# 8. Professional Diagnostic Warnings\ntarget_compile_options(chip8 PRIVATE\n    -Wall\n    -Wextra\n    -Wpedantic\n    -Wshadow\n    -Wconversion\n    -Wdouble-promotion\n    -Wformat=2\n    -Wundef\n    -Wstrict-prototypes\n    -Wmissing-prototypes\n)\n\n# 9. Dynamic Sanitizers (AddressSanitizer & UndefinedBehaviorSanitizer in Debug Mode)\noption(ENABLE_SANITIZERS \"Enable ASan and UBSan in Debug builds\" ON)\nif(ENABLE_SANITIZERS AND CMAKE_BUILD_TYPE MATCHES \"Debug\")\n    target_compile_options(chip8 PRIVATE \n        -fsanitize=address,undefined \n        -fno-omit-frame-pointer \n        -g\n    )\n    target_link_options(chip8 PRIVATE \n        -fsanitize=address,undefined\n    )\nendif()\n```\n\n---\n\n## 5. Interactive Retrieval & Practice\n\n> [!QUESTION] Active Recall 1\n> Why is `Chip8 new_chip8()` in C different from `Chip8 new_chip8(void)`, and what compiler flag enforces the latter?\n\n> [!FAQ]- Solution (Click to reveal)\n> `new_chip8()` in C allows passing any number of arbitrary arguments at call sites because empty parameter lists mean *unspecified arguments* in C. `new_chip8(void)` guarantees exactly zero arguments. The compiler flag `-Wstrict-prototypes` enforces this.\n\n---\n\n> [!QUESTION] Active Recall 2\n> What is the runtime impact of compiling with `-fsanitize=address,undefined` during emulator development?\n\n> [!FAQ]- Solution (Click to reveal)\n> It instruments every memory read/write and arithmetic operation. If the CHIP-8 interpreter tries to write outside `memory.memory[4096]`, read past the screen buffer `screen[64][32]`, or execute signed integer overflow, the program instantly halts with an exact stack trace and memory address report rather than silently corrupting memory.\n\n---\n\n### 🛠️ Hands-On Exercise on your CHIP-8 Repo\n\n- [ ] Create `/Users/morfes/projects/chip-8-emu/c/CMakeLists.txt` with the configuration above.\n- [ ] Build in Debug mode:\n  ```bash\n  cd /Users/morfes/projects/chip-8-emu/c\n  cmake -B build -DCMAKE_BUILD_TYPE=Debug\n  cmake --build build\n  ./build/chip8\n  ```\n- [ ] Observe the strict compiler diagnostic feedback on any missing prototypes or conversions.\n\n---\n\n## 6. Primary Source\n\n- [ISO/IEC 9899:2018 Specification (C17 Committee Draft N2176)](https://www.open-std.org/jtc1/sc22/wg14/www/docs/n2176.pdf) — Section 6.7.6.3 (Function declarators and prototypes).\n\n---\n\n## 💬 Next Steps\nTry running the CMake build on your `chip-8-emu/c` directory! Once configured, we will proceed to **[Lesson 0002: Safe Binary File I/O & ROM Loading into Memory at 0x200](../0002-binary-file-io-and-rom-loading/)**!\n\n---\n[← C17 MOC](../../c17/) · [Lesson 0002: Binary File I/O & ROM Loading →](../0002-binary-file-io-and-rom-loading/)\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "c17"
+      ],
+      "href": "/notes/teach/c17/c17/",
+      "title": "C17 Hub"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "lessons",
+        "0002-binary-file-io-and-rom-loading"
+      ],
+      "href": "/notes/teach/c17/lessons/0002-binary-file-io-and-rom-loading/",
+      "title": "Lesson 0002: Safe Binary File I/O & ROM Loading into Memory at 0x200"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "learning-records",
+        "0003-cmake-sdl2-and-integer-truncation"
+      ],
+      "href": "/notes/teach/c17/learning-records/0003-cmake-sdl2-and-integer-truncation/",
+      "title": "LR-0003: CMake SDL2 Resolution & Integer Precision Diagnostics"
+    }
+  ]
+}

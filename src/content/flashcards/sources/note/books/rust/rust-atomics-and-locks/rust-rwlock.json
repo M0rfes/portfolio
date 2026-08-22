@@ -1,0 +1,41 @@
+{
+  "source": {
+    "type": "note",
+    "id": "books/rust/rust-atomics-and-locks/rust-rwlock",
+    "title": "Rust RwLock",
+    "href": "/notes/books/rust/rust-atomics-and-locks/rust-rwlock/",
+    "tags": [
+      "rust",
+      "concurrency",
+      "locks",
+      "rwlock"
+    ]
+  },
+  "cards": [
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-rwlock:0",
+      "question": "How does an RwLock differ from a Mutex?",
+      "answer": "A Mutex always takes exclusive access even when a shared reference would suffice. An RwLock allows one exclusive mutable reference or multiple shared read references."
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-rwlock:1",
+      "question": "When is an RwLock a good fit?",
+      "answer": "For data that is read frequently but written to infrequently."
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-rwlock:2",
+      "question": "How is RwLock related to RefCell?",
+      "answer": "It is a thread-safe version of RefCell. Access goes through Deref and DerefMut."
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-rwlock:3",
+      "question": "What do read and write return, and which traits do the guards implement?",
+      "answer": "read returns RwLockReadGuard, which only implements Deref. write returns RwLockWriteGuard, which implements both DerefMut and Deref."
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-rwlock:4",
+      "question": "When do you need Arc around an RwLock to share it across threads?",
+      "answer": "With thread::spawn, Arc is needed so the reference can be moved to other threads. Scoped threads finish before the caller ends, so the lock can be borrowed without Arc."
+    }
+  ]
+}

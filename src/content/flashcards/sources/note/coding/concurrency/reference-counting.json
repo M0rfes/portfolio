@@ -1,0 +1,36 @@
+{
+  "source": {
+    "type": "note",
+    "id": "coding/concurrency/reference-counting",
+    "title": "Reference Counting",
+    "href": "/notes/coding/concurrency/reference-counting/",
+    "tags": ["memory-management", "smart-pointers"]
+  },
+  "cards": [
+    {
+      "id": "note:coding/concurrency/reference-counting:0",
+      "question": "What is reference counting?",
+      "answer": "A smart pointer mechanism that keeps a count of all owners of a value and drops the value only when the counter reaches 0."
+    },
+    {
+      "id": "note:coding/concurrency/reference-counting:1",
+      "question": "How does cloning a reference-counted pointer differ from deep cloning?",
+      "answer": "Cloning increments the counter next to the value by 1. It does not create a new value on the heap."
+    },
+    {
+      "id": "note:coding/concurrency/reference-counting:2",
+      "question": "What happens when a clone of a reference-counted pointer is dropped?",
+      "answer": "The counter is decremented. If it reaches 0, the actual value is dropped."
+    },
+    {
+      "id": "note:coding/concurrency/reference-counting:3",
+      "question": "What kind of reference does standard reference counting give by default?",
+      "answer": "A read-only reference."
+    },
+    {
+      "id": "note:coding/concurrency/reference-counting:4",
+      "question": "When is standard reference counting not thread-safe?",
+      "answer": "When the counter increments and decrements are non-atomic."
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "source": {
+    "type": "note",
+    "id": "coding/concurrency/thread-joining",
+    "title": "Thread Joining",
+    "href": "/notes/coding/concurrency/thread-joining/",
+    "tags": ["concurrency", "threads"]
+  },
+  "cards": [
+    {
+      "id": "note:coding/concurrency/thread-joining:0",
+      "question": "How do you wait for spawned threads to finish before exiting main?",
+      "answer": "Join the thread handle."
+    },
+    {
+      "id": "note:coding/concurrency/thread-joining:1",
+      "question": "What does joining a thread wait for?",
+      "answer": "The target thread to finish."
+    },
+    {
+      "id": "note:coding/concurrency/thread-joining:2",
+      "question": "What does joining a thread return?",
+      "answer": "The thread's result, or an indication that the thread panicked."
+    }
+  ]
+}

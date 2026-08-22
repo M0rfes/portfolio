@@ -1,0 +1,46 @@
+{
+  "source": {
+    "type": "note",
+    "id": "llms/needle-in-a-haystack-20-03-2026",
+    "title": "Needle Haystack",
+    "href": "/notes/llms/needle-in-a-haystack-20-03-2026/",
+    "tags": ["llm", "research", "long-context", "retrieval", "benchmark"]
+  },
+  "cards": [
+    {
+      "id": "note:llms/needle-in-a-haystack-20-03-2026:0",
+      "question": "What does the Needle-in-a-Haystack benchmark test?",
+      "answer": "Whether an LLM can find a small relevant fact buried in a long context window, especially when that fact sits in the middle rather than near the start or end."
+    },
+    {
+      "id": "note:llms/needle-in-a-haystack-20-03-2026:1",
+      "question": "What is primacy bias?",
+      "answer": "Paying more attention to content at the start of the prompt."
+    },
+    {
+      "id": "note:llms/needle-in-a-haystack-20-03-2026:2",
+      "question": "What is recency bias?",
+      "answer": "Paying more attention to content at the end of the prompt."
+    },
+    {
+      "id": "note:llms/needle-in-a-haystack-20-03-2026:3",
+      "question": "What is the \"lost in the middle\" phenomenon?",
+      "answer": "Facts buried in the center of a long prompt are significantly harder for models to retrieve."
+    },
+    {
+      "id": "note:llms/needle-in-a-haystack-20-03-2026:4",
+      "question": "What capability does NIAH measure?",
+      "answer": "Long-context retrieval, not general intelligence. A strong model can locate and use evidence even among many distractors."
+    },
+    {
+      "id": "note:llms/needle-in-a-haystack-20-03-2026:5",
+      "question": "How can the same bias affect tool selection in agents?",
+      "answer": "LLMs may favor tools listed first in the system prompt. Ordering can change behavior unrelated to a tool's actual utility."
+    },
+    {
+      "id": "note:llms/needle-in-a-haystack-20-03-2026:6",
+      "question": "What practical mitigations does the note recommend?",
+      "answer": "Put critical information near the start or end, give each agent fewer tools, and keep prompts concise so the context window is not saturated."
+    }
+  ]
+}

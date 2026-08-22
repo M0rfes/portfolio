@@ -1,0 +1,37 @@
+{
+  "source": {
+    "type": "note",
+    "id": "books/rust/rust-atomics-and-locks/rust-arc",
+    "title": "Rust Arc",
+    "href": "/notes/books/rust/rust-atomics-and-locks/rust-arc/",
+    "tags": [
+      "rust",
+      "concurrency",
+      "reference-counting",
+      "smart-pointers",
+      "atomics"
+    ]
+  },
+  "cards": [
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-arc:0",
+      "question": "What does Arc stand for?",
+      "answer": "Atomically Reference Counted."
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-arc:1",
+      "question": "How does Arc differ from Rc?",
+      "answer": "It is the same as Rc, except increment and decrement of the count are atomic, so no two threads can mutate the count at the same time."
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-arc:2",
+      "question": "Why can an Arc be shared and sent across threads?",
+      "answer": "Because the reference-count updates are atomic, the pointer can be safely shared and sent across threads."
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-arc:3",
+      "question": "How do you inspect or uniquely mutate an Arc?",
+      "answer": "Use Arc::strong_count for the number of references and Arc::get_mut for a mutable reference when the Arc is unique."
+    }
+  ]
+}

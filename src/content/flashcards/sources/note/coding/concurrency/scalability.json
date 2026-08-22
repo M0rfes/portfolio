@@ -1,0 +1,36 @@
+{
+  "source": {
+    "type": "note",
+    "id": "coding/concurrency/scalability",
+    "title": "Scalability",
+    "href": "/notes/coding/concurrency/scalability/",
+    "tags": ["concurrency", "architecture", "scalability"]
+  },
+  "cards": [
+    {
+      "id": "note:coding/concurrency/scalability:0",
+      "question": "How can concurrency help scalability?",
+      "answer": "It lets you scale out horizontally instead of scaling up vertically."
+    },
+    {
+      "id": "note:coding/concurrency/scalability:1",
+      "question": "What does scaling vertically mean?",
+      "answer": "Buying more RAM or a faster processor, which typically yields only marginal improvements."
+    },
+    {
+      "id": "note:coding/concurrency/scalability:2",
+      "question": "When does vertical scaling stop helping?",
+      "answer": "Once you have already bought the fastest system."
+    },
+    {
+      "id": "note:coding/concurrency/scalability:3",
+      "question": "How do you scale horizontally?",
+      "answer": "By distributing the work across multiple machines."
+    },
+    {
+      "id": "note:coding/concurrency/scalability:4",
+      "question": "Why does decoupling help scale a single service?",
+      "answer": "If only one service needs to scale, a decoupled system can scale that service alone instead of scaling everything in a tightly coupled system."
+    }
+  ]
+}

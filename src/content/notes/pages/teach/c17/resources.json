@@ -1,0 +1,29 @@
+{
+  "slug": [
+    "teach",
+    "c17",
+    "resources"
+  ],
+  "href": "/notes/teach/c17/resources/",
+  "title": "C17 Resources",
+  "tags": [
+    "teach/c17",
+    "resources"
+  ],
+  "created": "2026-08-22",
+  "updatedAt": "2026-08-22",
+  "vaultPath": "Teach/C17/RESOURCES.md",
+  "folder": "Teach",
+  "markdown": "[← C17 MOC](../c17/)\n\n# C17 Resources\n\n> [!NOTE] Curation Standards\n> Only high-trust ISO standards, authoritative systems literature, official documentation, and curated practitioner communities are listed here.\n\n---\n\n## 📚 Knowledge (Primary Sources & Textbooks)\n\n- [ISO C17 Standard Draft (N2176)](https://www.open-std.org/jtc1/sc22/wg14/www/docs/n2176.pdf)\n  - **Use for**: The ultimate authoritative specification for language semantics, grammar, and standard library guarantees.\n- [Book: _Modern C_ by Jens Gustedt (Inria)](https://modernc.gforge.inria.fr/)\n  - **Use for**: Idiomatic modern C (C11/C17/C23), type safety, memory models, modularity, and avoiding historical antipatterns.\n- [Book: _Effective C_ by Robert C. Seacord](https://nostarch.com/Effective_C)\n  - **Use for**: Professional defensive programming, dynamic memory security, integer conversion safety, and undefined behavior prevention.\n- [SEI CERT C Coding Standard](https://wiki.sei.cmu.edu/confluence/display/c/SEI+CERT+C+Coding+Standard)\n  - **Use for**: Comprehensive rules and security guidelines to avoid software vulnerabilities.\n- [Beej's Guide to C Programming](https://beej.us/guide/bgc/) & [Beej's Guide to Network Programming](https://beej.us/guide/bgnet/)\n  - **Use for**: Practical systems programming, socket communication, and POSIX system calls.\n- [Cppreference C Reference](https://en.cppreference.com/w/c)\n  - **Use for**: Quick, searchable standard library API lookup and behavior guarantees.\n- **Vault Links**:\n  - [Vault Concurrency Notes](../../../coding/concurrency/concurrency/)\n  - [Vault Mutex Reference](../../../coding/concurrency/mutex/)\n  - [Vault Memory & Atomics Notes](../../../books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/)\n\n---\n\n## 👥 Wisdom (Communities & Practice)\n\n- [Reddit: r/C_Programming](https://reddit.com/r/C_Programming)\n  - **Use for**: Code reviews, performance analysis, systems architecture questions, and compiler edge cases.\n- [Stack Overflow (C Tag)](https://stackoverflow.com/questions/tagged/c)\n  - **Use for**: Specific diagnostic questions and ISO standard clause interpretation.\n- [Lobste.rs Systems Tag](https://lobste.rs/t/c)\n  - **Use for**: High-signal engineering discussions on native systems software.\n\n---\n\n## ⚠️ Knowledge Gaps\n\n- *None currently identified. C17 toolchain and ISO specifications are fully standardized.*\n\n---\n\n## 👤 Learner Preferences\n\n- Background in Node.js with working familiarity with Go and Rust.\n- Prefers deep, rigorous understanding of the memory model, low-level mechanics, and job-readiness over surface-level tutorials.\n- Targets macOS and Linux using CMake, Clang, and GCC.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "c17"
+      ],
+      "href": "/notes/teach/c17/c17/",
+      "title": "C17 Hub"
+    }
+  ]
+}

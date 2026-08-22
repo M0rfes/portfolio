@@ -21,6 +21,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.8,
     },
+    {
+      url: `${baseUrl}/flashcards`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.7,
+    },
     ...notes.map((note) => ({
       url: `${baseUrl}${note.href.replace(/\/$/, "")}`,
       lastModified: new Date(note.updatedAt),

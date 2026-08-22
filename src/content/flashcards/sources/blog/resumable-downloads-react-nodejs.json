@@ -1,0 +1,60 @@
+{
+  "source": {
+    "type": "blog",
+    "id": "resumable-downloads-react-nodejs",
+    "title": "Implementing Resumable Downloads in React and Node.js",
+    "href": "/blogs/resumable-downloads-react-nodejs",
+    "tags": [
+      "React",
+      "NodeJS",
+      "Express",
+      "NestJS",
+      "resumable",
+      "downloads",
+      "HTTP",
+      "Range",
+      "IndexedDB",
+      "TypeScript",
+      "webdevelopment",
+      "frontend",
+      "backend",
+      "chunked",
+      "file",
+      "binary",
+      "progressive",
+      "API"
+    ]
+  },
+  "cards": [
+    {
+      "id": "blog:resumable-downloads-react-nodejs:0",
+      "question": "What problem do resumable downloads solve?",
+      "answer": "Large-file downloads are often interrupted by connection issues, device sleep, or navigation. Without resumability the user must restart from scratch."
+    },
+    {
+      "id": "blog:resumable-downloads-react-nodejs:1",
+      "question": "What two pieces make browser downloads resumable?",
+      "answer": "The HTTP Range header for partial retrieval, plus persistent client storage such as IndexedDB to keep download state."
+    },
+    {
+      "id": "blog:resumable-downloads-react-nodejs:2",
+      "question": "How should the server respond to a Range request?",
+      "answer": "Serve only the requested byte range and return status 206 to indicate partial content."
+    },
+    {
+      "id": "blog:resumable-downloads-react-nodejs:3",
+      "question": "How does the React hook resume after pause, reload, or disconnect?",
+      "answer": "It stores partial downloads in IndexedDB, tracks byte offsets, and continues from the correct offset. AbortController cleanly pauses in-flight XHR or fetch."
+    },
+    {
+      "id": "blog:resumable-downloads-react-nodejs:4",
+      "question": "Why store each chunk as an ArrayBuffer?",
+      "answer": "The full file is never loaded into memory until final assembly. Each chunk stays a binary ArrayBuffer until then."
+    },
+    {
+      "id": "blog:resumable-downloads-react-nodejs:5",
+      "question": "How does resumable download change for large tabular data?",
+      "answer": "The client requests row ranges instead of byte ranges and tracks row index rather than byte position. Each chunk can be parsed and used immediately, often including a header."
+    }
+  ]
+}

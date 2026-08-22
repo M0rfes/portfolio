@@ -1,0 +1,10 @@
+{
+  "source": {
+    "type": "note",
+    "id": "llms/microsoft-graphrag",
+    "title": "Microsoft GraphRAG",
+    "href": "/notes/llms/microsoft-graphrag/",
+    "tags": ["microsoft", "graph-rag", "research", "rag"]
+  },
+  "cards": []
+}

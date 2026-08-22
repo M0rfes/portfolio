@@ -1,0 +1,26 @@
+{
+  "source": {
+    "type": "note",
+    "id": "coding/concurrency/race-conditions",
+    "title": "Race Conditions",
+    "href": "/notes/coding/concurrency/race-conditions/",
+    "tags": ["concurrency"]
+  },
+  "cards": [
+    {
+      "id": "note:coding/concurrency/race-conditions:0",
+      "question": "What is a race condition?",
+      "answer": "Multiple threads access and attempt to modify shared state concurrently, and the final outcome depends on the timing or interleaving of execution."
+    },
+    {
+      "id": "note:coding/concurrency/race-conditions:1",
+      "question": "What does the outcome of a race condition depend on?",
+      "answer": "The timing or interleaving of execution."
+    },
+    {
+      "id": "note:coding/concurrency/race-conditions:2",
+      "question": "What can happen if two threads both see an uninitialized state?",
+      "answer": "Both may restart the computation; whichever finishes first wins."
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "source": {
+    "type": "note",
+    "id": "coding/concurrency/concurrency",
+    "title": "Concurrency",
+    "href": "/notes/coding/concurrency/concurrency/",
+    "tags": ["concurrency", "performance"]
+  },
+  "cards": [
+    {
+      "id": "note:coding/concurrency/concurrency:0",
+      "question": "Why has concurrency become more popular on modern CPUs?",
+      "answer": "The number of cores and threads per core has increased."
+    },
+    {
+      "id": "note:coding/concurrency/concurrency:1",
+      "question": "What role does concurrency play when resources are limited?",
+      "answer": "It is the only way to improve performance with limited resources."
+    },
+    {
+      "id": "note:coding/concurrency/concurrency:2",
+      "question": "Where is concurrency widely used?",
+      "answer": "In modern computing systems, operating systems, and large distributed clusters."
+    },
+    {
+      "id": "note:coding/concurrency/concurrency:3",
+      "question": "Besides performance, what does concurrency help developers do?",
+      "answer": "It helps model the real world, maximises system efficiency from users’ and developers’ perspectives, and lets developers solve large, complex problems."
+    }
+  ]
+}

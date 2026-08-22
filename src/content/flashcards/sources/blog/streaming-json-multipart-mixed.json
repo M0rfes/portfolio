@@ -1,0 +1,64 @@
+{
+  "source": {
+    "type": "blog",
+    "id": "streaming-json-multipart-mixed",
+    "title": "Streaming JSON Data with Multipart/Mixed and Meros",
+    "href": "/blogs/streaming-json-multipart-mixed",
+    "tags": [
+      "multipart",
+      "streaming",
+      "HTTP",
+      "JSON",
+      "JavaScript",
+      "Go",
+      "webdevelopment",
+      "meros",
+      "chunked",
+      "API",
+      "realtime",
+      "performance",
+      "progressiveloading",
+      "webapi",
+      "nodejs",
+      "frontend",
+      "backend"
+    ]
+  },
+  "cards": [
+    {
+      "id": "blog:streaming-json-multipart-mixed:0",
+      "question": "How do you stream multiple JSON objects on one HTTP connection?",
+      "answer": "Use Content-Type multipart/mixed with a boundary and send each JSON object as it becomes available, instead of waiting until all data is processed."
+    },
+    {
+      "id": "blog:streaming-json-multipart-mixed:1",
+      "question": "Why set Transfer-Encoding: chunked on a multipart JSON stream?",
+      "answer": "The server can send the response without knowing its total size and start flushing parts as soon as they are ready."
+    },
+    {
+      "id": "blog:streaming-json-multipart-mixed:2",
+      "question": "What does Meros do on the client?",
+      "answer": "It is a JavaScript library that parses multipart streams. After fetch with Accept: multipart/mixed, you iterate each part and handle part.body."
+    },
+    {
+      "id": "blog:streaming-json-multipart-mixed:3",
+      "question": "How does multipart streaming change a CPU-bound table-row API?",
+      "answer": "Without streaming, users wait until every row is calculated. With streaming, each row is flushed as soon as its calculation finishes and can appear in the UI immediately."
+    },
+    {
+      "id": "blog:streaming-json-multipart-mixed:4",
+      "question": "How can a server stream JSON from multiple slow sources?",
+      "answer": "Fetch sources concurrently and write each part as any source produces data. The client can keep Maps per type and re-render as posts, comments, or users arrive."
+    },
+    {
+      "id": "blog:streaming-json-multipart-mixed:5",
+      "question": "When should you use multipart streaming?",
+      "answer": "When pieces can be processed independently, each takes significant time, users benefit from partial results, or you are aggregating data from multiple slow sources."
+    },
+    {
+      "id": "blog:streaming-json-multipart-mixed:6",
+      "question": "What resilience and memory benefits does multipart streaming provide?",
+      "answer": "You do not buffer a large full response, and a partial failure does not block the parts that succeeded."
+    }
+  ]
+}

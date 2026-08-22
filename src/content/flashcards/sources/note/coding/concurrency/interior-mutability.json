@@ -1,0 +1,31 @@
+{
+  "source": {
+    "type": "note",
+    "id": "coding/concurrency/interior-mutability",
+    "title": "Interior Mutability",
+    "href": "/notes/coding/concurrency/interior-mutability/",
+    "tags": ["memory", "type-system"]
+  },
+  "cards": [
+    {
+      "id": "note:coding/concurrency/interior-mutability:0",
+      "question": "What does interior mutability let you do?",
+      "answer": "Mutate a value via a shared or read reference."
+    },
+    {
+      "id": "note:coding/concurrency/interior-mutability:1",
+      "question": "What does the type system normally guarantee about read and write references?",
+      "answer": "There cannot be an active read reference while a write reference exists to the same value."
+    },
+    {
+      "id": "note:coding/concurrency/interior-mutability:2",
+      "question": "How do single-threaded cell types enable interior mutability?",
+      "answer": "By copying or replacing values behind a shared reference."
+    },
+    {
+      "id": "note:coding/concurrency/interior-mutability:3",
+      "question": "How do borrow-checked cells or thread-safe locks enable interior mutability?",
+      "answer": "By tracking borrows at runtime."
+    }
+  ]
+}

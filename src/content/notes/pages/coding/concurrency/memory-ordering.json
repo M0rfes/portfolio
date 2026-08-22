@@ -16,5 +16,15 @@
   "vaultPath": "Coding/Concurrency/Memory Ordering.md",
   "folder": "Coding",
   "markdown": "# Memory Ordering\n\nAll [atomic operations](../atomic-operations/) take an ordering parameter that controls what guarantees we get about the relative ordering of operations.\n\n> [!NOTE]\n> The CPU might decide to perform operations out of order, i.e., group all assignments together even if, in the code, they are not in that order. So T1 might see V1 V2 V3 getting assigned but T2 might see V2 V3 V1 in that order.\n",
-  "linkedFrom": []
+  "linkedFrom": [
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "c17"
+      ],
+      "href": "/notes/teach/c17/c17/",
+      "title": "C17 Hub"
+    }
+  ]
 }

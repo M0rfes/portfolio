@@ -1,0 +1,36 @@
+{
+  "source": {
+    "type": "note",
+    "id": "architecture/building-microservices-17-02-2026",
+    "title": "Coupling Cohesion",
+    "href": "/notes/architecture/building-microservices-17-02-2026/",
+    "tags": ["microservices", "architecture", "coupling", "cohesion"]
+  },
+  "cards": [
+    {
+      "id": "note:architecture/building-microservices-17-02-2026:0",
+      "question": "What does it mean for microservices to be loosely coupled?",
+      "answer": "A change to one service should not require a change to another. You should be able to change and deploy one service without changing any other part of the system."
+    },
+    {
+      "id": "note:architecture/building-microservices-17-02-2026:1",
+      "question": "What causes coupling between services?",
+      "answer": "An integration that makes a change in one service force changes in multiple services. That can happen when a service exposes too many endpoints or is too chatty."
+    },
+    {
+      "id": "note:architecture/building-microservices-17-02-2026:2",
+      "question": "What is Constantine's Law?",
+      "answer": "A structure is stable if cohesion is strong and coupling is low."
+    },
+    {
+      "id": "note:architecture/building-microservices-17-02-2026:3",
+      "question": "How do cohesion and coupling differ relative to a service boundary?",
+      "answer": "Cohesion is the relationship between things inside a boundary. Coupling is the relationship between things across a boundary."
+    },
+    {
+      "id": "note:architecture/building-microservices-17-02-2026:4",
+      "question": "What happens when related functionality is spread across the system?",
+      "answer": "Changes to that functionality ripple across those boundaries, which implies tighter coupling."
+    }
+  ]
+}

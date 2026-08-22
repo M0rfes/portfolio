@@ -1,0 +1,41 @@
+{
+  "source": {
+    "type": "note",
+    "id": "architecture/ddd/ddd",
+    "title": "Domain-Driven Design",
+    "href": "/notes/architecture/ddd/ddd/",
+    "tags": ["architecture", "ddd", "microservices"]
+  },
+  "cards": [
+    {
+      "id": "note:architecture/ddd/ddd:0",
+      "question": "What is ubiquitous language in DDD?",
+      "answer": "Terms and jargon that make sense in the domain and mean the same thing in code as they do to the delivery team. That shared language lets people talk about a problem without translating between teams."
+    },
+    {
+      "id": "note:architecture/ddd/ddd:1",
+      "question": "What is an aggregate?",
+      "answer": "Data and behaviour bundled together and managed by a microservice—similar to an object in OOP. More precisely, it is a data model that makes sense within the domain, with a lifecycle that can be a state machine."
+    },
+    {
+      "id": "note:architecture/ddd/ddd:2",
+      "question": "How should aggregate ownership work across services?",
+      "answer": "One microservice can manage multiple aggregates, but each aggregate should be managed by only one service. Another service should ask the aggregate to change state, or the aggregate should react to an event, and the aggregate should be able to refuse an invalid change."
+    },
+    {
+      "id": "note:architecture/ddd/ddd:3",
+      "question": "Why can the same named aggregate differ across domains?",
+      "answer": "A Book in a bookstore, warehouse, and checkout has different properties and behaviour in each domain. Those properties only make sense inside that aggregate's context."
+    },
+    {
+      "id": "note:architecture/ddd/ddd:4",
+      "question": "How can a service reference an aggregate owned by another service?",
+      "answer": "Use a REST-style URI such as /user/123 and dereference it when needed, or keep a local copy of the data it needs—though copies add syncing issues."
+    },
+    {
+      "id": "note:architecture/ddd/ddd:5",
+      "question": "What is a bounded context?",
+      "answer": "A group of aggregates in a single domain. The same named aggregates can have different properties and processes in each context—for example warehouse stock versus finance stock."
+    }
+  ]
+}

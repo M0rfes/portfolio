@@ -1,0 +1,51 @@
+{
+  "source": {
+    "type": "note",
+    "id": "llms/tokenization",
+    "title": "Tokenization",
+    "href": "/notes/llms/tokenization/",
+    "tags": ["llm", "tokenization", "research", "nlp"]
+  },
+  "cards": [
+    {
+      "id": "note:llms/tokenization:0",
+      "question": "Why is character-level tokenization inefficient?",
+      "answer": "The model must learn spelling from scratch instead of relations between words, and a simple paragraph would need thousands of tokens."
+    },
+    {
+      "id": "note:llms/tokenization:1",
+      "question": "Why is a full word-level vocabulary impractical?",
+      "answer": "There are over 171,000 words in common use. Including variations such as run, runs, ran, and running would require millions of entries."
+    },
+    {
+      "id": "note:llms/tokenization:2",
+      "question": "What happens when a word-level vocabulary is cut off?",
+      "answer": "Unknown words become <|unk|>. A sentence full of those tokens loses its meaning."
+    },
+    {
+      "id": "note:llms/tokenization:3",
+      "question": "Why is the <|eos|> token needed?",
+      "answer": "It marks the end of a conversation. Without it, the model might cut off mid-sentence or ramble forever."
+    },
+    {
+      "id": "note:llms/tokenization:4",
+      "question": "Why is padding used during training?",
+      "answer": "Models process batches. If a sentence cannot fill the batch size (e.g. groups of 5), <|pad|> tokens fill the remaining slots."
+    },
+    {
+      "id": "note:llms/tokenization:5",
+      "question": "How does ChatML mark who is speaking?",
+      "answer": "With <|im_start|>role<|im_sep|>content<|im_end|>. Without those markers the model sees one blob of text and cannot tell system instructions from the user question."
+    },
+    {
+      "id": "note:llms/tokenization:6",
+      "question": "How do BPE, WordPiece, and Unigram choose merges?",
+      "answer": "BPE (GPT) merges the most frequent pairs. WordPiece (BERT) uses a likelihood-based merge rule. Unigram (T5) starts large and removes tokens that increase overall loss the least."
+    },
+    {
+      "id": "note:llms/tokenization:7",
+      "question": "How does sub-word tokenization handle unseen words?",
+      "answer": "It breaks them into known sub-components, e.g. unfriendly → un + friendly."
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "source": {
+    "type": "note",
+    "id": "llms/agentic-rag",
+    "title": "Agentic RAG",
+    "href": "/notes/llms/agentic-rag/",
+    "tags": ["rag", "ai-agents", "research", "agentic-rag"]
+  },
+  "cards": [
+    {
+      "id": "note:llms/agentic-rag:0",
+      "question": "How does Agentic RAG differ from a static retrieve-then-generate pipeline?",
+      "answer": "It is a dynamic, autonomous system. An agent uses a reasoning loop to decide how to find, evaluate, and use information instead of following a fixed linear flow."
+    },
+    {
+      "id": "note:llms/agentic-rag:1",
+      "question": "What does the Router Pattern do in Agentic RAG?",
+      "answer": "The LLM acts as a dispatcher. It classifies the query and routes it to the most relevant index or tool, such as a documentation index, web search, or SQL database."
+    },
+    {
+      "id": "note:llms/agentic-rag:2",
+      "question": "What is query decomposition?",
+      "answer": "Complex, multi-part questions are broken into simpler sub-queries. The agent runs them in parallel or sequence and synthesises the results."
+    },
+    {
+      "id": "note:llms/agentic-rag:3",
+      "question": "How does Corrective RAG (CRAG) recover from poor retrieval?",
+      "answer": "After retrieve, an agent grades chunk relevance. If relevance is low, it triggers a secondary search or reformulates the query."
+    },
+    {
+      "id": "note:llms/agentic-rag:4",
+      "question": "Which retrieval tools can an Agentic RAG agent choose among?",
+      "answer": "semantic_search for conceptual matching, keyword_search (BM25) for exact terms and names, web_search for current info, and sql_query for structured databases. Hybrid search (vector + BM25) is the baseline."
+    },
+    {
+      "id": "note:llms/agentic-rag:5",
+      "question": "When is Agentic RAG a better fit than a fixed pipeline?",
+      "answer": "Multi-hop queries, ambiguous queries, structured data such as CSVs or SQL, and high-precision work where hallucinating on poor retrieval is not acceptable."
+    },
+    {
+      "id": "note:llms/agentic-rag:6",
+      "question": "How do workflow and accuracy compare between traditional and Agentic RAG?",
+      "answer": "Traditional RAG is linear (retrieve then generate) with accuracy fixed by the initial search. Agentic RAG is iterative and self-correcting, with higher but variable latency."
+    },
+    {
+      "id": "note:llms/agentic-rag:7",
+      "question": "What are the main costs of Agentic RAG?",
+      "answer": "Higher latency and cost from multiple LLM calls, and non-deterministic behavior that makes testing harder."
+    }
+  ]
+}

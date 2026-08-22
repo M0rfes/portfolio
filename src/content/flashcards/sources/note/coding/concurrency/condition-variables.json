@@ -1,0 +1,26 @@
+{
+  "source": {
+    "type": "note",
+    "id": "coding/concurrency/condition-variables",
+    "title": "Condition Variables",
+    "href": "/notes/coding/concurrency/condition-variables/",
+    "tags": ["concurrency", "synchronization"]
+  },
+  "cards": [
+    {
+      "id": "note:coding/concurrency/condition-variables:0",
+      "question": "What is a condition variable used for?",
+      "answer": "To notify one or more threads of an event when the shared data is protected by a mutex."
+    },
+    {
+      "id": "note:coding/concurrency/condition-variables:1",
+      "question": "What happens to the mutex when a thread waits on a condition variable?",
+      "answer": "The condition variable takes the lock guard, unlocks the mutex, and puts the thread to sleep."
+    },
+    {
+      "id": "note:coding/concurrency/condition-variables:2",
+      "question": "What does a waiting thread do after a condition-variable notification?",
+      "answer": "It re-acquires the mutex lock and returns the guard."
+    }
+  ]
+}

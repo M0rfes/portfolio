@@ -1,0 +1,26 @@
+{
+  "source": {
+    "type": "note",
+    "id": "coding/concurrency/atomic-operations",
+    "title": "Atomic Operations",
+    "href": "/notes/coding/concurrency/atomic-operations/",
+    "tags": ["concurrency", "atomics"]
+  },
+  "cards": [
+    {
+      "id": "note:coding/concurrency/atomic-operations:0",
+      "question": "What is an atomic operation?",
+      "answer": "The smallest operation on data that either occurs or does not; there is no half-done state."
+    },
+    {
+      "id": "note:coding/concurrency/atomic-operations:1",
+      "question": "What inconsistent state can two threads create when updating a non-atomic variable?",
+      "answer": "Both threads can read the same value and update it at the same time. Atomic operations prevent that."
+    },
+    {
+      "id": "note:coding/concurrency/atomic-operations:2",
+      "question": "What determines which atomic types exist and how they are implemented?",
+      "answer": "The system architecture and OS."
+    }
+  ]
+}

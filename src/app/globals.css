@@ -1580,6 +1580,7 @@
 }
 
 .blog-table {
+  width: 100%;
   min-width: 100%;
   border: 1px solid var(--border);
   border-radius: 0.5rem;
@@ -1608,10 +1609,39 @@
 
 .blog-td {
   padding: 1rem 1.5rem;
-  white-space: nowrap;
+  white-space: normal;
   font-size: 0.875rem;
   color: var(--blog-text);
   border-bottom: 1px solid var(--border);
+}
+
+.mermaid-diagram {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  margin-inline: auto;
+  max-width: 42rem;
+  max-height: 24rem;
+  overflow: auto;
+  border-radius: 0.75rem;
+  background-color: color-mix(in srgb, var(--muted) 35%, transparent);
+}
+
+.mermaid-diagram .rsm-root {
+  min-height: 0;
+  max-height: 24rem;
+}
+
+.mermaid-diagram svg {
+  display: block;
+  width: auto !important;
+  max-width: 100%;
+  max-height: 22rem;
+  height: auto;
+  margin-inline: auto;
+}
+
+.mermaid-diagram-pending {
+  min-height: 12rem;
 }
 
 .blog-h1 {
@@ -1688,4 +1718,31 @@
 .blog-strong {
   font-weight: 700;
   color: var(--blog-text);
+}
+
+.flashcard-scene {
+  perspective: 1000px;
+}
+
+.flashcard-rig {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.45s ease;
+}
+
+.flashcard-rig.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.flashcard-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.flashcard-face-back {
+  transform: rotateY(180deg);
 }

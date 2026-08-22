@@ -1,0 +1,46 @@
+{
+  "source": {
+    "type": "note",
+    "id": "agents/agents",
+    "title": "Agents",
+    "href": "/notes/agents/agents/",
+    "tags": ["research", "ai", "agents"]
+  },
+  "cards": [
+    {
+      "id": "note:agents/agents:0",
+      "question": "What is an agent?",
+      "answer": "An agent is an LLM with tools: a system that enables LLMs to affect the world and achieve a goal."
+    },
+    {
+      "id": "note:agents/agents:1",
+      "question": "How do chained LLM workflows become agents?",
+      "answer": "It starts from a workflow that uses the LLM as a reasoning agent while deterministic code does most of the work. Chaining those workflows together produces agents, fully automated or narrow depending on the tools and harness around the LLM."
+    },
+    {
+      "id": "note:agents/agents:2",
+      "question": "What does ReAct stand for, and how does the loop work?",
+      "answer": "ReAct means Reason and Act. The workflow affects the environment, observes the effects, reasons about them, and either stops when the goal is reached or triggers another ReAct loop."
+    },
+    {
+      "id": "note:agents/agents:3",
+      "question": "How does a self-reflective / corrective multi-agent workflow stop?",
+      "answer": "A Generation LLM drafts, a Critique LLM returns feedback or a NO_FEEDBACK token, and the harness feeds feedback back into generation. The loop ends on NO_FEEDBACK or when the harness hits a set number of tries."
+    },
+    {
+      "id": "note:agents/agents:4",
+      "question": "What does the router pattern do?",
+      "answer": "The LLM acts as a dispatcher: it classifies the query and routes it to the most relevant index or tool, such as a documentation index versus web search."
+    },
+    {
+      "id": "note:agents/agents:5",
+      "question": "How does agentic RAG differ from a fixed retrieve-then-generate pipeline?",
+      "answer": "The agent uses a reasoning loop to decide how to find, evaluate, and use information. It can choose among tools such as semantic_search(), keyword_search(), or web_search() depending on the need."
+    },
+    {
+      "id": "note:agents/agents:6",
+      "question": "What roles do LangGraph, CrewAI, and MCP play in agent development?",
+      "answer": "LangGraph provides graph-based state management for complex cyclical workflows. CrewAI organises role-based agent teams. MCP is a standardised protocol for connecting agents to tools and data sources."
+    }
+  ]
+}

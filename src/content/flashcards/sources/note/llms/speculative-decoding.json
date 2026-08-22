@@ -1,0 +1,41 @@
+{
+  "source": {
+    "type": "note",
+    "id": "llms/speculative-decoding",
+    "title": "Speculative Decoding",
+    "href": "/notes/llms/speculative-decoding/",
+    "tags": ["llm", "speculative-decoding", "optimization", "inference", "throughput"]
+  },
+  "cards": [
+    {
+      "id": "note:llms/speculative-decoding:0",
+      "question": "What does speculative decoding optimize?",
+      "answer": "Token generation speed and token throughput in LLMs."
+    },
+    {
+      "id": "note:llms/speculative-decoding:1",
+      "question": "Why does standard decoder inference produce only one token per forward pass?",
+      "answer": "Because of the autoregressive transformer constraint: each step generates one token."
+    },
+    {
+      "id": "note:llms/speculative-decoding:2",
+      "question": "How do the draft and target models work together?",
+      "answer": "A smaller model generates X candidate tokens with confidence scores. A larger model validates all X tokens in a single forward pass."
+    },
+    {
+      "id": "note:llms/speculative-decoding:3",
+      "question": "What are the best-case and worst-case yields per large-model pass?",
+      "answer": "Best case: up to X tokens. Worst case: 1 token (otherwise it generates one token and repeats)."
+    },
+    {
+      "id": "note:llms/speculative-decoding:4",
+      "question": "What two implementation approaches exist?",
+      "answer": "A separate smaller draft model beside the main model, or baking draft generation into the model architecture."
+    },
+    {
+      "id": "note:llms/speculative-decoding:5",
+      "question": "When does speculative decoding waste compute?",
+      "answer": "When a large chunk of draft tokens is rejected, the work spent generating those X draft tokens is wasted."
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "source": {
+    "type": "note",
+    "id": "llms/decoder",
+    "title": "Decoder",
+    "href": "/notes/llms/decoder/",
+    "tags": ["llm", "decoder", "transformer", "attention", "autoregressive"]
+  },
+  "cards": [
+    {
+      "id": "note:llms/decoder:0",
+      "question": "What do decoder layers do in an LLM?",
+      "answer": "They generate the next token in autoregressive models, one token at a time."
+    },
+    {
+      "id": "note:llms/decoder:1",
+      "question": "How does decoder attention differ from encoder attention?",
+      "answer": "Decoders cannot see the full text. Attention is computed only from start to end (left to right in English)."
+    },
+    {
+      "id": "note:llms/decoder:2",
+      "question": "What does causal (masked) self-attention allow?",
+      "answer": "Position i attends only to positions j ≤ i."
+    },
+    {
+      "id": "note:llms/decoder:3",
+      "question": "What is the autoregressive generation loop?",
+      "answer": "Predict a token, append it, and repeat until EOS or max length."
+    },
+    {
+      "id": "note:llms/decoder:4",
+      "question": "Why is the layer called a decoder?",
+      "answer": "In Attention Is All You Need (2017), the encoder extracted features from language A and the decoder generated language B from those representations."
+    },
+    {
+      "id": "note:llms/decoder:5",
+      "question": "What tasks are decoder-only models suited for?",
+      "answer": "Language generation and open-ended generation. GPT-class, LLaMA, and Mistral models train with next-token prediction."
+    },
+    {
+      "id": "note:llms/decoder:6",
+      "question": "How does KV caching help decoder-only inference?",
+      "answer": "It speeds repeated left-to-right steps so past keys and values are not recomputed."
+    }
+  ]
+}

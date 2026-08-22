@@ -24,11 +24,7 @@ export function NoteContent({ note, children }: NoteContentProps) {
 
   return (
     <div className="min-h-screen pt-24 pb-16">
-      <div
-        className={`mx-auto px-4 sm:px-6 lg:px-8 ${
-          note.linkedFrom.length > 0 ? "max-w-7xl" : "max-w-4xl"
-        }`}
-      >
+      <div className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
         <Link href="/notes/">
           <motion.div
             className="inline-flex items-center gap-2 text-primary hover:text-secondary mb-8 transition-colors cursor-pointer"
@@ -42,7 +38,7 @@ export function NoteContent({ note, children }: NoteContentProps) {
 
         <div className="flex flex-col gap-8 lg:flex-row">
           <motion.article
-            className="blog-article w-full min-w-0 overflow-hidden flex-1"
+            className="blog-article w-full min-w-0 flex-1"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -66,7 +62,7 @@ export function NoteContent({ note, children }: NoteContentProps) {
               )}
             </div>
 
-            <div className="prose prose-lg max-w-none min-w-0 overflow-hidden">
+            <div className="prose prose-lg max-w-none min-w-0">
               {children}
             </div>
           </motion.article>

@@ -1,0 +1,31 @@
+{
+  "source": {
+    "type": "note",
+    "id": "coding/concurrency/static-lifetime",
+    "title": "Static Lifetime",
+    "href": "/notes/coding/concurrency/static-lifetime/",
+    "tags": ["concurrency", "memory"]
+  },
+  "cards": [
+    {
+      "id": "note:coding/concurrency/static-lifetime:0",
+      "question": "What does a static lifetime mean?",
+      "answer": "The value will exist until the end of the program."
+    },
+    {
+      "id": "note:coding/concurrency/static-lifetime:1",
+      "question": "Why can a static-lifetime value be shared across threads?",
+      "answer": "Because it will exist until the end of the program."
+    },
+    {
+      "id": "note:coding/concurrency/static-lifetime:2",
+      "question": "When does a static variable exist?",
+      "answer": "It exists before main and remains in scope until the program ends."
+    },
+    {
+      "id": "note:coding/concurrency/static-lifetime:3",
+      "question": "How else can a value be guaranteed to last for the program's duration?",
+      "answer": "By leaking it on the heap."
+    }
+  ]
+}

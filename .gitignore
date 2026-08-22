@@ -42,3 +42,7 @@ next-env.d.ts
 
 # notes build cache
 src/content/notes/.cache.json
+
+# flashcards ingest artifacts
+src/content/flashcards/.cache.json
+src/content/flashcards/changed.json

@@ -1,0 +1,51 @@
+{
+  "source": {
+    "type": "note",
+    "id": "llms/re-ranking",
+    "title": "Re-ranking",
+    "href": "/notes/llms/re-ranking/",
+    "tags": ["rag", "re-ranking", "research", "search-optimization"]
+  },
+  "cards": [
+    {
+      "id": "note:llms/re-ranking:0",
+      "question": "What are the two stages of re-ranking?",
+      "answer": "Stage 1 runs a broad vector search for a larger candidate set (20–50+). Stage 2 uses a ranking engine to filter those candidates and pass only the top K (e.g. 5) to the LLM."
+    },
+    {
+      "id": "note:llms/re-ranking:1",
+      "question": "Why rerank instead of sending more chunks to the LLM?",
+      "answer": "As the corpus grows, the chance of fetching the right content drops, and bad context can make the model hallucinate. You cannot keep raising chunk count without blowing the context window."
+    },
+    {
+      "id": "note:llms/re-ranking:2",
+      "question": "What do cross-encoder rerankers take as input?",
+      "answer": "A (query, document) pair. They output a relevance score and are the current workhorse for RAG reranking."
+    },
+    {
+      "id": "note:llms/re-ranking:3",
+      "question": "What is the typical bi-encoder then cross-encoder pattern?",
+      "answer": "Retrieve the top 100 with a bi-encoder or vector DB, rerank down to the top 10 with a cross-encoder, then send those to the LLM."
+    },
+    {
+      "id": "note:llms/re-ranking:4",
+      "question": "What are the three LLM reranking prompt styles?",
+      "answer": "Pointwise (score each passage), listwise (return an ordered list), and pairwise (compare two at a time; highest quality but slowest)."
+    },
+    {
+      "id": "note:llms/re-ranking:5",
+      "question": "When are LLM-based rerankers typically used?",
+      "answer": "When you already pay for a strong LLM and want maximum relevance for a small top-K. They capture richer semantics but add latency and cost."
+    },
+    {
+      "id": "note:llms/re-ranking:6",
+      "question": "When should you start with a small open-source cross-encoder?",
+      "answer": "When latency is tight and you self-host. Example: a BGE-reranker over the top 50–100 candidates."
+    },
+    {
+      "id": "note:llms/re-ranking:7",
+      "question": "What are the trade-offs of re-ranking?",
+      "answer": "Better precision and more candidate knowledge without overwhelming context, at the cost of slightly higher latency and compute per query."
+    }
+  ]
+}

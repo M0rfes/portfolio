@@ -1,0 +1,51 @@
+{
+  "source": {
+    "type": "note",
+    "id": "teach/c17/lessons/0001-c17-standards-and-modern-toolchain",
+    "title": "Lesson 0001: ISO C17 Standards, Compiler Diagnostics & CMake with SDL2",
+    "href": "/notes/teach/c17/lessons/0001-c17-standards-and-modern-toolchain/",
+    "tags": ["teach/c17", "lesson", "cmake", "toolchain", "chip8"]
+  },
+  "cards": [
+    {
+      "id": "note:teach/c17/lessons/0001-c17-standards-and-modern-toolchain:0",
+      "question": "What kind of release is C17 relative to C11?",
+      "answer": "C17 is the bug-fix and refinement release of C11. It introduced no new language features, but resolved over 40 technical defect reports."
+    },
+    {
+      "id": "note:teach/c17/lessons/0001-c17-standards-and-modern-toolchain:1",
+      "question": "What is the C17 value of `__STDC_VERSION__`?",
+      "answer": "`201710L`."
+    },
+    {
+      "id": "note:teach/c17/lessons/0001-c17-standards-and-modern-toolchain:2",
+      "question": "In C, how does `void foo()` differ from `void foo(void)`?",
+      "answer": "`void foo()` takes an unspecified number of arguments, a C89 leftover. `void foo(void)` declares a function that takes zero arguments."
+    },
+    {
+      "id": "note:teach/c17/lessons/0001-c17-standards-and-modern-toolchain:3",
+      "question": "Which compiler flag enforces empty-parameter prototypes?",
+      "answer": "`-Wstrict-prototypes`."
+    },
+    {
+      "id": "note:teach/c17/lessons/0001-c17-standards-and-modern-toolchain:4",
+      "question": "What does AddressSanitizer detect?",
+      "answer": "Buffer overflows, stack/heap out-of-bounds access, and memory leaks."
+    },
+    {
+      "id": "note:teach/c17/lessons/0001-c17-standards-and-modern-toolchain:5",
+      "question": "What does UndefinedBehaviorSanitizer detect at runtime?",
+      "answer": "Integer overflows, null-pointer dereferences, and misalignment."
+    },
+    {
+      "id": "note:teach/c17/lessons/0001-c17-standards-and-modern-toolchain:6",
+      "question": "How does CMake enforce ISO C17 without compiler extensions?",
+      "answer": "Set `CMAKE_C_STANDARD` to 17, `CMAKE_C_STANDARD_REQUIRED` to `ON`, and `CMAKE_C_EXTENSIONS` to `OFF`."
+    },
+    {
+      "id": "note:teach/c17/lessons/0001-c17-standards-and-modern-toolchain:7",
+      "question": "What is the runtime effect of `-fsanitize=address,undefined`?",
+      "answer": "It instruments memory reads/writes and arithmetic. Out-of-bounds writes, buffer overruns, or signed overflow halt the program with a stack trace instead of silently corrupting memory."
+    }
+  ]
+}

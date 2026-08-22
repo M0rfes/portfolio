@@ -1,0 +1,31 @@
+{
+  "source": {
+    "type": "note",
+    "id": "llms/mcp",
+    "title": "MCP",
+    "href": "/notes/llms/mcp/",
+    "tags": ["llm", "mcp", "tool-calling", "anthropic", "protocol"]
+  },
+  "cards": [
+    {
+      "id": "note:llms/mcp:0",
+      "question": "What is MCP built on top of?",
+      "answer": "Tool calling."
+    },
+    {
+      "id": "note:llms/mcp:1",
+      "question": "Who standardized MCP and what does it standardize?",
+      "answer": "Anthropic. It is a standard for LLMs to communicate with external services."
+    },
+    {
+      "id": "note:llms/mcp:2",
+      "question": "How does an LLM invoke MCP services?",
+      "answer": "MCP exposes JSON-RPC endpoints for the LLM to call."
+    },
+    {
+      "id": "note:llms/mcp:3",
+      "question": "How does MCP differ from regular tool calls?",
+      "answer": "Regular tool calls are defined inside the harness. MCPs can be added like plugins and extend the LLM with extra tools."
+    }
+  ]
+}

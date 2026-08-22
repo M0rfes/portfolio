@@ -1,0 +1,46 @@
+{
+  "source": {
+    "type": "note",
+    "id": "coding/concurrency/latency-vs-throughput",
+    "title": "Latency Throughput",
+    "href": "/notes/coding/concurrency/latency-vs-throughput/",
+    "tags": ["concurrency", "performance", "latency", "throughput"]
+  },
+  "cards": [
+    {
+      "id": "note:coding/concurrency/latency-vs-throughput:0",
+      "question": "How is performance in computing quantified?",
+      "answer": "In two ways: latency and throughput."
+    },
+    {
+      "id": "note:coding/concurrency/latency-vs-throughput:1",
+      "question": "What is latency?",
+      "answer": "How long a single task takes."
+    },
+    {
+      "id": "note:coding/concurrency/latency-vs-throughput:2",
+      "question": "What is throughput?",
+      "answer": "The number of tasks a system can handle over a period of time."
+    },
+    {
+      "id": "note:coding/concurrency/latency-vs-throughput:3",
+      "question": "What is the trade-off between latency and throughput?",
+      "answer": "Optimising for one may degrade the other."
+    },
+    {
+      "id": "note:coding/concurrency/latency-vs-throughput:4",
+      "question": "How can concurrency reduce latency?",
+      "answer": "By breaking down a long-running task and executing it in parallel."
+    },
+    {
+      "id": "note:coding/concurrency/latency-vs-throughput:5",
+      "question": "How can concurrency increase throughput?",
+      "answer": "By enabling multiple tasks to run simultaneously."
+    },
+    {
+      "id": "note:coding/concurrency/latency-vs-throughput:6",
+      "question": "In what three ways can concurrency improve system performance?",
+      "answer": "It can reduce latency, hide latency by doing other work during a high-latency operation, and increase throughput."
+    }
+  ]
+}

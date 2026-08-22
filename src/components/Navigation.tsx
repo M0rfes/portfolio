@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { Menu, X, User, MessageCircle, BookOpen, Download, NotebookPen } from "lucide-react";
+import { Menu, X, User, MessageCircle, BookOpen, Download, Layers, NotebookPen } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { ThemePicker } from "./ThemePicker";
 
@@ -20,6 +20,7 @@ export function Navigation() {
   const navItems = [
     { id: "about", label: "About", icon: User, href: "/about" },
     { id: "notes", label: "Notes", icon: NotebookPen, href: "/notes" },
+    { id: "flashcards", label: "Cards", icon: Layers, href: "/flashcards" },
     { id: "blogs", label: "Blogs", icon: BookOpen, href: "/blogs" },
     {
       id: "resume",
@@ -33,6 +34,7 @@ export function Navigation() {
   const isActive = (id: string, href: string) => {
     if (id === "blogs") return pathname.startsWith("/blogs");
     if (id === "notes") return pathname.startsWith("/notes");
+    if (id === "flashcards") return pathname.startsWith("/flashcards");
     return pathname === href;
   };
 
@@ -251,6 +253,7 @@ export function Navigation() {
       </motion.div>
 
       {/* Floating Action Button for mobile */}
+      {!pathname.startsWith("/flashcards") && (
       <motion.div
         className="fixed bottom-6 right-6 md:hidden z-40"
         initial={{ scale: 0 }}
@@ -266,6 +269,7 @@ export function Navigation() {
           <MessageCircle className="w-6 h-6 text-primary-foreground" />
         </motion.a>
       </motion.div>
+      )}
     </>
   );
 }

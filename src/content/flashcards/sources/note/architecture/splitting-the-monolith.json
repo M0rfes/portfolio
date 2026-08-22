@@ -1,0 +1,41 @@
+{
+  "source": {
+    "type": "note",
+    "id": "architecture/splitting-the-monolith",
+    "title": "Splitting Monolith",
+    "href": "/notes/architecture/splitting-the-monolith/",
+    "tags": ["architecture", "microservices", "refactoring"]
+  },
+  "cards": [
+    {
+      "id": "note:architecture/splitting-the-monolith:0",
+      "question": "What should you do before extracting the first microservice from a monolith?",
+      "answer": "Define a success metric and clear some low-hanging fruit first. Extraction can be a multi-month or years-long endeavour."
+    },
+    {
+      "id": "note:architecture/splitting-the-monolith:1",
+      "question": "How do you choose which functionality to extract first?",
+      "answer": "Balance how easy the extraction is against the benefit. For scale, extract functionality that constrains load; for time to market, extract high-volatility functionality."
+    },
+    {
+      "id": "note:architecture/splitting-the-monolith:2",
+      "question": "What is code-first decomposition, and what is its drawback?",
+      "answer": "Extract application code into a separate service while leaving the data in the monolith. Data is usually harder to decompose than code, so the effort can be wasted if the data cannot be split."
+    },
+    {
+      "id": "note:architecture/splitting-the-monolith:3",
+      "question": "What is data-first decomposition?",
+      "answer": "Decompose the data before splitting the code. Database decomposition is usually the harder part; if it succeeds, then split the feature into a service."
+    },
+    {
+      "id": "note:architecture/splitting-the-monolith:4",
+      "question": "How does the strangler fig pattern extract features?",
+      "answer": "A newer system wraps the monolith and slowly takes over features. A gateway routes each request to the new service or to the monolith if that feature is not extracted yet, so the monolith can stay unaware of the new service."
+    },
+    {
+      "id": "note:architecture/splitting-the-monolith:5",
+      "question": "How does a parallel run verify a new microservice?",
+      "answer": "Run both the microservice and the monolith, pass the request to both, and log the responses to check that behaviour stays the same over time."
+    }
+  ]
+}

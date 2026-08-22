@@ -1,0 +1,26 @@
+{
+  "source": {
+    "type": "note",
+    "id": "teach/c17/learning-records/0004-stdio-conventions-and-fread-mechanics",
+    "title": "LR-0004: Standard I/O Return Conventions & fread Parameters",
+    "href": "/notes/teach/c17/learning-records/0004-stdio-conventions-and-fread-mechanics/",
+    "tags": ["teach/c17", "learning-record", "stdio"]
+  },
+  "cards": [
+    {
+      "id": "note:teach/c17/learning-records/0004-stdio-conventions-and-fread-mechanics:0",
+      "question": "What return convention does `fseek` use?",
+      "answer": "The Unix status convention: `0` means success and non-zero means error."
+    },
+    {
+      "id": "note:teach/c17/learning-records/0004-stdio-conventions-and-fread-mechanics:1",
+      "question": "Why does `fread` separate `size` from `nmemb`?",
+      "answer": "`size` is the size of a single element and `nmemb` is the element count, which enables structured record-based reading."
+    },
+    {
+      "id": "note:teach/c17/learning-records/0004-stdio-conventions-and-fread-mechanics:2",
+      "question": "What does `fread` return?",
+      "answer": "The count of complete records transferred, not the raw byte count."
+    }
+  ]
+}

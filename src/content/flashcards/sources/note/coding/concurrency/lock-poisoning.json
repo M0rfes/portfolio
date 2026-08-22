@@ -1,0 +1,26 @@
+{
+  "source": {
+    "type": "note",
+    "id": "coding/concurrency/lock-poisoning",
+    "title": "Lock Poisoning",
+    "href": "/notes/coding/concurrency/lock-poisoning/",
+    "tags": ["concurrency", "locks", "error-handling"]
+  },
+  "cards": [
+    {
+      "id": "note:coding/concurrency/lock-poisoning:0",
+      "question": "When does lock poisoning occur?",
+      "answer": "When a thread panics while holding a mutex or reader-writer lock."
+    },
+    {
+      "id": "note:coding/concurrency/lock-poisoning:1",
+      "question": "What do later lock acquires return after a lock is poisoned?",
+      "answer": "An error indicating the lock is poisoned, for both read and write acquires."
+    },
+    {
+      "id": "note:coding/concurrency/lock-poisoning:2",
+      "question": "Does a poisoned lock still block other threads?",
+      "answer": "Yes. It still puts other threads to sleep, but signals that the protected state may be invalid."
+    }
+  ]
+}

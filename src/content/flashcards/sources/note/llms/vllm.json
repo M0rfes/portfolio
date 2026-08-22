@@ -1,0 +1,26 @@
+{
+  "source": {
+    "type": "note",
+    "id": "llms/vllm",
+    "title": "vLLM",
+    "href": "/notes/llms/vllm/",
+    "tags": ["llm", "vllm", "inference", "performance", "infrastructure"]
+  },
+  "cards": [
+    {
+      "id": "note:llms/vllm:0",
+      "question": "What is vLLM?",
+      "answer": "A library for high-throughput and memory-efficient LLM serving and inference."
+    },
+    {
+      "id": "note:llms/vllm:1",
+      "question": "What is PagedAttention?",
+      "answer": "An attention algorithm that manages KV cache more efficiently, similar to virtual memory paging in operating systems."
+    },
+    {
+      "id": "note:llms/vllm:2",
+      "question": "How does vLLM's dynamic batching help?",
+      "answer": "It groups requests on the fly to optimize hardware utilization."
+    }
+  ]
+}

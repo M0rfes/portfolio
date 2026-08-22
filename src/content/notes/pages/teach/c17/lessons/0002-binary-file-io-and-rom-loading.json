@@ -1,0 +1,53 @@
+{
+  "slug": [
+    "teach",
+    "c17",
+    "lessons",
+    "0002-binary-file-io-and-rom-loading"
+  ],
+  "href": "/notes/teach/c17/lessons/0002-binary-file-io-and-rom-loading/",
+  "title": "Lesson 0002: Safe Binary File I/O & ROM Loading into Memory at 0x200",
+  "tags": [
+    "teach/c17",
+    "lesson",
+    "file-io",
+    "memory",
+    "chip8"
+  ],
+  "created": "2026-08-22",
+  "updatedAt": "2026-08-22",
+  "vaultPath": "Teach/C17/Lessons/0002-binary-file-io-and-rom-loading.md",
+  "folder": "Teach",
+  "markdown": "[← C17 MOC](../../c17/) · [🎯 Mission](../../mission/) · [📖 Glossary](../../glossary/)\n\n# Lesson 0002: Safe Binary File I/O & ROM Loading into Memory at 0x200\n\n> [!NOTE] Tangible Win\n> By the end of this lesson, you will be able to: **Implement a robust, memory-safe binary ROM file loader for your CHIP-8 emulator that validates file presence, ensures ROM size fits within RAM boundaries (max 3,584 bytes), and loads bytecode starting at address `0x200` using standard C17 file streams.**\n\n---\n\n## 1. The CHIP-8 Memory Architecture\n\nCHIP-8 systems address 4,096 bytes (4 KB) of RAM (`0x000` to `0xFFF`):\n\n```mermaid\ngraph TD\n    subgraph RAM[\"4KB Physical RAM (0x000 - 0xFFF)\"]\n        A[\"0x000 - 0x1FF (512 Bytes)<br/>Reserved: Fontset (0x000-0x050) & Interpreter\"]\n        B[\"0x200 - 0xFFF (3584 Bytes)<br/>ROM Program Code & Working Data Space\"]\n    end\n```\n\n- **`0x000` to `0x1FF`**: Historically held the CHIP-8 interpreter itself on the COSMAC VIP and Telmac 1800. In our emulator, the built-in 80-byte **hexadecimal font set** lives in this region (`0x0000` to `0x0050`).\n- **`0x200` (`512`)**: The standard entry point. **All CHIP-8 ROMs must be loaded starting at address `0x200`**, and the Program Counter (`PC`) starts at `0x200`.\n\n---\n\n## 2. Low-Level Binary File I/O in C17\n\nReading binary data in C differs significantly from high-level `fs.readFileSync` in Node.js. You manage the OS file handle stream directly:\n\n```mermaid\nsequenceDiagram\n    participant App as chip8_load_rom()\n    participant OS as OS File System\n    participant RAM as chip8->memory.memory[0x200]\n\n    App->>OS: fopen(filename, \"rb\")\n    OS-->>App: FILE* handle (or NULL)\n    App->>OS: fseek(f, 0, SEEK_END) -> ftell(f)\n    Note over App: Validate rom_size <= 3584 bytes\n    App->>OS: fseek(f, 0, SEEK_SET)\n    App->>OS: fread(&memory[0x200], 1, rom_size, f)\n    OS-->>RAM: Stream raw binary bytes into RAM\n    App->>OS: fclose(f)\n```\n\n### The Three Critical Invariants of Binary File I/O:\n\n1. **Always use `\"rb\"` (Binary Mode)**:\n   In C, opening with `\"r\"` enables text-mode translation (e.g. carriage returns `\\r\\n` converted to `\\n` on certain platforms), which will silently corrupt binary executable bytes. Always specify `\"rb\"`.\n2. **Bounds Checking Against Buffer Overflow**:\n   A corrupted or malicious ROM larger than `4096 - 512 = 3584` bytes will overflow `memory.memory[4096]` and trigger [Undefined Behavior (UB)](../../glossary/#undefined-behavior-ub). We must calculate the file size and reject oversized ROMs before reading.\n3. **Always Check Return Values**:\n   `fopen` returns `NULL` if the file doesn't exist or permissions fail. `fread` returns the number of items successfully read.\n\n---\n\n## 3. Implementation: Adding ROM Loading to `chip8.h` and `chip8.c`\n\n### Update `include/config.h`\nEnsure your constants define the program start address:\n```c\n#ifndef CONFIG_H\n#define CONFIG_H\n\n#define CHIP8_MEMORY_SIZE 4096\n#define CHIP8_PROGRAM_LOAD_ADDRESS 0x200\n#define CHIP8_MAX_ROM_SIZE (CHIP8_MEMORY_SIZE - CHIP8_PROGRAM_LOAD_ADDRESS)\n\n#define CHIP8_WIDTH 64\n#define CHIP8_HEIGHT 32\n#define WINDOW_SCALE 10\n#define WINDOW_TITLE \"CHIP-8 Emulator\"\n\n#endif\n```\n\n### Update `include/chip8.h`\nAdd the function prototype with defensive error returning (`bool`):\n```c\n#ifndef CHIP8_H\n#define CHIP8_H\n\n#include <stdbool.h>\n#include \"config.h\"\n#include \"memory.h\"\n#include \"registers.h\"\n#include \"stack.h\"\n#include \"keyboard.h\"\n#include \"screen.h\"\n\ntypedef struct Chip8 {\n    Memory memory;\n    Registers registers;\n    Stack stack;\n    Keyboard keyboard;\n    Screen screen;\n} Chip8;\n\nChip8 new_chip8(void);\nbool chip8_load_rom(Chip8 *chip8, const char *filepath);\n\n#endif\n```\n\n### Implement in `src/chip8.c`\n```c\n#include <stdio.h>\n#include <stdbool.h>\n#include \"chip8.h\"\n\nbool chip8_load_rom(Chip8 *chip8, const char *filepath) {\n    if (chip8 == NULL || filepath == NULL) {\n        return false;\n    }\n\n    FILE *file = fopen(filepath, \"rb\");\n    if (!file) {\n        fprintf(stderr, \"error: could not open rom file '%s'\\n\", filepath);\n        return false;\n    }\n\n    // Determine file size\n    if (fseek(file, 0, SEEK_END) != 0) {\n        fclose(file);\n        return false;\n    }\n\n    long file_size = ftell(file);\n    if (file_size <= 0) {\n        fprintf(stderr, \"Error: ROM file '%s' is empty or invalid.\\n\", filepath);\n        fclose(file);\n        return false;\n    }\n\n    if (file_size > CHIP8_MAX_ROM_SIZE) {\n        fprintf(stderr, \"Error: ROM size (%ld bytes) exceeds maximum allowable RAM (%d bytes).\\n\", \n                file_size, CHIP8_MAX_ROM_SIZE);\n        fclose(file);\n        return false;\n    }\n\n    // Rewind back to beginning of file\n    rewind(file);\n\n    // Read directly into memory starting at 0x200\n    size_t bytes_read = fread(&chip8->memory.memory[CHIP8_PROGRAM_LOAD_ADDRESS], \n                              sizeof(uint8_t), \n                              (size_t)file_size, \n                              file);\n\n    fclose(file);\n\n    if (bytes_read != (size_t)file_size) {\n        fprintf(stderr, \"Error: Failed to read entire ROM into memory.\\n\");\n        return false;\n    }\n\n    printf(\"Successfully loaded ROM '%s' (%zu bytes) at 0x%X\\n\", \n           filepath, bytes_read, CHIP8_PROGRAM_LOAD_ADDRESS);\n    return true;\n}\n```\n\n---\n\n## 4. Interactive Retrieval & Practice\n\n> [!QUESTION] Active Recall 1\n> Why is `fseek(f, 0, SEEK_END)` followed by `ftell(f)` the standard C idiom for checking file size, and why must you call `rewind(f)` or `fseek(f, 0, SEEK_SET)` before calling `fread`?\n\n> [!FAQ]- Solution (Click to reveal)\n> `fseek(..., SEEK_END)` moves the file position indicator to the end of the file, allowing `ftell()` to report the total byte offset. If you do not rewind back to `0`, `fread()` would attempt to read from the end of the file and read 0 bytes.\n\n---\n\n> [!QUESTION] Active Recall 2\n> Why is `sizeof(uint8_t)` guaranteed to be 1 byte, and why do we pass `(size_t)file_size` when calling `fread`?\n\n> [!FAQ]- Solution (Click to reveal)\n> In C, `uint8_t` (from `<stdint.h>`) is an exact 8-bit unsigned integer type of size 1. `ftell` returns a signed `long` (which can be negative on error), whereas `fread` expects `size_t` (an unsigned integer type representing object sizes). Explicitly verifying `file_size > 0` before casting prevents signed-to-unsigned conversion bugs.\n\n---\n\n### 🛠️ Hands-On Exercise on your CHIP-8 Repo\n\n- [ ] Add `chip8_load_rom` to `include/chip8.h` and `src/chip8.c`.\n- [ ] Update `src/main.c` to accept a ROM path from `argv[1]`:\n  ```c\n  if (argc < 2) {\n      fprintf(stderr, \"Usage: %s <path-to-rom>\\n\", argv[0]);\n      return 1;\n  }\n  if (!chip8_load_rom(&chip8, argv[1])) {\n      return 1;\n  }\n  ```\n- [ ] Rebuild with CMake:\n  ```bash\n  cmake --build build\n  ```\n- [ ] Test passing a test ROM file or a dummy binary file to verify successful loading into RAM!\n\n---\n\n## 5. Primary Source\n\n- [SEI CERT C Coding Standard: FIO19-C](https://wiki.sei.cmu.edu/confluence/display/c/FIO19-C.+Do+not+use+fseek%28%29+and+ftell%28%29+to+compute+the+size+of+a+regular+file+in+untrusted+environments) — Secure file size validation and buffer limits.\n\n---\n\n## 💬 Next Steps\nOnce your ROM loader is verified, let me know! Next, we will tackle **Lesson 0003: 16-Bit Big-Endian Opcode Fetching & Bitwise Masking**!\n\n---\n[← Previous Lesson](../0001-c17-standards-and-modern-toolchain/) · [Curriculum Hub](../../c17/) · Lesson 0003: Opcode Fetching & Bitwise Masking →\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "c17"
+      ],
+      "href": "/notes/teach/c17/c17/",
+      "title": "C17 Hub"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "lessons",
+        "0001-c17-standards-and-modern-toolchain"
+      ],
+      "href": "/notes/teach/c17/lessons/0001-c17-standards-and-modern-toolchain/",
+      "title": "Lesson 0001: ISO C17 Standards, Compiler Diagnostics & CMake with SDL2"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "reference",
+        "standard-io-and-binary-file-streams"
+      ],
+      "href": "/notes/teach/c17/reference/standard-io-and-binary-file-streams/",
+      "title": "Standard I/O & Binary File Streams in C17"
+    }
+  ]
+}

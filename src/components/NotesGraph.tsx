@@ -1,6 +1,7 @@
 "use client";
 
-import { ComponentType, useEffect, useState } from "react";
+import { useState } from "react";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { X } from "lucide-react";
 import { NotesGraphData } from "@/lib/notes";
@@ -11,30 +12,21 @@ interface NotesGraphProps {
   graph: NotesGraphData;
 }
 
+const NotesGraphCanvas = dynamic(
+  () => import("./NotesGraphCanvas").then((module) => module.NotesGraphCanvas),
+  { ssr: false },
+);
+
+const NotesGraphCanvas3D = dynamic(
+  () =>
+    import("./NotesGraphCanvas3D").then((module) => module.NotesGraphCanvas3D),
+  { ssr: false },
+);
+
 export function NotesGraph({ graph }: NotesGraphProps) {
   const router = useRouter();
   const [view, setView] = useState<GraphView>("2d");
-  const [Canvas2D, setCanvas2D] = useState<
-    ComponentType<{ graph: NotesGraphData }> | null
-  >(null);
-  const [Canvas3D, setCanvas3D] = useState<
-    ComponentType<{ graph: NotesGraphData }> | null
-  >(null);
-
-  useEffect(() => {
-    if (view === "2d" && !Canvas2D) {
-      import("./NotesGraphCanvas").then((module) => {
-        setCanvas2D(() => module.NotesGraphCanvas);
-      });
-    }
-    if (view === "3d" && !Canvas3D) {
-      import("./NotesGraphCanvas3D").then((module) => {
-        setCanvas3D(() => module.NotesGraphCanvas3D);
-      });
-    }
-  }, [view, Canvas2D, Canvas3D]);
-
-  const Canvas = view === "3d" ? Canvas3D : Canvas2D;
+  const Canvas = view === "3d" ? NotesGraphCanvas3D : NotesGraphCanvas;
 
   return (
     <div className="fixed inset-0 z-[100] bg-background">
@@ -74,7 +66,7 @@ export function NotesGraph({ graph }: NotesGraphProps) {
           </button>
         </div>
       </div>
-      {Canvas ? <Canvas graph={graph} /> : null}
+      <Canvas graph={graph} />
     </div>
   );
 }

@@ -1,0 +1,49 @@
+{
+  "slug": [
+    "teach",
+    "c17",
+    "glossary"
+  ],
+  "href": "/notes/teach/c17/glossary/",
+  "title": "C17 Glossary",
+  "tags": [
+    "teach/c17",
+    "glossary"
+  ],
+  "created": "2026-08-22",
+  "updatedAt": "2026-08-22",
+  "vaultPath": "Teach/C17/GLOSSARY.md",
+  "folder": "Teach",
+  "markdown": "[← C17 MOC](../c17/)\n\n# C17 Glossary\n\n> [!NOTE] Canonical Language\n> Canonical definitions for ISO C17 concepts, memory rules, compiler behaviors, and systems vocabulary.\n\n---\n\n## Language Semantics & Compiler Behaviors\n\n### Undefined Behavior (UB)\nBehavior upon use of a non-portable or erroneous construct for which the ISO C standard imposes no requirements; the compiler is free to assume UB never happens and optimize accordingly (which can cause silent miscompilations, crashes, or security vulnerabilities).\n- _Avoid_: Random error, crash behavior, compiler glitch\n\n### Implementation-Defined Behavior\nUnspecified behavior where each conforming implementation (compiler + OS target) must document how the choice is made (e.g. size of `long`, representation of signed negative numbers).\n- _Avoid_: Undefined behavior, portable choice\n\n### Unspecified Behavior\nBehavior where the standard provides two or more possibilities and imposes no requirement on which is chosen in any instance (e.g. order of evaluation of function arguments).\n- _Avoid_: Undefined behavior\n\n### Sequence Point\nA point in the execution sequence at which all side effects of previous evaluations are complete and no side effects from subsequent evaluations have taken place (in C11/C17 formalized as the \"sequenced-before\" partial order).\n- _Avoid_: Execution step, clock tick\n\n---\n\n## Memory Model & Pointer Mechanics\n\n### Strict Aliasing Rule\nA compiler optimization rule stating that two pointers of different types (with specific exceptions like `char*`) cannot point to the same memory location, allowing the compiler to reorder reads/writes across them.\n- _Avoid_: Pointer collision, duplicate referencing\n\n### Effective Type\nThe type assigned to an allocated object in memory that governs which pointer types may legitimately read or write to it under strict aliasing rules.\n- _Avoid_: Variable type, cast type\n\n### Type Punning\nThe practice of accessing a block of memory through a pointer of a different type or through a `union` to reinterpret its raw bit representation.\n- _Avoid_: Force casting, byte hacking\n\n### Alignment\nA requirement that an object of a given type be stored at a memory address that is a multiple of a certain integer value (e.g., a 4-byte integer aligned to an address divisible by 4).\n- _Avoid_: Spacing, memory offset\n\n### Struct Padding\nUnused bytes inserted automatically by the compiler between struct members or at the end of a struct to ensure each member conforms to its architecture's alignment requirements.\n- _Avoid_: Dead space, struct gap\n\n### Flexible Array Member (FAM)\nAn unbounded array defined as the last member of a struct (e.g. `int data[];`), used in C99/C11/C17 to allocate dynamically sized structures in a single contiguous memory block.\n- _Avoid_: Zero-length array (`[0]`), trailing pointer\n\n---\n\n## Diagnostics & Tooling\n\n### AddressSanitizer (ASan)\nA fast memory error detector tool (enabled via `-fsanitize=address`) that instruments memory accesses at compile-time to detect out-of-bounds accesses, use-after-free, double-free, and leaks.\n- _Avoid_: Valgrind replacement, leak detector\n\n### UndefinedBehaviorSanitizer (UBSan)\nA compile-time instrumentation tool (enabled via `-fsanitize=undefined`) that catches undefined behaviors at runtime such as signed integer overflow, null pointer dereference, and misaligned pointers.\n- _Avoid_: Linter, static checker\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "c17"
+      ],
+      "href": "/notes/teach/c17/c17/",
+      "title": "C17 Hub"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "lessons",
+        "0001-c17-standards-and-modern-toolchain"
+      ],
+      "href": "/notes/teach/c17/lessons/0001-c17-standards-and-modern-toolchain/",
+      "title": "Lesson 0001: ISO C17 Standards, Compiler Diagnostics & CMake with SDL2"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "lessons",
+        "0002-binary-file-io-and-rom-loading"
+      ],
+      "href": "/notes/teach/c17/lessons/0002-binary-file-io-and-rom-loading/",
+      "title": "Lesson 0002: Safe Binary File I/O & ROM Loading into Memory at 0x200"
+    }
+  ]
+}

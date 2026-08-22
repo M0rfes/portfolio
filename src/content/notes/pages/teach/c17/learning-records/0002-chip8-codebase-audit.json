@@ -1,0 +1,31 @@
+{
+  "slug": [
+    "teach",
+    "c17",
+    "learning-records",
+    "0002-chip8-codebase-audit"
+  ],
+  "href": "/notes/teach/c17/learning-records/0002-chip8-codebase-audit/",
+  "title": "LR-0002: CHIP-8 Codebase Audit & Architecture Baseline",
+  "tags": [
+    "teach/c17",
+    "learning-record",
+    "chip8"
+  ],
+  "created": "2026-08-22",
+  "updatedAt": "2026-08-22",
+  "vaultPath": "Teach/C17/Learning Records/0002-chip8-codebase-audit.md",
+  "folder": "Teach",
+  "markdown": "[← C17 MOC](../../c17/) · [🎯 Mission](../../mission/)\n\n# LR-0002: CHIP-8 Codebase Audit & Architecture Baseline\n\nThe learner has established a multi-module C17 project for a CHIP-8 emulator at `/Users/morfes/projects/chip-8-emu/c` with modular headers and source files for memory, registers, stack, keyboard, screen, and an SDL2 event loop.\n\n---\n\n## 🔍 Evidence\n- Inspected `/Users/morfes/projects/chip-8-emu/c` containing `include/` headers and `src/` implementations with `-std=c17` Makefile.\n- Core data structures (`Memory`, `Registers`, `Stack`, `Screen`, `Keyboard`, `Chip8`) are already laid out.\n\n---\n\n## 🚀 Implications for Curriculum\n- Ground all forthcoming lessons in completing and hardening the CHIP-8 emulator.\n- Immediate priorities:\n  1. **Lesson 0001 / Toolchain Refactor**: Modern CMake with SDL2 resolution and Address/UndefinedBehavior sanitizers.\n  2. **Lesson 0002**: Safe Binary File I/O & ROM Loading (Loading ROMs to `0x200` with boundary checks).\n  3. **Lesson 0003**: 16-Bit Big-Endian Opcode Fetching & Bitwise Instruction Decoding.\n  4. **Lesson 0004**: Instruction Execution & Dispatch Tables (Jump tables vs nested switches).\n  5. **Lesson 0005**: 60Hz Timers, Cycle Throttling & Fast SDL Texture Streaming.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "c17"
+      ],
+      "href": "/notes/teach/c17/c17/",
+      "title": "C17 Hub"
+    }
+  ]
+}

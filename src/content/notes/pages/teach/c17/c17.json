@@ -1,0 +1,137 @@
+{
+  "slug": [
+    "teach",
+    "c17",
+    "c17"
+  ],
+  "href": "/notes/teach/c17/c17/",
+  "title": "C17 Hub",
+  "tags": [
+    "teach/c17",
+    "moc",
+    "chip8"
+  ],
+  "created": "2026-08-22",
+  "updatedAt": "2026-08-22",
+  "vaultPath": "Teach/C17/C17.md",
+  "folder": "Teach",
+  "markdown": "# ISO C17 Systems Programming Hub: CHIP-8 Emulator\n\n> [!NOTE] Topic Overview\n> A hands-on systems curriculum grounded in building, hardening, and optimizing the CHIP-8 Emulator in C17. Master binary I/O, bitwise opcode decoding, CPU execution cycles, memory invariants, SDL2 streaming, and modern CMake tooling.\n\n## 🧭 Compass\n- [🎯 Mission & Goals](../mission/): Master C17 systems programming by completing and polishing `chip-8-emu`.\n- [📖 Canonical Glossary](../glossary/): Memory, UB, and compiler semantics definitions.\n- [📚 Trusted Sources & Communities](../resources/): ISO standards, textbooks, and systems forums.\n- [📝 Teacher Scratchpad](../notes/): CHIP-8 codebase audit and pedagogical roadmap.\n\n---\n\n## 🗺️ Curriculum Track\n\n### Phase 1: Toolchain & Safe Binary I/O\n- [x] [Lesson 0001: ISO C17 Standards, Compiler Diagnostics & CMake with SDL2](../lessons/0001-c17-standards-and-modern-toolchain/)\n- [ ] [Lesson 0002: Safe Binary File I/O & ROM Loading into Memory at 0x200](../lessons/0002-binary-file-io-and-rom-loading/)\n\n### Phase 2: CPU Architecture & Opcode Decoding\n- [ ] Lesson 0003: 16-Bit Big-Endian Opcode Fetching & Bitwise Masking\n- [ ] Lesson 0004: Instruction Execution: Function Pointer Jump Tables vs Switches\n- [ ] Lesson 0005: Call Stack, Program Counter (PC) & Subroutine Invariants\n\n### Phase 3: Hardware Peripherals & Optimization\n- [ ] Lesson 0006: Graphics Engine: DXYN Sprite XOR Rendering & SDL Texture Streaming\n- [ ] Lesson 0007: 60Hz Timers, Audio Synthesis & CPU Cycle Regulation\n- [ ] Lesson 0008: Hex Keypad Input & FX0A Blocking Keypress Handling\n\n### Phase 4: Production Hardening & Tooling\n- [ ] Lesson 0009: ASan / UBSan Audit, Memory Invariants & Eliminating UB\n- [ ] Lesson 0010: Building an Interactive Disassembler & ROM Step Debugger\n\n---\n\n## 📌 Quick Reference & Cheat Sheets\n\n- [Modern C17 Toolchain & CMake Reference](../reference/modern-c17-toolchain-and-cmake/)\n- [Standard I/O & Binary File Streams Reference](../reference/standard-io-and-binary-file-streams/)\n\n---\n\n## 🧠 Learning Records (Mastery Log)\n\n- [LR-0001: Learner Background & C17 Baseline](../learning-records/0001-baseline-and-prerequisites/)\n- [LR-0002: CHIP-8 Codebase Audit & Architecture Baseline](../learning-records/0002-chip8-codebase-audit/)\n- [LR-0003: CMake SDL2 Resolution & Integer Precision Diagnostics](../learning-records/0003-cmake-sdl2-and-integer-truncation/)\n- [LR-0004: Standard I/O Return Conventions & fread Parameters](../learning-records/0004-stdio-conventions-and-fread-mechanics/)\n\n---\n\n## 🌐 Vault Connections\n\n- [Concurrency Fundamentals](../../../coding/concurrency/concurrency/)\n- [Mutex Architecture](../../../coding/concurrency/mutex/)\n- [Memory Ordering](../../../coding/concurrency/memory-ordering/)\n- [Mara Bos Concurrency Notes](../../../books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/)\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "glossary"
+      ],
+      "href": "/notes/teach/c17/glossary/",
+      "title": "C17 Glossary"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "resources"
+      ],
+      "href": "/notes/teach/c17/resources/",
+      "title": "C17 Resources"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "notes"
+      ],
+      "href": "/notes/teach/c17/notes/",
+      "title": "C17 Teacher Notes"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "lessons",
+        "0001-c17-standards-and-modern-toolchain"
+      ],
+      "href": "/notes/teach/c17/lessons/0001-c17-standards-and-modern-toolchain/",
+      "title": "Lesson 0001: ISO C17 Standards, Compiler Diagnostics & CMake with SDL2"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "lessons",
+        "0002-binary-file-io-and-rom-loading"
+      ],
+      "href": "/notes/teach/c17/lessons/0002-binary-file-io-and-rom-loading/",
+      "title": "Lesson 0002: Safe Binary File I/O & ROM Loading into Memory at 0x200"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "learning-records",
+        "0001-baseline-and-prerequisites"
+      ],
+      "href": "/notes/teach/c17/learning-records/0001-baseline-and-prerequisites/",
+      "title": "LR-0001: Learner Background & C17 Baseline"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "learning-records",
+        "0002-chip8-codebase-audit"
+      ],
+      "href": "/notes/teach/c17/learning-records/0002-chip8-codebase-audit/",
+      "title": "LR-0002: CHIP-8 Codebase Audit & Architecture Baseline"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "learning-records",
+        "0003-cmake-sdl2-and-integer-truncation"
+      ],
+      "href": "/notes/teach/c17/learning-records/0003-cmake-sdl2-and-integer-truncation/",
+      "title": "LR-0003: CMake SDL2 Resolution & Integer Precision Diagnostics"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "learning-records",
+        "0004-stdio-conventions-and-fread-mechanics"
+      ],
+      "href": "/notes/teach/c17/learning-records/0004-stdio-conventions-and-fread-mechanics/",
+      "title": "LR-0004: Standard I/O Return Conventions & fread Parameters"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "mission"
+      ],
+      "href": "/notes/teach/c17/mission/",
+      "title": "Mission: C17 Systems Mastery via CHIP-8 Emulator"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "reference",
+        "modern-c17-toolchain-and-cmake"
+      ],
+      "href": "/notes/teach/c17/reference/modern-c17-toolchain-and-cmake/",
+      "title": "Modern C17 Toolchain and CMake Reference"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "reference",
+        "standard-io-and-binary-file-streams"
+      ],
+      "href": "/notes/teach/c17/reference/standard-io-and-binary-file-streams/",
+      "title": "Standard I/O & Binary File Streams in C17"
+    }
+  ]
+}

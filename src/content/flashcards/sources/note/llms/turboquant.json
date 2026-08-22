@@ -1,0 +1,26 @@
+{
+  "source": {
+    "type": "note",
+    "id": "llms/turboquant",
+    "title": "TurboQuant",
+    "href": "/notes/llms/turboquant/",
+    "tags": ["llm", "quantization", "performance", "inference"]
+  },
+  "cards": [
+    {
+      "id": "note:llms/turboquant:0",
+      "question": "What is TurboQuant?",
+      "answer": "An optimized inference kernel for extremely fast quantized LLM inference on GPUs."
+    },
+    {
+      "id": "note:llms/turboquant:1",
+      "question": "What kind of kernels does TurboQuant use?",
+      "answer": "Hand-tuned CUDA kernels for specific low-precision operations."
+    },
+    {
+      "id": "note:llms/turboquant:2",
+      "question": "What overhead does TurboQuant reduce?",
+      "answer": "The compute overhead of de-quantizing weights on the fly."
+    }
+  ]
+}

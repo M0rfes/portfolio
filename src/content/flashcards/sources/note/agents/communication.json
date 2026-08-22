@@ -1,0 +1,51 @@
+{
+  "source": {
+    "type": "note",
+    "id": "agents/communication",
+    "title": "Agent Communication",
+    "href": "/notes/agents/communication/",
+    "tags": ["multi-agent-systems", "architecture", "orchestration"]
+  },
+  "cards": [
+    {
+      "id": "note:agents/communication:0",
+      "question": "What is linear agent communication?",
+      "answer": "The flow is a fixed series of steps, one after another—a simple workflow such as drafting email replies or generating image captions."
+    },
+    {
+      "id": "note:agents/communication:1",
+      "question": "What is hierarchical agent communication?",
+      "answer": "An agent or agent harness orchestrates multiple sub-agents to get a job done. The orchestrator can be deterministic code or another agent."
+    },
+    {
+      "id": "note:agents/communication:2",
+      "question": "What is the generate-and-critic pattern?",
+      "answer": "Deterministic code spawns one model to generate text and an adversarial model to poke holes and give feedback."
+    },
+    {
+      "id": "note:agents/communication:3",
+      "question": "How does a planner agent use generate-and-critic?",
+      "answer": "One model generates a plan to achieve the goal and hands it to the orchestrator. The orchestrator then asks the adversarial model to identify issues with the plan."
+    },
+    {
+      "id": "note:agents/communication:4",
+      "question": "What is query decomposition when an agent is the orchestrator?",
+      "answer": "A single query is split into multiple subqueries, each handled in parallel—for example facts from web search, a database, and internal docs. Agentic RAG is an example of this pattern."
+    },
+    {
+      "id": "note:agents/communication:5",
+      "question": "How do network or graph topologies differ from hierarchical ones?",
+      "answer": "Multiple agents can communicate with each other without depending on a central harness. These topologies suit fully autonomous agents that spawn other agents and work together."
+    },
+    {
+      "id": "note:agents/communication:6",
+      "question": "How does the council pattern combine multiple experts?",
+      "answer": "A query is sent to multiple specialised agents. They share findings to reach consensus, or a moderator agent synthesises their independent responses into one output."
+    },
+    {
+      "id": "note:agents/communication:7",
+      "question": "What does multi-agent debate achieve?",
+      "answer": "Two or more agents critique each other's work over multiple rounds. That iterative peer review helps eliminate hallucinations and improve technical accuracy."
+    }
+  ]
+}

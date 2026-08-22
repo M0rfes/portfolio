@@ -1,0 +1,46 @@
+{
+  "source": {
+    "type": "note",
+    "id": "books/rust/rust-atomics-and-locks/rust-lazy-initialization",
+    "title": "Lazy Initialization",
+    "href": "/notes/books/rust/rust-atomics-and-locks/rust-lazy-initialization/",
+    "tags": [
+      "rust",
+      "concurrency",
+      "atomics",
+      "lazy-initialization"
+    ]
+  },
+  "cards": [
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-lazy-initialization:0",
+      "question": "What is lazy initialization?",
+      "answer": "A pattern where a constant or expensive resource is calculated only when first requested and then stored for subsequent use."
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-lazy-initialization:1",
+      "question": "Why must concurrent lazy initialization be synchronized?",
+      "answer": "To prevent race conditions where multiple threads attempt initialization simultaneously."
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-lazy-initialization:2",
+      "question": "What is the flaw in loading an AtomicU64, computing if it is 0, then storing?",
+      "answer": "Two threads can both see x == 0 and both restart the computation. Whichever finishes first wins; that is a race condition."
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-lazy-initialization:3",
+      "question": "What does Once::call_once do for a second concurrent caller?",
+      "answer": "The first thread runs the initializer. The second does nothing and sleeps until the first thread finishes."
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-lazy-initialization:4",
+      "question": "What does OnceLock::get_or_init do if another thread is already initializing?",
+      "answer": "It loads the value if it is not loaded, or sleeps until the first thread finishes loading it."
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-lazy-initialization:5",
+      "question": "Which types fix the naive atomic lazy-init race?",
+      "answer": "std::sync::Once and std::sync::OnceLock, which are atomic operations."
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "source": {
+    "type": "note",
+    "id": "teach/c17/learning-records/0003-cmake-sdl2-and-integer-truncation",
+    "title": "LR-0003: CMake SDL2 Resolution & Integer Precision Diagnostics",
+    "href": "/notes/teach/c17/learning-records/0003-cmake-sdl2-and-integer-truncation/",
+    "tags": ["teach/c17", "learning-record", "cmake"]
+  },
+  "cards": [
+    {
+      "id": "note:teach/c17/learning-records/0003-cmake-sdl2-and-integer-truncation:0",
+      "question": "What implicit conversion did `-Wconversion` flag in `src/main.c`?",
+      "answer": "An implicit integer truncation where `SDL_Keycode` (a 32-bit integer) was assigned to `char` (an 8-bit integer)."
+    },
+    {
+      "id": "note:teach/c17/learning-records/0003-cmake-sdl2-and-integer-truncation:1",
+      "question": "How did CMake resolve SDL2 headers on macOS and Linux?",
+      "answer": "Both `find_package(SDL2)` and a `pkg-config` fallback. On macOS this reached Homebrew headers at `/opt/homebrew/include/SDL2`."
+    },
+    {
+      "id": "note:teach/c17/learning-records/0003-cmake-sdl2-and-integer-truncation:2",
+      "question": "What integer-sizing rule follows from the truncation diagnostic?",
+      "answer": "Distinguish `int32_t`, `char`, and `uint8_t`, and avoid implicit narrowing casts."
+    }
+  ]
+}

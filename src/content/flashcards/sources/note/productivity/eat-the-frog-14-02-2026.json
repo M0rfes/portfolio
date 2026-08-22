@@ -1,0 +1,46 @@
+{
+  "source": {
+    "type": "note",
+    "id": "productivity/eat-the-frog-14-02-2026",
+    "title": "Eat Frog",
+    "href": "/notes/productivity/eat-the-frog-14-02-2026/",
+    "tags": ["productivity", "focus", "time-management"]
+  },
+  "cards": [
+    {
+      "id": "note:productivity/eat-the-frog-14-02-2026:0",
+      "question": "Why focus on essential tasks instead of trying to finish everything?",
+      "answer": "Hoping to finish all tasks is unrealistic; there is never enough time. Focus on the most essential work and let low-priority tasks wait or be delegated."
+    },
+    {
+      "id": "note:productivity/eat-the-frog-14-02-2026:1",
+      "question": "If you have to eat two frogs, which do you eat first?",
+      "answer": "Eat the biggest one first."
+    },
+    {
+      "id": "note:productivity/eat-the-frog-14-02-2026:2",
+      "question": "How does visualizing success help you get there?",
+      "answer": "Seeing yourself where you want to be helps you find people already there. Ask them for advice or study their path to emulate it."
+    },
+    {
+      "id": "note:productivity/eat-the-frog-14-02-2026:3",
+      "question": "Why write a goal down instead of keeping it in your head?",
+      "answer": "A goal not written down is just a wish. Writing it down makes it real."
+    },
+    {
+      "id": "note:productivity/eat-the-frog-14-02-2026:4",
+      "question": "What planning layers should you maintain, and when do you plan the week and day?",
+      "answer": "Keep a Master List for the year, a monthly plan, a weekly plan, and a daily plan. Set aside 2 hours every Sunday for the week, and plan every night for the upcoming day."
+    },
+    {
+      "id": "note:productivity/eat-the-frog-14-02-2026:5",
+      "question": "What is the 80/20 rule for work, versus busywork?",
+      "answer": "Busywork is not the same as meaningful work. 80% of success comes from 20% of the most important tasks."
+    },
+    {
+      "id": "note:productivity/eat-the-frog-14-02-2026:6",
+      "question": "What is the Law of Forced Efficiency, and how much buffer should you add?",
+      "answer": "There is never enough time to do everything, but there is always sufficient time to focus on the most important thing. Add an extra 20% buffer for errors and rework."
+    }
+  ]
+}

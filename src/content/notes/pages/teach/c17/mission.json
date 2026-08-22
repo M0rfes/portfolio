@@ -1,0 +1,100 @@
+{
+  "slug": [
+    "teach",
+    "c17",
+    "mission"
+  ],
+  "href": "/notes/teach/c17/mission/",
+  "title": "Mission: C17 Systems Mastery via CHIP-8 Emulator",
+  "tags": [
+    "teach/c17",
+    "mission",
+    "chip8"
+  ],
+  "created": "2026-08-22",
+  "updatedAt": "2026-08-22",
+  "vaultPath": "Teach/C17/MISSION.md",
+  "folder": "Teach",
+  "markdown": "[← C17 MOC](../c17/)\n\n# Mission: C17 Systems Mastery via CHIP-8 Emulator\n\n> [!NOTE] Overarching Goal\n> Master production-grade ISO C17 systems programming by completing, optimizing, and hardening the CHIP-8 Emulator codebase into a high-performance, memory-safe, fully-featured native systems application with modern CMake tooling and sanitizers.\n\n---\n\n## 🎯 Why\nTransition from Node.js / web development into low-level systems engineering. Building an emulator in C provides hands-on mastery over the core pillars of systems programming:\n- Binary file parsing and endianness reconstruction.\n- Low-level bitwise manipulation and opcode instruction decoding.\n- Memory architecture, struct alignment, and pointer lifetimes.\n- High-frequency CPU execution cycles and timer synchronization.\n- Hardware abstraction, pixel framebuffer manipulation, and SDL2 integration.\n- Production build systems (CMake), strict diagnostics (`-Wall -Wextra -Wpedantic`), and memory sanitizers (ASan/UBSan).\n\n---\n\n## 🏆 Success Looks Like\n- [ ] Transition `chip-8-emu/c` from Makefile to a modern `CMakeLists.txt` with automatic SDL2 finding, strict compiler flags, and ASan/UBSan debug targets.\n- [ ] Implement robust ROM loading from disk (`fopen`, `fread`, error handling, size validation, loading to `0x200`).\n- [ ] Build the complete 35-opcode instruction decoding and execution engine using clean C17 idioms (bitmask extraction and function pointer jump tables).\n- [ ] Implement 60Hz Delay and Sound timers synchronized with the emulation cycle.\n- [ ] Optimize the XOR graphics rendering engine (`DXYN`) and screen buffer with SDL2 texture streaming.\n- [ ] Eliminate all potential Undefined Behavior (UB), integer overflow bugs, and pointer bugs, verified with AddressSanitizer.\n- [ ] Add an interactive CLI disassembler / debugger mode for stepping through ROM instructions.\n\n---\n\n## ⚙️ Constraints & Environment\n- **Project Path**: `/Users/morfes/projects/chip-8-emu/c` (`git@github.com:M0rfes/chip8_emu.git`).\n- **Standard**: ISO C17 (`-std=c17`).\n- **Platforms**: macOS (Apple Silicon / Clang) & Linux (x86_64 / GCC & Clang).\n- **Libraries**: SDL2 for graphics/audio/input.\n- **Build System**: CMake.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "c17"
+      ],
+      "href": "/notes/teach/c17/c17/",
+      "title": "C17 Hub"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "lessons",
+        "0001-c17-standards-and-modern-toolchain"
+      ],
+      "href": "/notes/teach/c17/lessons/0001-c17-standards-and-modern-toolchain/",
+      "title": "Lesson 0001: ISO C17 Standards, Compiler Diagnostics & CMake with SDL2"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "lessons",
+        "0002-binary-file-io-and-rom-loading"
+      ],
+      "href": "/notes/teach/c17/lessons/0002-binary-file-io-and-rom-loading/",
+      "title": "Lesson 0002: Safe Binary File I/O & ROM Loading into Memory at 0x200"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "learning-records",
+        "0001-baseline-and-prerequisites"
+      ],
+      "href": "/notes/teach/c17/learning-records/0001-baseline-and-prerequisites/",
+      "title": "LR-0001: Learner Background & C17 Baseline"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "learning-records",
+        "0002-chip8-codebase-audit"
+      ],
+      "href": "/notes/teach/c17/learning-records/0002-chip8-codebase-audit/",
+      "title": "LR-0002: CHIP-8 Codebase Audit & Architecture Baseline"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "learning-records",
+        "0003-cmake-sdl2-and-integer-truncation"
+      ],
+      "href": "/notes/teach/c17/learning-records/0003-cmake-sdl2-and-integer-truncation/",
+      "title": "LR-0003: CMake SDL2 Resolution & Integer Precision Diagnostics"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "learning-records",
+        "0004-stdio-conventions-and-fread-mechanics"
+      ],
+      "href": "/notes/teach/c17/learning-records/0004-stdio-conventions-and-fread-mechanics/",
+      "title": "LR-0004: Standard I/O Return Conventions & fread Parameters"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "reference",
+        "modern-c17-toolchain-and-cmake"
+      ],
+      "href": "/notes/teach/c17/reference/modern-c17-toolchain-and-cmake/",
+      "title": "Modern C17 Toolchain and CMake Reference"
+    }
+  ]
+}

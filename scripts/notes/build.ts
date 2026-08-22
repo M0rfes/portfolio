@@ -11,6 +11,7 @@ import {
   type LinkedFrom,
   type VaultNote,
 } from "./convert";
+import { uniqueSortedTags } from "./tags";
 
 export const CACHE_VERSION = 2;
 
@@ -21,6 +22,7 @@ const PAGES_DIR = path.join(OUT_DIR, "pages");
 const PUBLIC_DIR = path.join(ROOT, "public/note-assets");
 const CACHE_PATH = path.join(OUT_DIR, ".cache.json");
 const INDEX_PATH = path.join(OUT_DIR, "index.json");
+const FLASHCARD_TAGS_PATH = path.join(ROOT, "src/content/flashcards/tags.json");
 const SKIP_DIRS = new Set([".obsidian", ".agent", ".git", ".trash", "node_modules"]);
 
 type CacheFile = {
@@ -299,11 +301,14 @@ export function buildNotes(options: { skipGit?: boolean } = {}) {
   };
 
   fs.writeFileSync(INDEX_PATH, JSON.stringify({ notes, graph }, null, 2));
+  const tags = uniqueSortedTags(notes.map((note) => note.tags));
+  fs.mkdirSync(path.dirname(FLASHCARD_TAGS_PATH), { recursive: true });
+  fs.writeFileSync(FLASHCARD_TAGS_PATH, JSON.stringify({ tags }, null, 2));
   cache.version = CACHE_VERSION;
   fs.writeFileSync(CACHE_PATH, JSON.stringify(cache, null, 2));
 
   console.log(
-    `Notes: ${notes.length} total, ${rebuild.size} rebuilt, ${graph.edges.length} links`,
+    `Notes: ${notes.length} total, ${rebuild.size} rebuilt, ${graph.edges.length} links, ${tags.length} tags`,
   );
 }
 

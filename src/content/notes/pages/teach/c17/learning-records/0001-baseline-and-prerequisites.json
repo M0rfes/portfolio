@@ -1,0 +1,30 @@
+{
+  "slug": [
+    "teach",
+    "c17",
+    "learning-records",
+    "0001-baseline-and-prerequisites"
+  ],
+  "href": "/notes/teach/c17/learning-records/0001-baseline-and-prerequisites/",
+  "title": "LR-0001: Learner Background & C17 Baseline",
+  "tags": [
+    "teach/c17",
+    "learning-record"
+  ],
+  "created": "2026-08-22",
+  "updatedAt": "2026-08-22",
+  "vaultPath": "Teach/C17/Learning Records/0001-baseline-and-prerequisites.md",
+  "folder": "Teach",
+  "markdown": "[← C17 MOC](../../c17/) · [🎯 Mission](../../mission/)\n\n# LR-0001: Learner Background & C17 Baseline\n\nThe learner comes with professional Node.js / JavaScript experience and working familiarity with Go, Rust, and basic C syntax/memory concepts. The goal is to bridge high-level runtime mental models to bare-metal systems engineering in ISO C17 to become job-ready for systems roles.\n\n---\n\n## 🔍 Evidence\n- User stated familiarity with Node.js, Go, Rust, basic C syntax, and specified a target environment of macOS/Linux with Clang/GCC and CMake.\n\n---\n\n## 🚀 Implications for Curriculum\n- Skip generic beginner programming concepts (variables, basic loops, basic conditionals).\n- Ground lessons in low-level memory mechanics, undefined behavior elimination, strict aliasing, cache locality, and POSIX systems interfaces.\n- Anchor concepts using comparisons to Rust ownership/borrowing and Node.js event loops / V8 memory management.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "c17"
+      ],
+      "href": "/notes/teach/c17/c17/",
+      "title": "C17 Hub"
+    }
+  ]
+}

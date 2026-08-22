@@ -1,0 +1,41 @@
+{
+  "source": {
+    "type": "note",
+    "id": "llms/rag",
+    "title": "RAG",
+    "href": "/notes/llms/rag/",
+    "tags": ["rag", "research", "ai-architecture"]
+  },
+  "cards": [
+    {
+      "id": "note:llms/rag:0",
+      "question": "What does retrieval-augmented generation do?",
+      "answer": "It augments the query before the LLM's final inference so you can pass up-to-date or private data the model was not trained on."
+    },
+    {
+      "id": "note:llms/rag:1",
+      "question": "How does traditional RAG index data?",
+      "answer": "Data is chunked, embeddings are generated, and those embeddings are stored in a vector database so a search can add context to the user query."
+    },
+    {
+      "id": "note:llms/rag:2",
+      "question": "How does everything-as-text RAG handle images, audio, and video?",
+      "answer": "Images go through an image-to-caption service; audio and video become transcripts. Those texts are stored in a vector database."
+    },
+    {
+      "id": "note:llms/rag:3",
+      "question": "What is the main weakness of everything-as-text RAG?",
+      "answer": "It loses context. Quality is only as good as the captioning and transcript models; a poor image summary yields a weak answer."
+    },
+    {
+      "id": "note:llms/rag:4",
+      "question": "How does Hybrid Multimodal RAG (HYMMRag) add richer context?",
+      "answer": "It stores the media summary and the media's location, then sends that to an MLLM that can infer directly on images, audio, and video."
+    },
+    {
+      "id": "note:llms/rag:5",
+      "question": "What does Full Multimodal RAG (FMMRag) embed into a shared vector space?",
+      "answer": "Text, images, audio, and video. Retrieval can return text, images, video frames, or audio timestamps."
+    }
+  ]
+}

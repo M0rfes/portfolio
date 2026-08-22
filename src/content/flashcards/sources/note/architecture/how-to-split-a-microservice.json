@@ -1,0 +1,51 @@
+{
+  "source": {
+    "type": "note",
+    "id": "architecture/how-to-split-a-microservice",
+    "title": "Splitting Microservices",
+    "href": "/notes/architecture/how-to-split-a-microservice/",
+    "tags": ["architecture", "microservices", "ddd", "strategy"]
+  },
+  "cards": [
+    {
+      "id": "note:architecture/how-to-split-a-microservice:0",
+      "question": "How does DDD define microservice boundaries?",
+      "answer": "It uses bounded contexts and ubiquitous language, putting the business domain at the centre so the software structure reflects the business reality."
+    },
+    {
+      "id": "note:architecture/how-to-split-a-microservice:1",
+      "question": "What does a bounded context hide and expose?",
+      "answer": "It hides information from the wider world and exposes a clean API. Internal changes then need not notify consumers, so the team can develop and deploy independently."
+    },
+    {
+      "id": "note:architecture/how-to-split-a-microservice:2",
+      "question": "What is the goal of ubiquitous language when splitting services?",
+      "answer": "A common language across teams that eliminates assumptions and translation when talking about a process or goal the organisation performs or wants to change."
+    },
+    {
+      "id": "note:architecture/how-to-split-a-microservice:3",
+      "question": "What are the two modes in Bimodal IT?",
+      "answer": "Mode 1 (system-of-record) changes little and is optimised for stability and reliability. Mode 2 (system-of-innovation) changes frequently and needs rapid iteration."
+    },
+    {
+      "id": "note:architecture/how-to-split-a-microservice:4",
+      "question": "What is the “two speeds” risk of splitting by volatility?",
+      "answer": "Every change in Mode 2 can be blocked by a required change in Mode 1."
+    },
+    {
+      "id": "note:architecture/how-to-split-a-microservice:5",
+      "question": "How can data governance drive service decomposition?",
+      "answer": "Silo HIPAA- or PCI-compliant work so audits stay contained. Isolate PII into dedicated services to simplify audits and reduce risk."
+    },
+    {
+      "id": "note:architecture/how-to-split-a-microservice:6",
+      "question": "How should architecture follow organisational structure (Conway's Law)?",
+      "answer": "A service owned by multiple teams often fails to yield the desired outcomes. If teams split—for example warehouse stock-keeping versus ordering—the service may need to be decomposed to keep ownership aligned."
+    },
+    {
+      "id": "note:architecture/how-to-split-a-microservice:7",
+      "question": "Should you pick only one splitting strategy?",
+      "answer": "No. Mix strategies—for example a bounded context across the org structure so later splits do not impact consumers—and choose principles that solve the issues at hand, including coupling and cohesion trade-offs."
+    }
+  ]
+}

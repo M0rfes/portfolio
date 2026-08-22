@@ -1,0 +1,10 @@
+{
+  "source": {
+    "type": "note",
+    "id": "llms/lightrag",
+    "title": "LightRAG",
+    "href": "/notes/llms/lightrag/",
+    "tags": ["graph-rag", "light-rag", "research", "rag"]
+  },
+  "cards": []
+}

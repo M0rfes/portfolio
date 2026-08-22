@@ -1,0 +1,51 @@
+{
+  "source": {
+    "type": "note",
+    "id": "teach/c17/reference/standard-io-and-binary-file-streams",
+    "title": "Standard I/O & Binary File Streams in C17",
+    "href": "/notes/teach/c17/reference/standard-io-and-binary-file-streams/",
+    "tags": ["teach/c17", "reference", "stdio", "file-io"]
+  },
+  "cards": [
+    {
+      "id": "note:teach/c17/reference/standard-io-and-binary-file-streams:0",
+      "question": "What are C's two standard-library return conventions?",
+      "answer": "Status/error code: `0` means success and non-zero means failure (`fseek`, `fclose`, `strcmp`). Value/count/handle: a valid object or count on success, `NULL` or `EOF` (`-1`) on failure (`fopen` returns `NULL`, `fread` returns items read, `ftell` returns `-1L`)."
+    },
+    {
+      "id": "note:teach/c17/reference/standard-io-and-binary-file-streams:1",
+      "question": "How should you test `fseek` for failure under ISO C17?",
+      "answer": "`if (fseek(f, offset, origin) != 0)`. `fseek` returns nonzero on failure."
+    },
+    {
+      "id": "note:teach/c17/reference/standard-io-and-binary-file-streams:2",
+      "question": "What do `fread`'s `size` and `nmemb` parameters mean?",
+      "answer": "`size` is the size of a single element in bytes. `nmemb` is the number of elements to read."
+    },
+    {
+      "id": "note:teach/c17/reference/standard-io-and-binary-file-streams:3",
+      "question": "What does `fread` return?",
+      "answer": "The number of whole elements successfully read, not the raw byte count."
+    },
+    {
+      "id": "note:teach/c17/reference/standard-io-and-binary-file-streams:4",
+      "question": "If `fread` is asked for 10 `Player` structs and the file ends after 7 complete structs, what does it return?",
+      "answer": "`7`."
+    },
+    {
+      "id": "note:teach/c17/reference/standard-io-and-binary-file-streams:5",
+      "question": "How do you measure file size and then read from the start?",
+      "answer": "`fseek(file, 0, SEEK_END)`, then `ftell(file)`, then `rewind(file)` (equivalent to `fseek(file, 0, SEEK_SET)`)."
+    },
+    {
+      "id": "note:teach/c17/reference/standard-io-and-binary-file-streams:6",
+      "question": "Why is `\"rb\"` required for ROMs instead of `\"r\"`?",
+      "answer": "Binary mode reads raw bytes with no transformation. Text mode may translate newlines (for example `\\r\\n` to `\\n`), which corrupts opcodes and shifts offsets."
+    },
+    {
+      "id": "note:teach/c17/reference/standard-io-and-binary-file-streams:7",
+      "question": "What is the relationship between `fread` bytes transferred, `size`, and `nmemb`?",
+      "answer": "Total bytes read equals `size` times `nmemb`."
+    }
+  ]
+}

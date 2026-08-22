@@ -1,0 +1,26 @@
+{
+  "source": {
+    "type": "note",
+    "id": "coding/concurrency/mutex",
+    "title": "Mutex",
+    "href": "/notes/coding/concurrency/mutex/",
+    "tags": ["concurrency", "locks"]
+  },
+  "cards": [
+    {
+      "id": "note:coding/concurrency/mutex:0",
+      "question": "What does mutex stand for, and what does it provide?",
+      "answer": "Mutual exclusion. It works as an exclusive reference: only one thread can hold the lock at a time."
+    },
+    {
+      "id": "note:coding/concurrency/mutex:1",
+      "question": "What happens when threads conflict on a mutex instead of panicking?",
+      "answer": "Waiting threads are put to sleep and woken up when the lock is released."
+    },
+    {
+      "id": "note:coding/concurrency/mutex:2",
+      "question": "When are threads waiting on a mutex woken?",
+      "answer": "When the lock is released."
+    }
+  ]
+}

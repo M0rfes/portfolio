@@ -1,0 +1,42 @@
+{
+  "slug": [
+    "teach",
+    "c17",
+    "reference",
+    "standard-io-and-binary-file-streams"
+  ],
+  "href": "/notes/teach/c17/reference/standard-io-and-binary-file-streams/",
+  "title": "Standard I/O & Binary File Streams in C17",
+  "tags": [
+    "teach/c17",
+    "reference",
+    "stdio",
+    "file-io"
+  ],
+  "created": "2026-08-22",
+  "updatedAt": "2026-08-22",
+  "vaultPath": "Teach/C17/Reference/Standard IO and Binary File Streams.md",
+  "folder": "Teach",
+  "markdown": "[← C17 MOC](../../c17/) · [Lesson 0002](../../lessons/0002-binary-file-io-and-rom-loading/)\n\n# Standard I/O & Binary File Streams Reference (C17)\n\n> [!NOTE] Production Standards\n> Low-level file stream management in C requires strict error code checking, binary mode flags, and understanding record-based reading (`size` vs `nmemb`).\n\n---\n\n## 1. Return Code Conventions in C\n\nUnlike modern languages with exceptions or `Result<T, E>` types, C standard library functions use two distinct return conventions:\n\n| Convention | Success Value | Error / Failure Value | Examples |\n| :--- | :--- | :--- | :--- |\n| **Status / Error Code** | **`0`** (`EXIT_SUCCESS`) | **Non-zero** (or `< 0`, setting `errno`) | `fseek()`, `fclose()`, `strcmp()`, `pthread_create()` |\n| **Value / Count / Handle** | Valid object / count | `NULL` or `EOF` (`-1`) | `fopen()` (`NULL`), `fread()` (items read), `ftell()` (`-1L`) |\n\n> [!TIP] The `fseek` Check Pattern\n> According to ISO C17 (§7.21.9.2), `fseek` returns *nonzero* on failure. Always test `if (fseek(f, offset, origin) != 0)` to handle any non-zero error code portably.\n\n---\n\n## 2. Deep Dive: `fread` Parameters\n\n```c\nsize_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream);\n```\n\n`fread` is designed for **structured record reading**, not just unstructured byte streams:\n\n| Parameter | Type | Purpose | In Raw Byte Streams (e.g. ROMs) | In Structured Records (e.g. Structs) |\n| :--- | :--- | :--- | :--- | :--- |\n| `ptr` | `void*` | Destination buffer address in memory. | `&chip8->memory.memory[0x200]` | `player_array` |\n| `size` | `size_t` | **Size of a single element** (in bytes). | `sizeof(uint8_t)` (= 1 byte) | `sizeof(Player)` (= 40 bytes) |\n| `nmemb` | `size_t` | **Number of elements** to read. | `file_size` (e.g. 512 bytes) | `10` (for 10 players) |\n| `stream` | `FILE*` | Open file stream handle. | `file` | `file` |\n\n$$\\text{Total Bytes Read} = \\text{size} \\times \\text{nmemb}$$\n\n### Why `size` and `nmemb` are Split:\n`fread` returns the **number of whole elements successfully read (`nmemb`)**, not the raw byte count.\n- If reading 10 `Player` structs (40 bytes each) and the file cuts off after 7 full structs (280 bytes), `fread` returns **`7`**.\n- This enables instant validation: `if (fread(team, sizeof(Player), 10, f) != 10) { /* handle incomplete read */ }`.\n\n---\n\n## 3. Determining File Size Safely\n\n```c\n// 1. Seek to end of file\nif (fseek(file, 0, SEEK_END) != 0) {\n    // Error handling\n}\n\n// 2. Get byte offset\nlong file_size = ftell(file);\nif (file_size <= 0) {\n    // Empty or non-seekable file\n}\n\n// 3. Always rewind before reading\nrewind(file); // Equivalent to: fseek(file, 0, SEEK_SET);\n```\n\n---\n\n## 4. Binary Mode (`\"rb\"`) vs Text Mode (`\"r\"`)\n\n- **`\"rb\"` (Binary)**: Reads the raw bytes verbatim from disk into memory with zero transformation. Mandatory for ROMs, images, network payloads, and executables.\n- **`\"r\"` (Text)**: The C runtime may translate newline sequences (e.g., converting `\\r\\n` to `\\n` on Windows or legacy systems), which will corrupt binary opcodes and shift memory offsets.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "c17"
+      ],
+      "href": "/notes/teach/c17/c17/",
+      "title": "C17 Hub"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "learning-records",
+        "0004-stdio-conventions-and-fread-mechanics"
+      ],
+      "href": "/notes/teach/c17/learning-records/0004-stdio-conventions-and-fread-mechanics/",
+      "title": "LR-0004: Standard I/O Return Conventions & fread Parameters"
+    }
+  ]
+}

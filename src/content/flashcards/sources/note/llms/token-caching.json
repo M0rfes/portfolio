@@ -1,0 +1,31 @@
+{
+  "source": {
+    "type": "note",
+    "id": "llms/token-caching",
+    "title": "Token Caching",
+    "href": "/notes/llms/token-caching/",
+    "tags": ["llm", "caching", "performance", "inference"]
+  },
+  "cards": [
+    {
+      "id": "note:llms/token-caching:0",
+      "question": "What is token caching?",
+      "answer": "A technique that speeds up LLM inference by storing the keys and values of previously processed tokens. It often refers to KV cache or prompt caching."
+    },
+    {
+      "id": "note:llms/token-caching:1",
+      "question": "What does a KV cache store, and why?",
+      "answer": "The Key and Value vectors for each token in the context window, so they are not recomputed for every new generated token."
+    },
+    {
+      "id": "note:llms/token-caching:2",
+      "question": "What does prompt caching specifically store?",
+      "answer": "The hidden states of common system prompts or long context headers."
+    },
+    {
+      "id": "note:llms/token-caching:3",
+      "question": "How do vLLM and LMCache implement caching?",
+      "answer": "vLLM uses PagedAttention to manage KV caches. LMCache shares caches across multiple requests or instances."
+    }
+  ]
+}

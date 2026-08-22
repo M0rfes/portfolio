@@ -1,0 +1,30 @@
+{
+  "source": {
+    "type": "note",
+    "id": "books/rust/rust-atomics-and-locks/rust-lock-poisoning",
+    "title": "Lock Poisoning",
+    "href": "/notes/books/rust/rust-atomics-and-locks/rust-lock-poisoning/",
+    "tags": [
+      "rust",
+      "concurrency",
+      "locks"
+    ]
+  },
+  "cards": [
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-lock-poisoning:0",
+      "question": "When does lock poisoning occur?",
+      "answer": "When a thread panics while holding a Mutex or a reader-writer lock."
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-lock-poisoning:1",
+      "question": "What do later lock attempts return after poisoning?",
+      "answer": "An error indicating the lock is poisoned. Subsequent read or write lock calls result in errors, which is why lock is unwrapped as a Result."
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-lock-poisoning:2",
+      "question": "Does a poisoned lock still block other threads?",
+      "answer": "Yes. It still puts other threads to sleep, but signals that the protected state may be invalid and returns no data from the lock."
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "source": {
+    "type": "note",
+    "id": "llms/router-pattern",
+    "title": "Router Pattern",
+    "href": "/notes/llms/router-pattern/",
+    "tags": ["llm", "agent", "router-pattern", "routing", "rag"]
+  },
+  "cards": [
+    {
+      "id": "note:llms/router-pattern:0",
+      "question": "What is the Router Pattern?",
+      "answer": "An architectural pattern in AI agents and Agentic RAG where a classifier or LLM acts as a dispatcher. It evaluates a query and routes it to the most appropriate path, index, or tool."
+    },
+    {
+      "id": "note:llms/router-pattern:1",
+      "question": "What does query classification do in a router?",
+      "answer": "It classifies intent, for example technical support vs. billing vs. general conversation."
+    },
+    {
+      "id": "note:llms/router-pattern:2",
+      "question": "How can routing reduce cost and latency?",
+      "answer": "Simpler queries can go to SLMs or a cache, reserving larger models for complex tasks."
+    },
+    {
+      "id": "note:llms/router-pattern:3",
+      "question": "How does LLM-based routing choose a destination?",
+      "answer": "It uses function calling or structured outputs (Pydantic/JSON schema) to return a destination route."
+    },
+    {
+      "id": "note:llms/router-pattern:4",
+      "question": "How does semantic routing work?",
+      "answer": "It embeds the query and compares vector distance to fixed route vectors for ultra-fast, low-cost routing."
+    },
+    {
+      "id": "note:llms/router-pattern:5",
+      "question": "What is keyword or heuristic routing?",
+      "answer": "Deterministic rules or BM25 classifiers used for predictable routing."
+    }
+  ]
+}

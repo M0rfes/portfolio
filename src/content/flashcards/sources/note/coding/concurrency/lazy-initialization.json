@@ -1,0 +1,26 @@
+{
+  "source": {
+    "type": "note",
+    "id": "coding/concurrency/lazy-initialization",
+    "title": "Lazy Initialization",
+    "href": "/notes/coding/concurrency/lazy-initialization/",
+    "tags": ["concurrency", "patterns"]
+  },
+  "cards": [
+    {
+      "id": "note:coding/concurrency/lazy-initialization:0",
+      "question": "What is lazy initialization?",
+      "answer": "A pattern where a constant or expensive resource is calculated only when first requested and then stored for subsequent use."
+    },
+    {
+      "id": "note:coding/concurrency/lazy-initialization:1",
+      "question": "When is a lazily initialized resource calculated?",
+      "answer": "Only when first requested, then stored for later use."
+    },
+    {
+      "id": "note:coding/concurrency/lazy-initialization:2",
+      "question": "Why must concurrent lazy initialization be synchronized?",
+      "answer": "To prevent race conditions where multiple threads attempt initialization simultaneously."
+    }
+  ]
+}

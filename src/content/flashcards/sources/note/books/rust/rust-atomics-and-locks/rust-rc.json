@@ -1,0 +1,40 @@
+{
+  "source": {
+    "type": "note",
+    "id": "books/rust/rust-atomics-and-locks/rust-rc",
+    "title": "Rust Rc",
+    "href": "/notes/books/rust/rust-atomics-and-locks/rust-rc/",
+    "tags": [
+      "rust",
+      "reference-counting",
+      "smart-pointers"
+    ]
+  },
+  "cards": [
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-rc:0",
+      "question": "When does an Rc drop its inner value?",
+      "answer": "It keeps a count of all owners and drops the value only when the counter reaches 0."
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-rc:1",
+      "question": "How does cloning an Rc differ from cloning a Box?",
+      "answer": "Rc::clone increments the counter next to the value and does not create a new heap allocation, unlike Box::new().clone()."
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-rc:2",
+      "question": "What kind of reference does Rc give by default?",
+      "answer": "A read-only reference. Mutation needs interior mutability, or Rc::get_mut / Rc::make_mut, which only work with a single reference."
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-rc:3",
+      "question": "How do you get the number of Rc owners?",
+      "answer": "Use Rc::strong_count."
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-rc:4",
+      "question": "Why can't Rc be sent across threads?",
+      "answer": "It is not thread-safe and does not implement Send and Sync. If two threads update the count at once, the behaviour is inconsistent."
+    }
+  ]
+}

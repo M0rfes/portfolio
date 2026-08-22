@@ -1,0 +1,26 @@
+{
+  "source": {
+    "type": "note",
+    "id": "llms/knowledge-graphs",
+    "title": "Knowledge Graphs",
+    "href": "/notes/llms/knowledge-graphs/",
+    "tags": ["graph-rag", "knowledge-graphs", "rag", "research"]
+  },
+  "cards": [
+    {
+      "id": "note:llms/knowledge-graphs:0",
+      "question": "What does GraphRAG combine?",
+      "answer": "Vector search with knowledge graphs stored in databases such as Neo4j or FalkorDB."
+    },
+    {
+      "id": "note:llms/knowledge-graphs:1",
+      "question": "What do knowledge graphs capture that pure vector embeddings might miss?",
+      "answer": "Complex entity relationships, especially in highly interconnected data."
+    },
+    {
+      "id": "note:llms/knowledge-graphs:2",
+      "question": "What are the main costs of GraphRAG versus pure vector retrieval?",
+      "answer": "It needs setup (e.g. Neo4j), entity extraction, and graph maintenance. It is slower and more expensive than pure vector retrieval."
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "source": {
+    "type": "note",
+    "id": "teach/c17/glossary",
+    "title": "C17 Glossary",
+    "href": "/notes/teach/c17/glossary/",
+    "tags": ["teach/c17", "glossary"]
+  },
+  "cards": [
+    {
+      "id": "note:teach/c17/glossary:0",
+      "question": "What is undefined behavior (UB) in ISO C?",
+      "answer": "Behavior from a non-portable or erroneous construct for which the ISO C standard imposes no requirements. The compiler may assume UB never happens and optimize accordingly, which can cause silent miscompilations, crashes, or security vulnerabilities."
+    },
+    {
+      "id": "note:teach/c17/glossary:1",
+      "question": "How does implementation-defined behavior differ from undefined behavior?",
+      "answer": "It is unspecified behavior where each conforming implementation must document how the choice is made, such as the size of `long` or the representation of signed negative numbers."
+    },
+    {
+      "id": "note:teach/c17/glossary:2",
+      "question": "What is unspecified behavior?",
+      "answer": "Behavior where the standard provides two or more possibilities and imposes no requirement on which is chosen in any instance, such as the order of evaluation of function arguments."
+    },
+    {
+      "id": "note:teach/c17/glossary:3",
+      "question": "What is a sequence point?",
+      "answer": "A point in the execution sequence at which all side effects of previous evaluations are complete and no side effects from subsequent evaluations have taken place. In C11/C17 this is formalized as the sequenced-before partial order."
+    },
+    {
+      "id": "note:teach/c17/glossary:4",
+      "question": "What does the strict aliasing rule allow a compiler to assume?",
+      "answer": "Two pointers of different types (with exceptions such as `char*`) cannot point to the same memory location, so the compiler may reorder reads and writes across them."
+    },
+    {
+      "id": "note:teach/c17/glossary:5",
+      "question": "What is type punning?",
+      "answer": "Accessing a block of memory through a pointer of a different type or through a `union` to reinterpret its raw bit representation."
+    },
+    {
+      "id": "note:teach/c17/glossary:6",
+      "question": "What is a flexible array member (FAM)?",
+      "answer": "An unbounded array defined as the last member of a struct, such as `int data[]`. C99/C11/C17 use it to allocate dynamically sized structures in a single contiguous memory block."
+    },
+    {
+      "id": "note:teach/c17/glossary:7",
+      "question": "What do ASan and UBSan each detect?",
+      "answer": "AddressSanitizer (`-fsanitize=address`) instruments memory accesses to detect out-of-bounds accesses, use-after-free, double-free, and leaks. UndefinedBehaviorSanitizer (`-fsanitize=undefined`) catches runtime UB such as signed integer overflow, null pointer dereference, and misaligned pointers."
+    }
+  ]
+}

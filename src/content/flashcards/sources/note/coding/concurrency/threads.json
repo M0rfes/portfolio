@@ -1,0 +1,26 @@
+{
+  "source": {
+    "type": "note",
+    "id": "coding/concurrency/threads",
+    "title": "Threads",
+    "href": "/notes/coding/concurrency/threads/",
+    "tags": ["concurrency", "threads"]
+  },
+  "cards": [
+    {
+      "id": "note:coding/concurrency/threads:0",
+      "question": "How many OS threads does a program start with?",
+      "answer": "One. That thread remains alive as long as the program runs."
+    },
+    {
+      "id": "note:coding/concurrency/threads:1",
+      "question": "When is the initial OS thread cleaned up?",
+      "answer": "Once the program stops executing."
+    },
+    {
+      "id": "note:coding/concurrency/threads:2",
+      "question": "What happens to spawned threads when the main thread is terminated?",
+      "answer": "All threads forked or spawned from it are cleaned up, whether they have finished executing or not."
+    }
+  ]
+}
