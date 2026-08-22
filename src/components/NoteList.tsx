@@ -94,69 +94,72 @@ export function NoteList({ initialNotes }: NoteListProps) {
                 {notes.map((note, index) => (
                   <motion.div
                     key={note.href}
+                    className="min-w-0"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.05 }}
                   >
-                    <div className="bg-card rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-full flex flex-col p-6">
-                      <Link href={note.href}>
-                        <h3 className="text-xl font-bold text-foreground mb-3 line-clamp-2">
-                          {note.title}
-                        </h3>
-                        {note.summary && (
-                          <p className="text-muted-foreground mb-4 line-clamp-3">
-                            {note.summary}
-                          </p>
+                    <div className="bg-card rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-full flex flex-col min-w-0">
+                      <div className="p-6 flex flex-col flex-grow min-w-0">
+                        <Link href={note.href} className="min-w-0">
+                          <h3 className="text-xl font-bold text-foreground mb-3 line-clamp-2 break-words">
+                            {note.title}
+                          </h3>
+                          {note.summary && (
+                            <p className="text-muted-foreground mb-4 line-clamp-3 break-words">
+                              {note.summary}
+                            </p>
+                          )}
+                          <div className="flex items-center text-sm text-muted-foreground mb-3">
+                            <Calendar className="w-4 h-4 mr-2 shrink-0" />
+                            <span>{formatDate(note.updatedAt)}</span>
+                          </div>
+                        </Link>
+                        {note.tags.length > 0 && (
+                          <div className="flex items-start gap-2 min-w-0">
+                            <Tag className="w-4 h-4 mt-1 text-muted-foreground flex-shrink-0" />
+                            <div className="flex flex-wrap gap-2 min-w-0">
+                              {note.tags.slice(0, 3).map((tag) => (
+                                <span
+                                  key={tag}
+                                  className="inline-block max-w-full px-2 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full break-words"
+                                >
+                                  {tag}
+                                </span>
+                              ))}
+                              {note.tags.length > 3 && (
+                                <span className="inline-block px-2 py-1 text-xs font-medium text-muted-foreground">
+                                  +{note.tags.length - 3} more
+                                </span>
+                              )}
+                            </div>
+                          </div>
                         )}
-                        <div className="flex items-center text-sm text-muted-foreground mb-3">
-                          <Calendar className="w-4 h-4 mr-2" />
-                          <span>{formatDate(note.updatedAt)}</span>
-                        </div>
-                      </Link>
-                      {note.tags.length > 0 && (
-                        <div className="flex items-start gap-2">
-                          <Tag className="w-4 h-4 mt-1 text-muted-foreground flex-shrink-0" />
-                          <div className="flex flex-wrap gap-2">
-                            {note.tags.slice(0, 3).map((tag) => (
-                              <span
-                                key={tag}
-                                className="inline-block px-2 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full"
-                              >
-                                {tag}
-                              </span>
-                            ))}
-                            {note.tags.length > 3 && (
-                              <span className="inline-block px-2 py-1 text-xs font-medium text-muted-foreground">
-                                +{note.tags.length - 3} more
-                              </span>
-                            )}
+                        {note.linkedFrom.length > 0 && (
+                          <div className="mt-4 pt-3 border-t border-border min-w-0">
+                            <div className="mb-2 flex items-center gap-2 text-xs text-muted-foreground">
+                              <Link2 className="w-3.5 h-3.5 shrink-0" />
+                              <span>Linked from</span>
+                            </div>
+                            <div className="flex flex-wrap gap-2 min-w-0">
+                              {note.linkedFrom.slice(0, 3).map((item) => (
+                                <Link
+                                  key={item.href}
+                                  href={item.href}
+                                  className="text-xs text-primary hover:text-secondary break-words max-w-full"
+                                >
+                                  {item.title}
+                                </Link>
+                              ))}
+                              {note.linkedFrom.length > 3 && (
+                                <span className="text-xs text-muted-foreground">
+                                  +{note.linkedFrom.length - 3} more
+                                </span>
+                              )}
+                            </div>
                           </div>
-                        </div>
-                      )}
-                      {note.linkedFrom.length > 0 && (
-                        <div className="mt-4 pt-3 border-t border-border">
-                          <div className="mb-2 flex items-center gap-2 text-xs text-muted-foreground">
-                            <Link2 className="w-3.5 h-3.5" />
-                            <span>Linked from</span>
-                          </div>
-                          <div className="flex flex-wrap gap-2">
-                            {note.linkedFrom.slice(0, 3).map((item) => (
-                              <Link
-                                key={item.href}
-                                href={item.href}
-                                className="text-xs text-primary hover:text-secondary"
-                              >
-                                {item.title}
-                              </Link>
-                            ))}
-                            {note.linkedFrom.length > 3 && (
-                              <span className="text-xs text-muted-foreground">
-                                +{note.linkedFrom.length - 3} more
-                              </span>
-                            )}
-                          </div>
-                        </div>
-                      )}
+                        )}
+                      </div>
                     </div>
                   </motion.div>
                 ))}

@@ -40,9 +40,9 @@ export function NoteContent({ note, children }: NoteContentProps) {
           </motion.div>
         </Link>
 
-        <div className="flex flex-col items-start gap-8 lg:flex-row">
+        <div className="flex flex-col gap-8 lg:flex-row">
           <motion.article
-            className="blog-article min-w-0 flex-1"
+            className="blog-article w-full min-w-0 overflow-hidden flex-1"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -66,7 +66,9 @@ export function NoteContent({ note, children }: NoteContentProps) {
               )}
             </div>
 
-            <div className="prose prose-lg max-w-none">{children}</div>
+            <div className="prose prose-lg max-w-none min-w-0 overflow-hidden">
+              {children}
+            </div>
           </motion.article>
 
           {note.linkedFrom.length > 0 && (

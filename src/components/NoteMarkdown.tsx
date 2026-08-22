@@ -71,8 +71,13 @@ export function NoteMarkdown({ markdown }: { markdown: string }) {
             </code>
           );
         },
+        pre: ({ children, ...props }) => (
+          <div className="overflow-x-auto my-8 max-w-full">
+            <pre {...props}>{children}</pre>
+          </div>
+        ),
         table: ({ children, ...props }) => (
-          <div className="overflow-x-auto my-8">
+          <div className="overflow-x-auto my-8 max-w-full">
             <table className="blog-table" {...props}>
               {children}
             </table>
