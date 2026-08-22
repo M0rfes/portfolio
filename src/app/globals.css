@@ -1506,6 +1506,26 @@
 .blog-article pre {
   overflow-x: auto;
   max-width: 100%;
+  min-width: 0;
+}
+
+.blog-article code[class*="language-"],
+.blog-article pre[class*="language-"] {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.blog-article code.code-highlight {
+  display: block;
+  max-width: 100%;
+}
+
+.blog-article .code-line {
+  display: block;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 @media (min-width: 768px) {
