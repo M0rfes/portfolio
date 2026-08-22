@@ -1,9 +1,12 @@
 import { MetadataRoute } from "next";
+import { getAllNotes } from "@/lib/notes";
 
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://fahim.shonif.com";
+
+  const notes = getAllNotes();
 
   return [
     {
@@ -12,5 +15,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 1,
     },
+    {
+      url: `${baseUrl}/notes`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    ...notes.map((note) => ({
+      url: `${baseUrl}${note.href.replace(/\/$/, "")}`,
+      lastModified: new Date(note.updatedAt),
+      changeFrequency: "weekly" as const,
+      priority: 0.6,
+    })),
   ];
 }

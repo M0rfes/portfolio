@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# generated notes
+src/content/notes/index.json
+src/content/notes/.cache.json
+src/content/notes/pages/
+public/notes/

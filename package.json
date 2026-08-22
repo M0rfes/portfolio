@@ -22,6 +22,10 @@
   },
   "scripts": {
     "dev": "next dev",
+    "predev": "npm run notes:build",
+    "prebuild": "npm run notes:build",
+    "notes:build": "tsx scripts/notes/build.ts",
+    "notes:test": "tsx --test scripts/notes/*.test.ts",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -34,6 +38,7 @@
     "@next/mdx": "^16.0.5",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
+    "d3": "^7.9.0",
     "highlight.js": "^11.11.1",
     "lucide-react": "^0.525.0",
     "motion": "^12.23.9",
@@ -44,12 +49,14 @@
     "prismjs": "^1.30.0",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "react-markdown": "^10.1.0",
     "rehype-highlight": "^7.0.2",
     "rehype-prism-plus": "^2.0.1",
     "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@types/d3": "^7.4.3",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
@@ -58,6 +65,7 @@
     "eslint-config-next": "^15.4.11",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.17",
+    "tsx": "^4.23.12",
     "typescript": "5.9.3"
   }
 }

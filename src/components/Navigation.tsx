@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { Menu, X, User, MessageCircle, BookOpen, Download } from "lucide-react";
+import { Menu, X, User, MessageCircle, BookOpen, Download, NotebookPen } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { ThemePicker } from "./ThemePicker";
 
@@ -14,8 +14,12 @@ export function Navigation() {
 
   const backdropBlur = useTransform(scrollY, [0, 100], [0, 10]);
 
+  const isNotesGraph =
+    pathname.replace(/\/$/, "") === "/notes/graph";
+
   const navItems = [
     { id: "about", label: "About", icon: User, href: "/about" },
+    { id: "notes", label: "Notes", icon: NotebookPen, href: "/notes" },
     { id: "blogs", label: "Blogs", icon: BookOpen, href: "/blogs" },
     {
       id: "resume",
@@ -25,6 +29,16 @@ export function Navigation() {
       download: true,
     },
   ];
+
+  const isActive = (id: string, href: string) => {
+    if (id === "blogs") return pathname.startsWith("/blogs");
+    if (id === "notes") return pathname.startsWith("/notes");
+    return pathname === href;
+  };
+
+  if (isNotesGraph) {
+    return null;
+  }
 
   return (
     <>
@@ -88,9 +102,7 @@ export function Navigation() {
                   <Link key={item.id} href={item.href}>
                     <motion.div
                       className={`px-4 py-2 rounded-full transition-all duration-300 cursor-pointer ${
-                        (item.id === "blogs" &&
-                          pathname.startsWith("/blogs")) ||
-                        (item.id === "about" && pathname === "/about")
+                        isActive(item.id, item.href)
                           ? "bg-primary text-primary-foreground"
                           : "text-foreground hover:text-primary hover:bg-muted"
                       }`}
@@ -198,9 +210,7 @@ export function Navigation() {
                   <motion.div
                     onClick={() => setIsOpen(false)}
                     className={`w-full flex items-center gap-4 p-4 rounded-xl transition-all duration-300 cursor-pointer ${
-                      (item.id === "blogs" &&
-                        pathname.startsWith("/blogs")) ||
-                      (item.id === "about" && pathname === "/about")
+                      isActive(item.id, item.href)
                         ? "bg-primary text-primary-foreground"
                         : "text-foreground hover:bg-muted"
                     }`}
