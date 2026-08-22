@@ -1,4 +1,5 @@
 import { lighten } from "./colorContrast";
+import { nodeTagTarget, tagPullStrength } from "./tagLayout";
 import {
   drag as d3Drag,
   forceCenter,
@@ -25,6 +26,7 @@ export type ForceNode = SimulationNodeDatum & {
   title?: string;
   href?: string;
   color?: string;
+  tags?: string[];
 };
 
 export type ForceLink = SimulationLinkDatum<ForceNode> & {
@@ -127,6 +129,8 @@ export class ForceDirectedGraph {
   private readonly centering = forceCenter<ForceNode>();
   private readonly gravityX = forceX<ForceNode>(0);
   private readonly gravityY = forceY<ForceNode>(0);
+  private readonly tagX = forceX<ForceNode>();
+  private readonly tagY = forceY<ForceNode>();
 
   private nodes: ForceNode[];
   private links: ForceLink[];
@@ -187,6 +191,7 @@ export class ForceDirectedGraph {
     this.centering.x(cx).y(cy).strength(CENTER_STRENGTH);
     this.gravityX.x(cx).strength(GRAVITY_STRENGTH);
     this.gravityY.y(cy).strength(GRAVITY_STRENGTH);
+    this.bindTagForces();
     this.collide.radius((node) => this.radius(node) + COLLIDE_PADDING).strength(0.7);
 
     this.simulation = forceSimulation(this.nodes)
@@ -195,6 +200,8 @@ export class ForceDirectedGraph {
       .force("center", this.centering)
       .force("x", this.gravityX)
       .force("y", this.gravityY)
+      .force("tagX", this.tagX)
+      .force("tagY", this.tagY)
       .force("collide", this.collide)
       .velocityDecay(VELOCITY_DECAY)
       .on("tick", () => this.ticked())
@@ -358,6 +365,7 @@ export class ForceDirectedGraph {
     this.centering.x(width / 2).y(height / 2);
     this.gravityX.x(width / 2);
     this.gravityY.y(height / 2);
+    this.bindTagForces();
     this.emitView();
   }
 
@@ -513,6 +521,23 @@ export class ForceDirectedGraph {
 
   private emitView() {
     this.onViewChange?.(this.getView());
+  }
+
+  private bindTagForces() {
+    const cx = this.width / 2;
+    const cy = this.height / 2;
+    this.tagX
+      .x((node) => {
+        const target = nodeTagTarget(node.tags, 2);
+        return target ? cx + target.x : cx;
+      })
+      .strength((node) => tagPullStrength(node.tags));
+    this.tagY
+      .y((node) => {
+        const target = nodeTagTarget(node.tags, 2);
+        return target ? cy + target.y : cy;
+      })
+      .strength((node) => tagPullStrength(node.tags));
   }
 
   private radius(node: ForceNode) {

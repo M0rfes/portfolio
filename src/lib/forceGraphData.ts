@@ -4,6 +4,7 @@ export type GraphNode3D = {
   name: string;
   href?: string;
   color?: string;
+  tags?: string[];
   isolated?: boolean;
   x?: number;
   y?: number;
@@ -25,6 +26,7 @@ export type GraphInput = {
     title?: string;
     href?: string;
     color?: string;
+    tags?: string[];
   }[];
   edges?: { source: string; target: string }[];
   links?: { source: string; target: string }[];
@@ -94,6 +96,7 @@ export function assignGroups(graph: GraphInput): {
       name: node.name ?? node.title ?? node.id,
       href: node.href,
       color: node.color,
+      tags: node.tags,
       isolated: (groupOf.get(node.id) ?? null) === null,
     })),
     links,
@@ -117,6 +120,7 @@ export function mergeGraphData(
       existing.name = node.name;
       existing.href = node.href ?? existing.href;
       existing.color = node.color ?? existing.color;
+      existing.tags = node.tags ?? existing.tags;
       existing.isolated = isIsolated(existing.id, links);
       return existing;
     }

@@ -31,6 +31,13 @@ describe("assignGroups", () => {
     assert.equal(byId.get("orphan")?.group, null);
     assert.equal(byId.get("orphan")?.isolated, true);
     assert.equal(byId.get("a")?.name, "A");
+    assert.deepEqual(
+      assignGroups({
+        nodes: [{ id: "a", title: "A", tags: ["rust"] }],
+        edges: [],
+      }).nodes[0].tags,
+      ["rust"],
+    );
     assert.deepEqual(links, [
       { source: "a", target: "b" },
       { source: "c", target: "d" },

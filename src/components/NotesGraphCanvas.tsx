@@ -121,6 +121,7 @@ function assignClusters(graph: NotesGraphData): {
       title: node.title,
       href: node.href,
       color: node.color,
+      tags: node.tags,
     })),
     links: graph.edges.map((edge) => ({
       source: edge.source,

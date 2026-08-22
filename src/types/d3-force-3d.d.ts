@@ -10,16 +10,16 @@ declare module "d3-force-3d" {
       (value: Strength<Node>): Force<Node>;
     };
     x: {
-      (): number;
-      (value: number): Force<Node>;
+      (): Strength<Node>;
+      (value: Strength<Node>): Force<Node>;
     };
     y: {
-      (): number;
-      (value: number): Force<Node>;
+      (): Strength<Node>;
+      (value: Strength<Node>): Force<Node>;
     };
     z: {
-      (): number;
-      (value: number): Force<Node>;
+      (): Strength<Node>;
+      (value: Strength<Node>): Force<Node>;
     };
     radius: {
       (): Strength<Node>;
@@ -33,9 +33,9 @@ declare module "d3-force-3d" {
     y?: number,
     z?: number,
   ): Force<Node>;
-  export function forceX<Node = unknown>(x?: number): Force<Node>;
-  export function forceY<Node = unknown>(y?: number): Force<Node>;
-  export function forceZ<Node = unknown>(z?: number): Force<Node>;
+  export function forceX<Node = unknown>(x?: Strength<Node>): Force<Node>;
+  export function forceY<Node = unknown>(y?: Strength<Node>): Force<Node>;
+  export function forceZ<Node = unknown>(z?: Strength<Node>): Force<Node>;
   export function forceRadial<Node = unknown>(
     radius: Strength<Node>,
     x?: number,

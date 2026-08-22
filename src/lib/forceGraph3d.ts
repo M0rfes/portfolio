@@ -17,6 +17,7 @@ import {
   type GraphLink3D,
   type GraphNode3D,
 } from "./forceGraphData";
+import { nodeTagTarget, tagPullStrength } from "./tagLayout";
 
 export type ForceGraph3DColors = {
   background: string;
@@ -112,6 +113,7 @@ export class ForceGraph3DView {
       .linkWidth(() => this.displayLinkWidth())
       .d3VelocityDecay(VELOCITY_DECAY)
       .onNodeHover((node) => this.setHover(node?.id ?? null))
+      .onNodeDragEnd(() => this.sealOrbitPointers())
       .onNodeClick((node) => this.onNodeClick?.(node))
       .onEngineStop(() => {
         if (this.destroyed) return;
@@ -127,6 +129,7 @@ export class ForceGraph3DView {
       nodes: options.nodes.map((node) => ({ ...node })),
       links: options.links.map((link) => ({ ...link })),
     });
+    this.patchOrbitPointerUp();
   }
 
   updateGraphData(nodes: GraphNode3D[], links: GraphLink3D[]) {
@@ -194,6 +197,33 @@ export class ForceGraph3DView {
     this.graph._destructor();
   }
 
+  private orbitControls() {
+    return this.graph.controls() as {
+      _onPointerUp?: (event: PointerEvent) => void;
+      _pointers?: Array<number | string>;
+      _pointerPositions?: Record<string | number, { x: number; y: number }>;
+    };
+  }
+
+  private sealOrbitPointers() {
+    const controls = this.orbitControls();
+    const positions = controls._pointerPositions;
+    if (!positions) return;
+    for (const id of controls._pointers ?? []) {
+      if (!positions[id]) positions[id] = { x: 0, y: 0 };
+    }
+  }
+
+  private patchOrbitPointerUp() {
+    const controls = this.orbitControls();
+    const original = controls._onPointerUp?.bind(controls);
+    if (!original) return;
+    controls._onPointerUp = (event: PointerEvent) => {
+      this.sealOrbitPointers();
+      original(event);
+    };
+  }
+
   private configureForces() {
     const charge = this.graph.d3Force("charge");
     charge?.strength?.(-this.chargeStrength);
@@ -208,6 +238,24 @@ export class ForceGraph3DView {
       .d3Force("x", forceX(0).strength(GRAVITY_STRENGTH))
       .d3Force("y", forceY(0).strength(GRAVITY_STRENGTH))
       .d3Force("z", forceZ(0).strength(GRAVITY_STRENGTH))
+      .d3Force(
+        "tagX",
+        forceX<GraphNode3D>((node) => nodeTagTarget(node.tags, 3)?.x ?? 0).strength(
+          (node) => tagPullStrength(node.tags),
+        ),
+      )
+      .d3Force(
+        "tagY",
+        forceY<GraphNode3D>((node) => nodeTagTarget(node.tags, 3)?.y ?? 0).strength(
+          (node) => tagPullStrength(node.tags),
+        ),
+      )
+      .d3Force(
+        "tagZ",
+        forceZ<GraphNode3D>((node) => nodeTagTarget(node.tags, 3)?.z ?? 0).strength(
+          (node) => tagPullStrength(node.tags),
+        ),
+      )
       .d3Force(
         "radial",
         forceRadial<GraphNode3D>((node) =>
