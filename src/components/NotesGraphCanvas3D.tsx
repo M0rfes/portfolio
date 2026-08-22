@@ -9,6 +9,7 @@ import {
   useState,
 } from "react";
 import { useRouter } from "next/navigation";
+import { SlidersHorizontal, X } from "lucide-react";
 import { NotesGraphData } from "@/lib/notes";
 import { contrastAgainst } from "@/lib/colorContrast";
 import { assignGroups, type GraphLink3D, type GraphNode3D } from "@/lib/forceGraphData";
@@ -81,6 +82,7 @@ export const NotesGraphCanvas3D = forwardRef<
   const [spacing, setSpacing] = useState(DEFAULT_SPACING);
   const [linkDistance, setLinkDistance] = useState(DEFAULT_LINK_DISTANCE);
   const [nodeScale, setNodeScale] = useState(DEFAULT_NODE_SCALE);
+  const [controlsOpen, setControlsOpen] = useState(true);
 
   const data = useMemo(() => assignGroups(graph), [graph]);
   const colors = useMemo(() => {
@@ -138,11 +140,22 @@ export const NotesGraphCanvas3D = forwardRef<
     <>
       <div ref={hostRef} className="h-full w-full bg-background" />
 
-      <aside className="absolute top-4 right-4 z-[101] w-64 rounded-xl border border-border bg-card/95 p-4 shadow-xl backdrop-blur">
-        <p className="mb-1 text-sm font-medium text-foreground">3D graph</p>
-        <p className="mb-3 text-xs text-muted-foreground">
-          Drag to rotate · Scroll to zoom
-        </p>
+      {controlsOpen ? (
+        <aside className="absolute top-4 right-4 z-[101] w-64 rounded-xl border border-border bg-card/95 p-4 shadow-xl backdrop-blur">
+          <div className="mb-1 flex items-center justify-between">
+            <p className="text-sm font-medium text-foreground">3D graph</p>
+            <button
+              type="button"
+              aria-label="Close controls"
+              className="rounded-md p-1 text-muted-foreground hover:bg-muted hover:text-foreground"
+              onClick={() => setControlsOpen(false)}
+            >
+              <X className="h-4 w-4" />
+            </button>
+          </div>
+          <p className="mb-3 text-xs text-muted-foreground">
+            Drag to rotate · Scroll to zoom
+          </p>
         <div className="space-y-3">
           <ControlSlider
             label="Node size"
@@ -199,6 +212,17 @@ export const NotesGraphCanvas3D = forwardRef<
           </button>
         </div>
       </aside>
+      ) : (
+        <button
+          type="button"
+          aria-label="Open controls"
+          className="absolute top-4 right-4 z-[101] inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm text-foreground hover:bg-muted"
+          onClick={() => setControlsOpen(true)}
+        >
+          <SlidersHorizontal className="h-4 w-4" />
+          Controls
+        </button>
+      )}
     </>
   );
 });

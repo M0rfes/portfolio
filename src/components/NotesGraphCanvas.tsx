@@ -9,6 +9,7 @@ import {
   forwardRef,
 } from "react";
 import { useRouter } from "next/navigation";
+import { SlidersHorizontal, X } from "lucide-react";
 import { NotesGraphData } from "@/lib/notes";
 import {
   ForceDirectedGraph,
@@ -267,6 +268,7 @@ export const NotesGraphCanvas = forwardRef<
   const [zoom, setZoom] = useState(1);
   const [minZoom, setMinZoom] = useState(0.05);
   const [maxZoom, setMaxZoom] = useState(8);
+  const [controlsOpen, setControlsOpen] = useState(true);
 
   const data = useMemo(() => assignClusters(graph), [graph]);
   const colors = useMemo(
@@ -330,8 +332,19 @@ export const NotesGraphCanvas = forwardRef<
     <>
       <div ref={hostRef} className="h-full w-full bg-background" />
 
-      <aside className="absolute top-4 right-4 z-[101] w-64 rounded-xl border border-border bg-card/95 p-4 shadow-xl backdrop-blur">
-        <p className="mb-3 text-sm font-medium text-foreground">Graph controls</p>
+      {controlsOpen ? (
+        <aside className="absolute top-4 right-4 z-[101] w-64 rounded-xl border border-border bg-card/95 p-4 shadow-xl backdrop-blur">
+          <div className="mb-3 flex items-center justify-between">
+            <p className="text-sm font-medium text-foreground">Graph controls</p>
+            <button
+              type="button"
+              aria-label="Close controls"
+              className="rounded-md p-1 text-muted-foreground hover:bg-muted hover:text-foreground"
+              onClick={() => setControlsOpen(false)}
+            >
+              <X className="h-4 w-4" />
+            </button>
+          </div>
         <div className="space-y-3">
           <ControlSlider
             label="Zoom"
@@ -399,6 +412,17 @@ export const NotesGraphCanvas = forwardRef<
           </button>
         </div>
       </aside>
+      ) : (
+        <button
+          type="button"
+          aria-label="Open controls"
+          className="absolute top-4 right-4 z-[101] inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm text-foreground hover:bg-muted"
+          onClick={() => setControlsOpen(true)}
+        >
+          <SlidersHorizontal className="h-4 w-4" />
+          Controls
+        </button>
+      )}
 
       <div className="absolute bottom-4 left-4 z-[101] rounded-xl border border-border bg-card/95 p-2 shadow-xl backdrop-blur">
         <p className="mb-2 px-1 text-xs text-muted-foreground">Minimap</p>
