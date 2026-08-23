@@ -46,6 +46,16 @@
     },
     {
       "slug": [
+        "books",
+        "c",
+        "advanced-c-programming-course",
+        "c-static"
+      ],
+      "href": "/notes/books/c/advanced-c-programming-course/c-static/",
+      "title": "C Static Storage Class"
+    },
+    {
+      "slug": [
         "coding",
         "concurrency",
         "concurrency"
@@ -243,6 +253,16 @@
       ],
       "href": "/notes/coding/concurrency/static-lifetime/",
       "title": "Static Lifetime"
+    },
+    {
+      "slug": [
+        "books",
+        "c",
+        "advanced-c-programming-course",
+        "storage-classes"
+      ],
+      "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
+      "title": "Storage Classes in C"
     },
     {
       "slug": [

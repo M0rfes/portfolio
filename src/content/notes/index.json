@@ -61,6 +61,329 @@
     },
     {
       "slug": [
+        "coding",
+        "automatic-storage-duration"
+      ],
+      "href": "/notes/coding/automatic-storage-duration/",
+      "title": "Automatic Storage Duration",
+      "tags": [
+        "programming",
+        "memory",
+        "lifetime"
+      ],
+      "created": "2026-08-23",
+      "updatedAt": "2026-08-23",
+      "vaultPath": "Coding/Automatic Storage Duration.md",
+      "folder": "Coding",
+      "linkedFrom": []
+    },
+    {
+      "slug": [
+        "books",
+        "c",
+        "advanced-c-programming-course",
+        "c-auto"
+      ],
+      "href": "/notes/books/c/advanced-c-programming-course/c-auto/",
+      "title": "C Auto Storage Class",
+      "tags": [
+        "c",
+        "memory",
+        "storage-classes"
+      ],
+      "created": "2026-08-23",
+      "updatedAt": "2026-08-23",
+      "vaultPath": "Books/C/Advanced C Programming Course/C Auto.md",
+      "folder": "Books",
+      "linkedFrom": [
+        {
+          "slug": [
+            "books",
+            "c",
+            "advanced-c-programming-course",
+            "storage-classes"
+          ],
+          "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
+          "title": "Storage Classes in C"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "books",
+        "c",
+        "advanced-c-programming-course",
+        "c-extern"
+      ],
+      "href": "/notes/books/c/advanced-c-programming-course/c-extern/",
+      "title": "C Extern Storage Class",
+      "tags": [
+        "c",
+        "memory",
+        "storage-classes"
+      ],
+      "created": "2026-08-23",
+      "updatedAt": "2026-08-23",
+      "vaultPath": "Books/C/Advanced C Programming Course/C Extern.md",
+      "folder": "Books",
+      "linkedFrom": [
+        {
+          "slug": [
+            "books",
+            "c",
+            "advanced-c-programming-course",
+            "storage-classes"
+          ],
+          "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
+          "title": "Storage Classes in C"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "books",
+        "c",
+        "advanced-c-programming-course",
+        "c-register"
+      ],
+      "href": "/notes/books/c/advanced-c-programming-course/c-register/",
+      "title": "C Register Storage Class",
+      "tags": [
+        "c",
+        "memory",
+        "storage-classes"
+      ],
+      "created": "2026-08-23",
+      "updatedAt": "2026-08-23",
+      "vaultPath": "Books/C/Advanced C Programming Course/C Register.md",
+      "folder": "Books",
+      "linkedFrom": [
+        {
+          "slug": [
+            "books",
+            "c",
+            "advanced-c-programming-course",
+            "storage-classes"
+          ],
+          "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
+          "title": "Storage Classes in C"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "books",
+        "c",
+        "advanced-c-programming-course",
+        "c-static"
+      ],
+      "href": "/notes/books/c/advanced-c-programming-course/c-static/",
+      "title": "C Static Storage Class",
+      "tags": [
+        "c",
+        "memory",
+        "storage-classes"
+      ],
+      "created": "2026-08-23",
+      "updatedAt": "2026-08-23",
+      "vaultPath": "Books/C/Advanced C Programming Course/C Static.md",
+      "folder": "Books",
+      "linkedFrom": [
+        {
+          "slug": [
+            "books",
+            "c",
+            "advanced-c-programming-course",
+            "storage-classes"
+          ],
+          "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
+          "title": "Storage Classes in C"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "coding",
+        "register-storage"
+      ],
+      "href": "/notes/coding/register-storage/",
+      "title": "Register Storage",
+      "tags": [
+        "programming",
+        "memory",
+        "registers"
+      ],
+      "created": "2026-08-23",
+      "updatedAt": "2026-08-23",
+      "vaultPath": "Coding/Register Storage.md",
+      "folder": "Coding",
+      "linkedFrom": []
+    },
+    {
+      "slug": [
+        "books",
+        "c",
+        "advanced-c-programming-course",
+        "storage-classes"
+      ],
+      "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
+      "title": "Storage Classes in C",
+      "tags": [
+        "c",
+        "programming",
+        "memory",
+        "storage-classes",
+        "moc"
+      ],
+      "created": "2026-08-23",
+      "updatedAt": "2026-08-23",
+      "vaultPath": "Books/C/Advanced C Programming Course/Storage Classes.md",
+      "folder": "Books",
+      "linkedFrom": []
+    },
+    {
+      "slug": [
+        "coding",
+        "variable-lifetime"
+      ],
+      "href": "/notes/coding/variable-lifetime/",
+      "title": "Variable Lifetime",
+      "tags": [
+        "programming",
+        "memory",
+        "lifetime"
+      ],
+      "created": "2026-08-23",
+      "updatedAt": "2026-08-23",
+      "vaultPath": "Coding/Variable Lifetime.md",
+      "folder": "Coding",
+      "linkedFrom": [
+        {
+          "slug": [
+            "coding",
+            "automatic-storage-duration"
+          ],
+          "href": "/notes/coding/automatic-storage-duration/",
+          "title": "Automatic Storage Duration"
+        },
+        {
+          "slug": [
+            "books",
+            "c",
+            "advanced-c-programming-course",
+            "c-auto"
+          ],
+          "href": "/notes/books/c/advanced-c-programming-course/c-auto/",
+          "title": "C Auto Storage Class"
+        },
+        {
+          "slug": [
+            "books",
+            "c",
+            "advanced-c-programming-course",
+            "storage-classes"
+          ],
+          "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
+          "title": "Storage Classes in C"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "coding",
+        "variable-linkage"
+      ],
+      "href": "/notes/coding/variable-linkage/",
+      "title": "Variable Linkage",
+      "tags": [
+        "programming",
+        "memory",
+        "linkage"
+      ],
+      "created": "2026-08-23",
+      "updatedAt": "2026-08-23",
+      "vaultPath": "Coding/Variable Linkage.md",
+      "folder": "Coding",
+      "linkedFrom": [
+        {
+          "slug": [
+            "coding",
+            "automatic-storage-duration"
+          ],
+          "href": "/notes/coding/automatic-storage-duration/",
+          "title": "Automatic Storage Duration"
+        },
+        {
+          "slug": [
+            "books",
+            "c",
+            "advanced-c-programming-course",
+            "c-auto"
+          ],
+          "href": "/notes/books/c/advanced-c-programming-course/c-auto/",
+          "title": "C Auto Storage Class"
+        },
+        {
+          "slug": [
+            "books",
+            "c",
+            "advanced-c-programming-course",
+            "storage-classes"
+          ],
+          "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
+          "title": "Storage Classes in C"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "coding",
+        "variable-scope"
+      ],
+      "href": "/notes/coding/variable-scope/",
+      "title": "Variable Scope",
+      "tags": [
+        "programming",
+        "memory",
+        "scope"
+      ],
+      "created": "2026-08-23",
+      "updatedAt": "2026-08-23",
+      "vaultPath": "Coding/Variable Scope.md",
+      "folder": "Coding",
+      "linkedFrom": [
+        {
+          "slug": [
+            "coding",
+            "automatic-storage-duration"
+          ],
+          "href": "/notes/coding/automatic-storage-duration/",
+          "title": "Automatic Storage Duration"
+        },
+        {
+          "slug": [
+            "books",
+            "c",
+            "advanced-c-programming-course",
+            "c-auto"
+          ],
+          "href": "/notes/books/c/advanced-c-programming-course/c-auto/",
+          "title": "C Auto Storage Class"
+        },
+        {
+          "slug": [
+            "books",
+            "c",
+            "advanced-c-programming-course",
+            "storage-classes"
+          ],
+          "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
+          "title": "Storage Classes in C"
+        }
+      ]
+    },
+    {
+      "slug": [
         "teach",
         "c17",
         "glossary"
@@ -76,6 +399,16 @@
       "vaultPath": "Teach/C17/GLOSSARY.md",
       "folder": "Teach",
       "linkedFrom": [
+        {
+          "slug": [
+            "books",
+            "c",
+            "advanced-c-programming-course",
+            "c-static"
+          ],
+          "href": "/notes/books/c/advanced-c-programming-course/c-static/",
+          "title": "C Static Storage Class"
+        },
         {
           "slug": [
             "teach",
@@ -104,6 +437,16 @@
           ],
           "href": "/notes/teach/c17/lessons/0002-binary-file-io-and-rom-loading/",
           "title": "Lesson 0002: Safe Binary File I/O & ROM Loading into Memory at 0x200"
+        },
+        {
+          "slug": [
+            "books",
+            "c",
+            "advanced-c-programming-course",
+            "storage-classes"
+          ],
+          "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
+          "title": "Storage Classes in C"
         }
       ]
     },
@@ -240,6 +583,16 @@
           ],
           "href": "/notes/teach/c17/reference/standard-io-and-binary-file-streams/",
           "title": "Standard I/O & Binary File Streams in C17"
+        },
+        {
+          "slug": [
+            "books",
+            "c",
+            "advanced-c-programming-course",
+            "storage-classes"
+          ],
+          "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
+          "title": "Storage Classes in C"
         }
       ]
     },
@@ -2067,6 +2420,16 @@
         },
         {
           "slug": [
+            "books",
+            "c",
+            "advanced-c-programming-course",
+            "c-static"
+          ],
+          "href": "/notes/books/c/advanced-c-programming-course/c-static/",
+          "title": "C Static Storage Class"
+        },
+        {
+          "slug": [
             "coding",
             "concurrency",
             "concurrency"
@@ -2264,6 +2627,16 @@
           ],
           "href": "/notes/coding/concurrency/static-lifetime/",
           "title": "Static Lifetime"
+        },
+        {
+          "slug": [
+            "books",
+            "c",
+            "advanced-c-programming-course",
+            "storage-classes"
+          ],
+          "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
+          "title": "Storage Classes in C"
         },
         {
           "slug": [
@@ -3719,6 +4092,118 @@
         "color": "#b1e052"
       },
       {
+        "id": "coding/automatic-storage-duration",
+        "title": "Automatic Storage Duration",
+        "href": "/notes/coding/automatic-storage-duration/",
+        "tags": [
+          "programming",
+          "memory",
+          "lifetime"
+        ],
+        "color": "#89b4fa"
+      },
+      {
+        "id": "books/c/advanced-c-programming-course/c-auto",
+        "title": "C Auto Storage Class",
+        "href": "/notes/books/c/advanced-c-programming-course/c-auto/",
+        "tags": [
+          "c",
+          "memory",
+          "storage-classes"
+        ],
+        "color": "#89b4fa"
+      },
+      {
+        "id": "books/c/advanced-c-programming-course/c-extern",
+        "title": "C Extern Storage Class",
+        "href": "/notes/books/c/advanced-c-programming-course/c-extern/",
+        "tags": [
+          "c",
+          "memory",
+          "storage-classes"
+        ],
+        "color": "#89b4fa"
+      },
+      {
+        "id": "books/c/advanced-c-programming-course/c-register",
+        "title": "C Register Storage Class",
+        "href": "/notes/books/c/advanced-c-programming-course/c-register/",
+        "tags": [
+          "c",
+          "memory",
+          "storage-classes"
+        ],
+        "color": "#89b4fa"
+      },
+      {
+        "id": "books/c/advanced-c-programming-course/c-static",
+        "title": "C Static Storage Class",
+        "href": "/notes/books/c/advanced-c-programming-course/c-static/",
+        "tags": [
+          "c",
+          "memory",
+          "storage-classes"
+        ],
+        "color": "#89b4fa"
+      },
+      {
+        "id": "coding/register-storage",
+        "title": "Register Storage",
+        "href": "/notes/coding/register-storage/",
+        "tags": [
+          "programming",
+          "memory",
+          "registers"
+        ],
+        "color": "#89b4fa"
+      },
+      {
+        "id": "books/c/advanced-c-programming-course/storage-classes",
+        "title": "Storage Classes in C",
+        "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
+        "tags": [
+          "c",
+          "programming",
+          "memory",
+          "storage-classes",
+          "moc"
+        ],
+        "color": "#89b4fa"
+      },
+      {
+        "id": "coding/variable-lifetime",
+        "title": "Variable Lifetime",
+        "href": "/notes/coding/variable-lifetime/",
+        "tags": [
+          "programming",
+          "memory",
+          "lifetime"
+        ],
+        "color": "#89b4fa"
+      },
+      {
+        "id": "coding/variable-linkage",
+        "title": "Variable Linkage",
+        "href": "/notes/coding/variable-linkage/",
+        "tags": [
+          "programming",
+          "memory",
+          "linkage"
+        ],
+        "color": "#89b4fa"
+      },
+      {
+        "id": "coding/variable-scope",
+        "title": "Variable Scope",
+        "href": "/notes/coding/variable-scope/",
+        "tags": [
+          "programming",
+          "memory",
+          "scope"
+        ],
+        "color": "#89b4fa"
+      },
+      {
         "id": "teach/c17/glossary",
         "title": "C17 Glossary",
         "href": "/notes/teach/c17/glossary/",
@@ -4726,6 +5211,78 @@
       {
         "source": "architecture/splitting-the-monolith",
         "target": "architecture/case-for-monolith/case-for-monolith"
+      },
+      {
+        "source": "coding/automatic-storage-duration",
+        "target": "coding/variable-linkage"
+      },
+      {
+        "source": "coding/automatic-storage-duration",
+        "target": "coding/variable-lifetime"
+      },
+      {
+        "source": "coding/automatic-storage-duration",
+        "target": "coding/variable-scope"
+      },
+      {
+        "source": "books/c/advanced-c-programming-course/c-auto",
+        "target": "coding/variable-linkage"
+      },
+      {
+        "source": "books/c/advanced-c-programming-course/c-auto",
+        "target": "coding/variable-lifetime"
+      },
+      {
+        "source": "books/c/advanced-c-programming-course/c-auto",
+        "target": "coding/variable-scope"
+      },
+      {
+        "source": "books/c/advanced-c-programming-course/c-static",
+        "target": "coding/concurrency/threads"
+      },
+      {
+        "source": "books/c/advanced-c-programming-course/c-static",
+        "target": "teach/c17/glossary"
+      },
+      {
+        "source": "books/c/advanced-c-programming-course/storage-classes",
+        "target": "coding/variable-lifetime"
+      },
+      {
+        "source": "books/c/advanced-c-programming-course/storage-classes",
+        "target": "coding/variable-scope"
+      },
+      {
+        "source": "books/c/advanced-c-programming-course/storage-classes",
+        "target": "coding/variable-linkage"
+      },
+      {
+        "source": "books/c/advanced-c-programming-course/storage-classes",
+        "target": "teach/c17/c17"
+      },
+      {
+        "source": "books/c/advanced-c-programming-course/storage-classes",
+        "target": "books/c/advanced-c-programming-course/c-auto"
+      },
+      {
+        "source": "books/c/advanced-c-programming-course/storage-classes",
+        "target": "books/c/advanced-c-programming-course/c-extern"
+      },
+      {
+        "source": "books/c/advanced-c-programming-course/storage-classes",
+        "target": "books/c/advanced-c-programming-course/c-static"
+      },
+      {
+        "source": "books/c/advanced-c-programming-course/storage-classes",
+        "target": "coding/concurrency/threads"
+      },
+      {
+        "source": "books/c/advanced-c-programming-course/storage-classes",
+        "target": "teach/c17/glossary"
+      },
+      {
+        "source": "books/c/advanced-c-programming-course/storage-classes",
+        "target": "books/c/advanced-c-programming-course/c-register"
       },
       {
         "source": "teach/c17/glossary",

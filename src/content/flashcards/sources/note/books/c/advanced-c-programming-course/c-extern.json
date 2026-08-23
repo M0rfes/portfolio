@@ -1,0 +1,41 @@
+{
+  "source": {
+    "type": "note",
+    "id": "books/c/advanced-c-programming-course/c-extern",
+    "title": "C Extern Storage Class",
+    "href": "/notes/books/c/advanced-c-programming-course/c-extern/",
+    "tags": ["c", "memory", "storage-classes"]
+  },
+  "cards": [
+    {
+      "id": "note:books/c/advanced-c-programming-course/c-extern:0",
+      "question": "What does visibility, or linkage, specify?",
+      "answer": "Whether the variable is visible to other files in a multi-file program."
+    },
+    {
+      "id": "note:books/c/advanced-c-programming-course/c-extern:1",
+      "question": "What do extern modifiers control?",
+      "answer": "The visibility of a global variable in a multi-file project."
+    },
+    {
+      "id": "note:books/c/advanced-c-programming-course/c-extern:2",
+      "question": "What is the default linkage of functions?",
+      "answer": "Extern. `extern int add(int a, int b);` and `int add(int a, int b);` are effectively the same."
+    },
+    {
+      "id": "note:books/c/advanced-c-programming-course/c-extern:3",
+      "question": "How can another file access a global defined in `main.c`?",
+      "answer": "Declare it with `extern` in that file, such as `extern int i;` in `foo.c`."
+    },
+    {
+      "id": "note:books/c/advanced-c-programming-course/c-extern:4",
+      "question": "Can `extern` be used inside a function?",
+      "answer": "Yes. Inside a scope it means you are using a global variable defined in another file."
+    },
+    {
+      "id": "note:books/c/advanced-c-programming-course/c-extern:5",
+      "question": "What array sizes must an `extern` declaration include?",
+      "answer": "A one-dimensional array does not need its size. A multidimensional array must specify the nested sizes."
+    }
+  ]
+}

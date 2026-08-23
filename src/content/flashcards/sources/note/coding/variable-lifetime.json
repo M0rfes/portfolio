@@ -1,0 +1,26 @@
+{
+  "source": {
+    "type": "note",
+    "id": "coding/variable-lifetime",
+    "title": "Variable Lifetime",
+    "href": "/notes/coding/variable-lifetime/",
+    "tags": ["programming", "memory", "lifetime"]
+  },
+  "cards": [
+    {
+      "id": "note:coding/variable-lifetime:0",
+      "question": "What does a variable's lifetime specify?",
+      "answer": "How long it is alive."
+    },
+    {
+      "id": "note:coding/variable-lifetime:1",
+      "question": "What are the two common lifetime spans?",
+      "answer": "Some variables are only alive within a scope, and some stay alive for the entire duration of the program."
+    },
+    {
+      "id": "note:coding/variable-lifetime:2",
+      "question": "Besides scope-bound and program-long, what other lifetime exists?",
+      "answer": "Some values are allocated and cleaned up for a specific duration."
+    }
+  ]
+}

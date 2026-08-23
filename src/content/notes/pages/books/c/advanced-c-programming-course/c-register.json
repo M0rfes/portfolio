@@ -1,0 +1,32 @@
+{
+  "slug": [
+    "books",
+    "c",
+    "advanced-c-programming-course",
+    "c-register"
+  ],
+  "href": "/notes/books/c/advanced-c-programming-course/c-register/",
+  "title": "C Register Storage Class",
+  "tags": [
+    "c",
+    "memory",
+    "storage-classes"
+  ],
+  "created": "2026-08-23",
+  "updatedAt": "2026-08-23",
+  "vaultPath": "Books/C/Advanced C Programming Course/C Register.md",
+  "folder": "Books",
+  "markdown": "# Register Storage Class in C\n\nRegister modifiers tell the compiler to place the variable in a CPU register instead of RAM. The compiler still can choose not to do that for the sake of optimisation. It's more like a request. While a whole struct can have a register modifier, one field of a struct can't have the register modifier.\n\nRegister modifiers tell the compiler to place the variable in a CPU register instead of RAM. The compiler still can choose not to do that for the sake of optimisation. It's more like a request. While a whole struct can have a register modifier, one field of a struct can't have the register modifier.\n\n```c\nint main(void) {\n\tregister int i = 10; // is in one of the CPU registers\n\treturn 0;\n}\n```\n\n## No Address Rule\n\nYou cannot take the address/reference of a register variable, as it has no address while in a register.\n\n```c\nint main(void) {\n\tregister int i = 10; // is in one of the CPU registers\n\tint* ptr_i = &i; // not allowed will cause an error\n\treturn 0;\n}\n```\n\nWhile putting the address in a register works:\n\n```c\nint main(void) {\n\tint i = 10;\n\tregister int* ptr_i = &i; // allowed\n\treturn 0;\n}\n```\n\nregister has scope, lifetime, and visibility; register can't be global.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "books",
+        "c",
+        "advanced-c-programming-course",
+        "storage-classes"
+      ],
+      "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
+      "title": "Storage Classes in C"
+    }
+  ]
+}

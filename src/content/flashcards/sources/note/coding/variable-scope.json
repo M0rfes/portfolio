@@ -1,0 +1,26 @@
+{
+  "source": {
+    "type": "note",
+    "id": "coding/variable-scope",
+    "title": "Variable Scope",
+    "href": "/notes/coding/variable-scope/",
+    "tags": ["programming", "memory", "scope"]
+  },
+  "cards": [
+    {
+      "id": "note:coding/variable-scope:0",
+      "question": "What does the scope of a variable specify?",
+      "answer": "Where it can be accessed in a file."
+    },
+    {
+      "id": "note:coding/variable-scope:1",
+      "question": "What counts as block scope?",
+      "answer": "A function, an if/else body, a loop, or any region between `{}`."
+    },
+    {
+      "id": "note:coding/variable-scope:2",
+      "question": "When is a variable globally scoped in a file?",
+      "answer": "When it is defined outside of any function, so it can be accessed anywhere in the file."
+    }
+  ]
+}

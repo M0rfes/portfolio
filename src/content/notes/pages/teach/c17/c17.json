@@ -132,6 +132,16 @@
       ],
       "href": "/notes/teach/c17/reference/standard-io-and-binary-file-streams/",
       "title": "Standard I/O & Binary File Streams in C17"
+    },
+    {
+      "slug": [
+        "books",
+        "c",
+        "advanced-c-programming-course",
+        "storage-classes"
+      ],
+      "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
+      "title": "Storage Classes in C"
     }
   ]
 }

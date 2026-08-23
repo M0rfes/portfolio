@@ -1,0 +1,32 @@
+{
+  "slug": [
+    "books",
+    "c",
+    "advanced-c-programming-course",
+    "c-auto"
+  ],
+  "href": "/notes/books/c/advanced-c-programming-course/c-auto/",
+  "title": "C Auto Storage Class",
+  "tags": [
+    "c",
+    "memory",
+    "storage-classes"
+  ],
+  "created": "2026-08-23",
+  "updatedAt": "2026-08-23",
+  "vaultPath": "Books/C/Advanced C Programming Course/C Auto.md",
+  "folder": "Books",
+  "markdown": "# Auto Storage Class in C\n\nAuto is the default modifier for [visibility](../../../../coding/variable-linkage/) & [lifetime](../../../../coding/variable-lifetime/) is bound to its [scope](../../../../coding/variable-scope/); its memory is acquired when it comes into scope and freed when it goes out of scope.\n\nYou don't need to specify auto unless you are shadowing a global variable and want to be specific about the shadowing.\n\n```c\nint main(void) {\n\tint i = 10;\n\tauto int j = 10;\n}\n```\n\nBoth i and j are auto.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "books",
+        "c",
+        "advanced-c-programming-course",
+        "storage-classes"
+      ],
+      "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
+      "title": "Storage Classes in C"
+    }
+  ]
+}

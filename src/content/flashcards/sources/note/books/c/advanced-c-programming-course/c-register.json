@@ -1,0 +1,36 @@
+{
+  "source": {
+    "type": "note",
+    "id": "books/c/advanced-c-programming-course/c-register",
+    "title": "C Register Storage Class",
+    "href": "/notes/books/c/advanced-c-programming-course/c-register/",
+    "tags": ["c", "memory", "storage-classes"]
+  },
+  "cards": [
+    {
+      "id": "note:books/c/advanced-c-programming-course/c-register:0",
+      "question": "What does the register modifier ask the compiler to do?",
+      "answer": "Place the variable in a CPU register instead of RAM. The compiler may still refuse for optimisation; it is a request."
+    },
+    {
+      "id": "note:books/c/advanced-c-programming-course/c-register:1",
+      "question": "Can a struct field have the register modifier?",
+      "answer": "No. A whole struct can be register, but one field of a struct cannot."
+    },
+    {
+      "id": "note:books/c/advanced-c-programming-course/c-register:2",
+      "question": "Why can you not take the address of a register variable?",
+      "answer": "It has no address while it is in a register. `&i` on a register variable is not allowed and will cause an error."
+    },
+    {
+      "id": "note:books/c/advanced-c-programming-course/c-register:3",
+      "question": "Is `register int* ptr_i = &i;` allowed when `i` is a normal local?",
+      "answer": "Yes. Putting an address in a register is allowed."
+    },
+    {
+      "id": "note:books/c/advanced-c-programming-course/c-register:4",
+      "question": "Can a register variable be global?",
+      "answer": "No. Register has scope, lifetime, and visibility, but it cannot be global."
+    }
+  ]
+}

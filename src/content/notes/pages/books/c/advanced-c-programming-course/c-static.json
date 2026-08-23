@@ -1,0 +1,32 @@
+{
+  "slug": [
+    "books",
+    "c",
+    "advanced-c-programming-course",
+    "c-static"
+  ],
+  "href": "/notes/books/c/advanced-c-programming-course/c-static/",
+  "title": "C Static Storage Class",
+  "tags": [
+    "c",
+    "memory",
+    "storage-classes"
+  ],
+  "created": "2026-08-23",
+  "updatedAt": "2026-08-23",
+  "vaultPath": "Books/C/Advanced C Programming Course/C Static.md",
+  "folder": "Books",
+  "markdown": "# Static Storage Class in C\n\nA static lifetime means the value will exist until the end of the program, so any value with a static lifetime can be shared across [threads](../../../../coding/concurrency/threads/).\n\nAny variable declared static exists before main and remains in scope until the program ends. Values can also be leaked on the heap to guarantee they exist for the program's entire duration.\n\nstatic has different behaviour for local and global variables.\n\n```c\nvoid foo(void) {\n\tstatic int i = 0;\n\tprintf(\"i = %d\\n\", i);\n\ti++;\n}\n\nint main(void) {\n\tfoo(); //prints i = 0\n\tfoo(); //prints i = 1\n\tfoo(); //prints i = 2\n\tfoo(); //prints i = 3\n\t\n\treturn 0;\n}\n```\n\nLocal variables with the static modifier retain their value between function executions, unlike auto variables that are allocated on the stack; local static variables are defined in the **data segment** (or BSS segment). They stay from the start to the end of the program.\n\nThe whole struct can have the static modifier but individual members can't have a static modifier due to the [alignment rule](../../../../teach/c17/glossary/#alignment).\n\nstatic variables have to be known at compile time, so\n```c\nstatic int i = get_i();\n```\nwill not work.\n\n```c\n// main.c\nstatic int i = 10;\nstatic int foo(void) {\n\treturn 10;\n}\n```\nBoth the variable i and the function foo are now visible only in main.c, the file where they are defined.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "books",
+        "c",
+        "advanced-c-programming-course",
+        "storage-classes"
+      ],
+      "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
+      "title": "Storage Classes in C"
+    }
+  ]
+}

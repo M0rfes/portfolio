@@ -34,8 +34,8 @@
     },
     {
       "id": "note:teach/c17/glossary:5",
-      "question": "What is type punning?",
-      "answer": "Accessing a block of memory through a pointer of a different type or through a `union` to reinterpret its raw bit representation."
+      "question": "What is alignment?",
+      "answer": "A requirement that an object of a given type be stored at a memory address that is a multiple of a certain integer value, such as a 4-byte integer at an address divisible by 4."
     },
     {
       "id": "note:teach/c17/glossary:6",

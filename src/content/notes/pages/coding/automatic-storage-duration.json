@@ -1,0 +1,19 @@
+{
+  "slug": [
+    "coding",
+    "automatic-storage-duration"
+  ],
+  "href": "/notes/coding/automatic-storage-duration/",
+  "title": "Automatic Storage Duration",
+  "tags": [
+    "programming",
+    "memory",
+    "lifetime"
+  ],
+  "created": "2026-08-23",
+  "updatedAt": "2026-08-23",
+  "vaultPath": "Coding/Automatic Storage Duration.md",
+  "folder": "Coding",
+  "markdown": "# Automatic Storage Duration\n\nAuto is the default modifier for [visibility](../variable-linkage/) & [lifetime](../variable-lifetime/) is bound to its [scope](../variable-scope/); its memory is acquired when it comes into scope and freed when it goes out of scope.\n",
+  "linkedFrom": []
+}

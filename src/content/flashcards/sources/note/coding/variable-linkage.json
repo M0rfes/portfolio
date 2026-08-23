@@ -1,0 +1,26 @@
+{
+  "source": {
+    "type": "note",
+    "id": "coding/variable-linkage",
+    "title": "Variable Linkage",
+    "href": "/notes/coding/variable-linkage/",
+    "tags": ["programming", "memory", "linkage"]
+  },
+  "cards": [
+    {
+      "id": "note:coding/variable-linkage:0",
+      "question": "What does linkage, or visibility, specify?",
+      "answer": "Whether the variable is visible to other files in a multi-file program."
+    },
+    {
+      "id": "note:coding/variable-linkage:1",
+      "question": "What is another name for linkage?",
+      "answer": "Visibility."
+    },
+    {
+      "id": "note:coding/variable-linkage:2",
+      "question": "In what kind of program does linkage matter?",
+      "answer": "A multi-file program."
+    }
+  ]
+}

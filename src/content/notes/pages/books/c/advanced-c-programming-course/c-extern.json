@@ -1,0 +1,32 @@
+{
+  "slug": [
+    "books",
+    "c",
+    "advanced-c-programming-course",
+    "c-extern"
+  ],
+  "href": "/notes/books/c/advanced-c-programming-course/c-extern/",
+  "title": "C Extern Storage Class",
+  "tags": [
+    "c",
+    "memory",
+    "storage-classes"
+  ],
+  "created": "2026-08-23",
+  "updatedAt": "2026-08-23",
+  "vaultPath": "Books/C/Advanced C Programming Course/C Extern.md",
+  "folder": "Books",
+  "markdown": "# Extern Storage Class in C\n\nVisibility or linkage of a variable specifies if the variable is visible to other files in a multi-file program.\n\nExtern modifiers control the visibility of a global variable in a multi-file project. Functions default to extern.\n\n```c\n// main.c\nint i = 10;\n\nvoid foo(void);\nint main(void) {\n\tfoo(); // will print i = 10;\n\treturn 0;\n}\n\n// foo.c\nextern int i;\nvoid foo(void) {\n\tprintf(\"i = %d\\n\", i);\n}\n```\n\nThis way, foo.c can access i, which is defined and declared in main.c.\n\n```c\nvoid foo(void) {\n\textern int i;\n\tprintf(\"i = %d\\n\", i);\n}\n```\n\nextern can be used within a scope to define that we are using a global variable defined in another file.\n\n```c\n// main.c\nchar text[255];\nchar text2[255][50];\n\n// foo.c\nextern char text[];\nextern char text2[][50];\n```\n\nWhen using an array, a one-dimensional array doesn't need to specify its size cause the compiler already knows it. But for a multidimensional array the nested sizes need to be defined.\n\n```c\nextern int add(int a, int b);\n// and\nint add(int a, int b);\n```\n\nAre effectively the same cause functions default to extern.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "books",
+        "c",
+        "advanced-c-programming-course",
+        "storage-classes"
+      ],
+      "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
+      "title": "Storage Classes in C"
+    }
+  ]
+}

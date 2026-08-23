@@ -2083,6 +2083,426 @@
       ]
     },
     {
+      "id": "note:books/c/advanced-c-programming-course/c-auto:0",
+      "question": "What is the default storage modifier for visibility in C?",
+      "answer": "Auto.",
+      "sourceType": "note",
+      "sourceId": "books/c/advanced-c-programming-course/c-auto",
+      "sourceTitle": "C Auto Storage Class",
+      "sourceHref": "/notes/books/c/advanced-c-programming-course/c-auto/",
+      "tags": [
+        "c",
+        "memory",
+        "storage-classes"
+      ]
+    },
+    {
+      "id": "note:books/c/advanced-c-programming-course/c-auto:1",
+      "question": "When is auto storage acquired and freed?",
+      "answer": "Memory is acquired when the variable comes into scope and freed when it goes out of scope. Lifetime is bound to scope.",
+      "sourceType": "note",
+      "sourceId": "books/c/advanced-c-programming-course/c-auto",
+      "sourceTitle": "C Auto Storage Class",
+      "sourceHref": "/notes/books/c/advanced-c-programming-course/c-auto/",
+      "tags": [
+        "c",
+        "memory",
+        "storage-classes"
+      ]
+    },
+    {
+      "id": "note:books/c/advanced-c-programming-course/c-auto:2",
+      "question": "When do you need to write the auto keyword?",
+      "answer": "You do not, unless you are shadowing a global variable and want to be specific about the shadowing.",
+      "sourceType": "note",
+      "sourceId": "books/c/advanced-c-programming-course/c-auto",
+      "sourceTitle": "C Auto Storage Class",
+      "sourceHref": "/notes/books/c/advanced-c-programming-course/c-auto/",
+      "tags": [
+        "c",
+        "memory",
+        "storage-classes"
+      ]
+    },
+    {
+      "id": "note:books/c/advanced-c-programming-course/c-auto:3",
+      "question": "Are `int i = 10;` and `auto int j = 10;` different storage classes?",
+      "answer": "No. Both are auto.",
+      "sourceType": "note",
+      "sourceId": "books/c/advanced-c-programming-course/c-auto",
+      "sourceTitle": "C Auto Storage Class",
+      "sourceHref": "/notes/books/c/advanced-c-programming-course/c-auto/",
+      "tags": [
+        "c",
+        "memory",
+        "storage-classes"
+      ]
+    },
+    {
+      "id": "note:books/c/advanced-c-programming-course/c-extern:0",
+      "question": "What does visibility, or linkage, specify?",
+      "answer": "Whether the variable is visible to other files in a multi-file program.",
+      "sourceType": "note",
+      "sourceId": "books/c/advanced-c-programming-course/c-extern",
+      "sourceTitle": "C Extern Storage Class",
+      "sourceHref": "/notes/books/c/advanced-c-programming-course/c-extern/",
+      "tags": [
+        "c",
+        "memory",
+        "storage-classes"
+      ]
+    },
+    {
+      "id": "note:books/c/advanced-c-programming-course/c-extern:1",
+      "question": "What do extern modifiers control?",
+      "answer": "The visibility of a global variable in a multi-file project.",
+      "sourceType": "note",
+      "sourceId": "books/c/advanced-c-programming-course/c-extern",
+      "sourceTitle": "C Extern Storage Class",
+      "sourceHref": "/notes/books/c/advanced-c-programming-course/c-extern/",
+      "tags": [
+        "c",
+        "memory",
+        "storage-classes"
+      ]
+    },
+    {
+      "id": "note:books/c/advanced-c-programming-course/c-extern:2",
+      "question": "What is the default linkage of functions?",
+      "answer": "Extern. `extern int add(int a, int b);` and `int add(int a, int b);` are effectively the same.",
+      "sourceType": "note",
+      "sourceId": "books/c/advanced-c-programming-course/c-extern",
+      "sourceTitle": "C Extern Storage Class",
+      "sourceHref": "/notes/books/c/advanced-c-programming-course/c-extern/",
+      "tags": [
+        "c",
+        "memory",
+        "storage-classes"
+      ]
+    },
+    {
+      "id": "note:books/c/advanced-c-programming-course/c-extern:3",
+      "question": "How can another file access a global defined in `main.c`?",
+      "answer": "Declare it with `extern` in that file, such as `extern int i;` in `foo.c`.",
+      "sourceType": "note",
+      "sourceId": "books/c/advanced-c-programming-course/c-extern",
+      "sourceTitle": "C Extern Storage Class",
+      "sourceHref": "/notes/books/c/advanced-c-programming-course/c-extern/",
+      "tags": [
+        "c",
+        "memory",
+        "storage-classes"
+      ]
+    },
+    {
+      "id": "note:books/c/advanced-c-programming-course/c-extern:4",
+      "question": "Can `extern` be used inside a function?",
+      "answer": "Yes. Inside a scope it means you are using a global variable defined in another file.",
+      "sourceType": "note",
+      "sourceId": "books/c/advanced-c-programming-course/c-extern",
+      "sourceTitle": "C Extern Storage Class",
+      "sourceHref": "/notes/books/c/advanced-c-programming-course/c-extern/",
+      "tags": [
+        "c",
+        "memory",
+        "storage-classes"
+      ]
+    },
+    {
+      "id": "note:books/c/advanced-c-programming-course/c-extern:5",
+      "question": "What array sizes must an `extern` declaration include?",
+      "answer": "A one-dimensional array does not need its size. A multidimensional array must specify the nested sizes.",
+      "sourceType": "note",
+      "sourceId": "books/c/advanced-c-programming-course/c-extern",
+      "sourceTitle": "C Extern Storage Class",
+      "sourceHref": "/notes/books/c/advanced-c-programming-course/c-extern/",
+      "tags": [
+        "c",
+        "memory",
+        "storage-classes"
+      ]
+    },
+    {
+      "id": "note:books/c/advanced-c-programming-course/c-register:0",
+      "question": "What does the register modifier ask the compiler to do?",
+      "answer": "Place the variable in a CPU register instead of RAM. The compiler may still refuse for optimisation; it is a request.",
+      "sourceType": "note",
+      "sourceId": "books/c/advanced-c-programming-course/c-register",
+      "sourceTitle": "C Register Storage Class",
+      "sourceHref": "/notes/books/c/advanced-c-programming-course/c-register/",
+      "tags": [
+        "c",
+        "memory",
+        "storage-classes"
+      ]
+    },
+    {
+      "id": "note:books/c/advanced-c-programming-course/c-register:1",
+      "question": "Can a struct field have the register modifier?",
+      "answer": "No. A whole struct can be register, but one field of a struct cannot.",
+      "sourceType": "note",
+      "sourceId": "books/c/advanced-c-programming-course/c-register",
+      "sourceTitle": "C Register Storage Class",
+      "sourceHref": "/notes/books/c/advanced-c-programming-course/c-register/",
+      "tags": [
+        "c",
+        "memory",
+        "storage-classes"
+      ]
+    },
+    {
+      "id": "note:books/c/advanced-c-programming-course/c-register:2",
+      "question": "Why can you not take the address of a register variable?",
+      "answer": "It has no address while it is in a register. `&i` on a register variable is not allowed and will cause an error.",
+      "sourceType": "note",
+      "sourceId": "books/c/advanced-c-programming-course/c-register",
+      "sourceTitle": "C Register Storage Class",
+      "sourceHref": "/notes/books/c/advanced-c-programming-course/c-register/",
+      "tags": [
+        "c",
+        "memory",
+        "storage-classes"
+      ]
+    },
+    {
+      "id": "note:books/c/advanced-c-programming-course/c-register:3",
+      "question": "Is `register int* ptr_i = &i;` allowed when `i` is a normal local?",
+      "answer": "Yes. Putting an address in a register is allowed.",
+      "sourceType": "note",
+      "sourceId": "books/c/advanced-c-programming-course/c-register",
+      "sourceTitle": "C Register Storage Class",
+      "sourceHref": "/notes/books/c/advanced-c-programming-course/c-register/",
+      "tags": [
+        "c",
+        "memory",
+        "storage-classes"
+      ]
+    },
+    {
+      "id": "note:books/c/advanced-c-programming-course/c-register:4",
+      "question": "Can a register variable be global?",
+      "answer": "No. Register has scope, lifetime, and visibility, but it cannot be global.",
+      "sourceType": "note",
+      "sourceId": "books/c/advanced-c-programming-course/c-register",
+      "sourceTitle": "C Register Storage Class",
+      "sourceHref": "/notes/books/c/advanced-c-programming-course/c-register/",
+      "tags": [
+        "c",
+        "memory",
+        "storage-classes"
+      ]
+    },
+    {
+      "id": "note:books/c/advanced-c-programming-course/c-static:0",
+      "question": "How long does a static lifetime last, and what does that allow?",
+      "answer": "Until the end of the program. A value with a static lifetime can be shared across threads.",
+      "sourceType": "note",
+      "sourceId": "books/c/advanced-c-programming-course/c-static",
+      "sourceTitle": "C Static Storage Class",
+      "sourceHref": "/notes/books/c/advanced-c-programming-course/c-static/",
+      "tags": [
+        "c",
+        "memory",
+        "storage-classes"
+      ]
+    },
+    {
+      "id": "note:books/c/advanced-c-programming-course/c-static:1",
+      "question": "When does a static variable exist relative to `main`?",
+      "answer": "It exists before `main` and remains in scope until the program ends.",
+      "sourceType": "note",
+      "sourceId": "books/c/advanced-c-programming-course/c-static",
+      "sourceTitle": "C Static Storage Class",
+      "sourceHref": "/notes/books/c/advanced-c-programming-course/c-static/",
+      "tags": [
+        "c",
+        "memory",
+        "storage-classes"
+      ]
+    },
+    {
+      "id": "note:books/c/advanced-c-programming-course/c-static:2",
+      "question": "How do local static variables differ from auto locals?",
+      "answer": "They retain their value between function executions. Auto locals are allocated on the stack; local statics live in the data segment or BSS for the whole program.",
+      "sourceType": "note",
+      "sourceId": "books/c/advanced-c-programming-course/c-static",
+      "sourceTitle": "C Static Storage Class",
+      "sourceHref": "/notes/books/c/advanced-c-programming-course/c-static/",
+      "tags": [
+        "c",
+        "memory",
+        "storage-classes"
+      ]
+    },
+    {
+      "id": "note:books/c/advanced-c-programming-course/c-static:3",
+      "question": "Can an individual struct member be static?",
+      "answer": "No. The whole struct can be static, but individual members cannot, because of the alignment rule.",
+      "sourceType": "note",
+      "sourceId": "books/c/advanced-c-programming-course/c-static",
+      "sourceTitle": "C Static Storage Class",
+      "sourceHref": "/notes/books/c/advanced-c-programming-course/c-static/",
+      "tags": [
+        "c",
+        "memory",
+        "storage-classes"
+      ]
+    },
+    {
+      "id": "note:books/c/advanced-c-programming-course/c-static:4",
+      "question": "Why does `static int i = get_i();` fail?",
+      "answer": "Static variables have to be known at compile time.",
+      "sourceType": "note",
+      "sourceId": "books/c/advanced-c-programming-course/c-static",
+      "sourceTitle": "C Static Storage Class",
+      "sourceHref": "/notes/books/c/advanced-c-programming-course/c-static/",
+      "tags": [
+        "c",
+        "memory",
+        "storage-classes"
+      ]
+    },
+    {
+      "id": "note:books/c/advanced-c-programming-course/c-static:5",
+      "question": "What does file-scope `static` do to a variable or function?",
+      "answer": "It makes them visible only in the file where they are defined.",
+      "sourceType": "note",
+      "sourceId": "books/c/advanced-c-programming-course/c-static",
+      "sourceTitle": "C Static Storage Class",
+      "sourceHref": "/notes/books/c/advanced-c-programming-course/c-static/",
+      "tags": [
+        "c",
+        "memory",
+        "storage-classes"
+      ]
+    },
+    {
+      "id": "note:books/c/advanced-c-programming-course/c-static:6",
+      "question": "Besides `static`, how can a value be kept for the whole program?",
+      "answer": "By leaking it on the heap, which guarantees it exists for the program's entire duration.",
+      "sourceType": "note",
+      "sourceId": "books/c/advanced-c-programming-course/c-static",
+      "sourceTitle": "C Static Storage Class",
+      "sourceHref": "/notes/books/c/advanced-c-programming-course/c-static/",
+      "tags": [
+        "c",
+        "memory",
+        "storage-classes"
+      ]
+    },
+    {
+      "id": "note:books/c/advanced-c-programming-course/storage-classes:0",
+      "question": "What do storage classes describe?",
+      "answer": "The scope, visibility, and lifetime of a variable or function.",
+      "sourceType": "note",
+      "sourceId": "books/c/advanced-c-programming-course/storage-classes",
+      "sourceTitle": "Storage Classes in C",
+      "sourceHref": "/notes/books/c/advanced-c-programming-course/storage-classes/",
+      "tags": [
+        "c",
+        "programming",
+        "memory",
+        "storage-classes",
+        "moc"
+      ]
+    },
+    {
+      "id": "note:books/c/advanced-c-programming-course/storage-classes:1",
+      "question": "What is the difference between scope and visibility?",
+      "answer": "Scope is where a variable can be accessed in a file (block or file-global). Visibility, or linkage, is whether it is visible to other files in a multi-file program.",
+      "sourceType": "note",
+      "sourceId": "books/c/advanced-c-programming-course/storage-classes",
+      "sourceTitle": "Storage Classes in C",
+      "sourceHref": "/notes/books/c/advanced-c-programming-course/storage-classes/",
+      "tags": [
+        "c",
+        "programming",
+        "memory",
+        "storage-classes",
+        "moc"
+      ]
+    },
+    {
+      "id": "note:books/c/advanced-c-programming-course/storage-classes:2",
+      "question": "What does lifetime specify?",
+      "answer": "How long a variable is alive: only within a scope, for the entire program, or for a specific allocated duration.",
+      "sourceType": "note",
+      "sourceId": "books/c/advanced-c-programming-course/storage-classes",
+      "sourceTitle": "Storage Classes in C",
+      "sourceHref": "/notes/books/c/advanced-c-programming-course/storage-classes/",
+      "tags": [
+        "c",
+        "programming",
+        "memory",
+        "storage-classes",
+        "moc"
+      ]
+    },
+    {
+      "id": "note:books/c/advanced-c-programming-course/storage-classes:3",
+      "question": "What are C's four storage modifiers?",
+      "answer": "Auto, extern, static, and register.",
+      "sourceType": "note",
+      "sourceId": "books/c/advanced-c-programming-course/storage-classes",
+      "sourceTitle": "Storage Classes in C",
+      "sourceHref": "/notes/books/c/advanced-c-programming-course/storage-classes/",
+      "tags": [
+        "c",
+        "programming",
+        "memory",
+        "storage-classes",
+        "moc"
+      ]
+    },
+    {
+      "id": "note:books/c/advanced-c-programming-course/storage-classes:4",
+      "question": "What is the default modifier, and what bounds its lifetime?",
+      "answer": "Auto. Lifetime is bound to scope: memory is acquired on entry and freed on exit.",
+      "sourceType": "note",
+      "sourceId": "books/c/advanced-c-programming-course/storage-classes",
+      "sourceTitle": "Storage Classes in C",
+      "sourceHref": "/notes/books/c/advanced-c-programming-course/storage-classes/",
+      "tags": [
+        "c",
+        "programming",
+        "memory",
+        "storage-classes",
+        "moc"
+      ]
+    },
+    {
+      "id": "note:books/c/advanced-c-programming-course/storage-classes:5",
+      "question": "What do extern and file-scope static each control?",
+      "answer": "Extern controls visibility of a global across files; functions default to extern. File-scope static limits a variable or function to the file where it is defined.",
+      "sourceType": "note",
+      "sourceId": "books/c/advanced-c-programming-course/storage-classes",
+      "sourceTitle": "Storage Classes in C",
+      "sourceHref": "/notes/books/c/advanced-c-programming-course/storage-classes/",
+      "tags": [
+        "c",
+        "programming",
+        "memory",
+        "storage-classes",
+        "moc"
+      ]
+    },
+    {
+      "id": "note:books/c/advanced-c-programming-course/storage-classes:6",
+      "question": "What is special about register storage?",
+      "answer": "It requests a CPU register instead of RAM, cannot have its address taken, and cannot be global.",
+      "sourceType": "note",
+      "sourceId": "books/c/advanced-c-programming-course/storage-classes",
+      "sourceTitle": "Storage Classes in C",
+      "sourceHref": "/notes/books/c/advanced-c-programming-course/storage-classes/",
+      "tags": [
+        "c",
+        "programming",
+        "memory",
+        "storage-classes",
+        "moc"
+      ]
+    },
+    {
       "id": "note:books/grokking-concurrency/introducing-concurrency:0",
       "question": "Why has concurrency become more popular on modern CPUs?",
       "answer": "The number of cores and threads per core has increased, and concurrency is the only way to improve performance with limited resources.",
@@ -3520,6 +3940,48 @@
       ]
     },
     {
+      "id": "note:coding/automatic-storage-duration:0",
+      "question": "What is the default modifier for visibility?",
+      "answer": "Auto.",
+      "sourceType": "note",
+      "sourceId": "coding/automatic-storage-duration",
+      "sourceTitle": "Automatic Storage Duration",
+      "sourceHref": "/notes/coding/automatic-storage-duration/",
+      "tags": [
+        "programming",
+        "memory",
+        "lifetime"
+      ]
+    },
+    {
+      "id": "note:coding/automatic-storage-duration:1",
+      "question": "What is automatic lifetime bound to?",
+      "answer": "Its scope.",
+      "sourceType": "note",
+      "sourceId": "coding/automatic-storage-duration",
+      "sourceTitle": "Automatic Storage Duration",
+      "sourceHref": "/notes/coding/automatic-storage-duration/",
+      "tags": [
+        "programming",
+        "memory",
+        "lifetime"
+      ]
+    },
+    {
+      "id": "note:coding/automatic-storage-duration:2",
+      "question": "When is automatic storage acquired and freed?",
+      "answer": "Memory is acquired when the variable comes into scope and freed when it goes out of scope.",
+      "sourceType": "note",
+      "sourceId": "coding/automatic-storage-duration",
+      "sourceTitle": "Automatic Storage Duration",
+      "sourceHref": "/notes/coding/automatic-storage-duration/",
+      "tags": [
+        "programming",
+        "memory",
+        "lifetime"
+      ]
+    },
+    {
       "id": "note:coding/concurrency/atomic-operations:0",
       "question": "What is an atomic operation?",
       "answer": "The smallest operation on data that either occurs or does not; there is no half-done state.",
@@ -4525,6 +4987,48 @@
       ]
     },
     {
+      "id": "note:coding/register-storage:0",
+      "question": "What does a register modifier ask the compiler to do?",
+      "answer": "Place the variable in a CPU register instead of RAM.",
+      "sourceType": "note",
+      "sourceId": "coding/register-storage",
+      "sourceTitle": "Register Storage",
+      "sourceHref": "/notes/coding/register-storage/",
+      "tags": [
+        "programming",
+        "memory",
+        "registers"
+      ]
+    },
+    {
+      "id": "note:coding/register-storage:1",
+      "question": "Must the compiler honor a register request?",
+      "answer": "No. It can still refuse for optimisation. Register is a request.",
+      "sourceType": "note",
+      "sourceId": "coding/register-storage",
+      "sourceTitle": "Register Storage",
+      "sourceHref": "/notes/coding/register-storage/",
+      "tags": [
+        "programming",
+        "memory",
+        "registers"
+      ]
+    },
+    {
+      "id": "note:coding/register-storage:2",
+      "question": "Can one field of a struct be register?",
+      "answer": "No. A whole struct can have the register modifier, but one field cannot.",
+      "sourceType": "note",
+      "sourceId": "coding/register-storage",
+      "sourceTitle": "Register Storage",
+      "sourceHref": "/notes/coding/register-storage/",
+      "tags": [
+        "programming",
+        "memory",
+        "registers"
+      ]
+    },
+    {
       "id": "note:coding/satisfies-15-02-2026:0",
       "question": "What does TypeScript `satisfies` in a switch default achieve?",
       "answer": "Exhaustive matching: unhandled union members fail to compile.",
@@ -4592,6 +5096,132 @@
         "typescript",
         "coding",
         "pattern-matching"
+      ]
+    },
+    {
+      "id": "note:coding/variable-lifetime:0",
+      "question": "What does a variable's lifetime specify?",
+      "answer": "How long it is alive.",
+      "sourceType": "note",
+      "sourceId": "coding/variable-lifetime",
+      "sourceTitle": "Variable Lifetime",
+      "sourceHref": "/notes/coding/variable-lifetime/",
+      "tags": [
+        "programming",
+        "memory",
+        "lifetime"
+      ]
+    },
+    {
+      "id": "note:coding/variable-lifetime:1",
+      "question": "What are the two common lifetime spans?",
+      "answer": "Some variables are only alive within a scope, and some stay alive for the entire duration of the program.",
+      "sourceType": "note",
+      "sourceId": "coding/variable-lifetime",
+      "sourceTitle": "Variable Lifetime",
+      "sourceHref": "/notes/coding/variable-lifetime/",
+      "tags": [
+        "programming",
+        "memory",
+        "lifetime"
+      ]
+    },
+    {
+      "id": "note:coding/variable-lifetime:2",
+      "question": "Besides scope-bound and program-long, what other lifetime exists?",
+      "answer": "Some values are allocated and cleaned up for a specific duration.",
+      "sourceType": "note",
+      "sourceId": "coding/variable-lifetime",
+      "sourceTitle": "Variable Lifetime",
+      "sourceHref": "/notes/coding/variable-lifetime/",
+      "tags": [
+        "programming",
+        "memory",
+        "lifetime"
+      ]
+    },
+    {
+      "id": "note:coding/variable-linkage:0",
+      "question": "What does linkage, or visibility, specify?",
+      "answer": "Whether the variable is visible to other files in a multi-file program.",
+      "sourceType": "note",
+      "sourceId": "coding/variable-linkage",
+      "sourceTitle": "Variable Linkage",
+      "sourceHref": "/notes/coding/variable-linkage/",
+      "tags": [
+        "programming",
+        "memory",
+        "linkage"
+      ]
+    },
+    {
+      "id": "note:coding/variable-linkage:1",
+      "question": "What is another name for linkage?",
+      "answer": "Visibility.",
+      "sourceType": "note",
+      "sourceId": "coding/variable-linkage",
+      "sourceTitle": "Variable Linkage",
+      "sourceHref": "/notes/coding/variable-linkage/",
+      "tags": [
+        "programming",
+        "memory",
+        "linkage"
+      ]
+    },
+    {
+      "id": "note:coding/variable-linkage:2",
+      "question": "In what kind of program does linkage matter?",
+      "answer": "A multi-file program.",
+      "sourceType": "note",
+      "sourceId": "coding/variable-linkage",
+      "sourceTitle": "Variable Linkage",
+      "sourceHref": "/notes/coding/variable-linkage/",
+      "tags": [
+        "programming",
+        "memory",
+        "linkage"
+      ]
+    },
+    {
+      "id": "note:coding/variable-scope:0",
+      "question": "What does the scope of a variable specify?",
+      "answer": "Where it can be accessed in a file.",
+      "sourceType": "note",
+      "sourceId": "coding/variable-scope",
+      "sourceTitle": "Variable Scope",
+      "sourceHref": "/notes/coding/variable-scope/",
+      "tags": [
+        "programming",
+        "memory",
+        "scope"
+      ]
+    },
+    {
+      "id": "note:coding/variable-scope:1",
+      "question": "What counts as block scope?",
+      "answer": "A function, an if/else body, a loop, or any region between `{}`.",
+      "sourceType": "note",
+      "sourceId": "coding/variable-scope",
+      "sourceTitle": "Variable Scope",
+      "sourceHref": "/notes/coding/variable-scope/",
+      "tags": [
+        "programming",
+        "memory",
+        "scope"
+      ]
+    },
+    {
+      "id": "note:coding/variable-scope:2",
+      "question": "When is a variable globally scoped in a file?",
+      "answer": "When it is defined outside of any function, so it can be accessed anywhere in the file.",
+      "sourceType": "note",
+      "sourceId": "coding/variable-scope",
+      "sourceTitle": "Variable Scope",
+      "sourceHref": "/notes/coding/variable-scope/",
+      "tags": [
+        "programming",
+        "memory",
+        "scope"
       ]
     },
     {
@@ -6167,6 +6797,76 @@
       ]
     },
     {
+      "id": "note:teach/c17/c17:0",
+      "question": "What project grounds the C17 systems curriculum?",
+      "answer": "Building, hardening, and optimizing the CHIP-8 Emulator in C17.",
+      "sourceType": "note",
+      "sourceId": "teach/c17/c17",
+      "sourceTitle": "C17 Hub",
+      "sourceHref": "/notes/teach/c17/c17/",
+      "tags": [
+        "teach/c17",
+        "moc",
+        "chip8"
+      ]
+    },
+    {
+      "id": "note:teach/c17/c17:1",
+      "question": "Which skills does the CHIP-8 track target?",
+      "answer": "Binary I/O, bitwise opcode decoding, CPU execution cycles, memory invariants, SDL2 streaming, and modern CMake tooling.",
+      "sourceType": "note",
+      "sourceId": "teach/c17/c17",
+      "sourceTitle": "C17 Hub",
+      "sourceHref": "/notes/teach/c17/c17/",
+      "tags": [
+        "teach/c17",
+        "moc",
+        "chip8"
+      ]
+    },
+    {
+      "id": "note:teach/c17/c17:2",
+      "question": "Where are CHIP-8 ROMs loaded in memory?",
+      "answer": "At address `0x200`.",
+      "sourceType": "note",
+      "sourceId": "teach/c17/c17",
+      "sourceTitle": "C17 Hub",
+      "sourceHref": "/notes/teach/c17/c17/",
+      "tags": [
+        "teach/c17",
+        "moc",
+        "chip8"
+      ]
+    },
+    {
+      "id": "note:teach/c17/c17:3",
+      "question": "How are CHIP-8 opcodes fetched?",
+      "answer": "As 16-bit big-endian values, then decoded with bitwise masking.",
+      "sourceType": "note",
+      "sourceId": "teach/c17/c17",
+      "sourceTitle": "C17 Hub",
+      "sourceHref": "/notes/teach/c17/c17/",
+      "tags": [
+        "teach/c17",
+        "moc",
+        "chip8"
+      ]
+    },
+    {
+      "id": "note:teach/c17/c17:4",
+      "question": "What two instruction-dispatch styles does the track compare?",
+      "answer": "Function-pointer jump tables versus switches.",
+      "sourceType": "note",
+      "sourceId": "teach/c17/c17",
+      "sourceTitle": "C17 Hub",
+      "sourceHref": "/notes/teach/c17/c17/",
+      "tags": [
+        "teach/c17",
+        "moc",
+        "chip8"
+      ]
+    },
+    {
       "id": "note:teach/c17/glossary:0",
       "question": "What is undefined behavior (UB) in ISO C?",
       "answer": "Behavior from a non-portable or erroneous construct for which the ISO C standard imposes no requirements. The compiler may assume UB never happens and optimize accordingly, which can cause silent miscompilations, crashes, or security vulnerabilities.",
@@ -6233,8 +6933,8 @@
     },
     {
       "id": "note:teach/c17/glossary:5",
-      "question": "What is type punning?",
-      "answer": "Accessing a block of memory through a pointer of a different type or through a `union` to reinterpret its raw bit representation.",
+      "question": "What is alignment?",
+      "answer": "A requirement that an object of a given type be stored at a memory address that is a multiple of a certain integer value, such as a 4-byte integer at an address divisible by 4.",
       "sourceType": "note",
       "sourceId": "teach/c17/glossary",
       "sourceTitle": "C17 Glossary",
@@ -7236,6 +7936,7 @@
     "backend",
     "benchmark",
     "binary",
+    "c",
     "caching",
     "chip8",
     "chunked",
@@ -7294,7 +7995,9 @@
     "leadgeneration",
     "learning-record",
     "lesson",
+    "lifetime",
     "light-rag",
+    "linkage",
     "llm",
     "local-reasoning",
     "locks",
@@ -7336,6 +8039,7 @@
     "performance",
     "PostgreSQL",
     "productivity",
+    "programming",
     "progressive",
     "progressiveloading",
     "protocol",
@@ -7351,6 +8055,7 @@
     "refactoring",
     "reference",
     "reference-counting",
+    "registers",
     "reliability",
     "reporting",
     "research",
@@ -7365,6 +8070,7 @@
     "rwlock",
     "saas",
     "scalability",
+    "scope",
     "search-optimization",
     "single-responsibility",
     "slm",
@@ -7376,6 +8082,7 @@
     "SQLServer",
     "statics",
     "stdio",
+    "storage-classes",
     "strategy",
     "streaming",
     "synchronization",

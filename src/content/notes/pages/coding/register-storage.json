@@ -1,0 +1,19 @@
+{
+  "slug": [
+    "coding",
+    "register-storage"
+  ],
+  "href": "/notes/coding/register-storage/",
+  "title": "Register Storage",
+  "tags": [
+    "programming",
+    "memory",
+    "registers"
+  ],
+  "created": "2026-08-23",
+  "updatedAt": "2026-08-23",
+  "vaultPath": "Coding/Register Storage.md",
+  "folder": "Coding",
+  "markdown": "# Register Storage\n\nRegister modifiers tell the compiler to place the variable in a CPU register instead of RAM. The compiler still can choose not to do that for the sake of optimisation. It's more like a request. While a whole struct can have a register modifier, one field of a struct can't have the register modifier.\n",
+  "linkedFrom": []
+}

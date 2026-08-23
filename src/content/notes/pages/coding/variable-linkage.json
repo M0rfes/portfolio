@@ -1,0 +1,48 @@
+{
+  "slug": [
+    "coding",
+    "variable-linkage"
+  ],
+  "href": "/notes/coding/variable-linkage/",
+  "title": "Variable Linkage",
+  "tags": [
+    "programming",
+    "memory",
+    "linkage"
+  ],
+  "created": "2026-08-23",
+  "updatedAt": "2026-08-23",
+  "vaultPath": "Coding/Variable Linkage.md",
+  "folder": "Coding",
+  "markdown": "# Variable Linkage\n\nVisibility or linkage of a variable specifies if the variable is visible to other files in a multi-file program.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "coding",
+        "automatic-storage-duration"
+      ],
+      "href": "/notes/coding/automatic-storage-duration/",
+      "title": "Automatic Storage Duration"
+    },
+    {
+      "slug": [
+        "books",
+        "c",
+        "advanced-c-programming-course",
+        "c-auto"
+      ],
+      "href": "/notes/books/c/advanced-c-programming-course/c-auto/",
+      "title": "C Auto Storage Class"
+    },
+    {
+      "slug": [
+        "books",
+        "c",
+        "advanced-c-programming-course",
+        "storage-classes"
+      ],
+      "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
+      "title": "Storage Classes in C"
+    }
+  ]
+}

@@ -18,6 +18,16 @@
   "linkedFrom": [
     {
       "slug": [
+        "books",
+        "c",
+        "advanced-c-programming-course",
+        "c-static"
+      ],
+      "href": "/notes/books/c/advanced-c-programming-course/c-static/",
+      "title": "C Static Storage Class"
+    },
+    {
+      "slug": [
         "teach",
         "c17",
         "c17"
@@ -44,6 +54,16 @@
       ],
       "href": "/notes/teach/c17/lessons/0002-binary-file-io-and-rom-loading/",
       "title": "Lesson 0002: Safe Binary File I/O & ROM Loading into Memory at 0x200"
+    },
+    {
+      "slug": [
+        "books",
+        "c",
+        "advanced-c-programming-course",
+        "storage-classes"
+      ],
+      "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
+      "title": "Storage Classes in C"
     }
   ]
 }

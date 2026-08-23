@@ -1,0 +1,48 @@
+{
+  "slug": [
+    "coding",
+    "variable-lifetime"
+  ],
+  "href": "/notes/coding/variable-lifetime/",
+  "title": "Variable Lifetime",
+  "tags": [
+    "programming",
+    "memory",
+    "lifetime"
+  ],
+  "created": "2026-08-23",
+  "updatedAt": "2026-08-23",
+  "vaultPath": "Coding/Variable Lifetime.md",
+  "folder": "Coding",
+  "markdown": "# Variable Lifetime\n\nLifetime of a variable specifies how long it is alive; some variables are only alive within a scope, and some stay alive for the entire duration of the program. And some are allocated and cleaned up for a specific duration.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "coding",
+        "automatic-storage-duration"
+      ],
+      "href": "/notes/coding/automatic-storage-duration/",
+      "title": "Automatic Storage Duration"
+    },
+    {
+      "slug": [
+        "books",
+        "c",
+        "advanced-c-programming-course",
+        "c-auto"
+      ],
+      "href": "/notes/books/c/advanced-c-programming-course/c-auto/",
+      "title": "C Auto Storage Class"
+    },
+    {
+      "slug": [
+        "books",
+        "c",
+        "advanced-c-programming-course",
+        "storage-classes"
+      ],
+      "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
+      "title": "Storage Classes in C"
+    }
+  ]
+}

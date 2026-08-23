@@ -1,0 +1,26 @@
+{
+  "source": {
+    "type": "note",
+    "id": "coding/automatic-storage-duration",
+    "title": "Automatic Storage Duration",
+    "href": "/notes/coding/automatic-storage-duration/",
+    "tags": ["programming", "memory", "lifetime"]
+  },
+  "cards": [
+    {
+      "id": "note:coding/automatic-storage-duration:0",
+      "question": "What is the default modifier for visibility?",
+      "answer": "Auto."
+    },
+    {
+      "id": "note:coding/automatic-storage-duration:1",
+      "question": "What is automatic lifetime bound to?",
+      "answer": "Its scope."
+    },
+    {
+      "id": "note:coding/automatic-storage-duration:2",
+      "question": "When is automatic storage acquired and freed?",
+      "answer": "Memory is acquired when the variable comes into scope and freed when it goes out of scope."
+    }
+  ]
+}

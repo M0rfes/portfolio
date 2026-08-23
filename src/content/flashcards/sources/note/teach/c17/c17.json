@@ -6,5 +6,31 @@
     "href": "/notes/teach/c17/c17/",
     "tags": ["teach/c17", "moc", "chip8"]
   },
-  "cards": []
+  "cards": [
+    {
+      "id": "note:teach/c17/c17:0",
+      "question": "What project grounds the C17 systems curriculum?",
+      "answer": "Building, hardening, and optimizing the CHIP-8 Emulator in C17."
+    },
+    {
+      "id": "note:teach/c17/c17:1",
+      "question": "Which skills does the CHIP-8 track target?",
+      "answer": "Binary I/O, bitwise opcode decoding, CPU execution cycles, memory invariants, SDL2 streaming, and modern CMake tooling."
+    },
+    {
+      "id": "note:teach/c17/c17:2",
+      "question": "Where are CHIP-8 ROMs loaded in memory?",
+      "answer": "At address `0x200`."
+    },
+    {
+      "id": "note:teach/c17/c17:3",
+      "question": "How are CHIP-8 opcodes fetched?",
+      "answer": "As 16-bit big-endian values, then decoded with bitwise masking."
+    },
+    {
+      "id": "note:teach/c17/c17:4",
+      "question": "What two instruction-dispatch styles does the track compare?",
+      "answer": "Function-pointer jump tables versus switches."
+    }
+  ]
 }

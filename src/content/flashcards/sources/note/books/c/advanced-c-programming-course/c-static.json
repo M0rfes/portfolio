@@ -1,0 +1,46 @@
+{
+  "source": {
+    "type": "note",
+    "id": "books/c/advanced-c-programming-course/c-static",
+    "title": "C Static Storage Class",
+    "href": "/notes/books/c/advanced-c-programming-course/c-static/",
+    "tags": ["c", "memory", "storage-classes"]
+  },
+  "cards": [
+    {
+      "id": "note:books/c/advanced-c-programming-course/c-static:0",
+      "question": "How long does a static lifetime last, and what does that allow?",
+      "answer": "Until the end of the program. A value with a static lifetime can be shared across threads."
+    },
+    {
+      "id": "note:books/c/advanced-c-programming-course/c-static:1",
+      "question": "When does a static variable exist relative to `main`?",
+      "answer": "It exists before `main` and remains in scope until the program ends."
+    },
+    {
+      "id": "note:books/c/advanced-c-programming-course/c-static:2",
+      "question": "How do local static variables differ from auto locals?",
+      "answer": "They retain their value between function executions. Auto locals are allocated on the stack; local statics live in the data segment or BSS for the whole program."
+    },
+    {
+      "id": "note:books/c/advanced-c-programming-course/c-static:3",
+      "question": "Can an individual struct member be static?",
+      "answer": "No. The whole struct can be static, but individual members cannot, because of the alignment rule."
+    },
+    {
+      "id": "note:books/c/advanced-c-programming-course/c-static:4",
+      "question": "Why does `static int i = get_i();` fail?",
+      "answer": "Static variables have to be known at compile time."
+    },
+    {
+      "id": "note:books/c/advanced-c-programming-course/c-static:5",
+      "question": "What does file-scope `static` do to a variable or function?",
+      "answer": "It makes them visible only in the file where they are defined."
+    },
+    {
+      "id": "note:books/c/advanced-c-programming-course/c-static:6",
+      "question": "Besides `static`, how can a value be kept for the whole program?",
+      "answer": "By leaking it on the heap, which guarantees it exists for the program's entire duration."
+    }
+  ]
+}
