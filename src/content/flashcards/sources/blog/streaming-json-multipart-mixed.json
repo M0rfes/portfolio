@@ -27,38 +27,43 @@
   "cards": [
     {
       "id": "blog:streaming-json-multipart-mixed:0",
-      "question": "How do you stream multiple JSON objects on one HTTP connection?",
-      "answer": "Use Content-Type multipart/mixed with a boundary and send each JSON object as it becomes available, instead of waiting until all data is processed."
+      "question": "What does multipart/mixed streaming let you send?",
+      "answer": "Multiple JSON objects over a single HTTP connection as they become available, instead of waiting until all data is processed."
     },
     {
       "id": "blog:streaming-json-multipart-mixed:1",
-      "question": "Why set Transfer-Encoding: chunked on a multipart JSON stream?",
-      "answer": "The server can send the response without knowing its total size and start flushing parts as soon as they are ready."
+      "question": "Why set Transfer-Encoding: chunked with multipart streaming?",
+      "answer": "Chunked transfer encoding sends the response without knowing its total size in advance, so the server can start sending data as soon as it is ready."
     },
     {
       "id": "blog:streaming-json-multipart-mixed:2",
-      "question": "What does Meros do on the client?",
-      "answer": "It is a JavaScript library that parses multipart streams. After fetch with Accept: multipart/mixed, you iterate each part and handle part.body."
+      "question": "How is each JSON object framed in the stream?",
+      "answer": "Each object is a multipart section: a boundary line, a Content-Type: application/json header, then the JSON body. The stream ends with a closing boundary (--boundary--)."
     },
     {
       "id": "blog:streaming-json-multipart-mixed:3",
-      "question": "How does multipart streaming change a CPU-bound table-row API?",
-      "answer": "Without streaming, users wait until every row is calculated. With streaming, each row is flushed as soon as its calculation finishes and can appear in the UI immediately."
+      "question": "Why does the Go handler call Flush after each part?",
+      "answer": "Flush pushes that row to the client immediately after the heavy calculation, so the UI can update before later rows finish."
     },
     {
       "id": "blog:streaming-json-multipart-mixed:4",
-      "question": "How can a server stream JSON from multiple slow sources?",
-      "answer": "Fetch sources concurrently and write each part as any source produces data. The client can keep Maps per type and re-render as posts, comments, or users arrive."
+      "question": "What does Meros do on the client?",
+      "answer": "Meros parses a multipart/mixed fetch response into an async iterable of parts. You consume each part.body as it arrives."
     },
     {
       "id": "blog:streaming-json-multipart-mixed:5",
-      "question": "When should you use multipart streaming?",
-      "answer": "When pieces can be processed independently, each takes significant time, users benefit from partial results, or you are aggregating data from multiple slow sources."
+      "question": "How can a server stream several slow sources on one connection?",
+      "answer": "Fetch each source in a goroutine onto its own channel, then select across those channels and write a multipart part whenever any source yields data."
     },
     {
       "id": "blog:streaming-json-multipart-mixed:6",
-      "question": "What resilience and memory benefits does multipart streaming provide?",
-      "answer": "You do not buffer a large full response, and a partial failure does not block the parts that succeeded."
+      "question": "How should the client hold partial data from mixed sources?",
+      "answer": "Use Maps keyed by id for posts, comments, and users. Render with placeholders such as “Loading comment…” until related records arrive."
+    },
+    {
+      "id": "blog:streaming-json-multipart-mixed:7",
+      "question": "When is multipart streaming a good fit?",
+      "answer": "When pieces can be processed independently, each piece takes significant time, users benefit from partial results, or you are aggregating several slow sources."
     }
   ]
 }

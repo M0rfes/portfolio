@@ -5,26 +5,26 @@
     "title": "Variable Lifetime",
     "href": "/notes/coding/variable-lifetime/",
     "tags": [
-      "programming",
+      "c",
       "memory",
-      "lifetime"
+      "storage-classes"
     ]
   },
   "cards": [
     {
       "id": "note:coding/variable-lifetime:0",
-      "question": "What does a variable's lifetime specify?",
+      "question": "What does the lifetime of a variable specify?",
       "answer": "How long it is alive."
     },
     {
       "id": "note:coding/variable-lifetime:1",
-      "question": "What are the two common lifetime spans?",
+      "question": "What are two common lifetime extents?",
       "answer": "Some variables are only alive within a scope, and some stay alive for the entire duration of the program."
     },
     {
       "id": "note:coding/variable-lifetime:2",
-      "question": "Besides scope-bound and program-long, what other lifetime exists?",
-      "answer": "Some values are allocated and cleaned up for a specific duration."
+      "question": "Besides scope-bound and program-long, how else can lifetime work?",
+      "answer": "Some variables are allocated and cleaned up for a specific duration."
     }
   ]
 }

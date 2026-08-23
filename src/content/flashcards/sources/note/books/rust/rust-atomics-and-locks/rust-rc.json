@@ -14,32 +14,22 @@
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-rc:0",
       "question": "When does Rc drop the inner value?",
-      "answer": "When the owner count reaches 0."
+      "answer": "It keeps a count of owners and drops the value only when the counter reaches 0."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-rc:1",
       "question": "How does Rc::clone differ from cloning a Box?",
-      "answer": "It does not create a new heap value. It increments the counter next to the existing value."
+      "answer": "It does not allocate a new heap value. It increments the counter next to the value. Dropping a clone decrements; at 0 the value is dropped."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-rc:2",
-      "question": "What happens when an Rc clone is dropped?",
-      "answer": "The counter is decremented. If it reaches 0, the actual value is dropped."
+      "question": "How do you get a mutable reference from Rc?",
+      "answer": "Use interior mutability, or Rc::get_mut / Rc::make_mut. Those unique-mut methods only work with a single reference. Rc::strong_count reports the count."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-rc:3",
-      "question": "What kind of reference does Rc give by default?",
-      "answer": "A read-only reference."
-    },
-    {
-      "id": "note:books/rust/rust-atomics-and-locks/rust-rc:4",
-      "question": "How can you get a mutable reference from an Rc?",
-      "answer": "Use interior mutability, or Rc::get_mut or Rc::make_mut. get_mut only works with a single reference."
-    },
-    {
-      "id": "note:books/rust/rust-atomics-and-locks/rust-rc:5",
       "question": "Why can't Rc be sent across threads?",
-      "answer": "It is not thread-safe and does not implement Send and Sync. Two threads updating the count at once would cause inconsistent behaviour."
+      "answer": "It is not thread-safe and does not implement Send or Sync. Two threads updating the count at once produce inconsistent behaviour."
     }
   ]
 }

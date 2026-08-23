@@ -7,8 +7,34 @@
     "tags": [
       "teach/c17",
       "learning-record",
-      "chip8"
+      "chip-8"
     ]
   },
-  "cards": []
+  "cards": [
+    {
+      "id": "note:teach/c17/learning-records/0002-chip8-codebase-audit:0",
+      "question": "Which modules already exist in the CHIP-8 C17 emulator?",
+      "answer": "Modular headers and sources for memory, registers, stack, keyboard, screen, and an SDL2 event loop."
+    },
+    {
+      "id": "note:teach/c17/learning-records/0002-chip8-codebase-audit:1",
+      "question": "Which core data structures are already laid out?",
+      "answer": "Memory, Registers, Stack, Screen, Keyboard, and Chip8."
+    },
+    {
+      "id": "note:teach/c17/learning-records/0002-chip8-codebase-audit:2",
+      "question": "Where should CHIP-8 ROMs be loaded, and what check is required?",
+      "answer": "Load ROMs at `0x200` with boundary checks."
+    },
+    {
+      "id": "note:teach/c17/learning-records/0002-chip8-codebase-audit:3",
+      "question": "How will opcodes be fetched and decoded?",
+      "answer": "As 16-bit big-endian values, then decoded with bitwise instruction decoding."
+    },
+    {
+      "id": "note:teach/c17/learning-records/0002-chip8-codebase-audit:4",
+      "question": "What two dispatch styles will instruction execution compare?",
+      "answer": "Jump tables versus nested switches."
+    }
+  ]
 }

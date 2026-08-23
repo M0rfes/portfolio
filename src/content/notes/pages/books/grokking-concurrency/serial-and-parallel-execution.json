@@ -8,8 +8,7 @@
   "title": "Serial and Parallel Execution",
   "tags": [
     "concurrency",
-    "parallel-execution",
-    "serial-execution"
+    "threads"
   ],
   "created": "2026-08-21",
   "updatedAt": "2026-08-21",

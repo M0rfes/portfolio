@@ -13,23 +13,18 @@
   "cards": [
     {
       "id": "note:books/c/advanced-c-programming-course/c-auto:0",
-      "question": "What is the default storage modifier for visibility in C?",
-      "answer": "Auto."
+      "question": "What is auto the default modifier for?",
+      "answer": "Visibility. Auto is the default modifier for visibility."
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-auto:1",
-      "question": "When is auto storage acquired and freed?",
-      "answer": "Memory is acquired when the variable comes into scope and freed when it goes out of scope. Lifetime is bound to scope."
+      "question": "How is an auto variable's lifetime bound?",
+      "answer": "Lifetime is bound to its scope: memory is acquired when it comes into scope and freed when it goes out of scope."
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-auto:2",
       "question": "When do you need to write the auto keyword?",
-      "answer": "You do not, unless you are shadowing a global variable and want to be specific about the shadowing."
-    },
-    {
-      "id": "note:books/c/advanced-c-programming-course/c-auto:3",
-      "question": "Are `int i = 10;` and `auto int j = 10;` different storage classes?",
-      "answer": "No. Both are auto."
+      "answer": "You do not need to specify auto unless you are shadowing a global variable and want to be specific about the shadowing."
     }
   ]
 }

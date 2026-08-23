@@ -2,8 +2,8 @@
   "cards": [
     {
       "id": "blog:asynclocalstorage-express-logger:0",
-      "question": "What problem does AsyncLocalStorage solve in Node.js?",
-      "answer": "It lets you pass contextual data such as request IDs through deeply nested async work without parameter drilling. Isolated contexts persist across the entire async execution chain.",
+      "question": "What problem does AsyncLocalStorage solve?",
+      "answer": "It passes contextual data such as request IDs through deeply nested async work without parameter drilling. Isolated contexts persist across the entire async execution chain.",
       "sourceType": "blog",
       "sourceId": "asynclocalstorage-express-logger",
       "sourceTitle": "AsyncLocalStorage in Node.js: Eliminating Context Passing Hell",
@@ -28,7 +28,7 @@
     },
     {
       "id": "blog:asynclocalstorage-express-logger:1",
-      "question": "How does AsyncLocalStorage differ from thread-local storage?",
+      "question": "How does AsyncLocalStorage relate to thread-local storage?",
       "answer": "It is Node.js’s equivalent of thread-local storage, but designed for asynchronous, single-threaded execution. Contexts follow the logical flow of async operations across callbacks, Promises, and await.",
       "sourceType": "blog",
       "sourceId": "asynclocalstorage-express-logger",
@@ -80,6 +80,32 @@
     },
     {
       "id": "blog:asynclocalstorage-express-logger:3",
+      "question": "How does Express logger middleware attach a request-scoped logger?",
+      "answer": "It builds a child Winston logger with a request ID, then calls loggerStorage.run(reqLogger, () => next()). Later code calls getStore() (or a fallback logger) instead of passing the logger as a parameter.",
+      "sourceType": "blog",
+      "sourceId": "asynclocalstorage-express-logger",
+      "sourceTitle": "AsyncLocalStorage in Node.js: Eliminating Context Passing Hell",
+      "sourceHref": "/blogs/asynclocalstorage-express-logger",
+      "tags": [
+        "nodejs",
+        "asynclocalstorage",
+        "express",
+        "logging",
+        "middleware",
+        "typescript",
+        "context",
+        "async",
+        "winston",
+        "webdevelopment",
+        "backend",
+        "javascript",
+        "patterns",
+        "architecture",
+        "tracing"
+      ]
+    },
+    {
+      "id": "blog:asynclocalstorage-express-logger:4",
       "question": "Why prefer run() over enterWith()?",
       "answer": "run() provides better context isolation. enterWith() transitions the current execution context and should be used sparingly.",
       "sourceType": "blog",
@@ -105,34 +131,8 @@
       ]
     },
     {
-      "id": "blog:asynclocalstorage-express-logger:4",
-      "question": "What is the typical performance cost of AsyncLocalStorage?",
-      "answer": "Tight loops with no real work can see up to 50% overhead, but typical web apps see about a 2–3% decrease. Memory overhead per context is negligible.",
-      "sourceType": "blog",
-      "sourceId": "asynclocalstorage-express-logger",
-      "sourceTitle": "AsyncLocalStorage in Node.js: Eliminating Context Passing Hell",
-      "sourceHref": "/blogs/asynclocalstorage-express-logger",
-      "tags": [
-        "nodejs",
-        "asynclocalstorage",
-        "express",
-        "logging",
-        "middleware",
-        "typescript",
-        "context",
-        "async",
-        "winston",
-        "webdevelopment",
-        "backend",
-        "javascript",
-        "patterns",
-        "architecture",
-        "tracing"
-      ]
-    },
-    {
       "id": "blog:asynclocalstorage-express-logger:5",
-      "question": "How do you preserve AsyncLocalStorage context with legacy callbacks or custom Promises?",
+      "question": "How do you keep context across legacy callbacks or custom Promises?",
       "answer": "Promisify legacy callback APIs. For custom Promises and third-party callbacks, bind the callback with AsyncResource so it stays in the current async context.",
       "sourceType": "blog",
       "sourceId": "asynclocalstorage-express-logger",
@@ -184,8 +184,8 @@
     },
     {
       "id": "blog:asynclocalstorage-express-logger:7",
-      "question": "How do you avoid holding AsyncLocalStorage context during a long-running loop?",
-      "answer": "Extract the values you need early (for example requestId) and create a local logger. Holding getLogger() across a large loop keeps the entire context alive in memory.",
+      "question": "How do you avoid holding AsyncLocalStorage context in a long-running loop?",
+      "answer": "Extract needed values early (for example requestId) and create a local logger. Holding getLogger() across a large loop keeps the entire context alive in memory.",
       "sourceType": "blog",
       "sourceId": "asynclocalstorage-express-logger",
       "sourceTitle": "AsyncLocalStorage in Node.js: Eliminating Context Passing Hell",
@@ -210,8 +210,8 @@
     },
     {
       "id": "blog:deferred-commit-pattern:0",
-      "question": "What does the Deferred Commit Pattern do?",
-      "answer": "It stores partial onboarding data in temporary storage and writes to the main database only when the record is complete and validated. The main database stays the source of truth for finished users.",
+      "question": "What is the Deferred Commit Pattern?",
+      "answer": "Partial onboarding data is stored in temporary storage such as Redis. Only complete, validated records are committed to the main database.",
       "sourceType": "blog",
       "sourceId": "deferred-commit-pattern",
       "sourceTitle": "The Deferred Commit Pattern: Building Clean SaaS Onboarding with Node.js and Redis",
@@ -237,8 +237,8 @@
     },
     {
       "id": "blog:deferred-commit-pattern:1",
-      "question": "What problems do step-by-step database writes create during onboarding?",
-      "answer": "They leave partial records that are not valid users, require cleanup jobs, skew analytics, and keep unverified user data longer than necessary.",
+      "question": "What problems come from writing each onboarding step to the database?",
+      "answer": "You get partial records that are not valid users, plus cleanup jobs, skewed analytics, and compliance risk from storing unverified data longer than necessary.",
       "sourceType": "blog",
       "sourceId": "deferred-commit-pattern",
       "sourceTitle": "The Deferred Commit Pattern: Building Clean SaaS Onboarding with Node.js and Redis",
@@ -264,8 +264,8 @@
     },
     {
       "id": "blog:deferred-commit-pattern:2",
-      "question": "How does Redis TTL support deferred commit?",
-      "answer": "Abandoned flows expire automatically after the TTL, so you do not need cleanup jobs for incomplete sessions.",
+      "question": "How does Redis TTL help abandoned onboarding flows?",
+      "answer": "A TTL on the flow key automatically deletes abandoned sessions after the expiry window, so you do not need cleanup jobs for those records.",
       "sourceType": "blog",
       "sourceId": "deferred-commit-pattern",
       "sourceTitle": "The Deferred Commit Pattern: Building Clean SaaS Onboarding with Node.js and Redis",
@@ -292,7 +292,7 @@
     {
       "id": "blog:deferred-commit-pattern:3",
       "question": "How is an onboarding session identified across steps?",
-      "answer": "A JWT containing a flowId is stored in a secure HTTP-only cookie. Later steps read that cookie and look up the Redis hash for that flow.",
+      "answer": "A JWT containing a flowId is stored in a secure HTTP-only cookie. Middleware verifies the token and checks that the Redis flow key still exists.",
       "sourceType": "blog",
       "sourceId": "deferred-commit-pattern",
       "sourceTitle": "The Deferred Commit Pattern: Building Clean SaaS Onboarding with Node.js and Redis",
@@ -318,8 +318,8 @@
     },
     {
       "id": "blog:deferred-commit-pattern:4",
-      "question": "When does the pattern write a user to the main database?",
-      "answer": "On the final complete step, after required fields are present and email_verified is true. Redis flow data and the onboarding cookie are then cleared.",
+      "question": "What happens on the final complete step?",
+      "answer": "All Redis flow fields are loaded and checked for required values, including verified email. If complete, the user is written to the database, the Redis key is deleted, and the cookie is cleared.",
       "sourceType": "blog",
       "sourceId": "deferred-commit-pattern",
       "sourceTitle": "The Deferred Commit Pattern: Building Clean SaaS Onboarding with Node.js and Redis",
@@ -345,8 +345,8 @@
     },
     {
       "id": "blog:deferred-commit-pattern:5",
-      "question": "How are abandoned flows turned into marketing leads?",
-      "answer": "A periodic job finds flows about to expire that have an email and have not been marked lead_processed, then passes those emails to CRM and marks them processed.",
+      "question": "How do abandoned flows become marketing leads?",
+      "answer": "A periodic job finds flows near expiry that have an email and have not been marked lead_processed, then sends those emails to the CRM and marks the flow processed.",
       "sourceType": "blog",
       "sourceId": "deferred-commit-pattern",
       "sourceTitle": "The Deferred Commit Pattern: Building Clean SaaS Onboarding with Node.js and Redis",
@@ -372,8 +372,35 @@
     },
     {
       "id": "blog:deferred-commit-pattern:6",
+      "question": "When is Deferred Commit a good fit?",
+      "answer": "Use it for multi-step onboarding, multi-page forms, transactional workflows that must finish all steps, compliance-sensitive retention, and SaaS flows where lead generation matters.",
+      "sourceType": "blog",
+      "sourceId": "deferred-commit-pattern",
+      "sourceTitle": "The Deferred Commit Pattern: Building Clean SaaS Onboarding with Node.js and Redis",
+      "sourceHref": "/blogs/deferred-commit-pattern",
+      "tags": [
+        "nodejs",
+        "redis",
+        "saas",
+        "onboarding",
+        "express",
+        "patterns",
+        "architecture",
+        "database",
+        "dataintegrity",
+        "jwt",
+        "authentication",
+        "webdevelopment",
+        "backend",
+        "javascript",
+        "leadgeneration",
+        "marketing"
+      ]
+    },
+    {
+      "id": "blog:deferred-commit-pattern:7",
       "question": "When would you use a staging table instead of Redis?",
-      "answer": "When you need audit trails or complex queries on partial data. Cloudflare Durable Objects are an alternative on Cloudflare with geographic distribution and consistency guarantees.",
+      "answer": "Use a database staging table when you need audit trails or complex queries on partial data. Cloudflare Durable Objects are another alternative with geographic distribution and consistency guarantees.",
       "sourceType": "blog",
       "sourceId": "deferred-commit-pattern",
       "sourceTitle": "The Deferred Commit Pattern: Building Clean SaaS Onboarding with Node.js and Redis",
@@ -399,7 +426,7 @@
     },
     {
       "id": "blog:group-by-rollup-grouping-sets-and-cube:0",
-      "question": "What does GROUP BY actor_id return in the film example?",
+      "question": "What does GROUP BY actor_id return for film counts?",
       "answer": "One row per actor with that actor’s total film count.",
       "sourceType": "blog",
       "sourceId": "group-by-rollup-grouping-sets-and-cube",
@@ -428,7 +455,7 @@
     {
       "id": "blog:group-by-rollup-grouping-sets-and-cube:1",
       "question": "How do you get film counts per actor and rating?",
-      "answer": "GROUP BY both actor_id and rating. Each row is one actor–rating pair with its film count.",
+      "answer": "GROUP BY both actor_id and rating. Each row is the count for one actor in one rating.",
       "sourceType": "blog",
       "sourceId": "group-by-rollup-grouping-sets-and-cube",
       "sourceTitle": "SQL Aggregation Magic: GROUP BY, ROLLUP, GROUPING SETS, and CUBE",
@@ -455,8 +482,8 @@
     },
     {
       "id": "blog:group-by-rollup-grouping-sets-and-cube:2",
-      "question": "What extra rows does WITH ROLLUP add to GROUP BY actor_id, rating?",
-      "answer": "Subtotals where rating is NULL (total per actor) and a grand total where both actor_id and rating are NULL.",
+      "question": "What extra rows does WITH ROLLUP add?",
+      "answer": "Subtotal rows where rating is NULL (total per actor) and a grand total where both actor_id and rating are NULL.",
       "sourceType": "blog",
       "sourceId": "group-by-rollup-grouping-sets-and-cube",
       "sourceTitle": "SQL Aggregation Magic: GROUP BY, ROLLUP, GROUPING SETS, and CUBE",
@@ -484,7 +511,7 @@
     {
       "id": "blog:group-by-rollup-grouping-sets-and-cube:3",
       "question": "In which direction does ROLLUP aggregate?",
-      "answer": "Right to left through the GROUP BY columns, following the hierarchy defined by column order.",
+      "answer": "ROLLUP follows the hierarchy of GROUP BY column order and rolls up from right to left.",
       "sourceType": "blog",
       "sourceId": "group-by-rollup-grouping-sets-and-cube",
       "sourceTitle": "SQL Aggregation Magic: GROUP BY, ROLLUP, GROUPING SETS, and CUBE",
@@ -511,8 +538,8 @@
     },
     {
       "id": "blog:group-by-rollup-grouping-sets-and-cube:4",
-      "question": "Why doesn’t ROLLUP on actor_id, rating give totals per rating?",
-      "answer": "ROLLUP only follows that hierarchy, so it produces per-actor totals and a grand total, not totals per rating across all actors.",
+      "question": "Why can’t ROLLUP on (actor_id, rating) give totals per rating?",
+      "answer": "That ROLLUP only produces totals per actor and a grand total. It does not produce totals per rating across all actors.",
       "sourceType": "blog",
       "sourceId": "group-by-rollup-grouping-sets-and-cube",
       "sourceTitle": "SQL Aggregation Magic: GROUP BY, ROLLUP, GROUPING SETS, and CUBE",
@@ -539,8 +566,8 @@
     },
     {
       "id": "blog:group-by-rollup-grouping-sets-and-cube:5",
-      "question": "What does GROUPING SETS let you control?",
-      "answer": "The exact groupings in one query, such as (actor_id, rating), (actor_id), (rating), and () for the grand total.",
+      "question": "What does GROUPING SETS let you specify?",
+      "answer": "The exact groupings you want, such as (actor_id, rating), (actor_id), (rating), and () for the grand total, all in one query.",
       "sourceType": "blog",
       "sourceId": "group-by-rollup-grouping-sets-and-cube",
       "sourceTitle": "SQL Aggregation Magic: GROUP BY, ROLLUP, GROUPING SETS, and CUBE",
@@ -595,8 +622,8 @@
     },
     {
       "id": "blog:group-by-rollup-grouping-sets-and-cube:7",
-      "question": "When is CUBE the right choice?",
-      "answer": "For OLAP and multi-dimensional reporting where you need every possible cross-tabulation. It is available in SQL Server, PostgreSQL, Oracle, and similar databases.",
+      "question": "When is CUBE a good choice?",
+      "answer": "For OLAP and multi-dimensional reporting where you need every possible cross-tabulation. It is available in SQL Server, PostgreSQL, Oracle, and other databases.",
       "sourceType": "blog",
       "sourceId": "group-by-rollup-grouping-sets-and-cube",
       "sourceTitle": "SQL Aggregation Magic: GROUP BY, ROLLUP, GROUPING SETS, and CUBE",
@@ -624,7 +651,7 @@
     {
       "id": "blog:resumable-downloads-react-nodejs:0",
       "question": "What problem do resumable downloads solve?",
-      "answer": "Large-file downloads are often interrupted by connection issues, device sleep, or navigation. Without resumability the user must restart from scratch.",
+      "answer": "Large files are often interrupted by connection issues, device sleep, or navigation. Without resumability, the user must restart the download from scratch.",
       "sourceType": "blog",
       "sourceId": "resumable-downloads-react-nodejs",
       "sourceTitle": "Implementing Resumable Downloads in React and Node.js",
@@ -652,8 +679,8 @@
     },
     {
       "id": "blog:resumable-downloads-react-nodejs:1",
-      "question": "What two pieces make browser downloads resumable?",
-      "answer": "The HTTP Range header for partial retrieval, plus persistent client storage such as IndexedDB to keep download state.",
+      "question": "What two pieces make a browser download resumable?",
+      "answer": "The HTTP Range header for partial retrieval, plus persistent client storage such as IndexedDB to keep downloaded chunks and the current offset.",
       "sourceType": "blog",
       "sourceId": "resumable-downloads-react-nodejs",
       "sourceTitle": "Implementing Resumable Downloads in React and Node.js",
@@ -682,7 +709,7 @@
     {
       "id": "blog:resumable-downloads-react-nodejs:2",
       "question": "How should the server respond to a Range request?",
-      "answer": "Serve only the requested byte range and return status 206 to indicate partial content.",
+      "answer": "Serve only the requested byte range and return status 206 Partial Content.",
       "sourceType": "blog",
       "sourceId": "resumable-downloads-react-nodejs",
       "sourceTitle": "Implementing Resumable Downloads in React and Node.js",
@@ -710,8 +737,8 @@
     },
     {
       "id": "blog:resumable-downloads-react-nodejs:3",
-      "question": "How does the React hook resume after pause, reload, or disconnect?",
-      "answer": "It stores partial downloads in IndexedDB, tracks byte offsets, and continues from the correct offset. AbortController cleanly pauses in-flight XHR or fetch.",
+      "question": "How does the React hook store chunks without loading the whole file?",
+      "answer": "Each chunk is stored as a binary ArrayBuffer. The full file is assembled only after all chunks are downloaded.",
       "sourceType": "blog",
       "sourceId": "resumable-downloads-react-nodejs",
       "sourceTitle": "Implementing Resumable Downloads in React and Node.js",
@@ -739,8 +766,8 @@
     },
     {
       "id": "blog:resumable-downloads-react-nodejs:4",
-      "question": "Why store each chunk as an ArrayBuffer?",
-      "answer": "The full file is never loaded into memory until final assembly. Each chunk stays a binary ArrayBuffer until then.",
+      "question": "How is an in-flight download paused?",
+      "answer": "AbortController aborts the in-flight XHR or fetch. Download state in IndexedDB survives reload so the next request can resume at the saved byte offset.",
       "sourceType": "blog",
       "sourceId": "resumable-downloads-react-nodejs",
       "sourceTitle": "Implementing Resumable Downloads in React and Node.js",
@@ -768,8 +795,8 @@
     },
     {
       "id": "blog:resumable-downloads-react-nodejs:5",
-      "question": "How does resumable download change for large tabular data?",
-      "answer": "The client requests row ranges instead of byte ranges and tracks row index rather than byte position. Each chunk can be parsed and used immediately, often including a header.",
+      "question": "How does chunking change for large tabular downloads?",
+      "answer": "The client requests row ranges (startRow/endRow) instead of byte ranges and tracks row index, not byte position. Each chunk can be parsed and used immediately, often including a header.",
       "sourceType": "blog",
       "sourceId": "resumable-downloads-react-nodejs",
       "sourceTitle": "Implementing Resumable Downloads in React and Node.js",
@@ -797,8 +824,8 @@
     },
     {
       "id": "blog:streaming-json-multipart-mixed:0",
-      "question": "How do you stream multiple JSON objects on one HTTP connection?",
-      "answer": "Use Content-Type multipart/mixed with a boundary and send each JSON object as it becomes available, instead of waiting until all data is processed.",
+      "question": "What does multipart/mixed streaming let you send?",
+      "answer": "Multiple JSON objects over a single HTTP connection as they become available, instead of waiting until all data is processed.",
       "sourceType": "blog",
       "sourceId": "streaming-json-multipart-mixed",
       "sourceTitle": "Streaming JSON Data with Multipart/Mixed and Meros",
@@ -825,8 +852,8 @@
     },
     {
       "id": "blog:streaming-json-multipart-mixed:1",
-      "question": "Why set Transfer-Encoding: chunked on a multipart JSON stream?",
-      "answer": "The server can send the response without knowing its total size and start flushing parts as soon as they are ready.",
+      "question": "Why set Transfer-Encoding: chunked with multipart streaming?",
+      "answer": "Chunked transfer encoding sends the response without knowing its total size in advance, so the server can start sending data as soon as it is ready.",
       "sourceType": "blog",
       "sourceId": "streaming-json-multipart-mixed",
       "sourceTitle": "Streaming JSON Data with Multipart/Mixed and Meros",
@@ -853,8 +880,8 @@
     },
     {
       "id": "blog:streaming-json-multipart-mixed:2",
-      "question": "What does Meros do on the client?",
-      "answer": "It is a JavaScript library that parses multipart streams. After fetch with Accept: multipart/mixed, you iterate each part and handle part.body.",
+      "question": "How is each JSON object framed in the stream?",
+      "answer": "Each object is a multipart section: a boundary line, a Content-Type: application/json header, then the JSON body. The stream ends with a closing boundary (--boundary--).",
       "sourceType": "blog",
       "sourceId": "streaming-json-multipart-mixed",
       "sourceTitle": "Streaming JSON Data with Multipart/Mixed and Meros",
@@ -881,8 +908,8 @@
     },
     {
       "id": "blog:streaming-json-multipart-mixed:3",
-      "question": "How does multipart streaming change a CPU-bound table-row API?",
-      "answer": "Without streaming, users wait until every row is calculated. With streaming, each row is flushed as soon as its calculation finishes and can appear in the UI immediately.",
+      "question": "Why does the Go handler call Flush after each part?",
+      "answer": "Flush pushes that row to the client immediately after the heavy calculation, so the UI can update before later rows finish.",
       "sourceType": "blog",
       "sourceId": "streaming-json-multipart-mixed",
       "sourceTitle": "Streaming JSON Data with Multipart/Mixed and Meros",
@@ -909,8 +936,8 @@
     },
     {
       "id": "blog:streaming-json-multipart-mixed:4",
-      "question": "How can a server stream JSON from multiple slow sources?",
-      "answer": "Fetch sources concurrently and write each part as any source produces data. The client can keep Maps per type and re-render as posts, comments, or users arrive.",
+      "question": "What does Meros do on the client?",
+      "answer": "Meros parses a multipart/mixed fetch response into an async iterable of parts. You consume each part.body as it arrives.",
       "sourceType": "blog",
       "sourceId": "streaming-json-multipart-mixed",
       "sourceTitle": "Streaming JSON Data with Multipart/Mixed and Meros",
@@ -937,8 +964,8 @@
     },
     {
       "id": "blog:streaming-json-multipart-mixed:5",
-      "question": "When should you use multipart streaming?",
-      "answer": "When pieces can be processed independently, each takes significant time, users benefit from partial results, or you are aggregating data from multiple slow sources.",
+      "question": "How can a server stream several slow sources on one connection?",
+      "answer": "Fetch each source in a goroutine onto its own channel, then select across those channels and write a multipart part whenever any source yields data.",
       "sourceType": "blog",
       "sourceId": "streaming-json-multipart-mixed",
       "sourceTitle": "Streaming JSON Data with Multipart/Mixed and Meros",
@@ -965,8 +992,36 @@
     },
     {
       "id": "blog:streaming-json-multipart-mixed:6",
-      "question": "What resilience and memory benefits does multipart streaming provide?",
-      "answer": "You do not buffer a large full response, and a partial failure does not block the parts that succeeded.",
+      "question": "How should the client hold partial data from mixed sources?",
+      "answer": "Use Maps keyed by id for posts, comments, and users. Render with placeholders such as “Loading comment…” until related records arrive.",
+      "sourceType": "blog",
+      "sourceId": "streaming-json-multipart-mixed",
+      "sourceTitle": "Streaming JSON Data with Multipart/Mixed and Meros",
+      "sourceHref": "/blogs/streaming-json-multipart-mixed",
+      "tags": [
+        "multipart",
+        "streaming",
+        "HTTP",
+        "JSON",
+        "JavaScript",
+        "Go",
+        "webdevelopment",
+        "meros",
+        "chunked",
+        "API",
+        "realtime",
+        "performance",
+        "progressiveloading",
+        "webapi",
+        "nodejs",
+        "frontend",
+        "backend"
+      ]
+    },
+    {
+      "id": "blog:streaming-json-multipart-mixed:7",
+      "question": "When is multipart streaming a good fit?",
+      "answer": "When pieces can be processed independently, each piece takes significant time, users benefit from partial results, or you are aggregating several slow sources.",
       "sourceType": "blog",
       "sourceId": "streaming-json-multipart-mixed",
       "sourceTitle": "Streaming JSON Data with Multipart/Mixed and Meros",
@@ -1098,7 +1153,7 @@
       "sourceTitle": "Agent Communication",
       "sourceHref": "/notes/agents/communication/",
       "tags": [
-        "multi-agent-systems",
+        "multi-agent",
         "architecture",
         "orchestration"
       ]
@@ -1112,7 +1167,7 @@
       "sourceTitle": "Agent Communication",
       "sourceHref": "/notes/agents/communication/",
       "tags": [
-        "multi-agent-systems",
+        "multi-agent",
         "architecture",
         "orchestration"
       ]
@@ -1126,7 +1181,7 @@
       "sourceTitle": "Agent Communication",
       "sourceHref": "/notes/agents/communication/",
       "tags": [
-        "multi-agent-systems",
+        "multi-agent",
         "architecture",
         "orchestration"
       ]
@@ -1140,7 +1195,7 @@
       "sourceTitle": "Agent Communication",
       "sourceHref": "/notes/agents/communication/",
       "tags": [
-        "multi-agent-systems",
+        "multi-agent",
         "architecture",
         "orchestration"
       ]
@@ -1154,7 +1209,7 @@
       "sourceTitle": "Agent Communication",
       "sourceHref": "/notes/agents/communication/",
       "tags": [
-        "multi-agent-systems",
+        "multi-agent",
         "architecture",
         "orchestration"
       ]
@@ -1168,7 +1223,7 @@
       "sourceTitle": "Agent Communication",
       "sourceHref": "/notes/agents/communication/",
       "tags": [
-        "multi-agent-systems",
+        "multi-agent",
         "architecture",
         "orchestration"
       ]
@@ -1182,7 +1237,7 @@
       "sourceTitle": "Agent Communication",
       "sourceHref": "/notes/agents/communication/",
       "tags": [
-        "multi-agent-systems",
+        "multi-agent",
         "architecture",
         "orchestration"
       ]
@@ -1196,7 +1251,7 @@
       "sourceTitle": "Agent Communication",
       "sourceHref": "/notes/agents/communication/",
       "tags": [
-        "multi-agent-systems",
+        "multi-agent",
         "architecture",
         "orchestration"
       ]
@@ -1210,11 +1265,9 @@
       "sourceTitle": "Tool Calling",
       "sourceHref": "/notes/agents/tool-calling/",
       "tags": [
-        "ai",
         "agents",
         "llm",
         "tool-calling",
-        "function-calling",
         "niah"
       ]
     },
@@ -1227,11 +1280,9 @@
       "sourceTitle": "Tool Calling",
       "sourceHref": "/notes/agents/tool-calling/",
       "tags": [
-        "ai",
         "agents",
         "llm",
         "tool-calling",
-        "function-calling",
         "niah"
       ]
     },
@@ -1244,11 +1295,9 @@
       "sourceTitle": "Tool Calling",
       "sourceHref": "/notes/agents/tool-calling/",
       "tags": [
-        "ai",
         "agents",
         "llm",
         "tool-calling",
-        "function-calling",
         "niah"
       ]
     },
@@ -1261,11 +1310,9 @@
       "sourceTitle": "Tool Calling",
       "sourceHref": "/notes/agents/tool-calling/",
       "tags": [
-        "ai",
         "agents",
         "llm",
         "tool-calling",
-        "function-calling",
         "niah"
       ]
     },
@@ -1278,11 +1325,9 @@
       "sourceTitle": "Tool Calling",
       "sourceHref": "/notes/agents/tool-calling/",
       "tags": [
-        "ai",
         "agents",
         "llm",
         "tool-calling",
-        "function-calling",
         "niah"
       ]
     },
@@ -1295,11 +1340,9 @@
       "sourceTitle": "Tool Calling",
       "sourceHref": "/notes/agents/tool-calling/",
       "tags": [
-        "ai",
         "agents",
         "llm",
         "tool-calling",
-        "function-calling",
         "niah"
       ]
     },
@@ -1312,11 +1355,9 @@
       "sourceTitle": "Tool Calling",
       "sourceHref": "/notes/agents/tool-calling/",
       "tags": [
-        "ai",
         "agents",
         "llm",
         "tool-calling",
-        "function-calling",
         "niah"
       ]
     },
@@ -1477,8 +1518,7 @@
         "architecture",
         "monolith",
         "modularity",
-        "velocity",
-        "volatility"
+        "software-design"
       ]
     },
     {
@@ -1493,8 +1533,7 @@
         "architecture",
         "monolith",
         "modularity",
-        "velocity",
-        "volatility"
+        "software-design"
       ]
     },
     {
@@ -1509,8 +1548,7 @@
         "architecture",
         "monolith",
         "modularity",
-        "velocity",
-        "volatility"
+        "software-design"
       ]
     },
     {
@@ -1525,8 +1563,7 @@
         "architecture",
         "monolith",
         "modularity",
-        "velocity",
-        "volatility"
+        "software-design"
       ]
     },
     {
@@ -1541,8 +1578,7 @@
         "architecture",
         "monolith",
         "modularity",
-        "velocity",
-        "volatility"
+        "software-design"
       ]
     },
     {
@@ -1557,8 +1593,7 @@
         "architecture",
         "monolith",
         "modularity",
-        "velocity",
-        "volatility"
+        "software-design"
       ]
     },
     {
@@ -1573,8 +1608,7 @@
         "architecture",
         "monolith",
         "modularity",
-        "velocity",
-        "volatility"
+        "software-design"
       ]
     },
     {
@@ -1783,7 +1817,6 @@
       "sourceHref": "/notes/architecture/ddia-14-03-2026/",
       "tags": [
         "distributed-systems",
-        "resilience",
         "reliability",
         "ddia"
       ]
@@ -1798,7 +1831,6 @@
       "sourceHref": "/notes/architecture/ddia-14-03-2026/",
       "tags": [
         "distributed-systems",
-        "resilience",
         "reliability",
         "ddia"
       ]
@@ -1813,7 +1845,6 @@
       "sourceHref": "/notes/architecture/ddia-14-03-2026/",
       "tags": [
         "distributed-systems",
-        "resilience",
         "reliability",
         "ddia"
       ]
@@ -1828,7 +1859,6 @@
       "sourceHref": "/notes/architecture/ddia-14-03-2026/",
       "tags": [
         "distributed-systems",
-        "resilience",
         "reliability",
         "ddia"
       ]
@@ -1843,7 +1873,6 @@
       "sourceHref": "/notes/architecture/ddia-14-03-2026/",
       "tags": [
         "distributed-systems",
-        "resilience",
         "reliability",
         "ddia"
       ]
@@ -1858,7 +1887,6 @@
       "sourceHref": "/notes/architecture/ddia-14-03-2026/",
       "tags": [
         "distributed-systems",
-        "resilience",
         "reliability",
         "ddia"
       ]
@@ -1873,7 +1901,6 @@
       "sourceHref": "/notes/architecture/ddia-14-03-2026/",
       "tags": [
         "distributed-systems",
-        "resilience",
         "reliability",
         "ddia"
       ]
@@ -1890,7 +1917,7 @@
         "architecture",
         "microservices",
         "ddd",
-        "strategy"
+        "refactoring"
       ]
     },
     {
@@ -1905,7 +1932,7 @@
         "architecture",
         "microservices",
         "ddd",
-        "strategy"
+        "refactoring"
       ]
     },
     {
@@ -1920,7 +1947,7 @@
         "architecture",
         "microservices",
         "ddd",
-        "strategy"
+        "refactoring"
       ]
     },
     {
@@ -1935,7 +1962,7 @@
         "architecture",
         "microservices",
         "ddd",
-        "strategy"
+        "refactoring"
       ]
     },
     {
@@ -1950,7 +1977,7 @@
         "architecture",
         "microservices",
         "ddd",
-        "strategy"
+        "refactoring"
       ]
     },
     {
@@ -1965,7 +1992,7 @@
         "architecture",
         "microservices",
         "ddd",
-        "strategy"
+        "refactoring"
       ]
     },
     {
@@ -1980,7 +2007,7 @@
         "architecture",
         "microservices",
         "ddd",
-        "strategy"
+        "refactoring"
       ]
     },
     {
@@ -1995,7 +2022,7 @@
         "architecture",
         "microservices",
         "ddd",
-        "strategy"
+        "refactoring"
       ]
     },
     {
@@ -2084,8 +2111,8 @@
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-auto:0",
-      "question": "What is the default storage modifier for visibility in C?",
-      "answer": "Auto.",
+      "question": "What is auto the default modifier for?",
+      "answer": "Visibility. Auto is the default modifier for visibility.",
       "sourceType": "note",
       "sourceId": "books/c/advanced-c-programming-course/c-auto",
       "sourceTitle": "C Auto Storage Class",
@@ -2098,8 +2125,8 @@
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-auto:1",
-      "question": "When is auto storage acquired and freed?",
-      "answer": "Memory is acquired when the variable comes into scope and freed when it goes out of scope. Lifetime is bound to scope.",
+      "question": "How is an auto variable's lifetime bound?",
+      "answer": "Lifetime is bound to its scope: memory is acquired when it comes into scope and freed when it goes out of scope.",
       "sourceType": "note",
       "sourceId": "books/c/advanced-c-programming-course/c-auto",
       "sourceTitle": "C Auto Storage Class",
@@ -2113,21 +2140,7 @@
     {
       "id": "note:books/c/advanced-c-programming-course/c-auto:2",
       "question": "When do you need to write the auto keyword?",
-      "answer": "You do not, unless you are shadowing a global variable and want to be specific about the shadowing.",
-      "sourceType": "note",
-      "sourceId": "books/c/advanced-c-programming-course/c-auto",
-      "sourceTitle": "C Auto Storage Class",
-      "sourceHref": "/notes/books/c/advanced-c-programming-course/c-auto/",
-      "tags": [
-        "c",
-        "memory",
-        "storage-classes"
-      ]
-    },
-    {
-      "id": "note:books/c/advanced-c-programming-course/c-auto:3",
-      "question": "Are `int i = 10;` and `auto int j = 10;` different storage classes?",
-      "answer": "No. Both are auto.",
+      "answer": "You do not need to specify auto unless you are shadowing a global variable and want to be specific about the shadowing.",
       "sourceType": "note",
       "sourceId": "books/c/advanced-c-programming-course/c-auto",
       "sourceTitle": "C Auto Storage Class",
@@ -2140,8 +2153,8 @@
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-extern:0",
-      "question": "What does visibility, or linkage, specify?",
-      "answer": "Whether the variable is visible to other files in a multi-file program.",
+      "question": "What does visibility or linkage specify?",
+      "answer": "Whether a variable is visible to other files in a multi-file program.",
       "sourceType": "note",
       "sourceId": "books/c/advanced-c-programming-course/c-extern",
       "sourceTitle": "C Extern Storage Class",
@@ -2154,8 +2167,8 @@
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-extern:1",
-      "question": "What do extern modifiers control?",
-      "answer": "The visibility of a global variable in a multi-file project.",
+      "question": "What does extern control, and what defaults to extern?",
+      "answer": "Extern controls the visibility of a global variable in a multi-file project. Functions default to extern.",
       "sourceType": "note",
       "sourceId": "books/c/advanced-c-programming-course/c-extern",
       "sourceTitle": "C Extern Storage Class",
@@ -2168,8 +2181,8 @@
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-extern:2",
-      "question": "What is the default linkage of functions?",
-      "answer": "Extern. `extern int add(int a, int b);` and `int add(int a, int b);` are effectively the same.",
+      "question": "Can extern be used inside a function scope?",
+      "answer": "Yes. Using extern within a scope declares that you are using a global variable defined in another file.",
       "sourceType": "note",
       "sourceId": "books/c/advanced-c-programming-course/c-extern",
       "sourceTitle": "C Extern Storage Class",
@@ -2182,8 +2195,8 @@
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-extern:3",
-      "question": "How can another file access a global defined in `main.c`?",
-      "answer": "Declare it with `extern` in that file, such as `extern int i;` in `foo.c`.",
+      "question": "When declaring an extern array, which sizes must you specify?",
+      "answer": "A one-dimensional array does not need its size because the compiler already knows it. A multidimensional array must specify the nested sizes.",
       "sourceType": "note",
       "sourceId": "books/c/advanced-c-programming-course/c-extern",
       "sourceTitle": "C Extern Storage Class",
@@ -2196,22 +2209,8 @@
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-extern:4",
-      "question": "Can `extern` be used inside a function?",
-      "answer": "Yes. Inside a scope it means you are using a global variable defined in another file.",
-      "sourceType": "note",
-      "sourceId": "books/c/advanced-c-programming-course/c-extern",
-      "sourceTitle": "C Extern Storage Class",
-      "sourceHref": "/notes/books/c/advanced-c-programming-course/c-extern/",
-      "tags": [
-        "c",
-        "memory",
-        "storage-classes"
-      ]
-    },
-    {
-      "id": "note:books/c/advanced-c-programming-course/c-extern:5",
-      "question": "What array sizes must an `extern` declaration include?",
-      "answer": "A one-dimensional array does not need its size. A multidimensional array must specify the nested sizes.",
+      "question": "Why is `extern int add(int a, int b);` the same as `int add(int a, int b);`?",
+      "answer": "Functions default to extern, so the two declarations are effectively the same.",
       "sourceType": "note",
       "sourceId": "books/c/advanced-c-programming-course/c-extern",
       "sourceTitle": "C Extern Storage Class",
@@ -2225,7 +2224,7 @@
     {
       "id": "note:books/c/advanced-c-programming-course/c-register:0",
       "question": "What does the register modifier ask the compiler to do?",
-      "answer": "Place the variable in a CPU register instead of RAM. The compiler may still refuse for optimisation; it is a request.",
+      "answer": "Place the variable in a CPU register instead of RAM. The compiler can still refuse for optimisation; it is a request, not a guarantee.",
       "sourceType": "note",
       "sourceId": "books/c/advanced-c-programming-course/c-register",
       "sourceTitle": "C Register Storage Class",
@@ -2238,8 +2237,8 @@
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-register:1",
-      "question": "Can a struct field have the register modifier?",
-      "answer": "No. A whole struct can be register, but one field of a struct cannot.",
+      "question": "Can a struct or a struct field be register?",
+      "answer": "A whole struct can have the register modifier, but one field of a struct cannot.",
       "sourceType": "note",
       "sourceId": "books/c/advanced-c-programming-course/c-register",
       "sourceTitle": "C Register Storage Class",
@@ -2253,7 +2252,7 @@
     {
       "id": "note:books/c/advanced-c-programming-course/c-register:2",
       "question": "Why can you not take the address of a register variable?",
-      "answer": "It has no address while it is in a register. `&i` on a register variable is not allowed and will cause an error.",
+      "answer": "A register variable has no address while it is in a register, so `&` on it is not allowed and will cause an error.",
       "sourceType": "note",
       "sourceId": "books/c/advanced-c-programming-course/c-register",
       "sourceTitle": "C Register Storage Class",
@@ -2266,8 +2265,8 @@
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-register:3",
-      "question": "Is `register int* ptr_i = &i;` allowed when `i` is a normal local?",
-      "answer": "Yes. Putting an address in a register is allowed.",
+      "question": "Can a pointer itself be a register variable?",
+      "answer": "Yes. Putting an address in a register is allowed, such as `register int* ptr_i = &i;`.",
       "sourceType": "note",
       "sourceId": "books/c/advanced-c-programming-course/c-register",
       "sourceTitle": "C Register Storage Class",
@@ -2281,7 +2280,7 @@
     {
       "id": "note:books/c/advanced-c-programming-course/c-register:4",
       "question": "Can a register variable be global?",
-      "answer": "No. Register has scope, lifetime, and visibility, but it cannot be global.",
+      "answer": "No. Register has scope, lifetime, and visibility, but register cannot be global.",
       "sourceType": "note",
       "sourceId": "books/c/advanced-c-programming-course/c-register",
       "sourceTitle": "C Register Storage Class",
@@ -2294,8 +2293,8 @@
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-static:0",
-      "question": "How long does a static lifetime last, and what does that allow?",
-      "answer": "Until the end of the program. A value with a static lifetime can be shared across threads.",
+      "question": "What does a static lifetime mean?",
+      "answer": "The value exists until the end of the program, so a value with a static lifetime can be shared across threads.",
       "sourceType": "note",
       "sourceId": "books/c/advanced-c-programming-course/c-static",
       "sourceTitle": "C Static Storage Class",
@@ -2308,8 +2307,8 @@
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-static:1",
-      "question": "When does a static variable exist relative to `main`?",
-      "answer": "It exists before `main` and remains in scope until the program ends.",
+      "question": "When does a static variable exist relative to main?",
+      "answer": "Any variable declared static exists before main and remains in scope until the program ends.",
       "sourceType": "note",
       "sourceId": "books/c/advanced-c-programming-course/c-static",
       "sourceTitle": "C Static Storage Class",
@@ -2322,8 +2321,8 @@
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-static:2",
-      "question": "How do local static variables differ from auto locals?",
-      "answer": "They retain their value between function executions. Auto locals are allocated on the stack; local statics live in the data segment or BSS for the whole program.",
+      "question": "How do local static variables differ from auto variables?",
+      "answer": "Local statics retain their value between function executions and live in the data segment (or BSS), not the stack. Auto variables are allocated on the stack.",
       "sourceType": "note",
       "sourceId": "books/c/advanced-c-programming-course/c-static",
       "sourceTitle": "C Static Storage Class",
@@ -2336,8 +2335,8 @@
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-static:3",
-      "question": "Can an individual struct member be static?",
-      "answer": "No. The whole struct can be static, but individual members cannot, because of the alignment rule.",
+      "question": "Why can a whole struct be static but not an individual member?",
+      "answer": "The whole struct can have the static modifier, but individual members cannot due to the alignment rule.",
       "sourceType": "note",
       "sourceId": "books/c/advanced-c-programming-course/c-static",
       "sourceTitle": "C Static Storage Class",
@@ -2351,7 +2350,7 @@
     {
       "id": "note:books/c/advanced-c-programming-course/c-static:4",
       "question": "Why does `static int i = get_i();` fail?",
-      "answer": "Static variables have to be known at compile time.",
+      "answer": "Static variables have to be known at compile time, so they cannot be initialised from a function call like `get_i()`.",
       "sourceType": "note",
       "sourceId": "books/c/advanced-c-programming-course/c-static",
       "sourceTitle": "C Static Storage Class",
@@ -2364,22 +2363,8 @@
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-static:5",
-      "question": "What does file-scope `static` do to a variable or function?",
+      "question": "What does file-scope static do to a variable or function?",
       "answer": "It makes them visible only in the file where they are defined.",
-      "sourceType": "note",
-      "sourceId": "books/c/advanced-c-programming-course/c-static",
-      "sourceTitle": "C Static Storage Class",
-      "sourceHref": "/notes/books/c/advanced-c-programming-course/c-static/",
-      "tags": [
-        "c",
-        "memory",
-        "storage-classes"
-      ]
-    },
-    {
-      "id": "note:books/c/advanced-c-programming-course/c-static:6",
-      "question": "Besides `static`, how can a value be kept for the whole program?",
-      "answer": "By leaking it on the heap, which guarantees it exists for the program's entire duration.",
       "sourceType": "note",
       "sourceId": "books/c/advanced-c-programming-course/c-static",
       "sourceTitle": "C Static Storage Class",
@@ -2400,7 +2385,6 @@
       "sourceHref": "/notes/books/c/advanced-c-programming-course/storage-classes/",
       "tags": [
         "c",
-        "programming",
         "memory",
         "storage-classes",
         "moc"
@@ -2416,7 +2400,6 @@
       "sourceHref": "/notes/books/c/advanced-c-programming-course/storage-classes/",
       "tags": [
         "c",
-        "programming",
         "memory",
         "storage-classes",
         "moc"
@@ -2432,7 +2415,6 @@
       "sourceHref": "/notes/books/c/advanced-c-programming-course/storage-classes/",
       "tags": [
         "c",
-        "programming",
         "memory",
         "storage-classes",
         "moc"
@@ -2448,7 +2430,6 @@
       "sourceHref": "/notes/books/c/advanced-c-programming-course/storage-classes/",
       "tags": [
         "c",
-        "programming",
         "memory",
         "storage-classes",
         "moc"
@@ -2464,7 +2445,6 @@
       "sourceHref": "/notes/books/c/advanced-c-programming-course/storage-classes/",
       "tags": [
         "c",
-        "programming",
         "memory",
         "storage-classes",
         "moc"
@@ -2480,7 +2460,6 @@
       "sourceHref": "/notes/books/c/advanced-c-programming-course/storage-classes/",
       "tags": [
         "c",
-        "programming",
         "memory",
         "storage-classes",
         "moc"
@@ -2496,7 +2475,6 @@
       "sourceHref": "/notes/books/c/advanced-c-programming-course/storage-classes/",
       "tags": [
         "c",
-        "programming",
         "memory",
         "storage-classes",
         "moc"
@@ -2504,7 +2482,7 @@
     },
     {
       "id": "note:books/grokking-concurrency/introducing-concurrency:0",
-      "question": "Why has concurrency become more popular on modern CPUs?",
+      "question": "Why has concurrency become more important on modern CPUs?",
       "answer": "The number of cores and threads per core has increased, and concurrency is the only way to improve performance with limited resources.",
       "sourceType": "note",
       "sourceId": "books/grokking-concurrency/introducing-concurrency",
@@ -2520,8 +2498,8 @@
     },
     {
       "id": "note:books/grokking-concurrency/introducing-concurrency:1",
-      "question": "How do latency and throughput quantify performance?",
-      "answer": "Latency is how long a single task takes. Throughput is the number of tasks a system can handle over a period of time.",
+      "question": "What is the difference between latency and throughput?",
+      "answer": "Latency is how long a single task takes. Throughput is how many tasks a system can handle over a period of time.",
       "sourceType": "note",
       "sourceId": "books/grokking-concurrency/introducing-concurrency",
       "sourceTitle": "Introducing Concurrency",
@@ -2536,8 +2514,8 @@
     },
     {
       "id": "note:books/grokking-concurrency/introducing-concurrency:2",
-      "question": "What happens if you optimize for latency or throughput alone?",
-      "answer": "Optimising for one may degrade the other.",
+      "question": "How does the motorcycle vs bus example contrast latency and throughput?",
+      "answer": "A motorcycle that takes 1 hour has lower latency than a bus that takes 2 hours carrying 50 people, but the bus's throughput is 25x that of the motorcycle.",
       "sourceType": "note",
       "sourceId": "books/grokking-concurrency/introducing-concurrency",
       "sourceTitle": "Introducing Concurrency",
@@ -2552,8 +2530,8 @@
     },
     {
       "id": "note:books/grokking-concurrency/introducing-concurrency:3",
-      "question": "How can concurrency improve latency and throughput?",
-      "answer": "It can reduce latency by breaking a long-running task into parallel work, and improve throughput by performing multiple tasks simultaneously.",
+      "question": "What happens if you optimise only latency or only throughput?",
+      "answer": "Optimising for one may degrade the other.",
       "sourceType": "note",
       "sourceId": "books/grokking-concurrency/introducing-concurrency",
       "sourceTitle": "Introducing Concurrency",
@@ -2568,8 +2546,8 @@
     },
     {
       "id": "note:books/grokking-concurrency/introducing-concurrency:4",
-      "question": "What three ways can concurrency improve system performance?",
-      "answer": "It can reduce latency, hide latency by doing other work during a high-latency operation, and increase throughput.",
+      "question": "In what three ways can concurrency improve system performance?",
+      "answer": "It can reduce latency by finishing a unit of work faster, hide latency by doing something else during a high-latency operation, and increase throughput by doing more work.",
       "sourceType": "note",
       "sourceId": "books/grokking-concurrency/introducing-concurrency",
       "sourceTitle": "Introducing Concurrency",
@@ -2584,8 +2562,8 @@
     },
     {
       "id": "note:books/grokking-concurrency/introducing-concurrency:5",
-      "question": "How does scaling horizontally differ from scaling vertically?",
-      "answer": "Vertical scaling means buying more RAM or a faster processor for only marginal gains, and it stops once you have the fastest system. Horizontal scaling distributes work across multiple machines.",
+      "question": "How does concurrency help scale out rather than scale up?",
+      "answer": "Scaling vertically means buying more RAM or a faster processor for only marginal gains and stops at the fastest machine. Scaling horizontally distributes work across multiple machines.",
       "sourceType": "note",
       "sourceId": "books/grokking-concurrency/introducing-concurrency",
       "sourceTitle": "Introducing Concurrency",
@@ -2600,8 +2578,8 @@
     },
     {
       "id": "note:books/grokking-concurrency/introducing-concurrency:6",
-      "question": "How does concurrency help scale a decoupled system?",
-      "answer": "If only one service needs to scale, that can be done easily in a decoupled system rather than scaling everything in a tightly coupled system.",
+      "question": "Why does decoupling help when only one service needs to scale?",
+      "answer": "In a decoupled system you can scale that one service. In a tightly coupled system you have to scale everything.",
       "sourceType": "note",
       "sourceId": "books/grokking-concurrency/introducing-concurrency",
       "sourceTitle": "Introducing Concurrency",
@@ -2616,8 +2594,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/atomics:0",
-      "question": "What does it mean for an operation to be atomic?",
-      "answer": "Atomic operations are the smallest operations on data that either occur or do not; there is no half-done state.",
+      "question": "What does an atomic operation guarantee?",
+      "answer": "It is the smallest operation on data that either occurs or does not; there is no half-done state. Two threads can update an atomic variable without both reading the same value and writing at the same time.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/atomics",
       "sourceTitle": "Atomics",
@@ -2627,14 +2605,13 @@
         "concurrency",
         "atomics",
         "memory-ordering",
-        "lazy-initialization",
-        "race-condition"
+        "lazy-initialization"
       ]
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/atomics:1",
-      "question": "Why can two threads update an AtomicI32 without an inconsistent state?",
-      "answer": "They cannot both read the same value and update it at the same time, so the variable never ends up half-updated.",
+      "question": "Why is there no Atomic<T> in Rust?",
+      "answer": "Unlike other types, we only get concrete atomics such as AtomicBool and AtomicI32, up to the word size (AtomicUsize). Which types exist depends on the system architecture and OS.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/atomics",
       "sourceTitle": "Atomics",
@@ -2644,14 +2621,13 @@
         "concurrency",
         "atomics",
         "memory-ordering",
-        "lazy-initialization",
-        "race-condition"
+        "lazy-initialization"
       ]
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/atomics:2",
-      "question": "Why is there no generic Atomic<T> in Rust?",
-      "answer": "Only specific types exist, such as AtomicBool and AtomicI32, up to the word size with AtomicUsize. Which atomics are available also depends on the architecture and OS.",
+      "question": "What does an atomic Ordering parameter control?",
+      "answer": "It controls what guarantees we get about the relative ordering of operations. The CPU may execute operations out of order, so one thread can observe a different assignment order than another.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/atomics",
       "sourceTitle": "Atomics",
@@ -2661,14 +2637,13 @@
         "concurrency",
         "atomics",
         "memory-ordering",
-        "lazy-initialization",
-        "race-condition"
+        "lazy-initialization"
       ]
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/atomics:3",
-      "question": "What does the Ordering parameter on atomic operations control?",
-      "answer": "It controls what guarantees we get about the relative ordering of operations. The CPU may still perform operations out of order, so two threads may observe assignments in different sequences.",
+      "question": "Why might a Relaxed stop flag not stop immediately?",
+      "answer": "If some_work() is blocking or takes a while, entering stop only sets the flag. The background loop keeps running until that last call to some_work completes.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/atomics",
       "sourceTitle": "Atomics",
@@ -2678,14 +2653,13 @@
         "concurrency",
         "atomics",
         "memory-ordering",
-        "lazy-initialization",
-        "race-condition"
+        "lazy-initialization"
       ]
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/atomics:4",
       "question": "What is lazy initialization?",
-      "answer": "A pattern where a constant or expensive resource is calculated only when first requested and then stored for subsequent use.",
+      "answer": "A pattern where a constant or expensive resource is calculated only when first requested and then stored for later use.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/atomics",
       "sourceTitle": "Atomics",
@@ -2695,14 +2669,13 @@
         "concurrency",
         "atomics",
         "memory-ordering",
-        "lazy-initialization",
-        "race-condition"
+        "lazy-initialization"
       ]
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/atomics:5",
-      "question": "What race condition can a naive atomic lazy-init check-and-store have?",
-      "answer": "If two threads both see the unset value, they both restart the computation. Concurrent lazy initialization must be synchronized to prevent that.",
+      "question": "What race does the AtomicU64 get_x example have?",
+      "answer": "Two threads can both load 0, both run calculate_x, and both store. The first to finish wins; the work is duplicated. Once and OnceLock fix this.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/atomics",
       "sourceTitle": "Atomics",
@@ -2712,14 +2685,13 @@
         "concurrency",
         "atomics",
         "memory-ordering",
-        "lazy-initialization",
-        "race-condition"
+        "lazy-initialization"
       ]
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/atomics:6",
-      "question": "How do Once and OnceLock fix concurrent lazy initialization?",
-      "answer": "They are atomic helpers so only one thread runs the initializer. Later callers sleep until that first thread finishes call_once or get_or_init.",
+      "question": "What does Once.call_once do for a second caller?",
+      "answer": "The first thread runs the closure. Later callers do nothing and sleep until that first thread finishes.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/atomics",
       "sourceTitle": "Atomics",
@@ -2729,14 +2701,13 @@
         "concurrency",
         "atomics",
         "memory-ordering",
-        "lazy-initialization",
-        "race-condition"
+        "lazy-initialization"
       ]
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/basics-of-rust-concurrency:0",
-      "question": "What happens to spawned threads when the main thread terminates?",
-      "answer": "They are cleaned up whether they have finished executing or not.",
+      "question": "What happens to spawned threads when main ends?",
+      "answer": "When the main thread is terminated, all threads forked or spawned from it are cleaned up, whether they have finished executing or not.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
       "sourceTitle": "Rust Concurrency",
@@ -2745,19 +2716,14 @@
         "rust",
         "concurrency",
         "threads",
-        "statics",
-        "reference-counting",
-        "interior-mutability",
         "atomics",
-        "locks",
-        "mutex",
-        "rwlock"
+        "locks"
       ]
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/basics-of-rust-concurrency:1",
-      "question": "Why can scoped threads borrow local variables?",
-      "answer": "Threads spawned in std::thread::scope finish and are joined before the scope exits, so the borrowed data outlives them.",
+      "question": "What does JoinHandle::join return?",
+      "answer": "A std::thread::Result: Err if the thread panicked, or Ok<T> with the thread's return value. Unwrapping an Err panics the joining thread too.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
       "sourceTitle": "Rust Concurrency",
@@ -2766,19 +2732,14 @@
         "rust",
         "concurrency",
         "threads",
-        "statics",
-        "reference-counting",
-        "interior-mutability",
         "atomics",
-        "locks",
-        "mutex",
-        "rwlock"
+        "locks"
       ]
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/basics-of-rust-concurrency:2",
-      "question": "How does Arc differ from Rc?",
-      "answer": "Arc is atomically reference counted, so increment and decrement cannot race. Rc is not thread-safe and cannot be sent across threads.",
+      "question": "Why can scoped threads borrow locals?",
+      "answer": "std::thread::scope joins every spawned thread before the scope exits, so borrowed data outlives those threads.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
       "sourceTitle": "Rust Concurrency",
@@ -2787,19 +2748,14 @@
         "rust",
         "concurrency",
         "threads",
-        "statics",
-        "reference-counting",
-        "interior-mutability",
         "atomics",
-        "locks",
-        "mutex",
-        "rwlock"
+        "locks"
       ]
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/basics-of-rust-concurrency:3",
-      "question": "What does interior mutability allow?",
-      "answer": "It lets you mutate a value through a shared, read-only reference.",
+      "question": "Why is Rc not Send or Sync?",
+      "answer": "Its counter updates are not atomic. If two threads increment or decrement at once, the count becomes inconsistent.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
       "sourceTitle": "Rust Concurrency",
@@ -2808,19 +2764,14 @@
         "rust",
         "concurrency",
         "threads",
-        "statics",
-        "reference-counting",
-        "interior-mutability",
         "atomics",
-        "locks",
-        "mutex",
-        "rwlock"
+        "locks"
       ]
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/basics-of-rust-concurrency:4",
-      "question": "What is the difference between Send and Sync?",
-      "answer": "T is Send if ownership can be transferred to another thread. T is Sync if &T is Send.",
+      "question": "What does Arc add over Rc?",
+      "answer": "Increment and decrement are atomic, so no two threads can mutate the count at the same time. That lets the pointer be shared and sent across threads.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
       "sourceTitle": "Rust Concurrency",
@@ -2829,19 +2780,14 @@
         "rust",
         "concurrency",
         "threads",
-        "statics",
-        "reference-counting",
-        "interior-mutability",
         "atomics",
-        "locks",
-        "mutex",
-        "rwlock"
+        "locks"
       ]
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/basics-of-rust-concurrency:5",
-      "question": "How does a Mutex handle conflicting access compared with RefCell?",
-      "answer": "RefCell panics on conflicting borrows. A Mutex puts the waiting thread to sleep and wakes it when the lock is dropped.",
+      "question": "How does Mutex differ from RefCell on conflict?",
+      "answer": "RefCell panics on a conflicting borrow. Mutex or RwLock put the waiter to sleep and wake it when the lock is dropped.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
       "sourceTitle": "Rust Concurrency",
@@ -2850,19 +2796,14 @@
         "rust",
         "concurrency",
         "threads",
-        "statics",
-        "reference-counting",
-        "interior-mutability",
         "atomics",
-        "locks",
-        "mutex",
-        "rwlock"
+        "locks"
       ]
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/basics-of-rust-concurrency:6",
-      "question": "When is an RwLock preferable to a Mutex?",
-      "answer": "A Mutex always takes exclusive access. An RwLock allows one exclusive write or multiple shared reads, which is better for data that is read more often than written.",
+      "question": "What is the difference between Send and Sync?",
+      "answer": "T is Send if ownership can move to another thread. T is Sync if &T is Send. Arc is Send; Rc is not. i32 is Sync; Cell<i32> is not.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
       "sourceTitle": "Rust Concurrency",
@@ -2871,19 +2812,14 @@
         "rust",
         "concurrency",
         "threads",
-        "statics",
-        "reference-counting",
-        "interior-mutability",
         "atomics",
-        "locks",
-        "mutex",
-        "rwlock"
+        "locks"
       ]
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/basics-of-rust-concurrency:7",
-      "question": "What does Condvar::wait do with a MutexGuard?",
-      "answer": "It unlocks the mutex and puts the thread to sleep. When notified, it re-locks the mutex and returns the guard.",
+      "question": "What does Condvar::wait do with the MutexGuard?",
+      "answer": "It unlocks the mutex and sleeps. When notified, it re-locks the mutex and returns the guard. Use notify_one or notify_all to wake waiters.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
       "sourceTitle": "Rust Concurrency",
@@ -2892,19 +2828,14 @@
         "rust",
         "concurrency",
         "threads",
-        "statics",
-        "reference-counting",
-        "interior-mutability",
         "atomics",
-        "locks",
-        "mutex",
-        "rwlock"
+        "locks"
       ]
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/memory-ordering:0",
-      "question": "What does the Ordering parameter on atomic operations control?",
-      "answer": "It controls what guarantees we get about the relative ordering of operations.",
+      "question": "What does an atomic Ordering parameter control?",
+      "answer": "It controls what guarantees we get about the relative ordering of operations. Every atomic operation takes a std::sync::atomic::Ordering.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/memory-ordering",
       "sourceTitle": "Memory Ordering",
@@ -2918,8 +2849,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/memory-ordering:1",
-      "question": "How can two threads observe the same assignments in different orders?",
-      "answer": "The CPU might perform operations out of order, for example grouping assignments even if the code is not written that way. T1 might see V1 V2 V3 assigned while T2 sees V2 V3 V1.",
+      "question": "Why can two threads see different assignment orders?",
+      "answer": "The CPU may perform operations out of order, grouping assignments even if the source is written differently. T1 might see V1 V2 V3 while T2 sees V2 V3 V1.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/memory-ordering",
       "sourceTitle": "Memory Ordering",
@@ -2933,23 +2864,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/memory-ordering:2",
-      "question": "How does a Relaxed AtomicBool stop a background loop?",
-      "answer": "The background thread loads STOP with Relaxed and keeps working while it is false. After the user enters stop, the main thread stores true with Relaxed and joins the background thread.",
-      "sourceType": "note",
-      "sourceId": "books/rust/rust-atomics-and-locks/memory-ordering",
-      "sourceTitle": "Memory Ordering",
-      "sourceHref": "/notes/books/rust/rust-atomics-and-locks/memory-ordering/",
-      "tags": [
-        "rust",
-        "concurrency",
-        "atomics",
-        "memory-ordering"
-      ]
-    },
-    {
-      "id": "note:books/rust/rust-atomics-and-locks/memory-ordering:3",
-      "question": "Why might entering stop not end the program immediately?",
-      "answer": "If some_work() is blocking or takes a while, the loop only rechecks STOP after that call finishes, so the last some_work keeps running.",
+      "question": "Why might a Relaxed stop flag not stop immediately?",
+      "answer": "If some_work() is blocking or slow, setting STOP only ends the loop after that last call to some_work finishes.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/memory-ordering",
       "sourceTitle": "Memory Ordering",
@@ -2964,7 +2880,7 @@
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-arc:0",
       "question": "What does Arc stand for?",
-      "answer": "Atomically Reference Counted.",
+      "answer": "Atomically Reference Counted. It is like Rc, but increment and decrement of the count are atomic.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-arc",
       "sourceTitle": "Rust Arc",
@@ -2979,8 +2895,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-arc:1",
-      "question": "How does Arc differ from Rc?",
-      "answer": "It is the same as Rc, except increment and decrement of the count are atomic, so no two threads can mutate the count at the same time.",
+      "question": "Why can Arc be sent across threads?",
+      "answer": "No two threads can mutate the count at the same time, so the pointer can be safely shared and sent across threads.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-arc",
       "sourceTitle": "Rust Arc",
@@ -2995,24 +2911,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-arc:2",
-      "question": "Why can an Arc be shared and sent across threads?",
-      "answer": "Because the reference-count updates are atomic, the pointer can be safely shared and sent across threads.",
-      "sourceType": "note",
-      "sourceId": "books/rust/rust-atomics-and-locks/rust-arc",
-      "sourceTitle": "Rust Arc",
-      "sourceHref": "/notes/books/rust/rust-atomics-and-locks/rust-arc/",
-      "tags": [
-        "rust",
-        "concurrency",
-        "reference-counting",
-        "smart-pointers",
-        "atomics"
-      ]
-    },
-    {
-      "id": "note:books/rust/rust-atomics-and-locks/rust-arc:3",
       "question": "How do you inspect or uniquely mutate an Arc?",
-      "answer": "Use Arc::strong_count for the number of references and Arc::get_mut for a mutable reference when the Arc is unique.",
+      "answer": "Arc::strong_count gives the number of references. Arc::get_mut yields a mutable reference when the Arc is unique.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-arc",
       "sourceTitle": "Rust Arc",
@@ -3027,8 +2927,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-atomics:0",
-      "question": "What is an atomic operation on data?",
-      "answer": "The smallest operation that either occurs or does not; there is no half-done state.",
+      "question": "What does an atomic operation guarantee?",
+      "answer": "It either occurs or does not; there is no half-done state. Two threads can update an AtomicI32 without both reading the same value and writing at once.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-atomics",
       "sourceTitle": "Rust Atomics",
@@ -3041,8 +2941,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-atomics:1",
-      "question": "What inconsistent state do atomics prevent between two threads?",
-      "answer": "Two threads can update an atomic variable without both reading the same value and updating it at the same time.",
+      "question": "Why is there no Atomic<T>?",
+      "answer": "Rust only provides concrete types such as AtomicBool and AtomicI32, up to the word size (AtomicUsize).",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-atomics",
       "sourceTitle": "Rust Atomics",
@@ -3055,22 +2955,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-atomics:2",
-      "question": "What determines which atomic types are available?",
-      "answer": "The implementation of atomics and which types exist depends on the system architecture and OS.",
-      "sourceType": "note",
-      "sourceId": "books/rust/rust-atomics-and-locks/rust-atomics",
-      "sourceTitle": "Rust Atomics",
-      "sourceHref": "/notes/books/rust/rust-atomics-and-locks/rust-atomics/",
-      "tags": [
-        "rust",
-        "concurrency",
-        "atomics"
-      ]
-    },
-    {
-      "id": "note:books/rust/rust-atomics-and-locks/rust-atomics:3",
-      "question": "Why is there no Atomic<T> in Rust?",
-      "answer": "Unlike other types, there is no Atomic<T>. Only concrete types exist, such as AtomicBool and AtomicI32, up to the word size with AtomicUsize.",
+      "question": "What limits which atomic types exist?",
+      "answer": "The implementation of atomics and which ones are available depends on the system architecture and OS.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-atomics",
       "sourceTitle": "Rust Atomics",
@@ -3083,8 +2969,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-cell-and-refcell:0",
-      "question": "What does interior mutability let you do?",
-      "answer": "Mutate a value through a shared, read-only reference.",
+      "question": "What is interior mutability?",
+      "answer": "It lets you mutate a value through a shared (read) reference. Normally the type system forbids an active read while a write exists to the same value.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-cell-and-refcell",
       "sourceTitle": "Rust Cell",
@@ -3096,8 +2982,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-cell-and-refcell:1",
-      "question": "How does Cell<T> mutate a value without undefined behaviour?",
-      "answer": "It only lets you copy T if T implements Copy, or replace T. It can be used only on a single thread.",
+      "question": "How does Cell mutate without aliasing UB?",
+      "answer": "Cell only lets you copy T if T is Copy, or replace T. It is single-threaded.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-cell-and-refcell",
       "sourceTitle": "Rust Cell",
@@ -3109,8 +2995,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-cell-and-refcell:2",
-      "question": "Why can &i32 and &mut i32 never alias the same number?",
-      "answer": "Rust guarantees there cannot be an active read reference while a write reference exists to the same value.",
+      "question": "Why can Cell aliases observe a change that &i32 cannot?",
+      "answer": "Rust forbids &T and &mut T to the same value, so a write through b cannot change a. Two &Cell<i32> can point at the same cell, so a later get can differ.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-cell-and-refcell",
       "sourceTitle": "Rust Cell",
@@ -3122,8 +3008,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-cell-and-refcell:3",
-      "question": "Why might two &Cell<i32> arguments observe a changed value?",
-      "answer": "Both Cell references can point to the same value, so a set through one can be seen by a later get on the other.",
+      "question": "What does Cell::take do for a non-Copy T?",
+      "answer": "It replaces the inner value with the default (an empty Vec in the example) and returns the old value so you can mutate and set it back.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-cell-and-refcell",
       "sourceTitle": "Rust Cell",
@@ -3135,8 +3021,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-cell-and-refcell:4",
-      "question": "What does Cell::take do when T is not Copy?",
-      "answer": "It replaces the interior value with a default, such as an empty vector, so you can mutate the taken value and set it back.",
+      "question": "How does RefCell enforce aliasing?",
+      "answer": "It tracks a borrow count at runtime. Taking a mutable borrow while shared borrows exist, or the reverse, panics.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-cell-and-refcell",
       "sourceTitle": "Rust Cell",
@@ -3148,21 +3034,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-cell-and-refcell:5",
-      "question": "How does RefCell differ from Cell on mutation?",
-      "answer": "RefCell lets you take a mutable reference without cloning, at a small runtime cost. It tracks borrows and panics if you take a mutable reference while shared references exist, or vice versa.",
-      "sourceType": "note",
-      "sourceId": "books/rust/rust-atomics-and-locks/rust-cell-and-refcell",
-      "sourceTitle": "Rust Cell",
-      "sourceHref": "/notes/books/rust/rust-atomics-and-locks/rust-cell-and-refcell/",
-      "tags": [
-        "rust",
-        "interior-mutability"
-      ]
-    },
-    {
-      "id": "note:books/rust/rust-atomics-and-locks/rust-cell-and-refcell:6",
-      "question": "Can Cell and RefCell be sent across threads?",
-      "answer": "No. Both Cell and RefCell cannot be sent across threads.",
+      "question": "Can Cell or RefCell be sent across threads?",
+      "answer": "No. Both are single-threaded and cannot be sent across threads.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-cell-and-refcell",
       "sourceTitle": "Rust Cell",
@@ -3174,7 +3047,7 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-condition-variables:0",
-      "question": "When is a condition variable used?",
+      "question": "When is a Condvar used?",
       "answer": "To notify one or more threads of an event when the shared data is protected by a Mutex.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-condition-variables",
@@ -3188,8 +3061,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-condition-variables:1",
-      "question": "What does Condvar do with the MutexGuard on wait?",
-      "answer": "It takes the lock guard, unlocks the mutex, and puts the thread to sleep.",
+      "question": "What does Condvar::wait do with the MutexGuard?",
+      "answer": "It takes the guard, unlocks the mutex, and sleeps. On notification it re-locks the mutex and returns the guard.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-condition-variables",
       "sourceTitle": "Condition Variables",
@@ -3202,22 +3075,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-condition-variables:2",
-      "question": "What happens when a waiting Condvar receives a notification?",
-      "answer": "It re-acquires the mutex lock and returns the guard.",
-      "sourceType": "note",
-      "sourceId": "books/rust/rust-atomics-and-locks/rust-condition-variables",
-      "sourceTitle": "Condition Variables",
-      "sourceHref": "/notes/books/rust/rust-atomics-and-locks/rust-condition-variables/",
-      "tags": [
-        "rust",
-        "concurrency",
-        "condvar"
-      ]
-    },
-    {
-      "id": "note:books/rust/rust-atomics-and-locks/rust-condition-variables:3",
       "question": "What is the difference between notify_one and notify_all?",
-      "answer": "notify_one notifies a single thread. notify_all notifies all waiting threads.",
+      "answer": "notify_one wakes a single waiting thread. notify_all wakes all waiting threads.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-condition-variables",
       "sourceTitle": "Condition Variables",
@@ -3245,8 +3104,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-lazy-initialization:1",
-      "question": "Why must concurrent lazy initialization be synchronized?",
-      "answer": "To prevent race conditions where multiple threads attempt initialization simultaneously.",
+      "question": "Why must concurrent lazy init be synchronized?",
+      "answer": "Without synchronization, multiple threads can attempt initialization at the same time and race.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-lazy-initialization",
       "sourceTitle": "Lazy Initialization",
@@ -3260,8 +3119,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-lazy-initialization:2",
-      "question": "What race exists if two threads load a zero AtomicU64 then both calculate and store?",
-      "answer": "Both see x == 0 and restart the computation. Whichever finishes first wins, but the work is duplicated.",
+      "question": "What race does the AtomicU64 get_x example have?",
+      "answer": "Two threads can both see x == 0, both run calculate_x, and both store. Whichever finishes first wins; the work is duplicated.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-lazy-initialization",
       "sourceTitle": "Lazy Initialization",
@@ -3275,8 +3134,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-lazy-initialization:3",
-      "question": "What do Once and OnceLock provide for this race?",
-      "answer": "They are atomic operations that ensure only one thread runs the initialization.",
+      "question": "What does Once.call_once do for a late caller?",
+      "answer": "The first thread runs the closure. A later call_once does nothing and sleeps until that first thread finishes.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-lazy-initialization",
       "sourceTitle": "Lazy Initialization",
@@ -3290,23 +3149,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-lazy-initialization:4",
-      "question": "What does a second Once::call_once do while the first is running?",
-      "answer": "It does nothing and sleeps until the first thread finishes.",
-      "sourceType": "note",
-      "sourceId": "books/rust/rust-atomics-and-locks/rust-lazy-initialization",
-      "sourceTitle": "Lazy Initialization",
-      "sourceHref": "/notes/books/rust/rust-atomics-and-locks/rust-lazy-initialization/",
-      "tags": [
-        "rust",
-        "concurrency",
-        "atomics",
-        "lazy-initialization"
-      ]
-    },
-    {
-      "id": "note:books/rust/rust-atomics-and-locks/rust-lazy-initialization:5",
-      "question": "What does OnceLock::get_or_init do for a second thread?",
-      "answer": "It sleeps until the first thread loads the value, then returns that stored value.",
+      "question": "What does OnceLock::get_or_init do?",
+      "answer": "It loads the value if already initialized. Otherwise it runs the initializer; other threads sleep until that first load finishes.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-lazy-initialization",
       "sourceTitle": "Lazy Initialization",
@@ -3320,8 +3164,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-lock-poisoning:0",
-      "question": "When does lock poisoning occur?",
-      "answer": "When a thread panics while holding a Mutex or Reader-Writer Lock.",
+      "question": "When is a lock poisoned?",
+      "answer": "When a thread panics while holding a Mutex or RwLock.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-lock-poisoning",
       "sourceTitle": "Lock Poisoning",
@@ -3334,8 +3178,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-lock-poisoning:1",
-      "question": "What do later lock attempts return after poisoning?",
-      "answer": "An error indicating the lock is poisoned. No data is returned from the lock.",
+      "question": "What do later lock calls return after poisoning?",
+      "answer": "An error indicating the lock is poisoned. The operation still returns a Result; unwrap on lock is how that error surfaces.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-lock-poisoning",
       "sourceTitle": "Lock Poisoning",
@@ -3349,21 +3193,7 @@
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-lock-poisoning:2",
       "question": "Does a poisoned lock still block other threads?",
-      "answer": "Yes. It still puts other threads to sleep, but signals that the protected state may be invalid.",
-      "sourceType": "note",
-      "sourceId": "books/rust/rust-atomics-and-locks/rust-lock-poisoning",
-      "sourceTitle": "Lock Poisoning",
-      "sourceHref": "/notes/books/rust/rust-atomics-and-locks/rust-lock-poisoning/",
-      "tags": [
-        "rust",
-        "concurrency",
-        "locks"
-      ]
-    },
-    {
-      "id": "note:books/rust/rust-atomics-and-locks/rust-lock-poisoning:3",
-      "question": "Why does lock().unwrap() appear after lock calls?",
-      "answer": "Locking returns a Result. unwrap surfaces the poison error if a holder panicked.",
+      "answer": "Yes. It still puts other threads to sleep, but signals that the protected state may be invalid and does not return the data from the lock.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-lock-poisoning",
       "sourceTitle": "Lock Poisoning",
@@ -3377,7 +3207,7 @@
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-memory-ordering:0",
       "question": "What does an atomic Ordering parameter control?",
-      "answer": "The guarantees we get about the relative ordering of operations.",
+      "answer": "It controls what guarantees we get about the relative ordering of operations. Every atomic operation takes a std::sync::atomic::Ordering.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-memory-ordering",
       "sourceTitle": "Memory Ordering",
@@ -3391,8 +3221,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-memory-ordering:1",
-      "question": "What can a CPU do to operations relative to source order?",
-      "answer": "It may perform them out of order, for example grouping assignments together even if they are not in that order in the code.",
+      "question": "Why can two threads see different assignment orders?",
+      "answer": "The CPU may perform operations out of order, grouping assignments even if the source is written differently. T1 might see V1 V2 V3 while T2 sees V2 V3 V1.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-memory-ordering",
       "sourceTitle": "Memory Ordering",
@@ -3406,23 +3236,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-memory-ordering:2",
-      "question": "How can two threads observe the same assignments differently?",
-      "answer": "T1 might see V1 V2 V3 assigned, while T2 might see V2 V3 V1.",
-      "sourceType": "note",
-      "sourceId": "books/rust/rust-atomics-and-locks/rust-memory-ordering",
-      "sourceTitle": "Memory Ordering",
-      "sourceHref": "/notes/books/rust/rust-atomics-and-locks/rust-memory-ordering/",
-      "tags": [
-        "rust",
-        "concurrency",
-        "atomics",
-        "memory-ordering"
-      ]
-    },
-    {
-      "id": "note:books/rust/rust-atomics-and-locks/rust-memory-ordering:3",
-      "question": "If some_work() is blocking, when does a Relaxed stop flag take effect?",
-      "answer": "Entering stop may not stop immediately. The program keeps running until the last call to some_work completes.",
+      "question": "Why might a Relaxed stop flag not stop immediately?",
+      "answer": "If some_work() is blocking or slow, setting STOP only ends the loop after that last call to some_work finishes.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-memory-ordering",
       "sourceTitle": "Memory Ordering",
@@ -3452,7 +3267,7 @@
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-mutex:1",
       "question": "How does Mutex conflict handling differ from RefCell?",
-      "answer": "Conflicting access does not panic. The waiting thread is put to sleep and woken when the lock is dropped so it can take a reference.",
+      "answer": "Conflicting access does not panic. The waiting thread is put to sleep and woken when the lock is dropped so it can try to take a reference.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-mutex",
       "sourceTitle": "Rust Mutex",
@@ -3512,7 +3327,7 @@
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-rc:0",
       "question": "When does Rc drop the inner value?",
-      "answer": "When the owner count reaches 0.",
+      "answer": "It keeps a count of owners and drops the value only when the counter reaches 0.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-rc",
       "sourceTitle": "Rust Rc",
@@ -3526,7 +3341,7 @@
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-rc:1",
       "question": "How does Rc::clone differ from cloning a Box?",
-      "answer": "It does not create a new heap value. It increments the counter next to the existing value.",
+      "answer": "It does not allocate a new heap value. It increments the counter next to the value. Dropping a clone decrements; at 0 the value is dropped.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-rc",
       "sourceTitle": "Rust Rc",
@@ -3539,8 +3354,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-rc:2",
-      "question": "What happens when an Rc clone is dropped?",
-      "answer": "The counter is decremented. If it reaches 0, the actual value is dropped.",
+      "question": "How do you get a mutable reference from Rc?",
+      "answer": "Use interior mutability, or Rc::get_mut / Rc::make_mut. Those unique-mut methods only work with a single reference. Rc::strong_count reports the count.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-rc",
       "sourceTitle": "Rust Rc",
@@ -3553,36 +3368,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-rc:3",
-      "question": "What kind of reference does Rc give by default?",
-      "answer": "A read-only reference.",
-      "sourceType": "note",
-      "sourceId": "books/rust/rust-atomics-and-locks/rust-rc",
-      "sourceTitle": "Rust Rc",
-      "sourceHref": "/notes/books/rust/rust-atomics-and-locks/rust-rc/",
-      "tags": [
-        "rust",
-        "reference-counting",
-        "smart-pointers"
-      ]
-    },
-    {
-      "id": "note:books/rust/rust-atomics-and-locks/rust-rc:4",
-      "question": "How can you get a mutable reference from an Rc?",
-      "answer": "Use interior mutability, or Rc::get_mut or Rc::make_mut. get_mut only works with a single reference.",
-      "sourceType": "note",
-      "sourceId": "books/rust/rust-atomics-and-locks/rust-rc",
-      "sourceTitle": "Rust Rc",
-      "sourceHref": "/notes/books/rust/rust-atomics-and-locks/rust-rc/",
-      "tags": [
-        "rust",
-        "reference-counting",
-        "smart-pointers"
-      ]
-    },
-    {
-      "id": "note:books/rust/rust-atomics-and-locks/rust-rc:5",
       "question": "Why can't Rc be sent across threads?",
-      "answer": "It is not thread-safe and does not implement Send and Sync. Two threads updating the count at once would cause inconsistent behaviour.",
+      "answer": "It is not thread-safe and does not implement Send or Sync. Two threads updating the count at once produce inconsistent behaviour.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-rc",
       "sourceTitle": "Rust Rc",
@@ -3595,8 +3382,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-rwlock:0",
-      "question": "How does RwLock access differ from Mutex?",
-      "answer": "A Mutex always takes exclusive access. An RwLock allows one exclusive &mut T or multiple shared &T references.",
+      "question": "How does RwLock differ from Mutex?",
+      "answer": "Mutex always takes exclusive access. RwLock allows one exclusive &mut T or multiple shared &T references.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-rwlock",
       "sourceTitle": "Rust RwLock",
@@ -3610,8 +3397,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-rwlock:1",
-      "question": "When is an RwLock a good fit?",
-      "answer": "For data that is read frequently but written to infrequently.",
+      "question": "When is RwLock a good fit?",
+      "answer": "For data that is read frequently and written infrequently. It is a thread-safe version of RefCell.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-rwlock",
       "sourceTitle": "Rust RwLock",
@@ -3625,8 +3412,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-rwlock:2",
-      "question": "What is RwLock a thread-safe version of?",
-      "answer": "RefCell.",
+      "question": "What do read and write return, and which traits do the guards impl?",
+      "answer": "read returns RwLockReadGuard (Deref only). write returns RwLockWriteGuard (Deref and DerefMut).",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-rwlock",
       "sourceTitle": "Rust RwLock",
@@ -3640,38 +3427,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-rwlock:3",
-      "question": "Which Deref traits do the RwLock guards implement?",
-      "answer": "RwLockReadGuard implements Deref only. RwLockWriteGuard implements both Deref and DerefMut.",
-      "sourceType": "note",
-      "sourceId": "books/rust/rust-atomics-and-locks/rust-rwlock",
-      "sourceTitle": "Rust RwLock",
-      "sourceHref": "/notes/books/rust/rust-atomics-and-locks/rust-rwlock/",
-      "tags": [
-        "rust",
-        "concurrency",
-        "locks",
-        "rwlock"
-      ]
-    },
-    {
-      "id": "note:books/rust/rust-atomics-and-locks/rust-rwlock:4",
-      "question": "Why wrap an RwLock in Arc for unscoped threads?",
-      "answer": "So the reference can be moved to other threads.",
-      "sourceType": "note",
-      "sourceId": "books/rust/rust-atomics-and-locks/rust-rwlock",
-      "sourceTitle": "Rust RwLock",
-      "sourceHref": "/notes/books/rust/rust-atomics-and-locks/rust-rwlock/",
-      "tags": [
-        "rust",
-        "concurrency",
-        "locks",
-        "rwlock"
-      ]
-    },
-    {
-      "id": "note:books/rust/rust-atomics-and-locks/rust-rwlock:5",
-      "question": "Why can scoped threads share an RwLock without Arc?",
-      "answer": "A scoped thread finishes before the main function ends, so the lock can be dropped after the scope.",
+      "question": "Why does spawning threads with RwLock need Arc, but scoped threads do not?",
+      "answer": "Unscoped spawn must move the lock into each thread, so Arc clones the pointer. A scoped thread finishes before the scope ends, so the local RwLock can be borrowed and dropped afterward.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-rwlock",
       "sourceTitle": "Rust RwLock",
@@ -3686,7 +3443,7 @@
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-scoped-threads:0",
       "question": "Why can scoped threads borrow local variables?",
-      "answer": "They finish before the scope is exited, so the data outlives their scope.",
+      "answer": "They finish before the scope exits, so the borrowed data outlives the threads.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-scoped-threads",
       "sourceTitle": "Scoped Threads",
@@ -3699,8 +3456,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-scoped-threads:1",
-      "question": "When are threads spawned in thread::scope joined?",
-      "answer": "All of them are joined before the scope exits.",
+      "question": "When are scoped threads joined?",
+      "answer": "All threads spawned in the std::thread::scope callback are joined before the scope function exits.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-scoped-threads",
       "sourceTitle": "Scoped Threads",
@@ -3713,22 +3470,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-scoped-threads:2",
-      "question": "Can two scoped threads share read references to the same local?",
-      "answer": "Yes. Multiple read references can be shared across threads.",
-      "sourceType": "note",
-      "sourceId": "books/rust/rust-atomics-and-locks/rust-scoped-threads",
-      "sourceTitle": "Scoped Threads",
-      "sourceHref": "/notes/books/rust/rust-atomics-and-locks/rust-scoped-threads/",
-      "tags": [
-        "rust",
-        "concurrency",
-        "threads"
-      ]
-    },
-    {
-      "id": "note:books/rust/rust-atomics-and-locks/rust-scoped-threads:3",
-      "question": "Why wouldn't list.push compile in a scoped thread that already shares reads?",
-      "answer": "Only one mutable reference is allowed at a time. You cannot combine one mutable reference with multiple read references.",
+      "question": "Can two scoped threads mutate the same local?",
+      "answer": "No. Multiple read references are allowed, but only one mutable reference at a time — not one mutable plus readers.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-scoped-threads",
       "sourceTitle": "Scoped Threads",
@@ -3741,8 +3484,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-send-and-sync:0",
-      "question": "When is a type T Send?",
-      "answer": "When its ownership can be transferred to another thread.",
+      "question": "What does Send mean?",
+      "answer": "A type T is Send if its ownership can be transferred to another thread. Arc<T> is Send; Rc<T> is not.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-send-and-sync",
       "sourceTitle": "Send Sync",
@@ -3750,14 +3493,13 @@
       "tags": [
         "rust",
         "concurrency",
-        "thread-safety",
-        "auto-traits"
+        "thread-safety"
       ]
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-send-and-sync:1",
-      "question": "When is a type T Sync?",
-      "answer": "When its shared reference is Send: T is Sync if &T is Send.",
+      "question": "What does Sync mean?",
+      "answer": "T is Sync if &T is Send. i32 is Sync; Cell<i32> is not.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-send-and-sync",
       "sourceTitle": "Send Sync",
@@ -3765,14 +3507,13 @@
       "tags": [
         "rust",
         "concurrency",
-        "thread-safety",
-        "auto-traits"
+        "thread-safety"
       ]
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-send-and-sync:2",
-      "question": "Is Arc Send? Is Rc Send?",
-      "answer": "Arc<T> is Send. Rc<T> is not.",
+      "question": "When is a struct automatically Send and Sync?",
+      "answer": "When every field is Send and Sync. All primitive types are both. Auto traits are implemented if all fields implement them.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-send-and-sync",
       "sourceTitle": "Send Sync",
@@ -3780,14 +3521,13 @@
       "tags": [
         "rust",
         "concurrency",
-        "thread-safety",
-        "auto-traits"
+        "thread-safety"
       ]
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-send-and-sync:3",
-      "question": "Is i32 Sync? Is Cell<i32> Sync?",
-      "answer": "i32 is Sync. Cell<i32> is not.",
+      "question": "How can you opt a type out of Sync?",
+      "answer": "Add a field that is not Sync, such as PhantomData<Cell<()>>. That makes the type neither Sync nor Send.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-send-and-sync",
       "sourceTitle": "Send Sync",
@@ -3795,59 +3535,13 @@
       "tags": [
         "rust",
         "concurrency",
-        "thread-safety",
-        "auto-traits"
+        "thread-safety"
       ]
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-send-and-sync:4",
-      "question": "When is a struct automatically Send and Sync?",
-      "answer": "When all of its fields are Send and Sync. All primitive types are both.",
-      "sourceType": "note",
-      "sourceId": "books/rust/rust-atomics-and-locks/rust-send-and-sync",
-      "sourceTitle": "Send Sync",
-      "sourceHref": "/notes/books/rust/rust-atomics-and-locks/rust-send-and-sync/",
-      "tags": [
-        "rust",
-        "concurrency",
-        "thread-safety",
-        "auto-traits"
-      ]
-    },
-    {
-      "id": "note:books/rust/rust-atomics-and-locks/rust-send-and-sync:5",
-      "question": "What is an auto trait?",
-      "answer": "A trait implemented for a type if all of its fields implement it.",
-      "sourceType": "note",
-      "sourceId": "books/rust/rust-atomics-and-locks/rust-send-and-sync",
-      "sourceTitle": "Send Sync",
-      "sourceHref": "/notes/books/rust/rust-atomics-and-locks/rust-send-and-sync/",
-      "tags": [
-        "rust",
-        "concurrency",
-        "thread-safety",
-        "auto-traits"
-      ]
-    },
-    {
-      "id": "note:books/rust/rust-atomics-and-locks/rust-send-and-sync:6",
-      "question": "How can you opt a type out of Send or Sync?",
-      "answer": "Add a field that is not Send or Sync, such as PhantomData<Cell<()>>.",
-      "sourceType": "note",
-      "sourceId": "books/rust/rust-atomics-and-locks/rust-send-and-sync",
-      "sourceTitle": "Send Sync",
-      "sourceHref": "/notes/books/rust/rust-atomics-and-locks/rust-send-and-sync/",
-      "tags": [
-        "rust",
-        "concurrency",
-        "thread-safety",
-        "auto-traits"
-      ]
-    },
-    {
-      "id": "note:books/rust/rust-atomics-and-locks/rust-send-and-sync:7",
       "question": "Why are raw pointers neither Send nor Sync?",
-      "answer": "The compiler cannot guarantee thread safety for *const T and *mut T. Implementing those traits requires unsafe.",
+      "answer": "The compiler cannot guarantee thread safety for *const T or *mut T. Marking a type that holds them Send or Sync requires unsafe impl.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-send-and-sync",
       "sourceTitle": "Send Sync",
@@ -3855,14 +3549,13 @@
       "tags": [
         "rust",
         "concurrency",
-        "thread-safety",
-        "auto-traits"
+        "thread-safety"
       ]
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-statics-and-leaking:0",
-      "question": "What does a 'static lifetime mean for sharing?",
-      "answer": "The value exists until the end of the program, so any value with a static lifetime can be shared across threads.",
+      "question": "Why can a 'static value be shared across threads?",
+      "answer": "'static means the value exists until the end of the program, so any value with that lifetime can be shared across threads.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-statics-and-leaking",
       "sourceTitle": "Rust Statics",
@@ -3892,7 +3585,7 @@
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-statics-and-leaking:2",
       "question": "What does Box::leak guarantee?",
-      "answer": "The heap value cannot be freed and exists for the program's entire duration.",
+      "answer": "It leaks a heap value so no one can free it; the value exists for the rest of the program as a &'static reference.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-statics-and-leaking",
       "sourceTitle": "Rust Statics",
@@ -3906,8 +3599,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-statics-and-leaking:3",
-      "question": "What does move transfer when spawning threads with a leaked Box?",
-      "answer": "The static reference, not the value.",
+      "question": "What does move transfer when spawning with a leaked Box?",
+      "answer": "The static reference, not the value itself.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-statics-and-leaking",
       "sourceTitle": "Rust Statics",
@@ -3921,8 +3614,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-thread-parking:0",
-      "question": "What does parking a thread do?",
-      "answer": "The thread parks itself so it no longer consumes CPU cycles while waiting for other threads to wake it.",
+      "question": "What does thread parking do?",
+      "answer": "A thread parks itself so it no longer consumes CPU cycles while waiting for other threads to wake it.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-thread-parking",
       "sourceTitle": "Thread Parking",
@@ -3935,8 +3628,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-thread-parking:1",
-      "question": "How do other threads wake a parked thread?",
-      "answer": "They call unpark on the thread handle from spawn or from std::thread::current().",
+      "question": "Who can unpark a thread?",
+      "answer": "Other threads call unpark on the thread handle from spawn or from std::thread::current().",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-thread-parking",
       "sourceTitle": "Thread Parking",
@@ -3963,7 +3656,7 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-thread-parking:3",
-      "question": "What happens if unpark is called twice and park twice?",
+      "question": "What happens if you unpark twice then park twice?",
       "answer": "Only the first park is skipped. The second park still puts the thread to sleep.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-thread-parking",
@@ -3976,23 +3669,9 @@
       ]
     },
     {
-      "id": "note:books/rust/rust-atomics-and-locks/rust-thread-parking:4",
-      "question": "In the queue example, when does the consumer park?",
-      "answer": "When a pop finds the queue empty.",
-      "sourceType": "note",
-      "sourceId": "books/rust/rust-atomics-and-locks/rust-thread-parking",
-      "sourceTitle": "Thread Parking",
-      "sourceHref": "/notes/books/rust/rust-atomics-and-locks/rust-thread-parking/",
-      "tags": [
-        "rust",
-        "concurrency",
-        "threads"
-      ]
-    },
-    {
       "id": "note:books/rust/rust-atomics-and-locks/rust-threads:0",
-      "question": "What happens to spawned threads when main terminates?",
-      "answer": "They are cleaned up whether they have finished executing or not.",
+      "question": "What happens to spawned threads when main ends?",
+      "answer": "When the main thread is terminated, all threads forked or spawned from it are cleaned up, whether they have finished executing or not.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-threads",
       "sourceTitle": "Rust Threads",
@@ -4005,8 +3684,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-threads:1",
-      "question": "How do you wait for a spawned thread to finish?",
-      "answer": "Join the JoinHandle returned by thread::spawn.",
+      "question": "What does JoinHandle::join wait for and return?",
+      "answer": "It waits for the target thread to finish. It returns Err if the thread panicked, or Ok<T> with the thread's return value. Unwrapping an Err panics the joining thread too.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-threads",
       "sourceTitle": "Rust Threads",
@@ -4019,8 +3698,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-threads:2",
-      "question": "What does join return?",
-      "answer": "A Result that is Err if the thread panicked, or Ok<T> where T is the thread's return value.",
+      "question": "What does move do in a spawned closure?",
+      "answer": "The closure captures surrounding variables by move. Ownership of those values transfers from the spawning thread to the new thread.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-threads",
       "sourceTitle": "Rust Threads",
@@ -4033,8 +3712,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-threads:3",
-      "question": "What does unwrap on a panicked join do?",
-      "answer": "It causes the main thread to panic as well.",
+      "question": "How do you pass a result out of a spawned thread?",
+      "answer": "Return the value from the closure and read it from join().unwrap() on the JoinHandle.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-threads",
       "sourceTitle": "Rust Threads",
@@ -4047,8 +3726,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-threads:4",
-      "question": "What does move do on a thread closure?",
-      "answer": "It transfers ownership of captured variables from main to the new thread.",
+      "question": "What is thread::spawn a shorthand for?",
+      "answer": "std::thread::Builder::new().spawn(f).unwrap(). Builder can set stack size and a name used in panic messages and profilers.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-threads",
       "sourceTitle": "Rust Threads",
@@ -4061,36 +3740,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-threads:5",
-      "question": "What is thread::spawn a shorthand for?",
-      "answer": "std::thread::Builder::new().spawn(f).unwrap().",
-      "sourceType": "note",
-      "sourceId": "books/rust/rust-atomics-and-locks/rust-threads",
-      "sourceTitle": "Rust Threads",
-      "sourceHref": "/notes/books/rust/rust-atomics-and-locks/rust-threads/",
-      "tags": [
-        "rust",
-        "concurrency",
-        "threads"
-      ]
-    },
-    {
-      "id": "note:books/rust/rust-atomics-and-locks/rust-threads:6",
-      "question": "What can Thread Builder configure?",
-      "answer": "Stack size and a name, available via current().name(), used in panic messages and visible in most profiling tools.",
-      "sourceType": "note",
-      "sourceId": "books/rust/rust-atomics-and-locks/rust-threads",
-      "sourceTitle": "Rust Threads",
-      "sourceHref": "/notes/books/rust/rust-atomics-and-locks/rust-threads/",
-      "tags": [
-        "rust",
-        "concurrency",
-        "threads"
-      ]
-    },
-    {
-      "id": "note:books/rust/rust-atomics-and-locks/rust-threads:7",
       "question": "What does Builder::spawn return on OS failure?",
-      "answer": "A std::io::Result error if the OS failed to spawn a new thread.",
+      "answer": "A std::io::Result. It is Err if the OS failed to spawn a new thread.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-threads",
       "sourceTitle": "Rust Threads",
@@ -4104,49 +3755,49 @@
     {
       "id": "note:coding/automatic-storage-duration:0",
       "question": "What is auto the default modifier for?",
-      "answer": "Visibility.",
+      "answer": "Visibility and lifetime.",
       "sourceType": "note",
       "sourceId": "coding/automatic-storage-duration",
       "sourceTitle": "Automatic Storage Duration",
       "sourceHref": "/notes/coding/automatic-storage-duration/",
       "tags": [
-        "programming",
+        "c",
         "memory",
-        "lifetime"
+        "storage-classes"
       ]
     },
     {
       "id": "note:coding/automatic-storage-duration:1",
-      "question": "What is an auto variable's lifetime bound to?",
+      "question": "What is auto lifetime bound to?",
       "answer": "Its scope.",
       "sourceType": "note",
       "sourceId": "coding/automatic-storage-duration",
       "sourceTitle": "Automatic Storage Duration",
       "sourceHref": "/notes/coding/automatic-storage-duration/",
       "tags": [
-        "programming",
+        "c",
         "memory",
-        "lifetime"
+        "storage-classes"
       ]
     },
     {
       "id": "note:coding/automatic-storage-duration:2",
       "question": "When is auto memory acquired and freed?",
-      "answer": "Acquired when it comes into scope and freed when it goes out of scope.",
+      "answer": "Memory is acquired when the variable comes into scope and freed when it goes out of scope.",
       "sourceType": "note",
       "sourceId": "coding/automatic-storage-duration",
       "sourceTitle": "Automatic Storage Duration",
       "sourceHref": "/notes/coding/automatic-storage-duration/",
       "tags": [
-        "programming",
+        "c",
         "memory",
-        "lifetime"
+        "storage-classes"
       ]
     },
     {
       "id": "note:coding/concurrency/atomic-operations:0",
-      "question": "What does it mean for an operation to be atomic?",
-      "answer": "It is the smallest operation on data that either occurs or does not. There is no half-done state.",
+      "question": "What does it mean that an atomic operation is the smallest operation on data?",
+      "answer": "It either occurs or does not; there is no half-done state.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/atomic-operations",
       "sourceTitle": "Atomic Operations",
@@ -4158,8 +3809,8 @@
     },
     {
       "id": "note:coding/concurrency/atomic-operations:1",
-      "question": "What inconsistent update do atomics prevent?",
-      "answer": "Two threads both reading the same value and updating it at the same time.",
+      "question": "How can two threads update an atomic variable without an inconsistent state?",
+      "answer": "Atomics prevent both threads from reading the same value and updating it at the same time.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/atomic-operations",
       "sourceTitle": "Atomic Operations",
@@ -4171,8 +3822,8 @@
     },
     {
       "id": "note:coding/concurrency/atomic-operations:2",
-      "question": "What do atomic implementations depend on?",
-      "answer": "The system architecture and OS, including which types are available.",
+      "question": "What determines atomic implementations and available types?",
+      "answer": "The system architecture and OS.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/atomic-operations",
       "sourceTitle": "Atomic Operations",
@@ -4185,7 +3836,7 @@
     {
       "id": "note:coding/concurrency/atomic-reference-counting:0",
       "question": "What guarantee does atomic reference counting add?",
-      "answer": "Increment and decrement operations are atomic.",
+      "answer": "Any increment or decrement of the count is atomic.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/atomic-reference-counting",
       "sourceTitle": "Atomic Refcounting",
@@ -4198,8 +3849,8 @@
     },
     {
       "id": "note:coding/concurrency/atomic-reference-counting:1",
-      "question": "What can two threads not do to an atomic refcount?",
-      "answer": "Simultaneously mutate the count.",
+      "question": "What does atomic increment and decrement prevent?",
+      "answer": "No two threads can simultaneously mutate the count.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/atomic-reference-counting",
       "sourceTitle": "Atomic Refcounting",
@@ -4212,8 +3863,8 @@
     },
     {
       "id": "note:coding/concurrency/atomic-reference-counting:2",
-      "question": "Why can an atomic refcounted pointer cross threads?",
-      "answer": "Because count updates are atomic, the pointer can be safely shared and sent across threads.",
+      "question": "What does atomic refcounting allow for the pointer?",
+      "answer": "The reference-counted pointer can be safely shared and sent across threads.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/atomic-reference-counting",
       "sourceTitle": "Atomic Refcounting",
@@ -4239,8 +3890,8 @@
     },
     {
       "id": "note:coding/concurrency/concurrency:1",
-      "question": "Why is concurrency described as the only way to improve performance with limited resources?",
-      "answer": "The note states it is the only way to improve performance when resources are limited.",
+      "question": "Why is concurrency the only way to improve performance with limited resources?",
+      "answer": "With limited resources, concurrency is the only way to improve performance.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/concurrency",
       "sourceTitle": "Concurrency",
@@ -4253,7 +3904,7 @@
     {
       "id": "note:coding/concurrency/concurrency:2",
       "question": "Where is concurrency widely used?",
-      "answer": "Modern computing systems, operating systems, and large distributed clusters.",
+      "answer": "In modern computing systems, operating systems, and large distributed clusters.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/concurrency",
       "sourceTitle": "Concurrency",
@@ -4265,8 +3916,8 @@
     },
     {
       "id": "note:coding/concurrency/concurrency:3",
-      "question": "What three things does concurrency help with?",
-      "answer": "Modeling the real world, maximising system efficiency from users' and developers' perspectives, and solving large, complex problems.",
+      "question": "What does concurrency help developers do?",
+      "answer": "It helps model the real world, maximises system efficiency, and enables solving large, complex problems.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/concurrency",
       "sourceTitle": "Concurrency",
@@ -4278,7 +3929,7 @@
     },
     {
       "id": "note:coding/concurrency/condition-variables:0",
-      "question": "What is a condition variable used for?",
+      "question": "When is a condition variable used?",
       "answer": "To notify one or more threads of an event when the shared data is protected by a mutex.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/condition-variables",
@@ -4286,7 +3937,7 @@
       "sourceHref": "/notes/coding/concurrency/condition-variables/",
       "tags": [
         "concurrency",
-        "synchronization"
+        "condvar"
       ]
     },
     {
@@ -4299,33 +3950,35 @@
       "sourceHref": "/notes/coding/concurrency/condition-variables/",
       "tags": [
         "concurrency",
-        "synchronization"
+        "condvar"
       ]
     },
     {
       "id": "note:coding/concurrency/condition-variables:2",
-      "question": "What happens when a condition-variable notification is received?",
-      "answer": "The waiter re-acquires the mutex lock and returns the guard.",
+      "question": "What happens when a waiting thread receives a notification?",
+      "answer": "It re-acquires the mutex lock and returns the guard.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/condition-variables",
       "sourceTitle": "Condition Variables",
       "sourceHref": "/notes/coding/concurrency/condition-variables/",
       "tags": [
         "concurrency",
-        "synchronization"
+        "condvar"
       ]
     },
     {
       "id": "note:coding/concurrency/interior-mutability:0",
       "question": "What does interior mutability let you do?",
-      "answer": "Mutate a value via a shared or read reference.",
+      "answer": "Mutate a value via a shared/read reference.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/interior-mutability",
       "sourceTitle": "Interior Mutability",
       "sourceHref": "/notes/coding/concurrency/interior-mutability/",
       "tags": [
-        "memory",
-        "type-system"
+        "concurrency",
+        "interior-mutability",
+        "type-system",
+        "memory"
       ]
     },
     {
@@ -4337,34 +3990,40 @@
       "sourceTitle": "Interior Mutability",
       "sourceHref": "/notes/coding/concurrency/interior-mutability/",
       "tags": [
-        "memory",
-        "type-system"
+        "concurrency",
+        "interior-mutability",
+        "type-system",
+        "memory"
       ]
     },
     {
       "id": "note:coding/concurrency/interior-mutability:2",
-      "question": "How do single-threaded cell types enable interior mutability?",
-      "answer": "By copying or replacing values behind a shared reference.",
+      "question": "How do single-threaded cell types enable mutation behind a shared reference?",
+      "answer": "By copying or replacing values.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/interior-mutability",
       "sourceTitle": "Interior Mutability",
       "sourceHref": "/notes/coding/concurrency/interior-mutability/",
       "tags": [
-        "memory",
-        "type-system"
+        "concurrency",
+        "interior-mutability",
+        "type-system",
+        "memory"
       ]
     },
     {
       "id": "note:coding/concurrency/interior-mutability:3",
-      "question": "How do borrow-checked cells or thread-safe locks enable interior mutability?",
+      "question": "How do borrow-checked cells and thread-safe locks enable interior mutability?",
       "answer": "By tracking borrows at runtime.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/interior-mutability",
       "sourceTitle": "Interior Mutability",
       "sourceHref": "/notes/coding/concurrency/interior-mutability/",
       "tags": [
-        "memory",
-        "type-system"
+        "concurrency",
+        "interior-mutability",
+        "type-system",
+        "memory"
       ]
     },
     {
@@ -4385,7 +4044,7 @@
     {
       "id": "note:coding/concurrency/latency-vs-throughput:1",
       "question": "What is latency?",
-      "answer": "The measure of how long a single task takes.",
+      "answer": "How long a single task takes.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/latency-vs-throughput",
       "sourceTitle": "Latency Throughput",
@@ -4414,7 +4073,7 @@
     },
     {
       "id": "note:coding/concurrency/latency-vs-throughput:3",
-      "question": "What is the trade-off between latency and throughput?",
+      "question": "What can happen if you optimise for latency or throughput alone?",
       "answer": "Optimising for one may degrade the other.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/latency-vs-throughput",
@@ -4429,7 +4088,7 @@
     },
     {
       "id": "note:coding/concurrency/latency-vs-throughput:4",
-      "question": "How can concurrency reduce latency?",
+      "question": "How can concurrency help with latency?",
       "answer": "By breaking down a long-running task and executing it in parallel.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/latency-vs-throughput",
@@ -4444,8 +4103,8 @@
     },
     {
       "id": "note:coding/concurrency/latency-vs-throughput:5",
-      "question": "How can concurrency hide latency?",
-      "answer": "By allowing the system to accomplish something else during a high-latency operation.",
+      "question": "How can concurrency improve throughput?",
+      "answer": "By enabling multiple tasks to be performed simultaneously.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/latency-vs-throughput",
       "sourceTitle": "Latency Throughput",
@@ -4459,23 +4118,8 @@
     },
     {
       "id": "note:coding/concurrency/latency-vs-throughput:6",
-      "question": "How can concurrency increase throughput?",
-      "answer": "By enabling multiple tasks to run simultaneously.",
-      "sourceType": "note",
-      "sourceId": "coding/concurrency/latency-vs-throughput",
-      "sourceTitle": "Latency Throughput",
-      "sourceHref": "/notes/coding/concurrency/latency-vs-throughput/",
-      "tags": [
-        "concurrency",
-        "performance",
-        "latency",
-        "throughput"
-      ]
-    },
-    {
-      "id": "note:coding/concurrency/latency-vs-throughput:7",
       "question": "In what three ways can concurrency improve system performance?",
-      "answer": "It can reduce latency, hide latency, and increase throughput.",
+      "answer": "It can reduce latency, hide latency during a high-latency operation, and increase throughput.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/latency-vs-throughput",
       "sourceTitle": "Latency Throughput",
@@ -4497,24 +4141,11 @@
       "sourceHref": "/notes/coding/concurrency/lazy-initialization/",
       "tags": [
         "concurrency",
-        "patterns"
+        "lazy-initialization"
       ]
     },
     {
       "id": "note:coding/concurrency/lazy-initialization:1",
-      "question": "When is a lazily initialized resource calculated?",
-      "answer": "Only when first requested.",
-      "sourceType": "note",
-      "sourceId": "coding/concurrency/lazy-initialization",
-      "sourceTitle": "Lazy Initialization",
-      "sourceHref": "/notes/coding/concurrency/lazy-initialization/",
-      "tags": [
-        "concurrency",
-        "patterns"
-      ]
-    },
-    {
-      "id": "note:coding/concurrency/lazy-initialization:2",
       "question": "Why must concurrent lazy initialization be synchronized?",
       "answer": "To prevent race conditions where multiple threads attempt initialization simultaneously.",
       "sourceType": "note",
@@ -4523,7 +4154,20 @@
       "sourceHref": "/notes/coding/concurrency/lazy-initialization/",
       "tags": [
         "concurrency",
-        "patterns"
+        "lazy-initialization"
+      ]
+    },
+    {
+      "id": "note:coding/concurrency/lazy-initialization:2",
+      "question": "What race can occur if concurrent lazy init is not synchronized?",
+      "answer": "Multiple threads may attempt initialization at the same time.",
+      "sourceType": "note",
+      "sourceId": "coding/concurrency/lazy-initialization",
+      "sourceTitle": "Lazy Initialization",
+      "sourceHref": "/notes/coding/concurrency/lazy-initialization/",
+      "tags": [
+        "concurrency",
+        "lazy-initialization"
       ]
     },
     {
@@ -4556,22 +4200,8 @@
     },
     {
       "id": "note:coding/concurrency/lock-poisoning:2",
-      "question": "Does a poisoned lock still put other threads to sleep?",
-      "answer": "Yes. It still behaves as it should by putting other threads to sleep, but signals that the protected state may be invalid.",
-      "sourceType": "note",
-      "sourceId": "coding/concurrency/lock-poisoning",
-      "sourceTitle": "Lock Poisoning",
-      "sourceHref": "/notes/coding/concurrency/lock-poisoning/",
-      "tags": [
-        "concurrency",
-        "locks",
-        "error-handling"
-      ]
-    },
-    {
-      "id": "note:coding/concurrency/lock-poisoning:3",
-      "question": "What does a poisoned lock signal about protected state?",
-      "answer": "That the protected state may be invalid.",
+      "question": "Does a poisoned lock still block other threads?",
+      "answer": "Yes. It still puts other threads to sleep, but signals that the protected state may be invalid.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/lock-poisoning",
       "sourceTitle": "Lock Poisoning",
@@ -4584,8 +4214,8 @@
     },
     {
       "id": "note:coding/concurrency/memory-ordering:0",
-      "question": "What do atomic operations take to control ordering guarantees?",
-      "answer": "An ordering parameter that controls what guarantees we get about the relative ordering of operations.",
+      "question": "What does the ordering parameter on atomic operations control?",
+      "answer": "The guarantees we get about the relative ordering of operations.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/memory-ordering",
       "sourceTitle": "Memory Ordering",
@@ -4593,13 +4223,13 @@
       "tags": [
         "concurrency",
         "atomics",
-        "memory-model"
+        "memory-ordering"
       ]
     },
     {
       "id": "note:coding/concurrency/memory-ordering:1",
-      "question": "Why might threads observe operations in different orders?",
-      "answer": "The CPU might perform operations out of order, such as grouping assignments together even if they are not in that order in the code.",
+      "question": "Can a CPU perform operations out of source order?",
+      "answer": "Yes. It might group assignments together even if they are not in that order in the code.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/memory-ordering",
       "sourceTitle": "Memory Ordering",
@@ -4607,13 +4237,13 @@
       "tags": [
         "concurrency",
         "atomics",
-        "memory-model"
+        "memory-ordering"
       ]
     },
     {
       "id": "note:coding/concurrency/memory-ordering:2",
-      "question": "What can two threads see when assignments are reordered?",
-      "answer": "One thread might see V1 V2 V3 assigned, while another sees V2 V3 V1.",
+      "question": "How can two threads see different assignment orders?",
+      "answer": "T1 might see V1 V2 V3 assigned, while T2 might see V2 V3 V1.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/memory-ordering",
       "sourceTitle": "Memory Ordering",
@@ -4621,7 +4251,7 @@
       "tags": [
         "concurrency",
         "atomics",
-        "memory-model"
+        "memory-ordering"
       ]
     },
     {
@@ -4639,8 +4269,8 @@
     },
     {
       "id": "note:coding/concurrency/mutex:1",
-      "question": "What happens when threads conflict on a mutex instead of panicking?",
-      "answer": "Waiting threads are put to sleep and woken up when the lock is released.",
+      "question": "What happens when threads conflict on a mutex?",
+      "answer": "Conflicting access does not cause a panic. Waiting threads are put to sleep and woken up when the lock is released.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/mutex",
       "sourceTitle": "Mutex",
@@ -4665,14 +4295,15 @@
     },
     {
       "id": "note:coding/concurrency/race-conditions:0",
-      "question": "What is a race condition?",
-      "answer": "It occurs when multiple threads access and attempt to modify shared state concurrently, and the final outcome depends on the timing or interleaving of execution.",
+      "question": "When does a race condition occur?",
+      "answer": "When multiple threads access and attempt to modify shared state concurrently, and the final outcome depends on the timing or interleaving of execution.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/race-conditions",
       "sourceTitle": "Race Conditions",
       "sourceHref": "/notes/coding/concurrency/race-conditions/",
       "tags": [
-        "concurrency"
+        "concurrency",
+        "race-condition"
       ]
     },
     {
@@ -4684,25 +4315,27 @@
       "sourceTitle": "Race Conditions",
       "sourceHref": "/notes/coding/concurrency/race-conditions/",
       "tags": [
-        "concurrency"
+        "concurrency",
+        "race-condition"
       ]
     },
     {
       "id": "note:coding/concurrency/race-conditions:2",
       "question": "What can happen if two threads both see an uninitialized state?",
-      "answer": "Both may restart the computation; whichever finishes first wins.",
+      "answer": "Both may restart the computation, and whichever finishes first wins.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/race-conditions",
       "sourceTitle": "Race Conditions",
       "sourceHref": "/notes/coding/concurrency/race-conditions/",
       "tags": [
-        "concurrency"
+        "concurrency",
+        "race-condition"
       ]
     },
     {
       "id": "note:coding/concurrency/reader-writer-lock:0",
-      "question": "How does an RwLock differ from a mutex?",
-      "answer": "A mutex only lets you take exclusive access even when a shared reference would have been enough. An RwLock lets you have one exclusive mutable reference or multiple shared read references.",
+      "question": "How does a mutex differ from an RwLock on shared access?",
+      "answer": "A mutex only lets you take exclusive access even when a shared reference would have been enough.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/reader-writer-lock",
       "sourceTitle": "RwLock",
@@ -4714,7 +4347,7 @@
     },
     {
       "id": "note:coding/concurrency/reader-writer-lock:1",
-      "question": "What access combinations does an RwLock allow?",
+      "question": "What access patterns does an RwLock allow?",
       "answer": "One exclusive mutable reference, or multiple shared read references.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/reader-writer-lock",
@@ -4740,41 +4373,47 @@
     },
     {
       "id": "note:coding/concurrency/reference-counting:0",
-      "question": "What is reference counting?",
-      "answer": "A smart pointer mechanism that keeps a count of all owners and drops the value only when the counter reaches 0.",
+      "question": "When does a reference-counted value get dropped?",
+      "answer": "When the owner count reaches 0.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/reference-counting",
       "sourceTitle": "Reference Counting",
       "sourceHref": "/notes/coding/concurrency/reference-counting/",
       "tags": [
-        "memory-management",
-        "smart-pointers"
+        "concurrency",
+        "smart-pointers",
+        "reference-counting",
+        "memory"
       ]
     },
     {
       "id": "note:coding/concurrency/reference-counting:1",
-      "question": "How does cloning a reference-counted pointer differ from a deep clone?",
-      "answer": "The count increases by 1. It does not create a new value on the heap; it increments the counter next to the value.",
+      "question": "What happens when a reference-counted pointer is cloned?",
+      "answer": "The count increases by 1. Unlike deep cloning, this does not create a new value on the heap; it increments the counter next to the value.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/reference-counting",
       "sourceTitle": "Reference Counting",
       "sourceHref": "/notes/coding/concurrency/reference-counting/",
       "tags": [
-        "memory-management",
-        "smart-pointers"
+        "concurrency",
+        "smart-pointers",
+        "reference-counting",
+        "memory"
       ]
     },
     {
       "id": "note:coding/concurrency/reference-counting:2",
-      "question": "When is the actual reference-counted value dropped?",
-      "answer": "When a clone is dropped and the counter reaches 0.",
+      "question": "What happens when a clone of a reference-counted pointer is dropped?",
+      "answer": "The counter is decremented. If it reaches 0, the actual value is dropped.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/reference-counting",
       "sourceTitle": "Reference Counting",
       "sourceHref": "/notes/coding/concurrency/reference-counting/",
       "tags": [
-        "memory-management",
-        "smart-pointers"
+        "concurrency",
+        "smart-pointers",
+        "reference-counting",
+        "memory"
       ]
     },
     {
@@ -4786,27 +4425,31 @@
       "sourceTitle": "Reference Counting",
       "sourceHref": "/notes/coding/concurrency/reference-counting/",
       "tags": [
-        "memory-management",
-        "smart-pointers"
+        "concurrency",
+        "smart-pointers",
+        "reference-counting",
+        "memory"
       ]
     },
     {
       "id": "note:coding/concurrency/reference-counting:4",
-      "question": "Why is standard reference counting not thread-safe?",
-      "answer": "Because counter increments and decrements are non-atomic.",
+      "question": "When is standard reference counting not thread-safe?",
+      "answer": "When counter increments and decrements are non-atomic.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/reference-counting",
       "sourceTitle": "Reference Counting",
       "sourceHref": "/notes/coding/concurrency/reference-counting/",
       "tags": [
-        "memory-management",
-        "smart-pointers"
+        "concurrency",
+        "smart-pointers",
+        "reference-counting",
+        "memory"
       ]
     },
     {
       "id": "note:coding/concurrency/scalability:0",
       "question": "How can concurrency help achieve scalability?",
-      "answer": "By allowing the system to scale out (horizontally) rather than scale up (vertically).",
+      "answer": "By allowing scale out (horizontally) rather than scale up (vertically).",
       "sourceType": "note",
       "sourceId": "coding/concurrency/scalability",
       "sourceTitle": "Scalability",
@@ -4848,7 +4491,7 @@
     {
       "id": "note:coding/concurrency/scalability:3",
       "question": "Why does decoupling help when only one service needs to scale?",
-      "answer": "In a decoupled system that service can be scaled on its own, rather than scaling everything on a tightly coupled system.",
+      "answer": "That service can be scaled easily in a decoupled system, rather than scaling everything in a tightly coupled system.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/scalability",
       "sourceTitle": "Scalability",
@@ -4861,8 +4504,8 @@
     },
     {
       "id": "note:coding/concurrency/scoped-threads:0",
-      "question": "What are scoped threads used for?",
-      "answer": "To spawn threads that finish execution before the scope is exited.",
+      "question": "What do scoped threads guarantee about their lifetime?",
+      "answer": "They finish execution before the scope is exited.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/scoped-threads",
       "sourceTitle": "Scoped Threads",
@@ -4875,7 +4518,7 @@
     {
       "id": "note:coding/concurrency/scoped-threads:1",
       "question": "Why can scoped threads borrow local variables?",
-      "answer": "Because they finish before the scope exits, so the data outlives their scope.",
+      "answer": "Because the data outlives their scope.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/scoped-threads",
       "sourceTitle": "Scoped Threads",
@@ -4888,7 +4531,7 @@
     {
       "id": "note:coding/concurrency/scoped-threads:2",
       "question": "What happens to threads spawned in a scope before the scope exits?",
-      "answer": "All of them are joined before the scope exits.",
+      "answer": "They are all joined before the scope exits.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/scoped-threads",
       "sourceTitle": "Scoped Threads",
@@ -4900,7 +4543,7 @@
     },
     {
       "id": "note:coding/concurrency/scoped-threads:3",
-      "question": "What references can scoped threads share?",
+      "question": "How many mutable references can scoped threads share?",
       "answer": "Multiple read references can be shared across threads, but only one mutable reference is allowed at a time.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/scoped-threads",
@@ -4913,8 +4556,8 @@
     },
     {
       "id": "note:coding/concurrency/send-and-sync:0",
-      "question": "What does Send mean?",
-      "answer": "A type T is Send if its ownership can be transferred to another thread.",
+      "question": "When is a type T Send?",
+      "answer": "If its ownership can be transferred to another thread.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/send-and-sync",
       "sourceTitle": "Send Sync",
@@ -4927,8 +4570,8 @@
     },
     {
       "id": "note:coding/concurrency/send-and-sync:1",
-      "question": "What does Sync mean?",
-      "answer": "A type T is Sync if its shared reference is Send; that is, T is Sync if &T is Send.",
+      "question": "When is a type T Sync?",
+      "answer": "If its shared reference is Send — that is, T is Sync if &T is Send.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/send-and-sync",
       "sourceTitle": "Send Sync",
@@ -4941,8 +4584,8 @@
     },
     {
       "id": "note:coding/concurrency/send-and-sync:2",
-      "question": "Which primitive types are Send and Sync?",
-      "answer": "All primitive types are Send and Sync.",
+      "question": "Are primitive types Send and Sync?",
+      "answer": "Yes. All primitive types are Send and Sync.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/send-and-sync",
       "sourceTitle": "Send Sync",
@@ -4955,7 +4598,7 @@
     },
     {
       "id": "note:coding/concurrency/send-and-sync:3",
-      "question": "When are types automatically Send and Sync?",
+      "question": "When are composite types automatically Send and Sync?",
       "answer": "When all of their fields are Send and Sync.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/send-and-sync",
@@ -4970,19 +4613,34 @@
     {
       "id": "note:coding/concurrency/static-lifetime:0",
       "question": "What does a static lifetime mean?",
-      "answer": "The value will exist until the end of the program, so any value with a static lifetime can be shared across threads.",
+      "answer": "The value will exist until the end of the program.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/static-lifetime",
       "sourceTitle": "Static Lifetime",
       "sourceHref": "/notes/coding/concurrency/static-lifetime/",
       "tags": [
         "concurrency",
-        "memory"
+        "memory",
+        "statics"
       ]
     },
     {
       "id": "note:coding/concurrency/static-lifetime:1",
-      "question": "When does a static variable exist?",
+      "question": "Why can a static-lifetime value be shared across threads?",
+      "answer": "Because it exists until the end of the program.",
+      "sourceType": "note",
+      "sourceId": "coding/concurrency/static-lifetime",
+      "sourceTitle": "Static Lifetime",
+      "sourceHref": "/notes/coding/concurrency/static-lifetime/",
+      "tags": [
+        "concurrency",
+        "memory",
+        "statics"
+      ]
+    },
+    {
+      "id": "note:coding/concurrency/static-lifetime:2",
+      "question": "When does a static variable exist relative to main?",
       "answer": "It exists before main and remains in scope until the program ends.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/static-lifetime",
@@ -4990,26 +4648,28 @@
       "sourceHref": "/notes/coding/concurrency/static-lifetime/",
       "tags": [
         "concurrency",
-        "memory"
+        "memory",
+        "statics"
       ]
     },
     {
-      "id": "note:coding/concurrency/static-lifetime:2",
-      "question": "How else can a value be guaranteed to exist for the whole program?",
-      "answer": "By leaking it on the heap.",
+      "id": "note:coding/concurrency/static-lifetime:3",
+      "question": "How can a heap value be given a static lifetime?",
+      "answer": "By leaking it on the heap so it is guaranteed to exist for the program's entire duration.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/static-lifetime",
       "sourceTitle": "Static Lifetime",
       "sourceHref": "/notes/coding/concurrency/static-lifetime/",
       "tags": [
         "concurrency",
-        "memory"
+        "memory",
+        "statics"
       ]
     },
     {
       "id": "note:coding/concurrency/thread-joining:0",
-      "question": "Why join a thread handle?",
-      "answer": "To wait for spawned threads to finish their execution before exiting from main.",
+      "question": "How do you wait for spawned threads to finish before exiting main?",
+      "answer": "Join the thread handle.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/thread-joining",
       "sourceTitle": "Thread Joining",
@@ -5047,8 +4707,8 @@
     },
     {
       "id": "note:coding/concurrency/thread-parking:0",
-      "question": "What does thread parking do?",
-      "answer": "It lets a thread park itself so it no longer consumes CPU cycles while waiting for other threads to wake it.",
+      "question": "What does parking a thread do?",
+      "answer": "The thread parks itself so it no longer consumes CPU cycles while waiting for other threads to wake it.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/thread-parking",
       "sourceTitle": "Thread Parking",
@@ -5073,8 +4733,8 @@
     },
     {
       "id": "note:coding/concurrency/thread-parking:2",
-      "question": "What happens if `unpark` is called before the thread is parked?",
-      "answer": "The wake-up token is saved, and the next `park` returns immediately without sleeping.",
+      "question": "What happens if `unpark` is called before `park`?",
+      "answer": "The wake-up token is saved and the next `park` returns immediately without sleeping.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/thread-parking",
       "sourceTitle": "Thread Parking",
@@ -5087,7 +4747,7 @@
     {
       "id": "note:coding/concurrency/thread-parking:3",
       "question": "What happens if `unpark` is called multiple times?",
-      "answer": "Only the first `park` is skipped.",
+      "answer": "It only skips the first `park`.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/thread-parking",
       "sourceTitle": "Thread Parking",
@@ -5112,8 +4772,8 @@
     },
     {
       "id": "note:coding/concurrency/threads:1",
-      "question": "When is the initial OS thread cleaned up?",
-      "answer": "Once the program stops executing.",
+      "question": "What happens to the initial thread when the program stops?",
+      "answer": "It is cleaned up.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/threads",
       "sourceTitle": "Threads",
@@ -5138,44 +4798,44 @@
     },
     {
       "id": "note:coding/register-storage:0",
-      "question": "What does a register modifier ask the compiler to do?",
-      "answer": "Place the variable in a CPU register instead of RAM.",
+      "question": "What does a register modifier request of the compiler?",
+      "answer": "To place the variable in a CPU register instead of RAM.",
       "sourceType": "note",
       "sourceId": "coding/register-storage",
       "sourceTitle": "Register Storage",
       "sourceHref": "/notes/coding/register-storage/",
       "tags": [
-        "programming",
+        "c",
         "memory",
-        "registers"
+        "storage-classes"
       ]
     },
     {
       "id": "note:coding/register-storage:1",
-      "question": "Must the compiler honor a register request?",
-      "answer": "No. The compiler can still refuse for optimisation. Register is a request.",
+      "question": "Must the compiler honor a register modifier?",
+      "answer": "No. It can choose not to for the sake of optimisation. The modifier is more like a request.",
       "sourceType": "note",
       "sourceId": "coding/register-storage",
       "sourceTitle": "Register Storage",
       "sourceHref": "/notes/coding/register-storage/",
       "tags": [
-        "programming",
+        "c",
         "memory",
-        "registers"
+        "storage-classes"
       ]
     },
     {
       "id": "note:coding/register-storage:2",
-      "question": "Can one field of a struct have the register modifier?",
-      "answer": "No. A whole struct can have the register modifier, but one field cannot.",
+      "question": "Can a whole struct have a register modifier?",
+      "answer": "Yes, but one field of a struct cannot have the register modifier.",
       "sourceType": "note",
       "sourceId": "coding/register-storage",
       "sourceTitle": "Register Storage",
       "sourceHref": "/notes/coding/register-storage/",
       "tags": [
-        "programming",
+        "c",
         "memory",
-        "registers"
+        "storage-classes"
       ]
     },
     {
@@ -5188,7 +4848,7 @@
       "sourceHref": "/notes/coding/satisfies-15-02-2026/",
       "tags": [
         "typescript",
-        "coding",
+        "type-system",
         "pattern-matching"
       ]
     },
@@ -5202,7 +4862,7 @@
       "sourceHref": "/notes/coding/satisfies-15-02-2026/",
       "tags": [
         "typescript",
-        "coding",
+        "type-system",
         "pattern-matching"
       ]
     },
@@ -5216,7 +4876,7 @@
       "sourceHref": "/notes/coding/satisfies-15-02-2026/",
       "tags": [
         "typescript",
-        "coding",
+        "type-system",
         "pattern-matching"
       ]
     },
@@ -5230,7 +4890,7 @@
       "sourceHref": "/notes/coding/satisfies-15-02-2026/",
       "tags": [
         "typescript",
-        "coding",
+        "type-system",
         "pattern-matching"
       ]
     },
@@ -5244,78 +4904,78 @@
       "sourceHref": "/notes/coding/satisfies-15-02-2026/",
       "tags": [
         "typescript",
-        "coding",
+        "type-system",
         "pattern-matching"
       ]
     },
     {
       "id": "note:coding/variable-lifetime:0",
-      "question": "What does a variable's lifetime specify?",
+      "question": "What does the lifetime of a variable specify?",
       "answer": "How long it is alive.",
       "sourceType": "note",
       "sourceId": "coding/variable-lifetime",
       "sourceTitle": "Variable Lifetime",
       "sourceHref": "/notes/coding/variable-lifetime/",
       "tags": [
-        "programming",
+        "c",
         "memory",
-        "lifetime"
+        "storage-classes"
       ]
     },
     {
       "id": "note:coding/variable-lifetime:1",
-      "question": "What are the two common lifetime spans?",
+      "question": "What are two common lifetime extents?",
       "answer": "Some variables are only alive within a scope, and some stay alive for the entire duration of the program.",
       "sourceType": "note",
       "sourceId": "coding/variable-lifetime",
       "sourceTitle": "Variable Lifetime",
       "sourceHref": "/notes/coding/variable-lifetime/",
       "tags": [
-        "programming",
+        "c",
         "memory",
-        "lifetime"
+        "storage-classes"
       ]
     },
     {
       "id": "note:coding/variable-lifetime:2",
-      "question": "Besides scope-bound and program-long, what other lifetime exists?",
-      "answer": "Some values are allocated and cleaned up for a specific duration.",
+      "question": "Besides scope-bound and program-long, how else can lifetime work?",
+      "answer": "Some variables are allocated and cleaned up for a specific duration.",
       "sourceType": "note",
       "sourceId": "coding/variable-lifetime",
       "sourceTitle": "Variable Lifetime",
       "sourceHref": "/notes/coding/variable-lifetime/",
       "tags": [
-        "programming",
+        "c",
         "memory",
-        "lifetime"
+        "storage-classes"
       ]
     },
     {
       "id": "note:coding/variable-linkage:0",
-      "question": "What does linkage, or visibility, specify?",
+      "question": "What does visibility or linkage of a variable specify?",
       "answer": "Whether the variable is visible to other files in a multi-file program.",
       "sourceType": "note",
       "sourceId": "coding/variable-linkage",
       "sourceTitle": "Variable Linkage",
       "sourceHref": "/notes/coding/variable-linkage/",
       "tags": [
-        "programming",
+        "c",
         "memory",
-        "linkage"
+        "storage-classes"
       ]
     },
     {
       "id": "note:coding/variable-linkage:1",
-      "question": "What is another name for linkage?",
+      "question": "What is another name for linkage in this note?",
       "answer": "Visibility.",
       "sourceType": "note",
       "sourceId": "coding/variable-linkage",
       "sourceTitle": "Variable Linkage",
       "sourceHref": "/notes/coding/variable-linkage/",
       "tags": [
-        "programming",
+        "c",
         "memory",
-        "linkage"
+        "storage-classes"
       ]
     },
     {
@@ -5327,9 +4987,9 @@
       "sourceTitle": "Variable Linkage",
       "sourceHref": "/notes/coding/variable-linkage/",
       "tags": [
-        "programming",
+        "c",
         "memory",
-        "linkage"
+        "storage-classes"
       ]
     },
     {
@@ -5341,9 +5001,9 @@
       "sourceTitle": "Variable Scope",
       "sourceHref": "/notes/coding/variable-scope/",
       "tags": [
-        "programming",
+        "c",
         "memory",
-        "scope"
+        "storage-classes"
       ]
     },
     {
@@ -5355,9 +5015,9 @@
       "sourceTitle": "Variable Scope",
       "sourceHref": "/notes/coding/variable-scope/",
       "tags": [
-        "programming",
+        "c",
         "memory",
-        "scope"
+        "storage-classes"
       ]
     },
     {
@@ -5369,9 +5029,9 @@
       "sourceTitle": "Variable Scope",
       "sourceHref": "/notes/coding/variable-scope/",
       "tags": [
-        "programming",
+        "c",
         "memory",
-        "scope"
+        "storage-classes"
       ]
     },
     {
@@ -5512,7 +5172,7 @@
       "sourceHref": "/notes/llms/agentic-rag/",
       "tags": [
         "rag",
-        "ai-agents",
+        "agents",
         "research",
         "agentic-rag"
       ]
@@ -5527,7 +5187,7 @@
       "sourceHref": "/notes/llms/agentic-rag/",
       "tags": [
         "rag",
-        "ai-agents",
+        "agents",
         "research",
         "agentic-rag"
       ]
@@ -5542,7 +5202,7 @@
       "sourceHref": "/notes/llms/agentic-rag/",
       "tags": [
         "rag",
-        "ai-agents",
+        "agents",
         "research",
         "agentic-rag"
       ]
@@ -5557,7 +5217,7 @@
       "sourceHref": "/notes/llms/agentic-rag/",
       "tags": [
         "rag",
-        "ai-agents",
+        "agents",
         "research",
         "agentic-rag"
       ]
@@ -5572,7 +5232,7 @@
       "sourceHref": "/notes/llms/agentic-rag/",
       "tags": [
         "rag",
-        "ai-agents",
+        "agents",
         "research",
         "agentic-rag"
       ]
@@ -5587,7 +5247,7 @@
       "sourceHref": "/notes/llms/agentic-rag/",
       "tags": [
         "rag",
-        "ai-agents",
+        "agents",
         "research",
         "agentic-rag"
       ]
@@ -5602,7 +5262,7 @@
       "sourceHref": "/notes/llms/agentic-rag/",
       "tags": [
         "rag",
-        "ai-agents",
+        "agents",
         "research",
         "agentic-rag"
       ]
@@ -5617,7 +5277,7 @@
       "sourceHref": "/notes/llms/agentic-rag/",
       "tags": [
         "rag",
-        "ai-agents",
+        "agents",
         "research",
         "agentic-rag"
       ]
@@ -5891,51 +5551,6 @@
       ]
     },
     {
-      "id": "note:llms/lightrag:0",
-      "question": "What is LightRAG?",
-      "answer": "A specialized implementation of GraphRAG developed by hkuds.",
-      "sourceType": "note",
-      "sourceId": "llms/lightrag",
-      "sourceTitle": "LightRAG",
-      "sourceHref": "/notes/llms/lightrag/",
-      "tags": [
-        "graph-rag",
-        "light-rag",
-        "research",
-        "rag"
-      ]
-    },
-    {
-      "id": "note:llms/lightrag:1",
-      "question": "Who developed LightRAG?",
-      "answer": "hkuds.",
-      "sourceType": "note",
-      "sourceId": "llms/lightrag",
-      "sourceTitle": "LightRAG",
-      "sourceHref": "/notes/llms/lightrag/",
-      "tags": [
-        "graph-rag",
-        "light-rag",
-        "research",
-        "rag"
-      ]
-    },
-    {
-      "id": "note:llms/lightrag:2",
-      "question": "LightRAG is a specialized implementation of what?",
-      "answer": "GraphRAG.",
-      "sourceType": "note",
-      "sourceId": "llms/lightrag",
-      "sourceTitle": "LightRAG",
-      "sourceHref": "/notes/llms/lightrag/",
-      "tags": [
-        "graph-rag",
-        "light-rag",
-        "research",
-        "rag"
-      ]
-    },
-    {
       "id": "note:llms/llm:0",
       "question": "How do encoder and decoder layers differ in this MOC?",
       "answer": "Encoders do bidirectional feature extraction. Decoders do causal autoregressive generation.",
@@ -5945,7 +5560,7 @@
       "sourceHref": "/notes/llms/llm/",
       "tags": [
         "llm",
-        "index",
+        "moc",
         "research",
         "ai"
       ]
@@ -5960,7 +5575,7 @@
       "sourceHref": "/notes/llms/llm/",
       "tags": [
         "llm",
-        "index",
+        "moc",
         "research",
         "ai"
       ]
@@ -5975,7 +5590,7 @@
       "sourceHref": "/notes/llms/llm/",
       "tags": [
         "llm",
-        "index",
+        "moc",
         "research",
         "ai"
       ]
@@ -5990,7 +5605,7 @@
       "sourceHref": "/notes/llms/llm/",
       "tags": [
         "llm",
-        "index",
+        "moc",
         "research",
         "ai"
       ]
@@ -6005,7 +5620,7 @@
       "sourceHref": "/notes/llms/llm/",
       "tags": [
         "llm",
-        "index",
+        "moc",
         "research",
         "ai"
       ]
@@ -6020,7 +5635,7 @@
       "sourceHref": "/notes/llms/llm/",
       "tags": [
         "llm",
-        "index",
+        "moc",
         "research",
         "ai"
       ]
@@ -6035,7 +5650,7 @@
       "sourceHref": "/notes/llms/llm/",
       "tags": [
         "llm",
-        "index",
+        "moc",
         "research",
         "ai"
       ]
@@ -6272,8 +5887,7 @@
       "tags": [
         "llm",
         "quantization",
-        "optimization",
-        "model-compression"
+        "optimization"
       ]
     },
     {
@@ -6287,8 +5901,7 @@
       "tags": [
         "llm",
         "quantization",
-        "optimization",
-        "model-compression"
+        "optimization"
       ]
     },
     {
@@ -6302,8 +5915,7 @@
       "tags": [
         "llm",
         "quantization",
-        "optimization",
-        "model-compression"
+        "optimization"
       ]
     },
     {
@@ -6317,8 +5929,7 @@
       "tags": [
         "llm",
         "quantization",
-        "optimization",
-        "model-compression"
+        "optimization"
       ]
     },
     {
@@ -6332,8 +5943,7 @@
       "tags": [
         "llm",
         "quantization",
-        "optimization",
-        "model-compression"
+        "optimization"
       ]
     },
     {
@@ -6347,7 +5957,7 @@
       "tags": [
         "rag",
         "research",
-        "ai-architecture"
+        "architecture"
       ]
     },
     {
@@ -6361,7 +5971,7 @@
       "tags": [
         "rag",
         "research",
-        "ai-architecture"
+        "architecture"
       ]
     },
     {
@@ -6375,7 +5985,7 @@
       "tags": [
         "rag",
         "research",
-        "ai-architecture"
+        "architecture"
       ]
     },
     {
@@ -6389,7 +5999,7 @@
       "tags": [
         "rag",
         "research",
-        "ai-architecture"
+        "architecture"
       ]
     },
     {
@@ -6403,7 +6013,7 @@
       "tags": [
         "rag",
         "research",
-        "ai-architecture"
+        "architecture"
       ]
     },
     {
@@ -6417,7 +6027,7 @@
       "tags": [
         "rag",
         "research",
-        "ai-architecture"
+        "architecture"
       ]
     },
     {
@@ -6431,7 +6041,7 @@
       "tags": [
         "rag",
         "research",
-        "ai-architecture"
+        "architecture"
       ]
     },
     {
@@ -6446,7 +6056,7 @@
         "rag",
         "re-ranking",
         "research",
-        "search-optimization"
+        "retrieval"
       ]
     },
     {
@@ -6461,7 +6071,7 @@
         "rag",
         "re-ranking",
         "research",
-        "search-optimization"
+        "retrieval"
       ]
     },
     {
@@ -6476,7 +6086,7 @@
         "rag",
         "re-ranking",
         "research",
-        "search-optimization"
+        "retrieval"
       ]
     },
     {
@@ -6491,7 +6101,7 @@
         "rag",
         "re-ranking",
         "research",
-        "search-optimization"
+        "retrieval"
       ]
     },
     {
@@ -6506,7 +6116,7 @@
         "rag",
         "re-ranking",
         "research",
-        "search-optimization"
+        "retrieval"
       ]
     },
     {
@@ -6521,7 +6131,7 @@
         "rag",
         "re-ranking",
         "research",
-        "search-optimization"
+        "retrieval"
       ]
     },
     {
@@ -6536,7 +6146,7 @@
         "rag",
         "re-ranking",
         "research",
-        "search-optimization"
+        "retrieval"
       ]
     },
     {
@@ -6551,7 +6161,7 @@
         "rag",
         "re-ranking",
         "research",
-        "search-optimization"
+        "retrieval"
       ]
     },
     {
@@ -6564,10 +6174,9 @@
       "sourceHref": "/notes/llms/router-pattern/",
       "tags": [
         "llm",
-        "agent",
-        "router-pattern",
-        "routing",
-        "rag"
+        "agents",
+        "rag",
+        "router-pattern"
       ]
     },
     {
@@ -6580,10 +6189,9 @@
       "sourceHref": "/notes/llms/router-pattern/",
       "tags": [
         "llm",
-        "agent",
-        "router-pattern",
-        "routing",
-        "rag"
+        "agents",
+        "rag",
+        "router-pattern"
       ]
     },
     {
@@ -6596,10 +6204,9 @@
       "sourceHref": "/notes/llms/router-pattern/",
       "tags": [
         "llm",
-        "agent",
-        "router-pattern",
-        "routing",
-        "rag"
+        "agents",
+        "rag",
+        "router-pattern"
       ]
     },
     {
@@ -6612,10 +6219,9 @@
       "sourceHref": "/notes/llms/router-pattern/",
       "tags": [
         "llm",
-        "agent",
-        "router-pattern",
-        "routing",
-        "rag"
+        "agents",
+        "rag",
+        "router-pattern"
       ]
     },
     {
@@ -6628,10 +6234,9 @@
       "sourceHref": "/notes/llms/router-pattern/",
       "tags": [
         "llm",
-        "agent",
-        "router-pattern",
-        "routing",
-        "rag"
+        "agents",
+        "rag",
+        "router-pattern"
       ]
     },
     {
@@ -6644,10 +6249,9 @@
       "sourceHref": "/notes/llms/router-pattern/",
       "tags": [
         "llm",
-        "agent",
-        "router-pattern",
-        "routing",
-        "rag"
+        "agents",
+        "rag",
+        "router-pattern"
       ]
     },
     {
@@ -7128,7 +6732,6 @@
       "tags": [
         "slm",
         "llm",
-        "ai",
         "edge-computing",
         "data-privacy",
         "fine-tuning"
@@ -7145,7 +6748,6 @@
       "tags": [
         "slm",
         "llm",
-        "ai",
         "edge-computing",
         "data-privacy",
         "fine-tuning"
@@ -7162,7 +6764,6 @@
       "tags": [
         "slm",
         "llm",
-        "ai",
         "edge-computing",
         "data-privacy",
         "fine-tuning"
@@ -7179,7 +6780,6 @@
       "tags": [
         "slm",
         "llm",
-        "ai",
         "edge-computing",
         "data-privacy",
         "fine-tuning"
@@ -7196,7 +6796,6 @@
       "tags": [
         "slm",
         "llm",
-        "ai",
         "edge-computing",
         "data-privacy",
         "fine-tuning"
@@ -7213,7 +6812,6 @@
       "tags": [
         "slm",
         "llm",
-        "ai",
         "edge-computing",
         "data-privacy",
         "fine-tuning"
@@ -7230,7 +6828,6 @@
       "tags": [
         "slm",
         "llm",
-        "ai",
         "edge-computing",
         "data-privacy",
         "fine-tuning"
@@ -7247,7 +6844,6 @@
       "tags": [
         "slm",
         "llm",
-        "ai",
         "edge-computing",
         "data-privacy",
         "fine-tuning"
@@ -7264,7 +6860,7 @@
       "tags": [
         "teach/c17",
         "moc",
-        "chip8"
+        "chip-8"
       ]
     },
     {
@@ -7278,7 +6874,7 @@
       "tags": [
         "teach/c17",
         "moc",
-        "chip8"
+        "chip-8"
       ]
     },
     {
@@ -7292,7 +6888,7 @@
       "tags": [
         "teach/c17",
         "moc",
-        "chip8"
+        "chip-8"
       ]
     },
     {
@@ -7306,7 +6902,7 @@
       "tags": [
         "teach/c17",
         "moc",
-        "chip8"
+        "chip-8"
       ]
     },
     {
@@ -7320,7 +6916,35 @@
       "tags": [
         "teach/c17",
         "moc",
-        "chip8"
+        "chip-8"
+      ]
+    },
+    {
+      "id": "note:teach/c17/c17:5",
+      "question": "How does the graphics lesson render CHIP-8 sprites?",
+      "answer": "DXYN sprite XOR rendering with SDL texture streaming.",
+      "sourceType": "note",
+      "sourceId": "teach/c17/c17",
+      "sourceTitle": "C17 Hub",
+      "sourceHref": "/notes/teach/c17/c17/",
+      "tags": [
+        "teach/c17",
+        "moc",
+        "chip-8"
+      ]
+    },
+    {
+      "id": "note:teach/c17/c17:6",
+      "question": "What timer rate does the peripherals phase target?",
+      "answer": "60Hz timers, plus audio synthesis and CPU cycle regulation.",
+      "sourceType": "note",
+      "sourceId": "teach/c17/c17",
+      "sourceTitle": "C17 Hub",
+      "sourceHref": "/notes/teach/c17/c17/",
+      "tags": [
+        "teach/c17",
+        "moc",
+        "chip-8"
       ]
     },
     {
@@ -7428,6 +7052,115 @@
       ]
     },
     {
+      "id": "note:teach/c17/learning-records/0001-baseline-and-prerequisites:0",
+      "question": "Which C17 topics should lessons ground in for a Node.js/Rust/Go background?",
+      "answer": "Low-level memory mechanics, undefined behavior elimination, strict aliasing, cache locality, and POSIX systems interfaces.",
+      "sourceType": "note",
+      "sourceId": "teach/c17/learning-records/0001-baseline-and-prerequisites",
+      "sourceTitle": "LR-0001: Learner Background & C17 Baseline",
+      "sourceHref": "/notes/teach/c17/learning-records/0001-baseline-and-prerequisites/",
+      "tags": [
+        "teach/c17",
+        "learning-record"
+      ]
+    },
+    {
+      "id": "note:teach/c17/learning-records/0001-baseline-and-prerequisites:1",
+      "question": "What high-level runtimes should C17 concepts be compared to?",
+      "answer": "Rust ownership and borrowing, and Node.js event loops / V8 memory management.",
+      "sourceType": "note",
+      "sourceId": "teach/c17/learning-records/0001-baseline-and-prerequisites",
+      "sourceTitle": "LR-0001: Learner Background & C17 Baseline",
+      "sourceHref": "/notes/teach/c17/learning-records/0001-baseline-and-prerequisites/",
+      "tags": [
+        "teach/c17",
+        "learning-record"
+      ]
+    },
+    {
+      "id": "note:teach/c17/learning-records/0001-baseline-and-prerequisites:2",
+      "question": "What target environment is assumed for the C17 track?",
+      "answer": "macOS and Linux with Clang or GCC, and CMake.",
+      "sourceType": "note",
+      "sourceId": "teach/c17/learning-records/0001-baseline-and-prerequisites",
+      "sourceTitle": "LR-0001: Learner Background & C17 Baseline",
+      "sourceHref": "/notes/teach/c17/learning-records/0001-baseline-and-prerequisites/",
+      "tags": [
+        "teach/c17",
+        "learning-record"
+      ]
+    },
+    {
+      "id": "note:teach/c17/learning-records/0002-chip8-codebase-audit:0",
+      "question": "Which modules already exist in the CHIP-8 C17 emulator?",
+      "answer": "Modular headers and sources for memory, registers, stack, keyboard, screen, and an SDL2 event loop.",
+      "sourceType": "note",
+      "sourceId": "teach/c17/learning-records/0002-chip8-codebase-audit",
+      "sourceTitle": "LR-0002: CHIP-8 Codebase Audit & Architecture Baseline",
+      "sourceHref": "/notes/teach/c17/learning-records/0002-chip8-codebase-audit/",
+      "tags": [
+        "teach/c17",
+        "learning-record",
+        "chip-8"
+      ]
+    },
+    {
+      "id": "note:teach/c17/learning-records/0002-chip8-codebase-audit:1",
+      "question": "Which core data structures are already laid out?",
+      "answer": "Memory, Registers, Stack, Screen, Keyboard, and Chip8.",
+      "sourceType": "note",
+      "sourceId": "teach/c17/learning-records/0002-chip8-codebase-audit",
+      "sourceTitle": "LR-0002: CHIP-8 Codebase Audit & Architecture Baseline",
+      "sourceHref": "/notes/teach/c17/learning-records/0002-chip8-codebase-audit/",
+      "tags": [
+        "teach/c17",
+        "learning-record",
+        "chip-8"
+      ]
+    },
+    {
+      "id": "note:teach/c17/learning-records/0002-chip8-codebase-audit:2",
+      "question": "Where should CHIP-8 ROMs be loaded, and what check is required?",
+      "answer": "Load ROMs at `0x200` with boundary checks.",
+      "sourceType": "note",
+      "sourceId": "teach/c17/learning-records/0002-chip8-codebase-audit",
+      "sourceTitle": "LR-0002: CHIP-8 Codebase Audit & Architecture Baseline",
+      "sourceHref": "/notes/teach/c17/learning-records/0002-chip8-codebase-audit/",
+      "tags": [
+        "teach/c17",
+        "learning-record",
+        "chip-8"
+      ]
+    },
+    {
+      "id": "note:teach/c17/learning-records/0002-chip8-codebase-audit:3",
+      "question": "How will opcodes be fetched and decoded?",
+      "answer": "As 16-bit big-endian values, then decoded with bitwise instruction decoding.",
+      "sourceType": "note",
+      "sourceId": "teach/c17/learning-records/0002-chip8-codebase-audit",
+      "sourceTitle": "LR-0002: CHIP-8 Codebase Audit & Architecture Baseline",
+      "sourceHref": "/notes/teach/c17/learning-records/0002-chip8-codebase-audit/",
+      "tags": [
+        "teach/c17",
+        "learning-record",
+        "chip-8"
+      ]
+    },
+    {
+      "id": "note:teach/c17/learning-records/0002-chip8-codebase-audit:4",
+      "question": "What two dispatch styles will instruction execution compare?",
+      "answer": "Jump tables versus nested switches.",
+      "sourceType": "note",
+      "sourceId": "teach/c17/learning-records/0002-chip8-codebase-audit",
+      "sourceTitle": "LR-0002: CHIP-8 Codebase Audit & Architecture Baseline",
+      "sourceHref": "/notes/teach/c17/learning-records/0002-chip8-codebase-audit/",
+      "tags": [
+        "teach/c17",
+        "learning-record",
+        "chip-8"
+      ]
+    },
+    {
       "id": "note:teach/c17/learning-records/0003-cmake-sdl2-and-integer-truncation:0",
       "question": "What implicit conversion did `-Wconversion` flag in `src/main.c`?",
       "answer": "An implicit integer truncation where `SDL_Keycode` (a 32-bit integer) was assigned to `char` (an 8-bit integer).",
@@ -7524,7 +7257,7 @@
         "lesson",
         "cmake",
         "toolchain",
-        "chip8"
+        "chip-8"
       ]
     },
     {
@@ -7540,7 +7273,7 @@
         "lesson",
         "cmake",
         "toolchain",
-        "chip8"
+        "chip-8"
       ]
     },
     {
@@ -7556,7 +7289,7 @@
         "lesson",
         "cmake",
         "toolchain",
-        "chip8"
+        "chip-8"
       ]
     },
     {
@@ -7572,7 +7305,7 @@
         "lesson",
         "cmake",
         "toolchain",
-        "chip8"
+        "chip-8"
       ]
     },
     {
@@ -7588,7 +7321,7 @@
         "lesson",
         "cmake",
         "toolchain",
-        "chip8"
+        "chip-8"
       ]
     },
     {
@@ -7604,7 +7337,7 @@
         "lesson",
         "cmake",
         "toolchain",
-        "chip8"
+        "chip-8"
       ]
     },
     {
@@ -7620,7 +7353,7 @@
         "lesson",
         "cmake",
         "toolchain",
-        "chip8"
+        "chip-8"
       ]
     },
     {
@@ -7636,7 +7369,7 @@
         "lesson",
         "cmake",
         "toolchain",
-        "chip8"
+        "chip-8"
       ]
     },
     {
@@ -7652,7 +7385,7 @@
         "lesson",
         "file-io",
         "memory",
-        "chip8"
+        "chip-8"
       ]
     },
     {
@@ -7668,7 +7401,7 @@
         "lesson",
         "file-io",
         "memory",
-        "chip8"
+        "chip-8"
       ]
     },
     {
@@ -7684,7 +7417,7 @@
         "lesson",
         "file-io",
         "memory",
-        "chip8"
+        "chip-8"
       ]
     },
     {
@@ -7700,7 +7433,7 @@
         "lesson",
         "file-io",
         "memory",
-        "chip8"
+        "chip-8"
       ]
     },
     {
@@ -7716,7 +7449,7 @@
         "lesson",
         "file-io",
         "memory",
-        "chip8"
+        "chip-8"
       ]
     },
     {
@@ -7732,7 +7465,7 @@
         "lesson",
         "file-io",
         "memory",
-        "chip8"
+        "chip-8"
       ]
     },
     {
@@ -7748,7 +7481,7 @@
         "lesson",
         "file-io",
         "memory",
-        "chip8"
+        "chip-8"
       ]
     },
     {
@@ -7764,7 +7497,7 @@
         "lesson",
         "file-io",
         "memory",
-        "chip8"
+        "chip-8"
       ]
     },
     {
@@ -7778,7 +7511,7 @@
       "tags": [
         "teach/c17",
         "mission",
-        "chip8"
+        "chip-8"
       ]
     },
     {
@@ -7792,7 +7525,7 @@
       "tags": [
         "teach/c17",
         "mission",
-        "chip8"
+        "chip-8"
       ]
     },
     {
@@ -7806,7 +7539,7 @@
       "tags": [
         "teach/c17",
         "mission",
-        "chip8"
+        "chip-8"
       ]
     },
     {
@@ -7820,7 +7553,7 @@
       "tags": [
         "teach/c17",
         "mission",
-        "chip8"
+        "chip-8"
       ]
     },
     {
@@ -7834,7 +7567,7 @@
       "tags": [
         "teach/c17",
         "mission",
-        "chip8"
+        "chip-8"
       ]
     },
     {
@@ -7848,7 +7581,7 @@
       "tags": [
         "teach/c17",
         "mission",
-        "chip8"
+        "chip-8"
       ]
     },
     {
@@ -7862,7 +7595,7 @@
       "tags": [
         "teach/c17",
         "notes",
-        "chip8"
+        "chip-8"
       ]
     },
     {
@@ -7876,7 +7609,7 @@
       "tags": [
         "teach/c17",
         "notes",
-        "chip8"
+        "chip-8"
       ]
     },
     {
@@ -7890,7 +7623,7 @@
       "tags": [
         "teach/c17",
         "notes",
-        "chip8"
+        "chip-8"
       ]
     },
     {
@@ -7904,7 +7637,7 @@
       "tags": [
         "teach/c17",
         "notes",
-        "chip8"
+        "chip-8"
       ]
     },
     {
@@ -7918,7 +7651,7 @@
       "tags": [
         "teach/c17",
         "notes",
-        "chip8"
+        "chip-8"
       ]
     },
     {
@@ -7932,7 +7665,35 @@
       "tags": [
         "teach/c17",
         "notes",
-        "chip8"
+        "chip-8"
+      ]
+    },
+    {
+      "id": "note:teach/c17/notes:6",
+      "question": "How is the CHIP-8 keypad represented?",
+      "answer": "A 16-key keypad state, with translation from SDL keys.",
+      "sourceType": "note",
+      "sourceId": "teach/c17/notes",
+      "sourceTitle": "C17 Teacher Notes",
+      "sourceHref": "/notes/teach/c17/notes/",
+      "tags": [
+        "teach/c17",
+        "notes",
+        "chip-8"
+      ]
+    },
+    {
+      "id": "note:teach/c17/notes:7",
+      "question": "What two dispatch styles will the opcode engine compare?",
+      "answer": "Function-pointer dispatch tables versus switch structures.",
+      "sourceType": "note",
+      "sourceId": "teach/c17/notes",
+      "sourceTitle": "C17 Teacher Notes",
+      "sourceHref": "/notes/teach/c17/notes/",
+      "tags": [
+        "teach/c17",
+        "notes",
+        "chip-8"
       ]
     },
     {
@@ -8185,10 +7946,10 @@
       "sourceHref": "/notes/thoughts/defensive-programming/",
       "tags": [
         "defensive-programming",
-        "frontend",
-        "backend",
         "error-handling",
-        "software-engineering"
+        "software-design",
+        "frontend",
+        "backend"
       ]
     },
     {
@@ -8201,10 +7962,10 @@
       "sourceHref": "/notes/thoughts/defensive-programming/",
       "tags": [
         "defensive-programming",
-        "frontend",
-        "backend",
         "error-handling",
-        "software-engineering"
+        "software-design",
+        "frontend",
+        "backend"
       ]
     },
     {
@@ -8217,10 +7978,10 @@
       "sourceHref": "/notes/thoughts/defensive-programming/",
       "tags": [
         "defensive-programming",
-        "frontend",
-        "backend",
         "error-handling",
-        "software-engineering"
+        "software-design",
+        "frontend",
+        "backend"
       ]
     },
     {
@@ -8233,10 +7994,10 @@
       "sourceHref": "/notes/thoughts/defensive-programming/",
       "tags": [
         "defensive-programming",
-        "frontend",
-        "backend",
         "error-handling",
-        "software-engineering"
+        "software-design",
+        "frontend",
+        "backend"
       ]
     },
     {
@@ -8249,10 +8010,10 @@
       "sourceHref": "/notes/thoughts/defensive-programming/",
       "tags": [
         "defensive-programming",
-        "frontend",
-        "backend",
         "error-handling",
-        "software-engineering"
+        "software-design",
+        "frontend",
+        "backend"
       ]
     },
     {
@@ -8267,9 +8028,8 @@
         "clean-code",
         "refactoring",
         "software-design",
-        "local-reasoning",
-        "dry",
-        "single-responsibility"
+        "single-responsibility",
+        "dry"
       ]
     },
     {
@@ -8284,9 +8044,8 @@
         "clean-code",
         "refactoring",
         "software-design",
-        "local-reasoning",
-        "dry",
-        "single-responsibility"
+        "single-responsibility",
+        "dry"
       ]
     },
     {
@@ -8301,9 +8060,8 @@
         "clean-code",
         "refactoring",
         "software-design",
-        "local-reasoning",
-        "dry",
-        "single-responsibility"
+        "single-responsibility",
+        "dry"
       ]
     },
     {
@@ -8318,9 +8076,8 @@
         "clean-code",
         "refactoring",
         "software-design",
-        "local-reasoning",
-        "dry",
-        "single-responsibility"
+        "single-responsibility",
+        "dry"
       ]
     },
     {
@@ -8335,9 +8092,8 @@
         "clean-code",
         "refactoring",
         "software-design",
-        "local-reasoning",
-        "dry",
-        "single-responsibility"
+        "single-responsibility",
+        "dry"
       ]
     },
     {
@@ -8352,9 +8108,8 @@
         "clean-code",
         "refactoring",
         "software-design",
-        "local-reasoning",
-        "dry",
-        "single-responsibility"
+        "single-responsibility",
+        "dry"
       ]
     },
     {
@@ -8369,9 +8124,8 @@
         "clean-code",
         "refactoring",
         "software-design",
-        "local-reasoning",
-        "dry",
-        "single-responsibility"
+        "single-responsibility",
+        "dry"
       ]
     },
     {
@@ -8383,7 +8137,7 @@
       "sourceTitle": "LangGraph",
       "sourceHref": "/notes/tools/langgraph/",
       "tags": [
-        "agent",
+        "agents",
         "langgraph",
         "orchestration",
         "multi-agent",
@@ -8399,7 +8153,7 @@
       "sourceTitle": "LangGraph",
       "sourceHref": "/notes/tools/langgraph/",
       "tags": [
-        "agent",
+        "agents",
         "langgraph",
         "orchestration",
         "multi-agent",
@@ -8415,7 +8169,7 @@
       "sourceTitle": "LangGraph",
       "sourceHref": "/notes/tools/langgraph/",
       "tags": [
-        "agent",
+        "agents",
         "langgraph",
         "orchestration",
         "multi-agent",
@@ -8431,7 +8185,7 @@
       "sourceTitle": "LangGraph",
       "sourceHref": "/notes/tools/langgraph/",
       "tags": [
-        "agent",
+        "agents",
         "langgraph",
         "orchestration",
         "multi-agent",
@@ -8447,7 +8201,7 @@
       "sourceTitle": "LangGraph",
       "sourceHref": "/notes/tools/langgraph/",
       "tags": [
-        "agent",
+        "agents",
         "langgraph",
         "orchestration",
         "multi-agent",
@@ -8456,13 +8210,10 @@
     }
   ],
   "tags": [
-    "agent",
     "agentic-rag",
     "agents",
     "aggregation",
     "ai",
-    "ai-agents",
-    "ai-architecture",
     "analytics",
     "anthropic",
     "API",
@@ -8472,7 +8223,6 @@
     "atomics",
     "attention",
     "authentication",
-    "auto-traits",
     "autoregressive",
     "backend",
     "benchmark",
@@ -8480,11 +8230,9 @@
     "c",
     "caching",
     "chip-8",
-    "chip8",
     "chunked",
     "clean-code",
     "cmake",
-    "coding",
     "cohesion",
     "concurrency",
     "condvar",
@@ -8515,7 +8263,6 @@
     "focus",
     "framework",
     "frontend",
-    "function-calling",
     "glossary",
     "Go",
     "graph-rag",
@@ -8523,7 +8270,6 @@
     "groupingsets",
     "hardware",
     "HTTP",
-    "index",
     "IndexedDB",
     "inference",
     "infrastructure",
@@ -8539,31 +8285,22 @@
     "leadgeneration",
     "learning-record",
     "lesson",
-    "lifetime",
-    "light-rag",
-    "linkage",
     "llm",
-    "local-reasoning",
     "locks",
     "logging",
     "long-context",
     "marketing",
     "mcp",
     "memory",
-    "memory-management",
-    "memory-model",
     "memory-ordering",
     "meros",
     "microservices",
-    "microsoft",
     "middleware",
     "mission",
     "moc",
-    "model-compression",
     "modularity",
     "monolith",
     "multi-agent",
-    "multi-agent-systems",
     "multipart",
     "mutex",
     "MySQL",
@@ -8578,13 +8315,11 @@
     "optimization",
     "Oracle",
     "orchestration",
-    "parallel-execution",
     "pattern-matching",
     "patterns",
     "performance",
     "PostgreSQL",
     "productivity",
-    "programming",
     "progressive",
     "progressiveloading",
     "protocol",
@@ -8600,38 +8335,29 @@
     "refactoring",
     "reference",
     "reference-counting",
-    "registers",
     "reliability",
     "reporting",
     "research",
-    "resilience",
     "resources",
     "resumable",
     "retrieval",
     "rollup",
     "router-pattern",
-    "routing",
     "rust",
     "rwlock",
     "saas",
     "scalability",
-    "scope",
-    "search-optimization",
-    "serial-execution",
     "single-responsibility",
     "slm",
     "smart-pointers",
     "software-design",
-    "software-engineering",
     "speculative-decoding",
     "SQL",
     "SQLServer",
     "statics",
     "stdio",
     "storage-classes",
-    "strategy",
     "streaming",
-    "synchronization",
     "teach/c17",
     "thread-safety",
     "threads",
@@ -8645,10 +8371,8 @@
     "type-system",
     "typescript",
     "TypeScript",
-    "velocity",
     "virtual-machine",
     "vllm",
-    "volatility",
     "webapi",
     "webdevelopment",
     "winston"

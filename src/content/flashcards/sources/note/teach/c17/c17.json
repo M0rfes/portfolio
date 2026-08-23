@@ -7,7 +7,7 @@
     "tags": [
       "teach/c17",
       "moc",
-      "chip8"
+      "chip-8"
     ]
   },
   "cards": [
@@ -35,6 +35,16 @@
       "id": "note:teach/c17/c17:4",
       "question": "What two instruction-dispatch styles does the track compare?",
       "answer": "Function-pointer jump tables versus switches."
+    },
+    {
+      "id": "note:teach/c17/c17:5",
+      "question": "How does the graphics lesson render CHIP-8 sprites?",
+      "answer": "DXYN sprite XOR rendering with SDL texture streaming."
+    },
+    {
+      "id": "note:teach/c17/c17:6",
+      "question": "What timer rate does the peripherals phase target?",
+      "answer": "60Hz timers, plus audio synthesis and CPU cycle regulation."
     }
   ]
 }

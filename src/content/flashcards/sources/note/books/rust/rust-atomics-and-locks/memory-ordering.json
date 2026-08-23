@@ -14,23 +14,18 @@
   "cards": [
     {
       "id": "note:books/rust/rust-atomics-and-locks/memory-ordering:0",
-      "question": "What does the Ordering parameter on atomic operations control?",
-      "answer": "It controls what guarantees we get about the relative ordering of operations."
+      "question": "What does an atomic Ordering parameter control?",
+      "answer": "It controls what guarantees we get about the relative ordering of operations. Every atomic operation takes a std::sync::atomic::Ordering."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/memory-ordering:1",
-      "question": "How can two threads observe the same assignments in different orders?",
-      "answer": "The CPU might perform operations out of order, for example grouping assignments even if the code is not written that way. T1 might see V1 V2 V3 assigned while T2 sees V2 V3 V1."
+      "question": "Why can two threads see different assignment orders?",
+      "answer": "The CPU may perform operations out of order, grouping assignments even if the source is written differently. T1 might see V1 V2 V3 while T2 sees V2 V3 V1."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/memory-ordering:2",
-      "question": "How does a Relaxed AtomicBool stop a background loop?",
-      "answer": "The background thread loads STOP with Relaxed and keeps working while it is false. After the user enters stop, the main thread stores true with Relaxed and joins the background thread."
-    },
-    {
-      "id": "note:books/rust/rust-atomics-and-locks/memory-ordering:3",
-      "question": "Why might entering stop not end the program immediately?",
-      "answer": "If some_work() is blocking or takes a while, the loop only rechecks STOP after that call finishes, so the last some_work keeps running."
+      "question": "Why might a Relaxed stop flag not stop immediately?",
+      "answer": "If some_work() is blocking or slow, setting STOP only ends the loop after that last call to some_work finishes."
     }
   ]
 }

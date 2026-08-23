@@ -5,15 +5,17 @@
     "title": "Interior Mutability",
     "href": "/notes/coding/concurrency/interior-mutability/",
     "tags": [
-      "memory",
-      "type-system"
+      "concurrency",
+      "interior-mutability",
+      "type-system",
+      "memory"
     ]
   },
   "cards": [
     {
       "id": "note:coding/concurrency/interior-mutability:0",
       "question": "What does interior mutability let you do?",
-      "answer": "Mutate a value via a shared or read reference."
+      "answer": "Mutate a value via a shared/read reference."
     },
     {
       "id": "note:coding/concurrency/interior-mutability:1",
@@ -22,12 +24,12 @@
     },
     {
       "id": "note:coding/concurrency/interior-mutability:2",
-      "question": "How do single-threaded cell types enable interior mutability?",
-      "answer": "By copying or replacing values behind a shared reference."
+      "question": "How do single-threaded cell types enable mutation behind a shared reference?",
+      "answer": "By copying or replacing values."
     },
     {
       "id": "note:coding/concurrency/interior-mutability:3",
-      "question": "How do borrow-checked cells or thread-safe locks enable interior mutability?",
+      "question": "How do borrow-checked cells and thread-safe locks enable interior mutability?",
       "answer": "By tracking borrows at runtime."
     }
   ]

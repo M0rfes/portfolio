@@ -6,8 +6,7 @@
     "href": "/notes/books/grokking-concurrency/serial-and-parallel-execution/",
     "tags": [
       "concurrency",
-      "parallel-execution",
-      "serial-execution"
+      "threads"
     ]
   },
   "cards": []

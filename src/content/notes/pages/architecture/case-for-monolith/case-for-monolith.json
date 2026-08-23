@@ -10,8 +10,7 @@
     "architecture",
     "monolith",
     "modularity",
-    "velocity",
-    "volatility"
+    "software-design"
   ],
   "summary": "A deep dive into why Modular Monoliths are often the best choice for maximizing development velocity and managing volatility without the \"distributed system tax.\"",
   "created": "2026-04-20",

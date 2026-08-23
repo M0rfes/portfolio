@@ -11,13 +11,8 @@
     "rust",
     "concurrency",
     "threads",
-    "statics",
-    "reference-counting",
-    "interior-mutability",
     "atomics",
-    "locks",
-    "mutex",
-    "rwlock"
+    "locks"
   ],
   "created": "2026-08-15",
   "updatedAt": "2026-08-15",

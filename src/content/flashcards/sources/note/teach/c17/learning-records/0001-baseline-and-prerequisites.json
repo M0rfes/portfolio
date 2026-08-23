@@ -9,5 +9,21 @@
       "learning-record"
     ]
   },
-  "cards": []
+  "cards": [
+    {
+      "id": "note:teach/c17/learning-records/0001-baseline-and-prerequisites:0",
+      "question": "Which C17 topics should lessons ground in for a Node.js/Rust/Go background?",
+      "answer": "Low-level memory mechanics, undefined behavior elimination, strict aliasing, cache locality, and POSIX systems interfaces."
+    },
+    {
+      "id": "note:teach/c17/learning-records/0001-baseline-and-prerequisites:1",
+      "question": "What high-level runtimes should C17 concepts be compared to?",
+      "answer": "Rust ownership and borrowing, and Node.js event loops / V8 memory management."
+    },
+    {
+      "id": "note:teach/c17/learning-records/0001-baseline-and-prerequisites:2",
+      "question": "What target environment is assumed for the C17 track?",
+      "answer": "macOS and Linux with Clang or GCC, and CMake."
+    }
+  ]
 }

@@ -13,23 +13,18 @@
   "cards": [
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-condition-variables:0",
-      "question": "When is a condition variable used?",
+      "question": "When is a Condvar used?",
       "answer": "To notify one or more threads of an event when the shared data is protected by a Mutex."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-condition-variables:1",
-      "question": "What does Condvar do with the MutexGuard on wait?",
-      "answer": "It takes the lock guard, unlocks the mutex, and puts the thread to sleep."
+      "question": "What does Condvar::wait do with the MutexGuard?",
+      "answer": "It takes the guard, unlocks the mutex, and sleeps. On notification it re-locks the mutex and returns the guard."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-condition-variables:2",
-      "question": "What happens when a waiting Condvar receives a notification?",
-      "answer": "It re-acquires the mutex lock and returns the guard."
-    },
-    {
-      "id": "note:books/rust/rust-atomics-and-locks/rust-condition-variables:3",
       "question": "What is the difference between notify_one and notify_all?",
-      "answer": "notify_one notifies a single thread. notify_all notifies all waiting threads."
+      "answer": "notify_one wakes a single waiting thread. notify_all wakes all waiting threads."
     }
   ]
 }

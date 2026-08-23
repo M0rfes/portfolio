@@ -23,13 +23,8 @@
     },
     {
       "id": "note:coding/concurrency/lock-poisoning:2",
-      "question": "Does a poisoned lock still put other threads to sleep?",
-      "answer": "Yes. It still behaves as it should by putting other threads to sleep, but signals that the protected state may be invalid."
-    },
-    {
-      "id": "note:coding/concurrency/lock-poisoning:3",
-      "question": "What does a poisoned lock signal about protected state?",
-      "answer": "That the protected state may be invalid."
+      "question": "Does a poisoned lock still block other threads?",
+      "answer": "Yes. It still puts other threads to sleep, but signals that the protected state may be invalid."
     }
   ]
 }

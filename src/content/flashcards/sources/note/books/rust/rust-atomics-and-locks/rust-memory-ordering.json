@@ -15,22 +15,17 @@
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-memory-ordering:0",
       "question": "What does an atomic Ordering parameter control?",
-      "answer": "The guarantees we get about the relative ordering of operations."
+      "answer": "It controls what guarantees we get about the relative ordering of operations. Every atomic operation takes a std::sync::atomic::Ordering."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-memory-ordering:1",
-      "question": "What can a CPU do to operations relative to source order?",
-      "answer": "It may perform them out of order, for example grouping assignments together even if they are not in that order in the code."
+      "question": "Why can two threads see different assignment orders?",
+      "answer": "The CPU may perform operations out of order, grouping assignments even if the source is written differently. T1 might see V1 V2 V3 while T2 sees V2 V3 V1."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-memory-ordering:2",
-      "question": "How can two threads observe the same assignments differently?",
-      "answer": "T1 might see V1 V2 V3 assigned, while T2 might see V2 V3 V1."
-    },
-    {
-      "id": "note:books/rust/rust-atomics-and-locks/rust-memory-ordering:3",
-      "question": "If some_work() is blocking, when does a Relaxed stop flag take effect?",
-      "answer": "Entering stop may not stop immediately. The program keeps running until the last call to some_work completes."
+      "question": "Why might a Relaxed stop flag not stop immediately?",
+      "answer": "If some_work() is blocking or slow, setting STOP only ends the loop after that last call to some_work finishes."
     }
   ]
 }

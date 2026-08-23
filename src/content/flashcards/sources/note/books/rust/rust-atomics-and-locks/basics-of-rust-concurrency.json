@@ -8,55 +8,50 @@
       "rust",
       "concurrency",
       "threads",
-      "statics",
-      "reference-counting",
-      "interior-mutability",
       "atomics",
-      "locks",
-      "mutex",
-      "rwlock"
+      "locks"
     ]
   },
   "cards": [
     {
       "id": "note:books/rust/rust-atomics-and-locks/basics-of-rust-concurrency:0",
-      "question": "What happens to spawned threads when the main thread terminates?",
-      "answer": "They are cleaned up whether they have finished executing or not."
+      "question": "What happens to spawned threads when main ends?",
+      "answer": "When the main thread is terminated, all threads forked or spawned from it are cleaned up, whether they have finished executing or not."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/basics-of-rust-concurrency:1",
-      "question": "Why can scoped threads borrow local variables?",
-      "answer": "Threads spawned in std::thread::scope finish and are joined before the scope exits, so the borrowed data outlives them."
+      "question": "What does JoinHandle::join return?",
+      "answer": "A std::thread::Result: Err if the thread panicked, or Ok<T> with the thread's return value. Unwrapping an Err panics the joining thread too."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/basics-of-rust-concurrency:2",
-      "question": "How does Arc differ from Rc?",
-      "answer": "Arc is atomically reference counted, so increment and decrement cannot race. Rc is not thread-safe and cannot be sent across threads."
+      "question": "Why can scoped threads borrow locals?",
+      "answer": "std::thread::scope joins every spawned thread before the scope exits, so borrowed data outlives those threads."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/basics-of-rust-concurrency:3",
-      "question": "What does interior mutability allow?",
-      "answer": "It lets you mutate a value through a shared, read-only reference."
+      "question": "Why is Rc not Send or Sync?",
+      "answer": "Its counter updates are not atomic. If two threads increment or decrement at once, the count becomes inconsistent."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/basics-of-rust-concurrency:4",
-      "question": "What is the difference between Send and Sync?",
-      "answer": "T is Send if ownership can be transferred to another thread. T is Sync if &T is Send."
+      "question": "What does Arc add over Rc?",
+      "answer": "Increment and decrement are atomic, so no two threads can mutate the count at the same time. That lets the pointer be shared and sent across threads."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/basics-of-rust-concurrency:5",
-      "question": "How does a Mutex handle conflicting access compared with RefCell?",
-      "answer": "RefCell panics on conflicting borrows. A Mutex puts the waiting thread to sleep and wakes it when the lock is dropped."
+      "question": "How does Mutex differ from RefCell on conflict?",
+      "answer": "RefCell panics on a conflicting borrow. Mutex or RwLock put the waiter to sleep and wake it when the lock is dropped."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/basics-of-rust-concurrency:6",
-      "question": "When is an RwLock preferable to a Mutex?",
-      "answer": "A Mutex always takes exclusive access. An RwLock allows one exclusive write or multiple shared reads, which is better for data that is read more often than written."
+      "question": "What is the difference between Send and Sync?",
+      "answer": "T is Send if ownership can move to another thread. T is Sync if &T is Send. Arc is Send; Rc is not. i32 is Sync; Cell<i32> is not."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/basics-of-rust-concurrency:7",
-      "question": "What does Condvar::wait do with a MutexGuard?",
-      "answer": "It unlocks the mutex and puts the thread to sleep. When notified, it re-locks the mutex and returns the guard."
+      "question": "What does Condvar::wait do with the MutexGuard?",
+      "answer": "It unlocks the mutex and sleeps. When notified, it re-locks the mutex and returns the guard. Use notify_one or notify_all to wake waiters."
     }
   ]
 }

@@ -6,13 +6,13 @@
     "href": "/notes/coding/concurrency/condition-variables/",
     "tags": [
       "concurrency",
-      "synchronization"
+      "condvar"
     ]
   },
   "cards": [
     {
       "id": "note:coding/concurrency/condition-variables:0",
-      "question": "What is a condition variable used for?",
+      "question": "When is a condition variable used?",
       "answer": "To notify one or more threads of an event when the shared data is protected by a mutex."
     },
     {
@@ -22,8 +22,8 @@
     },
     {
       "id": "note:coding/concurrency/condition-variables:2",
-      "question": "What happens when a condition-variable notification is received?",
-      "answer": "The waiter re-acquires the mutex lock and returns the guard."
+      "question": "What happens when a waiting thread receives a notification?",
+      "answer": "It re-acquires the mutex lock and returns the guard."
     }
   ]
 }

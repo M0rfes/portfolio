@@ -12,22 +12,22 @@
   "cards": [
     {
       "id": "note:coding/concurrency/scoped-threads:0",
-      "question": "What are scoped threads used for?",
-      "answer": "To spawn threads that finish execution before the scope is exited."
+      "question": "What do scoped threads guarantee about their lifetime?",
+      "answer": "They finish execution before the scope is exited."
     },
     {
       "id": "note:coding/concurrency/scoped-threads:1",
       "question": "Why can scoped threads borrow local variables?",
-      "answer": "Because they finish before the scope exits, so the data outlives their scope."
+      "answer": "Because the data outlives their scope."
     },
     {
       "id": "note:coding/concurrency/scoped-threads:2",
       "question": "What happens to threads spawned in a scope before the scope exits?",
-      "answer": "All of them are joined before the scope exits."
+      "answer": "They are all joined before the scope exits."
     },
     {
       "id": "note:coding/concurrency/scoped-threads:3",
-      "question": "What references can scoped threads share?",
+      "question": "How many mutable references can scoped threads share?",
       "answer": "Multiple read references can be shared across threads, but only one mutable reference is allowed at a time."
     }
   ]

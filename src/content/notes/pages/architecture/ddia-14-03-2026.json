@@ -7,7 +7,6 @@
   "title": "Metastable Failures",
   "tags": [
     "distributed-systems",
-    "resilience",
     "reliability",
     "ddia"
   ],

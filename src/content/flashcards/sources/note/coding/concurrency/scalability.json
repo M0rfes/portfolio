@@ -14,7 +14,7 @@
     {
       "id": "note:coding/concurrency/scalability:0",
       "question": "How can concurrency help achieve scalability?",
-      "answer": "By allowing the system to scale out (horizontally) rather than scale up (vertically)."
+      "answer": "By allowing scale out (horizontally) rather than scale up (vertically)."
     },
     {
       "id": "note:coding/concurrency/scalability:1",
@@ -29,7 +29,7 @@
     {
       "id": "note:coding/concurrency/scalability:3",
       "question": "Why does decoupling help when only one service needs to scale?",
-      "answer": "In a decoupled system that service can be scaled on its own, rather than scaling everything on a tightly coupled system."
+      "answer": "That service can be scaled easily in a decoupled system, rather than scaling everything in a tightly coupled system."
     }
   ]
 }

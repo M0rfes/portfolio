@@ -12,12 +12,12 @@
   "cards": [
     {
       "id": "note:coding/concurrency/reader-writer-lock:0",
-      "question": "How does an RwLock differ from a mutex?",
-      "answer": "A mutex only lets you take exclusive access even when a shared reference would have been enough. An RwLock lets you have one exclusive mutable reference or multiple shared read references."
+      "question": "How does a mutex differ from an RwLock on shared access?",
+      "answer": "A mutex only lets you take exclusive access even when a shared reference would have been enough."
     },
     {
       "id": "note:coding/concurrency/reader-writer-lock:1",
-      "question": "What access combinations does an RwLock allow?",
+      "question": "What access patterns does an RwLock allow?",
       "answer": "One exclusive mutable reference, or multiple shared read references."
     },
     {

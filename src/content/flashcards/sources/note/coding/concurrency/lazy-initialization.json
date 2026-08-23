@@ -6,7 +6,7 @@
     "href": "/notes/coding/concurrency/lazy-initialization/",
     "tags": [
       "concurrency",
-      "patterns"
+      "lazy-initialization"
     ]
   },
   "cards": [
@@ -17,13 +17,13 @@
     },
     {
       "id": "note:coding/concurrency/lazy-initialization:1",
-      "question": "When is a lazily initialized resource calculated?",
-      "answer": "Only when first requested."
+      "question": "Why must concurrent lazy initialization be synchronized?",
+      "answer": "To prevent race conditions where multiple threads attempt initialization simultaneously."
     },
     {
       "id": "note:coding/concurrency/lazy-initialization:2",
-      "question": "Why must concurrent lazy initialization be synchronized?",
-      "answer": "To prevent race conditions where multiple threads attempt initialization simultaneously."
+      "question": "What race can occur if concurrent lazy init is not synchronized?",
+      "answer": "Multiple threads may attempt initialization at the same time."
     }
   ]
 }

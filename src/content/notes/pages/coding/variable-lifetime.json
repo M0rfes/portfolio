@@ -6,9 +6,9 @@
   "href": "/notes/coding/variable-lifetime/",
   "title": "Variable Lifetime",
   "tags": [
-    "programming",
+    "c",
     "memory",
-    "lifetime"
+    "storage-classes"
   ],
   "created": "2026-08-23",
   "updatedAt": "2026-08-23",

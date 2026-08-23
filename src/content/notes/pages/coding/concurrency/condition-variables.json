@@ -8,7 +8,7 @@
   "title": "Condition Variables",
   "tags": [
     "concurrency",
-    "synchronization"
+    "condvar"
   ],
   "created": "2026-08-18",
   "updatedAt": "2026-08-18",

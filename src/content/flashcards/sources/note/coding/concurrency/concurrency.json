@@ -17,18 +17,18 @@
     },
     {
       "id": "note:coding/concurrency/concurrency:1",
-      "question": "Why is concurrency described as the only way to improve performance with limited resources?",
-      "answer": "The note states it is the only way to improve performance when resources are limited."
+      "question": "Why is concurrency the only way to improve performance with limited resources?",
+      "answer": "With limited resources, concurrency is the only way to improve performance."
     },
     {
       "id": "note:coding/concurrency/concurrency:2",
       "question": "Where is concurrency widely used?",
-      "answer": "Modern computing systems, operating systems, and large distributed clusters."
+      "answer": "In modern computing systems, operating systems, and large distributed clusters."
     },
     {
       "id": "note:coding/concurrency/concurrency:3",
-      "question": "What three things does concurrency help with?",
-      "answer": "Modeling the real world, maximising system efficiency from users' and developers' perspectives, and solving large, complex problems."
+      "question": "What does concurrency help developers do?",
+      "answer": "It helps model the real world, maximises system efficiency, and enables solving large, complex problems."
     }
   ]
 }

@@ -9,7 +9,7 @@
   "tags": [
     "concurrency",
     "atomics",
-    "memory-model"
+    "memory-ordering"
   ],
   "created": "2026-08-18",
   "updatedAt": "2026-08-18",

@@ -12,8 +12,7 @@
     "concurrency",
     "atomics",
     "memory-ordering",
-    "lazy-initialization",
-    "race-condition"
+    "lazy-initialization"
   ],
   "created": "2026-08-18",
   "updatedAt": "2026-08-18",

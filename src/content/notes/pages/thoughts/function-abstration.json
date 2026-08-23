@@ -9,9 +9,8 @@
     "clean-code",
     "refactoring",
     "software-design",
-    "local-reasoning",
-    "dry",
-    "single-responsibility"
+    "single-responsibility",
+    "dry"
   ],
   "summary": "The real reason to extract functions is to maintain local reasoning, not just DRY reuse, preventing monolithic function bloat and multiple reasons to change.",
   "created": "2026-08-22",

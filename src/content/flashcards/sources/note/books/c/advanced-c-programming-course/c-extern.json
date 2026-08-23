@@ -13,33 +13,28 @@
   "cards": [
     {
       "id": "note:books/c/advanced-c-programming-course/c-extern:0",
-      "question": "What does visibility, or linkage, specify?",
-      "answer": "Whether the variable is visible to other files in a multi-file program."
+      "question": "What does visibility or linkage specify?",
+      "answer": "Whether a variable is visible to other files in a multi-file program."
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-extern:1",
-      "question": "What do extern modifiers control?",
-      "answer": "The visibility of a global variable in a multi-file project."
+      "question": "What does extern control, and what defaults to extern?",
+      "answer": "Extern controls the visibility of a global variable in a multi-file project. Functions default to extern."
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-extern:2",
-      "question": "What is the default linkage of functions?",
-      "answer": "Extern. `extern int add(int a, int b);` and `int add(int a, int b);` are effectively the same."
+      "question": "Can extern be used inside a function scope?",
+      "answer": "Yes. Using extern within a scope declares that you are using a global variable defined in another file."
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-extern:3",
-      "question": "How can another file access a global defined in `main.c`?",
-      "answer": "Declare it with `extern` in that file, such as `extern int i;` in `foo.c`."
+      "question": "When declaring an extern array, which sizes must you specify?",
+      "answer": "A one-dimensional array does not need its size because the compiler already knows it. A multidimensional array must specify the nested sizes."
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-extern:4",
-      "question": "Can `extern` be used inside a function?",
-      "answer": "Yes. Inside a scope it means you are using a global variable defined in another file."
-    },
-    {
-      "id": "note:books/c/advanced-c-programming-course/c-extern:5",
-      "question": "What array sizes must an `extern` declaration include?",
-      "answer": "A one-dimensional array does not need its size. A multidimensional array must specify the nested sizes."
+      "question": "Why is `extern int add(int a, int b);` the same as `int add(int a, int b);`?",
+      "answer": "Functions default to extern, so the two declarations are effectively the same."
     }
   ]
 }

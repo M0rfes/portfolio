@@ -7,10 +7,10 @@
   "title": "Defensive Programming",
   "tags": [
     "defensive-programming",
-    "frontend",
-    "backend",
     "error-handling",
-    "software-engineering"
+    "software-design",
+    "frontend",
+    "backend"
   ],
   "summary": "Perspectives on when to apply defensive programming at input boundaries versus avoiding excessive defensive checks against internal backend services and broken invariants.",
   "created": "2026-08-18",

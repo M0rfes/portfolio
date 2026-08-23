@@ -8,8 +8,7 @@
   "tags": [
     "llm",
     "quantization",
-    "optimization",
-    "model-compression"
+    "optimization"
   ],
   "summary": "Techniques for reducing the precision of model weights to decrease memory usage and speed up inference.",
   "created": "2026-03-30",

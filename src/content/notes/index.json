@@ -67,9 +67,9 @@
       "href": "/notes/coding/automatic-storage-duration/",
       "title": "Automatic Storage Duration",
       "tags": [
-        "programming",
+        "c",
         "memory",
-        "lifetime"
+        "storage-classes"
       ],
       "created": "2026-08-23",
       "updatedAt": "2026-08-23",
@@ -250,9 +250,9 @@
       "href": "/notes/coding/register-storage/",
       "title": "Register Storage",
       "tags": [
-        "programming",
+        "c",
         "memory",
-        "registers"
+        "storage-classes"
       ],
       "created": "2026-08-23",
       "updatedAt": "2026-08-23",
@@ -300,7 +300,6 @@
       "title": "Storage Classes in C",
       "tags": [
         "c",
-        "programming",
         "memory",
         "storage-classes",
         "moc"
@@ -329,9 +328,9 @@
       "href": "/notes/coding/variable-lifetime/",
       "title": "Variable Lifetime",
       "tags": [
-        "programming",
+        "c",
         "memory",
-        "lifetime"
+        "storage-classes"
       ],
       "created": "2026-08-23",
       "updatedAt": "2026-08-23",
@@ -376,9 +375,9 @@
       "href": "/notes/coding/variable-linkage/",
       "title": "Variable Linkage",
       "tags": [
-        "programming",
+        "c",
         "memory",
-        "linkage"
+        "storage-classes"
       ],
       "created": "2026-08-23",
       "updatedAt": "2026-08-23",
@@ -433,9 +432,9 @@
       "href": "/notes/coding/variable-scope/",
       "title": "Variable Scope",
       "tags": [
-        "programming",
+        "c",
         "memory",
-        "scope"
+        "storage-classes"
       ],
       "created": "2026-08-23",
       "updatedAt": "2026-08-23",
@@ -551,7 +550,7 @@
       "tags": [
         "teach/c17",
         "moc",
-        "chip8"
+        "chip-8"
       ],
       "created": "2026-08-22",
       "updatedAt": "2026-08-22",
@@ -733,7 +732,7 @@
       "tags": [
         "teach/c17",
         "notes",
-        "chip8"
+        "chip-8"
       ],
       "created": "2026-08-22",
       "updatedAt": "2026-08-22",
@@ -781,9 +780,8 @@
         "clean-code",
         "refactoring",
         "software-design",
-        "local-reasoning",
-        "dry",
-        "single-responsibility"
+        "single-responsibility",
+        "dry"
       ],
       "summary": "The real reason to extract functions is to maintain local reasoning, not just DRY reuse, preventing monolithic function bloat and multiple reasons to change.",
       "created": "2026-08-22",
@@ -806,7 +804,7 @@
         "lesson",
         "cmake",
         "toolchain",
-        "chip8"
+        "chip-8"
       ],
       "created": "2026-08-22",
       "updatedAt": "2026-08-22",
@@ -866,7 +864,7 @@
         "lesson",
         "file-io",
         "memory",
-        "chip8"
+        "chip-8"
       ],
       "created": "2026-08-22",
       "updatedAt": "2026-08-22",
@@ -953,7 +951,7 @@
       "tags": [
         "teach/c17",
         "learning-record",
-        "chip8"
+        "chip-8"
       ],
       "created": "2026-08-22",
       "updatedAt": "2026-08-22",
@@ -1040,7 +1038,6 @@
       "title": "Metastable Failures",
       "tags": [
         "distributed-systems",
-        "resilience",
         "reliability",
         "ddia"
       ],
@@ -1062,7 +1059,7 @@
       "tags": [
         "teach/c17",
         "mission",
-        "chip8"
+        "chip-8"
       ],
       "created": "2026-08-22",
       "updatedAt": "2026-08-22",
@@ -1231,7 +1228,7 @@
       "title": "TypeScript Satisfies",
       "tags": [
         "typescript",
-        "coding",
+        "type-system",
         "pattern-matching"
       ],
       "summary": "Demonstration of using the TypeScript 'satisfies' operator with switch statements to achieve exhaustive pattern matching.",
@@ -1374,8 +1371,7 @@
       "title": "Serial and Parallel Execution",
       "tags": [
         "concurrency",
-        "parallel-execution",
-        "serial-execution"
+        "threads"
       ],
       "created": "2026-08-21",
       "updatedAt": "2026-08-21",
@@ -1534,8 +1530,7 @@
         "concurrency",
         "atomics",
         "memory-ordering",
-        "lazy-initialization",
-        "race-condition"
+        "lazy-initialization"
       ],
       "created": "2026-08-18",
       "updatedAt": "2026-08-18",
@@ -1584,7 +1579,7 @@
       "title": "Condition Variables",
       "tags": [
         "concurrency",
-        "synchronization"
+        "condvar"
       ],
       "created": "2026-08-18",
       "updatedAt": "2026-08-18",
@@ -1622,10 +1617,10 @@
       "title": "Defensive Programming",
       "tags": [
         "defensive-programming",
-        "frontend",
-        "backend",
         "error-handling",
-        "software-engineering"
+        "software-design",
+        "frontend",
+        "backend"
       ],
       "summary": "Perspectives on when to apply defensive programming at input boundaries versus avoiding excessive defensive checks against internal backend services and broken invariants.",
       "created": "2026-08-18",
@@ -1643,8 +1638,10 @@
       "href": "/notes/coding/concurrency/interior-mutability/",
       "title": "Interior Mutability",
       "tags": [
-        "memory",
-        "type-system"
+        "concurrency",
+        "interior-mutability",
+        "type-system",
+        "memory"
       ],
       "created": "2026-08-18",
       "updatedAt": "2026-08-18",
@@ -1725,7 +1722,7 @@
       "title": "Lazy Initialization",
       "tags": [
         "concurrency",
-        "patterns"
+        "lazy-initialization"
       ],
       "created": "2026-08-18",
       "updatedAt": "2026-08-18",
@@ -1899,7 +1896,7 @@
       "tags": [
         "concurrency",
         "atomics",
-        "memory-model"
+        "memory-ordering"
       ],
       "created": "2026-08-18",
       "updatedAt": "2026-08-18",
@@ -2070,7 +2067,8 @@
       "href": "/notes/coding/concurrency/race-conditions/",
       "title": "Race Conditions",
       "tags": [
-        "concurrency"
+        "concurrency",
+        "race-condition"
       ],
       "created": "2026-08-18",
       "updatedAt": "2026-08-18",
@@ -2117,8 +2115,10 @@
       "href": "/notes/coding/concurrency/reference-counting/",
       "title": "Reference Counting",
       "tags": [
-        "memory-management",
-        "smart-pointers"
+        "concurrency",
+        "smart-pointers",
+        "reference-counting",
+        "memory"
       ],
       "created": "2026-08-18",
       "updatedAt": "2026-08-18",
@@ -2558,8 +2558,7 @@
       "tags": [
         "rust",
         "concurrency",
-        "thread-safety",
-        "auto-traits"
+        "thread-safety"
       ],
       "created": "2026-08-18",
       "updatedAt": "2026-08-18",
@@ -2638,7 +2637,8 @@
       "title": "Static Lifetime",
       "tags": [
         "concurrency",
-        "memory"
+        "memory",
+        "statics"
       ],
       "created": "2026-08-18",
       "updatedAt": "2026-08-18",
@@ -3104,13 +3104,8 @@
         "rust",
         "concurrency",
         "threads",
-        "statics",
-        "reference-counting",
-        "interior-mutability",
         "atomics",
-        "locks",
-        "mutex",
-        "rwlock"
+        "locks"
       ],
       "created": "2026-08-15",
       "updatedAt": "2026-08-15",
@@ -3155,7 +3150,6 @@
       "tags": [
         "slm",
         "llm",
-        "ai",
         "edge-computing",
         "data-privacy",
         "fine-tuning"
@@ -3213,7 +3207,7 @@
       "href": "/notes/tools/langgraph/",
       "title": "LangGraph",
       "tags": [
-        "agent",
+        "agents",
         "langgraph",
         "orchestration",
         "multi-agent",
@@ -3260,10 +3254,9 @@
       "title": "Router Pattern",
       "tags": [
         "llm",
-        "agent",
-        "router-pattern",
-        "routing",
-        "rag"
+        "agents",
+        "rag",
+        "router-pattern"
       ],
       "summary": "An architectural pattern where an LLM or classifier acts as a dispatcher to direct incoming queries to specialized tools, indexes, or prompt pathways.",
       "created": "2026-07-31",
@@ -3458,7 +3451,7 @@
       "title": "LLMs",
       "tags": [
         "llm",
-        "index",
+        "moc",
         "research",
         "ai"
       ],
@@ -3614,11 +3607,9 @@
       "href": "/notes/agents/tool-calling/",
       "title": "Tool Calling",
       "tags": [
-        "ai",
         "agents",
         "llm",
         "tool-calling",
-        "function-calling",
         "niah"
       ],
       "summary": "Tool calling enables LLMs to run code and perform tasks beyond text generation, introducing a 4-message architecture and requiring careful context and tool design for long-horizon agentic tasks.",
@@ -3665,8 +3656,7 @@
         "architecture",
         "monolith",
         "modularity",
-        "velocity",
-        "volatility"
+        "software-design"
       ],
       "summary": "A deep dive into why Modular Monoliths are often the best choice for maximizing development velocity and managing volatility without the \"distributed system tax.\"",
       "created": "2026-04-20",
@@ -3695,7 +3685,7 @@
         "architecture",
         "microservices",
         "ddd",
-        "strategy"
+        "refactoring"
       ],
       "summary": "A comprehensive guide on decomposing systems into microservices using DDD, volatility, data compliance, technology runtimes, and organizational structure.",
       "created": "2026-04-19",
@@ -3812,7 +3802,7 @@
       "href": "/notes/agents/communication/",
       "title": "Agent Communication",
       "tags": [
-        "multi-agent-systems",
+        "multi-agent",
         "architecture",
         "orchestration"
       ],
@@ -3903,7 +3893,7 @@
         "rag",
         "re-ranking",
         "research",
-        "search-optimization"
+        "retrieval"
       ],
       "summary": "A two-stage retrieval process where initial candidates from a broad search are filtered by a specialized ranking engine to improve precision.",
       "created": "2026-03-29",
@@ -3938,7 +3928,7 @@
       "title": "Agentic RAG",
       "tags": [
         "rag",
-        "ai-agents",
+        "agents",
         "research",
         "agentic-rag"
       ],
@@ -4067,10 +4057,9 @@
       "href": "/notes/llms/lightrag/",
       "title": "LightRAG",
       "tags": [
+        "rag",
         "graph-rag",
-        "light-rag",
-        "research",
-        "rag"
+        "research"
       ],
       "summary": "A specialized implementation of GraphRAG designed for efficiency and streamlined retrieval.",
       "created": "2026-03-29",
@@ -4141,10 +4130,9 @@
       "href": "/notes/llms/microsoft-graphrag/",
       "title": "Microsoft GraphRAG",
       "tags": [
-        "microsoft",
+        "rag",
         "graph-rag",
-        "research",
-        "rag"
+        "research"
       ],
       "summary": "Microsoft's framework for building knowledge graph-enhanced retrieval-augmented generation systems.",
       "created": "2026-03-29",
@@ -4210,8 +4198,7 @@
       "tags": [
         "llm",
         "quantization",
-        "optimization",
-        "model-compression"
+        "optimization"
       ],
       "summary": "Techniques for reducing the precision of model weights to decrease memory usage and speed up inference.",
       "created": "2026-03-30",
@@ -4230,7 +4217,7 @@
       "tags": [
         "rag",
         "research",
-        "ai-architecture"
+        "architecture"
       ],
       "summary": "Overview of RAG modalities and strategies for augmenting LLM queries with external, up-to-date, or private data.",
       "created": "2026-03-29",
@@ -4519,9 +4506,9 @@
         "title": "Automatic Storage Duration",
         "href": "/notes/coding/automatic-storage-duration/",
         "tags": [
-          "programming",
+          "c",
           "memory",
-          "lifetime"
+          "storage-classes"
         ],
         "color": "#89b4fa"
       },
@@ -4587,9 +4574,9 @@
         "title": "Register Storage",
         "href": "/notes/coding/register-storage/",
         "tags": [
-          "programming",
+          "c",
           "memory",
-          "registers"
+          "storage-classes"
         ],
         "color": "#89b4fa"
       },
@@ -4599,7 +4586,6 @@
         "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
         "tags": [
           "c",
-          "programming",
           "memory",
           "storage-classes",
           "moc"
@@ -4611,9 +4597,9 @@
         "title": "Variable Lifetime",
         "href": "/notes/coding/variable-lifetime/",
         "tags": [
-          "programming",
+          "c",
           "memory",
-          "lifetime"
+          "storage-classes"
         ],
         "color": "#89b4fa"
       },
@@ -4622,9 +4608,9 @@
         "title": "Variable Linkage",
         "href": "/notes/coding/variable-linkage/",
         "tags": [
-          "programming",
+          "c",
           "memory",
-          "linkage"
+          "storage-classes"
         ],
         "color": "#89b4fa"
       },
@@ -4633,9 +4619,9 @@
         "title": "Variable Scope",
         "href": "/notes/coding/variable-scope/",
         "tags": [
-          "programming",
+          "c",
           "memory",
-          "scope"
+          "storage-classes"
         ],
         "color": "#89b4fa"
       },
@@ -4656,7 +4642,7 @@
         "tags": [
           "teach/c17",
           "moc",
-          "chip8"
+          "chip-8"
         ],
         "color": "#89b4fa"
       },
@@ -4677,7 +4663,7 @@
         "tags": [
           "teach/c17",
           "notes",
-          "chip8"
+          "chip-8"
         ],
         "color": "#89b4fa"
       },
@@ -4700,9 +4686,8 @@
           "clean-code",
           "refactoring",
           "software-design",
-          "local-reasoning",
-          "dry",
-          "single-responsibility"
+          "single-responsibility",
+          "dry"
         ],
         "color": "#89b4fa"
       },
@@ -4715,7 +4700,7 @@
           "lesson",
           "cmake",
           "toolchain",
-          "chip8"
+          "chip-8"
         ],
         "color": "#89b4fa"
       },
@@ -4728,7 +4713,7 @@
           "lesson",
           "file-io",
           "memory",
-          "chip8"
+          "chip-8"
         ],
         "color": "#89b4fa"
       },
@@ -4749,7 +4734,7 @@
         "tags": [
           "teach/c17",
           "learning-record",
-          "chip8"
+          "chip-8"
         ],
         "color": "#89b4fa"
       },
@@ -4781,7 +4766,6 @@
         "href": "/notes/architecture/ddia-14-03-2026/",
         "tags": [
           "distributed-systems",
-          "resilience",
           "reliability",
           "ddia"
         ],
@@ -4794,7 +4778,7 @@
         "tags": [
           "teach/c17",
           "mission",
-          "chip8"
+          "chip-8"
         ],
         "color": "#89b4fa"
       },
@@ -4828,7 +4812,7 @@
         "href": "/notes/coding/satisfies-15-02-2026/",
         "tags": [
           "typescript",
-          "coding",
+          "type-system",
           "pattern-matching"
         ],
         "color": "#89b4fa"
@@ -4873,8 +4857,7 @@
         "href": "/notes/books/grokking-concurrency/serial-and-parallel-execution/",
         "tags": [
           "concurrency",
-          "parallel-execution",
-          "serial-execution"
+          "threads"
         ],
         "color": "#e98686"
       },
@@ -4908,8 +4891,7 @@
           "concurrency",
           "atomics",
           "memory-ordering",
-          "lazy-initialization",
-          "race-condition"
+          "lazy-initialization"
         ],
         "color": "#ce422b"
       },
@@ -4930,7 +4912,7 @@
         "href": "/notes/coding/concurrency/condition-variables/",
         "tags": [
           "concurrency",
-          "synchronization"
+          "condvar"
         ],
         "color": "#e98686"
       },
@@ -4940,10 +4922,10 @@
         "href": "/notes/thoughts/defensive-programming/",
         "tags": [
           "defensive-programming",
-          "frontend",
-          "backend",
           "error-handling",
-          "software-engineering"
+          "software-design",
+          "frontend",
+          "backend"
         ],
         "color": "#89b4fa"
       },
@@ -4952,10 +4934,12 @@
         "title": "Interior Mutability",
         "href": "/notes/coding/concurrency/interior-mutability/",
         "tags": [
-          "memory",
-          "type-system"
+          "concurrency",
+          "interior-mutability",
+          "type-system",
+          "memory"
         ],
-        "color": "#89b4fa"
+        "color": "#e98686"
       },
       {
         "id": "books/rust/rust-atomics-and-locks/rust-lazy-initialization",
@@ -4975,7 +4959,7 @@
         "href": "/notes/coding/concurrency/lazy-initialization/",
         "tags": [
           "concurrency",
-          "patterns"
+          "lazy-initialization"
         ],
         "color": "#e98686"
       },
@@ -5032,7 +5016,7 @@
         "tags": [
           "concurrency",
           "atomics",
-          "memory-model"
+          "memory-ordering"
         ],
         "color": "#e98686"
       },
@@ -5051,7 +5035,8 @@
         "title": "Race Conditions",
         "href": "/notes/coding/concurrency/race-conditions/",
         "tags": [
-          "concurrency"
+          "concurrency",
+          "race-condition"
         ],
         "color": "#e98686"
       },
@@ -5060,10 +5045,12 @@
         "title": "Reference Counting",
         "href": "/notes/coding/concurrency/reference-counting/",
         "tags": [
-          "memory-management",
-          "smart-pointers"
+          "concurrency",
+          "smart-pointers",
+          "reference-counting",
+          "memory"
         ],
-        "color": "#89b4fa"
+        "color": "#e98686"
       },
       {
         "id": "books/rust/rust-atomics-and-locks/rust-arc",
@@ -5195,8 +5182,7 @@
         "tags": [
           "rust",
           "concurrency",
-          "thread-safety",
-          "auto-traits"
+          "thread-safety"
         ],
         "color": "#ce422b"
       },
@@ -5217,7 +5203,8 @@
         "href": "/notes/coding/concurrency/static-lifetime/",
         "tags": [
           "concurrency",
-          "memory"
+          "memory",
+          "statics"
         ],
         "color": "#e98686"
       },
@@ -5270,13 +5257,8 @@
           "rust",
           "concurrency",
           "threads",
-          "statics",
-          "reference-counting",
-          "interior-mutability",
           "atomics",
-          "locks",
-          "mutex",
-          "rwlock"
+          "locks"
         ],
         "color": "#ce422b"
       },
@@ -5287,7 +5269,6 @@
         "tags": [
           "slm",
           "llm",
-          "ai",
           "edge-computing",
           "data-privacy",
           "fine-tuning"
@@ -5312,13 +5293,13 @@
         "title": "LangGraph",
         "href": "/notes/tools/langgraph/",
         "tags": [
-          "agent",
+          "agents",
           "langgraph",
           "orchestration",
           "multi-agent",
           "framework"
         ],
-        "color": "#b152e0"
+        "color": "#52e0b1"
       },
       {
         "id": "llms/router-pattern",
@@ -5326,10 +5307,9 @@
         "href": "/notes/llms/router-pattern/",
         "tags": [
           "llm",
-          "agent",
-          "router-pattern",
-          "routing",
-          "rag"
+          "agents",
+          "rag",
+          "router-pattern"
         ],
         "color": "#e0dc52"
       },
@@ -5391,7 +5371,7 @@
         "href": "/notes/llms/llm/",
         "tags": [
           "llm",
-          "index",
+          "moc",
           "research",
           "ai"
         ],
@@ -5402,11 +5382,9 @@
         "title": "Tool Calling",
         "href": "/notes/agents/tool-calling/",
         "tags": [
-          "ai",
           "agents",
           "llm",
           "tool-calling",
-          "function-calling",
           "niah"
         ],
         "color": "#e0dc52"
@@ -5419,8 +5397,7 @@
           "architecture",
           "monolith",
           "modularity",
-          "velocity",
-          "volatility"
+          "software-design"
         ],
         "color": "#b1e052"
       },
@@ -5432,7 +5409,7 @@
           "architecture",
           "microservices",
           "ddd",
-          "strategy"
+          "refactoring"
         ],
         "color": "#b1e052"
       },
@@ -5463,7 +5440,7 @@
         "title": "Agent Communication",
         "href": "/notes/agents/communication/",
         "tags": [
-          "multi-agent-systems",
+          "multi-agent",
           "architecture",
           "orchestration"
         ],
@@ -5488,7 +5465,7 @@
           "rag",
           "re-ranking",
           "research",
-          "search-optimization"
+          "retrieval"
         ],
         "color": "#52b1e0"
       },
@@ -5498,11 +5475,11 @@
         "href": "/notes/llms/agentic-rag/",
         "tags": [
           "rag",
-          "ai-agents",
+          "agents",
           "research",
           "agentic-rag"
         ],
-        "color": "#52b1e0"
+        "color": "#52e0b1"
       },
       {
         "id": "llms/knowledge-graphs",
@@ -5521,10 +5498,9 @@
         "title": "LightRAG",
         "href": "/notes/llms/lightrag/",
         "tags": [
+          "rag",
           "graph-rag",
-          "light-rag",
-          "research",
-          "rag"
+          "research"
         ],
         "color": "#52b1e0"
       },
@@ -5545,10 +5521,9 @@
         "title": "Microsoft GraphRAG",
         "href": "/notes/llms/microsoft-graphrag/",
         "tags": [
-          "microsoft",
+          "rag",
           "graph-rag",
-          "research",
-          "rag"
+          "research"
         ],
         "color": "#52b1e0"
       },
@@ -5572,8 +5547,7 @@
         "tags": [
           "llm",
           "quantization",
-          "optimization",
-          "model-compression"
+          "optimization"
         ],
         "color": "#e0dc52"
       },
@@ -5584,9 +5558,9 @@
         "tags": [
           "rag",
           "research",
-          "ai-architecture"
+          "architecture"
         ],
-        "color": "#52b1e0"
+        "color": "#b1e052"
       },
       {
         "id": "llms/token-caching",

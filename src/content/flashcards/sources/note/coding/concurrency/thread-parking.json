@@ -12,8 +12,8 @@
   "cards": [
     {
       "id": "note:coding/concurrency/thread-parking:0",
-      "question": "What does thread parking do?",
-      "answer": "It lets a thread park itself so it no longer consumes CPU cycles while waiting for other threads to wake it."
+      "question": "What does parking a thread do?",
+      "answer": "The thread parks itself so it no longer consumes CPU cycles while waiting for other threads to wake it."
     },
     {
       "id": "note:coding/concurrency/thread-parking:1",
@@ -22,13 +22,13 @@
     },
     {
       "id": "note:coding/concurrency/thread-parking:2",
-      "question": "What happens if `unpark` is called before the thread is parked?",
-      "answer": "The wake-up token is saved, and the next `park` returns immediately without sleeping."
+      "question": "What happens if `unpark` is called before `park`?",
+      "answer": "The wake-up token is saved and the next `park` returns immediately without sleeping."
     },
     {
       "id": "note:coding/concurrency/thread-parking:3",
       "question": "What happens if `unpark` is called multiple times?",
-      "answer": "Only the first `park` is skipped."
+      "answer": "It only skips the first `park`."
     }
   ]
 }

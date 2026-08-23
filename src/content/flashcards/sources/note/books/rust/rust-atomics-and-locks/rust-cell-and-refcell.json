@@ -12,38 +12,33 @@
   "cards": [
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-cell-and-refcell:0",
-      "question": "What does interior mutability let you do?",
-      "answer": "Mutate a value through a shared, read-only reference."
+      "question": "What is interior mutability?",
+      "answer": "It lets you mutate a value through a shared (read) reference. Normally the type system forbids an active read while a write exists to the same value."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-cell-and-refcell:1",
-      "question": "How does Cell<T> mutate a value without undefined behaviour?",
-      "answer": "It only lets you copy T if T implements Copy, or replace T. It can be used only on a single thread."
+      "question": "How does Cell mutate without aliasing UB?",
+      "answer": "Cell only lets you copy T if T is Copy, or replace T. It is single-threaded."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-cell-and-refcell:2",
-      "question": "Why can &i32 and &mut i32 never alias the same number?",
-      "answer": "Rust guarantees there cannot be an active read reference while a write reference exists to the same value."
+      "question": "Why can Cell aliases observe a change that &i32 cannot?",
+      "answer": "Rust forbids &T and &mut T to the same value, so a write through b cannot change a. Two &Cell<i32> can point at the same cell, so a later get can differ."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-cell-and-refcell:3",
-      "question": "Why might two &Cell<i32> arguments observe a changed value?",
-      "answer": "Both Cell references can point to the same value, so a set through one can be seen by a later get on the other."
+      "question": "What does Cell::take do for a non-Copy T?",
+      "answer": "It replaces the inner value with the default (an empty Vec in the example) and returns the old value so you can mutate and set it back."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-cell-and-refcell:4",
-      "question": "What does Cell::take do when T is not Copy?",
-      "answer": "It replaces the interior value with a default, such as an empty vector, so you can mutate the taken value and set it back."
+      "question": "How does RefCell enforce aliasing?",
+      "answer": "It tracks a borrow count at runtime. Taking a mutable borrow while shared borrows exist, or the reverse, panics."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-cell-and-refcell:5",
-      "question": "How does RefCell differ from Cell on mutation?",
-      "answer": "RefCell lets you take a mutable reference without cloning, at a small runtime cost. It tracks borrows and panics if you take a mutable reference while shared references exist, or vice versa."
-    },
-    {
-      "id": "note:books/rust/rust-atomics-and-locks/rust-cell-and-refcell:6",
-      "question": "Can Cell and RefCell be sent across threads?",
-      "answer": "No. Both Cell and RefCell cannot be sent across threads."
+      "question": "Can Cell or RefCell be sent across threads?",
+      "answer": "No. Both are single-threaded and cannot be sent across threads."
     }
   ]
 }

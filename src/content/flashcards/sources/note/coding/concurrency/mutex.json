@@ -17,8 +17,8 @@
     },
     {
       "id": "note:coding/concurrency/mutex:1",
-      "question": "What happens when threads conflict on a mutex instead of panicking?",
-      "answer": "Waiting threads are put to sleep and woken up when the lock is released."
+      "question": "What happens when threads conflict on a mutex?",
+      "answer": "Conflicting access does not cause a panic. Waiting threads are put to sleep and woken up when the lock is released."
     },
     {
       "id": "note:coding/concurrency/mutex:2",

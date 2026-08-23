@@ -6,10 +6,9 @@
   "href": "/notes/llms/lightrag/",
   "title": "LightRAG",
   "tags": [
+    "rag",
     "graph-rag",
-    "light-rag",
-    "research",
-    "rag"
+    "research"
   ],
   "summary": "A specialized implementation of GraphRAG designed for efficiency and streamlined retrieval.",
   "created": "2026-03-29",

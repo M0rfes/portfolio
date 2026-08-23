@@ -7,8 +7,10 @@
   "href": "/notes/coding/concurrency/reference-counting/",
   "title": "Reference Counting",
   "tags": [
-    "memory-management",
-    "smart-pointers"
+    "concurrency",
+    "smart-pointers",
+    "reference-counting",
+    "memory"
   ],
   "created": "2026-08-18",
   "updatedAt": "2026-08-18",

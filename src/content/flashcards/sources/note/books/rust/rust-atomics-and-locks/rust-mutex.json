@@ -20,7 +20,7 @@
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-mutex:1",
       "question": "How does Mutex conflict handling differ from RefCell?",
-      "answer": "Conflicting access does not panic. The waiting thread is put to sleep and woken when the lock is dropped so it can take a reference."
+      "answer": "Conflicting access does not panic. The waiting thread is put to sleep and woken when the lock is dropped so it can try to take a reference."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-mutex:2",

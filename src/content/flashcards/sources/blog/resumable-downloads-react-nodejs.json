@@ -29,32 +29,32 @@
     {
       "id": "blog:resumable-downloads-react-nodejs:0",
       "question": "What problem do resumable downloads solve?",
-      "answer": "Large-file downloads are often interrupted by connection issues, device sleep, or navigation. Without resumability the user must restart from scratch."
+      "answer": "Large files are often interrupted by connection issues, device sleep, or navigation. Without resumability, the user must restart the download from scratch."
     },
     {
       "id": "blog:resumable-downloads-react-nodejs:1",
-      "question": "What two pieces make browser downloads resumable?",
-      "answer": "The HTTP Range header for partial retrieval, plus persistent client storage such as IndexedDB to keep download state."
+      "question": "What two pieces make a browser download resumable?",
+      "answer": "The HTTP Range header for partial retrieval, plus persistent client storage such as IndexedDB to keep downloaded chunks and the current offset."
     },
     {
       "id": "blog:resumable-downloads-react-nodejs:2",
       "question": "How should the server respond to a Range request?",
-      "answer": "Serve only the requested byte range and return status 206 to indicate partial content."
+      "answer": "Serve only the requested byte range and return status 206 Partial Content."
     },
     {
       "id": "blog:resumable-downloads-react-nodejs:3",
-      "question": "How does the React hook resume after pause, reload, or disconnect?",
-      "answer": "It stores partial downloads in IndexedDB, tracks byte offsets, and continues from the correct offset. AbortController cleanly pauses in-flight XHR or fetch."
+      "question": "How does the React hook store chunks without loading the whole file?",
+      "answer": "Each chunk is stored as a binary ArrayBuffer. The full file is assembled only after all chunks are downloaded."
     },
     {
       "id": "blog:resumable-downloads-react-nodejs:4",
-      "question": "Why store each chunk as an ArrayBuffer?",
-      "answer": "The full file is never loaded into memory until final assembly. Each chunk stays a binary ArrayBuffer until then."
+      "question": "How is an in-flight download paused?",
+      "answer": "AbortController aborts the in-flight XHR or fetch. Download state in IndexedDB survives reload so the next request can resume at the saved byte offset."
     },
     {
       "id": "blog:resumable-downloads-react-nodejs:5",
-      "question": "How does resumable download change for large tabular data?",
-      "answer": "The client requests row ranges instead of byte ranges and tracks row index rather than byte position. Each chunk can be parsed and used immediately, often including a header."
+      "question": "How does chunking change for large tabular downloads?",
+      "answer": "The client requests row ranges (startRow/endRow) instead of byte ranges and tracks row index, not byte position. Each chunk can be parsed and used immediately, often including a header."
     }
   ]
 }

@@ -9,7 +9,7 @@
     "architecture",
     "microservices",
     "ddd",
-    "strategy"
+    "refactoring"
   ],
   "summary": "A comprehensive guide on decomposing systems into microservices using DDD, volatility, data compliance, technology runtimes, and organizational structure.",
   "created": "2026-04-19",

@@ -25,12 +25,12 @@
   "cards": [
     {
       "id": "blog:asynclocalstorage-express-logger:0",
-      "question": "What problem does AsyncLocalStorage solve in Node.js?",
-      "answer": "It lets you pass contextual data such as request IDs through deeply nested async work without parameter drilling. Isolated contexts persist across the entire async execution chain."
+      "question": "What problem does AsyncLocalStorage solve?",
+      "answer": "It passes contextual data such as request IDs through deeply nested async work without parameter drilling. Isolated contexts persist across the entire async execution chain."
     },
     {
       "id": "blog:asynclocalstorage-express-logger:1",
-      "question": "How does AsyncLocalStorage differ from thread-local storage?",
+      "question": "How does AsyncLocalStorage relate to thread-local storage?",
       "answer": "It is Node.js’s equivalent of thread-local storage, but designed for asynchronous, single-threaded execution. Contexts follow the logical flow of async operations across callbacks, Promises, and await."
     },
     {
@@ -40,17 +40,17 @@
     },
     {
       "id": "blog:asynclocalstorage-express-logger:3",
+      "question": "How does Express logger middleware attach a request-scoped logger?",
+      "answer": "It builds a child Winston logger with a request ID, then calls loggerStorage.run(reqLogger, () => next()). Later code calls getStore() (or a fallback logger) instead of passing the logger as a parameter."
+    },
+    {
+      "id": "blog:asynclocalstorage-express-logger:4",
       "question": "Why prefer run() over enterWith()?",
       "answer": "run() provides better context isolation. enterWith() transitions the current execution context and should be used sparingly."
     },
     {
-      "id": "blog:asynclocalstorage-express-logger:4",
-      "question": "What is the typical performance cost of AsyncLocalStorage?",
-      "answer": "Tight loops with no real work can see up to 50% overhead, but typical web apps see about a 2–3% decrease. Memory overhead per context is negligible."
-    },
-    {
       "id": "blog:asynclocalstorage-express-logger:5",
-      "question": "How do you preserve AsyncLocalStorage context with legacy callbacks or custom Promises?",
+      "question": "How do you keep context across legacy callbacks or custom Promises?",
       "answer": "Promisify legacy callback APIs. For custom Promises and third-party callbacks, bind the callback with AsyncResource so it stays in the current async context."
     },
     {
@@ -60,8 +60,8 @@
     },
     {
       "id": "blog:asynclocalstorage-express-logger:7",
-      "question": "How do you avoid holding AsyncLocalStorage context during a long-running loop?",
-      "answer": "Extract the values you need early (for example requestId) and create a local logger. Holding getLogger() across a large loop keeps the entire context alive in memory."
+      "question": "How do you avoid holding AsyncLocalStorage context in a long-running loop?",
+      "answer": "Extract needed values early (for example requestId) and create a local logger. Holding getLogger() across a large loop keeps the entire context alive in memory."
     }
   ]
 }

@@ -26,38 +26,43 @@
   "cards": [
     {
       "id": "blog:deferred-commit-pattern:0",
-      "question": "What does the Deferred Commit Pattern do?",
-      "answer": "It stores partial onboarding data in temporary storage and writes to the main database only when the record is complete and validated. The main database stays the source of truth for finished users."
+      "question": "What is the Deferred Commit Pattern?",
+      "answer": "Partial onboarding data is stored in temporary storage such as Redis. Only complete, validated records are committed to the main database."
     },
     {
       "id": "blog:deferred-commit-pattern:1",
-      "question": "What problems do step-by-step database writes create during onboarding?",
-      "answer": "They leave partial records that are not valid users, require cleanup jobs, skew analytics, and keep unverified user data longer than necessary."
+      "question": "What problems come from writing each onboarding step to the database?",
+      "answer": "You get partial records that are not valid users, plus cleanup jobs, skewed analytics, and compliance risk from storing unverified data longer than necessary."
     },
     {
       "id": "blog:deferred-commit-pattern:2",
-      "question": "How does Redis TTL support deferred commit?",
-      "answer": "Abandoned flows expire automatically after the TTL, so you do not need cleanup jobs for incomplete sessions."
+      "question": "How does Redis TTL help abandoned onboarding flows?",
+      "answer": "A TTL on the flow key automatically deletes abandoned sessions after the expiry window, so you do not need cleanup jobs for those records."
     },
     {
       "id": "blog:deferred-commit-pattern:3",
       "question": "How is an onboarding session identified across steps?",
-      "answer": "A JWT containing a flowId is stored in a secure HTTP-only cookie. Later steps read that cookie and look up the Redis hash for that flow."
+      "answer": "A JWT containing a flowId is stored in a secure HTTP-only cookie. Middleware verifies the token and checks that the Redis flow key still exists."
     },
     {
       "id": "blog:deferred-commit-pattern:4",
-      "question": "When does the pattern write a user to the main database?",
-      "answer": "On the final complete step, after required fields are present and email_verified is true. Redis flow data and the onboarding cookie are then cleared."
+      "question": "What happens on the final complete step?",
+      "answer": "All Redis flow fields are loaded and checked for required values, including verified email. If complete, the user is written to the database, the Redis key is deleted, and the cookie is cleared."
     },
     {
       "id": "blog:deferred-commit-pattern:5",
-      "question": "How are abandoned flows turned into marketing leads?",
-      "answer": "A periodic job finds flows about to expire that have an email and have not been marked lead_processed, then passes those emails to CRM and marks them processed."
+      "question": "How do abandoned flows become marketing leads?",
+      "answer": "A periodic job finds flows near expiry that have an email and have not been marked lead_processed, then sends those emails to the CRM and marks the flow processed."
     },
     {
       "id": "blog:deferred-commit-pattern:6",
+      "question": "When is Deferred Commit a good fit?",
+      "answer": "Use it for multi-step onboarding, multi-page forms, transactional workflows that must finish all steps, compliance-sensitive retention, and SaaS flows where lead generation matters."
+    },
+    {
+      "id": "blog:deferred-commit-pattern:7",
       "question": "When would you use a staging table instead of Redis?",
-      "answer": "When you need audit trails or complex queries on partial data. Cloudflare Durable Objects are an alternative on Cloudflare with geographic distribution and consistency guarantees."
+      "answer": "Use a database staging table when you need audit trails or complex queries on partial data. Cloudflare Durable Objects are another alternative with geographic distribution and consistency guarantees."
     }
   ]
 }

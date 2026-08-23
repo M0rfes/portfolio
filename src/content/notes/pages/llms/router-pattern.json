@@ -7,10 +7,9 @@
   "title": "Router Pattern",
   "tags": [
     "llm",
-    "agent",
-    "router-pattern",
-    "routing",
-    "rag"
+    "agents",
+    "rag",
+    "router-pattern"
   ],
   "summary": "An architectural pattern where an LLM or classifier acts as a dispatcher to direct incoming queries to specialized tools, indexes, or prompt pathways.",
   "created": "2026-07-31",

@@ -15,38 +15,38 @@
   "cards": [
     {
       "id": "note:books/grokking-concurrency/introducing-concurrency:0",
-      "question": "Why has concurrency become more popular on modern CPUs?",
+      "question": "Why has concurrency become more important on modern CPUs?",
       "answer": "The number of cores and threads per core has increased, and concurrency is the only way to improve performance with limited resources."
     },
     {
       "id": "note:books/grokking-concurrency/introducing-concurrency:1",
-      "question": "How do latency and throughput quantify performance?",
-      "answer": "Latency is how long a single task takes. Throughput is the number of tasks a system can handle over a period of time."
+      "question": "What is the difference between latency and throughput?",
+      "answer": "Latency is how long a single task takes. Throughput is how many tasks a system can handle over a period of time."
     },
     {
       "id": "note:books/grokking-concurrency/introducing-concurrency:2",
-      "question": "What happens if you optimize for latency or throughput alone?",
-      "answer": "Optimising for one may degrade the other."
+      "question": "How does the motorcycle vs bus example contrast latency and throughput?",
+      "answer": "A motorcycle that takes 1 hour has lower latency than a bus that takes 2 hours carrying 50 people, but the bus's throughput is 25x that of the motorcycle."
     },
     {
       "id": "note:books/grokking-concurrency/introducing-concurrency:3",
-      "question": "How can concurrency improve latency and throughput?",
-      "answer": "It can reduce latency by breaking a long-running task into parallel work, and improve throughput by performing multiple tasks simultaneously."
+      "question": "What happens if you optimise only latency or only throughput?",
+      "answer": "Optimising for one may degrade the other."
     },
     {
       "id": "note:books/grokking-concurrency/introducing-concurrency:4",
-      "question": "What three ways can concurrency improve system performance?",
-      "answer": "It can reduce latency, hide latency by doing other work during a high-latency operation, and increase throughput."
+      "question": "In what three ways can concurrency improve system performance?",
+      "answer": "It can reduce latency by finishing a unit of work faster, hide latency by doing something else during a high-latency operation, and increase throughput by doing more work."
     },
     {
       "id": "note:books/grokking-concurrency/introducing-concurrency:5",
-      "question": "How does scaling horizontally differ from scaling vertically?",
-      "answer": "Vertical scaling means buying more RAM or a faster processor for only marginal gains, and it stops once you have the fastest system. Horizontal scaling distributes work across multiple machines."
+      "question": "How does concurrency help scale out rather than scale up?",
+      "answer": "Scaling vertically means buying more RAM or a faster processor for only marginal gains and stops at the fastest machine. Scaling horizontally distributes work across multiple machines."
     },
     {
       "id": "note:books/grokking-concurrency/introducing-concurrency:6",
-      "question": "How does concurrency help scale a decoupled system?",
-      "answer": "If only one service needs to scale, that can be done easily in a decoupled system rather than scaling everything in a tightly coupled system."
+      "question": "Why does decoupling help when only one service needs to scale?",
+      "answer": "In a decoupled system you can scale that one service. In a tightly coupled system you have to scale everything."
     }
   ]
 }

@@ -5,26 +5,26 @@
     "title": "Register Storage",
     "href": "/notes/coding/register-storage/",
     "tags": [
-      "programming",
+      "c",
       "memory",
-      "registers"
+      "storage-classes"
     ]
   },
   "cards": [
     {
       "id": "note:coding/register-storage:0",
-      "question": "What does a register modifier ask the compiler to do?",
-      "answer": "Place the variable in a CPU register instead of RAM."
+      "question": "What does a register modifier request of the compiler?",
+      "answer": "To place the variable in a CPU register instead of RAM."
     },
     {
       "id": "note:coding/register-storage:1",
-      "question": "Must the compiler honor a register request?",
-      "answer": "No. The compiler can still refuse for optimisation. Register is a request."
+      "question": "Must the compiler honor a register modifier?",
+      "answer": "No. It can choose not to for the sake of optimisation. The modifier is more like a request."
     },
     {
       "id": "note:coding/register-storage:2",
-      "question": "Can one field of a struct have the register modifier?",
-      "answer": "No. A whole struct can have the register modifier, but one field cannot."
+      "question": "Can a whole struct have a register modifier?",
+      "answer": "Yes, but one field of a struct cannot have the register modifier."
     }
   ]
 }

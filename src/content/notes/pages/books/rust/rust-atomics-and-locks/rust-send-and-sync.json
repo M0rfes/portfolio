@@ -10,8 +10,7 @@
   "tags": [
     "rust",
     "concurrency",
-    "thread-safety",
-    "auto-traits"
+    "thread-safety"
   ],
   "created": "2026-08-18",
   "updatedAt": "2026-08-18",

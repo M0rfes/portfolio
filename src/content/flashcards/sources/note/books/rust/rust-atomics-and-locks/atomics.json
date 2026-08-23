@@ -9,45 +9,44 @@
       "concurrency",
       "atomics",
       "memory-ordering",
-      "lazy-initialization",
-      "race-condition"
+      "lazy-initialization"
     ]
   },
   "cards": [
     {
       "id": "note:books/rust/rust-atomics-and-locks/atomics:0",
-      "question": "What does it mean for an operation to be atomic?",
-      "answer": "Atomic operations are the smallest operations on data that either occur or do not; there is no half-done state."
+      "question": "What does an atomic operation guarantee?",
+      "answer": "It is the smallest operation on data that either occurs or does not; there is no half-done state. Two threads can update an atomic variable without both reading the same value and writing at the same time."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/atomics:1",
-      "question": "Why can two threads update an AtomicI32 without an inconsistent state?",
-      "answer": "They cannot both read the same value and update it at the same time, so the variable never ends up half-updated."
+      "question": "Why is there no Atomic<T> in Rust?",
+      "answer": "Unlike other types, we only get concrete atomics such as AtomicBool and AtomicI32, up to the word size (AtomicUsize). Which types exist depends on the system architecture and OS."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/atomics:2",
-      "question": "Why is there no generic Atomic<T> in Rust?",
-      "answer": "Only specific types exist, such as AtomicBool and AtomicI32, up to the word size with AtomicUsize. Which atomics are available also depends on the architecture and OS."
+      "question": "What does an atomic Ordering parameter control?",
+      "answer": "It controls what guarantees we get about the relative ordering of operations. The CPU may execute operations out of order, so one thread can observe a different assignment order than another."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/atomics:3",
-      "question": "What does the Ordering parameter on atomic operations control?",
-      "answer": "It controls what guarantees we get about the relative ordering of operations. The CPU may still perform operations out of order, so two threads may observe assignments in different sequences."
+      "question": "Why might a Relaxed stop flag not stop immediately?",
+      "answer": "If some_work() is blocking or takes a while, entering stop only sets the flag. The background loop keeps running until that last call to some_work completes."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/atomics:4",
       "question": "What is lazy initialization?",
-      "answer": "A pattern where a constant or expensive resource is calculated only when first requested and then stored for subsequent use."
+      "answer": "A pattern where a constant or expensive resource is calculated only when first requested and then stored for later use."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/atomics:5",
-      "question": "What race condition can a naive atomic lazy-init check-and-store have?",
-      "answer": "If two threads both see the unset value, they both restart the computation. Concurrent lazy initialization must be synchronized to prevent that."
+      "question": "What race does the AtomicU64 get_x example have?",
+      "answer": "Two threads can both load 0, both run calculate_x, and both store. The first to finish wins; the work is duplicated. Once and OnceLock fix this."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/atomics:6",
-      "question": "How do Once and OnceLock fix concurrent lazy initialization?",
-      "answer": "They are atomic helpers so only one thread runs the initializer. Later callers sleep until that first thread finishes call_once or get_or_init."
+      "question": "What does Once.call_once do for a second caller?",
+      "answer": "The first thread runs the closure. Later callers do nothing and sleep until that first thread finishes."
     }
   ]
 }

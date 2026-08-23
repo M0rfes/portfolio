@@ -12,8 +12,8 @@
   "cards": [
     {
       "id": "note:coding/concurrency/thread-joining:0",
-      "question": "Why join a thread handle?",
-      "answer": "To wait for spawned threads to finish their execution before exiting from main."
+      "question": "How do you wait for spawned threads to finish before exiting main?",
+      "answer": "Join the thread handle."
     },
     {
       "id": "note:coding/concurrency/thread-joining:1",

@@ -14,33 +14,23 @@
   "cards": [
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-rwlock:0",
-      "question": "How does RwLock access differ from Mutex?",
-      "answer": "A Mutex always takes exclusive access. An RwLock allows one exclusive &mut T or multiple shared &T references."
+      "question": "How does RwLock differ from Mutex?",
+      "answer": "Mutex always takes exclusive access. RwLock allows one exclusive &mut T or multiple shared &T references."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-rwlock:1",
-      "question": "When is an RwLock a good fit?",
-      "answer": "For data that is read frequently but written to infrequently."
+      "question": "When is RwLock a good fit?",
+      "answer": "For data that is read frequently and written infrequently. It is a thread-safe version of RefCell."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-rwlock:2",
-      "question": "What is RwLock a thread-safe version of?",
-      "answer": "RefCell."
+      "question": "What do read and write return, and which traits do the guards impl?",
+      "answer": "read returns RwLockReadGuard (Deref only). write returns RwLockWriteGuard (Deref and DerefMut)."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-rwlock:3",
-      "question": "Which Deref traits do the RwLock guards implement?",
-      "answer": "RwLockReadGuard implements Deref only. RwLockWriteGuard implements both Deref and DerefMut."
-    },
-    {
-      "id": "note:books/rust/rust-atomics-and-locks/rust-rwlock:4",
-      "question": "Why wrap an RwLock in Arc for unscoped threads?",
-      "answer": "So the reference can be moved to other threads."
-    },
-    {
-      "id": "note:books/rust/rust-atomics-and-locks/rust-rwlock:5",
-      "question": "Why can scoped threads share an RwLock without Arc?",
-      "answer": "A scoped thread finishes before the main function ends, so the lock can be dropped after the scope."
+      "question": "Why does spawning threads with RwLock need Arc, but scoped threads do not?",
+      "answer": "Unscoped spawn must move the lock into each thread, so Arc clones the pointer. A scoped thread finishes before the scope ends, so the local RwLock can be borrowed and dropped afterward."
     }
   ]
 }

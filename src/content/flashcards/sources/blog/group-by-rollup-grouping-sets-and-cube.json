@@ -27,33 +27,33 @@
   "cards": [
     {
       "id": "blog:group-by-rollup-grouping-sets-and-cube:0",
-      "question": "What does GROUP BY actor_id return in the film example?",
+      "question": "What does GROUP BY actor_id return for film counts?",
       "answer": "One row per actor with that actor’s total film count."
     },
     {
       "id": "blog:group-by-rollup-grouping-sets-and-cube:1",
       "question": "How do you get film counts per actor and rating?",
-      "answer": "GROUP BY both actor_id and rating. Each row is one actor–rating pair with its film count."
+      "answer": "GROUP BY both actor_id and rating. Each row is the count for one actor in one rating."
     },
     {
       "id": "blog:group-by-rollup-grouping-sets-and-cube:2",
-      "question": "What extra rows does WITH ROLLUP add to GROUP BY actor_id, rating?",
-      "answer": "Subtotals where rating is NULL (total per actor) and a grand total where both actor_id and rating are NULL."
+      "question": "What extra rows does WITH ROLLUP add?",
+      "answer": "Subtotal rows where rating is NULL (total per actor) and a grand total where both actor_id and rating are NULL."
     },
     {
       "id": "blog:group-by-rollup-grouping-sets-and-cube:3",
       "question": "In which direction does ROLLUP aggregate?",
-      "answer": "Right to left through the GROUP BY columns, following the hierarchy defined by column order."
+      "answer": "ROLLUP follows the hierarchy of GROUP BY column order and rolls up from right to left."
     },
     {
       "id": "blog:group-by-rollup-grouping-sets-and-cube:4",
-      "question": "Why doesn’t ROLLUP on actor_id, rating give totals per rating?",
-      "answer": "ROLLUP only follows that hierarchy, so it produces per-actor totals and a grand total, not totals per rating across all actors."
+      "question": "Why can’t ROLLUP on (actor_id, rating) give totals per rating?",
+      "answer": "That ROLLUP only produces totals per actor and a grand total. It does not produce totals per rating across all actors."
     },
     {
       "id": "blog:group-by-rollup-grouping-sets-and-cube:5",
-      "question": "What does GROUPING SETS let you control?",
-      "answer": "The exact groupings in one query, such as (actor_id, rating), (actor_id), (rating), and () for the grand total."
+      "question": "What does GROUPING SETS let you specify?",
+      "answer": "The exact groupings you want, such as (actor_id, rating), (actor_id), (rating), and () for the grand total, all in one query."
     },
     {
       "id": "blog:group-by-rollup-grouping-sets-and-cube:6",
@@ -62,8 +62,8 @@
     },
     {
       "id": "blog:group-by-rollup-grouping-sets-and-cube:7",
-      "question": "When is CUBE the right choice?",
-      "answer": "For OLAP and multi-dimensional reporting where you need every possible cross-tabulation. It is available in SQL Server, PostgreSQL, Oracle, and similar databases."
+      "question": "When is CUBE a good choice?",
+      "answer": "For OLAP and multi-dimensional reporting where you need every possible cross-tabulation. It is available in SQL Server, PostgreSQL, Oracle, and other databases."
     }
   ]
 }

@@ -14,22 +14,17 @@
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-scoped-threads:0",
       "question": "Why can scoped threads borrow local variables?",
-      "answer": "They finish before the scope is exited, so the data outlives their scope."
+      "answer": "They finish before the scope exits, so the borrowed data outlives the threads."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-scoped-threads:1",
-      "question": "When are threads spawned in thread::scope joined?",
-      "answer": "All of them are joined before the scope exits."
+      "question": "When are scoped threads joined?",
+      "answer": "All threads spawned in the std::thread::scope callback are joined before the scope function exits."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-scoped-threads:2",
-      "question": "Can two scoped threads share read references to the same local?",
-      "answer": "Yes. Multiple read references can be shared across threads."
-    },
-    {
-      "id": "note:books/rust/rust-atomics-and-locks/rust-scoped-threads:3",
-      "question": "Why wouldn't list.push compile in a scoped thread that already shares reads?",
-      "answer": "Only one mutable reference is allowed at a time. You cannot combine one mutable reference with multiple read references."
+      "question": "Can two scoped threads mutate the same local?",
+      "answer": "No. Multiple read references are allowed, but only one mutable reference at a time — not one mutable plus readers."
     }
   ]
 }

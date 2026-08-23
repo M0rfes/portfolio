@@ -17,8 +17,8 @@
     },
     {
       "id": "note:coding/concurrency/threads:1",
-      "question": "When is the initial OS thread cleaned up?",
-      "answer": "Once the program stops executing."
+      "question": "What happens to the initial thread when the program stops?",
+      "answer": "It is cleaned up."
     },
     {
       "id": "note:coding/concurrency/threads:2",

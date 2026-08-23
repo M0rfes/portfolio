@@ -12,18 +12,18 @@
   "cards": [
     {
       "id": "note:coding/concurrency/atomic-operations:0",
-      "question": "What does it mean for an operation to be atomic?",
-      "answer": "It is the smallest operation on data that either occurs or does not. There is no half-done state."
+      "question": "What does it mean that an atomic operation is the smallest operation on data?",
+      "answer": "It either occurs or does not; there is no half-done state."
     },
     {
       "id": "note:coding/concurrency/atomic-operations:1",
-      "question": "What inconsistent update do atomics prevent?",
-      "answer": "Two threads both reading the same value and updating it at the same time."
+      "question": "How can two threads update an atomic variable without an inconsistent state?",
+      "answer": "Atomics prevent both threads from reading the same value and updating it at the same time."
     },
     {
       "id": "note:coding/concurrency/atomic-operations:2",
-      "question": "What do atomic implementations depend on?",
-      "answer": "The system architecture and OS, including which types are available."
+      "question": "What determines atomic implementations and available types?",
+      "answer": "The system architecture and OS."
     }
   ]
 }

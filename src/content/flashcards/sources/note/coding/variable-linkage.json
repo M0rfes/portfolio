@@ -5,20 +5,20 @@
     "title": "Variable Linkage",
     "href": "/notes/coding/variable-linkage/",
     "tags": [
-      "programming",
+      "c",
       "memory",
-      "linkage"
+      "storage-classes"
     ]
   },
   "cards": [
     {
       "id": "note:coding/variable-linkage:0",
-      "question": "What does linkage, or visibility, specify?",
+      "question": "What does visibility or linkage of a variable specify?",
       "answer": "Whether the variable is visible to other files in a multi-file program."
     },
     {
       "id": "note:coding/variable-linkage:1",
-      "question": "What is another name for linkage?",
+      "question": "What is another name for linkage in this note?",
       "answer": "Visibility."
     },
     {

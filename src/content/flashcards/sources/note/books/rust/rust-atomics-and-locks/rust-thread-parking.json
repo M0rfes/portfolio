@@ -13,13 +13,13 @@
   "cards": [
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-thread-parking:0",
-      "question": "What does parking a thread do?",
-      "answer": "The thread parks itself so it no longer consumes CPU cycles while waiting for other threads to wake it."
+      "question": "What does thread parking do?",
+      "answer": "A thread parks itself so it no longer consumes CPU cycles while waiting for other threads to wake it."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-thread-parking:1",
-      "question": "How do other threads wake a parked thread?",
-      "answer": "They call unpark on the thread handle from spawn or from std::thread::current()."
+      "question": "Who can unpark a thread?",
+      "answer": "Other threads call unpark on the thread handle from spawn or from std::thread::current()."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-thread-parking:2",
@@ -28,13 +28,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-thread-parking:3",
-      "question": "What happens if unpark is called twice and park twice?",
+      "question": "What happens if you unpark twice then park twice?",
       "answer": "Only the first park is skipped. The second park still puts the thread to sleep."
-    },
-    {
-      "id": "note:books/rust/rust-atomics-and-locks/rust-thread-parking:4",
-      "question": "In the queue example, when does the consumer park?",
-      "answer": "When a pop finds the queue empty."
     }
   ]
 }

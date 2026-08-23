@@ -8,9 +8,8 @@
       "clean-code",
       "refactoring",
       "software-design",
-      "local-reasoning",
-      "dry",
-      "single-responsibility"
+      "single-responsibility",
+      "dry"
     ]
   },
   "cards": [

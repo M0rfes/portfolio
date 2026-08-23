@@ -6,11 +6,9 @@
   "href": "/notes/agents/tool-calling/",
   "title": "Tool Calling",
   "tags": [
-    "ai",
     "agents",
     "llm",
     "tool-calling",
-    "function-calling",
     "niah"
   ],
   "summary": "Tool calling enables LLMs to run code and perform tasks beyond text generation, introducing a 4-message architecture and requiring careful context and tool design for long-horizon agentic tasks.",

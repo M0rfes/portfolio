@@ -7,8 +7,10 @@
   "href": "/notes/coding/concurrency/interior-mutability/",
   "title": "Interior Mutability",
   "tags": [
-    "memory",
-    "type-system"
+    "concurrency",
+    "interior-mutability",
+    "type-system",
+    "memory"
   ],
   "created": "2026-08-18",
   "updatedAt": "2026-08-18",
