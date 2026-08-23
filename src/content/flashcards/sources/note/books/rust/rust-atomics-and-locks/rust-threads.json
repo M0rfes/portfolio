@@ -13,33 +13,43 @@
   "cards": [
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-threads:0",
-      "question": "What happens to spawned threads when the main thread terminates?",
-      "answer": "Every program starts with one OS thread. When the main thread terminates, all threads forked or spawned from it are cleaned up, whether they have finished or not."
+      "question": "What happens to spawned threads when main terminates?",
+      "answer": "They are cleaned up whether they have finished executing or not."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-threads:1",
       "question": "How do you wait for a spawned thread to finish?",
-      "answer": "Join the JoinHandle returned by thread::spawn. Joining waits for the thread and returns its result or indicates if it panicked."
+      "answer": "Join the JoinHandle returned by thread::spawn."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-threads:2",
-      "question": "What does join() return, and what does unwrap do to it?",
-      "answer": "It returns std::thread::Result: Err if the thread panicked, or Ok with the thread's return value. unwrap panics the main thread as well if the join was Err."
+      "question": "What does join return?",
+      "answer": "A Result that is Err if the thread panicked, or Ok<T> where T is the thread's return value."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-threads:3",
-      "question": "What does move do when spawning a closure?",
-      "answer": "The closure captures surrounding variables via move semantics, transferring ownership into the new thread."
+      "question": "What does unwrap on a panicked join do?",
+      "answer": "It causes the main thread to panic as well."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-threads:4",
-      "question": "How does thread::spawn relate to thread::Builder?",
-      "answer": "spawn is a shorthand for Builder::new().spawn(f).unwrap(). Builder can set stack size and a name used in panic messages and profiling tools."
+      "question": "What does move do on a thread closure?",
+      "answer": "It transfers ownership of captured variables from main to the new thread."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-threads:5",
-      "question": "What error type does Builder::spawn return?",
-      "answer": "std::io::Result. It indicates an error if the OS failed to spawn a new thread."
+      "question": "What is thread::spawn a shorthand for?",
+      "answer": "std::thread::Builder::new().spawn(f).unwrap()."
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-threads:6",
+      "question": "What can Thread Builder configure?",
+      "answer": "Stack size and a name, available via current().name(), used in panic messages and visible in most profiling tools."
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-threads:7",
+      "question": "What does Builder::spawn return on OS failure?",
+      "answer": "A std::io::Result error if the OS failed to spawn a new thread."
     }
   ]
 }

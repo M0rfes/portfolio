@@ -4,7 +4,11 @@
     "id": "books/c/advanced-c-programming-course/c-extern",
     "title": "C Extern Storage Class",
     "href": "/notes/books/c/advanced-c-programming-course/c-extern/",
-    "tags": ["c", "memory", "storage-classes"]
+    "tags": [
+      "c",
+      "memory",
+      "storage-classes"
+    ]
   },
   "cards": [
     {

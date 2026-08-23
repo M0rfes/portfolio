@@ -39,6 +39,16 @@
         "books",
         "c",
         "advanced-c-programming-course",
+        "c-extern"
+      ],
+      "href": "/notes/books/c/advanced-c-programming-course/c-extern/",
+      "title": "C Extern Storage Class"
+    },
+    {
+      "slug": [
+        "books",
+        "c",
+        "advanced-c-programming-course",
         "storage-classes"
       ],
       "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",

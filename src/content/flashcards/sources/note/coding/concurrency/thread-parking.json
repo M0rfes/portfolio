@@ -4,7 +4,10 @@
     "id": "coding/concurrency/thread-parking",
     "title": "Thread Parking",
     "href": "/notes/coding/concurrency/thread-parking/",
-    "tags": ["concurrency", "threads"]
+    "tags": [
+      "concurrency",
+      "threads"
+    ]
   },
   "cards": [
     {

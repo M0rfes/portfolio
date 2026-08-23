@@ -4,31 +4,30 @@
     "id": "coding/concurrency/send-and-sync",
     "title": "Send Sync",
     "href": "/notes/coding/concurrency/send-and-sync/",
-    "tags": ["concurrency", "type-system", "thread-safety"]
+    "tags": [
+      "concurrency",
+      "type-system",
+      "thread-safety"
+    ]
   },
   "cards": [
     {
       "id": "note:coding/concurrency/send-and-sync:0",
-      "question": "What do Send and Sync determine?",
-      "answer": "How types can cross thread boundaries."
+      "question": "What does Send mean?",
+      "answer": "A type T is Send if its ownership can be transferred to another thread."
     },
     {
       "id": "note:coding/concurrency/send-and-sync:1",
-      "question": "When is a type T Send?",
-      "answer": "When its ownership can be transferred to another thread."
+      "question": "What does Sync mean?",
+      "answer": "A type T is Sync if its shared reference is Send; that is, T is Sync if &T is Send."
     },
     {
       "id": "note:coding/concurrency/send-and-sync:2",
-      "question": "When is a type T Sync?",
-      "answer": "When its shared reference is Send — that is, T is Sync if &T is Send."
+      "question": "Which primitive types are Send and Sync?",
+      "answer": "All primitive types are Send and Sync."
     },
     {
       "id": "note:coding/concurrency/send-and-sync:3",
-      "question": "Are primitive types Send and Sync?",
-      "answer": "Yes. All primitive types are Send and Sync."
-    },
-    {
-      "id": "note:coding/concurrency/send-and-sync:4",
       "question": "When are types automatically Send and Sync?",
       "answer": "When all of their fields are Send and Sync."
     }

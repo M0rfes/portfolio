@@ -4,13 +4,15 @@
     "id": "coding/concurrency/race-conditions",
     "title": "Race Conditions",
     "href": "/notes/coding/concurrency/race-conditions/",
-    "tags": ["concurrency"]
+    "tags": [
+      "concurrency"
+    ]
   },
   "cards": [
     {
       "id": "note:coding/concurrency/race-conditions:0",
       "question": "What is a race condition?",
-      "answer": "Multiple threads access and attempt to modify shared state concurrently, and the final outcome depends on the timing or interleaving of execution."
+      "answer": "It occurs when multiple threads access and attempt to modify shared state concurrently, and the final outcome depends on the timing or interleaving of execution."
     },
     {
       "id": "note:coding/concurrency/race-conditions:1",

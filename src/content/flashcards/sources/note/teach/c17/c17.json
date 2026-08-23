@@ -4,7 +4,11 @@
     "id": "teach/c17/c17",
     "title": "C17 Hub",
     "href": "/notes/teach/c17/c17/",
-    "tags": ["teach/c17", "moc", "chip8"]
+    "tags": [
+      "teach/c17",
+      "moc",
+      "chip8"
+    ]
   },
   "cards": [
     {
@@ -20,11 +24,11 @@
     {
       "id": "note:teach/c17/c17:2",
       "question": "Where are CHIP-8 ROMs loaded in memory?",
-      "answer": "At address `0x200`."
+      "answer": "At address 0x200."
     },
     {
       "id": "note:teach/c17/c17:3",
-      "question": "How are CHIP-8 opcodes fetched?",
+      "question": "How are CHIP-8 opcodes fetched in the curriculum?",
       "answer": "As 16-bit big-endian values, then decoded with bitwise masking."
     },
     {

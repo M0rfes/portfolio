@@ -4,7 +4,12 @@
     "id": "llms/quantisation",
     "title": "Quantization",
     "href": "/notes/llms/quantisation/",
-    "tags": ["llm", "quantization", "optimization", "model-compression"]
+    "tags": [
+      "llm",
+      "quantization",
+      "optimization",
+      "model-compression"
+    ]
   },
   "cards": [
     {

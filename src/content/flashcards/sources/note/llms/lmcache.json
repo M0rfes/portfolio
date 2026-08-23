@@ -4,7 +4,12 @@
     "id": "llms/lmcache",
     "title": "LMCache",
     "href": "/notes/llms/lmcache/",
-    "tags": ["llm", "caching", "performance", "infrastructure"]
+    "tags": [
+      "llm",
+      "caching",
+      "performance",
+      "infrastructure"
+    ]
   },
   "cards": [
     {

@@ -4,12 +4,15 @@
     "id": "coding/concurrency/mutex",
     "title": "Mutex",
     "href": "/notes/coding/concurrency/mutex/",
-    "tags": ["concurrency", "locks"]
+    "tags": [
+      "concurrency",
+      "locks"
+    ]
   },
   "cards": [
     {
       "id": "note:coding/concurrency/mutex:0",
-      "question": "What does mutex stand for, and what does it provide?",
+      "question": "What does mutex stand for, and what does it guarantee?",
       "answer": "Mutual exclusion. It works as an exclusive reference: only one thread can hold the lock at a time."
     },
     {

@@ -21,6 +21,16 @@
         "books",
         "rust",
         "rust-atomics-and-locks",
+        "rust-cell-and-refcell"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-cell-and-refcell/",
+      "title": "Rust Cell"
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
         "basics-of-rust-concurrency"
       ],
       "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",

@@ -14,8 +14,8 @@
   "cards": [
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-statics-and-leaking:0",
-      "question": "Why can a 'static value be shared across threads?",
-      "answer": "'static means the value exists until the end of the program, so any value with that lifetime can be shared across threads."
+      "question": "What does a 'static lifetime mean for sharing?",
+      "answer": "The value exists until the end of the program, so any value with a static lifetime can be shared across threads."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-statics-and-leaking:1",
@@ -25,12 +25,12 @@
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-statics-and-leaking:2",
       "question": "What does Box::leak guarantee?",
-      "answer": "It leaks a value on the heap so no one can free it, and the value exists as long as the program runs."
+      "answer": "The heap value cannot be freed and exists for the program's entire duration."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-statics-and-leaking:3",
-      "question": "What is moved into threads after Box::leak in the example?",
-      "answer": "The static reference, using move, not the value itself."
+      "question": "What does move transfer when spawning threads with a leaked Box?",
+      "answer": "The static reference, not the value."
     }
   ]
 }

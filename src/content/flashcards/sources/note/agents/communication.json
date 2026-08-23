@@ -4,7 +4,11 @@
     "id": "agents/communication",
     "title": "Agent Communication",
     "href": "/notes/agents/communication/",
-    "tags": ["multi-agent-systems", "architecture", "orchestration"]
+    "tags": [
+      "multi-agent-systems",
+      "architecture",
+      "orchestration"
+    ]
   },
   "cards": [
     {

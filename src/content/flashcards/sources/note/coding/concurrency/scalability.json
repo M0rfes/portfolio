@@ -4,33 +4,32 @@
     "id": "coding/concurrency/scalability",
     "title": "Scalability",
     "href": "/notes/coding/concurrency/scalability/",
-    "tags": ["concurrency", "architecture", "scalability"]
+    "tags": [
+      "concurrency",
+      "architecture",
+      "scalability"
+    ]
   },
   "cards": [
     {
       "id": "note:coding/concurrency/scalability:0",
-      "question": "How can concurrency help scalability?",
-      "answer": "It lets you scale out horizontally instead of scaling up vertically."
+      "question": "How can concurrency help achieve scalability?",
+      "answer": "By allowing the system to scale out (horizontally) rather than scale up (vertically)."
     },
     {
       "id": "note:coding/concurrency/scalability:1",
-      "question": "What does scaling vertically mean?",
-      "answer": "Buying more RAM or a faster processor, which typically yields only marginal improvements."
+      "question": "What does scaling vertically mean, and what limits it?",
+      "answer": "Buying more RAM or a faster processor for only marginal improvements. It stops once you have already bought the fastest system."
     },
     {
       "id": "note:coding/concurrency/scalability:2",
-      "question": "When does vertical scaling stop helping?",
-      "answer": "Once you have already bought the fastest system."
+      "question": "What does scaling horizontally mean?",
+      "answer": "Distributing the work across multiple machines."
     },
     {
       "id": "note:coding/concurrency/scalability:3",
-      "question": "How do you scale horizontally?",
-      "answer": "By distributing the work across multiple machines."
-    },
-    {
-      "id": "note:coding/concurrency/scalability:4",
-      "question": "Why does decoupling help scale a single service?",
-      "answer": "If only one service needs to scale, a decoupled system can scale that service alone instead of scaling everything in a tightly coupled system."
+      "question": "Why does decoupling help when only one service needs to scale?",
+      "answer": "In a decoupled system that service can be scaled on its own, rather than scaling everything on a tightly coupled system."
     }
   ]
 }

@@ -13,26 +13,21 @@
   "cards": [
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-atomics:0",
-      "question": "What does the word atomic mean here?",
-      "answer": "It comes from Greek \u1f04\u03c4\u03bf\u03bc\u03bf\u03c2: an indivisible item that cannot be cut into smaller parts."
-    },
-    {
-      "id": "note:books/rust/rust-atomics-and-locks/rust-atomics:1",
       "question": "What is an atomic operation on data?",
       "answer": "The smallest operation that either occurs or does not; there is no half-done state."
     },
     {
-      "id": "note:books/rust/rust-atomics-and-locks/rust-atomics:2",
+      "id": "note:books/rust/rust-atomics-and-locks/rust-atomics:1",
       "question": "What inconsistent state do atomics prevent between two threads?",
       "answer": "Two threads can update an atomic variable without both reading the same value and updating it at the same time."
     },
     {
-      "id": "note:books/rust/rust-atomics-and-locks/rust-atomics:3",
+      "id": "note:books/rust/rust-atomics-and-locks/rust-atomics:2",
       "question": "What determines which atomic types are available?",
       "answer": "The implementation of atomics and which types exist depends on the system architecture and OS."
     },
     {
-      "id": "note:books/rust/rust-atomics-and-locks/rust-atomics:4",
+      "id": "note:books/rust/rust-atomics-and-locks/rust-atomics:3",
       "question": "Why is there no Atomic<T> in Rust?",
       "answer": "Unlike other types, there is no Atomic<T>. Only concrete types exist, such as AtomicBool and AtomicI32, up to the word size with AtomicUsize."
     }

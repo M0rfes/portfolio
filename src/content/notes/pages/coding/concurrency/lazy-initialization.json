@@ -15,5 +15,26 @@
   "vaultPath": "Coding/Concurrency/Lazy Initialization.md",
   "folder": "Coding",
   "markdown": "# Lazy Initialization\n\nLazy initialization is a pattern where a constant or expensive resource is calculated only when first requested and then stored for subsequent use.\n\nIn concurrent programs, lazy initialization must be synchronized to prevent [race conditions](../race-conditions/) where multiple [threads](../threads/) attempt initialization simultaneously.\n",
-  "linkedFrom": []
+  "linkedFrom": [
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "atomics"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/atomics/",
+      "title": "Atomics"
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-lazy-initialization"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-lazy-initialization/",
+      "title": "Lazy Initialization"
+    }
+  ]
 }

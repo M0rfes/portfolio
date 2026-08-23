@@ -13,7 +13,7 @@ import {
 } from "./convert";
 import { uniqueSortedTags } from "./tags";
 
-export const CACHE_VERSION = 2;
+export const CACHE_VERSION = 3;
 
 const ROOT = process.cwd();
 const VAULT_DIR = path.join(ROOT, "vault");
@@ -176,7 +176,7 @@ function isoFromMtime(mtime: Date): string {
   return mtime.toISOString().slice(0, 10);
 }
 
-export function buildNotes(options: { skipGit?: boolean } = {}) {
+export function buildNotes(options: { skipGit?: boolean; all?: boolean } = {}) {
   if (!options.skipGit) {
     updateSubmodule();
   }
@@ -193,7 +193,7 @@ export function buildNotes(options: { skipGit?: boolean } = {}) {
 
   const index = buildIndex(files, walkAttachments(VAULT_DIR, VAULT_DIR));
   const cache = readCache();
-  const rebuild = notesNeedingRebuild(index, cache.notes);
+  const rebuild = notesNeedingRebuild(index, cache.notes, { all: options.all });
 
   for (const note of index.notes) {
     const outFile = pagePathForSlug(note.slug);
@@ -313,5 +313,8 @@ export function buildNotes(options: { skipGit?: boolean } = {}) {
 }
 
 if (fileURLToPath(import.meta.url) === path.resolve(process.argv[1] ?? "")) {
-  buildNotes({ skipGit: process.argv.includes("--skip-git") });
+  buildNotes({
+    skipGit: process.argv.includes("--skip-git"),
+    all: process.argv.includes("--all"),
+  });
 }

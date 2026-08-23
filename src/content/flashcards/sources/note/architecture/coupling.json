@@ -4,7 +4,11 @@
     "id": "architecture/coupling",
     "title": "Coupling",
     "href": "/notes/architecture/coupling/",
-    "tags": ["microservices", "architecture", "coupling"]
+    "tags": [
+      "microservices",
+      "architecture",
+      "coupling"
+    ]
   },
   "cards": [
     {

@@ -94,6 +94,7 @@ export function noteIdFromPagePath(pagesDir: string, file: string): string {
 export function diffSources(
   current: SourceRef[],
   cache: CacheFile,
+  options: { all?: boolean } = {},
 ): {
   changed: SourceRef[];
   unchanged: SourceRef[];
@@ -107,7 +108,7 @@ export function diffSources(
     const key = cacheKey(source);
     currentKeys.add(key);
     const cached = cache.sources[key];
-    if (!cached || cached.hash !== source.hash) {
+    if (options.all || !cached || cached.hash !== source.hash) {
       changed.push(source);
     } else {
       unchanged.push(source);

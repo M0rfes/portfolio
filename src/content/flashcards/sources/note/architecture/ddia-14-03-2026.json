@@ -4,7 +4,12 @@
     "id": "architecture/ddia-14-03-2026",
     "title": "Metastable Failures",
     "href": "/notes/architecture/ddia-14-03-2026/",
-    "tags": ["distributed-systems", "resilience", "reliability", "ddia"]
+    "tags": [
+      "distributed-systems",
+      "resilience",
+      "reliability",
+      "ddia"
+    ]
   },
   "cards": [
     {

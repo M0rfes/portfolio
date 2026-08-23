@@ -44,6 +44,16 @@
       ],
       "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
       "title": "Rust Concurrency"
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-rc"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-rc/",
+      "title": "Rust Rc"
     }
   ]
 }

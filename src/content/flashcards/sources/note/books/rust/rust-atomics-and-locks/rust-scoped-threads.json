@@ -13,23 +13,23 @@
   "cards": [
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-scoped-threads:0",
-      "question": "What do scoped threads guarantee about lifetime?",
-      "answer": "They finish execution before the scope is exited, so they can borrow local variables because the data outlives their scope."
+      "question": "Why can scoped threads borrow local variables?",
+      "answer": "They finish before the scope is exited, so the data outlives their scope."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-scoped-threads:1",
-      "question": "When are threads spawned in std::thread::scope joined?",
-      "answer": "All threads spawned in the scope are joined before the scope exits."
+      "question": "When are threads spawned in thread::scope joined?",
+      "answer": "All of them are joined before the scope exits."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-scoped-threads:2",
-      "question": "What sharing of references is allowed across scoped threads?",
-      "answer": "Multiple read references can be shared. Only one mutable reference is allowed at a time, not a mutable reference together with shared reads."
+      "question": "Can two scoped threads share read references to the same local?",
+      "answer": "Yes. Multiple read references can be shared across threads."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-scoped-threads:3",
-      "question": "Why wouldn't list.push in a scoped thread compile while two threads already borrow list?",
-      "answer": "That would need a mutable reference while multiple read references exist. Rust allows only one of those at a time."
+      "question": "Why wouldn't list.push compile in a scoped thread that already shares reads?",
+      "answer": "Only one mutable reference is allowed at a time. You cannot combine one mutable reference with multiple read references."
     }
   ]
 }

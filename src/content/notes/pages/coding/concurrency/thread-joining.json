@@ -15,5 +15,26 @@
   "vaultPath": "Coding/Concurrency/Thread Joining.md",
   "folder": "Coding",
   "markdown": "# Thread Joining\n\nTo wait for spawned [threads](../threads/) to finish their execution before exiting from main, we can join the thread handle.\n\nJoining waits for the target thread to finish and returns its result or indicates if the thread panicked.\n",
-  "linkedFrom": []
+  "linkedFrom": [
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "basics-of-rust-concurrency"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+      "title": "Rust Concurrency"
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-threads"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-threads/",
+      "title": "Rust Threads"
+    }
+  ]
 }

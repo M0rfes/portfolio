@@ -15,5 +15,26 @@
   "vaultPath": "Coding/Concurrency/Condition Variables.md",
   "folder": "Coding",
   "markdown": "# Condition Variables\n\nA Condition Variable is used to notify one or more [threads](../threads/) of an event when the shared data is protected by a [Mutex](../mutex/).\n\nA condition variable takes the lock guard, unlocks the mutex, and puts the thread to sleep. When a notification is received, it re-acquires the mutex lock and returns the guard.\n",
-  "linkedFrom": []
+  "linkedFrom": [
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-condition-variables"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-condition-variables/",
+      "title": "Condition Variables"
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "basics-of-rust-concurrency"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+      "title": "Rust Concurrency"
+    }
+  ]
 }

@@ -75,7 +75,28 @@
       "updatedAt": "2026-08-23",
       "vaultPath": "Coding/Automatic Storage Duration.md",
       "folder": "Coding",
-      "linkedFrom": []
+      "linkedFrom": [
+        {
+          "slug": [
+            "books",
+            "c",
+            "advanced-c-programming-course",
+            "c-auto"
+          ],
+          "href": "/notes/books/c/advanced-c-programming-course/c-auto/",
+          "title": "C Auto Storage Class"
+        },
+        {
+          "slug": [
+            "books",
+            "c",
+            "advanced-c-programming-course",
+            "storage-classes"
+          ],
+          "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
+          "title": "Storage Classes in C"
+        }
+      ]
     },
     {
       "slug": [
@@ -203,6 +224,26 @@
     },
     {
       "slug": [
+        "emulation",
+        "chip-8"
+      ],
+      "href": "/notes/emulation/chip-8/",
+      "title": "CHIP-8",
+      "tags": [
+        "emulation",
+        "architecture",
+        "hardware",
+        "chip-8",
+        "virtual-machine"
+      ],
+      "created": "2026-08-23",
+      "updatedAt": "2026-08-23",
+      "vaultPath": "Emulation/CHIP-8.md",
+      "folder": "Emulation",
+      "linkedFrom": []
+    },
+    {
+      "slug": [
         "coding",
         "register-storage"
       ],
@@ -217,7 +258,36 @@
       "updatedAt": "2026-08-23",
       "vaultPath": "Coding/Register Storage.md",
       "folder": "Coding",
-      "linkedFrom": []
+      "linkedFrom": [
+        {
+          "slug": [
+            "books",
+            "c",
+            "advanced-c-programming-course",
+            "c-register"
+          ],
+          "href": "/notes/books/c/advanced-c-programming-course/c-register/",
+          "title": "C Register Storage Class"
+        },
+        {
+          "slug": [
+            "emulation",
+            "chip-8"
+          ],
+          "href": "/notes/emulation/chip-8/",
+          "title": "CHIP-8"
+        },
+        {
+          "slug": [
+            "books",
+            "c",
+            "advanced-c-programming-course",
+            "storage-classes"
+          ],
+          "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
+          "title": "Storage Classes in C"
+        }
+      ]
     },
     {
       "slug": [
@@ -239,7 +309,17 @@
       "updatedAt": "2026-08-23",
       "vaultPath": "Books/C/Advanced C Programming Course/Storage Classes.md",
       "folder": "Books",
-      "linkedFrom": []
+      "linkedFrom": [
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "c17"
+          ],
+          "href": "/notes/teach/c17/c17/",
+          "title": "C17 Hub"
+        }
+      ]
     },
     {
       "slug": [
@@ -322,6 +402,16 @@
           ],
           "href": "/notes/books/c/advanced-c-programming-course/c-auto/",
           "title": "C Auto Storage Class"
+        },
+        {
+          "slug": [
+            "books",
+            "c",
+            "advanced-c-programming-course",
+            "c-extern"
+          ],
+          "href": "/notes/books/c/advanced-c-programming-course/c-extern/",
+          "title": "C Extern Storage Class"
         },
         {
           "slug": [
@@ -494,6 +584,14 @@
           ],
           "href": "/notes/teach/c17/notes/",
           "title": "C17 Teacher Notes"
+        },
+        {
+          "slug": [
+            "emulation",
+            "chip-8"
+          ],
+          "href": "/notes/emulation/chip-8/",
+          "title": "CHIP-8"
         },
         {
           "slug": [
@@ -726,6 +824,14 @@
         },
         {
           "slug": [
+            "emulation",
+            "chip-8"
+          ],
+          "href": "/notes/emulation/chip-8/",
+          "title": "CHIP-8"
+        },
+        {
+          "slug": [
             "teach",
             "c17",
             "lessons",
@@ -775,6 +881,14 @@
           ],
           "href": "/notes/teach/c17/c17/",
           "title": "C17 Hub"
+        },
+        {
+          "slug": [
+            "emulation",
+            "chip-8"
+          ],
+          "href": "/notes/emulation/chip-8/",
+          "title": "CHIP-8"
         },
         {
           "slug": [
@@ -916,21 +1030,6 @@
           "title": "C17 Hub"
         }
       ]
-    },
-    {
-      "slug": [
-        "books",
-        "rust",
-        "rust-atomics-and-locks",
-        "memory-ordering"
-      ],
-      "href": "/notes/books/rust/rust-atomics-and-locks/memory-ordering/",
-      "title": "Memory Ordering",
-      "tags": [],
-      "updatedAt": "2026-08-22",
-      "vaultPath": "Books/rust/Rust Atomics and Locks/Memory Ordering.md",
-      "folder": "Books",
-      "linkedFrom": []
     },
     {
       "slug": [
@@ -1081,20 +1180,6 @@
           "title": "C17 Hub"
         }
       ]
-    },
-    {
-      "slug": [
-        "books",
-        "grokking-concurrency",
-        "serial-and-parallel-execution"
-      ],
-      "href": "/notes/books/grokking-concurrency/serial-and-parallel-execution/",
-      "title": "Serial and parallel execution",
-      "tags": [],
-      "updatedAt": "2026-08-22",
-      "vaultPath": "Books/Grokking Concurrency/Serial and parallel execution.md",
-      "folder": "Books",
-      "linkedFrom": []
     },
     {
       "slug": [
@@ -1281,6 +1366,25 @@
     },
     {
       "slug": [
+        "books",
+        "grokking-concurrency",
+        "serial-and-parallel-execution"
+      ],
+      "href": "/notes/books/grokking-concurrency/serial-and-parallel-execution/",
+      "title": "Serial and Parallel Execution",
+      "tags": [
+        "concurrency",
+        "parallel-execution",
+        "serial-execution"
+      ],
+      "created": "2026-08-21",
+      "updatedAt": "2026-08-21",
+      "vaultPath": "Books/Grokking Concurrency/Serial and parallel execution.md",
+      "folder": "Books",
+      "linkedFrom": []
+    },
+    {
+      "slug": [
         "coding",
         "concurrency",
         "atomic-operations"
@@ -1320,6 +1424,16 @@
             "books",
             "rust",
             "rust-atomics-and-locks",
+            "memory-ordering"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/memory-ordering/",
+          "title": "Memory Ordering"
+        },
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
             "rust-memory-ordering"
           ],
           "href": "/notes/books/rust/rust-atomics-and-locks/rust-memory-ordering/",
@@ -1343,6 +1457,16 @@
           ],
           "href": "/notes/books/rust/rust-atomics-and-locks/rust-arc/",
           "title": "Rust Arc"
+        },
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "rust-atomics"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/rust-atomics/",
+          "title": "Rust Atomics"
         },
         {
           "slug": [
@@ -1373,7 +1497,28 @@
       "updatedAt": "2026-08-18",
       "vaultPath": "Coding/Concurrency/Atomic Reference Counting.md",
       "folder": "Coding",
-      "linkedFrom": []
+      "linkedFrom": [
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "rust-arc"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/rust-arc/",
+          "title": "Rust Arc"
+        },
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "basics-of-rust-concurrency"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+          "title": "Rust Concurrency"
+        }
+      ]
     },
     {
       "slug": [
@@ -1445,7 +1590,28 @@
       "updatedAt": "2026-08-18",
       "vaultPath": "Coding/Concurrency/Condition Variables.md",
       "folder": "Coding",
-      "linkedFrom": []
+      "linkedFrom": [
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "rust-condition-variables"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/rust-condition-variables/",
+          "title": "Condition Variables"
+        },
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "basics-of-rust-concurrency"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+          "title": "Rust Concurrency"
+        }
+      ]
     },
     {
       "slug": [
@@ -1485,6 +1651,16 @@
       "vaultPath": "Coding/Concurrency/Interior Mutability.md",
       "folder": "Coding",
       "linkedFrom": [
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "rust-cell-and-refcell"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/rust-cell-and-refcell/",
+          "title": "Rust Cell"
+        },
         {
           "slug": [
             "books",
@@ -1555,7 +1731,28 @@
       "updatedAt": "2026-08-18",
       "vaultPath": "Coding/Concurrency/Lazy Initialization.md",
       "folder": "Coding",
-      "linkedFrom": []
+      "linkedFrom": [
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "atomics"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/atomics/",
+          "title": "Atomics"
+        },
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "rust-lazy-initialization"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/rust-lazy-initialization/",
+          "title": "Lazy Initialization"
+        }
+      ]
     },
     {
       "slug": [
@@ -1605,6 +1802,48 @@
       "updatedAt": "2026-08-18",
       "vaultPath": "Coding/Concurrency/Lock Poisoning.md",
       "folder": "Coding",
+      "linkedFrom": [
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "rust-lock-poisoning"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/rust-lock-poisoning/",
+          "title": "Lock Poisoning"
+        },
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "basics-of-rust-concurrency"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+          "title": "Rust Concurrency"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "memory-ordering"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/memory-ordering/",
+      "title": "Memory Ordering",
+      "tags": [
+        "rust",
+        "concurrency",
+        "atomics",
+        "memory-ordering"
+      ],
+      "created": "2026-08-18",
+      "updatedAt": "2026-08-18",
+      "vaultPath": "Books/rust/Rust Atomics and Locks/Memory Ordering.md",
+      "folder": "Books",
       "linkedFrom": []
     },
     {
@@ -1636,6 +1875,16 @@
           ],
           "href": "/notes/books/rust/rust-atomics-and-locks/atomics/",
           "title": "Atomics"
+        },
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "memory-ordering"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/memory-ordering/",
+          "title": "Memory Ordering"
         }
       ]
     },
@@ -1659,12 +1908,42 @@
       "linkedFrom": [
         {
           "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "atomics"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/atomics/",
+          "title": "Atomics"
+        },
+        {
+          "slug": [
             "teach",
             "c17",
             "c17"
           ],
           "href": "/notes/teach/c17/c17/",
           "title": "C17 Hub"
+        },
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "memory-ordering"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/memory-ordering/",
+          "title": "Memory Ordering"
+        },
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "rust-memory-ordering"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/rust-memory-ordering/",
+          "title": "Memory Ordering"
         }
       ]
     },
@@ -1750,6 +2029,16 @@
           ],
           "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
           "title": "Rust Concurrency"
+        },
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "rust-mutex"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/rust-mutex/",
+          "title": "Rust Mutex"
         },
         {
           "slug": [
@@ -1864,6 +2153,16 @@
           ],
           "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
           "title": "Rust Concurrency"
+        },
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "rust-rc"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/rust-rc/",
+          "title": "Rust Rc"
         }
       ]
     },
@@ -2164,6 +2463,16 @@
           ],
           "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
           "title": "Rust Concurrency"
+        },
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "rust-rwlock"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/rust-rwlock/",
+          "title": "Rust RwLock"
         }
       ]
     },
@@ -2214,7 +2523,28 @@
       "updatedAt": "2026-08-18",
       "vaultPath": "Coding/Concurrency/Scoped Threads.md",
       "folder": "Coding",
-      "linkedFrom": []
+      "linkedFrom": [
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "basics-of-rust-concurrency"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+          "title": "Rust Concurrency"
+        },
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "rust-scoped-threads"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/rust-scoped-threads/",
+          "title": "Scoped Threads"
+        }
+      ]
     },
     {
       "slug": [
@@ -2285,6 +2615,16 @@
           ],
           "href": "/notes/books/rust/rust-atomics-and-locks/rust-rc/",
           "title": "Rust Rc"
+        },
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "rust-send-and-sync"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/rust-send-and-sync/",
+          "title": "Send Sync"
         }
       ]
     },
@@ -2304,7 +2644,48 @@
       "updatedAt": "2026-08-18",
       "vaultPath": "Coding/Concurrency/Static Lifetime.md",
       "folder": "Coding",
-      "linkedFrom": []
+      "linkedFrom": [
+        {
+          "slug": [
+            "books",
+            "c",
+            "advanced-c-programming-course",
+            "c-static"
+          ],
+          "href": "/notes/books/c/advanced-c-programming-course/c-static/",
+          "title": "C Static Storage Class"
+        },
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "basics-of-rust-concurrency"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+          "title": "Rust Concurrency"
+        },
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "rust-statics-and-leaking"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/rust-statics-and-leaking/",
+          "title": "Rust Statics"
+        },
+        {
+          "slug": [
+            "books",
+            "c",
+            "advanced-c-programming-course",
+            "storage-classes"
+          ],
+          "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
+          "title": "Storage Classes in C"
+        }
+      ]
     },
     {
       "slug": [
@@ -2322,7 +2703,28 @@
       "updatedAt": "2026-08-18",
       "vaultPath": "Coding/Concurrency/Thread Joining.md",
       "folder": "Coding",
-      "linkedFrom": []
+      "linkedFrom": [
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "basics-of-rust-concurrency"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+          "title": "Rust Concurrency"
+        },
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "rust-threads"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/rust-threads/",
+          "title": "Rust Threads"
+        }
+      ]
     },
     {
       "slug": [
@@ -2371,7 +2773,28 @@
       "updatedAt": "2026-08-18",
       "vaultPath": "Coding/Concurrency/Thread Parking.md",
       "folder": "Coding",
-      "linkedFrom": []
+      "linkedFrom": [
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "basics-of-rust-concurrency"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+          "title": "Rust Concurrency"
+        },
+        {
+          "slug": [
+            "books",
+            "rust",
+            "rust-atomics-and-locks",
+            "rust-thread-parking"
+          ],
+          "href": "/notes/books/rust/rust-atomics-and-locks/rust-thread-parking/",
+          "title": "Thread Parking"
+        }
+      ]
     },
     {
       "slug": [
@@ -4147,6 +4570,19 @@
         "color": "#89b4fa"
       },
       {
+        "id": "emulation/chip-8",
+        "title": "CHIP-8",
+        "href": "/notes/emulation/chip-8/",
+        "tags": [
+          "emulation",
+          "architecture",
+          "hardware",
+          "chip-8",
+          "virtual-machine"
+        ],
+        "color": "#b1e052"
+      },
+      {
         "id": "coding/register-storage",
         "title": "Register Storage",
         "href": "/notes/coding/register-storage/",
@@ -4340,13 +4776,6 @@
         "color": "#89b4fa"
       },
       {
-        "id": "books/rust/rust-atomics-and-locks/memory-ordering",
-        "title": "Memory Ordering",
-        "href": "/notes/books/rust/rust-atomics-and-locks/memory-ordering/",
-        "tags": [],
-        "color": "#89b4fa"
-      },
-      {
         "id": "architecture/ddia-14-03-2026",
         "title": "Metastable Failures",
         "href": "/notes/architecture/ddia-14-03-2026/",
@@ -4379,13 +4808,6 @@
           "cmake",
           "toolchain"
         ],
-        "color": "#89b4fa"
-      },
-      {
-        "id": "books/grokking-concurrency/serial-and-parallel-execution",
-        "title": "Serial and parallel execution",
-        "href": "/notes/books/grokking-concurrency/serial-and-parallel-execution/",
-        "tags": [],
         "color": "#89b4fa"
       },
       {
@@ -4444,6 +4866,17 @@
           "scalability"
         ],
         "color": "#b1e052"
+      },
+      {
+        "id": "books/grokking-concurrency/serial-and-parallel-execution",
+        "title": "Serial and Parallel Execution",
+        "href": "/notes/books/grokking-concurrency/serial-and-parallel-execution/",
+        "tags": [
+          "concurrency",
+          "parallel-execution",
+          "serial-execution"
+        ],
+        "color": "#e98686"
       },
       {
         "id": "coding/concurrency/atomic-operations",
@@ -4567,6 +5000,18 @@
           "error-handling"
         ],
         "color": "#e98686"
+      },
+      {
+        "id": "books/rust/rust-atomics-and-locks/memory-ordering",
+        "title": "Memory Ordering",
+        "href": "/notes/books/rust/rust-atomics-and-locks/memory-ordering/",
+        "tags": [
+          "rust",
+          "concurrency",
+          "atomics",
+          "memory-ordering"
+        ],
+        "color": "#ce422b"
       },
       {
         "id": "books/rust/rust-atomics-and-locks/rust-memory-ordering",
@@ -5226,6 +5671,10 @@
       },
       {
         "source": "books/c/advanced-c-programming-course/c-auto",
+        "target": "coding/automatic-storage-duration"
+      },
+      {
+        "source": "books/c/advanced-c-programming-course/c-auto",
         "target": "coding/variable-linkage"
       },
       {
@@ -5235,6 +5684,18 @@
       {
         "source": "books/c/advanced-c-programming-course/c-auto",
         "target": "coding/variable-scope"
+      },
+      {
+        "source": "books/c/advanced-c-programming-course/c-extern",
+        "target": "coding/variable-linkage"
+      },
+      {
+        "source": "books/c/advanced-c-programming-course/c-register",
+        "target": "coding/register-storage"
+      },
+      {
+        "source": "books/c/advanced-c-programming-course/c-static",
+        "target": "coding/concurrency/static-lifetime"
       },
       {
         "source": "books/c/advanced-c-programming-course/c-static",
@@ -5245,8 +5706,20 @@
         "target": "teach/c17/glossary"
       },
       {
-        "source": "books/c/advanced-c-programming-course/storage-classes",
-        "target": "coding/variable-lifetime"
+        "source": "emulation/chip-8",
+        "target": "teach/c17/c17"
+      },
+      {
+        "source": "emulation/chip-8",
+        "target": "coding/register-storage"
+      },
+      {
+        "source": "emulation/chip-8",
+        "target": "teach/c17/lessons/0002-binary-file-io-and-rom-loading"
+      },
+      {
+        "source": "emulation/chip-8",
+        "target": "teach/c17/lessons/0001-c17-standards-and-modern-toolchain"
       },
       {
         "source": "books/c/advanced-c-programming-course/storage-classes",
@@ -5258,11 +5731,15 @@
       },
       {
         "source": "books/c/advanced-c-programming-course/storage-classes",
-        "target": "teach/c17/c17"
+        "target": "coding/variable-lifetime"
       },
       {
         "source": "books/c/advanced-c-programming-course/storage-classes",
         "target": "books/c/advanced-c-programming-course/c-auto"
+      },
+      {
+        "source": "books/c/advanced-c-programming-course/storage-classes",
+        "target": "coding/automatic-storage-duration"
       },
       {
         "source": "books/c/advanced-c-programming-course/storage-classes",
@@ -5274,15 +5751,27 @@
       },
       {
         "source": "books/c/advanced-c-programming-course/storage-classes",
+        "target": "coding/concurrency/static-lifetime"
+      },
+      {
+        "source": "books/c/advanced-c-programming-course/storage-classes",
+        "target": "books/c/advanced-c-programming-course/c-register"
+      },
+      {
+        "source": "books/c/advanced-c-programming-course/storage-classes",
+        "target": "coding/register-storage"
+      },
+      {
+        "source": "books/c/advanced-c-programming-course/storage-classes",
+        "target": "teach/c17/c17"
+      },
+      {
+        "source": "books/c/advanced-c-programming-course/storage-classes",
         "target": "coding/concurrency/threads"
       },
       {
         "source": "books/c/advanced-c-programming-course/storage-classes",
         "target": "teach/c17/glossary"
-      },
-      {
-        "source": "books/c/advanced-c-programming-course/storage-classes",
-        "target": "books/c/advanced-c-programming-course/c-register"
       },
       {
         "source": "teach/c17/glossary",
@@ -5351,6 +5840,10 @@
       {
         "source": "teach/c17/c17",
         "target": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency"
+      },
+      {
+        "source": "teach/c17/c17",
+        "target": "books/c/advanced-c-programming-course/storage-classes"
       },
       {
         "source": "teach/c17/resources",
@@ -5474,15 +5967,15 @@
       },
       {
         "source": "books/grokking-concurrency/introducing-concurrency",
-        "target": "coding/concurrency/threads"
-      },
-      {
-        "source": "books/grokking-concurrency/introducing-concurrency",
         "target": "coding/concurrency/latency-vs-throughput"
       },
       {
         "source": "books/grokking-concurrency/introducing-concurrency",
         "target": "coding/concurrency/scalability"
+      },
+      {
+        "source": "books/grokking-concurrency/introducing-concurrency",
+        "target": "coding/concurrency/threads"
       },
       {
         "source": "books/grokking-concurrency/introducing-concurrency",
@@ -5518,7 +6011,7 @@
       },
       {
         "source": "books/rust/rust-atomics-and-locks/atomics",
-        "target": "coding/concurrency/threads"
+        "target": "coding/concurrency/atomic-operations"
       },
       {
         "source": "books/rust/rust-atomics-and-locks/atomics",
@@ -5526,7 +6019,7 @@
       },
       {
         "source": "books/rust/rust-atomics-and-locks/atomics",
-        "target": "coding/concurrency/atomic-operations"
+        "target": "coding/concurrency/memory-ordering"
       },
       {
         "source": "books/rust/rust-atomics-and-locks/atomics",
@@ -5534,7 +6027,19 @@
       },
       {
         "source": "books/rust/rust-atomics-and-locks/atomics",
+        "target": "coding/concurrency/lazy-initialization"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/atomics",
+        "target": "coding/concurrency/threads"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/atomics",
         "target": "coding/concurrency/race-conditions"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/rust-condition-variables",
+        "target": "coding/concurrency/condition-variables"
       },
       {
         "source": "books/rust/rust-atomics-and-locks/rust-condition-variables",
@@ -5562,6 +6067,10 @@
       },
       {
         "source": "books/rust/rust-atomics-and-locks/rust-lazy-initialization",
+        "target": "coding/concurrency/lazy-initialization"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/rust-lazy-initialization",
         "target": "coding/concurrency/race-conditions"
       },
       {
@@ -5578,6 +6087,10 @@
       },
       {
         "source": "books/rust/rust-atomics-and-locks/rust-lock-poisoning",
+        "target": "coding/concurrency/lock-poisoning"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/rust-lock-poisoning",
         "target": "coding/concurrency/threads"
       },
       {
@@ -5599,6 +6112,22 @@
       {
         "source": "coding/concurrency/lock-poisoning",
         "target": "coding/concurrency/reader-writer-lock"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/memory-ordering",
+        "target": "books/rust/rust-atomics-and-locks/rust-memory-ordering"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/memory-ordering",
+        "target": "coding/concurrency/memory-ordering"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/memory-ordering",
+        "target": "coding/concurrency/atomic-operations"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/rust-memory-ordering",
+        "target": "coding/concurrency/memory-ordering"
       },
       {
         "source": "books/rust/rust-atomics-and-locks/rust-memory-ordering",
@@ -5618,6 +6147,10 @@
       },
       {
         "source": "books/rust/rust-atomics-and-locks/rust-arc",
+        "target": "coding/concurrency/atomic-reference-counting"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/rust-arc",
         "target": "coding/concurrency/reference-counting"
       },
       {
@@ -5630,11 +6163,27 @@
       },
       {
         "source": "books/rust/rust-atomics-and-locks/rust-atomics",
+        "target": "coding/concurrency/atomic-operations"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/rust-atomics",
         "target": "coding/concurrency/threads"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/rust-cell-and-refcell",
+        "target": "coding/concurrency/interior-mutability"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/rust-mutex",
+        "target": "coding/concurrency/mutex"
       },
       {
         "source": "books/rust/rust-atomics-and-locks/rust-mutex",
         "target": "coding/concurrency/threads"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/rust-rc",
+        "target": "coding/concurrency/reference-counting"
       },
       {
         "source": "books/rust/rust-atomics-and-locks/rust-rc",
@@ -5646,7 +6195,15 @@
       },
       {
         "source": "books/rust/rust-atomics-and-locks/rust-rwlock",
+        "target": "coding/concurrency/reader-writer-lock"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/rust-rwlock",
         "target": "coding/concurrency/mutex"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/rust-statics-and-leaking",
+        "target": "coding/concurrency/static-lifetime"
       },
       {
         "source": "books/rust/rust-atomics-and-locks/rust-statics-and-leaking",
@@ -5657,8 +6214,16 @@
         "target": "coding/concurrency/threads"
       },
       {
+        "source": "books/rust/rust-atomics-and-locks/rust-threads",
+        "target": "coding/concurrency/thread-joining"
+      },
+      {
         "source": "coding/concurrency/reader-writer-lock",
         "target": "coding/concurrency/mutex"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/rust-scoped-threads",
+        "target": "coding/concurrency/scoped-threads"
       },
       {
         "source": "books/rust/rust-atomics-and-locks/rust-scoped-threads",
@@ -5667,6 +6232,10 @@
       {
         "source": "coding/concurrency/scoped-threads",
         "target": "coding/concurrency/threads"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/rust-send-and-sync",
+        "target": "coding/concurrency/send-and-sync"
       },
       {
         "source": "books/rust/rust-atomics-and-locks/rust-send-and-sync",
@@ -5686,6 +6255,10 @@
       },
       {
         "source": "books/rust/rust-atomics-and-locks/rust-thread-parking",
+        "target": "coding/concurrency/thread-parking"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/rust-thread-parking",
         "target": "coding/concurrency/threads"
       },
       {
@@ -5702,7 +6275,15 @@
       },
       {
         "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
+        "target": "coding/concurrency/thread-joining"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
         "target": "books/rust/rust-atomics-and-locks/rust-scoped-threads"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
+        "target": "coding/concurrency/scoped-threads"
       },
       {
         "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
@@ -5710,19 +6291,11 @@
       },
       {
         "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
+        "target": "coding/concurrency/static-lifetime"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
         "target": "books/rust/rust-atomics-and-locks/rust-rc"
-      },
-      {
-        "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
-        "target": "coding/concurrency/interior-mutability"
-      },
-      {
-        "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
-        "target": "coding/concurrency/send-and-sync"
-      },
-      {
-        "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
-        "target": "books/rust/rust-atomics-and-locks/rust-arc"
       },
       {
         "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
@@ -5730,7 +6303,11 @@
       },
       {
         "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
-        "target": "coding/concurrency/atomic-operations"
+        "target": "books/rust/rust-atomics-and-locks/rust-arc"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
+        "target": "coding/concurrency/atomic-reference-counting"
       },
       {
         "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
@@ -5738,7 +6315,15 @@
       },
       {
         "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
+        "target": "coding/concurrency/interior-mutability"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
         "target": "books/rust/rust-atomics-and-locks/rust-send-and-sync"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
+        "target": "coding/concurrency/send-and-sync"
       },
       {
         "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
@@ -5746,15 +6331,11 @@
       },
       {
         "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
-        "target": "books/rust/rust-atomics-and-locks/rust-rwlock"
-      },
-      {
-        "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
         "target": "coding/concurrency/mutex"
       },
       {
         "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
-        "target": "books/rust/rust-atomics-and-locks/rust-lock-poisoning"
+        "target": "books/rust/rust-atomics-and-locks/rust-rwlock"
       },
       {
         "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
@@ -5762,11 +6343,31 @@
       },
       {
         "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
+        "target": "books/rust/rust-atomics-and-locks/rust-lock-poisoning"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
+        "target": "coding/concurrency/lock-poisoning"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
         "target": "books/rust/rust-atomics-and-locks/rust-thread-parking"
       },
       {
         "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
+        "target": "coding/concurrency/thread-parking"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
         "target": "books/rust/rust-atomics-and-locks/rust-condition-variables"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
+        "target": "coding/concurrency/condition-variables"
+      },
+      {
+        "source": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency",
+        "target": "coding/concurrency/atomic-operations"
       },
       {
         "source": "slm/slm",

@@ -4,7 +4,48 @@
     "id": "llms/llm",
     "title": "LLMs",
     "href": "/notes/llms/llm/",
-    "tags": ["llm", "index", "research", "ai"]
+    "tags": [
+      "llm",
+      "index",
+      "research",
+      "ai"
+    ]
   },
-  "cards": []
+  "cards": [
+    {
+      "id": "note:llms/llm:0",
+      "question": "How do encoder and decoder layers differ in this MOC?",
+      "answer": "Encoders do bidirectional feature extraction. Decoders do causal autoregressive generation."
+    },
+    {
+      "id": "note:llms/llm:1",
+      "question": "What tokenization techniques does the LLM index list?",
+      "answer": "Character, word, and sub-word (BPE) techniques."
+    },
+    {
+      "id": "note:llms/llm:2",
+      "question": "What does Needle-in-a-Haystack benchmark?",
+      "answer": "Long-context retrieval and biases."
+    },
+    {
+      "id": "note:llms/llm:3",
+      "question": "What is re-ranking in this RAG overview?",
+      "answer": "Two-stage retrieval for precision."
+    },
+    {
+      "id": "note:llms/llm:4",
+      "question": "What is speculative decoding here?",
+      "answer": "Draft model generation with target validation."
+    },
+    {
+      "id": "note:llms/llm:5",
+      "question": "What serving technique does vLLM use for high throughput?",
+      "answer": "PagedAttention."
+    },
+    {
+      "id": "note:llms/llm:6",
+      "question": "What is an MLLM in this index?",
+      "answer": "A multimodal LLM capable of processing images, audio, and video."
+    }
+  ]
 }

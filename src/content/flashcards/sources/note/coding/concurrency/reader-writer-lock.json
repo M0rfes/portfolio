@@ -4,23 +4,26 @@
     "id": "coding/concurrency/reader-writer-lock",
     "title": "RwLock",
     "href": "/notes/coding/concurrency/reader-writer-lock/",
-    "tags": ["concurrency", "locks"]
+    "tags": [
+      "concurrency",
+      "locks"
+    ]
   },
   "cards": [
     {
       "id": "note:coding/concurrency/reader-writer-lock:0",
-      "question": "What access pattern does an RwLock allow?",
-      "answer": "One exclusive mutable reference, or multiple shared read references."
+      "question": "How does an RwLock differ from a mutex?",
+      "answer": "A mutex only lets you take exclusive access even when a shared reference would have been enough. An RwLock lets you have one exclusive mutable reference or multiple shared read references."
     },
     {
       "id": "note:coding/concurrency/reader-writer-lock:1",
-      "question": "How does an RwLock differ from a Mutex?",
-      "answer": "A Mutex only grants exclusive access even when a shared reference would suffice. An RwLock allows either one exclusive mutable reference or multiple shared read references."
+      "question": "What access combinations does an RwLock allow?",
+      "answer": "One exclusive mutable reference, or multiple shared read references."
     },
     {
       "id": "note:coding/concurrency/reader-writer-lock:2",
       "question": "When is an RwLock optimal?",
-      "answer": "When the data is read frequently but written to infrequently."
+      "answer": "For data that is read frequently but written to infrequently."
     }
   ]
 }

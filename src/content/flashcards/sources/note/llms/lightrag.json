@@ -4,7 +4,28 @@
     "id": "llms/lightrag",
     "title": "LightRAG",
     "href": "/notes/llms/lightrag/",
-    "tags": ["graph-rag", "light-rag", "research", "rag"]
+    "tags": [
+      "graph-rag",
+      "light-rag",
+      "research",
+      "rag"
+    ]
   },
-  "cards": []
+  "cards": [
+    {
+      "id": "note:llms/lightrag:0",
+      "question": "What is LightRAG?",
+      "answer": "A specialized implementation of GraphRAG developed by hkuds."
+    },
+    {
+      "id": "note:llms/lightrag:1",
+      "question": "Who developed LightRAG?",
+      "answer": "hkuds."
+    },
+    {
+      "id": "note:llms/lightrag:2",
+      "question": "LightRAG is a specialized implementation of what?",
+      "answer": "GraphRAG."
+    }
+  ]
 }

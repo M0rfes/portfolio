@@ -36,6 +36,16 @@
       ],
       "href": "/notes/books/rust/rust-atomics-and-locks/rust-rc/",
       "title": "Rust Rc"
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-send-and-sync"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-send-and-sync/",
+      "title": "Send Sync"
     }
   ]
 }

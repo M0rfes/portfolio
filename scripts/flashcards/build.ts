@@ -166,7 +166,10 @@ function readTagCatalog(root: string): string[] {
   }
 }
 
-export function buildFlashcards(root = ROOT): Flashcard[] {
+export function buildFlashcards(
+  root = ROOT,
+  _options: { all?: boolean } = {},
+): Flashcard[] {
   const sourcesDir = path.join(root, "src/content/flashcards/sources");
   const indexPath = path.join(root, "src/content/flashcards/index.json");
   const files = walkJsonFiles(sourcesDir).map((file) =>
@@ -188,6 +191,8 @@ export function buildFlashcards(root = ROOT): Flashcard[] {
 }
 
 if (fileURLToPath(import.meta.url) === path.resolve(process.argv[1] ?? "")) {
-  const cards = buildFlashcards();
+  const cards = buildFlashcards(ROOT, {
+    all: process.argv.includes("--all"),
+  });
   console.log(`Flashcards: ${cards.length} cards from ${SOURCES_DIR}`);
 }

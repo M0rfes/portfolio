@@ -4,7 +4,11 @@
     "id": "coding/satisfies-15-02-2026",
     "title": "TypeScript Satisfies",
     "href": "/notes/coding/satisfies-15-02-2026/",
-    "tags": ["typescript", "coding", "pattern-matching"]
+    "tags": [
+      "typescript",
+      "coding",
+      "pattern-matching"
+    ]
   },
   "cards": [
     {
@@ -30,7 +34,7 @@
     {
       "id": "note:coding/satisfies-15-02-2026:4",
       "question": "How does this compare to Rust pattern matching?",
-      "answer": "It is similar to exhaustive pattern matching in Rust: unhandled cases are caught at compile time instead of in runtime logs."
+      "answer": "It is similar to exhaustive pattern matching in Rust. Unhandled cases are caught at compile time instead of in runtime logs."
     }
   ]
 }

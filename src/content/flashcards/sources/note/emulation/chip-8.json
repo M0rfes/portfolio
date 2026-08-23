@@ -1,0 +1,57 @@
+{
+  "source": {
+    "type": "note",
+    "id": "emulation/chip-8",
+    "title": "CHIP-8",
+    "href": "/notes/emulation/chip-8/",
+    "tags": [
+      "emulation",
+      "architecture",
+      "hardware",
+      "chip-8",
+      "virtual-machine"
+    ]
+  },
+  "cards": [
+    {
+      "id": "note:emulation/chip-8:0",
+      "question": "How much RAM does CHIP-8 have?",
+      "answer": "Up to 4 kilobytes (4096 bytes). All of it is writable RAM, so programs can modify themselves."
+    },
+    {
+      "id": "note:emulation/chip-8:1",
+      "question": "What is the CHIP-8 display?",
+      "answer": "A 64×32 monochrome pixel array (128×64 for SUPER-CHIP). Each pixel is on or off. The original display ran at 60 Hz."
+    },
+    {
+      "id": "note:emulation/chip-8:2",
+      "question": "What do the program counter and index register I do?",
+      "answer": "The PC points at the current instruction in memory. I is a 16-bit register used to point at locations in memory."
+    },
+    {
+      "id": "note:emulation/chip-8:3",
+      "question": "How do the delay timer and sound timer differ?",
+      "answer": "Both are 8-bit and decrement at 60 Hz until they reach 0. The sound timer also beeps as long as it is not 0."
+    },
+    {
+      "id": "note:emulation/chip-8:4",
+      "question": "Why is VF special among the V registers?",
+      "answer": "There are 16 8-bit registers V0–VF. VF is also a flag register; many instructions set it to 1 or 0, for example as a carry flag."
+    },
+    {
+      "id": "note:emulation/chip-8:5",
+      "question": "Why can the PC and I only address 4 KB in practice?",
+      "answer": "They address 12 bits, which is 4096 addresses (0 to 4095). They are actually 16 bits and could go beyond 4 KB, but no CHIP-8 games do that."
+    },
+    {
+      "id": "note:emulation/chip-8:6",
+      "question": "Where should a CHIP-8 ROM and fonts be loaded?",
+      "answer": "The ROM loads at 0x200. Fonts load from 0x000 to 0x1FF or 0x050 to 0x09F (512 bytes). Each font glyph is 4 pixels wide by 5 pixels tall."
+    },
+    {
+      "id": "note:emulation/chip-8:7",
+      "question": "How are CHIP-8 sprites drawn, and what is the stack for?",
+      "answer": "Sprites are 8-bit bytes, 1–15 bytes tall. 0 bits are transparent; 1 bits flip the pixels they cover. The stack holds up to 16 return addresses for subroutines."
+    }
+  ]
+}

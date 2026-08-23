@@ -4,7 +4,11 @@
     "id": "teach/c17/learning-records/0004-stdio-conventions-and-fread-mechanics",
     "title": "LR-0004: Standard I/O Return Conventions & fread Parameters",
     "href": "/notes/teach/c17/learning-records/0004-stdio-conventions-and-fread-mechanics/",
-    "tags": ["teach/c17", "learning-record", "stdio"]
+    "tags": [
+      "teach/c17",
+      "learning-record",
+      "stdio"
+    ]
   },
   "cards": [
     {

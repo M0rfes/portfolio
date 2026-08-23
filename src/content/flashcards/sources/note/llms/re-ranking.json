@@ -4,7 +4,12 @@
     "id": "llms/re-ranking",
     "title": "Re-ranking",
     "href": "/notes/llms/re-ranking/",
-    "tags": ["rag", "re-ranking", "research", "search-optimization"]
+    "tags": [
+      "rag",
+      "re-ranking",
+      "research",
+      "search-optimization"
+    ]
   },
   "cards": [
     {

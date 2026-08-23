@@ -4,28 +4,31 @@
     "id": "coding/concurrency/concurrency",
     "title": "Concurrency",
     "href": "/notes/coding/concurrency/concurrency/",
-    "tags": ["concurrency", "performance"]
+    "tags": [
+      "concurrency",
+      "performance"
+    ]
   },
   "cards": [
     {
       "id": "note:coding/concurrency/concurrency:0",
-      "question": "Why has concurrency become more popular on modern CPUs?",
-      "answer": "The number of cores and threads per core has increased."
+      "question": "Why has concurrency gained popularity?",
+      "answer": "The number of cores and threads per core on modern CPUs has increased."
     },
     {
       "id": "note:coding/concurrency/concurrency:1",
-      "question": "What role does concurrency play when resources are limited?",
-      "answer": "It is the only way to improve performance with limited resources."
+      "question": "Why is concurrency described as the only way to improve performance with limited resources?",
+      "answer": "The note states it is the only way to improve performance when resources are limited."
     },
     {
       "id": "note:coding/concurrency/concurrency:2",
       "question": "Where is concurrency widely used?",
-      "answer": "In modern computing systems, operating systems, and large distributed clusters."
+      "answer": "Modern computing systems, operating systems, and large distributed clusters."
     },
     {
       "id": "note:coding/concurrency/concurrency:3",
-      "question": "Besides performance, what does concurrency help developers do?",
-      "answer": "It helps model the real world, maximises system efficiency from users’ and developers’ perspectives, and lets developers solve large, complex problems."
+      "question": "What three things does concurrency help with?",
+      "answer": "Modeling the real world, maximising system efficiency from users' and developers' perspectives, and solving large, complex problems."
     }
   ]
 }

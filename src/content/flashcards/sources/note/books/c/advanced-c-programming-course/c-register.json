@@ -4,7 +4,11 @@
     "id": "books/c/advanced-c-programming-course/c-register",
     "title": "C Register Storage Class",
     "href": "/notes/books/c/advanced-c-programming-course/c-register/",
-    "tags": ["c", "memory", "storage-classes"]
+    "tags": [
+      "c",
+      "memory",
+      "storage-classes"
+    ]
   },
   "cards": [
     {

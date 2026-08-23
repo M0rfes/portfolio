@@ -4,7 +4,11 @@
     "id": "coding/variable-linkage",
     "title": "Variable Linkage",
     "href": "/notes/coding/variable-linkage/",
-    "tags": ["programming", "memory", "linkage"]
+    "tags": [
+      "programming",
+      "memory",
+      "linkage"
+    ]
   },
   "cards": [
     {

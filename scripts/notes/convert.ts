@@ -560,12 +560,13 @@ export function convertNote(note: VaultNote, index: VaultIndex): ConvertedNote {
     stack,
     attachments,
   );
-  const links = new Set<string>();
+  const embeds = collectEmbeds(note, index);
+  const links = new Set<string>(embeds);
   const markdown = convertWikilinks(inlined, note, index, links).trim() + "\n";
   return {
     markdown,
     links: [...links],
-    embeds: collectEmbeds(note, index),
+    embeds,
     attachments,
   };
 }
@@ -573,7 +574,12 @@ export function convertNote(note: VaultNote, index: VaultIndex): ConvertedNote {
 export function notesNeedingRebuild(
   index: VaultIndex,
   cache: NotesCache,
+  options: { all?: boolean } = {},
 ): Set<string> {
+  if (options.all) {
+    return new Set(index.notes.map((note) => note.vaultPath));
+  }
+
   const rebuild = new Set<string>();
   const embedMap = new Map<string, string[]>();
 

@@ -40,6 +40,16 @@
         "books",
         "rust",
         "rust-atomics-and-locks",
+        "memory-ordering"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/memory-ordering/",
+      "title": "Memory Ordering"
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
         "rust-memory-ordering"
       ],
       "href": "/notes/books/rust/rust-atomics-and-locks/rust-memory-ordering/",
@@ -63,6 +73,16 @@
       ],
       "href": "/notes/books/rust/rust-atomics-and-locks/rust-arc/",
       "title": "Rust Arc"
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-atomics"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-atomics/",
+      "title": "Rust Atomics"
     },
     {
       "slug": [

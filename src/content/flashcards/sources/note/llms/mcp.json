@@ -4,7 +4,13 @@
     "id": "llms/mcp",
     "title": "MCP",
     "href": "/notes/llms/mcp/",
-    "tags": ["llm", "mcp", "tool-calling", "anthropic", "protocol"]
+    "tags": [
+      "llm",
+      "mcp",
+      "tool-calling",
+      "anthropic",
+      "protocol"
+    ]
   },
   "cards": [
     {
@@ -14,7 +20,7 @@
     },
     {
       "id": "note:llms/mcp:1",
-      "question": "Who standardized MCP and what does it standardize?",
+      "question": "Who standardized MCP, and what does it standardize?",
       "answer": "Anthropic. It is a standard for LLMs to communicate with external services."
     },
     {

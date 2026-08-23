@@ -4,7 +4,13 @@
     "id": "llms/vllm",
     "title": "vLLM",
     "href": "/notes/llms/vllm/",
-    "tags": ["llm", "vllm", "inference", "performance", "infrastructure"]
+    "tags": [
+      "llm",
+      "vllm",
+      "inference",
+      "performance",
+      "infrastructure"
+    ]
   },
   "cards": [
     {

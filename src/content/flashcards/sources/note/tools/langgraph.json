@@ -4,7 +4,13 @@
     "id": "tools/langgraph",
     "title": "LangGraph",
     "href": "/notes/tools/langgraph/",
-    "tags": ["agent", "langgraph", "orchestration", "multi-agent", "framework"]
+    "tags": [
+      "agent",
+      "langgraph",
+      "orchestration",
+      "multi-agent",
+      "framework"
+    ]
   },
   "cards": [
     {

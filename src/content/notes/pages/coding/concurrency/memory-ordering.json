@@ -19,12 +19,42 @@
   "linkedFrom": [
     {
       "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "atomics"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/atomics/",
+      "title": "Atomics"
+    },
+    {
+      "slug": [
         "teach",
         "c17",
         "c17"
       ],
       "href": "/notes/teach/c17/c17/",
       "title": "C17 Hub"
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "memory-ordering"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/memory-ordering/",
+      "title": "Memory Ordering"
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-memory-ordering"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-memory-ordering/",
+      "title": "Memory Ordering"
     }
   ]
 }

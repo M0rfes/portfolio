@@ -4,7 +4,12 @@
     "id": "llms/tokenization",
     "title": "Tokenization",
     "href": "/notes/llms/tokenization/",
-    "tags": ["llm", "tokenization", "research", "nlp"]
+    "tags": [
+      "llm",
+      "tokenization",
+      "research",
+      "nlp"
+    ]
   },
   "cards": [
     {

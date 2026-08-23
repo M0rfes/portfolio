@@ -87,6 +87,16 @@
         "books",
         "rust",
         "rust-atomics-and-locks",
+        "rust-mutex"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-mutex/",
+      "title": "Rust Mutex"
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
         "rust-rwlock"
       ],
       "href": "/notes/books/rust/rust-atomics-and-locks/rust-rwlock/",

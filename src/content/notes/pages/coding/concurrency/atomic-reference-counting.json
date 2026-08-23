@@ -16,5 +16,26 @@
   "vaultPath": "Coding/Concurrency/Atomic Reference Counting.md",
   "folder": "Coding",
   "markdown": "# Atomic Reference Counting\n\nAtomic [Reference Counting](../reference-counting/) provides reference counting with a guarantee that any increment or decrement operation is [atomic](../atomic-operations/), meaning no two [threads](../threads/) can simultaneously mutate the count.\n\nThis allows the reference-counted pointer to be safely shared and sent across threads.\n",
-  "linkedFrom": []
+  "linkedFrom": [
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-arc"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-arc/",
+      "title": "Rust Arc"
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "basics-of-rust-concurrency"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+      "title": "Rust Concurrency"
+    }
+  ]
 }

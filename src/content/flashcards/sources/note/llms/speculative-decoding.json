@@ -4,7 +4,13 @@
     "id": "llms/speculative-decoding",
     "title": "Speculative Decoding",
     "href": "/notes/llms/speculative-decoding/",
-    "tags": ["llm", "speculative-decoding", "optimization", "inference", "throughput"]
+    "tags": [
+      "llm",
+      "speculative-decoding",
+      "optimization",
+      "inference",
+      "throughput"
+    ]
   },
   "cards": [
     {

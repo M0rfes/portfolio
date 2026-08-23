@@ -2902,6 +2902,66 @@
       ]
     },
     {
+      "id": "note:books/rust/rust-atomics-and-locks/memory-ordering:0",
+      "question": "What does the Ordering parameter on atomic operations control?",
+      "answer": "It controls what guarantees we get about the relative ordering of operations.",
+      "sourceType": "note",
+      "sourceId": "books/rust/rust-atomics-and-locks/memory-ordering",
+      "sourceTitle": "Memory Ordering",
+      "sourceHref": "/notes/books/rust/rust-atomics-and-locks/memory-ordering/",
+      "tags": [
+        "rust",
+        "concurrency",
+        "atomics",
+        "memory-ordering"
+      ]
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/memory-ordering:1",
+      "question": "How can two threads observe the same assignments in different orders?",
+      "answer": "The CPU might perform operations out of order, for example grouping assignments even if the code is not written that way. T1 might see V1 V2 V3 assigned while T2 sees V2 V3 V1.",
+      "sourceType": "note",
+      "sourceId": "books/rust/rust-atomics-and-locks/memory-ordering",
+      "sourceTitle": "Memory Ordering",
+      "sourceHref": "/notes/books/rust/rust-atomics-and-locks/memory-ordering/",
+      "tags": [
+        "rust",
+        "concurrency",
+        "atomics",
+        "memory-ordering"
+      ]
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/memory-ordering:2",
+      "question": "How does a Relaxed AtomicBool stop a background loop?",
+      "answer": "The background thread loads STOP with Relaxed and keeps working while it is false. After the user enters stop, the main thread stores true with Relaxed and joins the background thread.",
+      "sourceType": "note",
+      "sourceId": "books/rust/rust-atomics-and-locks/memory-ordering",
+      "sourceTitle": "Memory Ordering",
+      "sourceHref": "/notes/books/rust/rust-atomics-and-locks/memory-ordering/",
+      "tags": [
+        "rust",
+        "concurrency",
+        "atomics",
+        "memory-ordering"
+      ]
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/memory-ordering:3",
+      "question": "Why might entering stop not end the program immediately?",
+      "answer": "If some_work() is blocking or takes a while, the loop only rechecks STOP after that call finishes, so the last some_work keeps running.",
+      "sourceType": "note",
+      "sourceId": "books/rust/rust-atomics-and-locks/memory-ordering",
+      "sourceTitle": "Memory Ordering",
+      "sourceHref": "/notes/books/rust/rust-atomics-and-locks/memory-ordering/",
+      "tags": [
+        "rust",
+        "concurrency",
+        "atomics",
+        "memory-ordering"
+      ]
+    },
+    {
       "id": "note:books/rust/rust-atomics-and-locks/rust-arc:0",
       "question": "What does Arc stand for?",
       "answer": "Atomically Reference Counted.",
@@ -2967,20 +3027,6 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-atomics:0",
-      "question": "What does the word atomic mean here?",
-      "answer": "It comes from Greek ἄτομος: an indivisible item that cannot be cut into smaller parts.",
-      "sourceType": "note",
-      "sourceId": "books/rust/rust-atomics-and-locks/rust-atomics",
-      "sourceTitle": "Rust Atomics",
-      "sourceHref": "/notes/books/rust/rust-atomics-and-locks/rust-atomics/",
-      "tags": [
-        "rust",
-        "concurrency",
-        "atomics"
-      ]
-    },
-    {
-      "id": "note:books/rust/rust-atomics-and-locks/rust-atomics:1",
       "question": "What is an atomic operation on data?",
       "answer": "The smallest operation that either occurs or does not; there is no half-done state.",
       "sourceType": "note",
@@ -2994,7 +3040,7 @@
       ]
     },
     {
-      "id": "note:books/rust/rust-atomics-and-locks/rust-atomics:2",
+      "id": "note:books/rust/rust-atomics-and-locks/rust-atomics:1",
       "question": "What inconsistent state do atomics prevent between two threads?",
       "answer": "Two threads can update an atomic variable without both reading the same value and updating it at the same time.",
       "sourceType": "note",
@@ -3008,7 +3054,7 @@
       ]
     },
     {
-      "id": "note:books/rust/rust-atomics-and-locks/rust-atomics:3",
+      "id": "note:books/rust/rust-atomics-and-locks/rust-atomics:2",
       "question": "What determines which atomic types are available?",
       "answer": "The implementation of atomics and which types exist depends on the system architecture and OS.",
       "sourceType": "note",
@@ -3022,7 +3068,7 @@
       ]
     },
     {
-      "id": "note:books/rust/rust-atomics-and-locks/rust-atomics:4",
+      "id": "note:books/rust/rust-atomics-and-locks/rust-atomics:3",
       "question": "Why is there no Atomic<T> in Rust?",
       "answer": "Unlike other types, there is no Atomic<T>. Only concrete types exist, such as AtomicBool and AtomicI32, up to the word size with AtomicUsize.",
       "sourceType": "note",
@@ -3214,8 +3260,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-lazy-initialization:2",
-      "question": "What is the flaw in loading an AtomicU64, computing if it is 0, then storing?",
-      "answer": "Two threads can both see x == 0 and both restart the computation. Whichever finishes first wins; that is a race condition.",
+      "question": "What race exists if two threads load a zero AtomicU64 then both calculate and store?",
+      "answer": "Both see x == 0 and restart the computation. Whichever finishes first wins, but the work is duplicated.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-lazy-initialization",
       "sourceTitle": "Lazy Initialization",
@@ -3229,8 +3275,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-lazy-initialization:3",
-      "question": "What does Once::call_once do for a second concurrent caller?",
-      "answer": "The first thread runs the initializer. The second does nothing and sleeps until the first thread finishes.",
+      "question": "What do Once and OnceLock provide for this race?",
+      "answer": "They are atomic operations that ensure only one thread runs the initialization.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-lazy-initialization",
       "sourceTitle": "Lazy Initialization",
@@ -3244,8 +3290,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-lazy-initialization:4",
-      "question": "What does OnceLock::get_or_init do if another thread is already initializing?",
-      "answer": "It loads the value if it is not loaded, or sleeps until the first thread finishes loading it.",
+      "question": "What does a second Once::call_once do while the first is running?",
+      "answer": "It does nothing and sleeps until the first thread finishes.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-lazy-initialization",
       "sourceTitle": "Lazy Initialization",
@@ -3259,8 +3305,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-lazy-initialization:5",
-      "question": "Which types fix the naive atomic lazy-init race?",
-      "answer": "std::sync::Once and std::sync::OnceLock, which are atomic operations.",
+      "question": "What does OnceLock::get_or_init do for a second thread?",
+      "answer": "It sleeps until the first thread loads the value, then returns that stored value.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-lazy-initialization",
       "sourceTitle": "Lazy Initialization",
@@ -3275,7 +3321,7 @@
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-lock-poisoning:0",
       "question": "When does lock poisoning occur?",
-      "answer": "When a thread panics while holding a Mutex or a reader-writer lock.",
+      "answer": "When a thread panics while holding a Mutex or Reader-Writer Lock.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-lock-poisoning",
       "sourceTitle": "Lock Poisoning",
@@ -3289,7 +3335,7 @@
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-lock-poisoning:1",
       "question": "What do later lock attempts return after poisoning?",
-      "answer": "An error indicating the lock is poisoned. Subsequent read or write lock calls result in errors, which is why lock is unwrapped as a Result.",
+      "answer": "An error indicating the lock is poisoned. No data is returned from the lock.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-lock-poisoning",
       "sourceTitle": "Lock Poisoning",
@@ -3303,7 +3349,21 @@
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-lock-poisoning:2",
       "question": "Does a poisoned lock still block other threads?",
-      "answer": "Yes. It still puts other threads to sleep, but signals that the protected state may be invalid and returns no data from the lock.",
+      "answer": "Yes. It still puts other threads to sleep, but signals that the protected state may be invalid.",
+      "sourceType": "note",
+      "sourceId": "books/rust/rust-atomics-and-locks/rust-lock-poisoning",
+      "sourceTitle": "Lock Poisoning",
+      "sourceHref": "/notes/books/rust/rust-atomics-and-locks/rust-lock-poisoning/",
+      "tags": [
+        "rust",
+        "concurrency",
+        "locks"
+      ]
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-lock-poisoning:3",
+      "question": "Why does lock().unwrap() appear after lock calls?",
+      "answer": "Locking returns a Result. unwrap surfaces the poison error if a holder panicked.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-lock-poisoning",
       "sourceTitle": "Lock Poisoning",
@@ -3316,8 +3376,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-memory-ordering:0",
-      "question": "What does the Ordering parameter on atomic operations control?",
-      "answer": "What guarantees we get about the relative ordering of operations. All atomic operations take std::sync::atomic::Ordering.",
+      "question": "What does an atomic Ordering parameter control?",
+      "answer": "The guarantees we get about the relative ordering of operations.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-memory-ordering",
       "sourceTitle": "Memory Ordering",
@@ -3331,8 +3391,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-memory-ordering:1",
-      "question": "How can a CPU reorder operations relative to source order?",
-      "answer": "It might group assignments even if they are not written in that order. One thread may see V1 V2 V3 assigned while another sees V2 V3 V1.",
+      "question": "What can a CPU do to operations relative to source order?",
+      "answer": "It may perform them out of order, for example grouping assignments together even if they are not in that order in the code.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-memory-ordering",
       "sourceTitle": "Memory Ordering",
@@ -3346,8 +3406,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-memory-ordering:2",
-      "question": "How does a Relaxed AtomicBool stop flag work in the example?",
-      "answer": "A background thread loops while STOP.load(Relaxed) is false. After the user enters stop, the main thread stores true and joins the background thread.",
+      "question": "How can two threads observe the same assignments differently?",
+      "answer": "T1 might see V1 V2 V3 assigned, while T2 might see V2 V3 V1.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-memory-ordering",
       "sourceTitle": "Memory Ordering",
@@ -3361,8 +3421,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-memory-ordering:3",
-      "question": "Why might stop not halt the program immediately?",
-      "answer": "If some_work is blocking or slow, the program keeps running until the last call to some_work completes.",
+      "question": "If some_work() is blocking, when does a Relaxed stop flag take effect?",
+      "answer": "Entering stop may not stop immediately. The program keeps running until the last call to some_work completes.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-memory-ordering",
       "sourceTitle": "Memory Ordering",
@@ -3391,8 +3451,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-mutex:1",
-      "question": "How does Mutex conflicting access differ from RefCell?",
-      "answer": "Unlike RefCell, conflicting access does not panic. The waiting thread is put to sleep and woken when the lock is dropped so it can try to take a reference.",
+      "question": "How does Mutex conflict handling differ from RefCell?",
+      "answer": "Conflicting access does not panic. The waiting thread is put to sleep and woken when the lock is dropped so it can take a reference.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-mutex",
       "sourceTitle": "Rust Mutex",
@@ -3406,8 +3466,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-mutex:2",
-      "question": "Why does Mutex have no unlock method?",
-      "answer": "lock returns a MutexGuard that accesses the data as an exclusive reference through DerefMut. Dropping the guard frees the lock via Drop.",
+      "question": "Why has Mutex no unlock method?",
+      "answer": "lock returns a MutexGuard. Dropping the guard frees the lock via the Drop trait.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-mutex",
       "sourceTitle": "Rust Mutex",
@@ -3421,8 +3481,23 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-mutex:3",
-      "question": "In the 10-thread increment example, what does each thread observe?",
-      "answer": "Each of the 10 threads increments 100 times. Each thread sees the count as 0, 100, 200, through 900, runs, then drops the guard, for a final value of 1000.",
+      "question": "How does MutexGuard expose the inner data?",
+      "answer": "Like an exclusive reference, through the DerefMut trait.",
+      "sourceType": "note",
+      "sourceId": "books/rust/rust-atomics-and-locks/rust-mutex",
+      "sourceTitle": "Rust Mutex",
+      "sourceHref": "/notes/books/rust/rust-atomics-and-locks/rust-mutex/",
+      "tags": [
+        "rust",
+        "concurrency",
+        "locks",
+        "mutex"
+      ]
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-mutex:4",
+      "question": "In the 10-thread increment example, what does each thread see?",
+      "answer": "Each thread sees the count as 0, 100, 200, ..., 900, runs its 100 increments, and drops the guard.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-mutex",
       "sourceTitle": "Rust Mutex",
@@ -3436,8 +3511,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-rc:0",
-      "question": "When does an Rc drop its inner value?",
-      "answer": "It keeps a count of all owners and drops the value only when the counter reaches 0.",
+      "question": "When does Rc drop the inner value?",
+      "answer": "When the owner count reaches 0.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-rc",
       "sourceTitle": "Rust Rc",
@@ -3450,8 +3525,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-rc:1",
-      "question": "How does cloning an Rc differ from cloning a Box?",
-      "answer": "Rc::clone increments the counter next to the value and does not create a new heap allocation, unlike Box::new().clone().",
+      "question": "How does Rc::clone differ from cloning a Box?",
+      "answer": "It does not create a new heap value. It increments the counter next to the existing value.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-rc",
       "sourceTitle": "Rust Rc",
@@ -3464,8 +3539,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-rc:2",
-      "question": "What kind of reference does Rc give by default?",
-      "answer": "A read-only reference. Mutation needs interior mutability, or Rc::get_mut / Rc::make_mut, which only work with a single reference.",
+      "question": "What happens when an Rc clone is dropped?",
+      "answer": "The counter is decremented. If it reaches 0, the actual value is dropped.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-rc",
       "sourceTitle": "Rust Rc",
@@ -3478,8 +3553,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-rc:3",
-      "question": "How do you get the number of Rc owners?",
-      "answer": "Use Rc::strong_count.",
+      "question": "What kind of reference does Rc give by default?",
+      "answer": "A read-only reference.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-rc",
       "sourceTitle": "Rust Rc",
@@ -3492,8 +3567,22 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-rc:4",
+      "question": "How can you get a mutable reference from an Rc?",
+      "answer": "Use interior mutability, or Rc::get_mut or Rc::make_mut. get_mut only works with a single reference.",
+      "sourceType": "note",
+      "sourceId": "books/rust/rust-atomics-and-locks/rust-rc",
+      "sourceTitle": "Rust Rc",
+      "sourceHref": "/notes/books/rust/rust-atomics-and-locks/rust-rc/",
+      "tags": [
+        "rust",
+        "reference-counting",
+        "smart-pointers"
+      ]
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-rc:5",
       "question": "Why can't Rc be sent across threads?",
-      "answer": "It is not thread-safe and does not implement Send and Sync. If two threads update the count at once, the behaviour is inconsistent.",
+      "answer": "It is not thread-safe and does not implement Send and Sync. Two threads updating the count at once would cause inconsistent behaviour.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-rc",
       "sourceTitle": "Rust Rc",
@@ -3506,8 +3595,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-rwlock:0",
-      "question": "How does an RwLock differ from a Mutex?",
-      "answer": "A Mutex always takes exclusive access even when a shared reference would suffice. An RwLock allows one exclusive mutable reference or multiple shared read references.",
+      "question": "How does RwLock access differ from Mutex?",
+      "answer": "A Mutex always takes exclusive access. An RwLock allows one exclusive &mut T or multiple shared &T references.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-rwlock",
       "sourceTitle": "Rust RwLock",
@@ -3536,8 +3625,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-rwlock:2",
-      "question": "How is RwLock related to RefCell?",
-      "answer": "It is a thread-safe version of RefCell. Access goes through Deref and DerefMut.",
+      "question": "What is RwLock a thread-safe version of?",
+      "answer": "RefCell.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-rwlock",
       "sourceTitle": "Rust RwLock",
@@ -3551,8 +3640,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-rwlock:3",
-      "question": "What do read and write return, and which traits do the guards implement?",
-      "answer": "read returns RwLockReadGuard, which only implements Deref. write returns RwLockWriteGuard, which implements both DerefMut and Deref.",
+      "question": "Which Deref traits do the RwLock guards implement?",
+      "answer": "RwLockReadGuard implements Deref only. RwLockWriteGuard implements both Deref and DerefMut.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-rwlock",
       "sourceTitle": "Rust RwLock",
@@ -3566,8 +3655,23 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-rwlock:4",
-      "question": "When do you need Arc around an RwLock to share it across threads?",
-      "answer": "With thread::spawn, Arc is needed so the reference can be moved to other threads. Scoped threads finish before the caller ends, so the lock can be borrowed without Arc.",
+      "question": "Why wrap an RwLock in Arc for unscoped threads?",
+      "answer": "So the reference can be moved to other threads.",
+      "sourceType": "note",
+      "sourceId": "books/rust/rust-atomics-and-locks/rust-rwlock",
+      "sourceTitle": "Rust RwLock",
+      "sourceHref": "/notes/books/rust/rust-atomics-and-locks/rust-rwlock/",
+      "tags": [
+        "rust",
+        "concurrency",
+        "locks",
+        "rwlock"
+      ]
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-rwlock:5",
+      "question": "Why can scoped threads share an RwLock without Arc?",
+      "answer": "A scoped thread finishes before the main function ends, so the lock can be dropped after the scope.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-rwlock",
       "sourceTitle": "Rust RwLock",
@@ -3581,8 +3685,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-scoped-threads:0",
-      "question": "What do scoped threads guarantee about lifetime?",
-      "answer": "They finish execution before the scope is exited, so they can borrow local variables because the data outlives their scope.",
+      "question": "Why can scoped threads borrow local variables?",
+      "answer": "They finish before the scope is exited, so the data outlives their scope.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-scoped-threads",
       "sourceTitle": "Scoped Threads",
@@ -3595,8 +3699,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-scoped-threads:1",
-      "question": "When are threads spawned in std::thread::scope joined?",
-      "answer": "All threads spawned in the scope are joined before the scope exits.",
+      "question": "When are threads spawned in thread::scope joined?",
+      "answer": "All of them are joined before the scope exits.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-scoped-threads",
       "sourceTitle": "Scoped Threads",
@@ -3609,8 +3713,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-scoped-threads:2",
-      "question": "What sharing of references is allowed across scoped threads?",
-      "answer": "Multiple read references can be shared. Only one mutable reference is allowed at a time, not a mutable reference together with shared reads.",
+      "question": "Can two scoped threads share read references to the same local?",
+      "answer": "Yes. Multiple read references can be shared across threads.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-scoped-threads",
       "sourceTitle": "Scoped Threads",
@@ -3623,8 +3727,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-scoped-threads:3",
-      "question": "Why wouldn't list.push in a scoped thread compile while two threads already borrow list?",
-      "answer": "That would need a mutable reference while multiple read references exist. Rust allows only one of those at a time.",
+      "question": "Why wouldn't list.push compile in a scoped thread that already shares reads?",
+      "answer": "Only one mutable reference is allowed at a time. You cannot combine one mutable reference with multiple read references.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-scoped-threads",
       "sourceTitle": "Scoped Threads",
@@ -3638,7 +3742,7 @@
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-send-and-sync:0",
       "question": "When is a type T Send?",
-      "answer": "When its ownership can be transferred to another thread. For example Arc<T> is Send, but Rc<T> is not.",
+      "answer": "When its ownership can be transferred to another thread.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-send-and-sync",
       "sourceTitle": "Send Sync",
@@ -3653,7 +3757,7 @@
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-send-and-sync:1",
       "question": "When is a type T Sync?",
-      "answer": "When its shared reference is Send, i.e. T is Sync if &T is Send. For example i32 is Sync, but Cell<i32> is not.",
+      "answer": "When its shared reference is Send: T is Sync if &T is Send.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-send-and-sync",
       "sourceTitle": "Send Sync",
@@ -3667,8 +3771,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-send-and-sync:2",
-      "question": "Which types are automatically Send and Sync?",
-      "answer": "All primitive types are Send and Sync. A type is automatically Send and Sync if all of its fields are.",
+      "question": "Is Arc Send? Is Rc Send?",
+      "answer": "Arc<T> is Send. Rc<T> is not.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-send-and-sync",
       "sourceTitle": "Send Sync",
@@ -3682,8 +3786,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-send-and-sync:3",
-      "question": "What is an auto trait?",
-      "answer": "A trait implemented for a type if all of its fields implement it, which is how Send and Sync propagate.",
+      "question": "Is i32 Sync? Is Cell<i32> Sync?",
+      "answer": "i32 is Sync. Cell<i32> is not.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-send-and-sync",
       "sourceTitle": "Send Sync",
@@ -3697,8 +3801,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-send-and-sync:4",
-      "question": "How can you opt a struct out of Sync or Send?",
-      "answer": "Add a field that is not Send or Sync, such as PhantomData<Cell<()>>.",
+      "question": "When is a struct automatically Send and Sync?",
+      "answer": "When all of its fields are Send and Sync. All primitive types are both.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-send-and-sync",
       "sourceTitle": "Send Sync",
@@ -3712,8 +3816,38 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-send-and-sync:5",
+      "question": "What is an auto trait?",
+      "answer": "A trait implemented for a type if all of its fields implement it.",
+      "sourceType": "note",
+      "sourceId": "books/rust/rust-atomics-and-locks/rust-send-and-sync",
+      "sourceTitle": "Send Sync",
+      "sourceHref": "/notes/books/rust/rust-atomics-and-locks/rust-send-and-sync/",
+      "tags": [
+        "rust",
+        "concurrency",
+        "thread-safety",
+        "auto-traits"
+      ]
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-send-and-sync:6",
+      "question": "How can you opt a type out of Send or Sync?",
+      "answer": "Add a field that is not Send or Sync, such as PhantomData<Cell<()>>.",
+      "sourceType": "note",
+      "sourceId": "books/rust/rust-atomics-and-locks/rust-send-and-sync",
+      "sourceTitle": "Send Sync",
+      "sourceHref": "/notes/books/rust/rust-atomics-and-locks/rust-send-and-sync/",
+      "tags": [
+        "rust",
+        "concurrency",
+        "thread-safety",
+        "auto-traits"
+      ]
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-send-and-sync:7",
       "question": "Why are raw pointers neither Send nor Sync?",
-      "answer": "The compiler cannot guarantee thread safety for *const T and *mut T. Implementing Send or Sync for a type that holds them requires unsafe.",
+      "answer": "The compiler cannot guarantee thread safety for *const T and *mut T. Implementing those traits requires unsafe.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-send-and-sync",
       "sourceTitle": "Send Sync",
@@ -3727,8 +3861,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-statics-and-leaking:0",
-      "question": "Why can a 'static value be shared across threads?",
-      "answer": "'static means the value exists until the end of the program, so any value with that lifetime can be shared across threads.",
+      "question": "What does a 'static lifetime mean for sharing?",
+      "answer": "The value exists until the end of the program, so any value with a static lifetime can be shared across threads.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-statics-and-leaking",
       "sourceTitle": "Rust Statics",
@@ -3758,7 +3892,7 @@
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-statics-and-leaking:2",
       "question": "What does Box::leak guarantee?",
-      "answer": "It leaks a value on the heap so no one can free it, and the value exists as long as the program runs.",
+      "answer": "The heap value cannot be freed and exists for the program's entire duration.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-statics-and-leaking",
       "sourceTitle": "Rust Statics",
@@ -3772,8 +3906,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-statics-and-leaking:3",
-      "question": "What is moved into threads after Box::leak in the example?",
-      "answer": "The static reference, using move, not the value itself.",
+      "question": "What does move transfer when spawning threads with a leaked Box?",
+      "answer": "The static reference, not the value.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-statics-and-leaking",
       "sourceTitle": "Rust Statics",
@@ -3787,8 +3921,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-thread-parking:0",
-      "question": "What does thread parking do?",
-      "answer": "A thread parks itself so it no longer consumes CPU cycles while waiting for other threads to wake it.",
+      "question": "What does parking a thread do?",
+      "answer": "The thread parks itself so it no longer consumes CPU cycles while waiting for other threads to wake it.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-thread-parking",
       "sourceTitle": "Thread Parking",
@@ -3815,7 +3949,7 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-thread-parking:2",
-      "question": "What happens if unpark is called before park?",
+      "question": "What happens if unpark runs before park?",
       "answer": "The wake-up token is saved and the next park returns immediately without sleeping.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-thread-parking",
@@ -3829,7 +3963,7 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-thread-parking:3",
-      "question": "What happens if unpark is called twice before two parks?",
+      "question": "What happens if unpark is called twice and park twice?",
       "answer": "Only the first park is skipped. The second park still puts the thread to sleep.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-thread-parking",
@@ -3844,7 +3978,7 @@
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-thread-parking:4",
       "question": "In the queue example, when does the consumer park?",
-      "answer": "It pops items in a loop and parks itself when the queue is empty. The producer pushes a number, then unparks.",
+      "answer": "When a pop finds the queue empty.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-thread-parking",
       "sourceTitle": "Thread Parking",
@@ -3857,8 +3991,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-threads:0",
-      "question": "What happens to spawned threads when the main thread terminates?",
-      "answer": "Every program starts with one OS thread. When the main thread terminates, all threads forked or spawned from it are cleaned up, whether they have finished or not.",
+      "question": "What happens to spawned threads when main terminates?",
+      "answer": "They are cleaned up whether they have finished executing or not.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-threads",
       "sourceTitle": "Rust Threads",
@@ -3872,7 +4006,7 @@
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-threads:1",
       "question": "How do you wait for a spawned thread to finish?",
-      "answer": "Join the JoinHandle returned by thread::spawn. Joining waits for the thread and returns its result or indicates if it panicked.",
+      "answer": "Join the JoinHandle returned by thread::spawn.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-threads",
       "sourceTitle": "Rust Threads",
@@ -3885,8 +4019,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-threads:2",
-      "question": "What does join() return, and what does unwrap do to it?",
-      "answer": "It returns std::thread::Result: Err if the thread panicked, or Ok with the thread's return value. unwrap panics the main thread as well if the join was Err.",
+      "question": "What does join return?",
+      "answer": "A Result that is Err if the thread panicked, or Ok<T> where T is the thread's return value.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-threads",
       "sourceTitle": "Rust Threads",
@@ -3899,8 +4033,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-threads:3",
-      "question": "What does move do when spawning a closure?",
-      "answer": "The closure captures surrounding variables via move semantics, transferring ownership into the new thread.",
+      "question": "What does unwrap on a panicked join do?",
+      "answer": "It causes the main thread to panic as well.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-threads",
       "sourceTitle": "Rust Threads",
@@ -3913,8 +4047,8 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-threads:4",
-      "question": "How does thread::spawn relate to thread::Builder?",
-      "answer": "spawn is a shorthand for Builder::new().spawn(f).unwrap(). Builder can set stack size and a name used in panic messages and profiling tools.",
+      "question": "What does move do on a thread closure?",
+      "answer": "It transfers ownership of captured variables from main to the new thread.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-threads",
       "sourceTitle": "Rust Threads",
@@ -3927,8 +4061,36 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-threads:5",
-      "question": "What error type does Builder::spawn return?",
-      "answer": "std::io::Result. It indicates an error if the OS failed to spawn a new thread.",
+      "question": "What is thread::spawn a shorthand for?",
+      "answer": "std::thread::Builder::new().spawn(f).unwrap().",
+      "sourceType": "note",
+      "sourceId": "books/rust/rust-atomics-and-locks/rust-threads",
+      "sourceTitle": "Rust Threads",
+      "sourceHref": "/notes/books/rust/rust-atomics-and-locks/rust-threads/",
+      "tags": [
+        "rust",
+        "concurrency",
+        "threads"
+      ]
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-threads:6",
+      "question": "What can Thread Builder configure?",
+      "answer": "Stack size and a name, available via current().name(), used in panic messages and visible in most profiling tools.",
+      "sourceType": "note",
+      "sourceId": "books/rust/rust-atomics-and-locks/rust-threads",
+      "sourceTitle": "Rust Threads",
+      "sourceHref": "/notes/books/rust/rust-atomics-and-locks/rust-threads/",
+      "tags": [
+        "rust",
+        "concurrency",
+        "threads"
+      ]
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-threads:7",
+      "question": "What does Builder::spawn return on OS failure?",
+      "answer": "A std::io::Result error if the OS failed to spawn a new thread.",
       "sourceType": "note",
       "sourceId": "books/rust/rust-atomics-and-locks/rust-threads",
       "sourceTitle": "Rust Threads",
@@ -3941,8 +4103,8 @@
     },
     {
       "id": "note:coding/automatic-storage-duration:0",
-      "question": "What is the default modifier for visibility?",
-      "answer": "Auto.",
+      "question": "What is auto the default modifier for?",
+      "answer": "Visibility.",
       "sourceType": "note",
       "sourceId": "coding/automatic-storage-duration",
       "sourceTitle": "Automatic Storage Duration",
@@ -3955,7 +4117,7 @@
     },
     {
       "id": "note:coding/automatic-storage-duration:1",
-      "question": "What is automatic lifetime bound to?",
+      "question": "What is an auto variable's lifetime bound to?",
       "answer": "Its scope.",
       "sourceType": "note",
       "sourceId": "coding/automatic-storage-duration",
@@ -3969,8 +4131,8 @@
     },
     {
       "id": "note:coding/automatic-storage-duration:2",
-      "question": "When is automatic storage acquired and freed?",
-      "answer": "Memory is acquired when the variable comes into scope and freed when it goes out of scope.",
+      "question": "When is auto memory acquired and freed?",
+      "answer": "Acquired when it comes into scope and freed when it goes out of scope.",
       "sourceType": "note",
       "sourceId": "coding/automatic-storage-duration",
       "sourceTitle": "Automatic Storage Duration",
@@ -3983,8 +4145,8 @@
     },
     {
       "id": "note:coding/concurrency/atomic-operations:0",
-      "question": "What is an atomic operation?",
-      "answer": "The smallest operation on data that either occurs or does not; there is no half-done state.",
+      "question": "What does it mean for an operation to be atomic?",
+      "answer": "It is the smallest operation on data that either occurs or does not. There is no half-done state.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/atomic-operations",
       "sourceTitle": "Atomic Operations",
@@ -3996,8 +4158,8 @@
     },
     {
       "id": "note:coding/concurrency/atomic-operations:1",
-      "question": "What inconsistent state can two threads create when updating a non-atomic variable?",
-      "answer": "Both threads can read the same value and update it at the same time. Atomic operations prevent that.",
+      "question": "What inconsistent update do atomics prevent?",
+      "answer": "Two threads both reading the same value and updating it at the same time.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/atomic-operations",
       "sourceTitle": "Atomic Operations",
@@ -4009,8 +4171,8 @@
     },
     {
       "id": "note:coding/concurrency/atomic-operations:2",
-      "question": "What determines which atomic types exist and how they are implemented?",
-      "answer": "The system architecture and OS.",
+      "question": "What do atomic implementations depend on?",
+      "answer": "The system architecture and OS, including which types are available.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/atomic-operations",
       "sourceTitle": "Atomic Operations",
@@ -4022,8 +4184,8 @@
     },
     {
       "id": "note:coding/concurrency/atomic-reference-counting:0",
-      "question": "What guarantee does atomic reference counting add to increment and decrement?",
-      "answer": "Each increment or decrement is atomic, so no two threads can simultaneously mutate the count.",
+      "question": "What guarantee does atomic reference counting add?",
+      "answer": "Increment and decrement operations are atomic.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/atomic-reference-counting",
       "sourceTitle": "Atomic Refcounting",
@@ -4036,8 +4198,8 @@
     },
     {
       "id": "note:coding/concurrency/atomic-reference-counting:1",
-      "question": "Why must the reference count's increment and decrement be atomic?",
-      "answer": "So two threads cannot mutate the count at the same time.",
+      "question": "What can two threads not do to an atomic refcount?",
+      "answer": "Simultaneously mutate the count.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/atomic-reference-counting",
       "sourceTitle": "Atomic Refcounting",
@@ -4050,8 +4212,8 @@
     },
     {
       "id": "note:coding/concurrency/atomic-reference-counting:2",
-      "question": "What does atomic reference counting allow you to do with the pointer?",
-      "answer": "Safely share and send the reference-counted pointer across threads.",
+      "question": "Why can an atomic refcounted pointer cross threads?",
+      "answer": "Because count updates are atomic, the pointer can be safely shared and sent across threads.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/atomic-reference-counting",
       "sourceTitle": "Atomic Refcounting",
@@ -4064,8 +4226,8 @@
     },
     {
       "id": "note:coding/concurrency/concurrency:0",
-      "question": "Why has concurrency become more popular on modern CPUs?",
-      "answer": "The number of cores and threads per core has increased.",
+      "question": "Why has concurrency gained popularity?",
+      "answer": "The number of cores and threads per core on modern CPUs has increased.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/concurrency",
       "sourceTitle": "Concurrency",
@@ -4077,8 +4239,8 @@
     },
     {
       "id": "note:coding/concurrency/concurrency:1",
-      "question": "What role does concurrency play when resources are limited?",
-      "answer": "It is the only way to improve performance with limited resources.",
+      "question": "Why is concurrency described as the only way to improve performance with limited resources?",
+      "answer": "The note states it is the only way to improve performance when resources are limited.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/concurrency",
       "sourceTitle": "Concurrency",
@@ -4091,7 +4253,7 @@
     {
       "id": "note:coding/concurrency/concurrency:2",
       "question": "Where is concurrency widely used?",
-      "answer": "In modern computing systems, operating systems, and large distributed clusters.",
+      "answer": "Modern computing systems, operating systems, and large distributed clusters.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/concurrency",
       "sourceTitle": "Concurrency",
@@ -4103,8 +4265,8 @@
     },
     {
       "id": "note:coding/concurrency/concurrency:3",
-      "question": "Besides performance, what does concurrency help developers do?",
-      "answer": "It helps model the real world, maximises system efficiency from users’ and developers’ perspectives, and lets developers solve large, complex problems.",
+      "question": "What three things does concurrency help with?",
+      "answer": "Modeling the real world, maximising system efficiency from users' and developers' perspectives, and solving large, complex problems.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/concurrency",
       "sourceTitle": "Concurrency",
@@ -4129,8 +4291,8 @@
     },
     {
       "id": "note:coding/concurrency/condition-variables:1",
-      "question": "What happens to the mutex when a thread waits on a condition variable?",
-      "answer": "The condition variable takes the lock guard, unlocks the mutex, and puts the thread to sleep.",
+      "question": "What does a condition variable do with the lock before sleeping?",
+      "answer": "It takes the lock guard, unlocks the mutex, and puts the thread to sleep.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/condition-variables",
       "sourceTitle": "Condition Variables",
@@ -4142,8 +4304,8 @@
     },
     {
       "id": "note:coding/concurrency/condition-variables:2",
-      "question": "What does a waiting thread do after a condition-variable notification?",
-      "answer": "It re-acquires the mutex lock and returns the guard.",
+      "question": "What happens when a condition-variable notification is received?",
+      "answer": "The waiter re-acquires the mutex lock and returns the guard.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/condition-variables",
       "sourceTitle": "Condition Variables",
@@ -4223,7 +4385,7 @@
     {
       "id": "note:coding/concurrency/latency-vs-throughput:1",
       "question": "What is latency?",
-      "answer": "How long a single task takes.",
+      "answer": "The measure of how long a single task takes.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/latency-vs-throughput",
       "sourceTitle": "Latency Throughput",
@@ -4282,6 +4444,21 @@
     },
     {
       "id": "note:coding/concurrency/latency-vs-throughput:5",
+      "question": "How can concurrency hide latency?",
+      "answer": "By allowing the system to accomplish something else during a high-latency operation.",
+      "sourceType": "note",
+      "sourceId": "coding/concurrency/latency-vs-throughput",
+      "sourceTitle": "Latency Throughput",
+      "sourceHref": "/notes/coding/concurrency/latency-vs-throughput/",
+      "tags": [
+        "concurrency",
+        "performance",
+        "latency",
+        "throughput"
+      ]
+    },
+    {
+      "id": "note:coding/concurrency/latency-vs-throughput:6",
       "question": "How can concurrency increase throughput?",
       "answer": "By enabling multiple tasks to run simultaneously.",
       "sourceType": "note",
@@ -4296,9 +4473,9 @@
       ]
     },
     {
-      "id": "note:coding/concurrency/latency-vs-throughput:6",
+      "id": "note:coding/concurrency/latency-vs-throughput:7",
       "question": "In what three ways can concurrency improve system performance?",
-      "answer": "It can reduce latency, hide latency by doing other work during a high-latency operation, and increase throughput.",
+      "answer": "It can reduce latency, hide latency, and increase throughput.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/latency-vs-throughput",
       "sourceTitle": "Latency Throughput",
@@ -4326,7 +4503,7 @@
     {
       "id": "note:coding/concurrency/lazy-initialization:1",
       "question": "When is a lazily initialized resource calculated?",
-      "answer": "Only when first requested, then stored for later use.",
+      "answer": "Only when first requested.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/lazy-initialization",
       "sourceTitle": "Lazy Initialization",
@@ -4365,8 +4542,8 @@
     },
     {
       "id": "note:coding/concurrency/lock-poisoning:1",
-      "question": "What do later lock acquires return after a lock is poisoned?",
-      "answer": "An error indicating the lock is poisoned, for both read and write acquires.",
+      "question": "What do later lock acquisitions return after poisoning?",
+      "answer": "An error indicating the lock is poisoned.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/lock-poisoning",
       "sourceTitle": "Lock Poisoning",
@@ -4379,8 +4556,22 @@
     },
     {
       "id": "note:coding/concurrency/lock-poisoning:2",
-      "question": "Does a poisoned lock still block other threads?",
-      "answer": "Yes. It still puts other threads to sleep, but signals that the protected state may be invalid.",
+      "question": "Does a poisoned lock still put other threads to sleep?",
+      "answer": "Yes. It still behaves as it should by putting other threads to sleep, but signals that the protected state may be invalid.",
+      "sourceType": "note",
+      "sourceId": "coding/concurrency/lock-poisoning",
+      "sourceTitle": "Lock Poisoning",
+      "sourceHref": "/notes/coding/concurrency/lock-poisoning/",
+      "tags": [
+        "concurrency",
+        "locks",
+        "error-handling"
+      ]
+    },
+    {
+      "id": "note:coding/concurrency/lock-poisoning:3",
+      "question": "What does a poisoned lock signal about protected state?",
+      "answer": "That the protected state may be invalid.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/lock-poisoning",
       "sourceTitle": "Lock Poisoning",
@@ -4393,8 +4584,8 @@
     },
     {
       "id": "note:coding/concurrency/memory-ordering:0",
-      "question": "What does the ordering parameter on an atomic operation control?",
-      "answer": "The guarantees about the relative ordering of operations.",
+      "question": "What do atomic operations take to control ordering guarantees?",
+      "answer": "An ordering parameter that controls what guarantees we get about the relative ordering of operations.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/memory-ordering",
       "sourceTitle": "Memory Ordering",
@@ -4407,8 +4598,8 @@
     },
     {
       "id": "note:coding/concurrency/memory-ordering:1",
-      "question": "Why can operations appear out of program order?",
-      "answer": "The CPU might perform operations out of order, for example grouping assignments even if the code does not write them that way.",
+      "question": "Why might threads observe operations in different orders?",
+      "answer": "The CPU might perform operations out of order, such as grouping assignments together even if they are not in that order in the code.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/memory-ordering",
       "sourceTitle": "Memory Ordering",
@@ -4421,8 +4612,8 @@
     },
     {
       "id": "note:coding/concurrency/memory-ordering:2",
-      "question": "Can two threads observe the same assignments in different orders?",
-      "answer": "Yes. One thread might see V1, V2, V3 assigned while another sees V2, V3, V1.",
+      "question": "What can two threads see when assignments are reordered?",
+      "answer": "One thread might see V1 V2 V3 assigned, while another sees V2 V3 V1.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/memory-ordering",
       "sourceTitle": "Memory Ordering",
@@ -4435,7 +4626,7 @@
     },
     {
       "id": "note:coding/concurrency/mutex:0",
-      "question": "What does mutex stand for, and what does it provide?",
+      "question": "What does mutex stand for, and what does it guarantee?",
       "answer": "Mutual exclusion. It works as an exclusive reference: only one thread can hold the lock at a time.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/mutex",
@@ -4475,7 +4666,7 @@
     {
       "id": "note:coding/concurrency/race-conditions:0",
       "question": "What is a race condition?",
-      "answer": "Multiple threads access and attempt to modify shared state concurrently, and the final outcome depends on the timing or interleaving of execution.",
+      "answer": "It occurs when multiple threads access and attempt to modify shared state concurrently, and the final outcome depends on the timing or interleaving of execution.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/race-conditions",
       "sourceTitle": "Race Conditions",
@@ -4510,8 +4701,8 @@
     },
     {
       "id": "note:coding/concurrency/reader-writer-lock:0",
-      "question": "What access pattern does an RwLock allow?",
-      "answer": "One exclusive mutable reference, or multiple shared read references.",
+      "question": "How does an RwLock differ from a mutex?",
+      "answer": "A mutex only lets you take exclusive access even when a shared reference would have been enough. An RwLock lets you have one exclusive mutable reference or multiple shared read references.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/reader-writer-lock",
       "sourceTitle": "RwLock",
@@ -4523,8 +4714,8 @@
     },
     {
       "id": "note:coding/concurrency/reader-writer-lock:1",
-      "question": "How does an RwLock differ from a Mutex?",
-      "answer": "A Mutex only grants exclusive access even when a shared reference would suffice. An RwLock allows either one exclusive mutable reference or multiple shared read references.",
+      "question": "What access combinations does an RwLock allow?",
+      "answer": "One exclusive mutable reference, or multiple shared read references.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/reader-writer-lock",
       "sourceTitle": "RwLock",
@@ -4537,7 +4728,7 @@
     {
       "id": "note:coding/concurrency/reader-writer-lock:2",
       "question": "When is an RwLock optimal?",
-      "answer": "When the data is read frequently but written to infrequently.",
+      "answer": "For data that is read frequently but written to infrequently.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/reader-writer-lock",
       "sourceTitle": "RwLock",
@@ -4550,7 +4741,7 @@
     {
       "id": "note:coding/concurrency/reference-counting:0",
       "question": "What is reference counting?",
-      "answer": "A smart pointer mechanism that keeps a count of all owners of a value and drops the value only when the counter reaches 0.",
+      "answer": "A smart pointer mechanism that keeps a count of all owners and drops the value only when the counter reaches 0.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/reference-counting",
       "sourceTitle": "Reference Counting",
@@ -4562,8 +4753,8 @@
     },
     {
       "id": "note:coding/concurrency/reference-counting:1",
-      "question": "How does cloning a reference-counted pointer differ from deep cloning?",
-      "answer": "Cloning increments the counter next to the value by 1. It does not create a new value on the heap.",
+      "question": "How does cloning a reference-counted pointer differ from a deep clone?",
+      "answer": "The count increases by 1. It does not create a new value on the heap; it increments the counter next to the value.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/reference-counting",
       "sourceTitle": "Reference Counting",
@@ -4575,8 +4766,8 @@
     },
     {
       "id": "note:coding/concurrency/reference-counting:2",
-      "question": "What happens when a clone of a reference-counted pointer is dropped?",
-      "answer": "The counter is decremented. If it reaches 0, the actual value is dropped.",
+      "question": "When is the actual reference-counted value dropped?",
+      "answer": "When a clone is dropped and the counter reaches 0.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/reference-counting",
       "sourceTitle": "Reference Counting",
@@ -4601,8 +4792,8 @@
     },
     {
       "id": "note:coding/concurrency/reference-counting:4",
-      "question": "When is standard reference counting not thread-safe?",
-      "answer": "When the counter increments and decrements are non-atomic.",
+      "question": "Why is standard reference counting not thread-safe?",
+      "answer": "Because counter increments and decrements are non-atomic.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/reference-counting",
       "sourceTitle": "Reference Counting",
@@ -4614,8 +4805,8 @@
     },
     {
       "id": "note:coding/concurrency/scalability:0",
-      "question": "How can concurrency help scalability?",
-      "answer": "It lets you scale out horizontally instead of scaling up vertically.",
+      "question": "How can concurrency help achieve scalability?",
+      "answer": "By allowing the system to scale out (horizontally) rather than scale up (vertically).",
       "sourceType": "note",
       "sourceId": "coding/concurrency/scalability",
       "sourceTitle": "Scalability",
@@ -4628,8 +4819,8 @@
     },
     {
       "id": "note:coding/concurrency/scalability:1",
-      "question": "What does scaling vertically mean?",
-      "answer": "Buying more RAM or a faster processor, which typically yields only marginal improvements.",
+      "question": "What does scaling vertically mean, and what limits it?",
+      "answer": "Buying more RAM or a faster processor for only marginal improvements. It stops once you have already bought the fastest system.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/scalability",
       "sourceTitle": "Scalability",
@@ -4642,8 +4833,8 @@
     },
     {
       "id": "note:coding/concurrency/scalability:2",
-      "question": "When does vertical scaling stop helping?",
-      "answer": "Once you have already bought the fastest system.",
+      "question": "What does scaling horizontally mean?",
+      "answer": "Distributing the work across multiple machines.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/scalability",
       "sourceTitle": "Scalability",
@@ -4656,22 +4847,8 @@
     },
     {
       "id": "note:coding/concurrency/scalability:3",
-      "question": "How do you scale horizontally?",
-      "answer": "By distributing the work across multiple machines.",
-      "sourceType": "note",
-      "sourceId": "coding/concurrency/scalability",
-      "sourceTitle": "Scalability",
-      "sourceHref": "/notes/coding/concurrency/scalability/",
-      "tags": [
-        "concurrency",
-        "architecture",
-        "scalability"
-      ]
-    },
-    {
-      "id": "note:coding/concurrency/scalability:4",
-      "question": "Why does decoupling help scale a single service?",
-      "answer": "If only one service needs to scale, a decoupled system can scale that service alone instead of scaling everything in a tightly coupled system.",
+      "question": "Why does decoupling help when only one service needs to scale?",
+      "answer": "In a decoupled system that service can be scaled on its own, rather than scaling everything on a tightly coupled system.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/scalability",
       "sourceTitle": "Scalability",
@@ -4698,7 +4875,7 @@
     {
       "id": "note:coding/concurrency/scoped-threads:1",
       "question": "Why can scoped threads borrow local variables?",
-      "answer": "Because the data outlives their scope.",
+      "answer": "Because they finish before the scope exits, so the data outlives their scope.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/scoped-threads",
       "sourceTitle": "Scoped Threads",
@@ -4711,7 +4888,7 @@
     {
       "id": "note:coding/concurrency/scoped-threads:2",
       "question": "What happens to threads spawned in a scope before the scope exits?",
-      "answer": "They are all joined before the scope exits.",
+      "answer": "All of them are joined before the scope exits.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/scoped-threads",
       "sourceTitle": "Scoped Threads",
@@ -4723,7 +4900,7 @@
     },
     {
       "id": "note:coding/concurrency/scoped-threads:3",
-      "question": "What reference-sharing rules apply across scoped threads?",
+      "question": "What references can scoped threads share?",
       "answer": "Multiple read references can be shared across threads, but only one mutable reference is allowed at a time.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/scoped-threads",
@@ -4736,8 +4913,8 @@
     },
     {
       "id": "note:coding/concurrency/send-and-sync:0",
-      "question": "What do Send and Sync determine?",
-      "answer": "How types can cross thread boundaries.",
+      "question": "What does Send mean?",
+      "answer": "A type T is Send if its ownership can be transferred to another thread.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/send-and-sync",
       "sourceTitle": "Send Sync",
@@ -4750,8 +4927,8 @@
     },
     {
       "id": "note:coding/concurrency/send-and-sync:1",
-      "question": "When is a type T Send?",
-      "answer": "When its ownership can be transferred to another thread.",
+      "question": "What does Sync mean?",
+      "answer": "A type T is Sync if its shared reference is Send; that is, T is Sync if &T is Send.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/send-and-sync",
       "sourceTitle": "Send Sync",
@@ -4764,8 +4941,8 @@
     },
     {
       "id": "note:coding/concurrency/send-and-sync:2",
-      "question": "When is a type T Sync?",
-      "answer": "When its shared reference is Send — that is, T is Sync if &T is Send.",
+      "question": "Which primitive types are Send and Sync?",
+      "answer": "All primitive types are Send and Sync.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/send-and-sync",
       "sourceTitle": "Send Sync",
@@ -4778,20 +4955,6 @@
     },
     {
       "id": "note:coding/concurrency/send-and-sync:3",
-      "question": "Are primitive types Send and Sync?",
-      "answer": "Yes. All primitive types are Send and Sync.",
-      "sourceType": "note",
-      "sourceId": "coding/concurrency/send-and-sync",
-      "sourceTitle": "Send Sync",
-      "sourceHref": "/notes/coding/concurrency/send-and-sync/",
-      "tags": [
-        "concurrency",
-        "type-system",
-        "thread-safety"
-      ]
-    },
-    {
-      "id": "note:coding/concurrency/send-and-sync:4",
       "question": "When are types automatically Send and Sync?",
       "answer": "When all of their fields are Send and Sync.",
       "sourceType": "note",
@@ -4807,7 +4970,7 @@
     {
       "id": "note:coding/concurrency/static-lifetime:0",
       "question": "What does a static lifetime mean?",
-      "answer": "The value will exist until the end of the program.",
+      "answer": "The value will exist until the end of the program, so any value with a static lifetime can be shared across threads.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/static-lifetime",
       "sourceTitle": "Static Lifetime",
@@ -4819,19 +4982,6 @@
     },
     {
       "id": "note:coding/concurrency/static-lifetime:1",
-      "question": "Why can a static-lifetime value be shared across threads?",
-      "answer": "Because it will exist until the end of the program.",
-      "sourceType": "note",
-      "sourceId": "coding/concurrency/static-lifetime",
-      "sourceTitle": "Static Lifetime",
-      "sourceHref": "/notes/coding/concurrency/static-lifetime/",
-      "tags": [
-        "concurrency",
-        "memory"
-      ]
-    },
-    {
-      "id": "note:coding/concurrency/static-lifetime:2",
       "question": "When does a static variable exist?",
       "answer": "It exists before main and remains in scope until the program ends.",
       "sourceType": "note",
@@ -4844,8 +4994,8 @@
       ]
     },
     {
-      "id": "note:coding/concurrency/static-lifetime:3",
-      "question": "How else can a value be guaranteed to last for the program's duration?",
+      "id": "note:coding/concurrency/static-lifetime:2",
+      "question": "How else can a value be guaranteed to exist for the whole program?",
       "answer": "By leaking it on the heap.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/static-lifetime",
@@ -4858,8 +5008,8 @@
     },
     {
       "id": "note:coding/concurrency/thread-joining:0",
-      "question": "How do you wait for spawned threads to finish before exiting main?",
-      "answer": "Join the thread handle.",
+      "question": "Why join a thread handle?",
+      "answer": "To wait for spawned threads to finish their execution before exiting from main.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/thread-joining",
       "sourceTitle": "Thread Joining",
@@ -4871,7 +5021,7 @@
     },
     {
       "id": "note:coding/concurrency/thread-joining:1",
-      "question": "What does joining a thread wait for?",
+      "question": "What does joining wait for?",
       "answer": "The target thread to finish.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/thread-joining",
@@ -4884,7 +5034,7 @@
     },
     {
       "id": "note:coding/concurrency/thread-joining:2",
-      "question": "What does joining a thread return?",
+      "question": "What does joining return?",
       "answer": "The thread's result, or an indication that the thread panicked.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/thread-joining",
@@ -5003,7 +5153,7 @@
     {
       "id": "note:coding/register-storage:1",
       "question": "Must the compiler honor a register request?",
-      "answer": "No. It can still refuse for optimisation. Register is a request.",
+      "answer": "No. The compiler can still refuse for optimisation. Register is a request.",
       "sourceType": "note",
       "sourceId": "coding/register-storage",
       "sourceTitle": "Register Storage",
@@ -5016,7 +5166,7 @@
     },
     {
       "id": "note:coding/register-storage:2",
-      "question": "Can one field of a struct be register?",
+      "question": "Can one field of a struct have the register modifier?",
       "answer": "No. A whole struct can have the register modifier, but one field cannot.",
       "sourceType": "note",
       "sourceId": "coding/register-storage",
@@ -5087,7 +5237,7 @@
     {
       "id": "note:coding/satisfies-15-02-2026:4",
       "question": "How does this compare to Rust pattern matching?",
-      "answer": "It is similar to exhaustive pattern matching in Rust: unhandled cases are caught at compile time instead of in runtime logs.",
+      "answer": "It is similar to exhaustive pattern matching in Rust. Unhandled cases are caught at compile time instead of in runtime logs.",
       "sourceType": "note",
       "sourceId": "coding/satisfies-15-02-2026",
       "sourceTitle": "TypeScript Satisfies",
@@ -5222,6 +5372,134 @@
         "programming",
         "memory",
         "scope"
+      ]
+    },
+    {
+      "id": "note:emulation/chip-8:0",
+      "question": "How much RAM does CHIP-8 have?",
+      "answer": "Up to 4 kilobytes (4096 bytes). All of it is writable RAM, so programs can modify themselves.",
+      "sourceType": "note",
+      "sourceId": "emulation/chip-8",
+      "sourceTitle": "CHIP-8",
+      "sourceHref": "/notes/emulation/chip-8/",
+      "tags": [
+        "emulation",
+        "architecture",
+        "hardware",
+        "chip-8",
+        "virtual-machine"
+      ]
+    },
+    {
+      "id": "note:emulation/chip-8:1",
+      "question": "What is the CHIP-8 display?",
+      "answer": "A 64×32 monochrome pixel array (128×64 for SUPER-CHIP). Each pixel is on or off. The original display ran at 60 Hz.",
+      "sourceType": "note",
+      "sourceId": "emulation/chip-8",
+      "sourceTitle": "CHIP-8",
+      "sourceHref": "/notes/emulation/chip-8/",
+      "tags": [
+        "emulation",
+        "architecture",
+        "hardware",
+        "chip-8",
+        "virtual-machine"
+      ]
+    },
+    {
+      "id": "note:emulation/chip-8:2",
+      "question": "What do the program counter and index register I do?",
+      "answer": "The PC points at the current instruction in memory. I is a 16-bit register used to point at locations in memory.",
+      "sourceType": "note",
+      "sourceId": "emulation/chip-8",
+      "sourceTitle": "CHIP-8",
+      "sourceHref": "/notes/emulation/chip-8/",
+      "tags": [
+        "emulation",
+        "architecture",
+        "hardware",
+        "chip-8",
+        "virtual-machine"
+      ]
+    },
+    {
+      "id": "note:emulation/chip-8:3",
+      "question": "How do the delay timer and sound timer differ?",
+      "answer": "Both are 8-bit and decrement at 60 Hz until they reach 0. The sound timer also beeps as long as it is not 0.",
+      "sourceType": "note",
+      "sourceId": "emulation/chip-8",
+      "sourceTitle": "CHIP-8",
+      "sourceHref": "/notes/emulation/chip-8/",
+      "tags": [
+        "emulation",
+        "architecture",
+        "hardware",
+        "chip-8",
+        "virtual-machine"
+      ]
+    },
+    {
+      "id": "note:emulation/chip-8:4",
+      "question": "Why is VF special among the V registers?",
+      "answer": "There are 16 8-bit registers V0–VF. VF is also a flag register; many instructions set it to 1 or 0, for example as a carry flag.",
+      "sourceType": "note",
+      "sourceId": "emulation/chip-8",
+      "sourceTitle": "CHIP-8",
+      "sourceHref": "/notes/emulation/chip-8/",
+      "tags": [
+        "emulation",
+        "architecture",
+        "hardware",
+        "chip-8",
+        "virtual-machine"
+      ]
+    },
+    {
+      "id": "note:emulation/chip-8:5",
+      "question": "Why can the PC and I only address 4 KB in practice?",
+      "answer": "They address 12 bits, which is 4096 addresses (0 to 4095). They are actually 16 bits and could go beyond 4 KB, but no CHIP-8 games do that.",
+      "sourceType": "note",
+      "sourceId": "emulation/chip-8",
+      "sourceTitle": "CHIP-8",
+      "sourceHref": "/notes/emulation/chip-8/",
+      "tags": [
+        "emulation",
+        "architecture",
+        "hardware",
+        "chip-8",
+        "virtual-machine"
+      ]
+    },
+    {
+      "id": "note:emulation/chip-8:6",
+      "question": "Where should a CHIP-8 ROM and fonts be loaded?",
+      "answer": "The ROM loads at 0x200. Fonts load from 0x000 to 0x1FF or 0x050 to 0x09F (512 bytes). Each font glyph is 4 pixels wide by 5 pixels tall.",
+      "sourceType": "note",
+      "sourceId": "emulation/chip-8",
+      "sourceTitle": "CHIP-8",
+      "sourceHref": "/notes/emulation/chip-8/",
+      "tags": [
+        "emulation",
+        "architecture",
+        "hardware",
+        "chip-8",
+        "virtual-machine"
+      ]
+    },
+    {
+      "id": "note:emulation/chip-8:7",
+      "question": "How are CHIP-8 sprites drawn, and what is the stack for?",
+      "answer": "Sprites are 8-bit bytes, 1–15 bytes tall. 0 bits are transparent; 1 bits flip the pixels they cover. The stack holds up to 16 return addresses for subroutines.",
+      "sourceType": "note",
+      "sourceId": "emulation/chip-8",
+      "sourceTitle": "CHIP-8",
+      "sourceHref": "/notes/emulation/chip-8/",
+      "tags": [
+        "emulation",
+        "architecture",
+        "hardware",
+        "chip-8",
+        "virtual-machine"
       ]
     },
     {
@@ -5443,7 +5721,7 @@
     {
       "id": "note:llms/decoder:6",
       "question": "How does KV caching help decoder-only inference?",
-      "answer": "It speeds repeated left-to-right steps so past keys and values are not recomputed.",
+      "answer": "It speeds repeated left-to-right steps at inference.",
       "sourceType": "note",
       "sourceId": "llms/decoder",
       "sourceTitle": "Decoder",
@@ -5584,6 +5862,21 @@
     },
     {
       "id": "note:llms/knowledge-graphs:2",
+      "question": "Which libraries implement GraphRAG in this note?",
+      "answer": "Microsoft GraphRAG and LightRAG.",
+      "sourceType": "note",
+      "sourceId": "llms/knowledge-graphs",
+      "sourceTitle": "Knowledge Graphs",
+      "sourceHref": "/notes/llms/knowledge-graphs/",
+      "tags": [
+        "graph-rag",
+        "knowledge-graphs",
+        "rag",
+        "research"
+      ]
+    },
+    {
+      "id": "note:llms/knowledge-graphs:3",
       "question": "What are the main costs of GraphRAG versus pure vector retrieval?",
       "answer": "It needs setup (e.g. Neo4j), entity extraction, and graph maintenance. It is slower and more expensive than pure vector retrieval.",
       "sourceType": "note",
@@ -5595,6 +5888,156 @@
         "knowledge-graphs",
         "rag",
         "research"
+      ]
+    },
+    {
+      "id": "note:llms/lightrag:0",
+      "question": "What is LightRAG?",
+      "answer": "A specialized implementation of GraphRAG developed by hkuds.",
+      "sourceType": "note",
+      "sourceId": "llms/lightrag",
+      "sourceTitle": "LightRAG",
+      "sourceHref": "/notes/llms/lightrag/",
+      "tags": [
+        "graph-rag",
+        "light-rag",
+        "research",
+        "rag"
+      ]
+    },
+    {
+      "id": "note:llms/lightrag:1",
+      "question": "Who developed LightRAG?",
+      "answer": "hkuds.",
+      "sourceType": "note",
+      "sourceId": "llms/lightrag",
+      "sourceTitle": "LightRAG",
+      "sourceHref": "/notes/llms/lightrag/",
+      "tags": [
+        "graph-rag",
+        "light-rag",
+        "research",
+        "rag"
+      ]
+    },
+    {
+      "id": "note:llms/lightrag:2",
+      "question": "LightRAG is a specialized implementation of what?",
+      "answer": "GraphRAG.",
+      "sourceType": "note",
+      "sourceId": "llms/lightrag",
+      "sourceTitle": "LightRAG",
+      "sourceHref": "/notes/llms/lightrag/",
+      "tags": [
+        "graph-rag",
+        "light-rag",
+        "research",
+        "rag"
+      ]
+    },
+    {
+      "id": "note:llms/llm:0",
+      "question": "How do encoder and decoder layers differ in this MOC?",
+      "answer": "Encoders do bidirectional feature extraction. Decoders do causal autoregressive generation.",
+      "sourceType": "note",
+      "sourceId": "llms/llm",
+      "sourceTitle": "LLMs",
+      "sourceHref": "/notes/llms/llm/",
+      "tags": [
+        "llm",
+        "index",
+        "research",
+        "ai"
+      ]
+    },
+    {
+      "id": "note:llms/llm:1",
+      "question": "What tokenization techniques does the LLM index list?",
+      "answer": "Character, word, and sub-word (BPE) techniques.",
+      "sourceType": "note",
+      "sourceId": "llms/llm",
+      "sourceTitle": "LLMs",
+      "sourceHref": "/notes/llms/llm/",
+      "tags": [
+        "llm",
+        "index",
+        "research",
+        "ai"
+      ]
+    },
+    {
+      "id": "note:llms/llm:2",
+      "question": "What does Needle-in-a-Haystack benchmark?",
+      "answer": "Long-context retrieval and biases.",
+      "sourceType": "note",
+      "sourceId": "llms/llm",
+      "sourceTitle": "LLMs",
+      "sourceHref": "/notes/llms/llm/",
+      "tags": [
+        "llm",
+        "index",
+        "research",
+        "ai"
+      ]
+    },
+    {
+      "id": "note:llms/llm:3",
+      "question": "What is re-ranking in this RAG overview?",
+      "answer": "Two-stage retrieval for precision.",
+      "sourceType": "note",
+      "sourceId": "llms/llm",
+      "sourceTitle": "LLMs",
+      "sourceHref": "/notes/llms/llm/",
+      "tags": [
+        "llm",
+        "index",
+        "research",
+        "ai"
+      ]
+    },
+    {
+      "id": "note:llms/llm:4",
+      "question": "What is speculative decoding here?",
+      "answer": "Draft model generation with target validation.",
+      "sourceType": "note",
+      "sourceId": "llms/llm",
+      "sourceTitle": "LLMs",
+      "sourceHref": "/notes/llms/llm/",
+      "tags": [
+        "llm",
+        "index",
+        "research",
+        "ai"
+      ]
+    },
+    {
+      "id": "note:llms/llm:5",
+      "question": "What serving technique does vLLM use for high throughput?",
+      "answer": "PagedAttention.",
+      "sourceType": "note",
+      "sourceId": "llms/llm",
+      "sourceTitle": "LLMs",
+      "sourceHref": "/notes/llms/llm/",
+      "tags": [
+        "llm",
+        "index",
+        "research",
+        "ai"
+      ]
+    },
+    {
+      "id": "note:llms/llm:6",
+      "question": "What is an MLLM in this index?",
+      "answer": "A multimodal LLM capable of processing images, audio, and video.",
+      "sourceType": "note",
+      "sourceId": "llms/llm",
+      "sourceTitle": "LLMs",
+      "sourceHref": "/notes/llms/llm/",
+      "tags": [
+        "llm",
+        "index",
+        "research",
+        "ai"
       ]
     },
     {
@@ -5660,7 +6103,7 @@
     },
     {
       "id": "note:llms/mcp:1",
-      "question": "Who standardized MCP and what does it standardize?",
+      "question": "Who standardized MCP, and what does it standardize?",
       "answer": "Anthropic. It is a standard for LLMs to communicate with external services.",
       "sourceType": "note",
       "sourceId": "llms/mcp",
@@ -5967,6 +6410,20 @@
       "id": "note:llms/rag:5",
       "question": "What does Full Multimodal RAG (FMMRag) embed into a shared vector space?",
       "answer": "Text, images, audio, and video. Retrieval can return text, images, video frames, or audio timestamps.",
+      "sourceType": "note",
+      "sourceId": "llms/rag",
+      "sourceTitle": "RAG",
+      "sourceHref": "/notes/llms/rag/",
+      "tags": [
+        "rag",
+        "research",
+        "ai-architecture"
+      ]
+    },
+    {
+      "id": "note:llms/rag:6",
+      "question": "Which RAG strategies does the note list besides modalities?",
+      "answer": "Re-ranking, Agentic RAG, and Knowledge Graphs (GraphRAG).",
       "sourceType": "note",
       "sourceId": "llms/rag",
       "sourceTitle": "RAG",
@@ -6827,7 +7284,7 @@
     {
       "id": "note:teach/c17/c17:2",
       "question": "Where are CHIP-8 ROMs loaded in memory?",
-      "answer": "At address `0x200`.",
+      "answer": "At address 0x200.",
       "sourceType": "note",
       "sourceId": "teach/c17/c17",
       "sourceTitle": "C17 Hub",
@@ -6840,7 +7297,7 @@
     },
     {
       "id": "note:teach/c17/c17:3",
-      "question": "How are CHIP-8 opcodes fetched?",
+      "question": "How are CHIP-8 opcodes fetched in the curriculum?",
       "answer": "As 16-bit big-endian values, then decoded with bitwise masking.",
       "sourceType": "note",
       "sourceId": "teach/c17/c17",
@@ -7307,6 +7764,90 @@
         "lesson",
         "file-io",
         "memory",
+        "chip8"
+      ]
+    },
+    {
+      "id": "note:teach/c17/mission:0",
+      "question": "What is the C17 mission's overarching goal?",
+      "answer": "Master production-grade ISO C17 systems programming by completing, optimizing, and hardening the CHIP-8 emulator into a memory-safe native application with modern CMake tooling and sanitizers.",
+      "sourceType": "note",
+      "sourceId": "teach/c17/mission",
+      "sourceTitle": "Mission: C17 Systems Mastery via CHIP-8 Emulator",
+      "sourceHref": "/notes/teach/c17/mission/",
+      "tags": [
+        "teach/c17",
+        "mission",
+        "chip8"
+      ]
+    },
+    {
+      "id": "note:teach/c17/mission:1",
+      "question": "Which systems pillars does building an emulator target?",
+      "answer": "Binary file parsing and endianness, bitwise opcode decoding, memory architecture and pointer lifetimes, high-frequency CPU cycles and timer sync, SDL2 framebuffer work, and production CMake with ASan/UBSan.",
+      "sourceType": "note",
+      "sourceId": "teach/c17/mission",
+      "sourceTitle": "Mission: C17 Systems Mastery via CHIP-8 Emulator",
+      "sourceHref": "/notes/teach/c17/mission/",
+      "tags": [
+        "teach/c17",
+        "mission",
+        "chip8"
+      ]
+    },
+    {
+      "id": "note:teach/c17/mission:2",
+      "question": "What must ROM loading do?",
+      "answer": "Load from disk with `fopen` and `fread`, handle errors, validate size, and write into memory at `0x200`.",
+      "sourceType": "note",
+      "sourceId": "teach/c17/mission",
+      "sourceTitle": "Mission: C17 Systems Mastery via CHIP-8 Emulator",
+      "sourceHref": "/notes/teach/c17/mission/",
+      "tags": [
+        "teach/c17",
+        "mission",
+        "chip8"
+      ]
+    },
+    {
+      "id": "note:teach/c17/mission:3",
+      "question": "How should the 35-opcode engine be structured?",
+      "answer": "Use bitmask extraction and function-pointer jump tables in clean C17 idioms.",
+      "sourceType": "note",
+      "sourceId": "teach/c17/mission",
+      "sourceTitle": "Mission: C17 Systems Mastery via CHIP-8 Emulator",
+      "sourceHref": "/notes/teach/c17/mission/",
+      "tags": [
+        "teach/c17",
+        "mission",
+        "chip8"
+      ]
+    },
+    {
+      "id": "note:teach/c17/mission:4",
+      "question": "What timer rate must the emulator implement?",
+      "answer": "60Hz delay and sound timers synchronized with the emulation cycle.",
+      "sourceType": "note",
+      "sourceId": "teach/c17/mission",
+      "sourceTitle": "Mission: C17 Systems Mastery via CHIP-8 Emulator",
+      "sourceHref": "/notes/teach/c17/mission/",
+      "tags": [
+        "teach/c17",
+        "mission",
+        "chip8"
+      ]
+    },
+    {
+      "id": "note:teach/c17/mission:5",
+      "question": "Which graphics path should be optimized?",
+      "answer": "The XOR graphics engine (`DXYN`) and screen buffer, using SDL2 texture streaming.",
+      "sourceType": "note",
+      "sourceId": "teach/c17/mission",
+      "sourceTitle": "Mission: C17 Systems Mastery via CHIP-8 Emulator",
+      "sourceHref": "/notes/teach/c17/mission/",
+      "tags": [
+        "teach/c17",
+        "mission",
         "chip8"
       ]
     },
@@ -7938,6 +8479,7 @@
     "binary",
     "c",
     "caching",
+    "chip-8",
     "chip8",
     "chunked",
     "clean-code",
@@ -7962,6 +8504,7 @@
     "downloads",
     "dry",
     "edge-computing",
+    "emulation",
     "encoder",
     "error-handling",
     "express",
@@ -7978,6 +8521,7 @@
     "graph-rag",
     "groupby",
     "groupingsets",
+    "hardware",
     "HTTP",
     "index",
     "IndexedDB",
@@ -8034,6 +8578,7 @@
     "optimization",
     "Oracle",
     "orchestration",
+    "parallel-execution",
     "pattern-matching",
     "patterns",
     "performance",
@@ -8072,6 +8617,7 @@
     "scalability",
     "scope",
     "search-optimization",
+    "serial-execution",
     "single-responsibility",
     "slm",
     "smart-pointers",
@@ -8100,6 +8646,7 @@
     "typescript",
     "TypeScript",
     "velocity",
+    "virtual-machine",
     "vllm",
     "volatility",
     "webapi",

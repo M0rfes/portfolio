@@ -15,5 +15,26 @@
   "vaultPath": "Coding/Concurrency/Thread Parking.md",
   "folder": "Coding",
   "markdown": "# Thread Parking\n\nThread parking lets a [thread](../threads/) park itself so it no longer consumes CPU cycles while waiting for other threads to wake it.\n\nOther threads can call `unpark` on the thread handle to wake it up. If `unpark` is called before the thread is parked, the wake-up token is saved and the next `park` returns immediately without sleeping. Calling `unpark` multiple times only skips the first `park`.\n",
-  "linkedFrom": []
+  "linkedFrom": [
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "basics-of-rust-concurrency"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+      "title": "Rust Concurrency"
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-thread-parking"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-thread-parking/",
+      "title": "Thread Parking"
+    }
+  ]
 }

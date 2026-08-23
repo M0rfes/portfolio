@@ -4,7 +4,11 @@
     "id": "llms/rag",
     "title": "RAG",
     "href": "/notes/llms/rag/",
-    "tags": ["rag", "research", "ai-architecture"]
+    "tags": [
+      "rag",
+      "research",
+      "ai-architecture"
+    ]
   },
   "cards": [
     {
@@ -36,6 +40,11 @@
       "id": "note:llms/rag:5",
       "question": "What does Full Multimodal RAG (FMMRag) embed into a shared vector space?",
       "answer": "Text, images, audio, and video. Retrieval can return text, images, video frames, or audio timestamps."
+    },
+    {
+      "id": "note:llms/rag:6",
+      "question": "Which RAG strategies does the note list besides modalities?",
+      "answer": "Re-ranking, Agentic RAG, and Knowledge Graphs (GraphRAG)."
     }
   ]
 }

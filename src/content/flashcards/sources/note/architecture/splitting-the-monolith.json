@@ -4,7 +4,11 @@
     "id": "architecture/splitting-the-monolith",
     "title": "Splitting Monolith",
     "href": "/notes/architecture/splitting-the-monolith/",
-    "tags": ["architecture", "microservices", "refactoring"]
+    "tags": [
+      "architecture",
+      "microservices",
+      "refactoring"
+    ]
   },
   "cards": [
     {

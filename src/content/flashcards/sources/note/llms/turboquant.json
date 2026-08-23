@@ -4,7 +4,12 @@
     "id": "llms/turboquant",
     "title": "TurboQuant",
     "href": "/notes/llms/turboquant/",
-    "tags": ["llm", "quantization", "performance", "inference"]
+    "tags": [
+      "llm",
+      "quantization",
+      "performance",
+      "inference"
+    ]
   },
   "cards": [
     {

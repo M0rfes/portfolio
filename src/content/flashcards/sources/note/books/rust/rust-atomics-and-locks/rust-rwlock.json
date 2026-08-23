@@ -14,8 +14,8 @@
   "cards": [
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-rwlock:0",
-      "question": "How does an RwLock differ from a Mutex?",
-      "answer": "A Mutex always takes exclusive access even when a shared reference would suffice. An RwLock allows one exclusive mutable reference or multiple shared read references."
+      "question": "How does RwLock access differ from Mutex?",
+      "answer": "A Mutex always takes exclusive access. An RwLock allows one exclusive &mut T or multiple shared &T references."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-rwlock:1",
@@ -24,18 +24,23 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-rwlock:2",
-      "question": "How is RwLock related to RefCell?",
-      "answer": "It is a thread-safe version of RefCell. Access goes through Deref and DerefMut."
+      "question": "What is RwLock a thread-safe version of?",
+      "answer": "RefCell."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-rwlock:3",
-      "question": "What do read and write return, and which traits do the guards implement?",
-      "answer": "read returns RwLockReadGuard, which only implements Deref. write returns RwLockWriteGuard, which implements both DerefMut and Deref."
+      "question": "Which Deref traits do the RwLock guards implement?",
+      "answer": "RwLockReadGuard implements Deref only. RwLockWriteGuard implements both Deref and DerefMut."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-rwlock:4",
-      "question": "When do you need Arc around an RwLock to share it across threads?",
-      "answer": "With thread::spawn, Arc is needed so the reference can be moved to other threads. Scoped threads finish before the caller ends, so the lock can be borrowed without Arc."
+      "question": "Why wrap an RwLock in Arc for unscoped threads?",
+      "answer": "So the reference can be moved to other threads."
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-rwlock:5",
+      "question": "Why can scoped threads share an RwLock without Arc?",
+      "answer": "A scoped thread finishes before the main function ends, so the lock can be dropped after the scope."
     }
   ]
 }

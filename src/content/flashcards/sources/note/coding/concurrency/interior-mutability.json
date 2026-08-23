@@ -4,7 +4,10 @@
     "id": "coding/concurrency/interior-mutability",
     "title": "Interior Mutability",
     "href": "/notes/coding/concurrency/interior-mutability/",
-    "tags": ["memory", "type-system"]
+    "tags": [
+      "memory",
+      "type-system"
+    ]
   },
   "cards": [
     {

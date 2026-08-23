@@ -28,6 +28,16 @@
       ],
       "href": "/notes/books/rust/rust-atomics-and-locks/atomics/",
       "title": "Atomics"
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "memory-ordering"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/memory-ordering/",
+      "title": "Memory Ordering"
     }
   ]
 }

@@ -4,7 +4,12 @@
     "id": "teach/c17/reference/standard-io-and-binary-file-streams",
     "title": "Standard I/O & Binary File Streams in C17",
     "href": "/notes/teach/c17/reference/standard-io-and-binary-file-streams/",
-    "tags": ["teach/c17", "reference", "stdio", "file-io"]
+    "tags": [
+      "teach/c17",
+      "reference",
+      "stdio",
+      "file-io"
+    ]
   },
   "cards": [
     {

@@ -129,4 +129,32 @@ describe("diffSources", () => {
       ["note:mutex"],
     );
   });
+
+  test("marks all sources as changed when all option is true", () => {
+    const current = [
+      { type: "note" as const, id: "mutex", hash: "aaa" },
+      { type: "blog" as const, id: "rollup", hash: "bbb" },
+    ];
+    const diff = diffSources(
+      current,
+      {
+        version: CACHE_VERSION,
+        sources: {
+          "note:mutex": { hash: "aaa" },
+          "blog:rollup": { hash: "bbb" },
+          "note:gone": { hash: "old" },
+        },
+      },
+      { all: true },
+    );
+    assert.deepEqual(
+      diff.changed.map((item) => cacheKey(item)),
+      ["note:mutex", "blog:rollup"],
+    );
+    assert.deepEqual(diff.unchanged, []);
+    assert.deepEqual(
+      diff.removed.map((item) => cacheKey(item)),
+      ["note:gone"],
+    );
+  });
 });

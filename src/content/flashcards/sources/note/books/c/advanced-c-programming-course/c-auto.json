@@ -4,7 +4,11 @@
     "id": "books/c/advanced-c-programming-course/c-auto",
     "title": "C Auto Storage Class",
     "href": "/notes/books/c/advanced-c-programming-course/c-auto/",
-    "tags": ["c", "memory", "storage-classes"]
+    "tags": [
+      "c",
+      "memory",
+      "storage-classes"
+    ]
   },
   "cards": [
     {

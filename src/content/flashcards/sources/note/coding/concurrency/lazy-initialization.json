@@ -4,7 +4,10 @@
     "id": "coding/concurrency/lazy-initialization",
     "title": "Lazy Initialization",
     "href": "/notes/coding/concurrency/lazy-initialization/",
-    "tags": ["concurrency", "patterns"]
+    "tags": [
+      "concurrency",
+      "patterns"
+    ]
   },
   "cards": [
     {
@@ -15,7 +18,7 @@
     {
       "id": "note:coding/concurrency/lazy-initialization:1",
       "question": "When is a lazily initialized resource calculated?",
-      "answer": "Only when first requested, then stored for later use."
+      "answer": "Only when first requested."
     },
     {
       "id": "note:coding/concurrency/lazy-initialization:2",

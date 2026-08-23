@@ -4,7 +4,13 @@
     "id": "llms/decoder",
     "title": "Decoder",
     "href": "/notes/llms/decoder/",
-    "tags": ["llm", "decoder", "transformer", "attention", "autoregressive"]
+    "tags": [
+      "llm",
+      "decoder",
+      "transformer",
+      "attention",
+      "autoregressive"
+    ]
   },
   "cards": [
     {
@@ -40,7 +46,7 @@
     {
       "id": "note:llms/decoder:6",
       "question": "How does KV caching help decoder-only inference?",
-      "answer": "It speeds repeated left-to-right steps so past keys and values are not recomputed."
+      "answer": "It speeds repeated left-to-right steps at inference."
     }
   ]
 }

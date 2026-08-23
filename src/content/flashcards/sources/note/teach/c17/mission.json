@@ -4,7 +4,42 @@
     "id": "teach/c17/mission",
     "title": "Mission: C17 Systems Mastery via CHIP-8 Emulator",
     "href": "/notes/teach/c17/mission/",
-    "tags": ["teach/c17", "mission", "chip8"]
+    "tags": [
+      "teach/c17",
+      "mission",
+      "chip8"
+    ]
   },
-  "cards": []
+  "cards": [
+    {
+      "id": "note:teach/c17/mission:0",
+      "question": "What is the C17 mission's overarching goal?",
+      "answer": "Master production-grade ISO C17 systems programming by completing, optimizing, and hardening the CHIP-8 emulator into a memory-safe native application with modern CMake tooling and sanitizers."
+    },
+    {
+      "id": "note:teach/c17/mission:1",
+      "question": "Which systems pillars does building an emulator target?",
+      "answer": "Binary file parsing and endianness, bitwise opcode decoding, memory architecture and pointer lifetimes, high-frequency CPU cycles and timer sync, SDL2 framebuffer work, and production CMake with ASan/UBSan."
+    },
+    {
+      "id": "note:teach/c17/mission:2",
+      "question": "What must ROM loading do?",
+      "answer": "Load from disk with `fopen` and `fread`, handle errors, validate size, and write into memory at `0x200`."
+    },
+    {
+      "id": "note:teach/c17/mission:3",
+      "question": "How should the 35-opcode engine be structured?",
+      "answer": "Use bitmask extraction and function-pointer jump tables in clean C17 idioms."
+    },
+    {
+      "id": "note:teach/c17/mission:4",
+      "question": "What timer rate must the emulator implement?",
+      "answer": "60Hz delay and sound timers synchronized with the emulation cycle."
+    },
+    {
+      "id": "note:teach/c17/mission:5",
+      "question": "Which graphics path should be optimized?",
+      "answer": "The XOR graphics engine (`DXYN`) and screen buffer, using SDL2 texture streaming."
+    }
+  ]
 }

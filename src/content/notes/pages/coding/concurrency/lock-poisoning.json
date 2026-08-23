@@ -16,5 +16,26 @@
   "vaultPath": "Coding/Concurrency/Lock Poisoning.md",
   "folder": "Coding",
   "markdown": "# Lock Poisoning\n\nLock poisoning occurs when a [thread](../threads/) panics while holding a [Mutex](../mutex/) or [Reader-Writer Lock](../reader-writer-lock/).\n\nSubsequent attempts to acquire the lock for read or write will return an error indicating the lock is poisoned. The lock still behaves as it should by putting other threads to sleep, but signals that the protected state may be invalid.\n",
-  "linkedFrom": []
+  "linkedFrom": [
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-lock-poisoning"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-lock-poisoning/",
+      "title": "Lock Poisoning"
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "basics-of-rust-concurrency"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+      "title": "Rust Concurrency"
+    }
+  ]
 }

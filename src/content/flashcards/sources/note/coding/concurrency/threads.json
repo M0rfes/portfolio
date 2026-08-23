@@ -4,7 +4,10 @@
     "id": "coding/concurrency/threads",
     "title": "Threads",
     "href": "/notes/coding/concurrency/threads/",
-    "tags": ["concurrency", "threads"]
+    "tags": [
+      "concurrency",
+      "threads"
+    ]
   },
   "cards": [
     {

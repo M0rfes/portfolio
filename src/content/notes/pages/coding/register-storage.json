@@ -15,5 +15,34 @@
   "vaultPath": "Coding/Register Storage.md",
   "folder": "Coding",
   "markdown": "# Register Storage\n\nRegister modifiers tell the compiler to place the variable in a CPU register instead of RAM. The compiler still can choose not to do that for the sake of optimisation. It's more like a request. While a whole struct can have a register modifier, one field of a struct can't have the register modifier.\n",
-  "linkedFrom": []
+  "linkedFrom": [
+    {
+      "slug": [
+        "books",
+        "c",
+        "advanced-c-programming-course",
+        "c-register"
+      ],
+      "href": "/notes/books/c/advanced-c-programming-course/c-register/",
+      "title": "C Register Storage Class"
+    },
+    {
+      "slug": [
+        "emulation",
+        "chip-8"
+      ],
+      "href": "/notes/emulation/chip-8/",
+      "title": "CHIP-8"
+    },
+    {
+      "slug": [
+        "books",
+        "c",
+        "advanced-c-programming-course",
+        "storage-classes"
+      ],
+      "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
+      "title": "Storage Classes in C"
+    }
+  ]
 }

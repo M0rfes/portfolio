@@ -24,23 +24,23 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-lazy-initialization:2",
-      "question": "What is the flaw in loading an AtomicU64, computing if it is 0, then storing?",
-      "answer": "Two threads can both see x == 0 and both restart the computation. Whichever finishes first wins; that is a race condition."
+      "question": "What race exists if two threads load a zero AtomicU64 then both calculate and store?",
+      "answer": "Both see x == 0 and restart the computation. Whichever finishes first wins, but the work is duplicated."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-lazy-initialization:3",
-      "question": "What does Once::call_once do for a second concurrent caller?",
-      "answer": "The first thread runs the initializer. The second does nothing and sleeps until the first thread finishes."
+      "question": "What do Once and OnceLock provide for this race?",
+      "answer": "They are atomic operations that ensure only one thread runs the initialization."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-lazy-initialization:4",
-      "question": "What does OnceLock::get_or_init do if another thread is already initializing?",
-      "answer": "It loads the value if it is not loaded, or sleeps until the first thread finishes loading it."
+      "question": "What does a second Once::call_once do while the first is running?",
+      "answer": "It does nothing and sleeps until the first thread finishes."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-lazy-initialization:5",
-      "question": "Which types fix the naive atomic lazy-init race?",
-      "answer": "std::sync::Once and std::sync::OnceLock, which are atomic operations."
+      "question": "What does OnceLock::get_or_init do for a second thread?",
+      "answer": "It sleeps until the first thread loads the value, then returns that stored value."
     }
   ]
 }

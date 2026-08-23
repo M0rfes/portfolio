@@ -4,7 +4,11 @@
     "id": "coding/variable-lifetime",
     "title": "Variable Lifetime",
     "href": "/notes/coding/variable-lifetime/",
-    "tags": ["programming", "memory", "lifetime"]
+    "tags": [
+      "programming",
+      "memory",
+      "lifetime"
+    ]
   },
   "cards": [
     {

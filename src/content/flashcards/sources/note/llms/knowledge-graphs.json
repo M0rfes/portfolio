@@ -4,7 +4,12 @@
     "id": "llms/knowledge-graphs",
     "title": "Knowledge Graphs",
     "href": "/notes/llms/knowledge-graphs/",
-    "tags": ["graph-rag", "knowledge-graphs", "rag", "research"]
+    "tags": [
+      "graph-rag",
+      "knowledge-graphs",
+      "rag",
+      "research"
+    ]
   },
   "cards": [
     {
@@ -19,6 +24,11 @@
     },
     {
       "id": "note:llms/knowledge-graphs:2",
+      "question": "Which libraries implement GraphRAG in this note?",
+      "answer": "Microsoft GraphRAG and LightRAG."
+    },
+    {
+      "id": "note:llms/knowledge-graphs:3",
       "question": "What are the main costs of GraphRAG versus pure vector retrieval?",
       "answer": "It needs setup (e.g. Neo4j), entity extraction, and graph maintenance. It is slower and more expensive than pure vector retrieval."
     }

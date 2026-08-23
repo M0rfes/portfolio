@@ -62,14 +62,17 @@ function markIngested(cache: CacheFile, sources: FlashcardSource[]): void {
   }
 }
 
-export function prepareIngest(root = ROOT): {
+export function prepareIngest(
+  root = ROOT,
+  options: { all?: boolean } = {},
+): {
   changed: FlashcardSource[];
   removed: { type: FlashcardSource["type"]; id: string; outFile: string }[];
   cache: CacheFile;
 } {
   const sources = collectSources(root);
   const cache = readCache(path.join(root, "src/content/flashcards/.cache.json"));
-  const diff = diffSources(sources, cache);
+  const diff = diffSources(sources, cache, { all: options.all });
 
   const byKey = new Map(sources.map((source) => [cacheKey(source), source]));
   const changed = diff.changed
@@ -88,8 +91,10 @@ export function prepareIngest(root = ROOT): {
   return { changed, removed, cache };
 }
 
-export function ingestFlashcards(options: { skipAgent?: boolean } = {}): void {
-  const { changed, removed, cache } = prepareIngest(ROOT);
+export function ingestFlashcards(
+  options: { skipAgent?: boolean; all?: boolean } = {},
+): void {
+  const { changed, removed, cache } = prepareIngest(ROOT, { all: options.all });
 
   if (changed.length === 0) {
     writeCache(cache);
@@ -128,5 +133,8 @@ export function ingestFlashcards(options: { skipAgent?: boolean } = {}): void {
 }
 
 if (fileURLToPath(import.meta.url) === path.resolve(process.argv[1] ?? "")) {
-  ingestFlashcards({ skipAgent: process.argv.includes("--skip-agent") });
+  ingestFlashcards({
+    skipAgent: process.argv.includes("--skip-agent"),
+    all: process.argv.includes("--all"),
+  });
 }

@@ -19,18 +19,23 @@
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-mutex:1",
-      "question": "How does Mutex conflicting access differ from RefCell?",
-      "answer": "Unlike RefCell, conflicting access does not panic. The waiting thread is put to sleep and woken when the lock is dropped so it can try to take a reference."
+      "question": "How does Mutex conflict handling differ from RefCell?",
+      "answer": "Conflicting access does not panic. The waiting thread is put to sleep and woken when the lock is dropped so it can take a reference."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-mutex:2",
-      "question": "Why does Mutex have no unlock method?",
-      "answer": "lock returns a MutexGuard that accesses the data as an exclusive reference through DerefMut. Dropping the guard frees the lock via Drop."
+      "question": "Why has Mutex no unlock method?",
+      "answer": "lock returns a MutexGuard. Dropping the guard frees the lock via the Drop trait."
     },
     {
       "id": "note:books/rust/rust-atomics-and-locks/rust-mutex:3",
-      "question": "In the 10-thread increment example, what does each thread observe?",
-      "answer": "Each of the 10 threads increments 100 times. Each thread sees the count as 0, 100, 200, through 900, runs, then drops the guard, for a final value of 1000."
+      "question": "How does MutexGuard expose the inner data?",
+      "answer": "Like an exclusive reference, through the DerefMut trait."
+    },
+    {
+      "id": "note:books/rust/rust-atomics-and-locks/rust-mutex:4",
+      "question": "In the 10-thread increment example, what does each thread see?",
+      "answer": "Each thread sees the count as 0, 100, 200, ..., 900, runs its 100 increments, and drops the guard."
     }
   ]
 }

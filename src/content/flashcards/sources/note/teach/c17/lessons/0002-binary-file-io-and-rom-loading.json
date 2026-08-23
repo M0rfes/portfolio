@@ -4,7 +4,13 @@
     "id": "teach/c17/lessons/0002-binary-file-io-and-rom-loading",
     "title": "Lesson 0002: Safe Binary File I/O & ROM Loading into Memory at 0x200",
     "href": "/notes/teach/c17/lessons/0002-binary-file-io-and-rom-loading/",
-    "tags": ["teach/c17", "lesson", "file-io", "memory", "chip8"]
+    "tags": [
+      "teach/c17",
+      "lesson",
+      "file-io",
+      "memory",
+      "chip8"
+    ]
   },
   "cards": [
     {

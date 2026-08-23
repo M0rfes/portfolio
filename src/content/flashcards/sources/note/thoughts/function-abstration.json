@@ -4,7 +4,14 @@
     "id": "thoughts/function-abstration",
     "title": "Function Abstraction",
     "href": "/notes/thoughts/function-abstration/",
-    "tags": ["clean-code", "refactoring", "software-design", "local-reasoning", "dry", "single-responsibility"]
+    "tags": [
+      "clean-code",
+      "refactoring",
+      "software-design",
+      "local-reasoning",
+      "dry",
+      "single-responsibility"
+    ]
   },
   "cards": [
     {

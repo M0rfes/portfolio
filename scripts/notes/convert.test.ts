@@ -234,6 +234,10 @@ Every program starts with one OS thread.
     assert.match(converted.markdown, /Every program starts with one OS thread/);
     assert.match(converted.markdown, /Rust can spawn threads/);
     assert.equal(converted.markdown.includes("# Threads in Rust"), false);
+    assert.deepEqual(converted.links, [
+      "Books/Rust Threads.md",
+      "Coding/Threads.md",
+    ]);
   });
 
   test("breaks embed cycles", () => {
@@ -403,6 +407,37 @@ Hello
 
     const rebuild = notesNeedingRebuild(index, {});
     assert.equal(rebuild.has("New.md"), true);
+  });
+
+  test("rebuilds all notes when all option is true even if cache is current", () => {
+    const index = indexFrom({
+      "A.md": `---
+title: A
+updated: 2026-01-01
+---
+
+Content A
+`,
+      "B.md": `---
+title: B
+updated: 2026-01-01
+---
+
+Content B
+`,
+    });
+
+    const rebuild = notesNeedingRebuild(
+      index,
+      {
+        "A.md": { updatedAt: "2026-01-01" },
+        "B.md": { updatedAt: "2026-01-01" },
+      },
+      { all: true },
+    );
+    assert.equal(rebuild.has("A.md"), true);
+    assert.equal(rebuild.has("B.md"), true);
+    assert.equal(rebuild.size, 2);
   });
 });
 

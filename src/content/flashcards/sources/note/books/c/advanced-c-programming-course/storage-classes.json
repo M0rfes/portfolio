@@ -4,7 +4,13 @@
     "id": "books/c/advanced-c-programming-course/storage-classes",
     "title": "Storage Classes in C",
     "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
-    "tags": ["c", "programming", "memory", "storage-classes", "moc"]
+    "tags": [
+      "c",
+      "programming",
+      "memory",
+      "storage-classes",
+      "moc"
+    ]
   },
   "cards": [
     {

@@ -15,5 +15,26 @@
   "vaultPath": "Coding/Automatic Storage Duration.md",
   "folder": "Coding",
   "markdown": "# Automatic Storage Duration\n\nAuto is the default modifier for [visibility](../variable-linkage/) & [lifetime](../variable-lifetime/) is bound to its [scope](../variable-scope/); its memory is acquired when it comes into scope and freed when it goes out of scope.\n",
-  "linkedFrom": []
+  "linkedFrom": [
+    {
+      "slug": [
+        "books",
+        "c",
+        "advanced-c-programming-course",
+        "c-auto"
+      ],
+      "href": "/notes/books/c/advanced-c-programming-course/c-auto/",
+      "title": "C Auto Storage Class"
+    },
+    {
+      "slug": [
+        "books",
+        "c",
+        "advanced-c-programming-course",
+        "storage-classes"
+      ],
+      "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
+      "title": "Storage Classes in C"
+    }
+  ]
 }

@@ -31,6 +31,14 @@
     },
     {
       "slug": [
+        "emulation",
+        "chip-8"
+      ],
+      "href": "/notes/emulation/chip-8/",
+      "title": "CHIP-8"
+    },
+    {
+      "slug": [
         "teach",
         "c17",
         "lessons",

@@ -15,5 +15,46 @@
   "vaultPath": "Coding/Concurrency/Static Lifetime.md",
   "folder": "Coding",
   "markdown": "# Static Lifetime\n\nA static lifetime means the value will exist until the end of the program, so any value with a static lifetime can be shared across [threads](../threads/).\n\nAny variable declared static exists before main and remains in scope until the program ends. Values can also be leaked on the heap to guarantee they exist for the program's entire duration.\n",
-  "linkedFrom": []
+  "linkedFrom": [
+    {
+      "slug": [
+        "books",
+        "c",
+        "advanced-c-programming-course",
+        "c-static"
+      ],
+      "href": "/notes/books/c/advanced-c-programming-course/c-static/",
+      "title": "C Static Storage Class"
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "basics-of-rust-concurrency"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/",
+      "title": "Rust Concurrency"
+    },
+    {
+      "slug": [
+        "books",
+        "rust",
+        "rust-atomics-and-locks",
+        "rust-statics-and-leaking"
+      ],
+      "href": "/notes/books/rust/rust-atomics-and-locks/rust-statics-and-leaking/",
+      "title": "Rust Statics"
+    },
+    {
+      "slug": [
+        "books",
+        "c",
+        "advanced-c-programming-course",
+        "storage-classes"
+      ],
+      "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
+      "title": "Storage Classes in C"
+    }
+  ]
 }
