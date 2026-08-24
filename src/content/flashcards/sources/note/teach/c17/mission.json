@@ -4,11 +4,7 @@
     "id": "teach/c17/mission",
     "title": "Mission: C17 Systems Mastery via CHIP-8 Emulator",
     "href": "/notes/teach/c17/mission/",
-    "tags": [
-      "teach/c17",
-      "mission",
-      "chip-8"
-    ]
+    "tags": ["teach/c17", "mission", "chip-8"]
   },
   "cards": [
     {

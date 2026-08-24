@@ -4,10 +4,7 @@
     "id": "books/rust/rust-atomics-and-locks/rust-cell-and-refcell",
     "title": "Rust Cell",
     "href": "/notes/books/rust/rust-atomics-and-locks/rust-cell-and-refcell/",
-    "tags": [
-      "rust",
-      "interior-mutability"
-    ]
+    "tags": ["rust", "interior-mutability"]
   },
   "cards": [
     {

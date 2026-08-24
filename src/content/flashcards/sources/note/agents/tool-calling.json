@@ -4,12 +4,7 @@
     "id": "agents/tool-calling",
     "title": "Tool Calling",
     "href": "/notes/agents/tool-calling/",
-    "tags": [
-      "agents",
-      "llm",
-      "tool-calling",
-      "niah"
-    ]
+    "tags": ["agents", "llm", "tool-calling", "niah"]
   },
   "cards": [
     {

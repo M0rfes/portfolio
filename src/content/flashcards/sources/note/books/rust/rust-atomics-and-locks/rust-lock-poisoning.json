@@ -4,11 +4,7 @@
     "id": "books/rust/rust-atomics-and-locks/rust-lock-poisoning",
     "title": "Lock Poisoning",
     "href": "/notes/books/rust/rust-atomics-and-locks/rust-lock-poisoning/",
-    "tags": [
-      "rust",
-      "concurrency",
-      "locks"
-    ]
+    "tags": ["rust", "concurrency", "locks"]
   },
   "cards": [
     {

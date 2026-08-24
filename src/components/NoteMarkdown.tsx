@@ -1,10 +1,6 @@
 "use client";
 
-import {
-  Children,
-  isValidElement,
-  type ReactNode,
-} from "react";
+import { Children, isValidElement, type ReactNode } from "react";
 import dynamic from "next/dynamic";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";

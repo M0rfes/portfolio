@@ -4,12 +4,7 @@
     "id": "architecture/building-microservices-17-02-2026",
     "title": "Coupling Cohesion",
     "href": "/notes/architecture/building-microservices-17-02-2026/",
-    "tags": [
-      "microservices",
-      "architecture",
-      "coupling",
-      "cohesion"
-    ]
+    "tags": ["microservices", "architecture", "coupling", "cohesion"]
   },
   "cards": [
     {

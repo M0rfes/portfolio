@@ -4,11 +4,7 @@
     "id": "books/rust/rust-atomics-and-locks/rust-atomics",
     "title": "Rust Atomics",
     "href": "/notes/books/rust/rust-atomics-and-locks/rust-atomics/",
-    "tags": [
-      "rust",
-      "concurrency",
-      "atomics"
-    ]
+    "tags": ["rust", "concurrency", "atomics"]
   },
   "cards": [
     {

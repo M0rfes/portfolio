@@ -4,12 +4,7 @@
     "id": "llms/router-pattern",
     "title": "Router Pattern",
     "href": "/notes/llms/router-pattern/",
-    "tags": [
-      "llm",
-      "agents",
-      "rag",
-      "router-pattern"
-    ]
+    "tags": ["llm", "agents", "rag", "router-pattern"]
   },
   "cards": [
     {

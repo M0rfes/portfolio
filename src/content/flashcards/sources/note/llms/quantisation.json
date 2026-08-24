@@ -4,37 +4,33 @@
     "id": "llms/quantisation",
     "title": "Quantization",
     "href": "/notes/llms/quantisation/",
-    "tags": [
-      "llm",
-      "quantization",
-      "optimization"
-    ]
+    "tags": ["llm", "quantization", "optimization"]
   },
   "cards": [
     {
       "id": "note:llms/quantisation:0",
-      "question": "What is quantization?",
-      "answer": "Mapping high-precision floating-point numbers (e.g. FP32 or FP16) to lower-precision formats such as INT8, INT4, or even 1.58-bit."
+      "question": "What is quantization in the context of LLMs?",
+      "answer": "Quantization is the process of mapping high-precision floating-point weights and activations (e.g., FP32 or FP16) to lower-precision formats (such as INT8, INT4, or 1.58-bit)."
     },
     {
       "id": "note:llms/quantisation:1",
-      "question": "Why quantize model weights?",
-      "answer": "It fits larger models into smaller VRAM and improves inference throughput by using specialized low-precision hardware instructions."
+      "question": "Why are LLM weights quantized for production deployment?",
+      "answer": "Quantization reduces VRAM memory footprints so larger models fit on smaller GPUs and increases inference throughput via specialized low-precision hardware instructions."
     },
     {
       "id": "note:llms/quantisation:2",
-      "question": "What is GPTQ?",
-      "answer": "Post-training quantization for weight-only."
+      "question": "What is the primary characteristic of GPTQ quantization?",
+      "answer": "GPTQ is a post-training quantization technique that quantizes model weights only."
     },
     {
       "id": "note:llms/quantisation:3",
-      "question": "What does AWQ stand for?",
-      "answer": "Activation-aware Weight Quantization."
+      "question": "What does AWQ (Activation-aware Weight Quantization) do?",
+      "answer": "AWQ protects salient weights by observing activation distributions rather than quantizing all weights uniformly."
     },
     {
       "id": "note:llms/quantisation:4",
-      "question": "What is BitNet?",
-      "answer": "1-bit LLMs that use binary or ternary weights."
+      "question": "What approach does BitNet take for model weights?",
+      "answer": "BitNet implements extreme 1-bit or 1.58-bit architectures using binary or ternary weight values (-1, 0, 1)."
     }
   ]
 }

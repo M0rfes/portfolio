@@ -4,11 +4,7 @@
     "id": "books/rust/rust-atomics-and-locks/rust-thread-parking",
     "title": "Thread Parking",
     "href": "/notes/books/rust/rust-atomics-and-locks/rust-thread-parking/",
-    "tags": [
-      "rust",
-      "concurrency",
-      "threads"
-    ]
+    "tags": ["rust", "concurrency", "threads"]
   },
   "cards": [
     {

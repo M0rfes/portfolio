@@ -4,12 +4,7 @@
     "id": "books/rust/rust-atomics-and-locks/rust-rwlock",
     "title": "Rust RwLock",
     "href": "/notes/books/rust/rust-atomics-and-locks/rust-rwlock/",
-    "tags": [
-      "rust",
-      "concurrency",
-      "locks",
-      "rwlock"
-    ]
+    "tags": ["rust", "concurrency", "locks", "rwlock"]
   },
   "cards": [
     {

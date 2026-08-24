@@ -4,11 +4,7 @@
     "id": "coding/concurrency/send-and-sync",
     "title": "Send Sync",
     "href": "/notes/coding/concurrency/send-and-sync/",
-    "tags": [
-      "concurrency",
-      "type-system",
-      "thread-safety"
-    ]
+    "tags": ["concurrency", "type-system", "thread-safety"]
   },
   "cards": [
     {

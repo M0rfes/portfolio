@@ -4,12 +4,7 @@
     "id": "books/rust/rust-atomics-and-locks/rust-lazy-initialization",
     "title": "Lazy Initialization",
     "href": "/notes/books/rust/rust-atomics-and-locks/rust-lazy-initialization/",
-    "tags": [
-      "rust",
-      "concurrency",
-      "atomics",
-      "lazy-initialization"
-    ]
+    "tags": ["rust", "concurrency", "atomics", "lazy-initialization"]
   },
   "cards": [
     {

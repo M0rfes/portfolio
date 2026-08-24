@@ -1,0 +1,53 @@
+{
+  "source": {
+    "type": "note",
+    "id": "grill/c-systems-programming",
+    "title": "Grill: C Systems Programming Knowledge",
+    "href": "/notes/grill/c-systems-programming/",
+    "tags": [
+      "grill",
+      "c",
+      "memory",
+      "storage-classes",
+      "pointers",
+      "bitwise"
+    ]
+  },
+  "cards": [
+    {
+      "id": "note:grill/c-systems-programming:0",
+      "question": "In ISO C, what occurs if you apply the address-of operator (&) to a variable declared with register?",
+      "answer": "It is a compile-time constraint violation (compiler error), even if the compiler spills the variable to stack memory."
+    },
+    {
+      "id": "note:grill/c-systems-programming:1",
+      "question": "When an array decays in C, what does it convert into?",
+      "answer": "It decays to a pointer to its first element (T*), rather than a pointer to the entire array."
+    },
+    {
+      "id": "note:grill/c-systems-programming:2",
+      "question": "How do pointer arithmetic strides differ between arr and &arr for int arr[10]?",
+      "answer": "arr + 1 advances by sizeof(int) (4 bytes), whereas &arr + 1 advances by the entire array size sizeof(int[10]) (40 bytes)."
+    },
+    {
+      "id": "note:grill/c-systems-programming:3",
+      "question": "Why do C structs require tail padding?",
+      "answer": "Tail padding ensures the total struct size is a multiple of its largest member's alignment, preserving alignment for array elements."
+    },
+    {
+      "id": "note:grill/c-systems-programming:4",
+      "question": "What happens when code attempts to write to a string literal like char *s = \"Hello\"; s[0] = 'h';?",
+      "answer": "String literals reside in read-only memory (.rodata), so modifying them triggers undefined behavior, typically causing a segmentation fault crash."
+    },
+    {
+      "id": "note:grill/c-systems-programming:5",
+      "question": "Why is setting ptr = NULL recommended immediately after free(ptr)?",
+      "answer": "It prevents Use-After-Free (UAF) bugs by nullifying dangling pointers and ensuring accidental dereferences fail deterministically."
+    },
+    {
+      "id": "note:grill/c-systems-programming:6",
+      "question": "What is the advantage of using a function pointer jump table over a switch statement in CPU emulation?",
+      "answer": "A jump table executes an O(1) indirect jump, avoiding O(N) sequential branch evaluations and branch mispredictions."
+    }
+  ]
+}

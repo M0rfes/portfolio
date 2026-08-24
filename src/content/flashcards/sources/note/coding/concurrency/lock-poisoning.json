@@ -4,11 +4,7 @@
     "id": "coding/concurrency/lock-poisoning",
     "title": "Lock Poisoning",
     "href": "/notes/coding/concurrency/lock-poisoning/",
-    "tags": [
-      "concurrency",
-      "locks",
-      "error-handling"
-    ]
+    "tags": ["concurrency", "locks", "error-handling"]
   },
   "cards": [
     {

@@ -78,7 +78,9 @@ export function parseSourceFile(raw: string, file: string): SourceCardsFile {
   const title = asString(parsed.source?.title);
   const href = asString(parsed.source?.href);
   if (!id || !title || !href) {
-    throw new Error(`${file}: source.id, source.title, and source.href are required`);
+    throw new Error(
+      `${file}: source.id, source.title, and source.href are required`,
+    );
   }
 
   const cardsIn = Array.isArray(parsed.cards) ? parsed.cards : [];
@@ -177,7 +179,9 @@ export function buildFlashcards(
   );
   const sources = collectSources(root);
   const sourceTags = new Map(
-    sources.map((source) => [`${source.type}:${source.id}`, source.tags] as const),
+    sources.map(
+      (source) => [`${source.type}:${source.id}`, source.tags] as const,
+    ),
   );
   const cards = associateCardTags(mergeSourceFiles(files), sourceTags);
   const tags = uniqueSortedTags([

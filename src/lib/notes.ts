@@ -12,6 +12,7 @@ export type NoteMeta = {
   href: string;
   title: string;
   tags: string[];
+  flashcard?: boolean;
   summary?: string;
   created?: string;
   updatedAt: string;

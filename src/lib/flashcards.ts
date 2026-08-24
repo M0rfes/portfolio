@@ -19,13 +19,18 @@ type FlashcardsIndex = {
   tags?: string[];
 };
 
-const INDEX_PATH = path.join(process.cwd(), "src/content/flashcards/index.json");
+const INDEX_PATH = path.join(
+  process.cwd(),
+  "src/content/flashcards/index.json",
+);
 
 function readIndex(): FlashcardsIndex {
   if (!fs.existsSync(INDEX_PATH)) {
     return { cards: [], tags: [] };
   }
-  const parsed = JSON.parse(fs.readFileSync(INDEX_PATH, "utf8")) as FlashcardsIndex;
+  const parsed = JSON.parse(
+    fs.readFileSync(INDEX_PATH, "utf8"),
+  ) as FlashcardsIndex;
   return { cards: parsed.cards ?? [], tags: parsed.tags ?? [] };
 }
 

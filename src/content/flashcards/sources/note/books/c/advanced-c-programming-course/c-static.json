@@ -4,11 +4,7 @@
     "id": "books/c/advanced-c-programming-course/c-static",
     "title": "C Static Storage Class",
     "href": "/notes/books/c/advanced-c-programming-course/c-static/",
-    "tags": [
-      "c",
-      "memory",
-      "storage-classes"
-    ]
+    "tags": ["c", "memory", "storage-classes"]
   },
   "cards": [
     {

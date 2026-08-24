@@ -4,13 +4,7 @@
     "id": "teach/c17/lessons/0001-c17-standards-and-modern-toolchain",
     "title": "Lesson 0001: ISO C17 Standards, Compiler Diagnostics & CMake with SDL2",
     "href": "/notes/teach/c17/lessons/0001-c17-standards-and-modern-toolchain/",
-    "tags": [
-      "teach/c17",
-      "lesson",
-      "cmake",
-      "toolchain",
-      "chip-8"
-    ]
+    "tags": ["teach/c17", "lesson", "cmake", "toolchain", "chip-8"]
   },
   "cards": [
     {

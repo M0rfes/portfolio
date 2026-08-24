@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { Layers, RotateCcw } from "lucide-react";
+import { Layers, RotateCcw, Shuffle } from "lucide-react";
 import { TagPicker } from "@/components/TagPicker";
 import type { Flashcard, FlashcardSourceType } from "@/lib/flashcards";
 
@@ -45,6 +45,15 @@ function writeStoredDeck(deck: StoredDeck): void {
 function rotateToEnd(ids: string[], id: string): string[] {
   const next = ids.filter((item) => item !== id);
   next.push(id);
+  return next;
+}
+
+function shuffleArray<T>(array: T[]): T[] {
+  const next = [...array];
+  for (let i = next.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [next[i], next[j]] = [next[j], next[i]];
+  }
   return next;
 }
 
@@ -115,18 +124,24 @@ export function FlashcardDeck({ cards, tags }: FlashcardDeckProps) {
       setSourceType(nextSource);
       setSelectedTags(nextTags);
       setDismissed(stored.dismissed ?? []);
-      setOrder(stored.order ?? []);
+      setOrder(
+        stored.order && stored.order.length > 0
+          ? stored.order
+          : shuffleArray(cards.map((c) => c.id)),
+      );
       setActiveFilterKey(`${nextSource}:${[...nextTags].sort().join("\0")}`);
+    } else {
+      setOrder(shuffleArray(cards.map((c) => c.id)));
     }
     setHydrated(true);
-  }, []);
+  }, [cards]);
 
   useEffect(() => {
     if (!hydrated) return;
     if (filterKey === activeFilterKey) return;
     setActiveFilterKey(filterKey);
     setDismissed([]);
-    setOrder(filtered.map((item) => item.id));
+    setOrder(shuffleArray(filtered.map((item) => item.id)));
     setIndex(0);
     setFlipped(false);
   }, [activeFilterKey, filterKey, filtered, hydrated]);
@@ -141,19 +156,27 @@ export function FlashcardDeck({ cards, tags }: FlashcardDeckProps) {
     });
   }, [sourceType, selectedTags, dismissed, order, hydrated]);
 
-  const goTo = useCallback((nextIndex: number) => {
-    if (queue.length === 0) return;
-    const wrapped = (nextIndex + queue.length) % queue.length;
-    setIndex(wrapped);
-    setFlipped(false);
-  }, [queue.length]);
+  const goTo = useCallback(
+    (nextIndex: number) => {
+      if (queue.length === 0) return;
+      const wrapped = (nextIndex + queue.length) % queue.length;
+      setIndex(wrapped);
+      setFlipped(false);
+    },
+    [queue.length],
+  );
 
   const onAgain = () => {
     if (!card || queue.length < 2) {
       setFlipped(false);
       return;
     }
-    setOrder(rotateToEnd(queue.map((item) => item.id), card.id));
+    setOrder(
+      rotateToEnd(
+        queue.map((item) => item.id),
+        card.id,
+      ),
+    );
     setIndex(0);
     setFlipped(false);
   };
@@ -172,7 +195,18 @@ export function FlashcardDeck({ cards, tags }: FlashcardDeckProps) {
 
   const resetDeck = () => {
     setDismissed([]);
-    setOrder(filtered.map((item) => item.id));
+    setOrder(shuffleArray(filtered.map((item) => item.id)));
+    setIndex(0);
+    setFlipped(false);
+  };
+
+  const shuffleDeck = () => {
+    const remaining = filtered.filter((card) => !dismissedSet.has(card.id));
+    if (remaining.length === 0) {
+      resetDeck();
+      return;
+    }
+    setOrder(shuffleArray(remaining.map((item) => item.id)));
     setIndex(0);
     setFlipped(false);
   };
@@ -190,7 +224,8 @@ export function FlashcardDeck({ cards, tags }: FlashcardDeckProps) {
   if (cards.length === 0) {
     return (
       <p className="text-center text-muted-foreground px-2">
-        No cards yet. Run <code className="text-foreground">npm run flashcards:ingest</code> then{" "}
+        No cards yet. Run{" "}
+        <code className="text-foreground">npm run flashcards:ingest</code> then{" "}
         <code className="text-foreground">npm run flashcards:build</code>.
       </p>
     );
@@ -226,65 +261,97 @@ export function FlashcardDeck({ cards, tags }: FlashcardDeckProps) {
 
       <div className="flex items-center justify-between text-sm text-muted-foreground px-1">
         <span>
-          {progress.total === 0 ? "0 / 0" : `${progress.current} / ${progress.total}`}
+          {progress.total === 0
+            ? "0 / 0"
+            : `${progress.current} / ${progress.total}`}
         </span>
-        <button
-          type="button"
-          onClick={resetDeck}
-          className="inline-flex items-center gap-1 min-h-11 px-2 text-foreground"
-        >
-          <RotateCcw className="w-4 h-4" />
-          Reset
-        </button>
+        <div className="flex items-center gap-1">
+          <button
+            type="button"
+            onClick={shuffleDeck}
+            className="inline-flex items-center gap-1 min-h-11 px-2 text-foreground hover:text-primary transition-colors cursor-pointer"
+            title="Shuffle remaining cards"
+          >
+            <Shuffle className="w-4 h-4" />
+            Shuffle
+          </button>
+          <button
+            type="button"
+            onClick={resetDeck}
+            className="inline-flex items-center gap-1 min-h-11 px-2 text-foreground hover:text-primary transition-colors cursor-pointer"
+            title="Reset deck"
+          >
+            <RotateCcw className="w-4 h-4" />
+            Reset
+          </button>
+        </div>
       </div>
 
       {card ? (
         <>
-        <div
-          className="flashcard-scene h-[min(28rem,58dvh)]"
-          onTouchStart={(event) => onTouchStart(event.touches[0].clientX)}
-          onTouchEnd={(event) => onTouchEnd(event.changedTouches[0].clientX)}
-        >
-          <button
-            type="button"
-            aria-pressed={flipped}
-            onClick={() => setFlipped((value) => !value)}
-            className={`flashcard-rig rounded-2xl ${flipped ? "is-flipped" : ""}`}
+          <div
+            className="flashcard-scene h-[min(28rem,58dvh)]"
+            onTouchStart={(event) => onTouchStart(event.touches[0].clientX)}
+            onTouchEnd={(event) => onTouchEnd(event.changedTouches[0].clientX)}
           >
-            <div className="flashcard-face flex flex-col justify-between rounded-2xl border border-border bg-card p-6 text-left shadow-lg">
-              <p className="text-xs uppercase tracking-wide text-muted-foreground">Question</p>
-              <p className="text-xl sm:text-2xl font-semibold text-foreground leading-snug my-auto py-6">
-                {card.question}
-              </p>
-              <p className="text-sm text-muted-foreground">{card.sourceTitle}</p>
-            </div>
-            <div className="flashcard-face flashcard-face-back flex flex-col justify-between rounded-2xl border border-border bg-card p-6 text-left shadow-lg">
-              <p className="text-xs uppercase tracking-wide text-muted-foreground">Answer</p>
-              <p className="text-base sm:text-lg text-foreground leading-relaxed my-auto py-6">
-                {card.answer}
-              </p>
-              <p className="text-sm text-muted-foreground">{card.sourceTitle}</p>
-            </div>
-          </button>
-        </div>
-        <Link
-          href={card.sourceHref}
-          className="text-sm text-primary underline underline-offset-4 px-1"
-        >
-          {card.sourceTitle}
-        </Link>
+            <button
+              type="button"
+              aria-pressed={flipped}
+              onClick={() => setFlipped((value) => !value)}
+              className={`flashcard-rig rounded-2xl ${flipped ? "is-flipped" : ""}`}
+            >
+              <div className="flashcard-face flex flex-col justify-between rounded-2xl border border-border bg-card p-6 text-left shadow-lg">
+                <p className="text-xs uppercase tracking-wide text-muted-foreground">
+                  Question
+                </p>
+                <p className="text-xl sm:text-2xl font-semibold text-foreground leading-snug my-auto py-6">
+                  {card.question}
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  {card.sourceTitle}
+                </p>
+              </div>
+              <div className="flashcard-face flashcard-face-back flex flex-col justify-between rounded-2xl border border-border bg-card p-6 text-left shadow-lg">
+                <p className="text-xs uppercase tracking-wide text-muted-foreground">
+                  Answer
+                </p>
+                <p className="text-base sm:text-lg text-foreground leading-relaxed my-auto py-6">
+                  {card.answer}
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  {card.sourceTitle}
+                </p>
+              </div>
+            </button>
+          </div>
+          <Link
+            href={card.sourceHref}
+            className="text-sm text-primary underline underline-offset-4 px-1"
+          >
+            {card.sourceTitle}
+          </Link>
         </>
       ) : (
         <div className="h-[min(28rem,58dvh)] rounded-2xl border border-border bg-card flex flex-col items-center justify-center gap-4 px-6 text-center">
           <Layers className="w-10 h-10 text-primary" />
           <p className="text-lg text-foreground">Deck complete</p>
-          <button
-            type="button"
-            onClick={resetDeck}
-            className="min-h-14 px-6 rounded-full bg-primary text-primary-foreground"
-          >
-            Study again
-          </button>
+          <div className="flex flex-wrap justify-center gap-3">
+            <button
+              type="button"
+              onClick={resetDeck}
+              className="min-h-14 px-6 rounded-full bg-primary text-primary-foreground font-medium cursor-pointer"
+            >
+              Study again
+            </button>
+            <button
+              type="button"
+              onClick={shuffleDeck}
+              className="min-h-14 px-6 rounded-full border border-border bg-card text-foreground font-medium inline-flex items-center gap-2 cursor-pointer hover:bg-muted transition-colors"
+            >
+              <Shuffle className="w-4 h-4" />
+              Shuffle & restart
+            </button>
+          </div>
         </div>
       )}
 

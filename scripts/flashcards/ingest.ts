@@ -26,7 +26,7 @@ const INGEST_PROMPT = [
 ].join(" ");
 
 function resolveAgentBin(): string {
-  for (const name of ["cursor-agent", "agent"]) {
+  for (const name of ["agy", "antigravity"]) {
     const result = spawnSync("sh", ["-c", `command -v ${name}`], {
       encoding: "utf8",
     });
@@ -34,7 +34,7 @@ function resolveAgentBin(): string {
       return result.stdout.trim();
     }
   }
-  throw new Error("cursor-agent (or agent) not found on PATH");
+  throw new Error("agy (or antigravity) not found on PATH");
 }
 
 function removeOutFile(
@@ -71,7 +71,9 @@ export function prepareIngest(
   cache: CacheFile;
 } {
   const sources = collectSources(root);
-  const cache = readCache(path.join(root, "src/content/flashcards/.cache.json"));
+  const cache = readCache(
+    path.join(root, "src/content/flashcards/.cache.json"),
+  );
   const diff = diffSources(sources, cache, { all: options.all });
 
   const byKey = new Map(sources.map((source) => [cacheKey(source), source]));
@@ -117,10 +119,14 @@ export function ingestFlashcards(
   if (options.skipAgent) return;
 
   const bin = resolveAgentBin();
-  const result = spawnSync(bin, ["--force", "-p", INGEST_PROMPT], {
-    cwd: ROOT,
-    stdio: "inherit",
-  });
+  const result = spawnSync(
+    bin,
+    ["--dangerously-skip-permissions", "-p", INGEST_PROMPT],
+    {
+      cwd: ROOT,
+      stdio: "inherit",
+    },
+  );
 
   if (result.status !== 0) {
     process.exitCode = result.status ?? 1;

@@ -4,10 +4,7 @@
     "id": "coding/concurrency/thread-joining",
     "title": "Thread Joining",
     "href": "/notes/coding/concurrency/thread-joining/",
-    "tags": [
-      "concurrency",
-      "threads"
-    ]
+    "tags": ["concurrency", "threads"]
   },
   "cards": [
     {

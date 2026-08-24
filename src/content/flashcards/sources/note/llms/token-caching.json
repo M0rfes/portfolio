@@ -4,12 +4,7 @@
     "id": "llms/token-caching",
     "title": "Token Caching",
     "href": "/notes/llms/token-caching/",
-    "tags": [
-      "llm",
-      "caching",
-      "performance",
-      "inference"
-    ]
+    "tags": ["llm", "caching", "performance", "inference"]
   },
   "cards": [
     {

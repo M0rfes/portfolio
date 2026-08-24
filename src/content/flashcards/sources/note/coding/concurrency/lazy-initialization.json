@@ -4,10 +4,7 @@
     "id": "coding/concurrency/lazy-initialization",
     "title": "Lazy Initialization",
     "href": "/notes/coding/concurrency/lazy-initialization/",
-    "tags": [
-      "concurrency",
-      "lazy-initialization"
-    ]
+    "tags": ["concurrency", "lazy-initialization"]
   },
   "cards": [
     {

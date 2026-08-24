@@ -62,9 +62,7 @@ export function NoteContent({ note, children }: NoteContentProps) {
               )}
             </div>
 
-            <div className="prose prose-lg max-w-none min-w-0">
-              {children}
-            </div>
+            <div className="prose prose-lg max-w-none min-w-0">{children}</div>
           </motion.article>
 
           {note.linkedFrom.length > 0 && (

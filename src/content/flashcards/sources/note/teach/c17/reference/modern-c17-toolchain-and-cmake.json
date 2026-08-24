@@ -4,12 +4,7 @@
     "id": "teach/c17/reference/modern-c17-toolchain-and-cmake",
     "title": "Modern C17 Toolchain and CMake Reference",
     "href": "/notes/teach/c17/reference/modern-c17-toolchain-and-cmake/",
-    "tags": [
-      "teach/c17",
-      "reference",
-      "cmake",
-      "toolchain"
-    ]
+    "tags": ["teach/c17", "reference", "cmake", "toolchain"]
   },
   "cards": [
     {

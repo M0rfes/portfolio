@@ -4,12 +4,7 @@
     "id": "llms/agentic-rag",
     "title": "Agentic RAG",
     "href": "/notes/llms/agentic-rag/",
-    "tags": [
-      "rag",
-      "agents",
-      "research",
-      "agentic-rag"
-    ]
+    "tags": ["rag", "agents", "research", "agentic-rag"]
   },
   "cards": [
     {

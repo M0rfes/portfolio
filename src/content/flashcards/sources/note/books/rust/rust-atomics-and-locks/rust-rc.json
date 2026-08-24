@@ -4,11 +4,7 @@
     "id": "books/rust/rust-atomics-and-locks/rust-rc",
     "title": "Rust Rc",
     "href": "/notes/books/rust/rust-atomics-and-locks/rust-rc/",
-    "tags": [
-      "rust",
-      "reference-counting",
-      "smart-pointers"
-    ]
+    "tags": ["rust", "reference-counting", "smart-pointers"]
   },
   "cards": [
     {

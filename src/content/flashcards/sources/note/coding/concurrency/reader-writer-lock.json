@@ -4,10 +4,7 @@
     "id": "coding/concurrency/reader-writer-lock",
     "title": "RwLock",
     "href": "/notes/coding/concurrency/reader-writer-lock/",
-    "tags": [
-      "concurrency",
-      "locks"
-    ]
+    "tags": ["concurrency", "locks"]
   },
   "cards": [
     {

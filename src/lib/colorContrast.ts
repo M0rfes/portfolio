@@ -59,7 +59,5 @@ function relativeLuminance({ r, g, b }: Rgb) {
 
 function channel(value: number) {
   const scaled = value / 255;
-  return scaled <= 0.03928
-    ? scaled / 12.92
-    : ((scaled + 0.055) / 1.055) ** 2.4;
+  return scaled <= 0.03928 ? scaled / 12.92 : ((scaled + 0.055) / 1.055) ** 2.4;
 }

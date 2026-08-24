@@ -4,12 +4,7 @@
     "id": "books/rust/rust-atomics-and-locks/rust-mutex",
     "title": "Rust Mutex",
     "href": "/notes/books/rust/rust-atomics-and-locks/rust-mutex/",
-    "tags": [
-      "rust",
-      "concurrency",
-      "locks",
-      "mutex"
-    ]
+    "tags": ["rust", "concurrency", "locks", "mutex"]
   },
   "cards": [
     {

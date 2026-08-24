@@ -4,12 +4,7 @@
     "id": "coding/concurrency/interior-mutability",
     "title": "Interior Mutability",
     "href": "/notes/coding/concurrency/interior-mutability/",
-    "tags": [
-      "concurrency",
-      "interior-mutability",
-      "type-system",
-      "memory"
-    ]
+    "tags": ["concurrency", "interior-mutability", "type-system", "memory"]
   },
   "cards": [
     {

@@ -46,6 +46,14 @@
     },
     {
       "slug": [
+        "grill",
+        "c-systems-programming"
+      ],
+      "href": "/notes/grill/c-systems-programming/",
+      "title": "Grill: C Systems Programming Knowledge"
+    },
+    {
+      "slug": [
         "books",
         "c",
         "advanced-c-programming-course",

@@ -4,11 +4,7 @@
     "id": "coding/satisfies-15-02-2026",
     "title": "TypeScript Satisfies",
     "href": "/notes/coding/satisfies-15-02-2026/",
-    "tags": [
-      "typescript",
-      "type-system",
-      "pattern-matching"
-    ]
+    "tags": ["typescript", "type-system", "pattern-matching"]
   },
   "cards": [
     {

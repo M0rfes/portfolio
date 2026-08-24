@@ -4,11 +4,7 @@
     "id": "books/rust/rust-atomics-and-locks/rust-scoped-threads",
     "title": "Scoped Threads",
     "href": "/notes/books/rust/rust-atomics-and-locks/rust-scoped-threads/",
-    "tags": [
-      "rust",
-      "concurrency",
-      "threads"
-    ]
+    "tags": ["rust", "concurrency", "threads"]
   },
   "cards": [
     {

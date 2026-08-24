@@ -192,7 +192,9 @@ export class ForceDirectedGraph {
     this.gravityX.x(cx).strength(GRAVITY_STRENGTH);
     this.gravityY.y(cy).strength(GRAVITY_STRENGTH);
     this.bindTagForces();
-    this.collide.radius((node) => this.radius(node) + COLLIDE_PADDING).strength(0.7);
+    this.collide
+      .radius((node) => this.radius(node) + COLLIDE_PADDING)
+      .strength(0.7);
 
     this.simulation = forceSimulation(this.nodes)
       .force("charge", this.manyBody)
@@ -265,7 +267,10 @@ export class ForceDirectedGraph {
       if (existing.has(key)) continue;
       if (!this.nodeById.has(nodeId(link.source))) continue;
       if (!this.nodeById.has(nodeId(link.target))) continue;
-      this.links.push({ source: nodeId(link.source), target: nodeId(link.target) });
+      this.links.push({
+        source: nodeId(link.source),
+        target: nodeId(link.target),
+      });
       existing.add(key);
     }
 
@@ -449,7 +454,9 @@ export class ForceDirectedGraph {
     this.linkLayer
       .selectAll<SVGLineElement, ForceLink>("line")
       .attr("stroke", (link) =>
-        this.isLitLink(link) ? lighten(this.colors.link, 0.5) : this.colors.link,
+        this.isLitLink(link)
+          ? lighten(this.colors.link, 0.5)
+          : this.colors.link,
       )
       .attr("stroke-opacity", (link) => {
         if (!this.hoveredId) return LINK_REST_OPACITY;
@@ -468,9 +475,7 @@ export class ForceDirectedGraph {
         node.cluster == null ? this.colors.isolatedStroke : "none",
       )
       .attr("stroke-width", (node) => (node.cluster == null ? 1.5 : 0))
-      .attr("stroke-dasharray", (node) =>
-        node.cluster == null ? "3 2" : null,
-      )
+      .attr("stroke-dasharray", (node) => (node.cluster == null ? "3 2" : null))
       .attr("fill-opacity", (node) => (node.cluster == null ? 0.7 : 1));
   }
 
@@ -485,10 +490,7 @@ export class ForceDirectedGraph {
       .attr("stroke-width", 3 / k);
   }
 
-  private dragstarted(
-    event: { active: number },
-    node: ForceNode,
-  ) {
+  private dragstarted(event: { active: number }, node: ForceNode) {
     if (!event.active) this.simulation.alphaTarget(REHEAT_ALPHA).restart();
     node.fx = node.x;
     node.fy = node.y;

@@ -13,18 +13,18 @@
   "cards": [
     {
       "id": "note:coding/variable-linkage:0",
-      "question": "What does visibility or linkage of a variable specify?",
-      "answer": "Whether the variable is visible to other files in a multi-file program."
+      "question": "What does variable linkage (or visibility) specify?",
+      "answer": "Variable linkage specifies whether a variable is visible to other files in a multi-file program."
     },
     {
       "id": "note:coding/variable-linkage:1",
-      "question": "What is another name for linkage in this note?",
-      "answer": "Visibility."
+      "question": "In C multi-file programs, what term is used interchangeably with visibility?",
+      "answer": "Linkage is used interchangeably with visibility."
     },
     {
       "id": "note:coding/variable-linkage:2",
-      "question": "In what kind of program does linkage matter?",
-      "answer": "A multi-file program."
+      "question": "Why is variable linkage important in multi-file C programs?",
+      "answer": "It determines whether a variable declared in one translation unit can be referenced or shared by other translation units."
     }
   ]
 }

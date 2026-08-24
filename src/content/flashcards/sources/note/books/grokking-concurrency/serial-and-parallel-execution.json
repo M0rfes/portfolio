@@ -4,10 +4,7 @@
     "id": "books/grokking-concurrency/serial-and-parallel-execution",
     "title": "Serial and Parallel Execution",
     "href": "/notes/books/grokking-concurrency/serial-and-parallel-execution/",
-    "tags": [
-      "concurrency",
-      "threads"
-    ]
+    "tags": ["concurrency", "threads"]
   },
   "cards": []
 }

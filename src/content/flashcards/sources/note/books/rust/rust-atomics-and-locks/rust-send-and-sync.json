@@ -4,11 +4,7 @@
     "id": "books/rust/rust-atomics-and-locks/rust-send-and-sync",
     "title": "Send Sync",
     "href": "/notes/books/rust/rust-atomics-and-locks/rust-send-and-sync/",
-    "tags": [
-      "rust",
-      "concurrency",
-      "thread-safety"
-    ]
+    "tags": ["rust", "concurrency", "thread-safety"]
   },
   "cards": [
     {

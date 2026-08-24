@@ -12,7 +12,11 @@ import { useRouter } from "next/navigation";
 import { SlidersHorizontal, X } from "lucide-react";
 import { NotesGraphData } from "@/lib/notes";
 import { contrastAgainst } from "@/lib/colorContrast";
-import { assignGroups, type GraphLink3D, type GraphNode3D } from "@/lib/forceGraphData";
+import {
+  assignGroups,
+  type GraphLink3D,
+  type GraphNode3D,
+} from "@/lib/forceGraphData";
 import { ForceGraph3DView } from "@/lib/forceGraph3d";
 import { useTheme } from "./ThemeProvider";
 
@@ -121,8 +125,7 @@ export const NotesGraphCanvas3D = forwardRef<
     });
     engineRef.current = engine;
 
-    const onResize = () =>
-      engine.resize(window.innerWidth, window.innerHeight);
+    const onResize = () => engine.resize(window.innerWidth, window.innerHeight);
     window.addEventListener("resize", onResize);
 
     return () => {
@@ -156,62 +159,62 @@ export const NotesGraphCanvas3D = forwardRef<
           <p className="mb-3 text-xs text-muted-foreground">
             Drag to rotate · Scroll to zoom
           </p>
-        <div className="space-y-3">
-          <ControlSlider
-            label="Node size"
-            value={nodeScale}
-            min={0.25}
-            max={2}
-            step={0.05}
-            onChange={(value) => {
-              setNodeScale(value);
-              engineRef.current?.setNodeScale(value);
-            }}
-          />
-          <ControlSlider
-            label="Node spacing"
-            value={spacing}
-            min={20}
-            max={250}
-            onChange={(value) => {
-              setSpacing(value);
-              engineRef.current?.setCharge(value);
-            }}
-          />
-          <ControlSlider
-            label="Link distance"
-            value={linkDistance}
-            min={20}
-            max={120}
-            onChange={(value) => {
-              setLinkDistance(value);
-              engineRef.current?.setLinkDistance(value);
-            }}
-          />
-          <button
-            type="button"
-            className="w-full rounded-lg border border-border px-3 py-2 text-sm text-foreground hover:bg-muted"
-            onClick={() => engineRef.current?.fitToView(300)}
-          >
-            Fit to view
-          </button>
-          <button
-            type="button"
-            className="w-full rounded-lg border border-border px-3 py-2 text-sm text-foreground hover:bg-muted"
-            onClick={() => {
-              setNodeScale(DEFAULT_NODE_SCALE);
-              setSpacing(DEFAULT_SPACING);
-              setLinkDistance(DEFAULT_LINK_DISTANCE);
-              engineRef.current?.setNodeScale(DEFAULT_NODE_SCALE);
-              engineRef.current?.setCharge(DEFAULT_SPACING);
-              engineRef.current?.setLinkDistance(DEFAULT_LINK_DISTANCE);
-              engineRef.current?.fitToView(300);
-            }}
-          >
-            Reset
-          </button>
-        </div>
-      </aside>
+          <div className="space-y-3">
+            <ControlSlider
+              label="Node size"
+              value={nodeScale}
+              min={0.25}
+              max={2}
+              step={0.05}
+              onChange={(value) => {
+                setNodeScale(value);
+                engineRef.current?.setNodeScale(value);
+              }}
+            />
+            <ControlSlider
+              label="Node spacing"
+              value={spacing}
+              min={20}
+              max={250}
+              onChange={(value) => {
+                setSpacing(value);
+                engineRef.current?.setCharge(value);
+              }}
+            />
+            <ControlSlider
+              label="Link distance"
+              value={linkDistance}
+              min={20}
+              max={120}
+              onChange={(value) => {
+                setLinkDistance(value);
+                engineRef.current?.setLinkDistance(value);
+              }}
+            />
+            <button
+              type="button"
+              className="w-full rounded-lg border border-border px-3 py-2 text-sm text-foreground hover:bg-muted"
+              onClick={() => engineRef.current?.fitToView(300)}
+            >
+              Fit to view
+            </button>
+            <button
+              type="button"
+              className="w-full rounded-lg border border-border px-3 py-2 text-sm text-foreground hover:bg-muted"
+              onClick={() => {
+                setNodeScale(DEFAULT_NODE_SCALE);
+                setSpacing(DEFAULT_SPACING);
+                setLinkDistance(DEFAULT_LINK_DISTANCE);
+                engineRef.current?.setNodeScale(DEFAULT_NODE_SCALE);
+                engineRef.current?.setCharge(DEFAULT_SPACING);
+                engineRef.current?.setLinkDistance(DEFAULT_LINK_DISTANCE);
+                engineRef.current?.fitToView(300);
+              }}
+            >
+              Reset
+            </button>
+          </div>
+        </aside>
       ) : (
         <button
           type="button"

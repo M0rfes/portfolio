@@ -27,6 +27,14 @@
       ],
       "href": "/notes/teach/c17/c17/",
       "title": "C17 Hub"
+    },
+    {
+      "slug": [
+        "grill",
+        "c-systems-programming"
+      ],
+      "href": "/notes/grill/c-systems-programming/",
+      "title": "Grill: C Systems Programming Knowledge"
     }
   ]
 }

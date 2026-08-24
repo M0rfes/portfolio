@@ -4,13 +4,7 @@
     "id": "llms/encoder",
     "title": "Encoder",
     "href": "/notes/llms/encoder/",
-    "tags": [
-      "llm",
-      "encoder",
-      "transformer",
-      "attention",
-      "nlp"
-    ]
+    "tags": ["llm", "encoder", "transformer", "attention", "nlp"]
   },
   "cards": [
     {

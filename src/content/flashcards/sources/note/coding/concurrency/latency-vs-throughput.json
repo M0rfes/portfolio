@@ -4,12 +4,7 @@
     "id": "coding/concurrency/latency-vs-throughput",
     "title": "Latency Throughput",
     "href": "/notes/coding/concurrency/latency-vs-throughput/",
-    "tags": [
-      "concurrency",
-      "performance",
-      "latency",
-      "throughput"
-    ]
+    "tags": ["concurrency", "performance", "latency", "throughput"]
   },
   "cards": [
     {

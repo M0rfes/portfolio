@@ -4,11 +4,7 @@
     "id": "coding/automatic-storage-duration",
     "title": "Automatic Storage Duration",
     "href": "/notes/coding/automatic-storage-duration/",
-    "tags": [
-      "c",
-      "memory",
-      "storage-classes"
-    ]
+    "tags": ["c", "memory", "storage-classes"]
   },
   "cards": [
     {

@@ -53,16 +53,36 @@ export function sourceOutputRel(type: SourceType, id: string): string {
 }
 
 export function registeredBlogSlugs(indexTs: string): string[] {
-  return [...indexTs.matchAll(/^\s+"([^"]+)":\s*\{/gm)].map((match) => match[1]);
+  return [...indexTs.matchAll(/^\s+"([^"]+)":\s*\{/gm)].map(
+    (match) => match[1],
+  );
 }
 
-export function parseBlogMeta(raw: string): { title: string; tags: string[] } {
+export function parseBlogMeta(raw: string): {
+  title: string;
+  tags: string[];
+  flashcard?: boolean;
+} {
   const title = raw.match(/title:\s*["']([^"']+)["']/)?.[1] ?? "";
   const keywordsBlock = raw.match(/keywords:\s*\[([\s\S]*?)\]/);
   const tags = keywordsBlock
-    ? [...keywordsBlock[1].matchAll(/["']([^"']+)["']/g)].map((match) => match[1])
+    ? [...keywordsBlock[1].matchAll(/["']([^"']+)["']/g)].map(
+        (match) => match[1],
+      )
     : [];
-  return { title, tags };
+  const flashcardMatch = raw.match(
+    /flashcards?:\s*(false|true|["']false["']|["']true["'])/i,
+  );
+  let flashcard: boolean | undefined;
+  if (flashcardMatch) {
+    const val = flashcardMatch[1].replace(/["']/g, "").toLowerCase();
+    flashcard = val === "true";
+  }
+  return {
+    title,
+    tags,
+    ...(flashcard !== undefined ? { flashcard } : {}),
+  };
 }
 
 export function parseNotePage(raw: string): {
@@ -70,19 +90,33 @@ export function parseNotePage(raw: string): {
   href: string;
   title: string;
   tags: string[];
+  flashcard?: boolean;
 } {
   const page = JSON.parse(raw) as {
     slug?: string[];
     href?: string;
     title?: string;
     tags?: string[];
+    flashcard?: unknown;
+    flashcards?: unknown;
   };
   const id = (page.slug ?? []).join("/");
+  const rawFlashcard =
+    page.flashcard !== undefined ? page.flashcard : page.flashcards;
+  let flashcard: boolean | undefined;
+  if (typeof rawFlashcard === "boolean") {
+    flashcard = rawFlashcard;
+  } else if (typeof rawFlashcard === "string") {
+    const lower = rawFlashcard.trim().toLowerCase();
+    if (lower === "false") flashcard = false;
+    else if (lower === "true") flashcard = true;
+  }
   return {
     id,
     href: page.href ?? (id ? `/notes/${id}/` : ""),
     title: page.title ?? "",
     tags: page.tags ?? [],
+    ...(flashcard !== undefined ? { flashcard } : {}),
   };
 }
 
@@ -133,7 +167,8 @@ export function readCache(cachePath: string): CacheFile {
   if (!fs.existsSync(cachePath)) return emptyCache();
   try {
     const parsed = JSON.parse(fs.readFileSync(cachePath, "utf8")) as CacheFile;
-    if (parsed.version !== CACHE_VERSION || !parsed.sources) return emptyCache();
+    if (parsed.version !== CACHE_VERSION || !parsed.sources)
+      return emptyCache();
     return parsed;
   } catch {
     return emptyCache();
@@ -170,6 +205,7 @@ export function collectSources(root: string): FlashcardSource[] {
       if (!fs.existsSync(file)) continue;
       const raw = fs.readFileSync(file, "utf8");
       const meta = parseBlogMeta(raw);
+      if (meta.flashcard === false) continue;
       sources.push({
         type: "blog",
         id: slug,
@@ -185,6 +221,7 @@ export function collectSources(root: string): FlashcardSource[] {
   for (const file of walkJsonFiles(notesPagesDir)) {
     const raw = fs.readFileSync(file, "utf8");
     const meta = parseNotePage(raw);
+    if (meta.flashcard === false) continue;
     const id = meta.id || noteIdFromPagePath(notesPagesDir, file);
     if (!id) continue;
     sources.push({
@@ -199,8 +236,7 @@ export function collectSources(root: string): FlashcardSource[] {
   }
 
   return sources.sort(
-    (a, b) =>
-      a.type.localeCompare(b.type) || a.id.localeCompare(b.id),
+    (a, b) => a.type.localeCompare(b.type) || a.id.localeCompare(b.id),
   );
 }
 

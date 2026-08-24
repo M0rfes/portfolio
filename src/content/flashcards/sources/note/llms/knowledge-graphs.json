@@ -4,12 +4,7 @@
     "id": "llms/knowledge-graphs",
     "title": "Knowledge Graphs",
     "href": "/notes/llms/knowledge-graphs/",
-    "tags": [
-      "graph-rag",
-      "knowledge-graphs",
-      "rag",
-      "research"
-    ]
+    "tags": ["graph-rag", "knowledge-graphs", "rag", "research"]
   },
   "cards": [
     {

@@ -4,19 +4,13 @@
     "id": "llms/vllm",
     "title": "vLLM",
     "href": "/notes/llms/vllm/",
-    "tags": [
-      "llm",
-      "vllm",
-      "inference",
-      "performance",
-      "infrastructure"
-    ]
+    "tags": ["llm", "vllm", "inference", "performance", "infrastructure"]
   },
   "cards": [
     {
       "id": "note:llms/vllm:0",
-      "question": "What is vLLM?",
-      "answer": "A library for high-throughput and memory-efficient LLM serving and inference."
+      "question": "What core problem does the vLLM library solve for LLM inference?",
+      "answer": "It provides high-throughput and memory-efficient LLM serving and inference by optimizing KV cache memory management and request scheduling."
     },
     {
       "id": "note:llms/vllm:1",

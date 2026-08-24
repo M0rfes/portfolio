@@ -61,6 +61,48 @@
     },
     {
       "slug": [
+        "emulation",
+        "chip-8"
+      ],
+      "href": "/notes/emulation/chip-8/",
+      "title": "CHIP-8",
+      "tags": [
+        "emulation",
+        "architecture",
+        "hardware",
+        "chip-8",
+        "virtual-machine"
+      ],
+      "created": "2026-08-23",
+      "updatedAt": "2026-08-24",
+      "vaultPath": "Emulation/CHIP-8.md",
+      "folder": "Emulation",
+      "linkedFrom": []
+    },
+    {
+      "slug": [
+        "grill",
+        "c-systems-programming"
+      ],
+      "href": "/notes/grill/c-systems-programming/",
+      "title": "Grill: C Systems Programming Knowledge",
+      "tags": [
+        "grill",
+        "c",
+        "memory",
+        "storage-classes",
+        "pointers",
+        "bitwise"
+      ],
+      "summary": "Comprehensive diagnostic grilling session mapping C17 fundamentals, storage duration, linkage, array decay, heap mechanics, bitwise arithmetic, and function pointer dispatch.",
+      "created": "2026-08-24",
+      "updatedAt": "2026-08-24",
+      "vaultPath": "Grill/C Systems Programming.md",
+      "folder": "Grill",
+      "linkedFrom": []
+    },
+    {
+      "slug": [
         "coding",
         "automatic-storage-duration"
       ],
@@ -224,26 +266,6 @@
     },
     {
       "slug": [
-        "emulation",
-        "chip-8"
-      ],
-      "href": "/notes/emulation/chip-8/",
-      "title": "CHIP-8",
-      "tags": [
-        "emulation",
-        "architecture",
-        "hardware",
-        "chip-8",
-        "virtual-machine"
-      ],
-      "created": "2026-08-23",
-      "updatedAt": "2026-08-23",
-      "vaultPath": "Emulation/CHIP-8.md",
-      "folder": "Emulation",
-      "linkedFrom": []
-    },
-    {
-      "slug": [
         "coding",
         "register-storage"
       ],
@@ -317,6 +339,14 @@
           ],
           "href": "/notes/teach/c17/c17/",
           "title": "C17 Hub"
+        },
+        {
+          "slug": [
+            "grill",
+            "c-systems-programming"
+          ],
+          "href": "/notes/grill/c-systems-programming/",
+          "title": "Grill: C Systems Programming Knowledge"
         }
       ]
     },
@@ -414,6 +444,14 @@
         },
         {
           "slug": [
+            "grill",
+            "c-systems-programming"
+          ],
+          "href": "/notes/grill/c-systems-programming/",
+          "title": "Grill: C Systems Programming Knowledge"
+        },
+        {
+          "slug": [
             "books",
             "c",
             "advanced-c-programming-course",
@@ -458,6 +496,14 @@
           ],
           "href": "/notes/books/c/advanced-c-programming-course/c-auto/",
           "title": "C Auto Storage Class"
+        },
+        {
+          "slug": [
+            "grill",
+            "c-systems-programming"
+          ],
+          "href": "/notes/grill/c-systems-programming/",
+          "title": "Grill: C Systems Programming Knowledge"
         },
         {
           "slug": [
@@ -591,6 +637,14 @@
           ],
           "href": "/notes/emulation/chip-8/",
           "title": "CHIP-8"
+        },
+        {
+          "slug": [
+            "grill",
+            "c-systems-programming"
+          ],
+          "href": "/notes/grill/c-systems-programming/",
+          "title": "Grill: C Systems Programming Knowledge"
         },
         {
           "slug": [
@@ -887,6 +941,14 @@
           ],
           "href": "/notes/emulation/chip-8/",
           "title": "CHIP-8"
+        },
+        {
+          "slug": [
+            "grill",
+            "c-systems-programming"
+          ],
+          "href": "/notes/grill/c-systems-programming/",
+          "title": "Grill: C Systems Programming Knowledge"
         },
         {
           "slug": [
@@ -4502,6 +4564,33 @@
         "color": "#b1e052"
       },
       {
+        "id": "emulation/chip-8",
+        "title": "CHIP-8",
+        "href": "/notes/emulation/chip-8/",
+        "tags": [
+          "emulation",
+          "architecture",
+          "hardware",
+          "chip-8",
+          "virtual-machine"
+        ],
+        "color": "#b1e052"
+      },
+      {
+        "id": "grill/c-systems-programming",
+        "title": "Grill: C Systems Programming Knowledge",
+        "href": "/notes/grill/c-systems-programming/",
+        "tags": [
+          "grill",
+          "c",
+          "memory",
+          "storage-classes",
+          "pointers",
+          "bitwise"
+        ],
+        "color": "#89b4fa"
+      },
+      {
         "id": "coding/automatic-storage-duration",
         "title": "Automatic Storage Duration",
         "href": "/notes/coding/automatic-storage-duration/",
@@ -4555,19 +4644,6 @@
           "storage-classes"
         ],
         "color": "#89b4fa"
-      },
-      {
-        "id": "emulation/chip-8",
-        "title": "CHIP-8",
-        "href": "/notes/emulation/chip-8/",
-        "tags": [
-          "emulation",
-          "architecture",
-          "hardware",
-          "chip-8",
-          "virtual-machine"
-        ],
-        "color": "#b1e052"
       },
       {
         "id": "coding/register-storage",
@@ -5632,6 +5708,42 @@
         "target": "architecture/case-for-monolith/case-for-monolith"
       },
       {
+        "source": "emulation/chip-8",
+        "target": "teach/c17/c17"
+      },
+      {
+        "source": "emulation/chip-8",
+        "target": "coding/register-storage"
+      },
+      {
+        "source": "emulation/chip-8",
+        "target": "teach/c17/lessons/0002-binary-file-io-and-rom-loading"
+      },
+      {
+        "source": "emulation/chip-8",
+        "target": "teach/c17/lessons/0001-c17-standards-and-modern-toolchain"
+      },
+      {
+        "source": "grill/c-systems-programming",
+        "target": "books/c/advanced-c-programming-course/storage-classes"
+      },
+      {
+        "source": "grill/c-systems-programming",
+        "target": "coding/variable-linkage"
+      },
+      {
+        "source": "grill/c-systems-programming",
+        "target": "coding/variable-scope"
+      },
+      {
+        "source": "grill/c-systems-programming",
+        "target": "teach/c17/c17"
+      },
+      {
+        "source": "grill/c-systems-programming",
+        "target": "teach/c17/lessons/0002-binary-file-io-and-rom-loading"
+      },
+      {
         "source": "coding/automatic-storage-duration",
         "target": "coding/variable-linkage"
       },
@@ -5678,22 +5790,6 @@
       {
         "source": "books/c/advanced-c-programming-course/c-static",
         "target": "teach/c17/glossary"
-      },
-      {
-        "source": "emulation/chip-8",
-        "target": "teach/c17/c17"
-      },
-      {
-        "source": "emulation/chip-8",
-        "target": "coding/register-storage"
-      },
-      {
-        "source": "emulation/chip-8",
-        "target": "teach/c17/lessons/0002-binary-file-io-and-rom-loading"
-      },
-      {
-        "source": "emulation/chip-8",
-        "target": "teach/c17/lessons/0001-c17-standards-and-modern-toolchain"
       },
       {
         "source": "books/c/advanced-c-programming-course/storage-classes",

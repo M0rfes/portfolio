@@ -4,11 +4,7 @@
     "id": "llms/microsoft-graphrag",
     "title": "Microsoft GraphRAG",
     "href": "/notes/llms/microsoft-graphrag/",
-    "tags": [
-      "rag",
-      "graph-rag",
-      "research"
-    ]
+    "tags": ["rag", "graph-rag", "research"]
   },
   "cards": []
 }

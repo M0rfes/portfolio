@@ -4,11 +4,7 @@
     "id": "coding/concurrency/scalability",
     "title": "Scalability",
     "href": "/notes/coding/concurrency/scalability/",
-    "tags": [
-      "concurrency",
-      "architecture",
-      "scalability"
-    ]
+    "tags": ["concurrency", "architecture", "scalability"]
   },
   "cards": [
     {

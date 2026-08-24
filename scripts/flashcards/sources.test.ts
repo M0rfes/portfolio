@@ -1,8 +1,12 @@
+import fs from "node:fs";
+import os from "node:os";
+import path from "node:path";
 import assert from "node:assert/strict";
 import { describe, test } from "node:test";
 import {
   CACHE_VERSION,
   cacheKey,
+  collectSources,
   diffSources,
   hashContent,
   noteIdFromPagePath,
@@ -54,6 +58,24 @@ export const meta = {
       tags: ["nodejs", "redis"],
     });
   });
+
+  test("parses flashcard boolean and string values", () => {
+    assert.equal(
+      parseBlogMeta(`export const meta = { title: "A", flashcard: false };`)
+        .flashcard,
+      false,
+    );
+    assert.equal(
+      parseBlogMeta(`export const meta = { title: "A", flashcard: true };`)
+        .flashcard,
+      true,
+    );
+    assert.equal(
+      parseBlogMeta(`export const meta = { title: "A", flashcard: "false" };`)
+        .flashcard,
+      false,
+    );
+  });
 });
 
 describe("parseNotePage", () => {
@@ -72,6 +94,61 @@ describe("parseNotePage", () => {
       title: "Mutex",
       tags: ["concurrency", "locks"],
     });
+  });
+
+  test("reads flashcard property when boolean or string or aliases", () => {
+    const disabled = parseNotePage(
+      JSON.stringify({
+        slug: ["coding", "concurrency", "mutex"],
+        title: "Mutex",
+        flashcard: false,
+      }),
+    );
+    assert.equal(disabled.flashcard, false);
+
+    const stringDisabled = parseNotePage(
+      JSON.stringify({
+        slug: ["coding", "concurrency", "mutex"],
+        title: "Mutex",
+        flashcard: "false",
+      }),
+    );
+    assert.equal(stringDisabled.flashcard, false);
+
+    const aliasDisabled = parseNotePage(
+      JSON.stringify({
+        slug: ["coding", "concurrency", "mutex"],
+        title: "Mutex",
+        flashcards: false,
+      }),
+    );
+    assert.equal(aliasDisabled.flashcard, false);
+
+    const enabled = parseNotePage(
+      JSON.stringify({
+        slug: ["coding", "concurrency", "mutex"],
+        title: "Mutex",
+        flashcard: true,
+      }),
+    );
+    assert.equal(enabled.flashcard, true);
+
+    const stringEnabled = parseNotePage(
+      JSON.stringify({
+        slug: ["coding", "concurrency", "mutex"],
+        title: "Mutex",
+        flashcard: "true",
+      }),
+    );
+    assert.equal(stringEnabled.flashcard, true);
+
+    const omitted = parseNotePage(
+      JSON.stringify({
+        slug: ["coding", "concurrency", "mutex"],
+        title: "Mutex",
+      }),
+    );
+    assert.equal(omitted.flashcard, undefined);
   });
 });
 
@@ -156,5 +233,73 @@ describe("diffSources", () => {
       diff.removed.map((item) => cacheKey(item)),
       ["note:gone"],
     );
+  });
+});
+
+describe("collectSources", () => {
+  test("ignores notes with flashcard: false, and includes notes with flashcard: true or without flashcard property", () => {
+    const tempDir = fs.mkdtempSync(
+      path.join(os.tmpdir(), "collect-sources-test-"),
+    );
+    try {
+      const notesDir = path.join(tempDir, "src/content/notes/pages/topic");
+      fs.mkdirSync(notesDir, { recursive: true });
+
+      // Note 1: flashcard: false (boolean) -> should be ignored
+      fs.writeFileSync(
+        path.join(notesDir, "note1.json"),
+        JSON.stringify({
+          slug: ["topic", "note1"],
+          title: "Note 1",
+          flashcard: false,
+        }),
+      );
+
+      // Note 2: flashcard: "false" (string) -> should be ignored
+      fs.writeFileSync(
+        path.join(notesDir, "note2.json"),
+        JSON.stringify({
+          slug: ["topic", "note2"],
+          title: "Note 2",
+          flashcard: "false",
+        }),
+      );
+
+      // Note 3: flashcards: false (alias) -> should be ignored
+      fs.writeFileSync(
+        path.join(notesDir, "note3.json"),
+        JSON.stringify({
+          slug: ["topic", "note3"],
+          title: "Note 3",
+          flashcards: false,
+        }),
+      );
+
+      // Note 4: flashcard: true -> should be included
+      fs.writeFileSync(
+        path.join(notesDir, "note4.json"),
+        JSON.stringify({
+          slug: ["topic", "note4"],
+          title: "Note 4",
+          flashcard: true,
+        }),
+      );
+
+      // Note 5: no flashcard property -> should be included
+      fs.writeFileSync(
+        path.join(notesDir, "note5.json"),
+        JSON.stringify({
+          slug: ["topic", "note5"],
+          title: "Note 5",
+        }),
+      );
+
+      const sources = collectSources(tempDir);
+      const noteIds = sources.filter((s) => s.type === "note").map((s) => s.id);
+
+      assert.deepEqual(noteIds, ["topic/note4", "topic/note5"]);
+    } finally {
+      fs.rmSync(tempDir, { recursive: true, force: true });
+    }
   });
 });

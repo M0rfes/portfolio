@@ -4,11 +4,7 @@
     "id": "teach/c17/learning-records/0003-cmake-sdl2-and-integer-truncation",
     "title": "LR-0003: CMake SDL2 Resolution & Integer Precision Diagnostics",
     "href": "/notes/teach/c17/learning-records/0003-cmake-sdl2-and-integer-truncation/",
-    "tags": [
-      "teach/c17",
-      "learning-record",
-      "cmake"
-    ]
+    "tags": ["teach/c17", "learning-record", "cmake"]
   },
   "cards": [
     {

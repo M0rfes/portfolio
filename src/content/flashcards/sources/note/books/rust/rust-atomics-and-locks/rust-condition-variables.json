@@ -4,11 +4,7 @@
     "id": "books/rust/rust-atomics-and-locks/rust-condition-variables",
     "title": "Condition Variables",
     "href": "/notes/books/rust/rust-atomics-and-locks/rust-condition-variables/",
-    "tags": [
-      "rust",
-      "concurrency",
-      "condvar"
-    ]
+    "tags": ["rust", "concurrency", "condvar"]
   },
   "cards": [
     {

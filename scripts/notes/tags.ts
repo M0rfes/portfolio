@@ -1,4 +1,6 @@
-export function uniqueSortedTags(groups: Iterable<readonly string[]>): string[] {
+export function uniqueSortedTags(
+  groups: Iterable<readonly string[]>,
+): string[] {
   const tags = new Set<string>();
   for (const group of groups) {
     for (const tag of group) {

@@ -4,10 +4,7 @@
     "id": "coding/concurrency/concurrency",
     "title": "Concurrency",
     "href": "/notes/coding/concurrency/concurrency/",
-    "tags": [
-      "concurrency",
-      "performance"
-    ]
+    "tags": ["concurrency", "performance"]
   },
   "cards": [
     {

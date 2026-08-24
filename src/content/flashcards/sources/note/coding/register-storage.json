@@ -4,11 +4,7 @@
     "id": "coding/register-storage",
     "title": "Register Storage",
     "href": "/notes/coding/register-storage/",
-    "tags": [
-      "c",
-      "memory",
-      "storage-classes"
-    ]
+    "tags": ["c", "memory", "storage-classes"]
   },
   "cards": [
     {

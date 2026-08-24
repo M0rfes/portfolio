@@ -4,12 +4,7 @@
     "id": "architecture/case-for-monolith/case-for-monolith",
     "title": "Modular Monolith",
     "href": "/notes/architecture/case-for-monolith/case-for-monolith/",
-    "tags": [
-      "architecture",
-      "monolith",
-      "modularity",
-      "software-design"
-    ]
+    "tags": ["architecture", "monolith", "modularity", "software-design"]
   },
   "cards": [
     {

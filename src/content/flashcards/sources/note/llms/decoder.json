@@ -4,13 +4,7 @@
     "id": "llms/decoder",
     "title": "Decoder",
     "href": "/notes/llms/decoder/",
-    "tags": [
-      "llm",
-      "decoder",
-      "transformer",
-      "attention",
-      "autoregressive"
-    ]
+    "tags": ["llm", "decoder", "transformer", "attention", "autoregressive"]
   },
   "cards": [
     {

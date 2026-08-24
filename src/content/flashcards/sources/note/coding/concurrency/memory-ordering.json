@@ -4,11 +4,7 @@
     "id": "coding/concurrency/memory-ordering",
     "title": "Memory Ordering",
     "href": "/notes/coding/concurrency/memory-ordering/",
-    "tags": [
-      "concurrency",
-      "atomics",
-      "memory-ordering"
-    ]
+    "tags": ["concurrency", "atomics", "memory-ordering"]
   },
   "cards": [
     {

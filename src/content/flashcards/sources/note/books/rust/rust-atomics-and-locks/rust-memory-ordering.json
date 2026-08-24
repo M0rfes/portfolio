@@ -4,12 +4,7 @@
     "id": "books/rust/rust-atomics-and-locks/rust-memory-ordering",
     "title": "Memory Ordering",
     "href": "/notes/books/rust/rust-atomics-and-locks/rust-memory-ordering/",
-    "tags": [
-      "rust",
-      "concurrency",
-      "atomics",
-      "memory-ordering"
-    ]
+    "tags": ["rust", "concurrency", "atomics", "memory-ordering"]
   },
   "cards": [
     {

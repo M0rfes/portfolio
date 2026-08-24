@@ -4,13 +4,7 @@
     "id": "slm/slm",
     "title": "SLM",
     "href": "/notes/slm/slm/",
-    "tags": [
-      "slm",
-      "llm",
-      "edge-computing",
-      "data-privacy",
-      "fine-tuning"
-    ]
+    "tags": ["slm", "llm", "edge-computing", "data-privacy", "fine-tuning"]
   },
   "cards": [
     {

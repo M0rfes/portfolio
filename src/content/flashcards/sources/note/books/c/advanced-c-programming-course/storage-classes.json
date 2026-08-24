@@ -14,38 +14,28 @@
   "cards": [
     {
       "id": "note:books/c/advanced-c-programming-course/storage-classes:0",
-      "question": "What do storage classes describe?",
-      "answer": "The scope, visibility, and lifetime of a variable or function."
+      "question": "What three core properties do C storage classes describe for a variable or function?",
+      "answer": "Storage classes describe scope (where it is accessible), visibility/linkage (whether it is visible to other files), and lifetime (how long it exists)."
     },
     {
       "id": "note:books/c/advanced-c-programming-course/storage-classes:1",
-      "question": "What is the difference between scope and visibility?",
-      "answer": "Scope is where a variable can be accessed in a file (block or file-global). Visibility, or linkage, is whether it is visible to other files in a multi-file program."
+      "question": "What are the four storage class modifiers in C?",
+      "answer": "The four storage modifiers are auto, extern, static, and register."
     },
     {
       "id": "note:books/c/advanced-c-programming-course/storage-classes:2",
-      "question": "What does lifetime specify?",
-      "answer": "How long a variable is alive: only within a scope, for the entire program, or for a specific allocated duration."
+      "question": "How does declaring a variable or function static at file scope affect its visibility?",
+      "answer": "It restricts visibility strictly to the file where it is defined, giving it internal linkage."
     },
     {
       "id": "note:books/c/advanced-c-programming-course/storage-classes:3",
-      "question": "What are C's four storage modifiers?",
-      "answer": "Auto, extern, static, and register."
+      "question": "Where are local static variables stored in memory, and what is their lifetime?",
+      "answer": "Local static variables are stored in the data segment (or BSS) and retain their values from program start to program termination."
     },
     {
       "id": "note:books/c/advanced-c-programming-course/storage-classes:4",
-      "question": "What is the default modifier, and what bounds its lifetime?",
-      "answer": "Auto. Lifetime is bound to scope: memory is acquired on entry and freed on exit."
-    },
-    {
-      "id": "note:books/c/advanced-c-programming-course/storage-classes:5",
-      "question": "What do extern and file-scope static each control?",
-      "answer": "Extern controls visibility of a global across files; functions default to extern. File-scope static limits a variable or function to the file where it is defined."
-    },
-    {
-      "id": "note:books/c/advanced-c-programming-course/storage-classes:6",
-      "question": "What is special about register storage?",
-      "answer": "It requests a CPU register instead of RAM, cannot have its address taken, and cannot be global."
+      "question": "What is the 'no address rule' regarding C register variables?",
+      "answer": "You cannot take the address of a register variable using & because CPU registers do not have memory addresses in RAM."
     }
   ]
 }

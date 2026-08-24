@@ -317,8 +317,7 @@ export const NotesGraphCanvas = forwardRef<
     engineRef.current = engine;
     didFit.current = false;
 
-    const onResize = () =>
-      engine.resize(window.innerWidth, window.innerHeight);
+    const onResize = () => engine.resize(window.innerWidth, window.innerHeight);
     window.addEventListener("resize", onResize);
 
     return () => {
@@ -335,7 +334,9 @@ export const NotesGraphCanvas = forwardRef<
       {controlsOpen ? (
         <aside className="absolute top-4 right-4 z-[101] w-64 rounded-xl border border-border bg-card/95 p-4 shadow-xl backdrop-blur">
           <div className="mb-3 flex items-center justify-between">
-            <p className="text-sm font-medium text-foreground">Graph controls</p>
+            <p className="text-sm font-medium text-foreground">
+              Graph controls
+            </p>
             <button
               type="button"
               aria-label="Close controls"
@@ -345,73 +346,73 @@ export const NotesGraphCanvas = forwardRef<
               <X className="h-4 w-4" />
             </button>
           </div>
-        <div className="space-y-3">
-          <ControlSlider
-            label="Zoom"
-            value={zoom}
-            min={minZoom}
-            max={maxZoom}
-            step={0.05}
-            onChange={(value) => {
-              setZoom(value);
-              engineRef.current?.setZoom(value);
-            }}
-          />
-          <ControlSlider
-            label="Node size"
-            value={nodeScale}
-            min={0.25}
-            max={2}
-            step={0.05}
-            onChange={(value) => {
-              setNodeScale(value);
-              engineRef.current?.setNodeScale(value);
-            }}
-          />
-          <ControlSlider
-            label="Node spacing"
-            value={spacing}
-            min={20}
-            max={250}
-            onChange={(value) => {
-              setSpacing(value);
-              engineRef.current?.setCharge(value);
-            }}
-          />
-          <ControlSlider
-            label="Link distance"
-            value={linkDistance}
-            min={20}
-            max={120}
-            onChange={(value) => {
-              setLinkDistance(value);
-              engineRef.current?.setLinkDistance(value);
-            }}
-          />
-          <button
-            type="button"
-            className="w-full rounded-lg border border-border px-3 py-2 text-sm text-foreground hover:bg-muted"
-            onClick={() => engineRef.current?.fitToView(300)}
-          >
-            Fit to view
-          </button>
-          <button
-            type="button"
-            className="w-full rounded-lg border border-border px-3 py-2 text-sm text-foreground hover:bg-muted"
-            onClick={() => {
-              setNodeScale(DEFAULT_NODE_SCALE);
-              setSpacing(DEFAULT_SPACING);
-              setLinkDistance(DEFAULT_LINK_DISTANCE);
-              engineRef.current?.setNodeScale(DEFAULT_NODE_SCALE);
-              engineRef.current?.setCharge(DEFAULT_SPACING);
-              engineRef.current?.setLinkDistance(DEFAULT_LINK_DISTANCE);
-              engineRef.current?.fitToView(300);
-            }}
-          >
-            Reset
-          </button>
-        </div>
-      </aside>
+          <div className="space-y-3">
+            <ControlSlider
+              label="Zoom"
+              value={zoom}
+              min={minZoom}
+              max={maxZoom}
+              step={0.05}
+              onChange={(value) => {
+                setZoom(value);
+                engineRef.current?.setZoom(value);
+              }}
+            />
+            <ControlSlider
+              label="Node size"
+              value={nodeScale}
+              min={0.25}
+              max={2}
+              step={0.05}
+              onChange={(value) => {
+                setNodeScale(value);
+                engineRef.current?.setNodeScale(value);
+              }}
+            />
+            <ControlSlider
+              label="Node spacing"
+              value={spacing}
+              min={20}
+              max={250}
+              onChange={(value) => {
+                setSpacing(value);
+                engineRef.current?.setCharge(value);
+              }}
+            />
+            <ControlSlider
+              label="Link distance"
+              value={linkDistance}
+              min={20}
+              max={120}
+              onChange={(value) => {
+                setLinkDistance(value);
+                engineRef.current?.setLinkDistance(value);
+              }}
+            />
+            <button
+              type="button"
+              className="w-full rounded-lg border border-border px-3 py-2 text-sm text-foreground hover:bg-muted"
+              onClick={() => engineRef.current?.fitToView(300)}
+            >
+              Fit to view
+            </button>
+            <button
+              type="button"
+              className="w-full rounded-lg border border-border px-3 py-2 text-sm text-foreground hover:bg-muted"
+              onClick={() => {
+                setNodeScale(DEFAULT_NODE_SCALE);
+                setSpacing(DEFAULT_SPACING);
+                setLinkDistance(DEFAULT_LINK_DISTANCE);
+                engineRef.current?.setNodeScale(DEFAULT_NODE_SCALE);
+                engineRef.current?.setCharge(DEFAULT_SPACING);
+                engineRef.current?.setLinkDistance(DEFAULT_LINK_DISTANCE);
+                engineRef.current?.fitToView(300);
+              }}
+            >
+              Reset
+            </button>
+          </div>
+        </aside>
       ) : (
         <button
           type="button"

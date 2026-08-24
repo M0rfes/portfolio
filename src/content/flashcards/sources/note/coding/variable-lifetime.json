@@ -4,11 +4,7 @@
     "id": "coding/variable-lifetime",
     "title": "Variable Lifetime",
     "href": "/notes/coding/variable-lifetime/",
-    "tags": [
-      "c",
-      "memory",
-      "storage-classes"
-    ]
+    "tags": ["c", "memory", "storage-classes"]
   },
   "cards": [
     {

@@ -4,11 +4,7 @@
     "id": "llms/rag",
     "title": "RAG",
     "href": "/notes/llms/rag/",
-    "tags": [
-      "rag",
-      "research",
-      "architecture"
-    ]
+    "tags": ["rag", "research", "architecture"]
   },
   "cards": [
     {

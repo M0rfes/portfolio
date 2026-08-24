@@ -1,7 +1,6 @@
 import path from "node:path";
 
-const WIKILINK_RE =
-  /(!)?\[\[([^\]|#]+)(?:#([^\]|]+))?(?:\|([^\]]+))?\]\]/g;
+const WIKILINK_RE = /(!)?\[\[([^\]|#]+)(?:#([^\]|]+))?(?:\|([^\]]+))?\]\]/g;
 const IMAGE_EXTS = new Set([
   ".png",
   ".jpg",
@@ -20,6 +19,7 @@ export type VaultNote = {
   slug: string[];
   title: string;
   tags: string[];
+  flashcard?: boolean;
   summary?: string;
   created?: string;
   updatedAt: string;
@@ -203,23 +203,36 @@ function unquote(value: string): string {
   return value;
 }
 
+function asBoolean(value: unknown): boolean | undefined {
+  if (typeof value === "boolean") return value;
+  if (typeof value === "string") {
+    const lower = value.trim().toLowerCase();
+    if (lower === "false") return false;
+    if (lower === "true") return true;
+  }
+  return undefined;
+}
+
 export function parseNote(
   vaultPath: string,
   raw: string,
   mtimeIso: string,
 ): VaultNote {
   const { data, body } = parseFrontmatter(raw);
-  const filename = path.posix.basename(vaultPath, path.posix.extname(vaultPath));
+  const filename = path.posix.basename(
+    vaultPath,
+    path.posix.extname(vaultPath),
+  );
   const titleSource =
-    typeof data.title === "string" && data.title.trim()
-      ? data.title
-      : filename;
+    typeof data.title === "string" && data.title.trim() ? data.title : filename;
+  const flashcard = asBoolean(data.flashcard ?? data.flashcards);
 
   return {
     vaultPath,
     slug: slugSegments(vaultPath),
     title: stripTitleFormatting(titleSource),
     tags: asStringArray(data.tags),
+    ...(flashcard !== undefined ? { flashcard } : {}),
     summary:
       typeof data.summary === "string" && data.summary.trim()
         ? data.summary.trim()
@@ -379,9 +392,7 @@ function findAttachmentVaultPath(
 
   if (known.includes(cleaned)) return cleaned;
 
-  const matches = known.filter(
-    (item) => path.posix.basename(item) === base,
-  );
+  const matches = known.filter((item) => path.posix.basename(item) === base);
   if (matches.length === 1) return matches[0];
 
   const hostDir = path.posix.dirname(hostPath);
@@ -404,7 +415,10 @@ function extractSection(body: string, heading: string): string {
     const match = lines[i].match(/^(#{1,6})\s+(.+)$/);
     if (!match) continue;
     const text = stripTitleFormatting(match[2]).toLowerCase();
-    if (text === wanted || slugifySegment(match[2]) === slugifySegment(heading)) {
+    if (
+      text === wanted ||
+      slugifySegment(match[2]) === slugifySegment(heading)
+    ) {
       start = i;
       level = match[1].length;
       break;

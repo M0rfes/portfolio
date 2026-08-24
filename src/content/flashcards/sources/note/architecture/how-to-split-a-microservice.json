@@ -4,12 +4,7 @@
     "id": "architecture/how-to-split-a-microservice",
     "title": "Splitting Microservices",
     "href": "/notes/architecture/how-to-split-a-microservice/",
-    "tags": [
-      "architecture",
-      "microservices",
-      "ddd",
-      "refactoring"
-    ]
+    "tags": ["architecture", "microservices", "ddd", "refactoring"]
   },
   "cards": [
     {

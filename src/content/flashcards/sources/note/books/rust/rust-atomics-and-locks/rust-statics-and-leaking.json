@@ -4,12 +4,7 @@
     "id": "books/rust/rust-atomics-and-locks/rust-statics-and-leaking",
     "title": "Rust Statics",
     "href": "/notes/books/rust/rust-atomics-and-locks/rust-statics-and-leaking/",
-    "tags": [
-      "rust",
-      "concurrency",
-      "statics",
-      "memory"
-    ]
+    "tags": ["rust", "concurrency", "statics", "memory"]
   },
   "cards": [
     {

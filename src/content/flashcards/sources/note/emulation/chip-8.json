@@ -15,43 +15,44 @@
   "cards": [
     {
       "id": "note:emulation/chip-8:0",
-      "question": "How much RAM does CHIP-8 have?",
-      "answer": "Up to 4 kilobytes (4096 bytes). All of it is writable RAM, so programs can modify themselves."
+      "question": "Where are CHIP-8 programs loaded into memory, and why?",
+      "answer": "Programs load at address 0x200 (512 decimal) because the lower 512 bytes (0x000–0x1FF) were historically reserved for the CHIP-8 interpreter and built-in font data."
     },
     {
       "id": "note:emulation/chip-8:1",
-      "question": "What is the CHIP-8 display?",
-      "answer": "A 64×32 monochrome pixel array (128×64 for SUPER-CHIP). Each pixel is on or off. The original display ran at 60 Hz."
+      "question": "Why does the CHIP-8 instruction 7XNN (add immediate) differ from 8XY4 (add register) regarding the flag register VF?",
+      "answer": "7XNN adds NN to VX without modifying VF on overflow, whereas 8XY4 explicitly sets VF to 1 if an 8-bit overflow occurs (>255) and 0 otherwise."
     },
     {
       "id": "note:emulation/chip-8:2",
-      "question": "What do the program counter and index register I do?",
-      "answer": "The PC points at the current instruction in memory. I is a 16-bit register used to point at locations in memory."
+      "question": "How does the borrow/carry flag VF behave during CHIP-8 subtraction instructions (8XY5 and 8XY7)?",
+      "answer": "VF is set to 1 when no borrow occurs (minuend >= subtrahend), and set to 0 when an underflow occurs and a borrow is needed (minuend < subtrahend)."
     },
     {
       "id": "note:emulation/chip-8:3",
-      "question": "How do the delay timer and sound timer differ?",
-      "answer": "Both are 8-bit and decrement at 60 Hz until they reach 0. The sound timer also beeps as long as it is not 0."
+      "question": "How do CHIP-8 sprite coordinates handle screen boundary wrapping versus clipping during DXYN draw calls?",
+      "answer": "The sprite's initial starting coordinate wraps modulo the display dimensions (VX % 64, VY % 32), but sprite pixels extending beyond the right or bottom edges are clipped and do not wrap."
     },
     {
       "id": "note:emulation/chip-8:4",
-      "question": "Why is VF special among the V registers?",
-      "answer": "There are 16 8-bit registers V0–VF. VF is also a flag register; many instructions set it to 1 or 0, for example as a carry flag."
+      "question": "How is sprite collision detected during a DXYN draw operation in CHIP-8?",
+      "answer": "Sprites draw by XOR bit-flipping screen pixels; VF is set to 1 if and only if any active screen pixel is flipped from ON (1) to OFF (0), otherwise VF is set to 0."
     },
     {
       "id": "note:emulation/chip-8:5",
-      "question": "Why can the PC and I only address 4 KB in practice?",
-      "answer": "They address 12 bits, which is 4096 addresses (0 to 4095). They are actually 16 bits and could go beyond 4 KB, but no CHIP-8 games do that."
+      "question": "What must happen to timers during the blocking key-wait instruction FX0A in a CHIP-8 emulator?",
+      "answer": "While instruction execution halts until a key is pressed, both the delay timer and sound timer must continue decrementing at 60 Hz."
     },
     {
       "id": "note:emulation/chip-8:6",
-      "question": "Where should a CHIP-8 ROM and fonts be loaded?",
-      "answer": "The ROM loads at 0x200. Fonts load from 0x000 to 0x1FF or 0x050 to 0x09F (512 bytes). Each font glyph is 4 pixels wide by 5 pixels tall."
+      "question": "What is the key architectural difference between COSMAC VIP and modern CHIP-48/SUPER-CHIP implementations of shift instructions (8XY6 and 8XYE)?",
+      "answer": "COSMAC VIP copies VY into VX before shifting VX and setting VF to the shifted-out bit, whereas modern implementations shift VX in place and completely ignore VY."
     },
     {
       "id": "note:emulation/chip-8:7",
-      "question": "How are CHIP-8 sprites drawn, and what is the stack for?",
-      "answer": "Sprites are 8-bit bytes, 1–15 bytes tall. 0 bits are transparent; 1 bits flip the pixels they cover. The stack holds up to 16 return addresses for subroutines."
+      "question": "How does the FX33 (Binary-Coded Decimal) instruction unpack the byte in register VX into memory?",
+      "answer": "It extracts the three decimal digits of VX (0–255) and stores the hundreds digit at memory address I, the tens digit at I + 1, and the units digit at I + 2."
     }
   ]
 }
+

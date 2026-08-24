@@ -4,11 +4,7 @@
     "id": "architecture/building-microservices-16-02-2026",
     "title": "Service Boundaries",
     "href": "/notes/architecture/building-microservices-16-02-2026/",
-    "tags": [
-      "microservices",
-      "architecture",
-      "modularity"
-    ]
+    "tags": ["microservices", "architecture", "modularity"]
   },
   "cards": [
     {

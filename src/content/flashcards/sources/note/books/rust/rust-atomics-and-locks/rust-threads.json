@@ -4,11 +4,7 @@
     "id": "books/rust/rust-atomics-and-locks/rust-threads",
     "title": "Rust Threads",
     "href": "/notes/books/rust/rust-atomics-and-locks/rust-threads/",
-    "tags": [
-      "rust",
-      "concurrency",
-      "threads"
-    ]
+    "tags": ["rust", "concurrency", "threads"]
   },
   "cards": [
     {

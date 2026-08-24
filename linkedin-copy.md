@@ -48,7 +48,8 @@ Open to Senior Software Engineer - Platform Engineering roles across backend pla
 
 Use **Software Engineer** for every role (LinkedIn “Title”). Keep company names/dates as-is.
 
-### Presight AI - Software Engineer  
+### Presight AI - Software Engineer
+
 **Mar 2025 – Present · Abu Dhabi**
 
 ```
@@ -62,7 +63,8 @@ Use **Software Engineer** for every role (LinkedIn “Title”). Keep company na
 
 ---
 
-### D4 Insight - Software Engineer  
+### D4 Insight - Software Engineer
+
 **Apr 2024 – Jan 2025 · Dubai**
 
 ```
@@ -76,7 +78,8 @@ Use **Software Engineer** for every role (LinkedIn “Title”). Keep company na
 
 ---
 
-### Egen Solutions Inc - Software Engineer  
+### Egen Solutions Inc - Software Engineer
+
 **Mar 2023 – Nov 2023 · Remote**
 
 ```
@@ -89,7 +92,8 @@ Use **Software Engineer** for every role (LinkedIn “Title”). Keep company na
 
 ---
 
-### Segment Hub Technologies - Software Engineer  
+### Segment Hub Technologies - Software Engineer
+
 **Sep 2020 – Jan 2023 · Mumbai**
 
 ```
@@ -102,7 +106,8 @@ Use **Software Engineer** for every role (LinkedIn “Title”). Keep company na
 
 ---
 
-### Pawzeeble - Software Engineer  
+### Pawzeeble - Software Engineer
+
 **Jan 2018 – Aug 2020 · Mumbai**
 
 ```
@@ -117,21 +122,21 @@ Use **Software Engineer** for every role (LinkedIn “Title”). Keep company na
 
 ## Skills (order / pin)
 
-1. Platform Engineering  
-2. Service Ownership  
-3. Infrastructure Automation  
-4. System Design  
-5. Distributed Systems  
-6. Rust  
-7. Go  
-8. TypeScript  
-9. Kubernetes  
-10. CI/CD  
-11. Observability  
-12. PostgreSQL  
-13. GraphQL  
-14. LLMs  
-15. AWS  
+1. Platform Engineering
+2. Service Ownership
+3. Infrastructure Automation
+4. System Design
+5. Distributed Systems
+6. Rust
+7. Go
+8. TypeScript
+9. Kubernetes
+10. CI/CD
+11. Observability
+12. PostgreSQL
+13. GraphQL
+14. LLMs
+15. AWS
 
 Deprioritize: “Full Stack Development”, “Web Development”, “Front-End Development”.
 
@@ -149,8 +154,8 @@ Locations: Abu Dhabi / UAE · Remote-friendly
 
 ## Profile checklist
 
-- [ ] Headline updated  
-- [ ] About pasted  
-- [ ] Every role title → Software Engineer  
-- [ ] Bullets replaced  
+- [ ] Headline updated
+- [ ] About pasted
+- [ ] Every role title → Software Engineer
+- [ ] Bullets replaced
 - [ ] Skills reordered (Platform Engineering / Service Ownership / Infra Automation pinned)

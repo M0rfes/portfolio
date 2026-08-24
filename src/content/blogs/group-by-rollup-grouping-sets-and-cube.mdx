@@ -31,10 +31,10 @@ export const meta = {
 Ever wondered how to extract multi-level insights from your data in a single query? Let's explore powerful SQL aggregation techniques using a simple film database example.
 
 ## The Setup: Two Tables
+
 We're working with a classic film database containing two tables:
 
 **film_actor table:** Links actors to films
-
 
 - actor_id: The actor's unique identifier
 - film_id: The film's unique identifier
@@ -43,7 +43,6 @@ We're working with a classic film database containing two tables:
 
 - film_id: The film's unique identifier
 - rating: Film rating (G, PG, PG-13, R, NC-17)
-
 
 These tables are joined on film_id to analyze which actors appeared in which films and their ratings.
 
@@ -64,13 +63,13 @@ GROUP BY
 ```
 
 ### Result:
+
 | actor_id | film_count |
-|----------|------------|
+| -------- | ---------- |
 | 1        | 19         |
 | 2        | 25         |
 | 3        | 22         |
 | ...      | ...        |
-
 
 This gives you one row per actor with their total film count
 
@@ -96,8 +95,9 @@ ORDER BY
 ```
 
 ### Result:
+
 | actor_id | rating | film_count |
-|----------|--------|------------|
+| -------- | ------ | ---------- |
 | 1        | G      | 4          |
 | 1        | PG     | 6          |
 | 1        | PG-13  | 1          |
@@ -107,9 +107,7 @@ ORDER BY
 | 2        | PG     | 6          |
 | ...      | ...    | ...        |
 
-
 Now you see the breakdown per actor, per rating.
-
 
 ## Question 3: Can I also get the total movies per actor across all ratings?
 
@@ -131,24 +129,25 @@ ORDER BY
     fa.actor_id,
     f.rating;
 ```
-### Result:
-| actor_id | rating | film_count |
-|----------|--------|------------|
-| 1        | G      | 4          |
-| 1        | PG     | 6          |
-| 1        | PG-13  | 1          |
-| 1        | R      | 3          |
-| 1        | NC-17  | 5          |
-| 1        | NULL   | 19          ← **Total for actor 1**|
-| 2        | G      | 7          |
-| 2        | PG     | 6          |
-| 2        | PG-13  | 2          |
-| 2        | R      | 2          |
-| 2        | NC-17  | 8          |
-| 2        | NULL   | 25          ← **Total for actor 2**v|
-| ...      | ...    | ...        |
-| NULL     | NULL   | 5462        ← **Grand total**|
 
+### Result:
+
+| actor_id | rating | film_count                  |
+| -------- | ------ | --------------------------- |
+| 1        | G      | 4                           |
+| 1        | PG     | 6                           |
+| 1        | PG-13  | 1                           |
+| 1        | R      | 3                           |
+| 1        | NC-17  | 5                           |
+| 1        | NULL   | 19 ← **Total for actor 1**  |
+| 2        | G      | 7                           |
+| 2        | PG     | 6                           |
+| 2        | PG-13  | 2                           |
+| 2        | R      | 2                           |
+| 2        | NC-17  | 8                           |
+| 2        | NULL   | 25 ← **Total for actor 2**v |
+| ...      | ...    | ...                         |
+| NULL     | NULL   | 5462 ← **Grand total**      |
 
 ROLLUP adds subtotal rows where rating is NULL (total per actor) and a grand total row where both columns are NULL.
 
@@ -180,20 +179,21 @@ ORDER BY
     fa.actor_id,
     f.rating;
 ```
-### Result:
-| actor_id | rating | film_count |
-|----------|--------|------------|
-| 1        | G      | 4          |
-| 1        | PG     | 6          |
-| 1        | NULL   | 19          ← **Total for actor 1**|
-| 2        | G      | 7          |
-| 2        | NULL   | 25          ← **Total for actor 2**|
-| ...      | ...    | ...        |
-| NULL     | G      | 178         ← **All G-rated films**|
-| NULL     | PG     | 194         ← **All PG-rated films**|
-| NULL     | R      | 195         ← **All R-rated films**|
-| NULL     | NULL   | 5462        ← **Grand total**|
 
+### Result:
+
+| actor_id | rating | film_count                   |
+| -------- | ------ | ---------------------------- |
+| 1        | G      | 4                            |
+| 1        | PG     | 6                            |
+| 1        | NULL   | 19 ← **Total for actor 1**   |
+| 2        | G      | 7                            |
+| 2        | NULL   | 25 ← **Total for actor 2**   |
+| ...      | ...    | ...                          |
+| NULL     | G      | 178 ← **All G-rated films**  |
+| NULL     | PG     | 194 ← **All PG-rated films** |
+| NULL     | R      | 195 ← **All R-rated films**  |
+| NULL     | NULL   | 5462 ← **Grand total**       |
 
 GROUPING SETS gives you complete control—you get totals per actor, totals per rating, and the grand total, all in one query.
 
@@ -230,6 +230,7 @@ GROUP BY
         ()
     )
 ```
+
 With 2 columns, CUBE generates 4 grouping combinations 2^2. With 3 columns, you get 8 combinations 2^3, and so on.
 
 **When to use CUBE:** Perfect for OLAP and multi-dimensional reporting where you need every possible cross-tabulation.

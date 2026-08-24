@@ -307,7 +307,8 @@ export function Skills() {
         {
           name: "Rust",
           hours: 2500,
-          description: "High-performance services, reverse proxies, concurrency",
+          description:
+            "High-performance services, reverse proxies, concurrency",
         },
         {
           name: "Go",
@@ -339,7 +340,8 @@ export function Skills() {
         {
           name: "System Design",
           hours: 2000,
-          description: "Service boundaries, scalability, failure modes, trade-offs",
+          description:
+            "Service boundaries, scalability, failure modes, trade-offs",
         },
         {
           name: "Architecture",
@@ -359,7 +361,8 @@ export function Skills() {
         {
           name: "SLOs / On-Call",
           hours: 900,
-          description: "Reliability ownership, incident response, uptime targets",
+          description:
+            "Reliability ownership, incident response, uptime targets",
         },
       ],
     },

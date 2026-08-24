@@ -1,6 +1,4 @@
-import ForceGraph3D, {
-  type ForceGraph3DInstance,
-} from "3d-force-graph";
+import ForceGraph3D, { type ForceGraph3DInstance } from "3d-force-graph";
 import {
   forceCenter,
   forceCollide,
@@ -240,21 +238,21 @@ export class ForceGraph3DView {
       .d3Force("z", forceZ(0).strength(GRAVITY_STRENGTH))
       .d3Force(
         "tagX",
-        forceX<GraphNode3D>((node) => nodeTagTarget(node.tags, 3)?.x ?? 0).strength(
-          (node) => tagPullStrength(node.tags),
-        ),
+        forceX<GraphNode3D>(
+          (node) => nodeTagTarget(node.tags, 3)?.x ?? 0,
+        ).strength((node) => tagPullStrength(node.tags)),
       )
       .d3Force(
         "tagY",
-        forceY<GraphNode3D>((node) => nodeTagTarget(node.tags, 3)?.y ?? 0).strength(
-          (node) => tagPullStrength(node.tags),
-        ),
+        forceY<GraphNode3D>(
+          (node) => nodeTagTarget(node.tags, 3)?.y ?? 0,
+        ).strength((node) => tagPullStrength(node.tags)),
       )
       .d3Force(
         "tagZ",
-        forceZ<GraphNode3D>((node) => nodeTagTarget(node.tags, 3)?.z ?? 0).strength(
-          (node) => tagPullStrength(node.tags),
-        ),
+        forceZ<GraphNode3D>(
+          (node) => nodeTagTarget(node.tags, 3)?.z ?? 0,
+        ).strength((node) => tagPullStrength(node.tags)),
       )
       .d3Force(
         "radial",

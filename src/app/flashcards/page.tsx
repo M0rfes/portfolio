@@ -8,8 +8,7 @@ export const metadata: Metadata = {
     "Study cards generated from published notes and blog posts on software engineering, distributed systems, and concurrency.",
   openGraph: {
     title: "Flashcards | Fahim Khan",
-    description:
-      "Study cards generated from published notes and blog posts.",
+    description: "Study cards generated from published notes and blog posts.",
     type: "website",
     url: "https://fahim.shonif.com/flashcards",
     siteName: "Fahim Khan - Senior Software Engineer",
@@ -29,7 +28,7 @@ export default function FlashcardsPage() {
             Cards
           </h1>
           <p className="text-sm text-muted-foreground">
-            Tap to flip. Swipe to move. From notes and blogs.
+            Tap to flip. Swipe to move. Retain core concepts between lessons and grills.
           </p>
         </div>
         <FlashcardDeck cards={cards} tags={tags} />

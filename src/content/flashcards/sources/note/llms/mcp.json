@@ -4,13 +4,7 @@
     "id": "llms/mcp",
     "title": "MCP",
     "href": "/notes/llms/mcp/",
-    "tags": [
-      "llm",
-      "mcp",
-      "tool-calling",
-      "anthropic",
-      "protocol"
-    ]
+    "tags": ["llm", "mcp", "tool-calling", "anthropic", "protocol"]
   },
   "cards": [
     {

@@ -31,12 +31,10 @@ describe("slugSegments", () => {
       "concurrency",
       "threads",
     ]);
-    assert.deepEqual(slugSegments("Books/rust/Rust Atomics and Locks/Rust Threads.md"), [
-      "books",
-      "rust",
-      "rust-atomics-and-locks",
-      "rust-threads",
-    ]);
+    assert.deepEqual(
+      slugSegments("Books/rust/Rust Atomics and Locks/Rust Threads.md"),
+      ["books", "rust", "rust-atomics-and-locks", "rust-threads"],
+    );
   });
 });
 
@@ -85,7 +83,10 @@ Body
     assert.equal(note.updatedAt, "2026-03-30");
     assert.equal(note.summary, "Overview of RAG");
     assert.deepEqual(note.tags, ["rag"]);
-    assert.equal(note.body.startsWith("# Retrieval-Augmented Generation"), true);
+    assert.equal(
+      note.body.startsWith("# Retrieval-Augmented Generation"),
+      true,
+    );
   });
 
   test("falls back to created then file mtime when updated is missing", () => {
@@ -105,6 +106,62 @@ Hello
     const withMtime = parseNote("x.md", "no frontmatter", "2026-08-22");
     assert.equal(withMtime.updatedAt, "2026-08-22");
     assert.equal(withMtime.title, "x");
+  });
+
+  test("parses flashcard property in frontmatter", () => {
+    const disabled = parseNote(
+      "Topic/A.md",
+      `---
+title: A
+flashcard: false
+---
+Body`,
+      "2026-01-01",
+    );
+    assert.equal(disabled.flashcard, false);
+
+    const stringDisabled = parseNote(
+      "Topic/B.md",
+      `---
+title: B
+flashcard: "false"
+---
+Body`,
+      "2026-01-01",
+    );
+    assert.equal(stringDisabled.flashcard, false);
+
+    const aliasDisabled = parseNote(
+      "Topic/C.md",
+      `---
+title: C
+flashcards: false
+---
+Body`,
+      "2026-01-01",
+    );
+    assert.equal(aliasDisabled.flashcard, false);
+
+    const enabled = parseNote(
+      "Topic/D.md",
+      `---
+title: D
+flashcard: true
+---
+Body`,
+      "2026-01-01",
+    );
+    assert.equal(enabled.flashcard, true);
+
+    const omitted = parseNote(
+      "Topic/E.md",
+      `---
+title: E
+---
+Body`,
+      "2026-01-01",
+    );
+    assert.equal(omitted.flashcard, undefined);
   });
 });
 
@@ -311,7 +368,10 @@ updated: 2026-04-15
       ["images/Pasted image 20260414192702.png"],
     );
 
-    const converted = convertNote(index.byPath.get("Architecture/Coupling.md")!, index);
+    const converted = convertNote(
+      index.byPath.get("Architecture/Coupling.md")!,
+      index,
+    );
     assert.match(
       converted.markdown,
       /!\[Pasted image 20260414192702\]\(\/note-assets\/architecture\/coupling\/pasted-image-20260414192702\.png\)/,

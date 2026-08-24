@@ -4,11 +4,7 @@
     "id": "llms/lightrag",
     "title": "LightRAG",
     "href": "/notes/llms/lightrag/",
-    "tags": [
-      "rag",
-      "graph-rag",
-      "research"
-    ]
+    "tags": ["rag", "graph-rag", "research"]
   },
   "cards": []
 }

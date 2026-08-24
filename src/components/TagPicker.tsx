@@ -10,7 +10,12 @@ type TagPickerProps = {
   onChange: (tags: string[]) => void;
 };
 
-export function TagPicker({ tags, selected, counts, onChange }: TagPickerProps) {
+export function TagPicker({
+  tags,
+  selected,
+  counts,
+  onChange,
+}: TagPickerProps) {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
 
@@ -20,7 +25,8 @@ export function TagPicker({ tags, selected, counts, onChange }: TagPickerProps) 
       ? tags.filter((tag) => tag.toLowerCase().includes(term))
       : tags;
     return [...filtered].sort((a, b) => {
-      const selectedDelta = Number(selected.includes(b)) - Number(selected.includes(a));
+      const selectedDelta =
+        Number(selected.includes(b)) - Number(selected.includes(a));
       if (selectedDelta) return selectedDelta;
       return a.localeCompare(b);
     });
@@ -47,7 +53,9 @@ export function TagPicker({ tags, selected, counts, onChange }: TagPickerProps) 
             ? "Filter tags"
             : `${selected.length} tag${selected.length === 1 ? "" : "s"}`}
         </span>
-        <span className="text-sm text-muted-foreground">{tags.length} total</span>
+        <span className="text-sm text-muted-foreground">
+          {tags.length} total
+        </span>
       </button>
 
       {selected.length > 0 && (

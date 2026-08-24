@@ -13,38 +13,18 @@
   "cards": [
     {
       "id": "note:teach/c17/c17:0",
-      "question": "What project grounds the C17 systems curriculum?",
-      "answer": "Building, hardening, and optimizing the CHIP-8 Emulator in C17."
+      "question": "What is the primary vehicle used in the C17 systems programming curriculum?",
+      "answer": "Building, hardening, and optimizing a CHIP-8 emulator in ISO C17."
     },
     {
       "id": "note:teach/c17/c17:1",
-      "question": "Which skills does the CHIP-8 track target?",
-      "answer": "Binary I/O, bitwise opcode decoding, CPU execution cycles, memory invariants, SDL2 streaming, and modern CMake tooling."
+      "question": "At what memory address are CHIP-8 ROMs loaded in emulator RAM?",
+      "answer": "CHIP-8 ROMs are loaded into RAM starting at entry address 0x200 (512 in decimal)."
     },
     {
       "id": "note:teach/c17/c17:2",
-      "question": "Where are CHIP-8 ROMs loaded in memory?",
-      "answer": "At address 0x200."
-    },
-    {
-      "id": "note:teach/c17/c17:3",
-      "question": "How are CHIP-8 opcodes fetched in the curriculum?",
-      "answer": "As 16-bit big-endian values, then decoded with bitwise masking."
-    },
-    {
-      "id": "note:teach/c17/c17:4",
-      "question": "What two instruction-dispatch styles does the track compare?",
-      "answer": "Function-pointer jump tables versus switches."
-    },
-    {
-      "id": "note:teach/c17/c17:5",
-      "question": "How does the graphics lesson render CHIP-8 sprites?",
-      "answer": "DXYN sprite XOR rendering with SDL texture streaming."
-    },
-    {
-      "id": "note:teach/c17/c17:6",
-      "question": "What timer rate does the peripherals phase target?",
-      "answer": "60Hz timers, plus audio synthesis and CPU cycle regulation."
+      "question": "What rendering technique does the CHIP-8 display engine use for drawing sprites?",
+      "answer": "CHIP-8 uses DXYN sprite XOR rendering to toggle pixels on and off on the display."
     }
   ]
 }

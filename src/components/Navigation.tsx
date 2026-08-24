@@ -3,7 +3,16 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { Menu, X, User, MessageCircle, BookOpen, Download, Layers, NotebookPen } from "lucide-react";
+import {
+  Menu,
+  X,
+  User,
+  MessageCircle,
+  BookOpen,
+  Download,
+  Layers,
+  NotebookPen,
+} from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { ThemePicker } from "./ThemePicker";
 
@@ -14,8 +23,7 @@ export function Navigation() {
 
   const backdropBlur = useTransform(scrollY, [0, 100], [0, 10]);
 
-  const isNotesGraph =
-    pathname.replace(/\/$/, "") === "/notes/graph";
+  const isNotesGraph = pathname.replace(/\/$/, "") === "/notes/graph";
 
   const navItems = [
     { id: "about", label: "About", icon: User, href: "/about" },
@@ -254,21 +262,21 @@ export function Navigation() {
 
       {/* Floating Action Button for mobile */}
       {!pathname.startsWith("/flashcards") && (
-      <motion.div
-        className="fixed bottom-6 right-6 md:hidden z-40"
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{ delay: 1, type: "spring" }}
-      >
-        <motion.a
-          href="mailto:fahimkhan20148@gmail.com"
-          className="w-14 h-14 bg-primary rounded-full flex items-center justify-center shadow-xl"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
+        <motion.div
+          className="fixed bottom-6 right-6 md:hidden z-40"
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ delay: 1, type: "spring" }}
         >
-          <MessageCircle className="w-6 h-6 text-primary-foreground" />
-        </motion.a>
-      </motion.div>
+          <motion.a
+            href="mailto:fahimkhan20148@gmail.com"
+            className="w-14 h-14 bg-primary rounded-full flex items-center justify-center shadow-xl"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <MessageCircle className="w-6 h-6 text-primary-foreground" />
+          </motion.a>
+        </motion.div>
       )}
     </>
   );

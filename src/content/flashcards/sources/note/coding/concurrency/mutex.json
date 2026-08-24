@@ -4,10 +4,7 @@
     "id": "coding/concurrency/mutex",
     "title": "Mutex",
     "href": "/notes/coding/concurrency/mutex/",
-    "tags": [
-      "concurrency",
-      "locks"
-    ]
+    "tags": ["concurrency", "locks"]
   },
   "cards": [
     {

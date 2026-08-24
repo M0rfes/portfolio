@@ -4,11 +4,7 @@
     "id": "coding/concurrency/static-lifetime",
     "title": "Static Lifetime",
     "href": "/notes/coding/concurrency/static-lifetime/",
-    "tags": [
-      "concurrency",
-      "memory",
-      "statics"
-    ]
+    "tags": ["concurrency", "memory", "statics"]
   },
   "cards": [
     {

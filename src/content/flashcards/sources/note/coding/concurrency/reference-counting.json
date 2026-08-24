@@ -4,12 +4,7 @@
     "id": "coding/concurrency/reference-counting",
     "title": "Reference Counting",
     "href": "/notes/coding/concurrency/reference-counting/",
-    "tags": [
-      "concurrency",
-      "smart-pointers",
-      "reference-counting",
-      "memory"
-    ]
+    "tags": ["concurrency", "smart-pointers", "reference-counting", "memory"]
   },
   "cards": [
     {

@@ -4,11 +4,7 @@
     "id": "architecture/ddd/ddd",
     "title": "Domain-Driven Design",
     "href": "/notes/architecture/ddd/ddd/",
-    "tags": [
-      "architecture",
-      "ddd",
-      "microservices"
-    ]
+    "tags": ["architecture", "ddd", "microservices"]
   },
   "cards": [
     {

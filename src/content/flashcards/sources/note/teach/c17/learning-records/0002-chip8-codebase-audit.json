@@ -4,11 +4,7 @@
     "id": "teach/c17/learning-records/0002-chip8-codebase-audit",
     "title": "LR-0002: CHIP-8 Codebase Audit & Architecture Baseline",
     "href": "/notes/teach/c17/learning-records/0002-chip8-codebase-audit/",
-    "tags": [
-      "teach/c17",
-      "learning-record",
-      "chip-8"
-    ]
+    "tags": ["teach/c17", "learning-record", "chip-8"]
   },
   "cards": [
     {

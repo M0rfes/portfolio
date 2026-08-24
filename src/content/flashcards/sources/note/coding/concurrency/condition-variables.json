@@ -4,10 +4,7 @@
     "id": "coding/concurrency/condition-variables",
     "title": "Condition Variables",
     "href": "/notes/coding/concurrency/condition-variables/",
-    "tags": [
-      "concurrency",
-      "condvar"
-    ]
+    "tags": ["concurrency", "condvar"]
   },
   "cards": [
     {

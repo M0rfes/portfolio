@@ -4,10 +4,7 @@
     "id": "coding/concurrency/scoped-threads",
     "title": "Scoped Threads",
     "href": "/notes/coding/concurrency/scoped-threads/",
-    "tags": [
-      "concurrency",
-      "threads"
-    ]
+    "tags": ["concurrency", "threads"]
   },
   "cards": [
     {

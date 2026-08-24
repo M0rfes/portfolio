@@ -23,7 +23,13 @@ const PUBLIC_DIR = path.join(ROOT, "public/note-assets");
 const CACHE_PATH = path.join(OUT_DIR, ".cache.json");
 const INDEX_PATH = path.join(OUT_DIR, "index.json");
 const FLASHCARD_TAGS_PATH = path.join(ROOT, "src/content/flashcards/tags.json");
-const SKIP_DIRS = new Set([".obsidian", ".agent", ".git", ".trash", "node_modules"]);
+const SKIP_DIRS = new Set([
+  ".obsidian",
+  ".agent",
+  ".git",
+  ".trash",
+  "node_modules",
+]);
 
 type CacheFile = {
   version: number;
@@ -42,6 +48,7 @@ type NoteMeta = {
   href: string;
   title: string;
   tags: string[];
+  flashcard?: boolean;
   summary?: string;
   created?: string;
   updatedAt: string;
@@ -133,7 +140,9 @@ function readGraphColors(): { tag: string; color: string }[] {
         if (!tag || group.color?.rgb == null) return null;
         return { tag, color: rgbIntToHex(group.color.rgb) };
       })
-      .filter((group): group is { tag: string; color: string } => Boolean(group));
+      .filter((group): group is { tag: string; color: string } =>
+        Boolean(group),
+      );
   } catch {
     return [];
   }
@@ -144,16 +153,11 @@ function colorForTags(
   groups: { tag: string; color: string }[],
 ): string {
   const lower = tags.map((tag) => tag.toLowerCase());
-  const match = groups.find((group) =>
-    lower.includes(group.tag.toLowerCase()),
-  );
+  const match = groups.find((group) => lower.includes(group.tag.toLowerCase()));
   return match?.color ?? "#89b4fa";
 }
 
-function copyAttachment(
-  vaultRel: string,
-  publicRel: string,
-): void {
+function copyAttachment(vaultRel: string, publicRel: string): void {
   const basename = path.posix.basename(vaultRel);
   const candidates = [
     path.join(VAULT_DIR, vaultRel),
@@ -218,6 +222,7 @@ export function buildNotes(options: { skipGit?: boolean; all?: boolean } = {}) {
       href: hrefForSlug(note.slug),
       title: note.title,
       tags: note.tags,
+      ...(note.flashcard !== undefined ? { flashcard: note.flashcard } : {}),
       summary: note.summary,
       created: note.created,
       updatedAt: note.updatedAt,
@@ -259,6 +264,7 @@ export function buildNotes(options: { skipGit?: boolean; all?: boolean } = {}) {
       href: hrefForSlug(note.slug),
       title: note.title,
       tags: note.tags,
+      ...(note.flashcard !== undefined ? { flashcard: note.flashcard } : {}),
       summary: note.summary,
       created: note.created,
       updatedAt: note.updatedAt,
@@ -266,7 +272,11 @@ export function buildNotes(options: { skipGit?: boolean; all?: boolean } = {}) {
       folder: folderName(note),
       linkedFrom: [] as LinkedFrom[],
     }))
-    .sort((a, b) => b.updatedAt.localeCompare(a.updatedAt) || a.title.localeCompare(b.title));
+    .sort(
+      (a, b) =>
+        b.updatedAt.localeCompare(a.updatedAt) ||
+        a.title.localeCompare(b.title),
+    );
 
   const linkedFrom = collectLinkedFrom(notes, linksByPath, hrefForSlug);
   for (const note of notes) {
@@ -277,6 +287,9 @@ export function buildNotes(options: { skipGit?: boolean; all?: boolean } = {}) {
       markdown?: string;
     };
     page.linkedFrom = note.linkedFrom;
+    if (note.flashcard !== undefined) {
+      page.flashcard = note.flashcard;
+    }
     fs.writeFileSync(outFile, JSON.stringify(page, null, 2));
   }
 

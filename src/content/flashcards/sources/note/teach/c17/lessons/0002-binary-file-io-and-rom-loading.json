@@ -15,43 +15,28 @@
   "cards": [
     {
       "id": "note:teach/c17/lessons/0002-binary-file-io-and-rom-loading:0",
-      "question": "How much RAM does CHIP-8 address, and what is the range?",
-      "answer": "4,096 bytes (4 KB), from `0x000` to `0xFFF`."
+      "question": "Why must binary files be opened with mode \"rb\" instead of \"r\" in C?",
+      "answer": "Opening in text mode (\"r\") can perform platform-specific newline translations, silently corrupting raw binary executable bytecode."
     },
     {
       "id": "note:teach/c17/lessons/0002-binary-file-io-and-rom-loading:1",
-      "question": "Where must CHIP-8 ROMs be loaded, and where does the PC start?",
-      "answer": "ROMs load starting at `0x200`, and the program counter starts at `0x200`."
+      "question": "What is the maximum allowable ROM size when loading a program into CHIP-8 RAM?",
+      "answer": "3,584 bytes (4,096 bytes total RAM minus 512 bytes reserved for fontset and interpreter below 0x200)."
     },
     {
       "id": "note:teach/c17/lessons/0002-binary-file-io-and-rom-loading:2",
-      "question": "What is the maximum CHIP-8 ROM size, and why?",
-      "answer": "3,584 bytes (`4096 - 512`). A larger ROM overflows `memory.memory[4096]` and triggers undefined behavior."
+      "question": "Why must rewind(file) or fseek(file, 0, SEEK_SET) be called before reading after checking file size with fseek/ftell?",
+      "answer": "Seeking to the end moves the file position indicator to EOF; without rewinding back to the beginning, fread would read 0 bytes."
     },
     {
       "id": "note:teach/c17/lessons/0002-binary-file-io-and-rom-loading:3",
-      "question": "Why open ROM files with `\"rb\"` instead of `\"r\"`?",
-      "answer": "Text mode `\"r\"` can translate carriage returns (for example `\\r\\n` to `\\n`) and silently corrupt binary bytes."
+      "question": "What does fopen return upon failure to open a file in C?",
+      "answer": "fopen returns NULL when opening a file fails (such as when the file is missing or permissions are denied)."
     },
     {
       "id": "note:teach/c17/lessons/0002-binary-file-io-and-rom-loading:4",
-      "question": "What does `fopen` return if the file is missing or unreadable?",
-      "answer": "`NULL`."
-    },
-    {
-      "id": "note:teach/c17/lessons/0002-binary-file-io-and-rom-loading:5",
-      "question": "Why rewind after `fseek(..., SEEK_END)` and `ftell` before `fread`?",
-      "answer": "`fseek` to `SEEK_END` moves the file position to the end so `ftell` can report the byte offset. Without `rewind` or `fseek(..., SEEK_SET)`, `fread` would read from the end and get 0 bytes."
-    },
-    {
-      "id": "note:teach/c17/lessons/0002-binary-file-io-and-rom-loading:6",
-      "question": "Why is `sizeof(uint8_t)` 1, and why cast `file_size` to `size_t` for `fread`?",
-      "answer": "`uint8_t` is an exact 8-bit unsigned type of size 1. `ftell` returns a signed `long` that can be negative on error, while `fread` expects `size_t`. Check `file_size > 0` before the cast."
-    },
-    {
-      "id": "note:teach/c17/lessons/0002-binary-file-io-and-rom-loading:7",
-      "question": "What occupies `0x000`–`0x1FF` in this emulator?",
-      "answer": "That region historically held the CHIP-8 interpreter. Here the built-in 80-byte hexadecimal font set lives at `0x0000`–`0x0050`."
+      "question": "Where is the built-in 80-byte hexadecimal font set stored in CHIP-8 memory?",
+      "answer": "The font set is stored in the reserved memory region from 0x000 to 0x050."
     }
   ]
 }

@@ -4,11 +4,7 @@
     "id": "coding/concurrency/atomic-reference-counting",
     "title": "Atomic Refcounting",
     "href": "/notes/coding/concurrency/atomic-reference-counting/",
-    "tags": [
-      "concurrency",
-      "smart-pointers",
-      "atomics"
-    ]
+    "tags": ["concurrency", "smart-pointers", "atomics"]
   },
   "cards": [
     {
