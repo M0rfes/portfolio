@@ -4,33 +4,27 @@
     "id": "teach/c17/learning-records/0002-chip8-codebase-audit",
     "title": "LR-0002: CHIP-8 Codebase Audit & Architecture Baseline",
     "href": "/notes/teach/c17/learning-records/0002-chip8-codebase-audit/",
-    "tags": ["teach/c17", "learning-record", "chip-8"]
+    "tags": [
+      "teach/c17",
+      "learning-record",
+      "chip-8"
+    ]
   },
   "cards": [
     {
       "id": "note:teach/c17/learning-records/0002-chip8-codebase-audit:0",
-      "question": "Which modules already exist in the CHIP-8 C17 emulator?",
-      "answer": "Modular headers and sources for memory, registers, stack, keyboard, screen, and an SDL2 event loop."
+      "question": "What core architectural modules compose the composite Chip8 state struct in a modular C emulator?",
+      "answer": "Memory (4KB RAM), Registers (16 general-purpose, I, PC, timers), Stack (16-level call stack and SP), Screen (64x32 monochrome display), and Keyboard (16-key keypad state)."
     },
     {
       "id": "note:teach/c17/learning-records/0002-chip8-codebase-audit:1",
-      "question": "Which core data structures are already laid out?",
-      "answer": "Memory, Registers, Stack, Screen, Keyboard, and Chip8."
+      "question": "Why should emulator structs be passed via pointers (e.g. chip8_init(Chip8 *chip8)) rather than by value in C?",
+      "answer": "Passing by value copies the entire struct (including the 4KB RAM buffer and screen matrix) onto the stack on every call, causing severe performance degradation and stack pressure."
     },
     {
       "id": "note:teach/c17/learning-records/0002-chip8-codebase-audit:2",
-      "question": "Where should CHIP-8 ROMs be loaded, and what check is required?",
-      "answer": "Load ROMs at `0x200` with boundary checks."
-    },
-    {
-      "id": "note:teach/c17/learning-records/0002-chip8-codebase-audit:3",
-      "question": "How will opcodes be fetched and decoded?",
-      "answer": "As 16-bit big-endian values, then decoded with bitwise instruction decoding."
-    },
-    {
-      "id": "note:teach/c17/learning-records/0002-chip8-codebase-audit:4",
-      "question": "What two dispatch styles will instruction execution compare?",
-      "answer": "Jump tables versus nested switches."
+      "question": "Why is modular separation into dedicated translation units (memory.c, screen.c, registers.c) preferred in C17?",
+      "answer": "It enforces encapsulation via header contracts, enables independent compilation, and isolates memory access logic to dedicated modules."
     }
   ]
 }

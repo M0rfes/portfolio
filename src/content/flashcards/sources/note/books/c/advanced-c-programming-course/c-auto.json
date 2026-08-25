@@ -4,23 +4,27 @@
     "id": "books/c/advanced-c-programming-course/c-auto",
     "title": "C Auto Storage Class",
     "href": "/notes/books/c/advanced-c-programming-course/c-auto/",
-    "tags": ["c", "memory", "storage-classes"]
+    "tags": [
+      "c",
+      "memory",
+      "storage-classes"
+    ]
   },
   "cards": [
     {
       "id": "note:books/c/advanced-c-programming-course/c-auto:0",
-      "question": "What is auto the default modifier for?",
-      "answer": "Visibility. Auto is the default modifier for visibility."
+      "question": "What is the lifetime and memory allocation behavior of a variable with the auto storage class in C?",
+      "answer": "Its memory is allocated on the stack when execution enters its enclosing block scope and automatically deallocated when execution leaves that scope."
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-auto:1",
-      "question": "How is an auto variable's lifetime bound?",
-      "answer": "Lifetime is bound to its scope: memory is acquired when it comes into scope and freed when it goes out of scope."
+      "question": "What is the default storage class for local variables declared inside a function block in C?",
+      "answer": "The default is auto (automatic storage duration), meaning the auto keyword is implicit and rarely written explicitly."
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-auto:2",
-      "question": "When do you need to write the auto keyword?",
-      "answer": "You do not need to specify auto unless you are shadowing a global variable and want to be specific about the shadowing."
+      "question": "When might a developer explicitly specify the auto keyword on a local variable in C?",
+      "answer": "When intentionally shadowing a global variable to make the local block scope and lifetime explicit in code."
     }
   ]
 }

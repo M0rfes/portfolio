@@ -16,38 +16,38 @@
   "cards": [
     {
       "id": "note:grill/c-systems-programming:0",
-      "question": "In ISO C, what occurs if you apply the address-of operator (&) to a variable declared with register?",
-      "answer": "It is a compile-time constraint violation (compiler error), even if the compiler spills the variable to stack memory."
+      "question": "In C, why is taking the address of a register variable (&x) a compile-time constraint violation even if the compiler spills it to the stack?",
+      "answer": "The ISO C standard explicitly forbids using & on any identifier declared with register, making it an unconditional compiler error regardless of machine placement."
     },
     {
       "id": "note:grill/c-systems-programming:1",
-      "question": "When an array decays in C, what does it convert into?",
-      "answer": "It decays to a pointer to its first element (T*), rather than a pointer to the entire array."
+      "question": "What is the exact difference in pointer arithmetic between arr + 1 and &arr + 1 for int arr[10] (where sizeof(int) == 4)?",
+      "answer": "arr decays to int*, so arr + 1 advances by 4 bytes (1 element); &arr has type int(*)[10], so &arr + 1 advances by 40 bytes (the entire array)."
     },
     {
       "id": "note:grill/c-systems-programming:2",
-      "question": "How do pointer arithmetic strides differ between arr and &arr for int arr[10]?",
-      "answer": "arr + 1 advances by sizeof(int) (4 bytes), whereas &arr + 1 advances by the entire array size sizeof(int[10]) (40 bytes)."
+      "question": "Why does the compiler insert tail padding at the end of a struct in C?",
+      "answer": "To guarantee that every element in an array of that struct (struct S arr[N]) begins at an address that satisfies the alignment requirement of the largest member."
     },
     {
       "id": "note:grill/c-systems-programming:3",
-      "question": "Why do C structs require tail padding?",
-      "answer": "Tail padding ensures the total struct size is a multiple of its largest member's alignment, preserving alignment for array elements."
+      "question": "Why does attempting to modify a string literal like char *s = \"Hello\"; s[0] = 'h'; cause a runtime crash?",
+      "answer": "String literals reside in the read-only data segment (.rodata); mutating them is undefined behavior and typically causes a segmentation fault."
     },
     {
       "id": "note:grill/c-systems-programming:4",
-      "question": "What happens when code attempts to write to a string literal like char *s = \"Hello\"; s[0] = 'h';?",
-      "answer": "String literals reside in read-only memory (.rodata), so modifying them triggers undefined behavior, typically causing a segmentation fault crash."
+      "question": "How does setting a pointer to NULL immediately after free(ptr) prevent Use-After-Free (UAF) vulnerabilities?",
+      "answer": "free() returns memory to the allocator without clearing the pointer or zeroing memory; assigning NULL turns accidental subsequent dereferences into deterministic crashes instead of silent corruption."
     },
     {
       "id": "note:grill/c-systems-programming:5",
-      "question": "Why is setting ptr = NULL recommended immediately after free(ptr)?",
-      "answer": "It prevents Use-After-Free (UAF) bugs by nullifying dangling pointers and ensuring accidental dereferences fail deterministically."
+      "question": "What is the correct C typedef syntax for a function pointer named handler_t taking a uint16_t and returning void?",
+      "answer": "typedef void (*handler_t)(uint16_t);"
     },
     {
       "id": "note:grill/c-systems-programming:6",
-      "question": "What is the advantage of using a function pointer jump table over a switch statement in CPU emulation?",
-      "answer": "A jump table executes an O(1) indirect jump, avoiding O(N) sequential branch evaluations and branch mispredictions."
+      "question": "How do you extract the 12-bit address NNN from a 16-bit big-endian opcode in C?",
+      "answer": "Using the bitwise mask opcode & 0x0FFF."
     }
   ]
 }

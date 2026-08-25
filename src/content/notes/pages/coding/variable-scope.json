@@ -36,11 +36,39 @@
     },
     {
       "slug": [
+        "teach",
+        "c17",
+        "c17"
+      ],
+      "href": "/notes/teach/c17/c17/",
+      "title": "C17 Hub"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "resources"
+      ],
+      "href": "/notes/teach/c17/resources/",
+      "title": "C17 Resources"
+    },
+    {
+      "slug": [
         "grill",
         "c-systems-programming"
       ],
       "href": "/notes/grill/c-systems-programming/",
       "title": "Grill: C Systems Programming Knowledge"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "reference",
+        "modern-c17-toolchain-and-cmake"
+      ],
+      "href": "/notes/teach/c17/reference/modern-c17-toolchain-and-cmake/",
+      "title": "Modern C17 Toolchain and CMake Reference"
     },
     {
       "slug": [

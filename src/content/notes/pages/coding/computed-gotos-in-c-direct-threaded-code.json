@@ -1,0 +1,78 @@
+{
+  "slug": [
+    "coding",
+    "computed-gotos-in-c-direct-threaded-code"
+  ],
+  "href": "/notes/coding/computed-gotos-in-c-direct-threaded-code/",
+  "title": "Computed Gotos in C (Direct Threaded Code)",
+  "tags": [
+    "c",
+    "compilers",
+    "performance",
+    "virtual-machine",
+    "interpreters",
+    "emulation"
+  ],
+  "created": "2026-08-25",
+  "updatedAt": "2026-08-25",
+  "vaultPath": "Coding/Computed Gotos in C (Direct Threaded Code).md",
+  "folder": "Coding",
+  "markdown": "> **Computed Gotos** (also known as \"labels as values\") are a non-standard [C language](../../teach/c17/c17/) extension, primarily supported by [compilers like GCC and Clang](../../teach/c17/reference/modern-c17-toolchain-and-cmake/). They allow you to take the memory address of a C label, store it in a pointer, and jump to it dynamically.\n\nThis feature is historically the secret weapon behind many high-performance [Virtual Machines (VMs)](../../emulation/chip-8/) and [interpreters](../../teach/c17/lessons/0001-c17-standards-and-modern-toolchain/), such as CPython and various [game console emulators](../../emulation/chip-8/), often yielding a 15-25% performance boost over a standard `switch` statement.\n\n## 1. The Syntax\n\nComputed gotos combine two operations:\n1. **Taking the address of a label:** Accomplished using the `&&` operator.\n2. **Jumping to a pointer:** Accomplished using `goto *pointer;`.\n\n```c\n// Create an array mapping opcodes to their label addresses\nstatic void* dispatch_table[] = { &&op_halt, &&op_add, &&op_sub };\n\n// Fetch an opcode (e.g., 1 for op_add)\nuint8_t opcode = fetch();\n\n// Jump dynamically based on the index\ngoto *dispatch_table[opcode];\n\nop_halt:\n    return;\nop_add:\n    // Do addition...\nop_sub:\n    // Do subtraction...\n```\n\n## 2. The Problem: The Central Dispatch Bottleneck\n\nTo understand _why_ computed gotos are useful, we first have to look at how a standard interpreter loop is written using an infinite `while` loop and a `switch` statement.\n\n```c\nwhile (running) {\n    uint8_t opcode = fetch();\n    switch (opcode) {\n        case 0x01: \n            // handle add\n            break;\n        case 0x02:\n            // handle sub\n            break;\n    }\n}\n```\n\nWhile modern compilers optimise the switch into a highly efficient O(1) [jump table](../../grill/c-systems-programming/), the CPU's **Branch Predictor** struggles with the overarching loop.\nBecause every single instruction loops back to the _same_ central `switch` header, the branch target is constantly changing based on the input stream. The CPU cannot confidently predict where the `switch` will jump next.\n\nWhen the CPU guesses wrong, it suffers a **pipeline stall**. It has to throw away the instructions it pre-fetched, clear its pipeline, and start over from the correct address.\n\n## 3. The Solution: Direct Threaded Code\n\nComputed gotos allow you to implement a pattern called **Direct Threaded Code**. Instead of returning to a central `while` loop to dispatch instructions, _every instruction handles its own dispatching_.\n\n```c\nstatic void* dispatch_table[] = { &&op_halt, &&op_add, &&op_sub };\n\n// A macro makes the code much cleaner to write\n#define DISPATCH() goto *dispatch_table[fetch()]\n\n// Initial jump to start the VM\nDISPATCH();\n\nop_halt:\n    return;\nop_add:\n    // Handle add...\n    \n    // Jump directly to the next instruction\n    DISPATCH(); \n\nop_sub:\n    // Handle sub...\n    DISPATCH();\n```\n\nNotice what is missing: **there is no central loop and no `switch` statement.**\nThis architectural difference is stark. In the diagram below, notice how direct threaded code (bottom) jumps directly from instruction to instruction, bypassing the central `while-switch` bottleneck (top).\n\n## 4. Why It Is Faster\n\nBy decentralizing the jumps, computed gotos map incredibly well to how modern CPU hardware works:\n1. **Decentralized Prediction:** Instead of one central dispatch point having to predict the entire program's flow, _each opcode_ gets its own jump point. If a `COMPARE` opcode is usually followed by a `JUMP` opcode in your virtual machine, the CPU's branch predictor learns the behavior of that specific path and pre-fetches correctly.\n2. **No Bounds Checking:** A C `switch` statement must generate fallback logic (like a hidden `default` bounds check) to satisfy the ISO C standard, even if you don't explicitly write one. Computed gotos bypass this standard, assuming the developer manages the bounds, resulting in fewer executed instructions per cycle.\n\nYou can interact with this simulation to see exactly how Direct Threaded Code bypasses the central loop and reduces pipeline prediction misses:\n\n## 5. Drawbacks and Considerations\n\nWhile powerful, computed gotos come with specific trade-offs:\n- **Portability:** Because they are a GNU C extension, they are not part of the standard ISO C specification. Compilers like MSVC (Microsoft Visual C++) do not support them.\n- **Code Duplication:** You have to write the fetch-and-dispatch logic at the end of every single label, which is why developers almost universally hide it behind a `DISPATCH()` macro.\n- **Control Flow Graph Complexity:** It creates a highly intertwined control flow graph that can make step-through debugging more confusing compared to a standard loop.\n",
+  "linkedFrom": [
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "glossary"
+      ],
+      "href": "/notes/teach/c17/glossary/",
+      "title": "C17 Glossary"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "c17"
+      ],
+      "href": "/notes/teach/c17/c17/",
+      "title": "C17 Hub"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "resources"
+      ],
+      "href": "/notes/teach/c17/resources/",
+      "title": "C17 Resources"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "notes"
+      ],
+      "href": "/notes/teach/c17/notes/",
+      "title": "C17 Teacher Notes"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "learning-records",
+        "0002-chip8-codebase-audit"
+      ],
+      "href": "/notes/teach/c17/learning-records/0002-chip8-codebase-audit/",
+      "title": "LR-0002: CHIP-8 Codebase Audit & Architecture Baseline"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "mission"
+      ],
+      "href": "/notes/teach/c17/mission/",
+      "title": "Mission: C17 Systems Mastery via CHIP-8 Emulator"
+    }
+  ]
+}

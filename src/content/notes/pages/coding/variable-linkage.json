@@ -46,6 +46,33 @@
     },
     {
       "slug": [
+        "teach",
+        "c17",
+        "glossary"
+      ],
+      "href": "/notes/teach/c17/glossary/",
+      "title": "C17 Glossary"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "c17"
+      ],
+      "href": "/notes/teach/c17/c17/",
+      "title": "C17 Hub"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "resources"
+      ],
+      "href": "/notes/teach/c17/resources/",
+      "title": "C17 Resources"
+    },
+    {
+      "slug": [
         "grill",
         "c-systems-programming"
       ],

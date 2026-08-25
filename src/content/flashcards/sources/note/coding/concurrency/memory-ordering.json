@@ -4,23 +4,27 @@
     "id": "coding/concurrency/memory-ordering",
     "title": "Memory Ordering",
     "href": "/notes/coding/concurrency/memory-ordering/",
-    "tags": ["concurrency", "atomics", "memory-ordering"]
+    "tags": [
+      "concurrency",
+      "atomics",
+      "memory-ordering"
+    ]
   },
   "cards": [
     {
       "id": "note:coding/concurrency/memory-ordering:0",
-      "question": "What does the ordering parameter on atomic operations control?",
-      "answer": "The guarantees we get about the relative ordering of operations."
+      "question": "What is the purpose of the memory ordering parameter in atomic operations?",
+      "answer": "It specifies constraints to the compiler and CPU regarding which memory reads and writes may be reordered around the atomic operation."
     },
     {
       "id": "note:coding/concurrency/memory-ordering:1",
-      "question": "Can a CPU perform operations out of source order?",
-      "answer": "Yes. It might group assignments together even if they are not in that order in the code."
+      "question": "Why might two threads observe memory assignments occurring in different orders in the absence of synchronization?",
+      "answer": "CPUs and optimizing compilers reorder independent memory reads and writes to maximize execution throughput and cache efficiency."
     },
     {
       "id": "note:coding/concurrency/memory-ordering:2",
-      "question": "How can two threads see different assignment orders?",
-      "answer": "T1 might see V1 V2 V3 assigned, while T2 might see V2 V3 V1."
+      "question": "What problem do memory barriers and atomic memory orderings solve in concurrent systems?",
+      "answer": "They establish happens-before relationships and enforce memory visibility guarantees across threads without needing full heavyweight mutex locks."
     }
   ]
 }

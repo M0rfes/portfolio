@@ -4,48 +4,11 @@
     "id": "teach/c17/notes",
     "title": "C17 Teacher Notes",
     "href": "/notes/teach/c17/notes/",
-    "tags": ["teach/c17", "notes", "chip-8"]
+    "tags": [
+      "teach/c17",
+      "notes",
+      "chip-8"
+    ]
   },
-  "cards": [
-    {
-      "id": "note:teach/c17/notes:0",
-      "question": "How large is CHIP-8 RAM, and what is its address range?",
-      "answer": "A 4KB RAM buffer from `0x000` to `0xFFF`."
-    },
-    {
-      "id": "note:teach/c17/notes:1",
-      "question": "What registers does the CHIP-8 CPU expose?",
-      "answer": "16 general-purpose 8-bit registers (`V0`–`VF`), a 16-bit index register `I`, the program counter `PC`, and delay/sound timers."
-    },
-    {
-      "id": "note:teach/c17/notes:2",
-      "question": "How large is the CHIP-8 call stack?",
-      "answer": "A 16-level call stack with stack pointer `SP`."
-    },
-    {
-      "id": "note:teach/c17/notes:3",
-      "question": "How is the CHIP-8 display represented?",
-      "answer": "A 64×32 2D boolean pixel matrix."
-    },
-    {
-      "id": "note:teach/c17/notes:4",
-      "question": "How are 16-bit big-endian CHIP-8 instructions fetched?",
-      "answer": "`(mem[PC] << 8) | mem[PC + 1]`."
-    },
-    {
-      "id": "note:teach/c17/notes:5",
-      "question": "Where should ROMs be loaded in CHIP-8 RAM?",
-      "answer": "At offset `0x200`."
-    },
-    {
-      "id": "note:teach/c17/notes:6",
-      "question": "How is the CHIP-8 keypad represented?",
-      "answer": "A 16-key keypad state, with translation from SDL keys."
-    },
-    {
-      "id": "note:teach/c17/notes:7",
-      "question": "What two dispatch styles will the opcode engine compare?",
-      "answer": "Function-pointer dispatch tables versus switch structures."
-    }
-  ]
+  "cards": []
 }

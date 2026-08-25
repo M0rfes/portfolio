@@ -4,23 +4,27 @@
     "id": "coding/register-storage",
     "title": "Register Storage",
     "href": "/notes/coding/register-storage/",
-    "tags": ["c", "memory", "storage-classes"]
+    "tags": [
+      "c",
+      "memory",
+      "storage-classes"
+    ]
   },
   "cards": [
     {
       "id": "note:coding/register-storage:0",
-      "question": "What does a register modifier request of the compiler?",
-      "answer": "To place the variable in a CPU register instead of RAM."
+      "question": "What does the register storage class specifier request from the compiler in C?",
+      "answer": "It requests that a local variable be placed in a CPU register rather than RAM to minimize access latency."
     },
     {
       "id": "note:coding/register-storage:1",
-      "question": "Must the compiler honor a register modifier?",
-      "answer": "No. It can choose not to for the sake of optimisation. The modifier is more like a request."
+      "question": "Is the C compiler obligated to place a variable in a CPU register when marked with register?",
+      "answer": "No. It is treated as an optimization hint, and the compiler may place the variable in RAM if registers are unavailable or optimization heuristics dictate otherwise."
     },
     {
       "id": "note:coding/register-storage:2",
-      "question": "Can a whole struct have a register modifier?",
-      "answer": "Yes, but one field of a struct cannot have the register modifier."
+      "question": "How does the register storage class modifier interact with struct definitions in C?",
+      "answer": "An entire struct instance can be declared with register, but individual fields within a struct definition cannot."
     }
   ]
 }

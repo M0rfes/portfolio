@@ -4,23 +4,27 @@
     "id": "coding/automatic-storage-duration",
     "title": "Automatic Storage Duration",
     "href": "/notes/coding/automatic-storage-duration/",
-    "tags": ["c", "memory", "storage-classes"]
+    "tags": [
+      "c",
+      "memory",
+      "storage-classes"
+    ]
   },
   "cards": [
     {
       "id": "note:coding/automatic-storage-duration:0",
-      "question": "What is auto the default modifier for?",
-      "answer": "Visibility and lifetime."
+      "question": "What is automatic storage duration in C?",
+      "answer": "A storage duration where memory is automatically allocated on the call stack when execution enters the enclosing block and automatically reclaimed when the block exits."
     },
     {
       "id": "note:coding/automatic-storage-duration:1",
-      "question": "What is auto lifetime bound to?",
-      "answer": "Its scope."
+      "question": "Why is returning a pointer to a local variable with automatic storage duration dangerous in C?",
+      "answer": "The variable stack memory is deallocated when the function returns, leaving a dangling pointer whose dereference causes undefined behavior."
     },
     {
       "id": "note:coding/automatic-storage-duration:2",
-      "question": "When is auto memory acquired and freed?",
-      "answer": "Memory is acquired when the variable comes into scope and freed when it goes out of scope."
+      "question": "What storage duration do non-static local variables inside function blocks have by default in C?",
+      "answer": "Automatic storage duration (associated with the auto storage class)."
     }
   ]
 }

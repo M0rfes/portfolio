@@ -10,21 +10,5 @@
       "chip-8"
     ]
   },
-  "cards": [
-    {
-      "id": "note:teach/c17/c17:0",
-      "question": "What is the primary vehicle used in the C17 systems programming curriculum?",
-      "answer": "Building, hardening, and optimizing a CHIP-8 emulator in ISO C17."
-    },
-    {
-      "id": "note:teach/c17/c17:1",
-      "question": "At what memory address are CHIP-8 ROMs loaded in emulator RAM?",
-      "answer": "CHIP-8 ROMs are loaded into RAM starting at entry address 0x200 (512 in decimal)."
-    },
-    {
-      "id": "note:teach/c17/c17:2",
-      "question": "What rendering technique does the CHIP-8 display engine use for drawing sprites?",
-      "answer": "CHIP-8 uses DXYN sprite XOR rendering to toggle pixels on and off on the display."
-    }
-  ]
+  "cards": []
 }

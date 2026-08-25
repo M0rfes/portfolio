@@ -15,28 +15,18 @@
   "cards": [
     {
       "id": "note:thoughts/defensive-programming:0",
-      "question": "Where should you apply defensive validation of user input?",
-      "answer": "Do not trust user input. Put validators on form values and on the HTTP request body and query."
+      "question": "Where should defensive programming and input validation be strictly applied in an application architecture?",
+      "answer": "At external trust boundaries where input is untrusted, such as user form submissions, public HTTP request bodies, and external API inputs."
     },
     {
       "id": "note:thoughts/defensive-programming:1",
-      "question": "Should you validate responses from backend services your own team manages?",
-      "answer": "No. If you need to be defensive against your own teammates' code, you have gone too far. Those validators introduce too many edge cases."
+      "question": "Why is excessive defensive validation against internal backend services managed by your own team considered an antipattern?",
+      "answer": "It introduces redundant edge cases, masks broken schema contracts, creates maintenance friction, and erodes team collaboration."
     },
     {
       "id": "note:thoughts/defensive-programming:2",
-      "question": "If the backend returns a string instead of an array, should the frontend fall back to []?",
-      "answer": "No. The frontend should not validate that and fall back to an empty array. The UI can show an error via an error boundary, or simply break, because invariants have broken."
-    },
-    {
-      "id": "note:thoughts/defensive-programming:3",
-      "question": "Should the UI refuse to break no matter what?",
-      "answer": "No. Push back on the attitude that the UI must never break. If invariants have broken, the UI can show an error using an error boundary or simply break."
-    },
-    {
-      "id": "note:thoughts/defensive-programming:4",
-      "question": "What happens if you treat the backend as an antagonist to your code?",
-      "answer": "You will soon start to see the backend developers as antagonists to you."
+      "question": "Why should frontend interfaces fail fast (e.g. via error boundaries) when backend contracts break instead of silently falling back to defaults?",
+      "answer": "Silently falling back to empty defaults masks broken invariants, hides critical server errors, and makes root-cause debugging significantly harder."
     }
   ]
 }

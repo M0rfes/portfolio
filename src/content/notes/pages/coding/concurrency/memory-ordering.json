@@ -38,6 +38,15 @@
     },
     {
       "slug": [
+        "teach",
+        "c17",
+        "resources"
+      ],
+      "href": "/notes/teach/c17/resources/",
+      "title": "C17 Resources"
+    },
+    {
+      "slug": [
         "books",
         "rust",
         "rust-atomics-and-locks",

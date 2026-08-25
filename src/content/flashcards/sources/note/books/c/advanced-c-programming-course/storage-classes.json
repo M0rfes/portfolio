@@ -14,28 +14,23 @@
   "cards": [
     {
       "id": "note:books/c/advanced-c-programming-course/storage-classes:0",
-      "question": "What three core properties do C storage classes describe for a variable or function?",
-      "answer": "Storage classes describe scope (where it is accessible), visibility/linkage (whether it is visible to other files), and lifetime (how long it exists)."
+      "question": "What three core properties do storage classes determine for a variable in C?",
+      "answer": "They determine scope (where the variable is accessible), visibility/linkage (whether it can be referenced across translation units), and lifetime/storage duration (how long its memory remains allocated)."
     },
     {
       "id": "note:books/c/advanced-c-programming-course/storage-classes:1",
-      "question": "What are the four storage class modifiers in C?",
-      "answer": "The four storage modifiers are auto, extern, static, and register."
+      "question": "What are the four storage class specifiers available in C?",
+      "answer": "auto, extern, static, and register."
     },
     {
       "id": "note:books/c/advanced-c-programming-course/storage-classes:2",
-      "question": "How does declaring a variable or function static at file scope affect its visibility?",
-      "answer": "It restricts visibility strictly to the file where it is defined, giving it internal linkage."
+      "question": "What is the distinction between variable scope and variable lifetime in C?",
+      "answer": "Scope is a compile-time region of code where an identifier is visible and accessible, while lifetime is the runtime duration during which memory remains allocated for that object."
     },
     {
       "id": "note:books/c/advanced-c-programming-course/storage-classes:3",
-      "question": "Where are local static variables stored in memory, and what is their lifetime?",
-      "answer": "Local static variables are stored in the data segment (or BSS) and retain their values from program start to program termination."
-    },
-    {
-      "id": "note:books/c/advanced-c-programming-course/storage-classes:4",
-      "question": "What is the 'no address rule' regarding C register variables?",
-      "answer": "You cannot take the address of a register variable using & because CPU registers do not have memory addresses in RAM."
+      "question": "What is the distinction between variable scope and variable linkage in C?",
+      "answer": "Scope dictates accessibility within a single translation unit or block, whereas linkage dictates whether multiple declarations across different scopes or translation units refer to the same object."
     }
   ]
 }

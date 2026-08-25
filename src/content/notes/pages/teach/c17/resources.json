@@ -11,11 +11,20 @@
     "resources"
   ],
   "created": "2026-08-22",
-  "updatedAt": "2026-08-22",
+  "updatedAt": "2026-08-25",
   "vaultPath": "Teach/C17/RESOURCES.md",
   "folder": "Teach",
-  "markdown": "[← C17 MOC](../c17/)\n\n# C17 Resources\n\n> [!NOTE] Curation Standards\n> Only high-trust ISO standards, authoritative systems literature, official documentation, and curated practitioner communities are listed here.\n\n---\n\n## 📚 Knowledge (Primary Sources & Textbooks)\n\n- [ISO C17 Standard Draft (N2176)](https://www.open-std.org/jtc1/sc22/wg14/www/docs/n2176.pdf)\n  - **Use for**: The ultimate authoritative specification for language semantics, grammar, and standard library guarantees.\n- [Book: _Modern C_ by Jens Gustedt (Inria)](https://modernc.gforge.inria.fr/)\n  - **Use for**: Idiomatic modern C (C11/C17/C23), type safety, memory models, modularity, and avoiding historical antipatterns.\n- [Book: _Effective C_ by Robert C. Seacord](https://nostarch.com/Effective_C)\n  - **Use for**: Professional defensive programming, dynamic memory security, integer conversion safety, and undefined behavior prevention.\n- [SEI CERT C Coding Standard](https://wiki.sei.cmu.edu/confluence/display/c/SEI+CERT+C+Coding+Standard)\n  - **Use for**: Comprehensive rules and security guidelines to avoid software vulnerabilities.\n- [Beej's Guide to C Programming](https://beej.us/guide/bgc/) & [Beej's Guide to Network Programming](https://beej.us/guide/bgnet/)\n  - **Use for**: Practical systems programming, socket communication, and POSIX system calls.\n- [Cppreference C Reference](https://en.cppreference.com/w/c)\n  - **Use for**: Quick, searchable standard library API lookup and behavior guarantees.\n- **Vault Links**:\n  - [Vault Concurrency Notes](../../../coding/concurrency/concurrency/)\n  - [Vault Mutex Reference](../../../coding/concurrency/mutex/)\n  - [Vault Memory & Atomics Notes](../../../books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/)\n\n---\n\n## 👥 Wisdom (Communities & Practice)\n\n- [Reddit: r/C_Programming](https://reddit.com/r/C_Programming)\n  - **Use for**: Code reviews, performance analysis, systems architecture questions, and compiler edge cases.\n- [Stack Overflow (C Tag)](https://stackoverflow.com/questions/tagged/c)\n  - **Use for**: Specific diagnostic questions and ISO standard clause interpretation.\n- [Lobste.rs Systems Tag](https://lobste.rs/t/c)\n  - **Use for**: High-signal engineering discussions on native systems software.\n\n---\n\n## ⚠️ Knowledge Gaps\n\n- *None currently identified. C17 toolchain and ISO specifications are fully standardized.*\n\n---\n\n## 👤 Learner Preferences\n\n- Background in Node.js with working familiarity with Go and Rust.\n- Prefers deep, rigorous understanding of the memory model, low-level mechanics, and job-readiness over surface-level tutorials.\n- Targets macOS and Linux using CMake, Clang, and GCC.\n",
+  "markdown": "[← C17 MOC](../c17/) · [🎯 Mission](../mission/) · [📖 Glossary](../glossary/) · [📝 Teacher Notes](../notes/)\n\n# C17 Resources\n\n> [!NOTE] Curation Standards\n> Only high-trust ISO standards, authoritative systems literature, official documentation, and curated practitioner communities are listed here.\n\n---\n\n## 📚 Knowledge (Primary Sources & Textbooks)\n\n- [ISO C17 Standard Draft (N2176)](https://www.open-std.org/jtc1/sc22/wg14/www/docs/n2176.pdf)\n  - **Use for**: The ultimate authoritative specification for language semantics, grammar, and standard library guarantees.\n- [Book: _Modern C_ by Jens Gustedt (Inria)](https://modernc.gforge.inria.fr/)\n  - **Use for**: Idiomatic modern C (C11/C17/C23), type safety, memory models, modularity, and avoiding historical antipatterns.\n- [Book: _Effective C_ by Robert C. Seacord](https://nostarch.com/Effective_C)\n  - **Use for**: Professional defensive programming, dynamic memory security, integer conversion safety, and undefined behavior prevention.\n- [SEI CERT C Coding Standard](https://wiki.sei.cmu.edu/confluence/display/c/SEI+CERT+C+Coding+Standard)\n  - **Use for**: Comprehensive rules and security guidelines to avoid software vulnerabilities.\n- [Beej's Guide to C Programming](https://beej.us/guide/bgc/) & [Beej's Guide to Network Programming](https://beej.us/guide/bgnet/)\n  - **Use for**: Practical systems programming, socket communication, and POSIX system calls.\n- [Cppreference C Reference](https://en.cppreference.com/w/c)\n  - **Use for**: Quick, searchable standard library API lookup and behavior guarantees.\n\n---\n\n## 🌐 Vault Knowledge Connections\n\n### Emulation & VM Specifications\n- [CHIP-8 Hardware Specifications & Instruction Set](../../../emulation/chip-8/): Reference for memory map, timer rates, keypad layout, and opcode decoding logic.\n- [Computed Gotos & Direct Threaded Code](../../../coding/computed-gotos-in-c-direct-threaded-code/): C compiler extension for branch-prediction-friendly interpreter dispatch.\n\n### C Language Storage Classes & Scoping\n- [Advanced C: Storage Classes Hub](../../../books/c/advanced-c-programming-course/storage-classes/): Core reference on scope, linkage, and lifetime.\n- [Advanced C: Static Storage Class](../../../books/c/advanced-c-programming-course/c-static/): Internal linkage across translation units and persistent local state.\n- [Advanced C: Extern Storage Class](../../../books/c/advanced-c-programming-course/c-extern/): External symbol resolution in multi-file C programs.\n- [Advanced C: Register Storage Class](../../../books/c/advanced-c-programming-course/c-register/): CPU register hint semantics and `&` constraint violations.\n- [Advanced C: Auto Storage Class](../../../books/c/advanced-c-programming-course/c-auto/): Automatic storage duration and stack frames.\n- [Concept: Variable Linkage](../../../coding/variable-linkage/): Multi-file symbol visibility rules.\n- [Concept: Variable Scope](../../../coding/variable-scope/): Block vs File vs Function Prototype scopes.\n- [Concept: Variable Lifetime](../../../coding/variable-lifetime/): Stack vs Static Data Segment object duration.\n- [Concept: Register Storage](../../../coding/register-storage/): Register optimization requests.\n- [Concept: Automatic Storage Duration](../../../coding/automatic-storage-duration/): Stack allocation mechanics.\n\n### Diagnostic Benchmarks & Software Design\n- [Grilling Diagnostic: C Systems Programming Knowledge](../../../grill/c-systems-programming/): Stress-tested diagnostic covering storage classes, array decay, sizeof units, struct alignment, big-endian bitwise packing, and jump tables.\n- [Defensive Programming & Runtime Invariants](../../../thoughts/defensive-programming/): Defensive error checking, pointer validation, and deterministic crash prevention.\n- [Function Abstraction & Local Reasoning](../../../thoughts/function-abstration/): Deep modularity and interface isolation.\n\n### Advanced Memory Models & Concurrency (Comparative Study)\n- [Concurrency Fundamentals](../../../coding/concurrency/concurrency/)\n- [Mutex Architecture & Invariants](../../../coding/concurrency/mutex/)\n- [CPU Memory Ordering & Memory Barriers](../../../coding/concurrency/memory-ordering/)\n- [Mara Bos - Concurrency & Low-Level Memory Notes](../../../books/rust/rust-atomics-and-locks/basics-of-rust-concurrency/)\n\n---\n\n## 👥 Wisdom (Communities & Practice)\n\n- [Reddit: r/C_Programming](https://reddit.com/r/C_Programming)\n  - **Use for**: Code reviews, performance analysis, systems architecture questions, and compiler edge cases.\n- [Stack Overflow (C Tag)](https://stackoverflow.com/questions/tagged/c)\n  - **Use for**: Specific diagnostic questions and ISO standard clause interpretation.\n- [Lobste.rs Systems Tag](https://lobste.rs/t/c)\n  - **Use for**: High-signal engineering discussions on native systems software.\n- [EmuDev Discord & /r/EmuDev](https://reddit.com/r/EmuDev)\n  - **Use for**: Emulator developer test suites, timing edge cases, and test ROM verification.\n\n---\n\n## ⚠️ Knowledge Gaps\n\n- *None currently identified. C17 toolchain and ISO specifications are fully standardized.*\n\n---\n\n## 👤 Learner Preferences\n\n- Background in Node.js with working familiarity with Go and Rust.\n- Prefers deep, rigorous understanding of the memory model, low-level mechanics, and job-readiness over surface-level tutorials.\n- Targets macOS and Linux using CMake, Clang, and GCC.\n",
   "linkedFrom": [
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "glossary"
+      ],
+      "href": "/notes/teach/c17/glossary/",
+      "title": "C17 Glossary"
+    },
     {
       "slug": [
         "teach",
@@ -24,6 +33,54 @@
       ],
       "href": "/notes/teach/c17/c17/",
       "title": "C17 Hub"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "notes"
+      ],
+      "href": "/notes/teach/c17/notes/",
+      "title": "C17 Teacher Notes"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "lessons",
+        "0001-c17-standards-and-modern-toolchain"
+      ],
+      "href": "/notes/teach/c17/lessons/0001-c17-standards-and-modern-toolchain/",
+      "title": "Lesson 0001: ISO C17 Standards, Compiler Diagnostics & CMake with SDL2"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "lessons",
+        "0002-binary-file-io-and-rom-loading"
+      ],
+      "href": "/notes/teach/c17/lessons/0002-binary-file-io-and-rom-loading/",
+      "title": "Lesson 0002: Safe Binary File I/O & ROM Loading into Memory at 0x200"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "mission"
+      ],
+      "href": "/notes/teach/c17/mission/",
+      "title": "Mission: C17 Systems Mastery via CHIP-8 Emulator"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "reference",
+        "modern-c17-toolchain-and-cmake"
+      ],
+      "href": "/notes/teach/c17/reference/modern-c17-toolchain-and-cmake/",
+      "title": "Modern C17 Toolchain and CMake Reference"
     }
   ]
 }

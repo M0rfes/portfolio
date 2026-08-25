@@ -12,11 +12,20 @@
     "chip-8"
   ],
   "created": "2026-08-22",
-  "updatedAt": "2026-08-22",
+  "updatedAt": "2026-08-25",
   "vaultPath": "Teach/C17/MISSION.md",
   "folder": "Teach",
-  "markdown": "[← C17 MOC](../c17/)\n\n# Mission: C17 Systems Mastery via CHIP-8 Emulator\n\n> [!NOTE] Overarching Goal\n> Master production-grade ISO C17 systems programming by completing, optimizing, and hardening the CHIP-8 Emulator codebase into a high-performance, memory-safe, fully-featured native systems application with modern CMake tooling and sanitizers.\n\n---\n\n## 🎯 Why\nTransition from Node.js / web development into low-level systems engineering. Building an emulator in C provides hands-on mastery over the core pillars of systems programming:\n- Binary file parsing and endianness reconstruction.\n- Low-level bitwise manipulation and opcode instruction decoding.\n- Memory architecture, struct alignment, and pointer lifetimes.\n- High-frequency CPU execution cycles and timer synchronization.\n- Hardware abstraction, pixel framebuffer manipulation, and SDL2 integration.\n- Production build systems (CMake), strict diagnostics (`-Wall -Wextra -Wpedantic`), and memory sanitizers (ASan/UBSan).\n\n---\n\n## 🏆 Success Looks Like\n- [ ] Transition `chip-8-emu/c` from Makefile to a modern `CMakeLists.txt` with automatic SDL2 finding, strict compiler flags, and ASan/UBSan debug targets.\n- [ ] Implement robust ROM loading from disk (`fopen`, `fread`, error handling, size validation, loading to `0x200`).\n- [ ] Build the complete 35-opcode instruction decoding and execution engine using clean C17 idioms (bitmask extraction and function pointer jump tables).\n- [ ] Implement 60Hz Delay and Sound timers synchronized with the emulation cycle.\n- [ ] Optimize the XOR graphics rendering engine (`DXYN`) and screen buffer with SDL2 texture streaming.\n- [ ] Eliminate all potential Undefined Behavior (UB), integer overflow bugs, and pointer bugs, verified with AddressSanitizer.\n- [ ] Add an interactive CLI disassembler / debugger mode for stepping through ROM instructions.\n\n---\n\n## ⚙️ Constraints & Environment\n- **Project Path**: `/Users/morfes/projects/chip-8-emu/c` (`git@github.com:M0rfes/chip8_emu.git`).\n- **Standard**: ISO C17 (`-std=c17`).\n- **Platforms**: macOS (Apple Silicon / Clang) & Linux (x86_64 / GCC & Clang).\n- **Libraries**: SDL2 for graphics/audio/input.\n- **Build System**: CMake.\n",
+  "markdown": "[← C17 MOC](../c17/) · [📖 Glossary](../glossary/) · [📚 Resources](../resources/) · [📝 Teacher Notes](../notes/)\n\n# Mission: C17 Systems Mastery via CHIP-8 Emulator\n\n> [!NOTE] Overarching Goal\n> Master production-grade ISO C17 systems programming by completing, optimizing, and hardening the [CHIP-8 Emulator](../../../emulation/chip-8/) codebase into a high-performance, memory-safe, fully-featured native systems application with modern CMake tooling and sanitizers.\n\n---\n\n## 🎯 Why\nTransition from Node.js / web development into low-level systems engineering. Building an emulator in C provides hands-on mastery over the core pillars of systems programming:\n- **Binary file parsing & endianness reconstruction**: Safe stream processing, boundary validation, and loading ROMs directly into memory at `0x200`.\n- **Low-level bitwise manipulation & opcode decoding**: Masking nibbles (`0xF000`, `0x0F00`, `0x0FFF`) to decode and dispatch 35 instructions.\n- **Memory architecture & pointer lifetimes**: Struct alignment, tail padding, and memory layout mapped in [C Knowledge Diagnostics](../../../grill/c-systems-programming/).\n- **High-frequency CPU execution cycles**: Dispatching via function pointer jump tables or [direct threaded code](../../../coding/computed-gotos-in-c-direct-threaded-code/) and 60Hz timer synchronization.\n- **Hardware abstraction & pixel framebuffer manipulation**: SDL2 texture streaming and bitwise XOR graphics rendering.\n- **Production build systems & diagnostics**: CMake build automation, strict warnings (`-Wall -Wextra -Wpedantic`), [defensive programming](../../../thoughts/defensive-programming/), and dynamic runtime sanitizers (ASan/UBSan).\n\n---\n\n## 🏆 Success Looks Like\n- [ ] Transition `chip-8-emu/c` from Makefile to a modern `CMakeLists.txt` with automatic SDL2 finding, strict compiler flags, and ASan/UBSan debug targets.\n- [ ] Implement robust ROM loading from disk (`fopen`, `fread`, error handling, size validation, loading to `0x200` as specified in [CHIP-8 Memory Specs](../../../emulation/chip-8/#memory)).\n- [ ] Build the complete 35-opcode instruction decoding and execution engine using clean C17 idioms (bitmask extraction and function pointer jump tables).\n- [ ] Implement 60Hz Delay and Sound timers synchronized with the emulation cycle.\n- [ ] Optimize the XOR graphics rendering engine (`DXYN`) and screen buffer with SDL2 texture streaming.\n- [ ] Eliminate all potential Undefined Behavior (UB), integer overflow bugs, and pointer bugs, verified with AddressSanitizer.\n- [ ] Add an interactive CLI disassembler / debugger mode for stepping through ROM instructions.\n\n---\n\n## ⚙️ Constraints & Environment\n- **Project Path**: `/Users/morfes/projects/chip-8-emu/c` (`git@github.com:M0rfes/chip8_emu.git`).\n- **Standard**: ISO C17 (`-std=c17`).\n- **Platforms**: macOS (Apple Silicon / Clang) & Linux (x86_64 / GCC & Clang).\n- **Libraries**: SDL2 for graphics/audio/input.\n- **Build System**: CMake.\n- **Core Reference**: [Vault CHIP-8 Specification](../../../emulation/chip-8/).\n",
   "linkedFrom": [
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "glossary"
+      ],
+      "href": "/notes/teach/c17/glossary/",
+      "title": "C17 Glossary"
+    },
     {
       "slug": [
         "teach",
@@ -25,6 +34,24 @@
       ],
       "href": "/notes/teach/c17/c17/",
       "title": "C17 Hub"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "resources"
+      ],
+      "href": "/notes/teach/c17/resources/",
+      "title": "C17 Resources"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "notes"
+      ],
+      "href": "/notes/teach/c17/notes/",
+      "title": "C17 Teacher Notes"
     },
     {
       "slug": [
@@ -95,6 +122,16 @@
       ],
       "href": "/notes/teach/c17/reference/modern-c17-toolchain-and-cmake/",
       "title": "Modern C17 Toolchain and CMake Reference"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "reference",
+        "standard-io-and-binary-file-streams"
+      ],
+      "href": "/notes/teach/c17/reference/standard-io-and-binary-file-streams/",
+      "title": "Standard I/O & Binary File Streams in C17"
     }
   ]
 }

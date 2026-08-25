@@ -1,0 +1,43 @@
+{
+  "source": {
+    "type": "note",
+    "id": "coding/computed-gotos-in-c-direct-threaded-code",
+    "title": "Computed Gotos in C (Direct Threaded Code)",
+    "href": "/notes/coding/computed-gotos-in-c-direct-threaded-code/",
+    "tags": [
+      "c",
+      "compilers",
+      "performance",
+      "virtual-machine",
+      "interpreters",
+      "emulation"
+    ]
+  },
+  "cards": [
+    {
+      "id": "note:coding/computed-gotos-in-c-direct-threaded-code:0",
+      "question": "What GNU C extension syntax is used to take the address of a label and jump to it dynamically?",
+      "answer": "The unary && operator takes the label address (e.g. &&op_add), and goto *pointer; performs the indirect jump."
+    },
+    {
+      "id": "note:coding/computed-gotos-in-c-direct-threaded-code:1",
+      "question": "Why does a traditional interpreter loop using while (running) { switch (fetch()) { ... } } suffer from CPU branch mispredictions?",
+      "answer": "All instructions jump back to the same central switch header, forcing the CPU branch predictor to predict an ever-changing target from a single branch site, causing pipeline stalls."
+    },
+    {
+      "id": "note:coding/computed-gotos-in-c-direct-threaded-code:2",
+      "question": "How does Direct Threaded Code using computed gotos eliminate the central interpreter loop bottleneck?",
+      "answer": "Each instruction handler dispatches directly to the next handler by fetching the opcode and jumping through a dispatch table (goto *dispatch_table[fetch()]), decentralizing branch prediction across distinct jump sites."
+    },
+    {
+      "id": "note:coding/computed-gotos-in-c-direct-threaded-code:3",
+      "question": "Why can computed gotos execute faster than a compiler-optimized jump table generated for a switch statement?",
+      "answer": "A switch statement must generate default bounds-checking instructions to satisfy the ISO standard, whereas computed gotos skip bounds checks and provide separate branch prediction state per opcode."
+    },
+    {
+      "id": "note:coding/computed-gotos-in-c-direct-threaded-code:4",
+      "question": "What are the main engineering trade-offs of using computed gotos in a C project?",
+      "answer": "They are non-standard compiler extensions unsupported by MSVC, make step-through debugging more complex, and require dispatch macro duplication across all handlers."
+    }
+  ]
+}

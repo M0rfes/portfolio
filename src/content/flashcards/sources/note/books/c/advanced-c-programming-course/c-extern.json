@@ -4,33 +4,32 @@
     "id": "books/c/advanced-c-programming-course/c-extern",
     "title": "C Extern Storage Class",
     "href": "/notes/books/c/advanced-c-programming-course/c-extern/",
-    "tags": ["c", "memory", "storage-classes"]
+    "tags": [
+      "c",
+      "memory",
+      "storage-classes"
+    ]
   },
   "cards": [
     {
       "id": "note:books/c/advanced-c-programming-course/c-extern:0",
-      "question": "What does visibility or linkage specify?",
-      "answer": "Whether a variable is visible to other files in a multi-file program."
+      "question": "What is the primary purpose of the extern storage class specifier in C?",
+      "answer": "It declares a variable or function with external linkage, allowing other translation units to reference a symbol defined elsewhere without allocating new storage."
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-extern:1",
-      "question": "What does extern control, and what defaults to extern?",
-      "answer": "Extern controls the visibility of a global variable in a multi-file project. Functions default to extern."
+      "question": "What is the default linkage for functions in C when no storage class specifier is provided?",
+      "answer": "Functions have external linkage (extern) by default, making them callable from other translation units unless explicitly marked static."
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-extern:2",
-      "question": "Can extern be used inside a function scope?",
-      "answer": "Yes. Using extern within a scope declares that you are using a global variable defined in another file."
+      "question": "Why does an extern declaration of a multidimensional array (e.g. extern char arr[][50];) require trailing dimension sizes while a 1D array does not?",
+      "answer": "The compiler needs the inner dimension sizes to calculate pointer arithmetic and row stride offsets in memory, whereas the first dimension size is not needed for indexing."
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-extern:3",
-      "question": "When declaring an extern array, which sizes must you specify?",
-      "answer": "A one-dimensional array does not need its size because the compiler already knows it. A multidimensional array must specify the nested sizes."
-    },
-    {
-      "id": "note:books/c/advanced-c-programming-course/c-extern:4",
-      "question": "Why is `extern int add(int a, int b);` the same as `int add(int a, int b);`?",
-      "answer": "Functions default to extern, so the two declarations are effectively the same."
+      "question": "What is the effect of declaring extern int count; inside a local function block?",
+      "answer": "It restricts the visibility of the symbol reference to that specific function scope while linking to the global variable defined in another translation unit."
     }
   ]
 }

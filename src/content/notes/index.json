@@ -61,464 +61,6 @@
     },
     {
       "slug": [
-        "emulation",
-        "chip-8"
-      ],
-      "href": "/notes/emulation/chip-8/",
-      "title": "CHIP-8",
-      "tags": [
-        "emulation",
-        "architecture",
-        "hardware",
-        "chip-8",
-        "virtual-machine"
-      ],
-      "created": "2026-08-23",
-      "updatedAt": "2026-08-24",
-      "vaultPath": "Emulation/CHIP-8.md",
-      "folder": "Emulation",
-      "linkedFrom": []
-    },
-    {
-      "slug": [
-        "grill",
-        "c-systems-programming"
-      ],
-      "href": "/notes/grill/c-systems-programming/",
-      "title": "Grill: C Systems Programming Knowledge",
-      "tags": [
-        "grill",
-        "c",
-        "memory",
-        "storage-classes",
-        "pointers",
-        "bitwise"
-      ],
-      "summary": "Comprehensive diagnostic grilling session mapping C17 fundamentals, storage duration, linkage, array decay, heap mechanics, bitwise arithmetic, and function pointer dispatch.",
-      "created": "2026-08-24",
-      "updatedAt": "2026-08-24",
-      "vaultPath": "Grill/C Systems Programming.md",
-      "folder": "Grill",
-      "linkedFrom": []
-    },
-    {
-      "slug": [
-        "coding",
-        "automatic-storage-duration"
-      ],
-      "href": "/notes/coding/automatic-storage-duration/",
-      "title": "Automatic Storage Duration",
-      "tags": [
-        "c",
-        "memory",
-        "storage-classes"
-      ],
-      "created": "2026-08-23",
-      "updatedAt": "2026-08-23",
-      "vaultPath": "Coding/Automatic Storage Duration.md",
-      "folder": "Coding",
-      "linkedFrom": [
-        {
-          "slug": [
-            "books",
-            "c",
-            "advanced-c-programming-course",
-            "c-auto"
-          ],
-          "href": "/notes/books/c/advanced-c-programming-course/c-auto/",
-          "title": "C Auto Storage Class"
-        },
-        {
-          "slug": [
-            "books",
-            "c",
-            "advanced-c-programming-course",
-            "storage-classes"
-          ],
-          "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
-          "title": "Storage Classes in C"
-        }
-      ]
-    },
-    {
-      "slug": [
-        "books",
-        "c",
-        "advanced-c-programming-course",
-        "c-auto"
-      ],
-      "href": "/notes/books/c/advanced-c-programming-course/c-auto/",
-      "title": "C Auto Storage Class",
-      "tags": [
-        "c",
-        "memory",
-        "storage-classes"
-      ],
-      "created": "2026-08-23",
-      "updatedAt": "2026-08-23",
-      "vaultPath": "Books/C/Advanced C Programming Course/C Auto.md",
-      "folder": "Books",
-      "linkedFrom": [
-        {
-          "slug": [
-            "books",
-            "c",
-            "advanced-c-programming-course",
-            "storage-classes"
-          ],
-          "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
-          "title": "Storage Classes in C"
-        }
-      ]
-    },
-    {
-      "slug": [
-        "books",
-        "c",
-        "advanced-c-programming-course",
-        "c-extern"
-      ],
-      "href": "/notes/books/c/advanced-c-programming-course/c-extern/",
-      "title": "C Extern Storage Class",
-      "tags": [
-        "c",
-        "memory",
-        "storage-classes"
-      ],
-      "created": "2026-08-23",
-      "updatedAt": "2026-08-23",
-      "vaultPath": "Books/C/Advanced C Programming Course/C Extern.md",
-      "folder": "Books",
-      "linkedFrom": [
-        {
-          "slug": [
-            "books",
-            "c",
-            "advanced-c-programming-course",
-            "storage-classes"
-          ],
-          "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
-          "title": "Storage Classes in C"
-        }
-      ]
-    },
-    {
-      "slug": [
-        "books",
-        "c",
-        "advanced-c-programming-course",
-        "c-register"
-      ],
-      "href": "/notes/books/c/advanced-c-programming-course/c-register/",
-      "title": "C Register Storage Class",
-      "tags": [
-        "c",
-        "memory",
-        "storage-classes"
-      ],
-      "created": "2026-08-23",
-      "updatedAt": "2026-08-23",
-      "vaultPath": "Books/C/Advanced C Programming Course/C Register.md",
-      "folder": "Books",
-      "linkedFrom": [
-        {
-          "slug": [
-            "books",
-            "c",
-            "advanced-c-programming-course",
-            "storage-classes"
-          ],
-          "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
-          "title": "Storage Classes in C"
-        }
-      ]
-    },
-    {
-      "slug": [
-        "books",
-        "c",
-        "advanced-c-programming-course",
-        "c-static"
-      ],
-      "href": "/notes/books/c/advanced-c-programming-course/c-static/",
-      "title": "C Static Storage Class",
-      "tags": [
-        "c",
-        "memory",
-        "storage-classes"
-      ],
-      "created": "2026-08-23",
-      "updatedAt": "2026-08-23",
-      "vaultPath": "Books/C/Advanced C Programming Course/C Static.md",
-      "folder": "Books",
-      "linkedFrom": [
-        {
-          "slug": [
-            "books",
-            "c",
-            "advanced-c-programming-course",
-            "storage-classes"
-          ],
-          "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
-          "title": "Storage Classes in C"
-        }
-      ]
-    },
-    {
-      "slug": [
-        "coding",
-        "register-storage"
-      ],
-      "href": "/notes/coding/register-storage/",
-      "title": "Register Storage",
-      "tags": [
-        "c",
-        "memory",
-        "storage-classes"
-      ],
-      "created": "2026-08-23",
-      "updatedAt": "2026-08-23",
-      "vaultPath": "Coding/Register Storage.md",
-      "folder": "Coding",
-      "linkedFrom": [
-        {
-          "slug": [
-            "books",
-            "c",
-            "advanced-c-programming-course",
-            "c-register"
-          ],
-          "href": "/notes/books/c/advanced-c-programming-course/c-register/",
-          "title": "C Register Storage Class"
-        },
-        {
-          "slug": [
-            "emulation",
-            "chip-8"
-          ],
-          "href": "/notes/emulation/chip-8/",
-          "title": "CHIP-8"
-        },
-        {
-          "slug": [
-            "books",
-            "c",
-            "advanced-c-programming-course",
-            "storage-classes"
-          ],
-          "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
-          "title": "Storage Classes in C"
-        }
-      ]
-    },
-    {
-      "slug": [
-        "books",
-        "c",
-        "advanced-c-programming-course",
-        "storage-classes"
-      ],
-      "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
-      "title": "Storage Classes in C",
-      "tags": [
-        "c",
-        "memory",
-        "storage-classes",
-        "moc"
-      ],
-      "created": "2026-08-23",
-      "updatedAt": "2026-08-23",
-      "vaultPath": "Books/C/Advanced C Programming Course/Storage Classes.md",
-      "folder": "Books",
-      "linkedFrom": [
-        {
-          "slug": [
-            "teach",
-            "c17",
-            "c17"
-          ],
-          "href": "/notes/teach/c17/c17/",
-          "title": "C17 Hub"
-        },
-        {
-          "slug": [
-            "grill",
-            "c-systems-programming"
-          ],
-          "href": "/notes/grill/c-systems-programming/",
-          "title": "Grill: C Systems Programming Knowledge"
-        }
-      ]
-    },
-    {
-      "slug": [
-        "coding",
-        "variable-lifetime"
-      ],
-      "href": "/notes/coding/variable-lifetime/",
-      "title": "Variable Lifetime",
-      "tags": [
-        "c",
-        "memory",
-        "storage-classes"
-      ],
-      "created": "2026-08-23",
-      "updatedAt": "2026-08-23",
-      "vaultPath": "Coding/Variable Lifetime.md",
-      "folder": "Coding",
-      "linkedFrom": [
-        {
-          "slug": [
-            "coding",
-            "automatic-storage-duration"
-          ],
-          "href": "/notes/coding/automatic-storage-duration/",
-          "title": "Automatic Storage Duration"
-        },
-        {
-          "slug": [
-            "books",
-            "c",
-            "advanced-c-programming-course",
-            "c-auto"
-          ],
-          "href": "/notes/books/c/advanced-c-programming-course/c-auto/",
-          "title": "C Auto Storage Class"
-        },
-        {
-          "slug": [
-            "books",
-            "c",
-            "advanced-c-programming-course",
-            "storage-classes"
-          ],
-          "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
-          "title": "Storage Classes in C"
-        }
-      ]
-    },
-    {
-      "slug": [
-        "coding",
-        "variable-linkage"
-      ],
-      "href": "/notes/coding/variable-linkage/",
-      "title": "Variable Linkage",
-      "tags": [
-        "c",
-        "memory",
-        "storage-classes"
-      ],
-      "created": "2026-08-23",
-      "updatedAt": "2026-08-23",
-      "vaultPath": "Coding/Variable Linkage.md",
-      "folder": "Coding",
-      "linkedFrom": [
-        {
-          "slug": [
-            "coding",
-            "automatic-storage-duration"
-          ],
-          "href": "/notes/coding/automatic-storage-duration/",
-          "title": "Automatic Storage Duration"
-        },
-        {
-          "slug": [
-            "books",
-            "c",
-            "advanced-c-programming-course",
-            "c-auto"
-          ],
-          "href": "/notes/books/c/advanced-c-programming-course/c-auto/",
-          "title": "C Auto Storage Class"
-        },
-        {
-          "slug": [
-            "books",
-            "c",
-            "advanced-c-programming-course",
-            "c-extern"
-          ],
-          "href": "/notes/books/c/advanced-c-programming-course/c-extern/",
-          "title": "C Extern Storage Class"
-        },
-        {
-          "slug": [
-            "grill",
-            "c-systems-programming"
-          ],
-          "href": "/notes/grill/c-systems-programming/",
-          "title": "Grill: C Systems Programming Knowledge"
-        },
-        {
-          "slug": [
-            "books",
-            "c",
-            "advanced-c-programming-course",
-            "storage-classes"
-          ],
-          "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
-          "title": "Storage Classes in C"
-        }
-      ]
-    },
-    {
-      "slug": [
-        "coding",
-        "variable-scope"
-      ],
-      "href": "/notes/coding/variable-scope/",
-      "title": "Variable Scope",
-      "tags": [
-        "c",
-        "memory",
-        "storage-classes"
-      ],
-      "created": "2026-08-23",
-      "updatedAt": "2026-08-23",
-      "vaultPath": "Coding/Variable Scope.md",
-      "folder": "Coding",
-      "linkedFrom": [
-        {
-          "slug": [
-            "coding",
-            "automatic-storage-duration"
-          ],
-          "href": "/notes/coding/automatic-storage-duration/",
-          "title": "Automatic Storage Duration"
-        },
-        {
-          "slug": [
-            "books",
-            "c",
-            "advanced-c-programming-course",
-            "c-auto"
-          ],
-          "href": "/notes/books/c/advanced-c-programming-course/c-auto/",
-          "title": "C Auto Storage Class"
-        },
-        {
-          "slug": [
-            "grill",
-            "c-systems-programming"
-          ],
-          "href": "/notes/grill/c-systems-programming/",
-          "title": "Grill: C Systems Programming Knowledge"
-        },
-        {
-          "slug": [
-            "books",
-            "c",
-            "advanced-c-programming-course",
-            "storage-classes"
-          ],
-          "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
-          "title": "Storage Classes in C"
-        }
-      ]
-    },
-    {
-      "slug": [
         "teach",
         "c17",
         "glossary"
@@ -530,7 +72,7 @@
         "glossary"
       ],
       "created": "2026-08-22",
-      "updatedAt": "2026-08-22",
+      "updatedAt": "2026-08-25",
       "vaultPath": "Teach/C17/GLOSSARY.md",
       "folder": "Teach",
       "linkedFrom": [
@@ -557,6 +99,24 @@
           "slug": [
             "teach",
             "c17",
+            "resources"
+          ],
+          "href": "/notes/teach/c17/resources/",
+          "title": "C17 Resources"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "notes"
+          ],
+          "href": "/notes/teach/c17/notes/",
+          "title": "C17 Teacher Notes"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
             "lessons",
             "0001-c17-standards-and-modern-toolchain"
           ],
@@ -572,6 +132,55 @@
           ],
           "href": "/notes/teach/c17/lessons/0002-binary-file-io-and-rom-loading/",
           "title": "Lesson 0002: Safe Binary File I/O & ROM Loading into Memory at 0x200"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "learning-records",
+            "0001-baseline-and-prerequisites"
+          ],
+          "href": "/notes/teach/c17/learning-records/0001-baseline-and-prerequisites/",
+          "title": "LR-0001: Learner Background & C17 Baseline"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "learning-records",
+            "0002-chip8-codebase-audit"
+          ],
+          "href": "/notes/teach/c17/learning-records/0002-chip8-codebase-audit/",
+          "title": "LR-0002: CHIP-8 Codebase Audit & Architecture Baseline"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "mission"
+          ],
+          "href": "/notes/teach/c17/mission/",
+          "title": "Mission: C17 Systems Mastery via CHIP-8 Emulator"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "reference",
+            "modern-c17-toolchain-and-cmake"
+          ],
+          "href": "/notes/teach/c17/reference/modern-c17-toolchain-and-cmake/",
+          "title": "Modern C17 Toolchain and CMake Reference"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "reference",
+            "standard-io-and-binary-file-streams"
+          ],
+          "href": "/notes/teach/c17/reference/standard-io-and-binary-file-streams/",
+          "title": "Standard I/O & Binary File Streams in C17"
         },
         {
           "slug": [
@@ -599,7 +208,7 @@
         "chip-8"
       ],
       "created": "2026-08-22",
-      "updatedAt": "2026-08-22",
+      "updatedAt": "2026-08-25",
       "vaultPath": "Teach/C17/C17.md",
       "folder": "Teach",
       "linkedFrom": [
@@ -637,6 +246,14 @@
           ],
           "href": "/notes/emulation/chip-8/",
           "title": "CHIP-8"
+        },
+        {
+          "slug": [
+            "coding",
+            "computed-gotos-in-c-direct-threaded-code"
+          ],
+          "href": "/notes/coding/computed-gotos-in-c-direct-threaded-code/",
+          "title": "Computed Gotos in C (Direct Threaded Code)"
         },
         {
           "slug": [
@@ -760,10 +377,19 @@
         "resources"
       ],
       "created": "2026-08-22",
-      "updatedAt": "2026-08-22",
+      "updatedAt": "2026-08-25",
       "vaultPath": "Teach/C17/RESOURCES.md",
       "folder": "Teach",
       "linkedFrom": [
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "glossary"
+          ],
+          "href": "/notes/teach/c17/glossary/",
+          "title": "C17 Glossary"
+        },
         {
           "slug": [
             "teach",
@@ -772,6 +398,54 @@
           ],
           "href": "/notes/teach/c17/c17/",
           "title": "C17 Hub"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "notes"
+          ],
+          "href": "/notes/teach/c17/notes/",
+          "title": "C17 Teacher Notes"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "lessons",
+            "0001-c17-standards-and-modern-toolchain"
+          ],
+          "href": "/notes/teach/c17/lessons/0001-c17-standards-and-modern-toolchain/",
+          "title": "Lesson 0001: ISO C17 Standards, Compiler Diagnostics & CMake with SDL2"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "lessons",
+            "0002-binary-file-io-and-rom-loading"
+          ],
+          "href": "/notes/teach/c17/lessons/0002-binary-file-io-and-rom-loading/",
+          "title": "Lesson 0002: Safe Binary File I/O & ROM Loading into Memory at 0x200"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "mission"
+          ],
+          "href": "/notes/teach/c17/mission/",
+          "title": "Mission: C17 Systems Mastery via CHIP-8 Emulator"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "reference",
+            "modern-c17-toolchain-and-cmake"
+          ],
+          "href": "/notes/teach/c17/reference/modern-c17-toolchain-and-cmake/",
+          "title": "Modern C17 Toolchain and CMake Reference"
         }
       ]
     },
@@ -789,10 +463,19 @@
         "chip-8"
       ],
       "created": "2026-08-22",
-      "updatedAt": "2026-08-22",
+      "updatedAt": "2026-08-25",
       "vaultPath": "Teach/C17/NOTES.md",
       "folder": "Teach",
       "linkedFrom": [
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "glossary"
+          ],
+          "href": "/notes/teach/c17/glossary/",
+          "title": "C17 Glossary"
+        },
         {
           "slug": [
             "teach",
@@ -801,48 +484,103 @@
           ],
           "href": "/notes/teach/c17/c17/",
           "title": "C17 Hub"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "resources"
+          ],
+          "href": "/notes/teach/c17/resources/",
+          "title": "C17 Resources"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "mission"
+          ],
+          "href": "/notes/teach/c17/mission/",
+          "title": "Mission: C17 Systems Mastery via CHIP-8 Emulator"
         }
       ]
     },
     {
       "slug": [
-        "productivity",
-        "eat-the-frog-14-02-2026"
+        "coding",
+        "computed-gotos-in-c-direct-threaded-code"
       ],
-      "href": "/notes/productivity/eat-the-frog-14-02-2026/",
-      "title": "Eat Frog",
+      "href": "/notes/coding/computed-gotos-in-c-direct-threaded-code/",
+      "title": "Computed Gotos in C (Direct Threaded Code)",
       "tags": [
-        "productivity",
-        "focus",
-        "time-management"
+        "c",
+        "compilers",
+        "performance",
+        "virtual-machine",
+        "interpreters",
+        "emulation"
       ],
-      "summary": "Core concepts and actionable steps from Brian Tracy's 'Eat That Frog!' for overcoming procrastination and focusing on high-value tasks.",
-      "created": "2026-02-14",
-      "updatedAt": "2026-08-22",
-      "vaultPath": "Productivity/eat-the-frog-14-02-2026.md",
-      "folder": "Productivity",
-      "linkedFrom": []
-    },
-    {
-      "slug": [
-        "thoughts",
-        "function-abstration"
-      ],
-      "href": "/notes/thoughts/function-abstration/",
-      "title": "Function Abstraction",
-      "tags": [
-        "clean-code",
-        "refactoring",
-        "software-design",
-        "single-responsibility",
-        "dry"
-      ],
-      "summary": "The real reason to extract functions is to maintain local reasoning, not just DRY reuse, preventing monolithic function bloat and multiple reasons to change.",
-      "created": "2026-08-22",
-      "updatedAt": "2026-08-22",
-      "vaultPath": "Thoughts/Function Abstration.md",
-      "folder": "Thoughts",
-      "linkedFrom": []
+      "created": "2026-08-25",
+      "updatedAt": "2026-08-25",
+      "vaultPath": "Coding/Computed Gotos in C (Direct Threaded Code).md",
+      "folder": "Coding",
+      "linkedFrom": [
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "glossary"
+          ],
+          "href": "/notes/teach/c17/glossary/",
+          "title": "C17 Glossary"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "c17"
+          ],
+          "href": "/notes/teach/c17/c17/",
+          "title": "C17 Hub"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "resources"
+          ],
+          "href": "/notes/teach/c17/resources/",
+          "title": "C17 Resources"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "notes"
+          ],
+          "href": "/notes/teach/c17/notes/",
+          "title": "C17 Teacher Notes"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "learning-records",
+            "0002-chip8-codebase-audit"
+          ],
+          "href": "/notes/teach/c17/learning-records/0002-chip8-codebase-audit/",
+          "title": "LR-0002: CHIP-8 Codebase Audit & Architecture Baseline"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "mission"
+          ],
+          "href": "/notes/teach/c17/mission/",
+          "title": "Mission: C17 Systems Mastery via CHIP-8 Emulator"
+        }
+      ]
     },
     {
       "slug": [
@@ -861,7 +599,7 @@
         "chip-8"
       ],
       "created": "2026-08-22",
-      "updatedAt": "2026-08-22",
+      "updatedAt": "2026-08-25",
       "vaultPath": "Teach/C17/Lessons/0001-c17-standards-and-modern-toolchain.md",
       "folder": "Teach",
       "linkedFrom": [
@@ -881,6 +619,14 @@
           ],
           "href": "/notes/emulation/chip-8/",
           "title": "CHIP-8"
+        },
+        {
+          "slug": [
+            "coding",
+            "computed-gotos-in-c-direct-threaded-code"
+          ],
+          "href": "/notes/coding/computed-gotos-in-c-direct-threaded-code/",
+          "title": "Computed Gotos in C (Direct Threaded Code)"
         },
         {
           "slug": [
@@ -921,7 +667,7 @@
         "chip-8"
       ],
       "created": "2026-08-22",
-      "updatedAt": "2026-08-22",
+      "updatedAt": "2026-08-25",
       "vaultPath": "Teach/C17/Lessons/0002-binary-file-io-and-rom-loading.md",
       "folder": "Teach",
       "linkedFrom": [
@@ -964,6 +710,26 @@
           "slug": [
             "teach",
             "c17",
+            "learning-records",
+            "0003-cmake-sdl2-and-integer-truncation"
+          ],
+          "href": "/notes/teach/c17/learning-records/0003-cmake-sdl2-and-integer-truncation/",
+          "title": "LR-0003: CMake SDL2 Resolution & Integer Precision Diagnostics"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "learning-records",
+            "0004-stdio-conventions-and-fread-mechanics"
+          ],
+          "href": "/notes/teach/c17/learning-records/0004-stdio-conventions-and-fread-mechanics/",
+          "title": "LR-0004: Standard I/O Return Conventions & fread Parameters"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
             "reference",
             "standard-io-and-binary-file-streams"
           ],
@@ -986,7 +752,7 @@
         "learning-record"
       ],
       "created": "2026-08-22",
-      "updatedAt": "2026-08-22",
+      "updatedAt": "2026-08-25",
       "vaultPath": "Teach/C17/Learning Records/0001-baseline-and-prerequisites.md",
       "folder": "Teach",
       "linkedFrom": [
@@ -1016,7 +782,7 @@
         "chip-8"
       ],
       "created": "2026-08-22",
-      "updatedAt": "2026-08-22",
+      "updatedAt": "2026-08-25",
       "vaultPath": "Teach/C17/Learning Records/0002-chip8-codebase-audit.md",
       "folder": "Teach",
       "linkedFrom": [
@@ -1046,7 +812,7 @@
         "cmake"
       ],
       "created": "2026-08-22",
-      "updatedAt": "2026-08-22",
+      "updatedAt": "2026-08-25",
       "vaultPath": "Teach/C17/Learning Records/0003-cmake-sdl2-and-integer-truncation.md",
       "folder": "Teach",
       "linkedFrom": [
@@ -1076,7 +842,7 @@
         "stdio"
       ],
       "created": "2026-08-22",
-      "updatedAt": "2026-08-22",
+      "updatedAt": "2026-08-25",
       "vaultPath": "Teach/C17/Learning Records/0004-stdio-conventions-and-fread-mechanics.md",
       "folder": "Teach",
       "linkedFrom": [
@@ -1093,25 +859,6 @@
     },
     {
       "slug": [
-        "architecture",
-        "ddia-14-03-2026"
-      ],
-      "href": "/notes/architecture/ddia-14-03-2026/",
-      "title": "Metastable Failures",
-      "tags": [
-        "distributed-systems",
-        "reliability",
-        "ddia"
-      ],
-      "summary": "Analysis of metastable failures, retry storms, and mitigation strategies like exponential backoff and circuit breakers in high-load systems.",
-      "created": "2026-03-14",
-      "updatedAt": "2026-08-22",
-      "vaultPath": "Architecture/DDIA-14-03-2026.md",
-      "folder": "Architecture",
-      "linkedFrom": []
-    },
-    {
-      "slug": [
         "teach",
         "c17",
         "mission"
@@ -1124,10 +871,19 @@
         "chip-8"
       ],
       "created": "2026-08-22",
-      "updatedAt": "2026-08-22",
+      "updatedAt": "2026-08-25",
       "vaultPath": "Teach/C17/MISSION.md",
       "folder": "Teach",
       "linkedFrom": [
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "glossary"
+          ],
+          "href": "/notes/teach/c17/glossary/",
+          "title": "C17 Glossary"
+        },
         {
           "slug": [
             "teach",
@@ -1136,6 +892,24 @@
           ],
           "href": "/notes/teach/c17/c17/",
           "title": "C17 Hub"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "resources"
+          ],
+          "href": "/notes/teach/c17/resources/",
+          "title": "C17 Resources"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "notes"
+          ],
+          "href": "/notes/teach/c17/notes/",
+          "title": "C17 Teacher Notes"
         },
         {
           "slug": [
@@ -1206,6 +980,16 @@
           ],
           "href": "/notes/teach/c17/reference/modern-c17-toolchain-and-cmake/",
           "title": "Modern C17 Toolchain and CMake Reference"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "reference",
+            "standard-io-and-binary-file-streams"
+          ],
+          "href": "/notes/teach/c17/reference/standard-io-and-binary-file-streams/",
+          "title": "Standard I/O & Binary File Streams in C17"
         }
       ]
     },
@@ -1225,10 +1009,19 @@
         "toolchain"
       ],
       "created": "2026-08-22",
-      "updatedAt": "2026-08-22",
+      "updatedAt": "2026-08-25",
       "vaultPath": "Teach/C17/Reference/Modern C17 Toolchain and CMake.md",
       "folder": "Teach",
       "linkedFrom": [
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "glossary"
+          ],
+          "href": "/notes/teach/c17/glossary/",
+          "title": "C17 Glossary"
+        },
         {
           "slug": [
             "teach",
@@ -1237,6 +1030,53 @@
           ],
           "href": "/notes/teach/c17/c17/",
           "title": "C17 Hub"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "notes"
+          ],
+          "href": "/notes/teach/c17/notes/",
+          "title": "C17 Teacher Notes"
+        },
+        {
+          "slug": [
+            "coding",
+            "computed-gotos-in-c-direct-threaded-code"
+          ],
+          "href": "/notes/coding/computed-gotos-in-c-direct-threaded-code/",
+          "title": "Computed Gotos in C (Direct Threaded Code)"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "lessons",
+            "0001-c17-standards-and-modern-toolchain"
+          ],
+          "href": "/notes/teach/c17/lessons/0001-c17-standards-and-modern-toolchain/",
+          "title": "Lesson 0001: ISO C17 Standards, Compiler Diagnostics & CMake with SDL2"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "learning-records",
+            "0002-chip8-codebase-audit"
+          ],
+          "href": "/notes/teach/c17/learning-records/0002-chip8-codebase-audit/",
+          "title": "LR-0002: CHIP-8 Codebase Audit & Architecture Baseline"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "learning-records",
+            "0003-cmake-sdl2-and-integer-truncation"
+          ],
+          "href": "/notes/teach/c17/learning-records/0003-cmake-sdl2-and-integer-truncation/",
+          "title": "LR-0003: CMake SDL2 Resolution & Integer Precision Diagnostics"
         }
       ]
     },
@@ -1256,7 +1096,7 @@
         "file-io"
       ],
       "created": "2026-08-22",
-      "updatedAt": "2026-08-22",
+      "updatedAt": "2026-08-25",
       "vaultPath": "Teach/C17/Reference/Standard IO and Binary File Streams.md",
       "folder": "Teach",
       "linkedFrom": [
@@ -1273,6 +1113,35 @@
           "slug": [
             "teach",
             "c17",
+            "notes"
+          ],
+          "href": "/notes/teach/c17/notes/",
+          "title": "C17 Teacher Notes"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "lessons",
+            "0002-binary-file-io-and-rom-loading"
+          ],
+          "href": "/notes/teach/c17/lessons/0002-binary-file-io-and-rom-loading/",
+          "title": "Lesson 0002: Safe Binary File I/O & ROM Loading into Memory at 0x200"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "learning-records",
+            "0002-chip8-codebase-audit"
+          ],
+          "href": "/notes/teach/c17/learning-records/0002-chip8-codebase-audit/",
+          "title": "LR-0002: CHIP-8 Codebase Audit & Architecture Baseline"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
             "learning-records",
             "0004-stdio-conventions-and-fread-mechanics"
           ],
@@ -1280,6 +1149,1042 @@
           "title": "LR-0004: Standard I/O Return Conventions & fread Parameters"
         }
       ]
+    },
+    {
+      "slug": [
+        "emulation",
+        "chip-8"
+      ],
+      "href": "/notes/emulation/chip-8/",
+      "title": "CHIP-8",
+      "tags": [
+        "emulation",
+        "architecture",
+        "hardware",
+        "chip-8",
+        "virtual-machine"
+      ],
+      "created": "2026-08-23",
+      "updatedAt": "2026-08-24",
+      "vaultPath": "Emulation/CHIP-8.md",
+      "folder": "Emulation",
+      "linkedFrom": [
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "glossary"
+          ],
+          "href": "/notes/teach/c17/glossary/",
+          "title": "C17 Glossary"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "c17"
+          ],
+          "href": "/notes/teach/c17/c17/",
+          "title": "C17 Hub"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "resources"
+          ],
+          "href": "/notes/teach/c17/resources/",
+          "title": "C17 Resources"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "notes"
+          ],
+          "href": "/notes/teach/c17/notes/",
+          "title": "C17 Teacher Notes"
+        },
+        {
+          "slug": [
+            "coding",
+            "computed-gotos-in-c-direct-threaded-code"
+          ],
+          "href": "/notes/coding/computed-gotos-in-c-direct-threaded-code/",
+          "title": "Computed Gotos in C (Direct Threaded Code)"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "lessons",
+            "0001-c17-standards-and-modern-toolchain"
+          ],
+          "href": "/notes/teach/c17/lessons/0001-c17-standards-and-modern-toolchain/",
+          "title": "Lesson 0001: ISO C17 Standards, Compiler Diagnostics & CMake with SDL2"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "lessons",
+            "0002-binary-file-io-and-rom-loading"
+          ],
+          "href": "/notes/teach/c17/lessons/0002-binary-file-io-and-rom-loading/",
+          "title": "Lesson 0002: Safe Binary File I/O & ROM Loading into Memory at 0x200"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "learning-records",
+            "0002-chip8-codebase-audit"
+          ],
+          "href": "/notes/teach/c17/learning-records/0002-chip8-codebase-audit/",
+          "title": "LR-0002: CHIP-8 Codebase Audit & Architecture Baseline"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "learning-records",
+            "0004-stdio-conventions-and-fread-mechanics"
+          ],
+          "href": "/notes/teach/c17/learning-records/0004-stdio-conventions-and-fread-mechanics/",
+          "title": "LR-0004: Standard I/O Return Conventions & fread Parameters"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "mission"
+          ],
+          "href": "/notes/teach/c17/mission/",
+          "title": "Mission: C17 Systems Mastery via CHIP-8 Emulator"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "reference",
+            "standard-io-and-binary-file-streams"
+          ],
+          "href": "/notes/teach/c17/reference/standard-io-and-binary-file-streams/",
+          "title": "Standard I/O & Binary File Streams in C17"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "grill",
+        "c-systems-programming"
+      ],
+      "href": "/notes/grill/c-systems-programming/",
+      "title": "Grill: C Systems Programming Knowledge",
+      "tags": [
+        "grill",
+        "c",
+        "memory",
+        "storage-classes",
+        "pointers",
+        "bitwise"
+      ],
+      "summary": "Comprehensive diagnostic grilling session mapping C17 fundamentals, storage duration, linkage, array decay, heap mechanics, bitwise arithmetic, and function pointer dispatch.",
+      "created": "2026-08-24",
+      "updatedAt": "2026-08-24",
+      "vaultPath": "Grill/C Systems Programming.md",
+      "folder": "Grill",
+      "linkedFrom": [
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "glossary"
+          ],
+          "href": "/notes/teach/c17/glossary/",
+          "title": "C17 Glossary"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "c17"
+          ],
+          "href": "/notes/teach/c17/c17/",
+          "title": "C17 Hub"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "resources"
+          ],
+          "href": "/notes/teach/c17/resources/",
+          "title": "C17 Resources"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "notes"
+          ],
+          "href": "/notes/teach/c17/notes/",
+          "title": "C17 Teacher Notes"
+        },
+        {
+          "slug": [
+            "coding",
+            "computed-gotos-in-c-direct-threaded-code"
+          ],
+          "href": "/notes/coding/computed-gotos-in-c-direct-threaded-code/",
+          "title": "Computed Gotos in C (Direct Threaded Code)"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "lessons",
+            "0001-c17-standards-and-modern-toolchain"
+          ],
+          "href": "/notes/teach/c17/lessons/0001-c17-standards-and-modern-toolchain/",
+          "title": "Lesson 0001: ISO C17 Standards, Compiler Diagnostics & CMake with SDL2"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "learning-records",
+            "0001-baseline-and-prerequisites"
+          ],
+          "href": "/notes/teach/c17/learning-records/0001-baseline-and-prerequisites/",
+          "title": "LR-0001: Learner Background & C17 Baseline"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "learning-records",
+            "0002-chip8-codebase-audit"
+          ],
+          "href": "/notes/teach/c17/learning-records/0002-chip8-codebase-audit/",
+          "title": "LR-0002: CHIP-8 Codebase Audit & Architecture Baseline"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "learning-records",
+            "0003-cmake-sdl2-and-integer-truncation"
+          ],
+          "href": "/notes/teach/c17/learning-records/0003-cmake-sdl2-and-integer-truncation/",
+          "title": "LR-0003: CMake SDL2 Resolution & Integer Precision Diagnostics"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "mission"
+          ],
+          "href": "/notes/teach/c17/mission/",
+          "title": "Mission: C17 Systems Mastery via CHIP-8 Emulator"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "reference",
+            "modern-c17-toolchain-and-cmake"
+          ],
+          "href": "/notes/teach/c17/reference/modern-c17-toolchain-and-cmake/",
+          "title": "Modern C17 Toolchain and CMake Reference"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "reference",
+            "standard-io-and-binary-file-streams"
+          ],
+          "href": "/notes/teach/c17/reference/standard-io-and-binary-file-streams/",
+          "title": "Standard I/O & Binary File Streams in C17"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "coding",
+        "automatic-storage-duration"
+      ],
+      "href": "/notes/coding/automatic-storage-duration/",
+      "title": "Automatic Storage Duration",
+      "tags": [
+        "c",
+        "memory",
+        "storage-classes"
+      ],
+      "created": "2026-08-23",
+      "updatedAt": "2026-08-23",
+      "vaultPath": "Coding/Automatic Storage Duration.md",
+      "folder": "Coding",
+      "linkedFrom": [
+        {
+          "slug": [
+            "books",
+            "c",
+            "advanced-c-programming-course",
+            "c-auto"
+          ],
+          "href": "/notes/books/c/advanced-c-programming-course/c-auto/",
+          "title": "C Auto Storage Class"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "glossary"
+          ],
+          "href": "/notes/teach/c17/glossary/",
+          "title": "C17 Glossary"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "c17"
+          ],
+          "href": "/notes/teach/c17/c17/",
+          "title": "C17 Hub"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "resources"
+          ],
+          "href": "/notes/teach/c17/resources/",
+          "title": "C17 Resources"
+        },
+        {
+          "slug": [
+            "books",
+            "c",
+            "advanced-c-programming-course",
+            "storage-classes"
+          ],
+          "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
+          "title": "Storage Classes in C"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "books",
+        "c",
+        "advanced-c-programming-course",
+        "c-auto"
+      ],
+      "href": "/notes/books/c/advanced-c-programming-course/c-auto/",
+      "title": "C Auto Storage Class",
+      "tags": [
+        "c",
+        "memory",
+        "storage-classes"
+      ],
+      "created": "2026-08-23",
+      "updatedAt": "2026-08-23",
+      "vaultPath": "Books/C/Advanced C Programming Course/C Auto.md",
+      "folder": "Books",
+      "linkedFrom": [
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "glossary"
+          ],
+          "href": "/notes/teach/c17/glossary/",
+          "title": "C17 Glossary"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "c17"
+          ],
+          "href": "/notes/teach/c17/c17/",
+          "title": "C17 Hub"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "resources"
+          ],
+          "href": "/notes/teach/c17/resources/",
+          "title": "C17 Resources"
+        },
+        {
+          "slug": [
+            "books",
+            "c",
+            "advanced-c-programming-course",
+            "storage-classes"
+          ],
+          "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
+          "title": "Storage Classes in C"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "books",
+        "c",
+        "advanced-c-programming-course",
+        "c-extern"
+      ],
+      "href": "/notes/books/c/advanced-c-programming-course/c-extern/",
+      "title": "C Extern Storage Class",
+      "tags": [
+        "c",
+        "memory",
+        "storage-classes"
+      ],
+      "created": "2026-08-23",
+      "updatedAt": "2026-08-23",
+      "vaultPath": "Books/C/Advanced C Programming Course/C Extern.md",
+      "folder": "Books",
+      "linkedFrom": [
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "glossary"
+          ],
+          "href": "/notes/teach/c17/glossary/",
+          "title": "C17 Glossary"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "c17"
+          ],
+          "href": "/notes/teach/c17/c17/",
+          "title": "C17 Hub"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "resources"
+          ],
+          "href": "/notes/teach/c17/resources/",
+          "title": "C17 Resources"
+        },
+        {
+          "slug": [
+            "books",
+            "c",
+            "advanced-c-programming-course",
+            "storage-classes"
+          ],
+          "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
+          "title": "Storage Classes in C"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "books",
+        "c",
+        "advanced-c-programming-course",
+        "c-register"
+      ],
+      "href": "/notes/books/c/advanced-c-programming-course/c-register/",
+      "title": "C Register Storage Class",
+      "tags": [
+        "c",
+        "memory",
+        "storage-classes"
+      ],
+      "created": "2026-08-23",
+      "updatedAt": "2026-08-23",
+      "vaultPath": "Books/C/Advanced C Programming Course/C Register.md",
+      "folder": "Books",
+      "linkedFrom": [
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "glossary"
+          ],
+          "href": "/notes/teach/c17/glossary/",
+          "title": "C17 Glossary"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "c17"
+          ],
+          "href": "/notes/teach/c17/c17/",
+          "title": "C17 Hub"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "resources"
+          ],
+          "href": "/notes/teach/c17/resources/",
+          "title": "C17 Resources"
+        },
+        {
+          "slug": [
+            "books",
+            "c",
+            "advanced-c-programming-course",
+            "storage-classes"
+          ],
+          "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
+          "title": "Storage Classes in C"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "books",
+        "c",
+        "advanced-c-programming-course",
+        "c-static"
+      ],
+      "href": "/notes/books/c/advanced-c-programming-course/c-static/",
+      "title": "C Static Storage Class",
+      "tags": [
+        "c",
+        "memory",
+        "storage-classes"
+      ],
+      "created": "2026-08-23",
+      "updatedAt": "2026-08-23",
+      "vaultPath": "Books/C/Advanced C Programming Course/C Static.md",
+      "folder": "Books",
+      "linkedFrom": [
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "glossary"
+          ],
+          "href": "/notes/teach/c17/glossary/",
+          "title": "C17 Glossary"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "c17"
+          ],
+          "href": "/notes/teach/c17/c17/",
+          "title": "C17 Hub"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "resources"
+          ],
+          "href": "/notes/teach/c17/resources/",
+          "title": "C17 Resources"
+        },
+        {
+          "slug": [
+            "books",
+            "c",
+            "advanced-c-programming-course",
+            "storage-classes"
+          ],
+          "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
+          "title": "Storage Classes in C"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "coding",
+        "register-storage"
+      ],
+      "href": "/notes/coding/register-storage/",
+      "title": "Register Storage",
+      "tags": [
+        "c",
+        "memory",
+        "storage-classes"
+      ],
+      "created": "2026-08-23",
+      "updatedAt": "2026-08-23",
+      "vaultPath": "Coding/Register Storage.md",
+      "folder": "Coding",
+      "linkedFrom": [
+        {
+          "slug": [
+            "books",
+            "c",
+            "advanced-c-programming-course",
+            "c-register"
+          ],
+          "href": "/notes/books/c/advanced-c-programming-course/c-register/",
+          "title": "C Register Storage Class"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "glossary"
+          ],
+          "href": "/notes/teach/c17/glossary/",
+          "title": "C17 Glossary"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "c17"
+          ],
+          "href": "/notes/teach/c17/c17/",
+          "title": "C17 Hub"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "resources"
+          ],
+          "href": "/notes/teach/c17/resources/",
+          "title": "C17 Resources"
+        },
+        {
+          "slug": [
+            "emulation",
+            "chip-8"
+          ],
+          "href": "/notes/emulation/chip-8/",
+          "title": "CHIP-8"
+        },
+        {
+          "slug": [
+            "books",
+            "c",
+            "advanced-c-programming-course",
+            "storage-classes"
+          ],
+          "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
+          "title": "Storage Classes in C"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "books",
+        "c",
+        "advanced-c-programming-course",
+        "storage-classes"
+      ],
+      "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
+      "title": "Storage Classes in C",
+      "tags": [
+        "c",
+        "memory",
+        "storage-classes",
+        "moc"
+      ],
+      "created": "2026-08-23",
+      "updatedAt": "2026-08-23",
+      "vaultPath": "Books/C/Advanced C Programming Course/Storage Classes.md",
+      "folder": "Books",
+      "linkedFrom": [
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "glossary"
+          ],
+          "href": "/notes/teach/c17/glossary/",
+          "title": "C17 Glossary"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "c17"
+          ],
+          "href": "/notes/teach/c17/c17/",
+          "title": "C17 Hub"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "resources"
+          ],
+          "href": "/notes/teach/c17/resources/",
+          "title": "C17 Resources"
+        },
+        {
+          "slug": [
+            "grill",
+            "c-systems-programming"
+          ],
+          "href": "/notes/grill/c-systems-programming/",
+          "title": "Grill: C Systems Programming Knowledge"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "lessons",
+            "0001-c17-standards-and-modern-toolchain"
+          ],
+          "href": "/notes/teach/c17/lessons/0001-c17-standards-and-modern-toolchain/",
+          "title": "Lesson 0001: ISO C17 Standards, Compiler Diagnostics & CMake with SDL2"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "reference",
+            "modern-c17-toolchain-and-cmake"
+          ],
+          "href": "/notes/teach/c17/reference/modern-c17-toolchain-and-cmake/",
+          "title": "Modern C17 Toolchain and CMake Reference"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "coding",
+        "variable-lifetime"
+      ],
+      "href": "/notes/coding/variable-lifetime/",
+      "title": "Variable Lifetime",
+      "tags": [
+        "c",
+        "memory",
+        "storage-classes"
+      ],
+      "created": "2026-08-23",
+      "updatedAt": "2026-08-23",
+      "vaultPath": "Coding/Variable Lifetime.md",
+      "folder": "Coding",
+      "linkedFrom": [
+        {
+          "slug": [
+            "coding",
+            "automatic-storage-duration"
+          ],
+          "href": "/notes/coding/automatic-storage-duration/",
+          "title": "Automatic Storage Duration"
+        },
+        {
+          "slug": [
+            "books",
+            "c",
+            "advanced-c-programming-course",
+            "c-auto"
+          ],
+          "href": "/notes/books/c/advanced-c-programming-course/c-auto/",
+          "title": "C Auto Storage Class"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "glossary"
+          ],
+          "href": "/notes/teach/c17/glossary/",
+          "title": "C17 Glossary"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "c17"
+          ],
+          "href": "/notes/teach/c17/c17/",
+          "title": "C17 Hub"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "resources"
+          ],
+          "href": "/notes/teach/c17/resources/",
+          "title": "C17 Resources"
+        },
+        {
+          "slug": [
+            "books",
+            "c",
+            "advanced-c-programming-course",
+            "storage-classes"
+          ],
+          "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
+          "title": "Storage Classes in C"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "coding",
+        "variable-linkage"
+      ],
+      "href": "/notes/coding/variable-linkage/",
+      "title": "Variable Linkage",
+      "tags": [
+        "c",
+        "memory",
+        "storage-classes"
+      ],
+      "created": "2026-08-23",
+      "updatedAt": "2026-08-23",
+      "vaultPath": "Coding/Variable Linkage.md",
+      "folder": "Coding",
+      "linkedFrom": [
+        {
+          "slug": [
+            "coding",
+            "automatic-storage-duration"
+          ],
+          "href": "/notes/coding/automatic-storage-duration/",
+          "title": "Automatic Storage Duration"
+        },
+        {
+          "slug": [
+            "books",
+            "c",
+            "advanced-c-programming-course",
+            "c-auto"
+          ],
+          "href": "/notes/books/c/advanced-c-programming-course/c-auto/",
+          "title": "C Auto Storage Class"
+        },
+        {
+          "slug": [
+            "books",
+            "c",
+            "advanced-c-programming-course",
+            "c-extern"
+          ],
+          "href": "/notes/books/c/advanced-c-programming-course/c-extern/",
+          "title": "C Extern Storage Class"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "glossary"
+          ],
+          "href": "/notes/teach/c17/glossary/",
+          "title": "C17 Glossary"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "c17"
+          ],
+          "href": "/notes/teach/c17/c17/",
+          "title": "C17 Hub"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "resources"
+          ],
+          "href": "/notes/teach/c17/resources/",
+          "title": "C17 Resources"
+        },
+        {
+          "slug": [
+            "grill",
+            "c-systems-programming"
+          ],
+          "href": "/notes/grill/c-systems-programming/",
+          "title": "Grill: C Systems Programming Knowledge"
+        },
+        {
+          "slug": [
+            "books",
+            "c",
+            "advanced-c-programming-course",
+            "storage-classes"
+          ],
+          "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
+          "title": "Storage Classes in C"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "coding",
+        "variable-scope"
+      ],
+      "href": "/notes/coding/variable-scope/",
+      "title": "Variable Scope",
+      "tags": [
+        "c",
+        "memory",
+        "storage-classes"
+      ],
+      "created": "2026-08-23",
+      "updatedAt": "2026-08-23",
+      "vaultPath": "Coding/Variable Scope.md",
+      "folder": "Coding",
+      "linkedFrom": [
+        {
+          "slug": [
+            "coding",
+            "automatic-storage-duration"
+          ],
+          "href": "/notes/coding/automatic-storage-duration/",
+          "title": "Automatic Storage Duration"
+        },
+        {
+          "slug": [
+            "books",
+            "c",
+            "advanced-c-programming-course",
+            "c-auto"
+          ],
+          "href": "/notes/books/c/advanced-c-programming-course/c-auto/",
+          "title": "C Auto Storage Class"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "c17"
+          ],
+          "href": "/notes/teach/c17/c17/",
+          "title": "C17 Hub"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "resources"
+          ],
+          "href": "/notes/teach/c17/resources/",
+          "title": "C17 Resources"
+        },
+        {
+          "slug": [
+            "grill",
+            "c-systems-programming"
+          ],
+          "href": "/notes/grill/c-systems-programming/",
+          "title": "Grill: C Systems Programming Knowledge"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "reference",
+            "modern-c17-toolchain-and-cmake"
+          ],
+          "href": "/notes/teach/c17/reference/modern-c17-toolchain-and-cmake/",
+          "title": "Modern C17 Toolchain and CMake Reference"
+        },
+        {
+          "slug": [
+            "books",
+            "c",
+            "advanced-c-programming-course",
+            "storage-classes"
+          ],
+          "href": "/notes/books/c/advanced-c-programming-course/storage-classes/",
+          "title": "Storage Classes in C"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "productivity",
+        "eat-the-frog-14-02-2026"
+      ],
+      "href": "/notes/productivity/eat-the-frog-14-02-2026/",
+      "title": "Eat Frog",
+      "tags": [
+        "productivity",
+        "focus",
+        "time-management"
+      ],
+      "summary": "Core concepts and actionable steps from Brian Tracy's 'Eat That Frog!' for overcoming procrastination and focusing on high-value tasks.",
+      "created": "2026-02-14",
+      "updatedAt": "2026-08-22",
+      "vaultPath": "Productivity/eat-the-frog-14-02-2026.md",
+      "folder": "Productivity",
+      "linkedFrom": []
+    },
+    {
+      "slug": [
+        "thoughts",
+        "function-abstration"
+      ],
+      "href": "/notes/thoughts/function-abstration/",
+      "title": "Function Abstraction",
+      "tags": [
+        "clean-code",
+        "refactoring",
+        "software-design",
+        "single-responsibility",
+        "dry"
+      ],
+      "summary": "The real reason to extract functions is to maintain local reasoning, not just DRY reuse, preventing monolithic function bloat and multiple reasons to change.",
+      "created": "2026-08-22",
+      "updatedAt": "2026-08-22",
+      "vaultPath": "Thoughts/Function Abstration.md",
+      "folder": "Thoughts",
+      "linkedFrom": [
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "c17"
+          ],
+          "href": "/notes/teach/c17/c17/",
+          "title": "C17 Hub"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "resources"
+          ],
+          "href": "/notes/teach/c17/resources/",
+          "title": "C17 Resources"
+        }
+      ]
+    },
+    {
+      "slug": [
+        "architecture",
+        "ddia-14-03-2026"
+      ],
+      "href": "/notes/architecture/ddia-14-03-2026/",
+      "title": "Metastable Failures",
+      "tags": [
+        "distributed-systems",
+        "reliability",
+        "ddia"
+      ],
+      "summary": "Analysis of metastable failures, retry storms, and mitigation strategies like exponential backoff and circuit breakers in high-load systems.",
+      "created": "2026-03-14",
+      "updatedAt": "2026-08-22",
+      "vaultPath": "Architecture/DDIA-14-03-2026.md",
+      "folder": "Architecture",
+      "linkedFrom": []
     },
     {
       "slug": [
@@ -1689,7 +2594,83 @@
       "updatedAt": "2026-08-18",
       "vaultPath": "Thoughts/Defensive Programming.md",
       "folder": "Thoughts",
-      "linkedFrom": []
+      "linkedFrom": [
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "glossary"
+          ],
+          "href": "/notes/teach/c17/glossary/",
+          "title": "C17 Glossary"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "c17"
+          ],
+          "href": "/notes/teach/c17/c17/",
+          "title": "C17 Hub"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "resources"
+          ],
+          "href": "/notes/teach/c17/resources/",
+          "title": "C17 Resources"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "notes"
+          ],
+          "href": "/notes/teach/c17/notes/",
+          "title": "C17 Teacher Notes"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "lessons",
+            "0002-binary-file-io-and-rom-loading"
+          ],
+          "href": "/notes/teach/c17/lessons/0002-binary-file-io-and-rom-loading/",
+          "title": "Lesson 0002: Safe Binary File I/O & ROM Loading into Memory at 0x200"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "learning-records",
+            "0004-stdio-conventions-and-fread-mechanics"
+          ],
+          "href": "/notes/teach/c17/learning-records/0004-stdio-conventions-and-fread-mechanics/",
+          "title": "LR-0004: Standard I/O Return Conventions & fread Parameters"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "mission"
+          ],
+          "href": "/notes/teach/c17/mission/",
+          "title": "Mission: C17 Systems Mastery via CHIP-8 Emulator"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "reference",
+            "standard-io-and-binary-file-streams"
+          ],
+          "href": "/notes/teach/c17/reference/standard-io-and-binary-file-streams/",
+          "title": "Standard I/O & Binary File Streams in C17"
+        }
+      ]
     },
     {
       "slug": [
@@ -1983,6 +2964,15 @@
           ],
           "href": "/notes/teach/c17/c17/",
           "title": "C17 Hub"
+        },
+        {
+          "slug": [
+            "teach",
+            "c17",
+            "resources"
+          ],
+          "href": "/notes/teach/c17/resources/",
+          "title": "C17 Resources"
         },
         {
           "slug": [
@@ -4564,6 +5554,166 @@
         "color": "#b1e052"
       },
       {
+        "id": "teach/c17/glossary",
+        "title": "C17 Glossary",
+        "href": "/notes/teach/c17/glossary/",
+        "tags": [
+          "teach/c17",
+          "glossary"
+        ],
+        "color": "#89b4fa"
+      },
+      {
+        "id": "teach/c17/c17",
+        "title": "C17 Hub",
+        "href": "/notes/teach/c17/c17/",
+        "tags": [
+          "teach/c17",
+          "moc",
+          "chip-8"
+        ],
+        "color": "#89b4fa"
+      },
+      {
+        "id": "teach/c17/resources",
+        "title": "C17 Resources",
+        "href": "/notes/teach/c17/resources/",
+        "tags": [
+          "teach/c17",
+          "resources"
+        ],
+        "color": "#89b4fa"
+      },
+      {
+        "id": "teach/c17/notes",
+        "title": "C17 Teacher Notes",
+        "href": "/notes/teach/c17/notes/",
+        "tags": [
+          "teach/c17",
+          "notes",
+          "chip-8"
+        ],
+        "color": "#89b4fa"
+      },
+      {
+        "id": "coding/computed-gotos-in-c-direct-threaded-code",
+        "title": "Computed Gotos in C (Direct Threaded Code)",
+        "href": "/notes/coding/computed-gotos-in-c-direct-threaded-code/",
+        "tags": [
+          "c",
+          "compilers",
+          "performance",
+          "virtual-machine",
+          "interpreters",
+          "emulation"
+        ],
+        "color": "#89b4fa"
+      },
+      {
+        "id": "teach/c17/lessons/0001-c17-standards-and-modern-toolchain",
+        "title": "Lesson 0001: ISO C17 Standards, Compiler Diagnostics & CMake with SDL2",
+        "href": "/notes/teach/c17/lessons/0001-c17-standards-and-modern-toolchain/",
+        "tags": [
+          "teach/c17",
+          "lesson",
+          "cmake",
+          "toolchain",
+          "chip-8"
+        ],
+        "color": "#89b4fa"
+      },
+      {
+        "id": "teach/c17/lessons/0002-binary-file-io-and-rom-loading",
+        "title": "Lesson 0002: Safe Binary File I/O & ROM Loading into Memory at 0x200",
+        "href": "/notes/teach/c17/lessons/0002-binary-file-io-and-rom-loading/",
+        "tags": [
+          "teach/c17",
+          "lesson",
+          "file-io",
+          "memory",
+          "chip-8"
+        ],
+        "color": "#89b4fa"
+      },
+      {
+        "id": "teach/c17/learning-records/0001-baseline-and-prerequisites",
+        "title": "LR-0001: Learner Background & C17 Baseline",
+        "href": "/notes/teach/c17/learning-records/0001-baseline-and-prerequisites/",
+        "tags": [
+          "teach/c17",
+          "learning-record"
+        ],
+        "color": "#89b4fa"
+      },
+      {
+        "id": "teach/c17/learning-records/0002-chip8-codebase-audit",
+        "title": "LR-0002: CHIP-8 Codebase Audit & Architecture Baseline",
+        "href": "/notes/teach/c17/learning-records/0002-chip8-codebase-audit/",
+        "tags": [
+          "teach/c17",
+          "learning-record",
+          "chip-8"
+        ],
+        "color": "#89b4fa"
+      },
+      {
+        "id": "teach/c17/learning-records/0003-cmake-sdl2-and-integer-truncation",
+        "title": "LR-0003: CMake SDL2 Resolution & Integer Precision Diagnostics",
+        "href": "/notes/teach/c17/learning-records/0003-cmake-sdl2-and-integer-truncation/",
+        "tags": [
+          "teach/c17",
+          "learning-record",
+          "cmake"
+        ],
+        "color": "#89b4fa"
+      },
+      {
+        "id": "teach/c17/learning-records/0004-stdio-conventions-and-fread-mechanics",
+        "title": "LR-0004: Standard I/O Return Conventions & fread Parameters",
+        "href": "/notes/teach/c17/learning-records/0004-stdio-conventions-and-fread-mechanics/",
+        "tags": [
+          "teach/c17",
+          "learning-record",
+          "stdio"
+        ],
+        "color": "#89b4fa"
+      },
+      {
+        "id": "teach/c17/mission",
+        "title": "Mission: C17 Systems Mastery via CHIP-8 Emulator",
+        "href": "/notes/teach/c17/mission/",
+        "tags": [
+          "teach/c17",
+          "mission",
+          "chip-8"
+        ],
+        "color": "#89b4fa"
+      },
+      {
+        "id": "teach/c17/reference/modern-c17-toolchain-and-cmake",
+        "title": "Modern C17 Toolchain and CMake Reference",
+        "href": "/notes/teach/c17/reference/modern-c17-toolchain-and-cmake/",
+        "tags": [
+          "teach/c17",
+          "reference",
+          "cmake",
+          "toolchain"
+        ],
+        "color": "#89b4fa"
+      },
+      {
+        "id": "teach/c17/reference/standard-io-and-binary-file-streams",
+        "title": "Standard I/O & Binary File Streams in C17",
+        "href": "/notes/teach/c17/reference/standard-io-and-binary-file-streams/",
+        "tags": [
+          "teach/c17",
+          "reference",
+          "stdio",
+          "file-io"
+        ],
+        "color": "#89b4fa"
+      },
+      {
         "id": "emulation/chip-8",
         "title": "CHIP-8",
         "href": "/notes/emulation/chip-8/",
@@ -4702,48 +5852,6 @@
         "color": "#89b4fa"
       },
       {
-        "id": "teach/c17/glossary",
-        "title": "C17 Glossary",
-        "href": "/notes/teach/c17/glossary/",
-        "tags": [
-          "teach/c17",
-          "glossary"
-        ],
-        "color": "#89b4fa"
-      },
-      {
-        "id": "teach/c17/c17",
-        "title": "C17 Hub",
-        "href": "/notes/teach/c17/c17/",
-        "tags": [
-          "teach/c17",
-          "moc",
-          "chip-8"
-        ],
-        "color": "#89b4fa"
-      },
-      {
-        "id": "teach/c17/resources",
-        "title": "C17 Resources",
-        "href": "/notes/teach/c17/resources/",
-        "tags": [
-          "teach/c17",
-          "resources"
-        ],
-        "color": "#89b4fa"
-      },
-      {
-        "id": "teach/c17/notes",
-        "title": "C17 Teacher Notes",
-        "href": "/notes/teach/c17/notes/",
-        "tags": [
-          "teach/c17",
-          "notes",
-          "chip-8"
-        ],
-        "color": "#89b4fa"
-      },
-      {
         "id": "productivity/eat-the-frog-14-02-2026",
         "title": "Eat Frog",
         "href": "/notes/productivity/eat-the-frog-14-02-2026/",
@@ -4768,75 +5876,6 @@
         "color": "#89b4fa"
       },
       {
-        "id": "teach/c17/lessons/0001-c17-standards-and-modern-toolchain",
-        "title": "Lesson 0001: ISO C17 Standards, Compiler Diagnostics & CMake with SDL2",
-        "href": "/notes/teach/c17/lessons/0001-c17-standards-and-modern-toolchain/",
-        "tags": [
-          "teach/c17",
-          "lesson",
-          "cmake",
-          "toolchain",
-          "chip-8"
-        ],
-        "color": "#89b4fa"
-      },
-      {
-        "id": "teach/c17/lessons/0002-binary-file-io-and-rom-loading",
-        "title": "Lesson 0002: Safe Binary File I/O & ROM Loading into Memory at 0x200",
-        "href": "/notes/teach/c17/lessons/0002-binary-file-io-and-rom-loading/",
-        "tags": [
-          "teach/c17",
-          "lesson",
-          "file-io",
-          "memory",
-          "chip-8"
-        ],
-        "color": "#89b4fa"
-      },
-      {
-        "id": "teach/c17/learning-records/0001-baseline-and-prerequisites",
-        "title": "LR-0001: Learner Background & C17 Baseline",
-        "href": "/notes/teach/c17/learning-records/0001-baseline-and-prerequisites/",
-        "tags": [
-          "teach/c17",
-          "learning-record"
-        ],
-        "color": "#89b4fa"
-      },
-      {
-        "id": "teach/c17/learning-records/0002-chip8-codebase-audit",
-        "title": "LR-0002: CHIP-8 Codebase Audit & Architecture Baseline",
-        "href": "/notes/teach/c17/learning-records/0002-chip8-codebase-audit/",
-        "tags": [
-          "teach/c17",
-          "learning-record",
-          "chip-8"
-        ],
-        "color": "#89b4fa"
-      },
-      {
-        "id": "teach/c17/learning-records/0003-cmake-sdl2-and-integer-truncation",
-        "title": "LR-0003: CMake SDL2 Resolution & Integer Precision Diagnostics",
-        "href": "/notes/teach/c17/learning-records/0003-cmake-sdl2-and-integer-truncation/",
-        "tags": [
-          "teach/c17",
-          "learning-record",
-          "cmake"
-        ],
-        "color": "#89b4fa"
-      },
-      {
-        "id": "teach/c17/learning-records/0004-stdio-conventions-and-fread-mechanics",
-        "title": "LR-0004: Standard I/O Return Conventions & fread Parameters",
-        "href": "/notes/teach/c17/learning-records/0004-stdio-conventions-and-fread-mechanics/",
-        "tags": [
-          "teach/c17",
-          "learning-record",
-          "stdio"
-        ],
-        "color": "#89b4fa"
-      },
-      {
         "id": "architecture/ddia-14-03-2026",
         "title": "Metastable Failures",
         "href": "/notes/architecture/ddia-14-03-2026/",
@@ -4846,41 +5885,6 @@
           "ddia"
         ],
         "color": "#5252e0"
-      },
-      {
-        "id": "teach/c17/mission",
-        "title": "Mission: C17 Systems Mastery via CHIP-8 Emulator",
-        "href": "/notes/teach/c17/mission/",
-        "tags": [
-          "teach/c17",
-          "mission",
-          "chip-8"
-        ],
-        "color": "#89b4fa"
-      },
-      {
-        "id": "teach/c17/reference/modern-c17-toolchain-and-cmake",
-        "title": "Modern C17 Toolchain and CMake Reference",
-        "href": "/notes/teach/c17/reference/modern-c17-toolchain-and-cmake/",
-        "tags": [
-          "teach/c17",
-          "reference",
-          "cmake",
-          "toolchain"
-        ],
-        "color": "#89b4fa"
-      },
-      {
-        "id": "teach/c17/reference/standard-io-and-binary-file-streams",
-        "title": "Standard I/O & Binary File Streams in C17",
-        "href": "/notes/teach/c17/reference/standard-io-and-binary-file-streams/",
-        "tags": [
-          "teach/c17",
-          "reference",
-          "stdio",
-          "file-io"
-        ],
-        "color": "#89b4fa"
       },
       {
         "id": "coding/satisfies-15-02-2026",
@@ -5708,6 +6712,606 @@
         "target": "architecture/case-for-monolith/case-for-monolith"
       },
       {
+        "source": "teach/c17/glossary",
+        "target": "teach/c17/c17"
+      },
+      {
+        "source": "teach/c17/glossary",
+        "target": "teach/c17/mission"
+      },
+      {
+        "source": "teach/c17/glossary",
+        "target": "teach/c17/resources"
+      },
+      {
+        "source": "teach/c17/glossary",
+        "target": "teach/c17/notes"
+      },
+      {
+        "source": "teach/c17/glossary",
+        "target": "thoughts/defensive-programming"
+      },
+      {
+        "source": "teach/c17/glossary",
+        "target": "coding/variable-linkage"
+      },
+      {
+        "source": "teach/c17/glossary",
+        "target": "books/c/advanced-c-programming-course/storage-classes"
+      },
+      {
+        "source": "teach/c17/glossary",
+        "target": "books/c/advanced-c-programming-course/c-static"
+      },
+      {
+        "source": "teach/c17/glossary",
+        "target": "books/c/advanced-c-programming-course/c-extern"
+      },
+      {
+        "source": "teach/c17/glossary",
+        "target": "coding/automatic-storage-duration"
+      },
+      {
+        "source": "teach/c17/glossary",
+        "target": "books/c/advanced-c-programming-course/c-auto"
+      },
+      {
+        "source": "teach/c17/glossary",
+        "target": "coding/variable-lifetime"
+      },
+      {
+        "source": "teach/c17/glossary",
+        "target": "coding/register-storage"
+      },
+      {
+        "source": "teach/c17/glossary",
+        "target": "books/c/advanced-c-programming-course/c-register"
+      },
+      {
+        "source": "teach/c17/glossary",
+        "target": "grill/c-systems-programming"
+      },
+      {
+        "source": "teach/c17/glossary",
+        "target": "emulation/chip-8"
+      },
+      {
+        "source": "teach/c17/glossary",
+        "target": "coding/computed-gotos-in-c-direct-threaded-code"
+      },
+      {
+        "source": "teach/c17/glossary",
+        "target": "teach/c17/reference/modern-c17-toolchain-and-cmake"
+      },
+      {
+        "source": "teach/c17/c17",
+        "target": "emulation/chip-8"
+      },
+      {
+        "source": "teach/c17/c17",
+        "target": "teach/c17/mission"
+      },
+      {
+        "source": "teach/c17/c17",
+        "target": "teach/c17/glossary"
+      },
+      {
+        "source": "teach/c17/c17",
+        "target": "teach/c17/resources"
+      },
+      {
+        "source": "teach/c17/c17",
+        "target": "teach/c17/notes"
+      },
+      {
+        "source": "teach/c17/c17",
+        "target": "teach/c17/lessons/0001-c17-standards-and-modern-toolchain"
+      },
+      {
+        "source": "teach/c17/c17",
+        "target": "teach/c17/lessons/0002-binary-file-io-and-rom-loading"
+      },
+      {
+        "source": "teach/c17/c17",
+        "target": "teach/c17/reference/modern-c17-toolchain-and-cmake"
+      },
+      {
+        "source": "teach/c17/c17",
+        "target": "teach/c17/reference/standard-io-and-binary-file-streams"
+      },
+      {
+        "source": "teach/c17/c17",
+        "target": "teach/c17/learning-records/0001-baseline-and-prerequisites"
+      },
+      {
+        "source": "teach/c17/c17",
+        "target": "teach/c17/learning-records/0002-chip8-codebase-audit"
+      },
+      {
+        "source": "teach/c17/c17",
+        "target": "teach/c17/learning-records/0003-cmake-sdl2-and-integer-truncation"
+      },
+      {
+        "source": "teach/c17/c17",
+        "target": "teach/c17/learning-records/0004-stdio-conventions-and-fread-mechanics"
+      },
+      {
+        "source": "teach/c17/c17",
+        "target": "books/c/advanced-c-programming-course/storage-classes"
+      },
+      {
+        "source": "teach/c17/c17",
+        "target": "books/c/advanced-c-programming-course/c-static"
+      },
+      {
+        "source": "teach/c17/c17",
+        "target": "books/c/advanced-c-programming-course/c-extern"
+      },
+      {
+        "source": "teach/c17/c17",
+        "target": "books/c/advanced-c-programming-course/c-register"
+      },
+      {
+        "source": "teach/c17/c17",
+        "target": "books/c/advanced-c-programming-course/c-auto"
+      },
+      {
+        "source": "teach/c17/c17",
+        "target": "coding/variable-linkage"
+      },
+      {
+        "source": "teach/c17/c17",
+        "target": "coding/variable-scope"
+      },
+      {
+        "source": "teach/c17/c17",
+        "target": "coding/variable-lifetime"
+      },
+      {
+        "source": "teach/c17/c17",
+        "target": "coding/register-storage"
+      },
+      {
+        "source": "teach/c17/c17",
+        "target": "coding/automatic-storage-duration"
+      },
+      {
+        "source": "teach/c17/c17",
+        "target": "grill/c-systems-programming"
+      },
+      {
+        "source": "teach/c17/c17",
+        "target": "coding/computed-gotos-in-c-direct-threaded-code"
+      },
+      {
+        "source": "teach/c17/c17",
+        "target": "thoughts/defensive-programming"
+      },
+      {
+        "source": "teach/c17/c17",
+        "target": "thoughts/function-abstration"
+      },
+      {
+        "source": "teach/c17/c17",
+        "target": "coding/concurrency/concurrency"
+      },
+      {
+        "source": "teach/c17/c17",
+        "target": "coding/concurrency/mutex"
+      },
+      {
+        "source": "teach/c17/c17",
+        "target": "coding/concurrency/memory-ordering"
+      },
+      {
+        "source": "teach/c17/c17",
+        "target": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency"
+      },
+      {
+        "source": "teach/c17/resources",
+        "target": "teach/c17/c17"
+      },
+      {
+        "source": "teach/c17/resources",
+        "target": "teach/c17/mission"
+      },
+      {
+        "source": "teach/c17/resources",
+        "target": "teach/c17/glossary"
+      },
+      {
+        "source": "teach/c17/resources",
+        "target": "teach/c17/notes"
+      },
+      {
+        "source": "teach/c17/resources",
+        "target": "emulation/chip-8"
+      },
+      {
+        "source": "teach/c17/resources",
+        "target": "coding/computed-gotos-in-c-direct-threaded-code"
+      },
+      {
+        "source": "teach/c17/resources",
+        "target": "books/c/advanced-c-programming-course/storage-classes"
+      },
+      {
+        "source": "teach/c17/resources",
+        "target": "books/c/advanced-c-programming-course/c-static"
+      },
+      {
+        "source": "teach/c17/resources",
+        "target": "books/c/advanced-c-programming-course/c-extern"
+      },
+      {
+        "source": "teach/c17/resources",
+        "target": "books/c/advanced-c-programming-course/c-register"
+      },
+      {
+        "source": "teach/c17/resources",
+        "target": "books/c/advanced-c-programming-course/c-auto"
+      },
+      {
+        "source": "teach/c17/resources",
+        "target": "coding/variable-linkage"
+      },
+      {
+        "source": "teach/c17/resources",
+        "target": "coding/variable-scope"
+      },
+      {
+        "source": "teach/c17/resources",
+        "target": "coding/variable-lifetime"
+      },
+      {
+        "source": "teach/c17/resources",
+        "target": "coding/register-storage"
+      },
+      {
+        "source": "teach/c17/resources",
+        "target": "coding/automatic-storage-duration"
+      },
+      {
+        "source": "teach/c17/resources",
+        "target": "grill/c-systems-programming"
+      },
+      {
+        "source": "teach/c17/resources",
+        "target": "thoughts/defensive-programming"
+      },
+      {
+        "source": "teach/c17/resources",
+        "target": "thoughts/function-abstration"
+      },
+      {
+        "source": "teach/c17/resources",
+        "target": "coding/concurrency/concurrency"
+      },
+      {
+        "source": "teach/c17/resources",
+        "target": "coding/concurrency/mutex"
+      },
+      {
+        "source": "teach/c17/resources",
+        "target": "coding/concurrency/memory-ordering"
+      },
+      {
+        "source": "teach/c17/resources",
+        "target": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency"
+      },
+      {
+        "source": "teach/c17/notes",
+        "target": "teach/c17/c17"
+      },
+      {
+        "source": "teach/c17/notes",
+        "target": "teach/c17/mission"
+      },
+      {
+        "source": "teach/c17/notes",
+        "target": "teach/c17/glossary"
+      },
+      {
+        "source": "teach/c17/notes",
+        "target": "teach/c17/resources"
+      },
+      {
+        "source": "teach/c17/notes",
+        "target": "emulation/chip-8"
+      },
+      {
+        "source": "teach/c17/notes",
+        "target": "grill/c-systems-programming"
+      },
+      {
+        "source": "teach/c17/notes",
+        "target": "teach/c17/reference/modern-c17-toolchain-and-cmake"
+      },
+      {
+        "source": "teach/c17/notes",
+        "target": "teach/c17/reference/standard-io-and-binary-file-streams"
+      },
+      {
+        "source": "teach/c17/notes",
+        "target": "thoughts/defensive-programming"
+      },
+      {
+        "source": "teach/c17/notes",
+        "target": "coding/computed-gotos-in-c-direct-threaded-code"
+      },
+      {
+        "source": "coding/computed-gotos-in-c-direct-threaded-code",
+        "target": "teach/c17/c17"
+      },
+      {
+        "source": "coding/computed-gotos-in-c-direct-threaded-code",
+        "target": "teach/c17/reference/modern-c17-toolchain-and-cmake"
+      },
+      {
+        "source": "coding/computed-gotos-in-c-direct-threaded-code",
+        "target": "emulation/chip-8"
+      },
+      {
+        "source": "coding/computed-gotos-in-c-direct-threaded-code",
+        "target": "teach/c17/lessons/0001-c17-standards-and-modern-toolchain"
+      },
+      {
+        "source": "coding/computed-gotos-in-c-direct-threaded-code",
+        "target": "grill/c-systems-programming"
+      },
+      {
+        "source": "teach/c17/lessons/0001-c17-standards-and-modern-toolchain",
+        "target": "teach/c17/c17"
+      },
+      {
+        "source": "teach/c17/lessons/0001-c17-standards-and-modern-toolchain",
+        "target": "teach/c17/mission"
+      },
+      {
+        "source": "teach/c17/lessons/0001-c17-standards-and-modern-toolchain",
+        "target": "teach/c17/glossary"
+      },
+      {
+        "source": "teach/c17/lessons/0001-c17-standards-and-modern-toolchain",
+        "target": "teach/c17/resources"
+      },
+      {
+        "source": "teach/c17/lessons/0001-c17-standards-and-modern-toolchain",
+        "target": "emulation/chip-8"
+      },
+      {
+        "source": "teach/c17/lessons/0001-c17-standards-and-modern-toolchain",
+        "target": "books/c/advanced-c-programming-course/storage-classes"
+      },
+      {
+        "source": "teach/c17/lessons/0001-c17-standards-and-modern-toolchain",
+        "target": "grill/c-systems-programming"
+      },
+      {
+        "source": "teach/c17/lessons/0001-c17-standards-and-modern-toolchain",
+        "target": "teach/c17/reference/modern-c17-toolchain-and-cmake"
+      },
+      {
+        "source": "teach/c17/lessons/0001-c17-standards-and-modern-toolchain",
+        "target": "teach/c17/lessons/0002-binary-file-io-and-rom-loading"
+      },
+      {
+        "source": "teach/c17/lessons/0002-binary-file-io-and-rom-loading",
+        "target": "teach/c17/c17"
+      },
+      {
+        "source": "teach/c17/lessons/0002-binary-file-io-and-rom-loading",
+        "target": "teach/c17/mission"
+      },
+      {
+        "source": "teach/c17/lessons/0002-binary-file-io-and-rom-loading",
+        "target": "teach/c17/glossary"
+      },
+      {
+        "source": "teach/c17/lessons/0002-binary-file-io-and-rom-loading",
+        "target": "teach/c17/resources"
+      },
+      {
+        "source": "teach/c17/lessons/0002-binary-file-io-and-rom-loading",
+        "target": "emulation/chip-8"
+      },
+      {
+        "source": "teach/c17/lessons/0002-binary-file-io-and-rom-loading",
+        "target": "thoughts/defensive-programming"
+      },
+      {
+        "source": "teach/c17/lessons/0002-binary-file-io-and-rom-loading",
+        "target": "teach/c17/reference/standard-io-and-binary-file-streams"
+      },
+      {
+        "source": "teach/c17/lessons/0002-binary-file-io-and-rom-loading",
+        "target": "teach/c17/lessons/0001-c17-standards-and-modern-toolchain"
+      },
+      {
+        "source": "teach/c17/learning-records/0001-baseline-and-prerequisites",
+        "target": "teach/c17/c17"
+      },
+      {
+        "source": "teach/c17/learning-records/0001-baseline-and-prerequisites",
+        "target": "teach/c17/mission"
+      },
+      {
+        "source": "teach/c17/learning-records/0001-baseline-and-prerequisites",
+        "target": "teach/c17/glossary"
+      },
+      {
+        "source": "teach/c17/learning-records/0001-baseline-and-prerequisites",
+        "target": "grill/c-systems-programming"
+      },
+      {
+        "source": "teach/c17/learning-records/0002-chip8-codebase-audit",
+        "target": "teach/c17/c17"
+      },
+      {
+        "source": "teach/c17/learning-records/0002-chip8-codebase-audit",
+        "target": "teach/c17/mission"
+      },
+      {
+        "source": "teach/c17/learning-records/0002-chip8-codebase-audit",
+        "target": "teach/c17/glossary"
+      },
+      {
+        "source": "teach/c17/learning-records/0002-chip8-codebase-audit",
+        "target": "emulation/chip-8"
+      },
+      {
+        "source": "teach/c17/learning-records/0002-chip8-codebase-audit",
+        "target": "teach/c17/reference/modern-c17-toolchain-and-cmake"
+      },
+      {
+        "source": "teach/c17/learning-records/0002-chip8-codebase-audit",
+        "target": "teach/c17/reference/standard-io-and-binary-file-streams"
+      },
+      {
+        "source": "teach/c17/learning-records/0002-chip8-codebase-audit",
+        "target": "grill/c-systems-programming"
+      },
+      {
+        "source": "teach/c17/learning-records/0002-chip8-codebase-audit",
+        "target": "coding/computed-gotos-in-c-direct-threaded-code"
+      },
+      {
+        "source": "teach/c17/learning-records/0003-cmake-sdl2-and-integer-truncation",
+        "target": "teach/c17/c17"
+      },
+      {
+        "source": "teach/c17/learning-records/0003-cmake-sdl2-and-integer-truncation",
+        "target": "teach/c17/mission"
+      },
+      {
+        "source": "teach/c17/learning-records/0003-cmake-sdl2-and-integer-truncation",
+        "target": "teach/c17/lessons/0001-c17-standards-and-modern-toolchain"
+      },
+      {
+        "source": "teach/c17/learning-records/0003-cmake-sdl2-and-integer-truncation",
+        "target": "teach/c17/reference/modern-c17-toolchain-and-cmake"
+      },
+      {
+        "source": "teach/c17/learning-records/0003-cmake-sdl2-and-integer-truncation",
+        "target": "grill/c-systems-programming"
+      },
+      {
+        "source": "teach/c17/learning-records/0003-cmake-sdl2-and-integer-truncation",
+        "target": "teach/c17/lessons/0002-binary-file-io-and-rom-loading"
+      },
+      {
+        "source": "teach/c17/learning-records/0004-stdio-conventions-and-fread-mechanics",
+        "target": "teach/c17/c17"
+      },
+      {
+        "source": "teach/c17/learning-records/0004-stdio-conventions-and-fread-mechanics",
+        "target": "teach/c17/mission"
+      },
+      {
+        "source": "teach/c17/learning-records/0004-stdio-conventions-and-fread-mechanics",
+        "target": "teach/c17/reference/standard-io-and-binary-file-streams"
+      },
+      {
+        "source": "teach/c17/learning-records/0004-stdio-conventions-and-fread-mechanics",
+        "target": "thoughts/defensive-programming"
+      },
+      {
+        "source": "teach/c17/learning-records/0004-stdio-conventions-and-fread-mechanics",
+        "target": "teach/c17/lessons/0002-binary-file-io-and-rom-loading"
+      },
+      {
+        "source": "teach/c17/learning-records/0004-stdio-conventions-and-fread-mechanics",
+        "target": "emulation/chip-8"
+      },
+      {
+        "source": "teach/c17/mission",
+        "target": "teach/c17/c17"
+      },
+      {
+        "source": "teach/c17/mission",
+        "target": "teach/c17/glossary"
+      },
+      {
+        "source": "teach/c17/mission",
+        "target": "teach/c17/resources"
+      },
+      {
+        "source": "teach/c17/mission",
+        "target": "teach/c17/notes"
+      },
+      {
+        "source": "teach/c17/mission",
+        "target": "emulation/chip-8"
+      },
+      {
+        "source": "teach/c17/mission",
+        "target": "grill/c-systems-programming"
+      },
+      {
+        "source": "teach/c17/mission",
+        "target": "coding/computed-gotos-in-c-direct-threaded-code"
+      },
+      {
+        "source": "teach/c17/mission",
+        "target": "thoughts/defensive-programming"
+      },
+      {
+        "source": "teach/c17/reference/modern-c17-toolchain-and-cmake",
+        "target": "teach/c17/c17"
+      },
+      {
+        "source": "teach/c17/reference/modern-c17-toolchain-and-cmake",
+        "target": "teach/c17/mission"
+      },
+      {
+        "source": "teach/c17/reference/modern-c17-toolchain-and-cmake",
+        "target": "teach/c17/glossary"
+      },
+      {
+        "source": "teach/c17/reference/modern-c17-toolchain-and-cmake",
+        "target": "teach/c17/resources"
+      },
+      {
+        "source": "teach/c17/reference/modern-c17-toolchain-and-cmake",
+        "target": "books/c/advanced-c-programming-course/storage-classes"
+      },
+      {
+        "source": "teach/c17/reference/modern-c17-toolchain-and-cmake",
+        "target": "coding/variable-scope"
+      },
+      {
+        "source": "teach/c17/reference/modern-c17-toolchain-and-cmake",
+        "target": "grill/c-systems-programming"
+      },
+      {
+        "source": "teach/c17/reference/standard-io-and-binary-file-streams",
+        "target": "teach/c17/c17"
+      },
+      {
+        "source": "teach/c17/reference/standard-io-and-binary-file-streams",
+        "target": "teach/c17/mission"
+      },
+      {
+        "source": "teach/c17/reference/standard-io-and-binary-file-streams",
+        "target": "teach/c17/glossary"
+      },
+      {
+        "source": "teach/c17/reference/standard-io-and-binary-file-streams",
+        "target": "teach/c17/lessons/0002-binary-file-io-and-rom-loading"
+      },
+      {
+        "source": "teach/c17/reference/standard-io-and-binary-file-streams",
+        "target": "thoughts/defensive-programming"
+      },
+      {
+        "source": "teach/c17/reference/standard-io-and-binary-file-streams",
+        "target": "grill/c-systems-programming"
+      },
+      {
+        "source": "teach/c17/reference/standard-io-and-binary-file-streams",
+        "target": "emulation/chip-8"
+      },
+      {
         "source": "emulation/chip-8",
         "target": "teach/c17/c17"
       },
@@ -5842,190 +7446,6 @@
       {
         "source": "books/c/advanced-c-programming-course/storage-classes",
         "target": "teach/c17/glossary"
-      },
-      {
-        "source": "teach/c17/glossary",
-        "target": "teach/c17/c17"
-      },
-      {
-        "source": "teach/c17/c17",
-        "target": "teach/c17/mission"
-      },
-      {
-        "source": "teach/c17/c17",
-        "target": "teach/c17/glossary"
-      },
-      {
-        "source": "teach/c17/c17",
-        "target": "teach/c17/resources"
-      },
-      {
-        "source": "teach/c17/c17",
-        "target": "teach/c17/notes"
-      },
-      {
-        "source": "teach/c17/c17",
-        "target": "teach/c17/lessons/0001-c17-standards-and-modern-toolchain"
-      },
-      {
-        "source": "teach/c17/c17",
-        "target": "teach/c17/lessons/0002-binary-file-io-and-rom-loading"
-      },
-      {
-        "source": "teach/c17/c17",
-        "target": "teach/c17/reference/modern-c17-toolchain-and-cmake"
-      },
-      {
-        "source": "teach/c17/c17",
-        "target": "teach/c17/reference/standard-io-and-binary-file-streams"
-      },
-      {
-        "source": "teach/c17/c17",
-        "target": "teach/c17/learning-records/0001-baseline-and-prerequisites"
-      },
-      {
-        "source": "teach/c17/c17",
-        "target": "teach/c17/learning-records/0002-chip8-codebase-audit"
-      },
-      {
-        "source": "teach/c17/c17",
-        "target": "teach/c17/learning-records/0003-cmake-sdl2-and-integer-truncation"
-      },
-      {
-        "source": "teach/c17/c17",
-        "target": "teach/c17/learning-records/0004-stdio-conventions-and-fread-mechanics"
-      },
-      {
-        "source": "teach/c17/c17",
-        "target": "coding/concurrency/concurrency"
-      },
-      {
-        "source": "teach/c17/c17",
-        "target": "coding/concurrency/mutex"
-      },
-      {
-        "source": "teach/c17/c17",
-        "target": "coding/concurrency/memory-ordering"
-      },
-      {
-        "source": "teach/c17/c17",
-        "target": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency"
-      },
-      {
-        "source": "teach/c17/c17",
-        "target": "books/c/advanced-c-programming-course/storage-classes"
-      },
-      {
-        "source": "teach/c17/resources",
-        "target": "teach/c17/c17"
-      },
-      {
-        "source": "teach/c17/resources",
-        "target": "coding/concurrency/concurrency"
-      },
-      {
-        "source": "teach/c17/resources",
-        "target": "coding/concurrency/mutex"
-      },
-      {
-        "source": "teach/c17/resources",
-        "target": "books/rust/rust-atomics-and-locks/basics-of-rust-concurrency"
-      },
-      {
-        "source": "teach/c17/notes",
-        "target": "teach/c17/c17"
-      },
-      {
-        "source": "teach/c17/lessons/0001-c17-standards-and-modern-toolchain",
-        "target": "teach/c17/c17"
-      },
-      {
-        "source": "teach/c17/lessons/0001-c17-standards-and-modern-toolchain",
-        "target": "teach/c17/mission"
-      },
-      {
-        "source": "teach/c17/lessons/0001-c17-standards-and-modern-toolchain",
-        "target": "teach/c17/glossary"
-      },
-      {
-        "source": "teach/c17/lessons/0001-c17-standards-and-modern-toolchain",
-        "target": "teach/c17/lessons/0002-binary-file-io-and-rom-loading"
-      },
-      {
-        "source": "teach/c17/lessons/0002-binary-file-io-and-rom-loading",
-        "target": "teach/c17/c17"
-      },
-      {
-        "source": "teach/c17/lessons/0002-binary-file-io-and-rom-loading",
-        "target": "teach/c17/mission"
-      },
-      {
-        "source": "teach/c17/lessons/0002-binary-file-io-and-rom-loading",
-        "target": "teach/c17/glossary"
-      },
-      {
-        "source": "teach/c17/lessons/0002-binary-file-io-and-rom-loading",
-        "target": "teach/c17/lessons/0001-c17-standards-and-modern-toolchain"
-      },
-      {
-        "source": "teach/c17/learning-records/0001-baseline-and-prerequisites",
-        "target": "teach/c17/c17"
-      },
-      {
-        "source": "teach/c17/learning-records/0001-baseline-and-prerequisites",
-        "target": "teach/c17/mission"
-      },
-      {
-        "source": "teach/c17/learning-records/0002-chip8-codebase-audit",
-        "target": "teach/c17/c17"
-      },
-      {
-        "source": "teach/c17/learning-records/0002-chip8-codebase-audit",
-        "target": "teach/c17/mission"
-      },
-      {
-        "source": "teach/c17/learning-records/0003-cmake-sdl2-and-integer-truncation",
-        "target": "teach/c17/c17"
-      },
-      {
-        "source": "teach/c17/learning-records/0003-cmake-sdl2-and-integer-truncation",
-        "target": "teach/c17/mission"
-      },
-      {
-        "source": "teach/c17/learning-records/0003-cmake-sdl2-and-integer-truncation",
-        "target": "teach/c17/lessons/0001-c17-standards-and-modern-toolchain"
-      },
-      {
-        "source": "teach/c17/learning-records/0004-stdio-conventions-and-fread-mechanics",
-        "target": "teach/c17/c17"
-      },
-      {
-        "source": "teach/c17/learning-records/0004-stdio-conventions-and-fread-mechanics",
-        "target": "teach/c17/mission"
-      },
-      {
-        "source": "teach/c17/learning-records/0004-stdio-conventions-and-fread-mechanics",
-        "target": "teach/c17/reference/standard-io-and-binary-file-streams"
-      },
-      {
-        "source": "teach/c17/mission",
-        "target": "teach/c17/c17"
-      },
-      {
-        "source": "teach/c17/reference/modern-c17-toolchain-and-cmake",
-        "target": "teach/c17/c17"
-      },
-      {
-        "source": "teach/c17/reference/modern-c17-toolchain-and-cmake",
-        "target": "teach/c17/mission"
-      },
-      {
-        "source": "teach/c17/reference/standard-io-and-binary-file-streams",
-        "target": "teach/c17/c17"
-      },
-      {
-        "source": "teach/c17/reference/standard-io-and-binary-file-streams",
-        "target": "teach/c17/lessons/0002-binary-file-io-and-rom-loading"
       },
       {
         "source": "coding/concurrency/concurrency",

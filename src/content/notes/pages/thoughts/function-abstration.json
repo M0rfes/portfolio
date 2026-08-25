@@ -18,5 +18,24 @@
   "vaultPath": "Thoughts/Function Abstration.md",
   "folder": "Thoughts",
   "markdown": "# Function Abstraction and Local Reasoning\n\nUsually, when discussing functions, the advice is to abstract them to maintain the DRY principle (i.e., refactor code when you need to repeat the same steps). While a good rule when starting, the real reason to create, refactor to, or abstract to a function should be to maintain **local reasoning**.\n\nThe rule \"refactor into a function only when you need to reuse it\" is how you get a 300-line function, because the same steps aren't required anywhere else; instead, the rule should be to maintain local reasoning.\n\nFunctions are more for humans than for machines; remember, a human will see your code before a machine will. The CPU doesn't see functions; the compiler has to do a lot of extra work just to turn your functions into instructions—managing return addresses, parameter addresses, and inlining where possible.\n\n## The Slippery Slope of \"DRY\" Bloat\n\nFor example, we have a function that grants product licenses:\n- Initially, it only added an entry to the licenses table for the user.\n- Now sales wanted an endpoint to attach a license to a user on their behalf, so we added that feature to the same method because that function is where we link users with licenses; keep it DRY.\n- Now we have anonymous checkout, so if a user doesn't exist, create one, link them again, and it goes to the same function because DRY after all.\n\nAnd we realised that the function is over 100 lines and none of it makes any sense; there are a bunch of `if` checks to create different resources.\n\nThese examples are kind of poor, but I can't give a simple one because the 300-line function I am talking about (to maintain DRY, or simply because no other flow uses these steps, so there's no need to refactor) spans a long stretch of time.\n\n## Refactoring for Local Reasoning\n\nInstead, we should have refactored based on local reasoning. You should refactor when you can reason about what a function does at a glance.\n- e.g., the link-licenses-to-user function should be its own function even if no other code calls it, and it is only done at one spot.\n- This way, all it cares about is a valid user and license, not `userId` or `licenseId`, because then we need to check whether those are valid IDs; they should be valid objects, and it should just link them, even if the call is just `user.link(license)`.\n- Now every other flow should be broken into a separate function.\n\n## Single Responsibility in Practice\n\nYou might argue that this is what I would do; it's easy when we are just pondering about code. But in practice, it's easy to fall into the habit of just adding one more line, one more `if` check, to bloat the function because the rest of the setup is already done.\n\nEven the **Single Responsibility Principle** says a function, method, or class should have one reason to change, but the link flow now has multiple:\n- If we change how a user is created, it changes.\n- If we change which products sales is allowed to link, it changes, etc.\n",
-  "linkedFrom": []
+  "linkedFrom": [
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "c17"
+      ],
+      "href": "/notes/teach/c17/c17/",
+      "title": "C17 Hub"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "resources"
+      ],
+      "href": "/notes/teach/c17/resources/",
+      "title": "C17 Resources"
+    }
+  ]
 }

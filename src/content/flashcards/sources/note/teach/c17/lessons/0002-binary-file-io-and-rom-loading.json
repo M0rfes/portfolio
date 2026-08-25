@@ -20,23 +20,23 @@
     },
     {
       "id": "note:teach/c17/lessons/0002-binary-file-io-and-rom-loading:1",
-      "question": "What is the maximum allowable ROM size when loading a program into CHIP-8 RAM?",
-      "answer": "3,584 bytes (4,096 bytes total RAM minus 512 bytes reserved for fontset and interpreter below 0x200)."
+      "question": "Why is the maximum ROM size in a standard CHIP-8 emulator exactly 3,584 bytes?",
+      "answer": "Total addressable RAM is 4,096 bytes and the first 512 bytes (0x000 to 0x1FF) are reserved, leaving 4096 - 512 = 3584 bytes starting at 0x200."
     },
     {
       "id": "note:teach/c17/lessons/0002-binary-file-io-and-rom-loading:2",
-      "question": "Why must rewind(file) or fseek(file, 0, SEEK_SET) be called before reading after checking file size with fseek/ftell?",
-      "answer": "Seeking to the end moves the file position indicator to EOF; without rewinding back to the beginning, fread would read 0 bytes."
+      "question": "Why is rewind(file) required between computing file size with fseek(SEEK_END) / ftell() and reading data with fread()?",
+      "answer": "Seeking to SEEK_END moves the stream file position indicator to the end of the file; without rewinding back to the beginning, fread() would read 0 bytes."
     },
     {
       "id": "note:teach/c17/lessons/0002-binary-file-io-and-rom-loading:3",
-      "question": "What does fopen return upon failure to open a file in C?",
-      "answer": "fopen returns NULL when opening a file fails (such as when the file is missing or permissions are denied)."
+      "question": "How should a robust ROM loader verify that fread() successfully read the entire file?",
+      "answer": "By verifying that the return value of fread() equals the expected element count (nmemb), and handling incomplete reads by closing the file and returning an error code."
     },
     {
       "id": "note:teach/c17/lessons/0002-binary-file-io-and-rom-loading:4",
-      "question": "Where is the built-in 80-byte hexadecimal font set stored in CHIP-8 memory?",
-      "answer": "The font set is stored in the reserved memory region from 0x000 to 0x050."
+      "question": "What defensive stream cleanup invariant must be maintained when loading files in C?",
+      "answer": "Every open FILE* handle must be explicitly closed with fclose() across all failure paths and success paths to prevent file descriptor leaks."
     }
   ]
 }

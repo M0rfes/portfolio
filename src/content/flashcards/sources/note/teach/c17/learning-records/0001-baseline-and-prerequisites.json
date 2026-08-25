@@ -4,23 +4,26 @@
     "id": "teach/c17/learning-records/0001-baseline-and-prerequisites",
     "title": "LR-0001: Learner Background & C17 Baseline",
     "href": "/notes/teach/c17/learning-records/0001-baseline-and-prerequisites/",
-    "tags": ["teach/c17", "learning-record"]
+    "tags": [
+      "teach/c17",
+      "learning-record"
+    ]
   },
   "cards": [
     {
       "id": "note:teach/c17/learning-records/0001-baseline-and-prerequisites:0",
-      "question": "Which C17 topics should lessons ground in for a Node.js/Rust/Go background?",
-      "answer": "Low-level memory mechanics, undefined behavior elimination, strict aliasing, cache locality, and POSIX systems interfaces."
+      "question": "How does memory safety in ISO C17 differ fundamentally from memory safety models in Rust and Node.js?",
+      "answer": "C17 provides direct hardware and memory control with zero runtime or compile-time ownership safety checks; out-of-bounds accesses trigger undefined behavior rather than panics or garbage collector cleanup."
     },
     {
       "id": "note:teach/c17/learning-records/0001-baseline-and-prerequisites:1",
-      "question": "What high-level runtimes should C17 concepts be compared to?",
-      "answer": "Rust ownership and borrowing, and Node.js event loops / V8 memory management."
+      "question": "Why are sanitizers (ASan and UBSan) critical when developing systems applications in C?",
+      "answer": "They instrument compiled code to catch memory bugs and undefined behaviors (such as out-of-bounds indexing or signed overflow) at runtime with stack traces before they cause silent memory corruption."
     },
     {
       "id": "note:teach/c17/learning-records/0001-baseline-and-prerequisites:2",
-      "question": "What target environment is assumed for the C17 track?",
-      "answer": "macOS and Linux with Clang or GCC, and CMake."
+      "question": "Why should C systems code avoid relying on defensive null-object fallbacks compared to high-level web runtimes?",
+      "answer": "Defensive fallbacks mask invariant violations and lead to cascading undefined behavior; systems code should fail fast and enforce strict memory invariants."
     }
   ]
 }

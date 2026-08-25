@@ -1918,8 +1918,8 @@
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-auto:0",
-      "question": "What is auto the default modifier for?",
-      "answer": "Visibility. Auto is the default modifier for visibility.",
+      "question": "What is the lifetime and memory allocation behavior of a variable with the auto storage class in C?",
+      "answer": "Its memory is allocated on the stack when execution enters its enclosing block scope and automatically deallocated when execution leaves that scope.",
       "sourceType": "note",
       "sourceId": "books/c/advanced-c-programming-course/c-auto",
       "sourceTitle": "C Auto Storage Class",
@@ -1932,8 +1932,8 @@
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-auto:1",
-      "question": "How is an auto variable's lifetime bound?",
-      "answer": "Lifetime is bound to its scope: memory is acquired when it comes into scope and freed when it goes out of scope.",
+      "question": "What is the default storage class for local variables declared inside a function block in C?",
+      "answer": "The default is auto (automatic storage duration), meaning the auto keyword is implicit and rarely written explicitly.",
       "sourceType": "note",
       "sourceId": "books/c/advanced-c-programming-course/c-auto",
       "sourceTitle": "C Auto Storage Class",
@@ -1946,8 +1946,8 @@
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-auto:2",
-      "question": "When do you need to write the auto keyword?",
-      "answer": "You do not need to specify auto unless you are shadowing a global variable and want to be specific about the shadowing.",
+      "question": "When might a developer explicitly specify the auto keyword on a local variable in C?",
+      "answer": "When intentionally shadowing a global variable to make the local block scope and lifetime explicit in code.",
       "sourceType": "note",
       "sourceId": "books/c/advanced-c-programming-course/c-auto",
       "sourceTitle": "C Auto Storage Class",
@@ -1960,8 +1960,8 @@
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-extern:0",
-      "question": "What does visibility or linkage specify?",
-      "answer": "Whether a variable is visible to other files in a multi-file program.",
+      "question": "What is the primary purpose of the extern storage class specifier in C?",
+      "answer": "It declares a variable or function with external linkage, allowing other translation units to reference a symbol defined elsewhere without allocating new storage.",
       "sourceType": "note",
       "sourceId": "books/c/advanced-c-programming-course/c-extern",
       "sourceTitle": "C Extern Storage Class",
@@ -1974,8 +1974,8 @@
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-extern:1",
-      "question": "What does extern control, and what defaults to extern?",
-      "answer": "Extern controls the visibility of a global variable in a multi-file project. Functions default to extern.",
+      "question": "What is the default linkage for functions in C when no storage class specifier is provided?",
+      "answer": "Functions have external linkage (extern) by default, making them callable from other translation units unless explicitly marked static.",
       "sourceType": "note",
       "sourceId": "books/c/advanced-c-programming-course/c-extern",
       "sourceTitle": "C Extern Storage Class",
@@ -1988,8 +1988,8 @@
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-extern:2",
-      "question": "Can extern be used inside a function scope?",
-      "answer": "Yes. Using extern within a scope declares that you are using a global variable defined in another file.",
+      "question": "Why does an extern declaration of a multidimensional array (e.g. extern char arr[][50];) require trailing dimension sizes while a 1D array does not?",
+      "answer": "The compiler needs the inner dimension sizes to calculate pointer arithmetic and row stride offsets in memory, whereas the first dimension size is not needed for indexing.",
       "sourceType": "note",
       "sourceId": "books/c/advanced-c-programming-course/c-extern",
       "sourceTitle": "C Extern Storage Class",
@@ -2002,22 +2002,8 @@
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-extern:3",
-      "question": "When declaring an extern array, which sizes must you specify?",
-      "answer": "A one-dimensional array does not need its size because the compiler already knows it. A multidimensional array must specify the nested sizes.",
-      "sourceType": "note",
-      "sourceId": "books/c/advanced-c-programming-course/c-extern",
-      "sourceTitle": "C Extern Storage Class",
-      "sourceHref": "/notes/books/c/advanced-c-programming-course/c-extern/",
-      "tags": [
-        "c",
-        "memory",
-        "storage-classes"
-      ]
-    },
-    {
-      "id": "note:books/c/advanced-c-programming-course/c-extern:4",
-      "question": "Why is `extern int add(int a, int b);` the same as `int add(int a, int b);`?",
-      "answer": "Functions default to extern, so the two declarations are effectively the same.",
+      "question": "What is the effect of declaring extern int count; inside a local function block?",
+      "answer": "It restricts the visibility of the symbol reference to that specific function scope while linking to the global variable defined in another translation unit.",
       "sourceType": "note",
       "sourceId": "books/c/advanced-c-programming-course/c-extern",
       "sourceTitle": "C Extern Storage Class",
@@ -2030,8 +2016,8 @@
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-register:0",
-      "question": "What does the register modifier ask the compiler to do?",
-      "answer": "Place the variable in a CPU register instead of RAM. The compiler can still refuse for optimisation; it is a request, not a guarantee.",
+      "question": "Why is applying the address-of operator & to a variable declared with register a compile-time error in C?",
+      "answer": "CPU registers do not have memory addresses in RAM, and the ISO C standard strictly forbids taking the address of any register variable regardless of whether the compiler places it in a register or on the stack.",
       "sourceType": "note",
       "sourceId": "books/c/advanced-c-programming-course/c-register",
       "sourceTitle": "C Register Storage Class",
@@ -2044,8 +2030,8 @@
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-register:1",
-      "question": "Can a struct or a struct field be register?",
-      "answer": "A whole struct can have the register modifier, but one field of a struct cannot.",
+      "question": "Can a global (file-scope) variable in C be declared with the register storage class?",
+      "answer": "No. The register specifier can only be applied to local variables (block scope) and function parameters; it cannot be applied at file scope.",
       "sourceType": "note",
       "sourceId": "books/c/advanced-c-programming-course/c-register",
       "sourceTitle": "C Register Storage Class",
@@ -2058,8 +2044,8 @@
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-register:2",
-      "question": "Why can you not take the address of a register variable?",
-      "answer": "A register variable has no address while it is in a register, so `&` on it is not allowed and will cause an error.",
+      "question": "Can individual members of a struct be declared with the register storage class in C?",
+      "answer": "No. The register modifier can be applied to an entire struct variable, but cannot be applied to individual struct members.",
       "sourceType": "note",
       "sourceId": "books/c/advanced-c-programming-course/c-register",
       "sourceTitle": "C Register Storage Class",
@@ -2072,22 +2058,8 @@
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-register:3",
-      "question": "Can a pointer itself be a register variable?",
-      "answer": "Yes. Putting an address in a register is allowed, such as `register int* ptr_i = &i;`.",
-      "sourceType": "note",
-      "sourceId": "books/c/advanced-c-programming-course/c-register",
-      "sourceTitle": "C Register Storage Class",
-      "sourceHref": "/notes/books/c/advanced-c-programming-course/c-register/",
-      "tags": [
-        "c",
-        "memory",
-        "storage-classes"
-      ]
-    },
-    {
-      "id": "note:books/c/advanced-c-programming-course/c-register:4",
-      "question": "Can a register variable be global?",
-      "answer": "No. Register has scope, lifetime, and visibility, but register cannot be global.",
+      "question": "Is it valid to declare a pointer variable with register and assign it the address of a standard variable (e.g. register int *ptr = &val;)?",
+      "answer": "Yes. The pointer variable itself is stored in a CPU register, while the memory address it holds points to valid RAM.",
       "sourceType": "note",
       "sourceId": "books/c/advanced-c-programming-course/c-register",
       "sourceTitle": "C Register Storage Class",
@@ -2100,8 +2072,8 @@
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-static:0",
-      "question": "What does a static lifetime mean?",
-      "answer": "The value exists until the end of the program, so a value with a static lifetime can be shared across threads.",
+      "question": "Where are local static variables stored in memory, and how does their lifetime differ from auto variables?",
+      "answer": "Local static variables are stored in the data segment (or BSS segment) rather than the stack, persisting and retaining their values across function invocations for the entire lifetime of the program.",
       "sourceType": "note",
       "sourceId": "books/c/advanced-c-programming-course/c-static",
       "sourceTitle": "C Static Storage Class",
@@ -2114,8 +2086,8 @@
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-static:1",
-      "question": "When does a static variable exist relative to main?",
-      "answer": "Any variable declared static exists before main and remains in scope until the program ends.",
+      "question": "What is the difference between static applied to a global variable versus static applied to a local variable in C?",
+      "answer": "For global variables, static restricts visibility to internal linkage (private to the translation unit). For local variables, static extends the storage duration to the entire program lifetime while retaining block scope.",
       "sourceType": "note",
       "sourceId": "books/c/advanced-c-programming-course/c-static",
       "sourceTitle": "C Static Storage Class",
@@ -2128,8 +2100,8 @@
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-static:2",
-      "question": "How do local static variables differ from auto variables?",
-      "answer": "Local statics retain their value between function executions and live in the data segment (or BSS), not the stack. Auto variables are allocated on the stack.",
+      "question": "Why does the initialization static int x = get_value(); fail to compile in C?",
+      "answer": "Static storage duration objects are initialized at load time prior to program execution, requiring compile-time constant expressions rather than runtime function calls.",
       "sourceType": "note",
       "sourceId": "books/c/advanced-c-programming-course/c-static",
       "sourceTitle": "C Static Storage Class",
@@ -2142,36 +2114,8 @@
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-static:3",
-      "question": "Why can a whole struct be static but not an individual member?",
-      "answer": "The whole struct can have the static modifier, but individual members cannot due to the alignment rule.",
-      "sourceType": "note",
-      "sourceId": "books/c/advanced-c-programming-course/c-static",
-      "sourceTitle": "C Static Storage Class",
-      "sourceHref": "/notes/books/c/advanced-c-programming-course/c-static/",
-      "tags": [
-        "c",
-        "memory",
-        "storage-classes"
-      ]
-    },
-    {
-      "id": "note:books/c/advanced-c-programming-course/c-static:4",
-      "question": "Why does `static int i = get_i();` fail?",
-      "answer": "Static variables have to be known at compile time, so they cannot be initialised from a function call like `get_i()`.",
-      "sourceType": "note",
-      "sourceId": "books/c/advanced-c-programming-course/c-static",
-      "sourceTitle": "C Static Storage Class",
-      "sourceHref": "/notes/books/c/advanced-c-programming-course/c-static/",
-      "tags": [
-        "c",
-        "memory",
-        "storage-classes"
-      ]
-    },
-    {
-      "id": "note:books/c/advanced-c-programming-course/c-static:5",
-      "question": "What does file-scope static do to a variable or function?",
-      "answer": "It makes them visible only in the file where they are defined.",
+      "question": "Why can individual members inside a struct declaration not be marked with the static storage class in C?",
+      "answer": "C structs define contiguous memory layouts and alignment offsets for instances; individual static fields would break contiguous struct layout and are not supported in C.",
       "sourceType": "note",
       "sourceId": "books/c/advanced-c-programming-course/c-static",
       "sourceTitle": "C Static Storage Class",
@@ -2184,8 +2128,8 @@
     },
     {
       "id": "note:books/c/advanced-c-programming-course/storage-classes:0",
-      "question": "What three core properties do C storage classes describe for a variable or function?",
-      "answer": "Storage classes describe scope (where it is accessible), visibility/linkage (whether it is visible to other files), and lifetime (how long it exists).",
+      "question": "What three core properties do storage classes determine for a variable in C?",
+      "answer": "They determine scope (where the variable is accessible), visibility/linkage (whether it can be referenced across translation units), and lifetime/storage duration (how long its memory remains allocated).",
       "sourceType": "note",
       "sourceId": "books/c/advanced-c-programming-course/storage-classes",
       "sourceTitle": "Storage Classes in C",
@@ -2199,8 +2143,8 @@
     },
     {
       "id": "note:books/c/advanced-c-programming-course/storage-classes:1",
-      "question": "What are the four storage class modifiers in C?",
-      "answer": "The four storage modifiers are auto, extern, static, and register.",
+      "question": "What are the four storage class specifiers available in C?",
+      "answer": "auto, extern, static, and register.",
       "sourceType": "note",
       "sourceId": "books/c/advanced-c-programming-course/storage-classes",
       "sourceTitle": "Storage Classes in C",
@@ -2214,8 +2158,8 @@
     },
     {
       "id": "note:books/c/advanced-c-programming-course/storage-classes:2",
-      "question": "How does declaring a variable or function static at file scope affect its visibility?",
-      "answer": "It restricts visibility strictly to the file where it is defined, giving it internal linkage.",
+      "question": "What is the distinction between variable scope and variable lifetime in C?",
+      "answer": "Scope is a compile-time region of code where an identifier is visible and accessible, while lifetime is the runtime duration during which memory remains allocated for that object.",
       "sourceType": "note",
       "sourceId": "books/c/advanced-c-programming-course/storage-classes",
       "sourceTitle": "Storage Classes in C",
@@ -2229,23 +2173,8 @@
     },
     {
       "id": "note:books/c/advanced-c-programming-course/storage-classes:3",
-      "question": "Where are local static variables stored in memory, and what is their lifetime?",
-      "answer": "Local static variables are stored in the data segment (or BSS) and retain their values from program start to program termination.",
-      "sourceType": "note",
-      "sourceId": "books/c/advanced-c-programming-course/storage-classes",
-      "sourceTitle": "Storage Classes in C",
-      "sourceHref": "/notes/books/c/advanced-c-programming-course/storage-classes/",
-      "tags": [
-        "c",
-        "memory",
-        "storage-classes",
-        "moc"
-      ]
-    },
-    {
-      "id": "note:books/c/advanced-c-programming-course/storage-classes:4",
-      "question": "What is the 'no address rule' regarding C register variables?",
-      "answer": "You cannot take the address of a register variable using & because CPU registers do not have memory addresses in RAM.",
+      "question": "What is the distinction between variable scope and variable linkage in C?",
+      "answer": "Scope dictates accessibility within a single translation unit or block, whereas linkage dictates whether multiple declarations across different scopes or translation units refer to the same object.",
       "sourceType": "note",
       "sourceId": "books/c/advanced-c-programming-course/storage-classes",
       "sourceTitle": "Storage Classes in C",
@@ -3531,8 +3460,8 @@
     },
     {
       "id": "note:coding/automatic-storage-duration:0",
-      "question": "What is auto the default modifier for?",
-      "answer": "Visibility and lifetime.",
+      "question": "What is automatic storage duration in C?",
+      "answer": "A storage duration where memory is automatically allocated on the call stack when execution enters the enclosing block and automatically reclaimed when the block exits.",
       "sourceType": "note",
       "sourceId": "coding/automatic-storage-duration",
       "sourceTitle": "Automatic Storage Duration",
@@ -3545,8 +3474,8 @@
     },
     {
       "id": "note:coding/automatic-storage-duration:1",
-      "question": "What is auto lifetime bound to?",
-      "answer": "Its scope.",
+      "question": "Why is returning a pointer to a local variable with automatic storage duration dangerous in C?",
+      "answer": "The variable stack memory is deallocated when the function returns, leaving a dangling pointer whose dereference causes undefined behavior.",
       "sourceType": "note",
       "sourceId": "coding/automatic-storage-duration",
       "sourceTitle": "Automatic Storage Duration",
@@ -3559,8 +3488,8 @@
     },
     {
       "id": "note:coding/automatic-storage-duration:2",
-      "question": "When is auto memory acquired and freed?",
-      "answer": "Memory is acquired when the variable comes into scope and freed when it goes out of scope.",
+      "question": "What storage duration do non-static local variables inside function blocks have by default in C?",
+      "answer": "Automatic storage duration (associated with the auto storage class).",
       "sourceType": "note",
       "sourceId": "coding/automatic-storage-duration",
       "sourceTitle": "Automatic Storage Duration",
@@ -3569,6 +3498,91 @@
         "c",
         "memory",
         "storage-classes"
+      ]
+    },
+    {
+      "id": "note:coding/computed-gotos-in-c-direct-threaded-code:0",
+      "question": "What GNU C extension syntax is used to take the address of a label and jump to it dynamically?",
+      "answer": "The unary && operator takes the label address (e.g. &&op_add), and goto *pointer; performs the indirect jump.",
+      "sourceType": "note",
+      "sourceId": "coding/computed-gotos-in-c-direct-threaded-code",
+      "sourceTitle": "Computed Gotos in C (Direct Threaded Code)",
+      "sourceHref": "/notes/coding/computed-gotos-in-c-direct-threaded-code/",
+      "tags": [
+        "c",
+        "compilers",
+        "performance",
+        "virtual-machine",
+        "interpreters",
+        "emulation"
+      ]
+    },
+    {
+      "id": "note:coding/computed-gotos-in-c-direct-threaded-code:1",
+      "question": "Why does a traditional interpreter loop using while (running) { switch (fetch()) { ... } } suffer from CPU branch mispredictions?",
+      "answer": "All instructions jump back to the same central switch header, forcing the CPU branch predictor to predict an ever-changing target from a single branch site, causing pipeline stalls.",
+      "sourceType": "note",
+      "sourceId": "coding/computed-gotos-in-c-direct-threaded-code",
+      "sourceTitle": "Computed Gotos in C (Direct Threaded Code)",
+      "sourceHref": "/notes/coding/computed-gotos-in-c-direct-threaded-code/",
+      "tags": [
+        "c",
+        "compilers",
+        "performance",
+        "virtual-machine",
+        "interpreters",
+        "emulation"
+      ]
+    },
+    {
+      "id": "note:coding/computed-gotos-in-c-direct-threaded-code:2",
+      "question": "How does Direct Threaded Code using computed gotos eliminate the central interpreter loop bottleneck?",
+      "answer": "Each instruction handler dispatches directly to the next handler by fetching the opcode and jumping through a dispatch table (goto *dispatch_table[fetch()]), decentralizing branch prediction across distinct jump sites.",
+      "sourceType": "note",
+      "sourceId": "coding/computed-gotos-in-c-direct-threaded-code",
+      "sourceTitle": "Computed Gotos in C (Direct Threaded Code)",
+      "sourceHref": "/notes/coding/computed-gotos-in-c-direct-threaded-code/",
+      "tags": [
+        "c",
+        "compilers",
+        "performance",
+        "virtual-machine",
+        "interpreters",
+        "emulation"
+      ]
+    },
+    {
+      "id": "note:coding/computed-gotos-in-c-direct-threaded-code:3",
+      "question": "Why can computed gotos execute faster than a compiler-optimized jump table generated for a switch statement?",
+      "answer": "A switch statement must generate default bounds-checking instructions to satisfy the ISO standard, whereas computed gotos skip bounds checks and provide separate branch prediction state per opcode.",
+      "sourceType": "note",
+      "sourceId": "coding/computed-gotos-in-c-direct-threaded-code",
+      "sourceTitle": "Computed Gotos in C (Direct Threaded Code)",
+      "sourceHref": "/notes/coding/computed-gotos-in-c-direct-threaded-code/",
+      "tags": [
+        "c",
+        "compilers",
+        "performance",
+        "virtual-machine",
+        "interpreters",
+        "emulation"
+      ]
+    },
+    {
+      "id": "note:coding/computed-gotos-in-c-direct-threaded-code:4",
+      "question": "What are the main engineering trade-offs of using computed gotos in a C project?",
+      "answer": "They are non-standard compiler extensions unsupported by MSVC, make step-through debugging more complex, and require dispatch macro duplication across all handlers.",
+      "sourceType": "note",
+      "sourceId": "coding/computed-gotos-in-c-direct-threaded-code",
+      "sourceTitle": "Computed Gotos in C (Direct Threaded Code)",
+      "sourceHref": "/notes/coding/computed-gotos-in-c-direct-threaded-code/",
+      "tags": [
+        "c",
+        "compilers",
+        "performance",
+        "virtual-machine",
+        "interpreters",
+        "emulation"
       ]
     },
     {
@@ -3991,8 +4005,8 @@
     },
     {
       "id": "note:coding/concurrency/memory-ordering:0",
-      "question": "What does the ordering parameter on atomic operations control?",
-      "answer": "The guarantees we get about the relative ordering of operations.",
+      "question": "What is the purpose of the memory ordering parameter in atomic operations?",
+      "answer": "It specifies constraints to the compiler and CPU regarding which memory reads and writes may be reordered around the atomic operation.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/memory-ordering",
       "sourceTitle": "Memory Ordering",
@@ -4005,8 +4019,8 @@
     },
     {
       "id": "note:coding/concurrency/memory-ordering:1",
-      "question": "Can a CPU perform operations out of source order?",
-      "answer": "Yes. It might group assignments together even if they are not in that order in the code.",
+      "question": "Why might two threads observe memory assignments occurring in different orders in the absence of synchronization?",
+      "answer": "CPUs and optimizing compilers reorder independent memory reads and writes to maximize execution throughput and cache efficiency.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/memory-ordering",
       "sourceTitle": "Memory Ordering",
@@ -4019,8 +4033,8 @@
     },
     {
       "id": "note:coding/concurrency/memory-ordering:2",
-      "question": "How can two threads see different assignment orders?",
-      "answer": "T1 might see V1 V2 V3 assigned, while T2 might see V2 V3 V1.",
+      "question": "What problem do memory barriers and atomic memory orderings solve in concurrent systems?",
+      "answer": "They establish happens-before relationships and enforce memory visibility guarantees across threads without needing full heavyweight mutex locks.",
       "sourceType": "note",
       "sourceId": "coding/concurrency/memory-ordering",
       "sourceTitle": "Memory Ordering",
@@ -4575,8 +4589,8 @@
     },
     {
       "id": "note:coding/register-storage:0",
-      "question": "What does a register modifier request of the compiler?",
-      "answer": "To place the variable in a CPU register instead of RAM.",
+      "question": "What does the register storage class specifier request from the compiler in C?",
+      "answer": "It requests that a local variable be placed in a CPU register rather than RAM to minimize access latency.",
       "sourceType": "note",
       "sourceId": "coding/register-storage",
       "sourceTitle": "Register Storage",
@@ -4589,8 +4603,8 @@
     },
     {
       "id": "note:coding/register-storage:1",
-      "question": "Must the compiler honor a register modifier?",
-      "answer": "No. It can choose not to for the sake of optimisation. The modifier is more like a request.",
+      "question": "Is the C compiler obligated to place a variable in a CPU register when marked with register?",
+      "answer": "No. It is treated as an optimization hint, and the compiler may place the variable in RAM if registers are unavailable or optimization heuristics dictate otherwise.",
       "sourceType": "note",
       "sourceId": "coding/register-storage",
       "sourceTitle": "Register Storage",
@@ -4603,8 +4617,8 @@
     },
     {
       "id": "note:coding/register-storage:2",
-      "question": "Can a whole struct have a register modifier?",
-      "answer": "Yes, but one field of a struct cannot have the register modifier.",
+      "question": "How does the register storage class modifier interact with struct definitions in C?",
+      "answer": "An entire struct instance can be declared with register, but individual fields within a struct definition cannot.",
       "sourceType": "note",
       "sourceId": "coding/register-storage",
       "sourceTitle": "Register Storage",
@@ -4687,8 +4701,8 @@
     },
     {
       "id": "note:coding/variable-lifetime:0",
-      "question": "What does the lifetime of a variable specify?",
-      "answer": "How long it is alive.",
+      "question": "What is the definition of variable lifetime (storage duration) in C?",
+      "answer": "The period during program execution in which memory is guaranteed to be reserved and valid for an object.",
       "sourceType": "note",
       "sourceId": "coding/variable-lifetime",
       "sourceTitle": "Variable Lifetime",
@@ -4701,8 +4715,8 @@
     },
     {
       "id": "note:coding/variable-lifetime:1",
-      "question": "What are two common lifetime extents?",
-      "answer": "Some variables are only alive within a scope, and some stay alive for the entire duration of the program.",
+      "question": "What are the three primary categories of storage duration (lifetime) in C?",
+      "answer": "Automatic (stack lifetime bound to block scope), static (entire program lifetime in data/BSS segment), and allocated (dynamic heap lifetime managed via malloc/free).",
       "sourceType": "note",
       "sourceId": "coding/variable-lifetime",
       "sourceTitle": "Variable Lifetime",
@@ -4715,8 +4729,8 @@
     },
     {
       "id": "note:coding/variable-lifetime:2",
-      "question": "Besides scope-bound and program-long, how else can lifetime work?",
-      "answer": "Some variables are allocated and cleaned up for a specific duration.",
+      "question": "How does a variable lifetime differ when declared as auto int x versus static int x inside a function?",
+      "answer": "auto int x is created on the stack when the block is entered and destroyed on exit, whereas static int x is created before main() starts and persists until program termination.",
       "sourceType": "note",
       "sourceId": "coding/variable-lifetime",
       "sourceTitle": "Variable Lifetime",
@@ -4729,8 +4743,8 @@
     },
     {
       "id": "note:coding/variable-linkage:0",
-      "question": "What does variable linkage (or visibility) specify?",
-      "answer": "Variable linkage specifies whether a variable is visible to other files in a multi-file program.",
+      "question": "What does variable linkage define in a multi-file C program?",
+      "answer": "It defines whether an identifier refers to the same object across different translation units (external), within a single translation unit (internal), or only within its local scope (no linkage).",
       "sourceType": "note",
       "sourceId": "coding/variable-linkage",
       "sourceTitle": "Variable Linkage",
@@ -4743,8 +4757,8 @@
     },
     {
       "id": "note:coding/variable-linkage:1",
-      "question": "In C multi-file programs, what term is used interchangeably with visibility?",
-      "answer": "Linkage is used interchangeably with visibility.",
+      "question": "What keyword is used at file scope to give a variable internal linkage in C, and why is this useful?",
+      "answer": "static. It prevents symbol export to the linker, encapsulating the variable within that translation unit and avoiding name collisions.",
       "sourceType": "note",
       "sourceId": "coding/variable-linkage",
       "sourceTitle": "Variable Linkage",
@@ -4757,8 +4771,8 @@
     },
     {
       "id": "note:coding/variable-linkage:2",
-      "question": "Why is variable linkage important in multi-file C programs?",
-      "answer": "It determines whether a variable declared in one translation unit can be referenced or shared by other translation units.",
+      "question": "What linkage do local variables declared inside a function have by default?",
+      "answer": "No linkage. They are private to their block scope and cannot be referenced by name from other scopes or translation units.",
       "sourceType": "note",
       "sourceId": "coding/variable-linkage",
       "sourceTitle": "Variable Linkage",
@@ -4771,8 +4785,8 @@
     },
     {
       "id": "note:coding/variable-scope:0",
-      "question": "What does the scope of a variable specify?",
-      "answer": "The scope of a variable specifies where it can be accessed within a file.",
+      "question": "What is the definition of variable scope in C?",
+      "answer": "The region of source code text where an identifier is visible and can be referenced by the compiler.",
       "sourceType": "note",
       "sourceId": "coding/variable-scope",
       "sourceTitle": "Variable Scope",
@@ -4785,8 +4799,8 @@
     },
     {
       "id": "note:coding/variable-scope:1",
-      "question": "What are examples of block scope in C?",
-      "answer": "Block scope includes a function body, an if/else statement body, a loop, or any region between curly braces {}.",
+      "question": "What is the difference between block scope and file scope in C?",
+      "answer": "Block scope limits an identifier visibility to within the enclosing {} braces, whereas file scope makes an identifier visible from its declaration point to the end of the translation unit.",
       "sourceType": "note",
       "sourceId": "coding/variable-scope",
       "sourceTitle": "Variable Scope",
@@ -4799,8 +4813,8 @@
     },
     {
       "id": "note:coding/variable-scope:2",
-      "question": "What defines a globally scoped variable?",
-      "answer": "A globally scoped variable is defined outside of any function and can be accessed anywhere in the file.",
+      "question": "What happens when an inner block declares a variable with the same identifier as an outer block or global variable in C?",
+      "answer": "The inner declaration shadows (hides) the outer variable within that block scope; compiler flag -Wshadow warns about this.",
       "sourceType": "note",
       "sourceId": "coding/variable-scope",
       "sourceTitle": "Variable Scope",
@@ -4813,8 +4827,8 @@
     },
     {
       "id": "note:emulation/chip-8:0",
-      "question": "Where are CHIP-8 programs loaded into memory, and why?",
-      "answer": "Programs load at address 0x200 (512 decimal) because the lower 512 bytes (0x000–0x1FF) were historically reserved for the CHIP-8 interpreter and built-in font data.",
+      "question": "Why must CHIP-8 ROM files be loaded at memory address 0x200 (512 decimal) instead of 0x000?",
+      "answer": "Memory from 0x000 to 0x1FF is reserved for the built-in hexadecimal fontset and interpreter memory; program execution begins at 0x200.",
       "sourceType": "note",
       "sourceId": "emulation/chip-8",
       "sourceTitle": "CHIP-8",
@@ -4829,8 +4843,8 @@
     },
     {
       "id": "note:emulation/chip-8:1",
-      "question": "Why does the CHIP-8 instruction 7XNN (add immediate) differ from 8XY4 (add register) regarding the flag register VF?",
-      "answer": "7XNN adds NN to VX without modifying VF on overflow, whereas 8XY4 explicitly sets VF to 1 if an 8-bit overflow occurs (>255) and 0 otherwise.",
+      "question": "What is the maximum allowed file size for a CHIP-8 ROM in standard 4KB RAM systems?",
+      "answer": "3,584 bytes (4096 - 512 = 3584), since total addressable memory is 4,096 bytes and the first 512 bytes are reserved.",
       "sourceType": "note",
       "sourceId": "emulation/chip-8",
       "sourceTitle": "CHIP-8",
@@ -4845,8 +4859,8 @@
     },
     {
       "id": "note:emulation/chip-8:2",
-      "question": "How does the borrow/carry flag VF behave during CHIP-8 subtraction instructions (8XY5 and 8XY7)?",
-      "answer": "VF is set to 1 when no borrow occurs (minuend >= subtrahend), and set to 0 when an underflow occurs and a borrow is needed (minuend < subtrahend).",
+      "question": "How are 16-bit CHIP-8 opcodes fetched from the byte-oriented memory array?",
+      "answer": "By combining two successive big-endian bytes from memory at PC using bitwise shift and OR: uint16_t opcode = (memory[PC] << 8) | memory[PC + 1];.",
       "sourceType": "note",
       "sourceId": "emulation/chip-8",
       "sourceTitle": "CHIP-8",
@@ -4861,8 +4875,8 @@
     },
     {
       "id": "note:emulation/chip-8:3",
-      "question": "How do CHIP-8 sprite coordinates handle screen boundary wrapping versus clipping during DXYN draw calls?",
-      "answer": "The sprite's initial starting coordinate wraps modulo the display dimensions (VX % 64, VY % 32), but sprite pixels extending beyond the right or bottom edges are clipped and do not wrap.",
+      "question": "How does the addition instruction 7XNN differ from 8XY4 regarding the VF flag register?",
+      "answer": "7XNN adds an immediate value to VX without modifying VF on overflow, whereas 8XY4 adds VY to VX and sets VF = 1 if the sum exceeds 255 (carry) and 0 otherwise.",
       "sourceType": "note",
       "sourceId": "emulation/chip-8",
       "sourceTitle": "CHIP-8",
@@ -4877,8 +4891,8 @@
     },
     {
       "id": "note:emulation/chip-8:4",
-      "question": "How is sprite collision detected during a DXYN draw operation in CHIP-8?",
-      "answer": "Sprites draw by XOR bit-flipping screen pixels; VF is set to 1 if and only if any active screen pixel is flipped from ON (1) to OFF (0), otherwise VF is set to 0.",
+      "question": "How does the borrow/carry flag VF work for the subtraction instruction 8XY5 (VX = VX - VY)?",
+      "answer": "VF is set to 1 if there is no borrow (VX >= VY), and set to 0 if a borrow occurs (VX < VY).",
       "sourceType": "note",
       "sourceId": "emulation/chip-8",
       "sourceTitle": "CHIP-8",
@@ -4893,8 +4907,8 @@
     },
     {
       "id": "note:emulation/chip-8:5",
-      "question": "What must happen to timers during the blocking key-wait instruction FX0A in a CHIP-8 emulator?",
-      "answer": "While instruction execution halts until a key is pressed, both the delay timer and sound timer must continue decrementing at 60 Hz.",
+      "question": "How does the DXYN display instruction handle screen rendering and collision detection?",
+      "answer": "It draws an N-byte tall sprite using bitwise XOR on the 64x32 monochrome display, setting VF = 1 if any lit pixel is toggled off (collision) and 0 otherwise.",
       "sourceType": "note",
       "sourceId": "emulation/chip-8",
       "sourceTitle": "CHIP-8",
@@ -4909,24 +4923,8 @@
     },
     {
       "id": "note:emulation/chip-8:6",
-      "question": "What is the key architectural difference between COSMAC VIP and modern CHIP-48/SUPER-CHIP implementations of shift instructions (8XY6 and 8XYE)?",
-      "answer": "COSMAC VIP copies VY into VX before shifting VX and setting VF to the shifted-out bit, whereas modern implementations shift VX in place and completely ignore VY.",
-      "sourceType": "note",
-      "sourceId": "emulation/chip-8",
-      "sourceTitle": "CHIP-8",
-      "sourceHref": "/notes/emulation/chip-8/",
-      "tags": [
-        "emulation",
-        "architecture",
-        "hardware",
-        "chip-8",
-        "virtual-machine"
-      ]
-    },
-    {
-      "id": "note:emulation/chip-8:7",
-      "question": "How does the FX33 (Binary-Coded Decimal) instruction unpack the byte in register VX into memory?",
-      "answer": "It extracts the three decimal digits of VX (0–255) and stores the hundreds digit at memory address I, the tens digit at I + 1, and the units digit at I + 2.",
+      "question": "How do coordinate wrapping and sprite clipping differ in the DXYN instruction?",
+      "answer": "The starting (X, Y) coordinate wraps around the screen using modulo (X % 64, Y % 32), but sprite pixels extending past the right or bottom edges are clipped rather than wrapped.",
       "sourceType": "note",
       "sourceId": "emulation/chip-8",
       "sourceTitle": "CHIP-8",
@@ -4941,8 +4939,8 @@
     },
     {
       "id": "note:grill/c-systems-programming:0",
-      "question": "In ISO C, what occurs if you apply the address-of operator (&) to a variable declared with register?",
-      "answer": "It is a compile-time constraint violation (compiler error), even if the compiler spills the variable to stack memory.",
+      "question": "In C, why is taking the address of a register variable (&x) a compile-time constraint violation even if the compiler spills it to the stack?",
+      "answer": "The ISO C standard explicitly forbids using & on any identifier declared with register, making it an unconditional compiler error regardless of machine placement.",
       "sourceType": "note",
       "sourceId": "grill/c-systems-programming",
       "sourceTitle": "Grill: C Systems Programming Knowledge",
@@ -4958,8 +4956,8 @@
     },
     {
       "id": "note:grill/c-systems-programming:1",
-      "question": "When an array decays in C, what does it convert into?",
-      "answer": "It decays to a pointer to its first element (T*), rather than a pointer to the entire array.",
+      "question": "What is the exact difference in pointer arithmetic between arr + 1 and &arr + 1 for int arr[10] (where sizeof(int) == 4)?",
+      "answer": "arr decays to int*, so arr + 1 advances by 4 bytes (1 element); &arr has type int(*)[10], so &arr + 1 advances by 40 bytes (the entire array).",
       "sourceType": "note",
       "sourceId": "grill/c-systems-programming",
       "sourceTitle": "Grill: C Systems Programming Knowledge",
@@ -4975,8 +4973,8 @@
     },
     {
       "id": "note:grill/c-systems-programming:2",
-      "question": "How do pointer arithmetic strides differ between arr and &arr for int arr[10]?",
-      "answer": "arr + 1 advances by sizeof(int) (4 bytes), whereas &arr + 1 advances by the entire array size sizeof(int[10]) (40 bytes).",
+      "question": "Why does the compiler insert tail padding at the end of a struct in C?",
+      "answer": "To guarantee that every element in an array of that struct (struct S arr[N]) begins at an address that satisfies the alignment requirement of the largest member.",
       "sourceType": "note",
       "sourceId": "grill/c-systems-programming",
       "sourceTitle": "Grill: C Systems Programming Knowledge",
@@ -4992,8 +4990,8 @@
     },
     {
       "id": "note:grill/c-systems-programming:3",
-      "question": "Why do C structs require tail padding?",
-      "answer": "Tail padding ensures the total struct size is a multiple of its largest member's alignment, preserving alignment for array elements.",
+      "question": "Why does attempting to modify a string literal like char *s = \"Hello\"; s[0] = 'h'; cause a runtime crash?",
+      "answer": "String literals reside in the read-only data segment (.rodata); mutating them is undefined behavior and typically causes a segmentation fault.",
       "sourceType": "note",
       "sourceId": "grill/c-systems-programming",
       "sourceTitle": "Grill: C Systems Programming Knowledge",
@@ -5009,8 +5007,8 @@
     },
     {
       "id": "note:grill/c-systems-programming:4",
-      "question": "What happens when code attempts to write to a string literal like char *s = \"Hello\"; s[0] = 'h';?",
-      "answer": "String literals reside in read-only memory (.rodata), so modifying them triggers undefined behavior, typically causing a segmentation fault crash.",
+      "question": "How does setting a pointer to NULL immediately after free(ptr) prevent Use-After-Free (UAF) vulnerabilities?",
+      "answer": "free() returns memory to the allocator without clearing the pointer or zeroing memory; assigning NULL turns accidental subsequent dereferences into deterministic crashes instead of silent corruption.",
       "sourceType": "note",
       "sourceId": "grill/c-systems-programming",
       "sourceTitle": "Grill: C Systems Programming Knowledge",
@@ -5026,8 +5024,8 @@
     },
     {
       "id": "note:grill/c-systems-programming:5",
-      "question": "Why is setting ptr = NULL recommended immediately after free(ptr)?",
-      "answer": "It prevents Use-After-Free (UAF) bugs by nullifying dangling pointers and ensuring accidental dereferences fail deterministically.",
+      "question": "What is the correct C typedef syntax for a function pointer named handler_t taking a uint16_t and returning void?",
+      "answer": "typedef void (*handler_t)(uint16_t);",
       "sourceType": "note",
       "sourceId": "grill/c-systems-programming",
       "sourceTitle": "Grill: C Systems Programming Knowledge",
@@ -5043,8 +5041,8 @@
     },
     {
       "id": "note:grill/c-systems-programming:6",
-      "question": "What is the advantage of using a function pointer jump table over a switch statement in CPU emulation?",
-      "answer": "A jump table executes an O(1) indirect jump, avoiding O(N) sequential branch evaluations and branch mispredictions.",
+      "question": "How do you extract the 12-bit address NNN from a 16-bit big-endian opcode in C?",
+      "answer": "Using the bitwise mask opcode & 0x0FFF.",
       "sourceType": "note",
       "sourceId": "grill/c-systems-programming",
       "sourceTitle": "Grill: C Systems Programming Knowledge",
@@ -6746,51 +6744,9 @@
       ]
     },
     {
-      "id": "note:teach/c17/c17:0",
-      "question": "What is the primary vehicle used in the C17 systems programming curriculum?",
-      "answer": "Building, hardening, and optimizing a CHIP-8 emulator in ISO C17.",
-      "sourceType": "note",
-      "sourceId": "teach/c17/c17",
-      "sourceTitle": "C17 Hub",
-      "sourceHref": "/notes/teach/c17/c17/",
-      "tags": [
-        "teach/c17",
-        "moc",
-        "chip-8"
-      ]
-    },
-    {
-      "id": "note:teach/c17/c17:1",
-      "question": "At what memory address are CHIP-8 ROMs loaded in emulator RAM?",
-      "answer": "CHIP-8 ROMs are loaded into RAM starting at entry address 0x200 (512 in decimal).",
-      "sourceType": "note",
-      "sourceId": "teach/c17/c17",
-      "sourceTitle": "C17 Hub",
-      "sourceHref": "/notes/teach/c17/c17/",
-      "tags": [
-        "teach/c17",
-        "moc",
-        "chip-8"
-      ]
-    },
-    {
-      "id": "note:teach/c17/c17:2",
-      "question": "What rendering technique does the CHIP-8 display engine use for drawing sprites?",
-      "answer": "CHIP-8 uses DXYN sprite XOR rendering to toggle pixels on and off on the display.",
-      "sourceType": "note",
-      "sourceId": "teach/c17/c17",
-      "sourceTitle": "C17 Hub",
-      "sourceHref": "/notes/teach/c17/c17/",
-      "tags": [
-        "teach/c17",
-        "moc",
-        "chip-8"
-      ]
-    },
-    {
       "id": "note:teach/c17/glossary:0",
-      "question": "What is undefined behavior (UB) in ISO C?",
-      "answer": "Behavior from a non-portable or erroneous construct for which the ISO C standard imposes no requirements. The compiler may assume UB never happens and optimize accordingly, which can cause silent miscompilations, crashes, or security vulnerabilities.",
+      "question": "What is the difference between Undefined Behavior (UB) and Implementation-Defined Behavior in ISO C?",
+      "answer": "For UB, the standard imposes no requirements and compilers may assume it never occurs; for implementation-defined behavior, the compiler must choose a consistent behavior and document it.",
       "sourceType": "note",
       "sourceId": "teach/c17/glossary",
       "sourceTitle": "C17 Glossary",
@@ -6802,8 +6758,8 @@
     },
     {
       "id": "note:teach/c17/glossary:1",
-      "question": "How does implementation-defined behavior differ from undefined behavior?",
-      "answer": "It is unspecified behavior where each conforming implementation must document how the choice is made, such as the size of `long` or the representation of signed negative numbers.",
+      "question": "What is Unspecified Behavior in ISO C?",
+      "answer": "Behavior where the standard provides two or more valid possibilities (such as function argument evaluation order) and imposes no requirement on which is chosen.",
       "sourceType": "note",
       "sourceId": "teach/c17/glossary",
       "sourceTitle": "C17 Glossary",
@@ -6815,8 +6771,8 @@
     },
     {
       "id": "note:teach/c17/glossary:2",
-      "question": "What is unspecified behavior?",
-      "answer": "Behavior where the standard provides two or more possibilities and imposes no requirement on which is chosen in any instance, such as the order of evaluation of function arguments.",
+      "question": "What is the Strict Aliasing Rule in C?",
+      "answer": "A compiler optimization rule stating that two pointers of different types (with specific exceptions like char* and uint8_t*) cannot point to the same memory location, permitting reordering of memory accesses.",
       "sourceType": "note",
       "sourceId": "teach/c17/glossary",
       "sourceTitle": "C17 Glossary",
@@ -6828,8 +6784,8 @@
     },
     {
       "id": "note:teach/c17/glossary:3",
-      "question": "What is a sequence point?",
-      "answer": "A point in the execution sequence at which all side effects of previous evaluations are complete and no side effects from subsequent evaluations have taken place. In C11/C17 this is formalized as the sequenced-before partial order.",
+      "question": "What is a Flexible Array Member (FAM) in C17, and where must it appear in a struct?",
+      "answer": "An incomplete array declared as the last member of a struct (e.g. int data[];), used to dynamically allocate contiguous memory for a header and trailing payload.",
       "sourceType": "note",
       "sourceId": "teach/c17/glossary",
       "sourceTitle": "C17 Glossary",
@@ -6841,8 +6797,8 @@
     },
     {
       "id": "note:teach/c17/glossary:4",
-      "question": "What does the strict aliasing rule allow a compiler to assume?",
-      "answer": "Two pointers of different types (with exceptions such as `char*`) cannot point to the same memory location, so the compiler may reorder reads and writes across them.",
+      "question": "What runtime defects are detected by AddressSanitizer (ASan) versus UndefinedBehaviorSanitizer (UBSan)?",
+      "answer": "ASan detects memory errors (buffer overflows, use-after-free, leaks), whereas UBSan detects language-level undefined behavior (signed integer overflow, null-pointer dereference, misaligned accesses).",
       "sourceType": "note",
       "sourceId": "teach/c17/glossary",
       "sourceTitle": "C17 Glossary",
@@ -6854,34 +6810,8 @@
     },
     {
       "id": "note:teach/c17/glossary:5",
-      "question": "What is alignment?",
-      "answer": "A requirement that an object of a given type be stored at a memory address that is a multiple of a certain integer value, such as a 4-byte integer at an address divisible by 4.",
-      "sourceType": "note",
-      "sourceId": "teach/c17/glossary",
-      "sourceTitle": "C17 Glossary",
-      "sourceHref": "/notes/teach/c17/glossary/",
-      "tags": [
-        "teach/c17",
-        "glossary"
-      ]
-    },
-    {
-      "id": "note:teach/c17/glossary:6",
-      "question": "What is a flexible array member (FAM)?",
-      "answer": "An unbounded array defined as the last member of a struct, such as `int data[]`. C99/C11/C17 use it to allocate dynamically sized structures in a single contiguous memory block.",
-      "sourceType": "note",
-      "sourceId": "teach/c17/glossary",
-      "sourceTitle": "C17 Glossary",
-      "sourceHref": "/notes/teach/c17/glossary/",
-      "tags": [
-        "teach/c17",
-        "glossary"
-      ]
-    },
-    {
-      "id": "note:teach/c17/glossary:7",
-      "question": "What do ASan and UBSan each detect?",
-      "answer": "AddressSanitizer (`-fsanitize=address`) instruments memory accesses to detect out-of-bounds accesses, use-after-free, double-free, and leaks. UndefinedBehaviorSanitizer (`-fsanitize=undefined`) catches runtime UB such as signed integer overflow, null pointer dereference, and misaligned pointers.",
+      "question": "What is Array Decay in C, and in which expressions does it NOT occur?",
+      "answer": "Array decay is the implicit conversion of an array expression T[N] into a pointer T* to its first element; it occurs in all contexts except with sizeof, _Alignof, and &.",
       "sourceType": "note",
       "sourceId": "teach/c17/glossary",
       "sourceTitle": "C17 Glossary",
@@ -6893,8 +6823,8 @@
     },
     {
       "id": "note:teach/c17/learning-records/0001-baseline-and-prerequisites:0",
-      "question": "Which C17 topics should lessons ground in for a Node.js/Rust/Go background?",
-      "answer": "Low-level memory mechanics, undefined behavior elimination, strict aliasing, cache locality, and POSIX systems interfaces.",
+      "question": "How does memory safety in ISO C17 differ fundamentally from memory safety models in Rust and Node.js?",
+      "answer": "C17 provides direct hardware and memory control with zero runtime or compile-time ownership safety checks; out-of-bounds accesses trigger undefined behavior rather than panics or garbage collector cleanup.",
       "sourceType": "note",
       "sourceId": "teach/c17/learning-records/0001-baseline-and-prerequisites",
       "sourceTitle": "LR-0001: Learner Background & C17 Baseline",
@@ -6906,8 +6836,8 @@
     },
     {
       "id": "note:teach/c17/learning-records/0001-baseline-and-prerequisites:1",
-      "question": "What high-level runtimes should C17 concepts be compared to?",
-      "answer": "Rust ownership and borrowing, and Node.js event loops / V8 memory management.",
+      "question": "Why are sanitizers (ASan and UBSan) critical when developing systems applications in C?",
+      "answer": "They instrument compiled code to catch memory bugs and undefined behaviors (such as out-of-bounds indexing or signed overflow) at runtime with stack traces before they cause silent memory corruption.",
       "sourceType": "note",
       "sourceId": "teach/c17/learning-records/0001-baseline-and-prerequisites",
       "sourceTitle": "LR-0001: Learner Background & C17 Baseline",
@@ -6919,8 +6849,8 @@
     },
     {
       "id": "note:teach/c17/learning-records/0001-baseline-and-prerequisites:2",
-      "question": "What target environment is assumed for the C17 track?",
-      "answer": "macOS and Linux with Clang or GCC, and CMake.",
+      "question": "Why should C systems code avoid relying on defensive null-object fallbacks compared to high-level web runtimes?",
+      "answer": "Defensive fallbacks mask invariant violations and lead to cascading undefined behavior; systems code should fail fast and enforce strict memory invariants.",
       "sourceType": "note",
       "sourceId": "teach/c17/learning-records/0001-baseline-and-prerequisites",
       "sourceTitle": "LR-0001: Learner Background & C17 Baseline",
@@ -6932,8 +6862,8 @@
     },
     {
       "id": "note:teach/c17/learning-records/0002-chip8-codebase-audit:0",
-      "question": "Which modules already exist in the CHIP-8 C17 emulator?",
-      "answer": "Modular headers and sources for memory, registers, stack, keyboard, screen, and an SDL2 event loop.",
+      "question": "What core architectural modules compose the composite Chip8 state struct in a modular C emulator?",
+      "answer": "Memory (4KB RAM), Registers (16 general-purpose, I, PC, timers), Stack (16-level call stack and SP), Screen (64x32 monochrome display), and Keyboard (16-key keypad state).",
       "sourceType": "note",
       "sourceId": "teach/c17/learning-records/0002-chip8-codebase-audit",
       "sourceTitle": "LR-0002: CHIP-8 Codebase Audit & Architecture Baseline",
@@ -6946,8 +6876,8 @@
     },
     {
       "id": "note:teach/c17/learning-records/0002-chip8-codebase-audit:1",
-      "question": "Which core data structures are already laid out?",
-      "answer": "Memory, Registers, Stack, Screen, Keyboard, and Chip8.",
+      "question": "Why should emulator structs be passed via pointers (e.g. chip8_init(Chip8 *chip8)) rather than by value in C?",
+      "answer": "Passing by value copies the entire struct (including the 4KB RAM buffer and screen matrix) onto the stack on every call, causing severe performance degradation and stack pressure.",
       "sourceType": "note",
       "sourceId": "teach/c17/learning-records/0002-chip8-codebase-audit",
       "sourceTitle": "LR-0002: CHIP-8 Codebase Audit & Architecture Baseline",
@@ -6960,36 +6890,8 @@
     },
     {
       "id": "note:teach/c17/learning-records/0002-chip8-codebase-audit:2",
-      "question": "Where should CHIP-8 ROMs be loaded, and what check is required?",
-      "answer": "Load ROMs at `0x200` with boundary checks.",
-      "sourceType": "note",
-      "sourceId": "teach/c17/learning-records/0002-chip8-codebase-audit",
-      "sourceTitle": "LR-0002: CHIP-8 Codebase Audit & Architecture Baseline",
-      "sourceHref": "/notes/teach/c17/learning-records/0002-chip8-codebase-audit/",
-      "tags": [
-        "teach/c17",
-        "learning-record",
-        "chip-8"
-      ]
-    },
-    {
-      "id": "note:teach/c17/learning-records/0002-chip8-codebase-audit:3",
-      "question": "How will opcodes be fetched and decoded?",
-      "answer": "As 16-bit big-endian values, then decoded with bitwise instruction decoding.",
-      "sourceType": "note",
-      "sourceId": "teach/c17/learning-records/0002-chip8-codebase-audit",
-      "sourceTitle": "LR-0002: CHIP-8 Codebase Audit & Architecture Baseline",
-      "sourceHref": "/notes/teach/c17/learning-records/0002-chip8-codebase-audit/",
-      "tags": [
-        "teach/c17",
-        "learning-record",
-        "chip-8"
-      ]
-    },
-    {
-      "id": "note:teach/c17/learning-records/0002-chip8-codebase-audit:4",
-      "question": "What two dispatch styles will instruction execution compare?",
-      "answer": "Jump tables versus nested switches.",
+      "question": "Why is modular separation into dedicated translation units (memory.c, screen.c, registers.c) preferred in C17?",
+      "answer": "It enforces encapsulation via header contracts, enables independent compilation, and isolates memory access logic to dedicated modules.",
       "sourceType": "note",
       "sourceId": "teach/c17/learning-records/0002-chip8-codebase-audit",
       "sourceTitle": "LR-0002: CHIP-8 Codebase Audit & Architecture Baseline",
@@ -7002,8 +6904,8 @@
     },
     {
       "id": "note:teach/c17/learning-records/0003-cmake-sdl2-and-integer-truncation:0",
-      "question": "What implicit conversion did `-Wconversion` flag in `src/main.c`?",
-      "answer": "An implicit integer truncation where `SDL_Keycode` (a 32-bit integer) was assigned to `char` (an 8-bit integer).",
+      "question": "What compiler diagnostic flag catches silent narrowing conversions like assigning a 32-bit SDL_Keycode to an 8-bit char?",
+      "answer": "-Wconversion (or -Wimplicit-int-conversion).",
       "sourceType": "note",
       "sourceId": "teach/c17/learning-records/0003-cmake-sdl2-and-integer-truncation",
       "sourceTitle": "LR-0003: CMake SDL2 Resolution & Integer Precision Diagnostics",
@@ -7016,8 +6918,8 @@
     },
     {
       "id": "note:teach/c17/learning-records/0003-cmake-sdl2-and-integer-truncation:1",
-      "question": "How did CMake resolve SDL2 headers on macOS and Linux?",
-      "answer": "Both `find_package(SDL2)` and a `pkg-config` fallback. On macOS this reached Homebrew headers at `/opt/homebrew/include/SDL2`.",
+      "question": "Why is assigning a 32-bit keycode to an 8-bit char variable dangerous in SDL input handling?",
+      "answer": "Values exceeding 255 (such as arrow keys or function keys) are truncated, discarding high bits and causing incorrect or collided key mapping.",
       "sourceType": "note",
       "sourceId": "teach/c17/learning-records/0003-cmake-sdl2-and-integer-truncation",
       "sourceTitle": "LR-0003: CMake SDL2 Resolution & Integer Precision Diagnostics",
@@ -7030,8 +6932,8 @@
     },
     {
       "id": "note:teach/c17/learning-records/0003-cmake-sdl2-and-integer-truncation:2",
-      "question": "What integer-sizing rule follows from the truncation diagnostic?",
-      "answer": "Distinguish `int32_t`, `char`, and `uint8_t`, and avoid implicit narrowing casts.",
+      "question": "How does CMAKE_EXPORT_COMPILE_COMMANDS ON benefit C development in modern editors?",
+      "answer": "It generates a compile_commands.json database detailing exact compiler flags and include paths for LSP servers like clangd.",
       "sourceType": "note",
       "sourceId": "teach/c17/learning-records/0003-cmake-sdl2-and-integer-truncation",
       "sourceTitle": "LR-0003: CMake SDL2 Resolution & Integer Precision Diagnostics",
@@ -7044,8 +6946,8 @@
     },
     {
       "id": "note:teach/c17/learning-records/0004-stdio-conventions-and-fread-mechanics:0",
-      "question": "What return convention does `fseek` use?",
-      "answer": "The Unix status convention: `0` means success and non-zero means error.",
+      "question": "What return convention does fseek() follow in ISO C to indicate success versus failure?",
+      "answer": "It uses status return: 0 indicates success, and any non-zero value indicates an error.",
       "sourceType": "note",
       "sourceId": "teach/c17/learning-records/0004-stdio-conventions-and-fread-mechanics",
       "sourceTitle": "LR-0004: Standard I/O Return Conventions & fread Parameters",
@@ -7058,8 +6960,8 @@
     },
     {
       "id": "note:teach/c17/learning-records/0004-stdio-conventions-and-fread-mechanics:1",
-      "question": "Why does `fread` separate `size` from `nmemb`?",
-      "answer": "`size` is the size of a single element and `nmemb` is the element count, which enables structured record-based reading.",
+      "question": "What does the return value of fread(buf, size, nmemb, file) represent?",
+      "answer": "It returns the number of whole elements (nmemb) of size size successfully transferred, which may be less than nmemb if an error or EOF occurs.",
       "sourceType": "note",
       "sourceId": "teach/c17/learning-records/0004-stdio-conventions-and-fread-mechanics",
       "sourceTitle": "LR-0004: Standard I/O Return Conventions & fread Parameters",
@@ -7072,8 +6974,8 @@
     },
     {
       "id": "note:teach/c17/learning-records/0004-stdio-conventions-and-fread-mechanics:2",
-      "question": "What does `fread` return?",
-      "answer": "The count of complete records transferred, not the raw byte count.",
+      "question": "When reading raw binary ROM bytes into memory, how should size and nmemb be configured in fread?",
+      "answer": "size should be sizeof(uint8_t) (1 byte) and nmemb should be the total byte count (file_size), so fread returns the exact number of bytes read.",
       "sourceType": "note",
       "sourceId": "teach/c17/learning-records/0004-stdio-conventions-and-fread-mechanics",
       "sourceTitle": "LR-0004: Standard I/O Return Conventions & fread Parameters",
@@ -7086,8 +6988,8 @@
     },
     {
       "id": "note:teach/c17/lessons/0001-c17-standards-and-modern-toolchain:0",
-      "question": "What kind of release is C17 relative to C11?",
-      "answer": "C17 is the bug-fix and refinement release of C11. It introduced no new language features, but resolved over 40 technical defect reports.",
+      "question": "What was the primary focus of the ISO C17 standard release compared to C11?",
+      "answer": "C17 was a defect-fix and clarification release that addressed over 40 technical defect reports without introducing new language features.",
       "sourceType": "note",
       "sourceId": "teach/c17/lessons/0001-c17-standards-and-modern-toolchain",
       "sourceTitle": "Lesson 0001: ISO C17 Standards, Compiler Diagnostics & CMake with SDL2",
@@ -7102,8 +7004,8 @@
     },
     {
       "id": "note:teach/c17/lessons/0001-c17-standards-and-modern-toolchain:1",
-      "question": "What is the C17 value of `__STDC_VERSION__`?",
-      "answer": "`201710L`.",
+      "question": "Why is void init() in C fundamentally different from void init(void), and how can the compiler enforce correct usage?",
+      "answer": "void init() declares a function with an unspecified number of arguments (a legacy C89 rule), whereas void init(void) strictly declares zero arguments; -Wstrict-prototypes enforces this.",
       "sourceType": "note",
       "sourceId": "teach/c17/lessons/0001-c17-standards-and-modern-toolchain",
       "sourceTitle": "Lesson 0001: ISO C17 Standards, Compiler Diagnostics & CMake with SDL2",
@@ -7118,8 +7020,8 @@
     },
     {
       "id": "note:teach/c17/lessons/0001-c17-standards-and-modern-toolchain:2",
-      "question": "In C, how does `void foo()` differ from `void foo(void)`?",
-      "answer": "`void foo()` takes an unspecified number of arguments, a C89 leftover. `void foo(void)` declares a function that takes zero arguments.",
+      "question": "Why is set(CMAKE_C_EXTENSIONS OFF) recommended in modern CMake projects?",
+      "answer": "It disables vendor-specific compiler extensions (like -std=gnu17) and forces strict ISO C conformance (-std=c17), ensuring portability across compilers.",
       "sourceType": "note",
       "sourceId": "teach/c17/lessons/0001-c17-standards-and-modern-toolchain",
       "sourceTitle": "Lesson 0001: ISO C17 Standards, Compiler Diagnostics & CMake with SDL2",
@@ -7134,8 +7036,8 @@
     },
     {
       "id": "note:teach/c17/lessons/0001-c17-standards-and-modern-toolchain:3",
-      "question": "Which compiler flag enforces empty-parameter prototypes?",
-      "answer": "`-Wstrict-prototypes`.",
+      "question": "What value does the preprocessor macro __STDC_VERSION__ evaluate to in an ISO C17 conforming compiler?",
+      "answer": "201710L.",
       "sourceType": "note",
       "sourceId": "teach/c17/lessons/0001-c17-standards-and-modern-toolchain",
       "sourceTitle": "Lesson 0001: ISO C17 Standards, Compiler Diagnostics & CMake with SDL2",
@@ -7150,56 +7052,8 @@
     },
     {
       "id": "note:teach/c17/lessons/0001-c17-standards-and-modern-toolchain:4",
-      "question": "What does AddressSanitizer detect?",
-      "answer": "Buffer overflows, stack/heap out-of-bounds access, and memory leaks.",
-      "sourceType": "note",
-      "sourceId": "teach/c17/lessons/0001-c17-standards-and-modern-toolchain",
-      "sourceTitle": "Lesson 0001: ISO C17 Standards, Compiler Diagnostics & CMake with SDL2",
-      "sourceHref": "/notes/teach/c17/lessons/0001-c17-standards-and-modern-toolchain/",
-      "tags": [
-        "teach/c17",
-        "lesson",
-        "cmake",
-        "toolchain",
-        "chip-8"
-      ]
-    },
-    {
-      "id": "note:teach/c17/lessons/0001-c17-standards-and-modern-toolchain:5",
-      "question": "What does UndefinedBehaviorSanitizer detect at runtime?",
-      "answer": "Integer overflows, null-pointer dereferences, and misalignment.",
-      "sourceType": "note",
-      "sourceId": "teach/c17/lessons/0001-c17-standards-and-modern-toolchain",
-      "sourceTitle": "Lesson 0001: ISO C17 Standards, Compiler Diagnostics & CMake with SDL2",
-      "sourceHref": "/notes/teach/c17/lessons/0001-c17-standards-and-modern-toolchain/",
-      "tags": [
-        "teach/c17",
-        "lesson",
-        "cmake",
-        "toolchain",
-        "chip-8"
-      ]
-    },
-    {
-      "id": "note:teach/c17/lessons/0001-c17-standards-and-modern-toolchain:6",
-      "question": "How does CMake enforce ISO C17 without compiler extensions?",
-      "answer": "Set `CMAKE_C_STANDARD` to 17, `CMAKE_C_STANDARD_REQUIRED` to `ON`, and `CMAKE_C_EXTENSIONS` to `OFF`.",
-      "sourceType": "note",
-      "sourceId": "teach/c17/lessons/0001-c17-standards-and-modern-toolchain",
-      "sourceTitle": "Lesson 0001: ISO C17 Standards, Compiler Diagnostics & CMake with SDL2",
-      "sourceHref": "/notes/teach/c17/lessons/0001-c17-standards-and-modern-toolchain/",
-      "tags": [
-        "teach/c17",
-        "lesson",
-        "cmake",
-        "toolchain",
-        "chip-8"
-      ]
-    },
-    {
-      "id": "note:teach/c17/lessons/0001-c17-standards-and-modern-toolchain:7",
-      "question": "What is the runtime effect of `-fsanitize=address,undefined`?",
-      "answer": "It instruments memory reads/writes and arithmetic. Out-of-bounds writes, buffer overruns, or signed overflow halt the program with a stack trace instead of silently corrupting memory.",
+      "question": "What do the compilation flags -fsanitize=address,undefined provide during development?",
+      "answer": "They instrument the binary with AddressSanitizer and UndefinedBehaviorSanitizer to immediately halt on buffer overflows, use-after-free, memory leaks, and undefined operations with exact stack traces.",
       "sourceType": "note",
       "sourceId": "teach/c17/lessons/0001-c17-standards-and-modern-toolchain",
       "sourceTitle": "Lesson 0001: ISO C17 Standards, Compiler Diagnostics & CMake with SDL2",
@@ -7230,8 +7084,8 @@
     },
     {
       "id": "note:teach/c17/lessons/0002-binary-file-io-and-rom-loading:1",
-      "question": "What is the maximum allowable ROM size when loading a program into CHIP-8 RAM?",
-      "answer": "3,584 bytes (4,096 bytes total RAM minus 512 bytes reserved for fontset and interpreter below 0x200).",
+      "question": "Why is the maximum ROM size in a standard CHIP-8 emulator exactly 3,584 bytes?",
+      "answer": "Total addressable RAM is 4,096 bytes and the first 512 bytes (0x000 to 0x1FF) are reserved, leaving 4096 - 512 = 3584 bytes starting at 0x200.",
       "sourceType": "note",
       "sourceId": "teach/c17/lessons/0002-binary-file-io-and-rom-loading",
       "sourceTitle": "Lesson 0002: Safe Binary File I/O & ROM Loading into Memory at 0x200",
@@ -7246,8 +7100,8 @@
     },
     {
       "id": "note:teach/c17/lessons/0002-binary-file-io-and-rom-loading:2",
-      "question": "Why must rewind(file) or fseek(file, 0, SEEK_SET) be called before reading after checking file size with fseek/ftell?",
-      "answer": "Seeking to the end moves the file position indicator to EOF; without rewinding back to the beginning, fread would read 0 bytes.",
+      "question": "Why is rewind(file) required between computing file size with fseek(SEEK_END) / ftell() and reading data with fread()?",
+      "answer": "Seeking to SEEK_END moves the stream file position indicator to the end of the file; without rewinding back to the beginning, fread() would read 0 bytes.",
       "sourceType": "note",
       "sourceId": "teach/c17/lessons/0002-binary-file-io-and-rom-loading",
       "sourceTitle": "Lesson 0002: Safe Binary File I/O & ROM Loading into Memory at 0x200",
@@ -7262,8 +7116,8 @@
     },
     {
       "id": "note:teach/c17/lessons/0002-binary-file-io-and-rom-loading:3",
-      "question": "What does fopen return upon failure to open a file in C?",
-      "answer": "fopen returns NULL when opening a file fails (such as when the file is missing or permissions are denied).",
+      "question": "How should a robust ROM loader verify that fread() successfully read the entire file?",
+      "answer": "By verifying that the return value of fread() equals the expected element count (nmemb), and handling incomplete reads by closing the file and returning an error code.",
       "sourceType": "note",
       "sourceId": "teach/c17/lessons/0002-binary-file-io-and-rom-loading",
       "sourceTitle": "Lesson 0002: Safe Binary File I/O & ROM Loading into Memory at 0x200",
@@ -7278,8 +7132,8 @@
     },
     {
       "id": "note:teach/c17/lessons/0002-binary-file-io-and-rom-loading:4",
-      "question": "Where is the built-in 80-byte hexadecimal font set stored in CHIP-8 memory?",
-      "answer": "The font set is stored in the reserved memory region from 0x000 to 0x050.",
+      "question": "What defensive stream cleanup invariant must be maintained when loading files in C?",
+      "answer": "Every open FILE* handle must be explicitly closed with fclose() across all failure paths and success paths to prevent file descriptor leaks.",
       "sourceType": "note",
       "sourceId": "teach/c17/lessons/0002-binary-file-io-and-rom-loading",
       "sourceTitle": "Lesson 0002: Safe Binary File I/O & ROM Loading into Memory at 0x200",
@@ -7293,205 +7147,9 @@
       ]
     },
     {
-      "id": "note:teach/c17/mission:0",
-      "question": "What is the C17 mission's overarching goal?",
-      "answer": "Master production-grade ISO C17 systems programming by completing, optimizing, and hardening the CHIP-8 emulator into a memory-safe native application with modern CMake tooling and sanitizers.",
-      "sourceType": "note",
-      "sourceId": "teach/c17/mission",
-      "sourceTitle": "Mission: C17 Systems Mastery via CHIP-8 Emulator",
-      "sourceHref": "/notes/teach/c17/mission/",
-      "tags": [
-        "teach/c17",
-        "mission",
-        "chip-8"
-      ]
-    },
-    {
-      "id": "note:teach/c17/mission:1",
-      "question": "Which systems pillars does building an emulator target?",
-      "answer": "Binary file parsing and endianness, bitwise opcode decoding, memory architecture and pointer lifetimes, high-frequency CPU cycles and timer sync, SDL2 framebuffer work, and production CMake with ASan/UBSan.",
-      "sourceType": "note",
-      "sourceId": "teach/c17/mission",
-      "sourceTitle": "Mission: C17 Systems Mastery via CHIP-8 Emulator",
-      "sourceHref": "/notes/teach/c17/mission/",
-      "tags": [
-        "teach/c17",
-        "mission",
-        "chip-8"
-      ]
-    },
-    {
-      "id": "note:teach/c17/mission:2",
-      "question": "What must ROM loading do?",
-      "answer": "Load from disk with `fopen` and `fread`, handle errors, validate size, and write into memory at `0x200`.",
-      "sourceType": "note",
-      "sourceId": "teach/c17/mission",
-      "sourceTitle": "Mission: C17 Systems Mastery via CHIP-8 Emulator",
-      "sourceHref": "/notes/teach/c17/mission/",
-      "tags": [
-        "teach/c17",
-        "mission",
-        "chip-8"
-      ]
-    },
-    {
-      "id": "note:teach/c17/mission:3",
-      "question": "How should the 35-opcode engine be structured?",
-      "answer": "Use bitmask extraction and function-pointer jump tables in clean C17 idioms.",
-      "sourceType": "note",
-      "sourceId": "teach/c17/mission",
-      "sourceTitle": "Mission: C17 Systems Mastery via CHIP-8 Emulator",
-      "sourceHref": "/notes/teach/c17/mission/",
-      "tags": [
-        "teach/c17",
-        "mission",
-        "chip-8"
-      ]
-    },
-    {
-      "id": "note:teach/c17/mission:4",
-      "question": "What timer rate must the emulator implement?",
-      "answer": "60Hz delay and sound timers synchronized with the emulation cycle.",
-      "sourceType": "note",
-      "sourceId": "teach/c17/mission",
-      "sourceTitle": "Mission: C17 Systems Mastery via CHIP-8 Emulator",
-      "sourceHref": "/notes/teach/c17/mission/",
-      "tags": [
-        "teach/c17",
-        "mission",
-        "chip-8"
-      ]
-    },
-    {
-      "id": "note:teach/c17/mission:5",
-      "question": "Which graphics path should be optimized?",
-      "answer": "The XOR graphics engine (`DXYN`) and screen buffer, using SDL2 texture streaming.",
-      "sourceType": "note",
-      "sourceId": "teach/c17/mission",
-      "sourceTitle": "Mission: C17 Systems Mastery via CHIP-8 Emulator",
-      "sourceHref": "/notes/teach/c17/mission/",
-      "tags": [
-        "teach/c17",
-        "mission",
-        "chip-8"
-      ]
-    },
-    {
-      "id": "note:teach/c17/notes:0",
-      "question": "How large is CHIP-8 RAM, and what is its address range?",
-      "answer": "A 4KB RAM buffer from `0x000` to `0xFFF`.",
-      "sourceType": "note",
-      "sourceId": "teach/c17/notes",
-      "sourceTitle": "C17 Teacher Notes",
-      "sourceHref": "/notes/teach/c17/notes/",
-      "tags": [
-        "teach/c17",
-        "notes",
-        "chip-8"
-      ]
-    },
-    {
-      "id": "note:teach/c17/notes:1",
-      "question": "What registers does the CHIP-8 CPU expose?",
-      "answer": "16 general-purpose 8-bit registers (`V0`–`VF`), a 16-bit index register `I`, the program counter `PC`, and delay/sound timers.",
-      "sourceType": "note",
-      "sourceId": "teach/c17/notes",
-      "sourceTitle": "C17 Teacher Notes",
-      "sourceHref": "/notes/teach/c17/notes/",
-      "tags": [
-        "teach/c17",
-        "notes",
-        "chip-8"
-      ]
-    },
-    {
-      "id": "note:teach/c17/notes:2",
-      "question": "How large is the CHIP-8 call stack?",
-      "answer": "A 16-level call stack with stack pointer `SP`.",
-      "sourceType": "note",
-      "sourceId": "teach/c17/notes",
-      "sourceTitle": "C17 Teacher Notes",
-      "sourceHref": "/notes/teach/c17/notes/",
-      "tags": [
-        "teach/c17",
-        "notes",
-        "chip-8"
-      ]
-    },
-    {
-      "id": "note:teach/c17/notes:3",
-      "question": "How is the CHIP-8 display represented?",
-      "answer": "A 64×32 2D boolean pixel matrix.",
-      "sourceType": "note",
-      "sourceId": "teach/c17/notes",
-      "sourceTitle": "C17 Teacher Notes",
-      "sourceHref": "/notes/teach/c17/notes/",
-      "tags": [
-        "teach/c17",
-        "notes",
-        "chip-8"
-      ]
-    },
-    {
-      "id": "note:teach/c17/notes:4",
-      "question": "How are 16-bit big-endian CHIP-8 instructions fetched?",
-      "answer": "`(mem[PC] << 8) | mem[PC + 1]`.",
-      "sourceType": "note",
-      "sourceId": "teach/c17/notes",
-      "sourceTitle": "C17 Teacher Notes",
-      "sourceHref": "/notes/teach/c17/notes/",
-      "tags": [
-        "teach/c17",
-        "notes",
-        "chip-8"
-      ]
-    },
-    {
-      "id": "note:teach/c17/notes:5",
-      "question": "Where should ROMs be loaded in CHIP-8 RAM?",
-      "answer": "At offset `0x200`.",
-      "sourceType": "note",
-      "sourceId": "teach/c17/notes",
-      "sourceTitle": "C17 Teacher Notes",
-      "sourceHref": "/notes/teach/c17/notes/",
-      "tags": [
-        "teach/c17",
-        "notes",
-        "chip-8"
-      ]
-    },
-    {
-      "id": "note:teach/c17/notes:6",
-      "question": "How is the CHIP-8 keypad represented?",
-      "answer": "A 16-key keypad state, with translation from SDL keys.",
-      "sourceType": "note",
-      "sourceId": "teach/c17/notes",
-      "sourceTitle": "C17 Teacher Notes",
-      "sourceHref": "/notes/teach/c17/notes/",
-      "tags": [
-        "teach/c17",
-        "notes",
-        "chip-8"
-      ]
-    },
-    {
-      "id": "note:teach/c17/notes:7",
-      "question": "What two dispatch styles will the opcode engine compare?",
-      "answer": "Function-pointer dispatch tables versus switch structures.",
-      "sourceType": "note",
-      "sourceId": "teach/c17/notes",
-      "sourceTitle": "C17 Teacher Notes",
-      "sourceHref": "/notes/teach/c17/notes/",
-      "tags": [
-        "teach/c17",
-        "notes",
-        "chip-8"
-      ]
-    },
-    {
       "id": "note:teach/c17/reference/modern-c17-toolchain-and-cmake:0",
-      "question": "How do you enforce ISO C17 and disable extensions in CMake?",
-      "answer": "Set `CMAKE_C_STANDARD` to 17, `CMAKE_C_STANDARD_REQUIRED` to `ON`, and `CMAKE_C_EXTENSIONS` to `OFF`.",
+      "question": "Why is -fno-omit-frame-pointer passed alongside -fsanitize=address,undefined in debug builds?",
+      "answer": "It instructs the compiler to retain frame pointer registers (rbp/ebp), enabling sanitizers and debuggers to generate accurate, clean stack backtraces on crashes.",
       "sourceType": "note",
       "sourceId": "teach/c17/reference/modern-c17-toolchain-and-cmake",
       "sourceTitle": "Modern C17 Toolchain and CMake Reference",
@@ -7505,8 +7163,8 @@
     },
     {
       "id": "note:teach/c17/reference/modern-c17-toolchain-and-cmake:1",
-      "question": "What does `CMAKE_EXPORT_COMPILE_COMMANDS ON` provide?",
-      "answer": "It exports compile commands for clangd / LSP.",
+      "question": "What potential bug does the compiler flag -Wdouble-promotion detect in C?",
+      "answer": "It detects implicit promotion of single-precision float expressions to double-precision double, which can cause unexpected performance drops on systems without hardware double-precision support.",
       "sourceType": "note",
       "sourceId": "teach/c17/reference/modern-c17-toolchain-and-cmake",
       "sourceTitle": "Modern C17 Toolchain and CMake Reference",
@@ -7520,8 +7178,8 @@
     },
     {
       "id": "note:teach/c17/reference/modern-c17-toolchain-and-cmake:2",
-      "question": "What does `-Wshadow` prevent?",
-      "answer": "Inner-scope variables hiding outer-scope variables.",
+      "question": "What is the purpose of the -Wmissing-prototypes compiler flag in C projects?",
+      "answer": "It alerts the developer when a global function is defined without a prior prototype declaration in a header file, preventing accidental exports and header/implementation signature mismatches.",
       "sourceType": "note",
       "sourceId": "teach/c17/reference/modern-c17-toolchain-and-cmake",
       "sourceTitle": "Modern C17 Toolchain and CMake Reference",
@@ -7535,68 +7193,8 @@
     },
     {
       "id": "note:teach/c17/reference/modern-c17-toolchain-and-cmake:3",
-      "question": "What silent bug does `-Wconversion` catch?",
-      "answer": "Implicit type conversions that truncate, such as `uint64_t` into `uint32_t`.",
-      "sourceType": "note",
-      "sourceId": "teach/c17/reference/modern-c17-toolchain-and-cmake",
-      "sourceTitle": "Modern C17 Toolchain and CMake Reference",
-      "sourceHref": "/notes/teach/c17/reference/modern-c17-toolchain-and-cmake/",
-      "tags": [
-        "teach/c17",
-        "reference",
-        "cmake",
-        "toolchain"
-      ]
-    },
-    {
-      "id": "note:teach/c17/reference/modern-c17-toolchain-and-cmake:4",
-      "question": "Why is `-Wstrict-prototypes` required in C?",
-      "answer": "In C, `void foo()` means unspecified arguments; `void foo(void)` is required for a zero-argument function.",
-      "sourceType": "note",
-      "sourceId": "teach/c17/reference/modern-c17-toolchain-and-cmake",
-      "sourceTitle": "Modern C17 Toolchain and CMake Reference",
-      "sourceHref": "/notes/teach/c17/reference/modern-c17-toolchain-and-cmake/",
-      "tags": [
-        "teach/c17",
-        "reference",
-        "cmake",
-        "toolchain"
-      ]
-    },
-    {
-      "id": "note:teach/c17/reference/modern-c17-toolchain-and-cmake:5",
-      "question": "What runtime errors does `-fsanitize=address` catch?",
-      "answer": "Buffer overflows, use-after-free, and double-frees.",
-      "sourceType": "note",
-      "sourceId": "teach/c17/reference/modern-c17-toolchain-and-cmake",
-      "sourceTitle": "Modern C17 Toolchain and CMake Reference",
-      "sourceHref": "/notes/teach/c17/reference/modern-c17-toolchain-and-cmake/",
-      "tags": [
-        "teach/c17",
-        "reference",
-        "cmake",
-        "toolchain"
-      ]
-    },
-    {
-      "id": "note:teach/c17/reference/modern-c17-toolchain-and-cmake:6",
-      "question": "What runtime errors does `-fsanitize=undefined` catch?",
-      "answer": "Signed overflow, null pointer dereferencing, and alignment faults.",
-      "sourceType": "note",
-      "sourceId": "teach/c17/reference/modern-c17-toolchain-and-cmake",
-      "sourceTitle": "Modern C17 Toolchain and CMake Reference",
-      "sourceHref": "/notes/teach/c17/reference/modern-c17-toolchain-and-cmake/",
-      "tags": [
-        "teach/c17",
-        "reference",
-        "cmake",
-        "toolchain"
-      ]
-    },
-    {
-      "id": "note:teach/c17/reference/modern-c17-toolchain-and-cmake:7",
-      "question": "When does the CMake template enable ASan and UBSan?",
-      "answer": "When `ENABLE_SANITIZERS` is on and `CMAKE_BUILD_TYPE` matches Debug, using `-fsanitize=address,undefined`, `-fno-omit-frame-pointer`, and `-g`.",
+      "question": "Why must sanitizers be linked (target_link_options) in addition to being compiled (target_compile_options) in CMake?",
+      "answer": "Sanitizers require linking against dedicated runtime libraries (like libasan and libubsan) to hook memory allocators and intercept system calls.",
       "sourceType": "note",
       "sourceId": "teach/c17/reference/modern-c17-toolchain-and-cmake",
       "sourceTitle": "Modern C17 Toolchain and CMake Reference",
@@ -7610,8 +7208,8 @@
     },
     {
       "id": "note:teach/c17/reference/standard-io-and-binary-file-streams:0",
-      "question": "What are C's two standard-library return conventions?",
-      "answer": "Status/error code: `0` means success and non-zero means failure (`fseek`, `fclose`, `strcmp`). Value/count/handle: a valid object or count on success, `NULL` or `EOF` (`-1`) on failure (`fopen` returns `NULL`, `fread` returns items read, `ftell` returns `-1L`).",
+      "question": "What are the two distinct return conventions used by C standard library I/O functions?",
+      "answer": "Status/error codes where 0 means success and non-zero means failure (e.g. fseek, fclose), and value/count/handle returns where valid pointers/counts mean success and NULL/EOF/-1 indicates failure (e.g. fopen, fread, ftell).",
       "sourceType": "note",
       "sourceId": "teach/c17/reference/standard-io-and-binary-file-streams",
       "sourceTitle": "Standard I/O & Binary File Streams in C17",
@@ -7625,8 +7223,8 @@
     },
     {
       "id": "note:teach/c17/reference/standard-io-and-binary-file-streams:1",
-      "question": "How should you test `fseek` for failure under ISO C17?",
-      "answer": "`if (fseek(f, offset, origin) != 0)`. `fseek` returns nonzero on failure.",
+      "question": "Why does fread(ptr, size, nmemb, stream) take both size and nmemb as separate parameters instead of a single total byte count?",
+      "answer": "It enables structured record reading where fread() returns the count of complete records transferred, making truncated multi-byte struct reads immediately detectable.",
       "sourceType": "note",
       "sourceId": "teach/c17/reference/standard-io-and-binary-file-streams",
       "sourceTitle": "Standard I/O & Binary File Streams in C17",
@@ -7640,8 +7238,8 @@
     },
     {
       "id": "note:teach/c17/reference/standard-io-and-binary-file-streams:2",
-      "question": "What do `fread`'s `size` and `nmemb` parameters mean?",
-      "answer": "`size` is the size of a single element in bytes. `nmemb` is the number of elements to read.",
+      "question": "What does ftell() return if an error occurs while determining file stream position?",
+      "answer": "It returns -1L and sets errno.",
       "sourceType": "note",
       "sourceId": "teach/c17/reference/standard-io-and-binary-file-streams",
       "sourceTitle": "Standard I/O & Binary File Streams in C17",
@@ -7655,68 +7253,8 @@
     },
     {
       "id": "note:teach/c17/reference/standard-io-and-binary-file-streams:3",
-      "question": "What does `fread` return?",
-      "answer": "The number of whole elements successfully read, not the raw byte count.",
-      "sourceType": "note",
-      "sourceId": "teach/c17/reference/standard-io-and-binary-file-streams",
-      "sourceTitle": "Standard I/O & Binary File Streams in C17",
-      "sourceHref": "/notes/teach/c17/reference/standard-io-and-binary-file-streams/",
-      "tags": [
-        "teach/c17",
-        "reference",
-        "stdio",
-        "file-io"
-      ]
-    },
-    {
-      "id": "note:teach/c17/reference/standard-io-and-binary-file-streams:4",
-      "question": "If `fread` is asked for 10 `Player` structs and the file ends after 7 complete structs, what does it return?",
-      "answer": "It returns `7`, because `fread` reports the number of fully read elements (`nmemb`), not the number of attempted elements or partial bytes.",
-      "sourceType": "note",
-      "sourceId": "teach/c17/reference/standard-io-and-binary-file-streams",
-      "sourceTitle": "Standard I/O & Binary File Streams in C17",
-      "sourceHref": "/notes/teach/c17/reference/standard-io-and-binary-file-streams/",
-      "tags": [
-        "teach/c17",
-        "reference",
-        "stdio",
-        "file-io"
-      ]
-    },
-    {
-      "id": "note:teach/c17/reference/standard-io-and-binary-file-streams:5",
-      "question": "How do you measure file size and then read from the start?",
-      "answer": "`fseek(file, 0, SEEK_END)`, then `ftell(file)`, then `rewind(file)` (equivalent to `fseek(file, 0, SEEK_SET)`).",
-      "sourceType": "note",
-      "sourceId": "teach/c17/reference/standard-io-and-binary-file-streams",
-      "sourceTitle": "Standard I/O & Binary File Streams in C17",
-      "sourceHref": "/notes/teach/c17/reference/standard-io-and-binary-file-streams/",
-      "tags": [
-        "teach/c17",
-        "reference",
-        "stdio",
-        "file-io"
-      ]
-    },
-    {
-      "id": "note:teach/c17/reference/standard-io-and-binary-file-streams:6",
-      "question": "Why is `\"rb\"` required for ROMs instead of `\"r\"`?",
-      "answer": "Binary mode reads raw bytes with no transformation. Text mode may translate newlines (for example `\\r\\n` to `\\n`), which corrupts opcodes and shifts offsets.",
-      "sourceType": "note",
-      "sourceId": "teach/c17/reference/standard-io-and-binary-file-streams",
-      "sourceTitle": "Standard I/O & Binary File Streams in C17",
-      "sourceHref": "/notes/teach/c17/reference/standard-io-and-binary-file-streams/",
-      "tags": [
-        "teach/c17",
-        "reference",
-        "stdio",
-        "file-io"
-      ]
-    },
-    {
-      "id": "note:teach/c17/reference/standard-io-and-binary-file-streams:7",
-      "question": "What is the relationship between `fread` bytes transferred, `size`, and `nmemb`?",
-      "answer": "Total bytes read equals `size` times `nmemb`.",
+      "question": "What is rewind(stream) functionally equivalent to in C standard I/O?",
+      "answer": "It is equivalent to (void)fseek(stream, 0L, SEEK_SET) except that it also clears the stream error indicator.",
       "sourceType": "note",
       "sourceId": "teach/c17/reference/standard-io-and-binary-file-streams",
       "sourceTitle": "Standard I/O & Binary File Streams in C17",
@@ -7730,8 +7268,8 @@
     },
     {
       "id": "note:thoughts/defensive-programming:0",
-      "question": "Where should you apply defensive validation of user input?",
-      "answer": "Do not trust user input. Put validators on form values and on the HTTP request body and query.",
+      "question": "Where should defensive programming and input validation be strictly applied in an application architecture?",
+      "answer": "At external trust boundaries where input is untrusted, such as user form submissions, public HTTP request bodies, and external API inputs.",
       "sourceType": "note",
       "sourceId": "thoughts/defensive-programming",
       "sourceTitle": "Defensive Programming",
@@ -7746,8 +7284,8 @@
     },
     {
       "id": "note:thoughts/defensive-programming:1",
-      "question": "Should you validate responses from backend services your own team manages?",
-      "answer": "No. If you need to be defensive against your own teammates' code, you have gone too far. Those validators introduce too many edge cases.",
+      "question": "Why is excessive defensive validation against internal backend services managed by your own team considered an antipattern?",
+      "answer": "It introduces redundant edge cases, masks broken schema contracts, creates maintenance friction, and erodes team collaboration.",
       "sourceType": "note",
       "sourceId": "thoughts/defensive-programming",
       "sourceTitle": "Defensive Programming",
@@ -7762,40 +7300,8 @@
     },
     {
       "id": "note:thoughts/defensive-programming:2",
-      "question": "If the backend returns a string instead of an array, should the frontend fall back to []?",
-      "answer": "No. The frontend should not validate that and fall back to an empty array. The UI can show an error via an error boundary, or simply break, because invariants have broken.",
-      "sourceType": "note",
-      "sourceId": "thoughts/defensive-programming",
-      "sourceTitle": "Defensive Programming",
-      "sourceHref": "/notes/thoughts/defensive-programming/",
-      "tags": [
-        "defensive-programming",
-        "error-handling",
-        "software-design",
-        "frontend",
-        "backend"
-      ]
-    },
-    {
-      "id": "note:thoughts/defensive-programming:3",
-      "question": "Should the UI refuse to break no matter what?",
-      "answer": "No. Push back on the attitude that the UI must never break. If invariants have broken, the UI can show an error using an error boundary or simply break.",
-      "sourceType": "note",
-      "sourceId": "thoughts/defensive-programming",
-      "sourceTitle": "Defensive Programming",
-      "sourceHref": "/notes/thoughts/defensive-programming/",
-      "tags": [
-        "defensive-programming",
-        "error-handling",
-        "software-design",
-        "frontend",
-        "backend"
-      ]
-    },
-    {
-      "id": "note:thoughts/defensive-programming:4",
-      "question": "What happens if you treat the backend as an antagonist to your code?",
-      "answer": "You will soon start to see the backend developers as antagonists to you.",
+      "question": "Why should frontend interfaces fail fast (e.g. via error boundaries) when backend contracts break instead of silently falling back to defaults?",
+      "answer": "Silently falling back to empty defaults masks broken invariants, hides critical server errors, and makes root-cause debugging significantly harder.",
       "sourceType": "note",
       "sourceId": "thoughts/defensive-programming",
       "sourceTitle": "Defensive Programming",
@@ -7810,8 +7316,8 @@
     },
     {
       "id": "note:thoughts/function-abstration:0",
-      "question": "What is the real reason to extract a function, versus DRY reuse?",
-      "answer": "DRY is a decent starting rule, but the real reason to create, refactor to, or abstract to a function is to maintain local reasoning.",
+      "question": "What is the primary architectural justification for extracting a function, beyond the DRY (Don't Repeat Yourself) principle?",
+      "answer": "To preserve local reasoning, allowing developers to understand and reason about what a unit of code does at a glance without tracking excessive contextual state.",
       "sourceType": "note",
       "sourceId": "thoughts/function-abstration",
       "sourceTitle": "Function Abstraction",
@@ -7826,8 +7332,8 @@
     },
     {
       "id": "note:thoughts/function-abstration:1",
-      "question": "What happens if you only extract a function when you need to reuse it?",
-      "answer": "You get a 300-line function. The same steps are not required anywhere else, so the function never gets split.",
+      "question": "What problem arises when functions are only extracted when code reuse is required?",
+      "answer": "Non-reused flows accumulate sequentially inside a single monolithic function, bloating it with unrelated conditional branches and multiple reasons to change.",
       "sourceType": "note",
       "sourceId": "thoughts/function-abstration",
       "sourceTitle": "Function Abstraction",
@@ -7842,72 +7348,8 @@
     },
     {
       "id": "note:thoughts/function-abstration:2",
-      "question": "Why are functions more for humans than for machines?",
-      "answer": "A human sees your code before a machine does. The CPU does not see functions; the compiler does extra work to turn them into instructions, managing return and parameter addresses and inlining where possible.",
-      "sourceType": "note",
-      "sourceId": "thoughts/function-abstration",
-      "sourceTitle": "Function Abstraction",
-      "sourceHref": "/notes/thoughts/function-abstration/",
-      "tags": [
-        "clean-code",
-        "refactoring",
-        "software-design",
-        "single-responsibility",
-        "dry"
-      ]
-    },
-    {
-      "id": "note:thoughts/function-abstration:3",
-      "question": "How can DRY bloat a license-granting function?",
-      "answer": "Sales attach-on-behalf and anonymous checkout (create user if missing) get added to the same method because that is where users and licenses are linked. The function grows past 100 lines of if-checks that create different resources.",
-      "sourceType": "note",
-      "sourceId": "thoughts/function-abstration",
-      "sourceTitle": "Function Abstraction",
-      "sourceHref": "/notes/thoughts/function-abstration/",
-      "tags": [
-        "clean-code",
-        "refactoring",
-        "software-design",
-        "single-responsibility",
-        "dry"
-      ]
-    },
-    {
-      "id": "note:thoughts/function-abstration:4",
-      "question": "When should you refactor for local reasoning, even with a single call site?",
-      "answer": "Refactor when you can reason about what a function does at a glance. Link-licenses-to-user should be its own function even if no other code calls it and it happens in only one spot.",
-      "sourceType": "note",
-      "sourceId": "thoughts/function-abstration",
-      "sourceTitle": "Function Abstraction",
-      "sourceHref": "/notes/thoughts/function-abstration/",
-      "tags": [
-        "clean-code",
-        "refactoring",
-        "software-design",
-        "single-responsibility",
-        "dry"
-      ]
-    },
-    {
-      "id": "note:thoughts/function-abstration:5",
-      "question": "What should a link-licenses-to-user function take instead of IDs?",
-      "answer": "Valid user and license objects, not userId or licenseId. IDs would require validity checks; the function should just link them, even if the call is user.link(license).",
-      "sourceType": "note",
-      "sourceId": "thoughts/function-abstration",
-      "sourceTitle": "Function Abstraction",
-      "sourceHref": "/notes/thoughts/function-abstration/",
-      "tags": [
-        "clean-code",
-        "refactoring",
-        "software-design",
-        "single-responsibility",
-        "dry"
-      ]
-    },
-    {
-      "id": "note:thoughts/function-abstration:6",
-      "question": "How does a bloated link flow violate Single Responsibility?",
-      "answer": "A function should have one reason to change. That link flow changes if user creation changes, and also if which products sales may link changes.",
+      "question": "How does function extraction support the Single Responsibility Principle in practice?",
+      "answer": "It isolates distinct business concerns (such as user creation vs license assignment) into discrete functions, ensuring each has only one reason to change.",
       "sourceType": "note",
       "sourceId": "thoughts/function-abstration",
       "sourceTitle": "Function Abstraction",
@@ -8027,6 +7469,7 @@
     "clean-code",
     "cmake",
     "cohesion",
+    "compilers",
     "concurrency",
     "condvar",
     "context",
@@ -8068,6 +7511,7 @@
     "inference",
     "infrastructure",
     "interior-mutability",
+    "interpreters",
     "javascript",
     "JavaScript",
     "JSON",

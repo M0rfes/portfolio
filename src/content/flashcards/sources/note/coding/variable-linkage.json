@@ -13,18 +13,18 @@
   "cards": [
     {
       "id": "note:coding/variable-linkage:0",
-      "question": "What does variable linkage (or visibility) specify?",
-      "answer": "Variable linkage specifies whether a variable is visible to other files in a multi-file program."
+      "question": "What does variable linkage define in a multi-file C program?",
+      "answer": "It defines whether an identifier refers to the same object across different translation units (external), within a single translation unit (internal), or only within its local scope (no linkage)."
     },
     {
       "id": "note:coding/variable-linkage:1",
-      "question": "In C multi-file programs, what term is used interchangeably with visibility?",
-      "answer": "Linkage is used interchangeably with visibility."
+      "question": "What keyword is used at file scope to give a variable internal linkage in C, and why is this useful?",
+      "answer": "static. It prevents symbol export to the linker, encapsulating the variable within that translation unit and avoiding name collisions."
     },
     {
       "id": "note:coding/variable-linkage:2",
-      "question": "Why is variable linkage important in multi-file C programs?",
-      "answer": "It determines whether a variable declared in one translation unit can be referenced or shared by other translation units."
+      "question": "What linkage do local variables declared inside a function have by default?",
+      "answer": "No linkage. They are private to their block scope and cannot be referenced by name from other scopes or translation units."
     }
   ]
 }

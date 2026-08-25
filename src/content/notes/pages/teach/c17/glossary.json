@@ -11,10 +11,10 @@
     "glossary"
   ],
   "created": "2026-08-22",
-  "updatedAt": "2026-08-22",
+  "updatedAt": "2026-08-25",
   "vaultPath": "Teach/C17/GLOSSARY.md",
   "folder": "Teach",
-  "markdown": "[← C17 MOC](../c17/)\n\n# C17 Glossary\n\n> [!NOTE] Canonical Language\n> Canonical definitions for ISO C17 concepts, memory rules, compiler behaviors, and systems vocabulary.\n\n---\n\n## Language Semantics & Compiler Behaviors\n\n### Undefined Behavior (UB)\nBehavior upon use of a non-portable or erroneous construct for which the ISO C standard imposes no requirements; the compiler is free to assume UB never happens and optimize accordingly (which can cause silent miscompilations, crashes, or security vulnerabilities).\n- _Avoid_: Random error, crash behavior, compiler glitch\n\n### Implementation-Defined Behavior\nUnspecified behavior where each conforming implementation (compiler + OS target) must document how the choice is made (e.g. size of `long`, representation of signed negative numbers).\n- _Avoid_: Undefined behavior, portable choice\n\n### Unspecified Behavior\nBehavior where the standard provides two or more possibilities and imposes no requirement on which is chosen in any instance (e.g. order of evaluation of function arguments).\n- _Avoid_: Undefined behavior\n\n### Sequence Point\nA point in the execution sequence at which all side effects of previous evaluations are complete and no side effects from subsequent evaluations have taken place (in C11/C17 formalized as the \"sequenced-before\" partial order).\n- _Avoid_: Execution step, clock tick\n\n---\n\n## Memory Model & Pointer Mechanics\n\n### Strict Aliasing Rule\nA compiler optimization rule stating that two pointers of different types (with specific exceptions like `char*`) cannot point to the same memory location, allowing the compiler to reorder reads/writes across them.\n- _Avoid_: Pointer collision, duplicate referencing\n\n### Effective Type\nThe type assigned to an allocated object in memory that governs which pointer types may legitimately read or write to it under strict aliasing rules.\n- _Avoid_: Variable type, cast type\n\n### Type Punning\nThe practice of accessing a block of memory through a pointer of a different type or through a `union` to reinterpret its raw bit representation.\n- _Avoid_: Force casting, byte hacking\n\n### Alignment\nA requirement that an object of a given type be stored at a memory address that is a multiple of a certain integer value (e.g., a 4-byte integer aligned to an address divisible by 4).\n- _Avoid_: Spacing, memory offset\n\n### Struct Padding\nUnused bytes inserted automatically by the compiler between struct members or at the end of a struct to ensure each member conforms to its architecture's alignment requirements.\n- _Avoid_: Dead space, struct gap\n\n### Flexible Array Member (FAM)\nAn unbounded array defined as the last member of a struct (e.g. `int data[];`), used in C99/C11/C17 to allocate dynamically sized structures in a single contiguous memory block.\n- _Avoid_: Zero-length array (`[0]`), trailing pointer\n\n---\n\n## Diagnostics & Tooling\n\n### AddressSanitizer (ASan)\nA fast memory error detector tool (enabled via `-fsanitize=address`) that instruments memory accesses at compile-time to detect out-of-bounds accesses, use-after-free, double-free, and leaks.\n- _Avoid_: Valgrind replacement, leak detector\n\n### UndefinedBehaviorSanitizer (UBSan)\nA compile-time instrumentation tool (enabled via `-fsanitize=undefined`) that catches undefined behaviors at runtime such as signed integer overflow, null pointer dereference, and misaligned pointers.\n- _Avoid_: Linter, static checker\n",
+  "markdown": "[← C17 MOC](../c17/) · [🎯 Mission](../mission/) · [📚 Resources](../resources/) · [📝 Teacher Notes](../notes/)\n\n# C17 Glossary\n\n> [!NOTE] Canonical Language\n> Canonical definitions for ISO C17 concepts, memory rules, compiler behaviors, systems architecture, and vault concept mappings.\n\n---\n\n## Language Semantics & Compiler Behaviors\n\n### Undefined Behavior (UB)\nBehavior upon use of a non-portable or erroneous construct for which the ISO C standard imposes no requirements; the compiler is free to assume UB never happens and optimize accordingly (which can cause silent miscompilations, crashes, or security vulnerabilities).\n- **Vault Concept**: [Concept: Defensive Programming & Invariants](../../../thoughts/defensive-programming/)\n- _Avoid_: Random error, crash behavior, compiler glitch\n\n### Implementation-Defined Behavior\nUnspecified behavior where each conforming implementation (compiler + OS target) must document how the choice is made (e.g. size of `long`, representation of signed negative numbers).\n- _Avoid_: Undefined behavior, portable choice\n\n### Unspecified Behavior\nBehavior where the standard provides two or more possibilities and imposes no requirement on which is chosen in any instance (e.g. order of evaluation of function arguments).\n- _Avoid_: Undefined behavior\n\n### Sequence Point\nA point in the execution sequence at which all side effects of previous evaluations are complete and no side effects from subsequent evaluations have taken place (in C11/C17 formalized as the \"sequenced-before\" partial order).\n- _Avoid_: Execution step, clock tick\n\n---\n\n## Storage Classes, Linkage & Lifetimes\n\n### Variable Linkage\nThe property of an identifier that determines whether it refers to the same object or function across different translation units (external linkage) or only within the current translation unit (internal linkage).\n- **Vault Concept**: [Concept: Variable Linkage](../../../coding/variable-linkage/)\n- **Reference**: [Advanced C: Storage Classes](../../../books/c/advanced-c-programming-course/storage-classes/)\n- _Avoid_: Scope, pointer exposure\n\n### Internal Linkage\nLinkage specified by the `static` keyword at file scope; restricts the identifier's visibility to its own translation unit (`.c` file), preventing name collisions and enforcing modular encapsulation.\n- **Vault Concept**: [Concept: C Static](../../../books/c/advanced-c-programming-course/c-static/)\n- _Avoid_: Private variable, local scope\n\n### External Linkage\nLinkage possessed by default file-scope variables and non-static functions, or explicitly declared with `extern`; allows identifiers to be referenced across multiple translation units during the linking phase.\n- **Vault Concept**: [Concept: C Extern](../../../books/c/advanced-c-programming-course/c-extern/)\n- _Avoid_: Public variable, global export\n\n### Automatic Storage Duration\nStorage duration where objects are allocated on the function stack frame upon block entry and automatically deallocated upon block exit (`auto` storage class).\n- **Vault Concept**: [Concept: Automatic Storage Duration](../../../coding/automatic-storage-duration/)\n- **Reference**: [Concept: C Auto](../../../books/c/advanced-c-programming-course/c-auto/)\n- _Avoid_: Dynamic allocation, heap memory\n\n### Static Storage Duration\nStorage duration where an object is allocated in the program's data or BSS segment prior to program startup (`main()`) and persists for the entire program execution lifetime.\n- **Vault Concept**: [Concept: Variable Lifetime](../../../coding/variable-lifetime/)\n- **Reference**: [Concept: C Static](../../../books/c/advanced-c-programming-course/c-static/)\n- _Avoid_: Global lifetime, permanent stack\n\n### Register Storage Class\nA storage class specifier (`register`) hinting to the compiler that an automatic variable should be stored in a CPU register for fast access; in ISO C, applying the address-of operator (`&`) to a register variable is a compile-time constraint violation.\n- **Vault Concept**: [Concept: Register Storage](../../../coding/register-storage/)\n- **Reference**: [Concept: C Register](../../../books/c/advanced-c-programming-course/c-register/)\n- _Avoid_: CPU variable, hardware register\n\n---\n\n## Memory Model, Structs & Pointer Mechanics\n\n### Alignment\nA hardware/ABI requirement that an object of a given type be stored at a memory address that is an exact multiple of its size or natural alignment boundary (e.g. a 4-byte `uint32_t` aligned to a multiple of 4).\n- **Vault Concept**: [Diagnostic: Struct Memory Layout & Alignment](../../../grill/c-systems-programming/#round-6-struct-layout-alignment)\n- _Avoid_: Spacing, memory offset\n\n### Struct Padding and Tail Padding\nUnused padding bytes inserted automatically by the compiler between struct members (internal padding) and at the end of a struct (tail padding) to ensure members and contiguous array elements maintain natural alignment boundaries.\n- **Vault Concept**: [Diagnostic: Struct Padding & Tail Padding](../../../grill/c-systems-programming/#round-6-struct-layout-alignment)\n- _Avoid_: Dead space, struct gap\n\n### Array Decay\nThe implicit conversion in C where an expression of array type (`T[N]`) is rewritten by the compiler to a pointer to its first element (`T*`) in almost all expression contexts (except `sizeof`, `_Alignof`, and `&`).\n- **Vault Concept**: [[Grill/C Systems Programming#Round 4: Array Decay & `sizeof` Mechanics|Diagnostic: Array Decay]]\n- _Avoid_: Pass by reference, array pointer\n\n### Strict Aliasing Rule\nA compiler optimization rule stating that two pointers of different types (with specific exceptions like `char*` and `uint8_t*`) cannot point to the same memory location, allowing the compiler to reorder reads/writes across them.\n- _Avoid_: Pointer collision, duplicate referencing\n\n### Effective Type\nThe type assigned to an allocated object in memory that governs which pointer types may legitimately read or write to it under strict aliasing rules.\n- _Avoid_: Variable type, cast type\n\n### Type Punning\nThe practice of accessing a block of memory through a pointer of a different type or through a `union` to reinterpret its raw bit representation.\n- _Avoid_: Force casting, byte hacking\n\n### Flexible Array Member (FAM)\nAn unbounded array defined as the last member of a struct (e.g. `int data[];`), used in C99/C11/C17 to allocate dynamically sized structures in a single contiguous memory block.\n- _Avoid_: Zero-length array (`[0]`), trailing pointer\n\n---\n\n## CPU Architecture & Virtual Machine Execution\n\n### Endianness & Big-Endian Opcode Packing\nThe byte ordering of multi-byte numbers in memory. In big-endian systems (such as CHIP-8 opcodes), the most significant byte is stored at the lowest memory address; 16-bit opcodes are reconstructed via `(mem[PC] << 8) | mem[PC + 1]`.\n- **Vault Concept**: [Concept: CHIP-8 Fetch](../../../emulation/chip-8/#fetch)\n- **Reference**: [Diagnostic: Bitwise Operations & Endianness](../../../grill/c-systems-programming/#round-7-bitwise-operations-endianness)\n- _Avoid_: Byte flipping, reverse reading\n\n### Jump Table\nAn array of code addresses or function pointers indexed directly by an integer opcode or event type to achieve $O(1)$ instruction dispatch without branch misprediction cascades.\n- **Vault Concept**: [Diagnostic: Function Pointers & Jump Tables](../../../grill/c-systems-programming/#round-9-function-pointers-jump-tables-knowledge-frontier)\n- _Avoid_: Multi-switch, branching ladder\n\n### Direct Threaded Code (Computed Gotos)\nAn interpreter dispatch technique utilizing compiler extensions (such as GNU C `&&label` and `goto *ptr`) where every opcode instruction routine handles its own dispatching directly to the next handler, eliminating the central loop switch and reducing CPU branch predictor pipeline stalls.\n- **Vault Concept**: [Concept: Computed Gotos in C (Direct Threaded Code)](../../../coding/computed-gotos-in-c-direct-threaded-code/)\n- _Avoid_: Multi-threading, threaded execution\n\n---\n\n## Diagnostics & Tooling\n\n### AddressSanitizer (ASan)\nA fast memory error detector tool (enabled via `-fsanitize=address`) that instruments memory accesses at compile-time to detect out-of-bounds accesses, use-after-free, double-free, and leaks.\n- **Vault Concept**: [Reference: Modern C17 Toolchain & CMake](../reference/modern-c17-toolchain-and-cmake/)\n- _Avoid_: Valgrind replacement, leak detector\n\n### UndefinedBehaviorSanitizer (UBSan)\nA compile-time instrumentation tool (enabled via `-fsanitize=undefined`) that catches undefined behaviors at runtime such as signed integer overflow, null pointer dereference, and misaligned pointers.\n- **Vault Concept**: [Reference: Modern C17 Toolchain & CMake](../reference/modern-c17-toolchain-and-cmake/)\n- _Avoid_: Linter, static checker\n",
   "linkedFrom": [
     {
       "slug": [
@@ -39,6 +39,24 @@
       "slug": [
         "teach",
         "c17",
+        "resources"
+      ],
+      "href": "/notes/teach/c17/resources/",
+      "title": "C17 Resources"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "notes"
+      ],
+      "href": "/notes/teach/c17/notes/",
+      "title": "C17 Teacher Notes"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
         "lessons",
         "0001-c17-standards-and-modern-toolchain"
       ],
@@ -54,6 +72,55 @@
       ],
       "href": "/notes/teach/c17/lessons/0002-binary-file-io-and-rom-loading/",
       "title": "Lesson 0002: Safe Binary File I/O & ROM Loading into Memory at 0x200"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "learning-records",
+        "0001-baseline-and-prerequisites"
+      ],
+      "href": "/notes/teach/c17/learning-records/0001-baseline-and-prerequisites/",
+      "title": "LR-0001: Learner Background & C17 Baseline"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "learning-records",
+        "0002-chip8-codebase-audit"
+      ],
+      "href": "/notes/teach/c17/learning-records/0002-chip8-codebase-audit/",
+      "title": "LR-0002: CHIP-8 Codebase Audit & Architecture Baseline"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "mission"
+      ],
+      "href": "/notes/teach/c17/mission/",
+      "title": "Mission: C17 Systems Mastery via CHIP-8 Emulator"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "reference",
+        "modern-c17-toolchain-and-cmake"
+      ],
+      "href": "/notes/teach/c17/reference/modern-c17-toolchain-and-cmake/",
+      "title": "Modern C17 Toolchain and CMake Reference"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "reference",
+        "standard-io-and-binary-file-streams"
+      ],
+      "href": "/notes/teach/c17/reference/standard-io-and-binary-file-streams/",
+      "title": "Standard I/O & Binary File Streams in C17"
     },
     {
       "slug": [

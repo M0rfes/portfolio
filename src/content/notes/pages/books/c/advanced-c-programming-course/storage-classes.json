@@ -23,10 +23,28 @@
       "slug": [
         "teach",
         "c17",
+        "glossary"
+      ],
+      "href": "/notes/teach/c17/glossary/",
+      "title": "C17 Glossary"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
         "c17"
       ],
       "href": "/notes/teach/c17/c17/",
       "title": "C17 Hub"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "resources"
+      ],
+      "href": "/notes/teach/c17/resources/",
+      "title": "C17 Resources"
     },
     {
       "slug": [
@@ -35,6 +53,26 @@
       ],
       "href": "/notes/grill/c-systems-programming/",
       "title": "Grill: C Systems Programming Knowledge"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "lessons",
+        "0001-c17-standards-and-modern-toolchain"
+      ],
+      "href": "/notes/teach/c17/lessons/0001-c17-standards-and-modern-toolchain/",
+      "title": "Lesson 0001: ISO C17 Standards, Compiler Diagnostics & CMake with SDL2"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "reference",
+        "modern-c17-toolchain-and-cmake"
+      ],
+      "href": "/notes/teach/c17/reference/modern-c17-toolchain-and-cmake/",
+      "title": "Modern C17 Toolchain and CMake Reference"
     }
   ]
 }

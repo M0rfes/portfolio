@@ -4,38 +4,32 @@
     "id": "books/c/advanced-c-programming-course/c-static",
     "title": "C Static Storage Class",
     "href": "/notes/books/c/advanced-c-programming-course/c-static/",
-    "tags": ["c", "memory", "storage-classes"]
+    "tags": [
+      "c",
+      "memory",
+      "storage-classes"
+    ]
   },
   "cards": [
     {
       "id": "note:books/c/advanced-c-programming-course/c-static:0",
-      "question": "What does a static lifetime mean?",
-      "answer": "The value exists until the end of the program, so a value with a static lifetime can be shared across threads."
+      "question": "Where are local static variables stored in memory, and how does their lifetime differ from auto variables?",
+      "answer": "Local static variables are stored in the data segment (or BSS segment) rather than the stack, persisting and retaining their values across function invocations for the entire lifetime of the program."
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-static:1",
-      "question": "When does a static variable exist relative to main?",
-      "answer": "Any variable declared static exists before main and remains in scope until the program ends."
+      "question": "What is the difference between static applied to a global variable versus static applied to a local variable in C?",
+      "answer": "For global variables, static restricts visibility to internal linkage (private to the translation unit). For local variables, static extends the storage duration to the entire program lifetime while retaining block scope."
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-static:2",
-      "question": "How do local static variables differ from auto variables?",
-      "answer": "Local statics retain their value between function executions and live in the data segment (or BSS), not the stack. Auto variables are allocated on the stack."
+      "question": "Why does the initialization static int x = get_value(); fail to compile in C?",
+      "answer": "Static storage duration objects are initialized at load time prior to program execution, requiring compile-time constant expressions rather than runtime function calls."
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-static:3",
-      "question": "Why can a whole struct be static but not an individual member?",
-      "answer": "The whole struct can have the static modifier, but individual members cannot due to the alignment rule."
-    },
-    {
-      "id": "note:books/c/advanced-c-programming-course/c-static:4",
-      "question": "Why does `static int i = get_i();` fail?",
-      "answer": "Static variables have to be known at compile time, so they cannot be initialised from a function call like `get_i()`."
-    },
-    {
-      "id": "note:books/c/advanced-c-programming-course/c-static:5",
-      "question": "What does file-scope static do to a variable or function?",
-      "answer": "It makes them visible only in the file where they are defined."
+      "question": "Why can individual members inside a struct declaration not be marked with the static storage class in C?",
+      "answer": "C structs define contiguous memory layouts and alignment offsets for instances; individual static fields would break contiguous struct layout and are not supported in C."
     }
   ]
 }

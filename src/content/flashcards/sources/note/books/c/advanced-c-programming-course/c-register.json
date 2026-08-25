@@ -4,33 +4,32 @@
     "id": "books/c/advanced-c-programming-course/c-register",
     "title": "C Register Storage Class",
     "href": "/notes/books/c/advanced-c-programming-course/c-register/",
-    "tags": ["c", "memory", "storage-classes"]
+    "tags": [
+      "c",
+      "memory",
+      "storage-classes"
+    ]
   },
   "cards": [
     {
       "id": "note:books/c/advanced-c-programming-course/c-register:0",
-      "question": "What does the register modifier ask the compiler to do?",
-      "answer": "Place the variable in a CPU register instead of RAM. The compiler can still refuse for optimisation; it is a request, not a guarantee."
+      "question": "Why is applying the address-of operator & to a variable declared with register a compile-time error in C?",
+      "answer": "CPU registers do not have memory addresses in RAM, and the ISO C standard strictly forbids taking the address of any register variable regardless of whether the compiler places it in a register or on the stack."
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-register:1",
-      "question": "Can a struct or a struct field be register?",
-      "answer": "A whole struct can have the register modifier, but one field of a struct cannot."
+      "question": "Can a global (file-scope) variable in C be declared with the register storage class?",
+      "answer": "No. The register specifier can only be applied to local variables (block scope) and function parameters; it cannot be applied at file scope."
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-register:2",
-      "question": "Why can you not take the address of a register variable?",
-      "answer": "A register variable has no address while it is in a register, so `&` on it is not allowed and will cause an error."
+      "question": "Can individual members of a struct be declared with the register storage class in C?",
+      "answer": "No. The register modifier can be applied to an entire struct variable, but cannot be applied to individual struct members."
     },
     {
       "id": "note:books/c/advanced-c-programming-course/c-register:3",
-      "question": "Can a pointer itself be a register variable?",
-      "answer": "Yes. Putting an address in a register is allowed, such as `register int* ptr_i = &i;`."
-    },
-    {
-      "id": "note:books/c/advanced-c-programming-course/c-register:4",
-      "question": "Can a register variable be global?",
-      "answer": "No. Register has scope, lifetime, and visibility, but register cannot be global."
+      "question": "Is it valid to declare a pointer variable with register and assign it the address of a standard variable (e.g. register int *ptr = &val;)?",
+      "answer": "Yes. The pointer variable itself is stored in a CPU register, while the memory address it holds points to valid RAM."
     }
   ]
 }

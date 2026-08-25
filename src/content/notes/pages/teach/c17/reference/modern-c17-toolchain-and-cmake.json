@@ -14,11 +14,20 @@
     "toolchain"
   ],
   "created": "2026-08-22",
-  "updatedAt": "2026-08-22",
+  "updatedAt": "2026-08-25",
   "vaultPath": "Teach/C17/Reference/Modern C17 Toolchain and CMake.md",
   "folder": "Teach",
-  "markdown": "[← C17 MOC](../../c17/) · [🎯 Mission](../../mission/)\n\n# Modern C17 Toolchain & CMake Reference\n\n> [!NOTE] Production Standards\n> Professional C projects require strict compiler diagnostics, automated address/undefined behavior sanitizers, and standard build automation.\n\n---\n\n## 1. Production `CMakeLists.txt` Template (C17)\n\n```cmake\ncmake_minimum_required(VERSION 3.20)\nproject(c17_systems_project C)\n\n# Enforce ISO C17 Standard\nset(CMAKE_C_STANDARD 17)\nset(CMAKE_C_STANDARD_REQUIRED ON)\nset(CMAKE_C_EXTENSIONS OFF) # Disable non-standard compiler extensions\n\n# Export compile commands for clangd / LSP\nset(CMAKE_EXPORT_COMPILE_COMMANDS ON)\n\n# Source and Target Configuration\nadd_executable(app src/main.c)\n\n# Strict Compiler Warnings\ntarget_compile_options(app PRIVATE\n    -Wall\n    -Wextra\n    -Wpedantic\n    -Wshadow\n    -Wconversion\n    -Wdouble-promotion\n    -Wformat=2\n    -Wundef\n    -Wstrict-prototypes\n    -Wmissing-prototypes\n)\n\n# Debug & Sanitizer Configuration\noption(ENABLE_SANITIZERS \"Enable ASan and UBSan\" ON)\nif(ENABLE_SANITIZERS AND CMAKE_BUILD_TYPE MATCHES \"Debug\")\n    target_compile_options(app PRIVATE -fsanitize=address,undefined -fno-omit-frame-pointer -g)\n    target_link_options(app PRIVATE -fsanitize=address,undefined)\nendif()\n```\n\n---\n\n## 2. CLI Build & Run Workflow\n\n```bash\n# 1. Configure debug build with Ninja or Make\ncmake -B build -DCMAKE_BUILD_TYPE=Debug\n\n# 2. Compile targets\ncmake --build build\n\n# 3. Execute with live Sanitizer detection\n./build/app\n```\n\n---\n\n## 3. Essential Compiler Diagnostic Flags\n\n| Flag | Purpose | Why it matters in C17 |\n| :--- | :--- | :--- |\n| `-Wall -Wextra -Wpedantic` | Baseline warning suite | Catches non-standard extensions and common errors. |\n| `-Wshadow` | Variable shadowing | Prevents inner scope variables from hiding outer scope variables. |\n| `-Wconversion` | Implicit type conversions | Prevents silent truncations (e.g. `uint64_t` into `uint32_t`). |\n| `-Wstrict-prototypes` | Enforce empty parameter prototypes | In C, `void foo()` means *unspecified arguments*; `void foo(void)` is required. |\n| `-fsanitize=address` | AddressSanitizer (ASan) | Catches buffer overflows, use-after-free, double-frees at runtime. |\n| `-fsanitize=undefined` | UndefinedBehaviorSanitizer (UBSan) | Catches signed overflow, null pointer dereferencing, alignment faults. |\n",
+  "markdown": "[← C17 MOC](../../c17/) · [🎯 Mission](../../mission/) · [📖 Glossary](../../glossary/) · [📚 Resources](../../resources/)\n\n# Modern C17 Toolchain & CMake Reference\n\n> [!NOTE] Production Standards\n> Professional C projects require strict compiler diagnostics, automated address/undefined behavior sanitizers, and standard build automation.\n\n---\n\n## 1. Production `CMakeLists.txt` Template (C17)\n\n```cmake\ncmake_minimum_required(VERSION 3.20)\nproject(c17_systems_project C)\n\n# Enforce ISO C17 Standard\nset(CMAKE_C_STANDARD 17)\nset(CMAKE_C_STANDARD_REQUIRED ON)\nset(CMAKE_C_EXTENSIONS OFF) # Disable non-standard compiler extensions\n\n# Export compile commands for clangd / LSP\nset(CMAKE_EXPORT_COMPILE_COMMANDS ON)\n\n# Source and Target Configuration\nadd_executable(app src/main.c)\n\n# Strict Compiler Warnings\ntarget_compile_options(app PRIVATE\n    -Wall\n    -Wextra\n    -Wpedantic\n    -Wshadow\n    -Wconversion\n    -Wdouble-promotion\n    -Wformat=2\n    -Wundef\n    -Wstrict-prototypes\n    -Wmissing-prototypes\n)\n\n# Debug & Sanitizer Configuration\noption(ENABLE_SANITIZERS \"Enable ASan and UBSan\" ON)\nif(ENABLE_SANITIZERS AND CMAKE_BUILD_TYPE MATCHES \"Debug\")\n    target_compile_options(app PRIVATE -fsanitize=address,undefined -fno-omit-frame-pointer -g)\n    target_link_options(app PRIVATE -fsanitize=address,undefined)\nendif()\n```\n\n---\n\n## 2. CLI Build & Run Workflow\n\n```bash\n# 1. Configure debug build with Ninja or Make\ncmake -B build -DCMAKE_BUILD_TYPE=Debug\n\n# 2. Compile targets\ncmake --build build\n\n# 3. Execute with live Sanitizer detection\n./build/app\n```\n\n---\n\n## 3. Essential Compiler Diagnostic Flags\n\n| Flag | Purpose | Why it matters in C17 | Vault Cross-Reference |\n| :--- | :--- | :--- | :--- |\n| `-Wall -Wextra -Wpedantic` | Baseline warning suite | Catches non-standard extensions and common errors. | [C Storage Classes](../../../../books/c/advanced-c-programming-course/storage-classes/) |\n| `-Wshadow` | Variable shadowing | Prevents inner scope variables from hiding outer scope variables. | [Variable Scope](../../../../coding/variable-scope/) |\n| `-Wconversion` | Implicit type conversions | Prevents silent truncations (e.g. `uint64_t` into `uint32_t`). | [Grilling Diagnostic](../../../../grill/c-systems-programming/) |\n| `-Wstrict-prototypes` | Enforce empty parameter prototypes | In C, `void foo()` means *unspecified arguments*; `void foo(void)` is required. | [Unspecified Behavior](../../glossary/#unspecified-behavior) |\n| `-fsanitize=address` | AddressSanitizer (ASan) | Catches buffer overflows, use-after-free, double-frees at runtime. | [ASan in Glossary](../../glossary/#addresssanitizer-asan) |\n| `-fsanitize=undefined` | UndefinedBehaviorSanitizer (UBSan) | Catches signed overflow, null pointer dereferencing, alignment faults. | [UBSan in Glossary](../../glossary/#undefinedbehaviorsanitizer-ubsan) |\n",
   "linkedFrom": [
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "glossary"
+      ],
+      "href": "/notes/teach/c17/glossary/",
+      "title": "C17 Glossary"
+    },
     {
       "slug": [
         "teach",
@@ -27,6 +36,53 @@
       ],
       "href": "/notes/teach/c17/c17/",
       "title": "C17 Hub"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "notes"
+      ],
+      "href": "/notes/teach/c17/notes/",
+      "title": "C17 Teacher Notes"
+    },
+    {
+      "slug": [
+        "coding",
+        "computed-gotos-in-c-direct-threaded-code"
+      ],
+      "href": "/notes/coding/computed-gotos-in-c-direct-threaded-code/",
+      "title": "Computed Gotos in C (Direct Threaded Code)"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "lessons",
+        "0001-c17-standards-and-modern-toolchain"
+      ],
+      "href": "/notes/teach/c17/lessons/0001-c17-standards-and-modern-toolchain/",
+      "title": "Lesson 0001: ISO C17 Standards, Compiler Diagnostics & CMake with SDL2"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "learning-records",
+        "0002-chip8-codebase-audit"
+      ],
+      "href": "/notes/teach/c17/learning-records/0002-chip8-codebase-audit/",
+      "title": "LR-0002: CHIP-8 Codebase Audit & Architecture Baseline"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "learning-records",
+        "0003-cmake-sdl2-and-integer-truncation"
+      ],
+      "href": "/notes/teach/c17/learning-records/0003-cmake-sdl2-and-integer-truncation/",
+      "title": "LR-0003: CMake SDL2 Resolution & Integer Precision Diagnostics"
     }
   ]
 }

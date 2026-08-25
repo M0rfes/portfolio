@@ -4,48 +4,33 @@
     "id": "teach/c17/reference/modern-c17-toolchain-and-cmake",
     "title": "Modern C17 Toolchain and CMake Reference",
     "href": "/notes/teach/c17/reference/modern-c17-toolchain-and-cmake/",
-    "tags": ["teach/c17", "reference", "cmake", "toolchain"]
+    "tags": [
+      "teach/c17",
+      "reference",
+      "cmake",
+      "toolchain"
+    ]
   },
   "cards": [
     {
       "id": "note:teach/c17/reference/modern-c17-toolchain-and-cmake:0",
-      "question": "How do you enforce ISO C17 and disable extensions in CMake?",
-      "answer": "Set `CMAKE_C_STANDARD` to 17, `CMAKE_C_STANDARD_REQUIRED` to `ON`, and `CMAKE_C_EXTENSIONS` to `OFF`."
+      "question": "Why is -fno-omit-frame-pointer passed alongside -fsanitize=address,undefined in debug builds?",
+      "answer": "It instructs the compiler to retain frame pointer registers (rbp/ebp), enabling sanitizers and debuggers to generate accurate, clean stack backtraces on crashes."
     },
     {
       "id": "note:teach/c17/reference/modern-c17-toolchain-and-cmake:1",
-      "question": "What does `CMAKE_EXPORT_COMPILE_COMMANDS ON` provide?",
-      "answer": "It exports compile commands for clangd / LSP."
+      "question": "What potential bug does the compiler flag -Wdouble-promotion detect in C?",
+      "answer": "It detects implicit promotion of single-precision float expressions to double-precision double, which can cause unexpected performance drops on systems without hardware double-precision support."
     },
     {
       "id": "note:teach/c17/reference/modern-c17-toolchain-and-cmake:2",
-      "question": "What does `-Wshadow` prevent?",
-      "answer": "Inner-scope variables hiding outer-scope variables."
+      "question": "What is the purpose of the -Wmissing-prototypes compiler flag in C projects?",
+      "answer": "It alerts the developer when a global function is defined without a prior prototype declaration in a header file, preventing accidental exports and header/implementation signature mismatches."
     },
     {
       "id": "note:teach/c17/reference/modern-c17-toolchain-and-cmake:3",
-      "question": "What silent bug does `-Wconversion` catch?",
-      "answer": "Implicit type conversions that truncate, such as `uint64_t` into `uint32_t`."
-    },
-    {
-      "id": "note:teach/c17/reference/modern-c17-toolchain-and-cmake:4",
-      "question": "Why is `-Wstrict-prototypes` required in C?",
-      "answer": "In C, `void foo()` means unspecified arguments; `void foo(void)` is required for a zero-argument function."
-    },
-    {
-      "id": "note:teach/c17/reference/modern-c17-toolchain-and-cmake:5",
-      "question": "What runtime errors does `-fsanitize=address` catch?",
-      "answer": "Buffer overflows, use-after-free, and double-frees."
-    },
-    {
-      "id": "note:teach/c17/reference/modern-c17-toolchain-and-cmake:6",
-      "question": "What runtime errors does `-fsanitize=undefined` catch?",
-      "answer": "Signed overflow, null pointer dereferencing, and alignment faults."
-    },
-    {
-      "id": "note:teach/c17/reference/modern-c17-toolchain-and-cmake:7",
-      "question": "When does the CMake template enable ASan and UBSan?",
-      "answer": "When `ENABLE_SANITIZERS` is on and `CMAKE_BUILD_TYPE` matches Debug, using `-fsanitize=address,undefined`, `-fno-omit-frame-pointer`, and `-g`."
+      "question": "Why must sanitizers be linked (target_link_options) in addition to being compiled (target_compile_options) in CMake?",
+      "answer": "Sanitizers require linking against dedicated runtime libraries (like libasan and libubsan) to hook memory allocators and intercept system calls."
     }
   ]
 }

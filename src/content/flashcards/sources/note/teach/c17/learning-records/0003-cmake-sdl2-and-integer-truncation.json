@@ -4,23 +4,27 @@
     "id": "teach/c17/learning-records/0003-cmake-sdl2-and-integer-truncation",
     "title": "LR-0003: CMake SDL2 Resolution & Integer Precision Diagnostics",
     "href": "/notes/teach/c17/learning-records/0003-cmake-sdl2-and-integer-truncation/",
-    "tags": ["teach/c17", "learning-record", "cmake"]
+    "tags": [
+      "teach/c17",
+      "learning-record",
+      "cmake"
+    ]
   },
   "cards": [
     {
       "id": "note:teach/c17/learning-records/0003-cmake-sdl2-and-integer-truncation:0",
-      "question": "What implicit conversion did `-Wconversion` flag in `src/main.c`?",
-      "answer": "An implicit integer truncation where `SDL_Keycode` (a 32-bit integer) was assigned to `char` (an 8-bit integer)."
+      "question": "What compiler diagnostic flag catches silent narrowing conversions like assigning a 32-bit SDL_Keycode to an 8-bit char?",
+      "answer": "-Wconversion (or -Wimplicit-int-conversion)."
     },
     {
       "id": "note:teach/c17/learning-records/0003-cmake-sdl2-and-integer-truncation:1",
-      "question": "How did CMake resolve SDL2 headers on macOS and Linux?",
-      "answer": "Both `find_package(SDL2)` and a `pkg-config` fallback. On macOS this reached Homebrew headers at `/opt/homebrew/include/SDL2`."
+      "question": "Why is assigning a 32-bit keycode to an 8-bit char variable dangerous in SDL input handling?",
+      "answer": "Values exceeding 255 (such as arrow keys or function keys) are truncated, discarding high bits and causing incorrect or collided key mapping."
     },
     {
       "id": "note:teach/c17/learning-records/0003-cmake-sdl2-and-integer-truncation:2",
-      "question": "What integer-sizing rule follows from the truncation diagnostic?",
-      "answer": "Distinguish `int32_t`, `char`, and `uint8_t`, and avoid implicit narrowing casts."
+      "question": "How does CMAKE_EXPORT_COMPILE_COMMANDS ON benefit C development in modern editors?",
+      "answer": "It generates a compile_commands.json database detailing exact compiler flags and include paths for LSP servers like clangd."
     }
   ]
 }

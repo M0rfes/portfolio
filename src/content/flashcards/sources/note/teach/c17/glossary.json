@@ -4,48 +4,41 @@
     "id": "teach/c17/glossary",
     "title": "C17 Glossary",
     "href": "/notes/teach/c17/glossary/",
-    "tags": ["teach/c17", "glossary"]
+    "tags": [
+      "teach/c17",
+      "glossary"
+    ]
   },
   "cards": [
     {
       "id": "note:teach/c17/glossary:0",
-      "question": "What is undefined behavior (UB) in ISO C?",
-      "answer": "Behavior from a non-portable or erroneous construct for which the ISO C standard imposes no requirements. The compiler may assume UB never happens and optimize accordingly, which can cause silent miscompilations, crashes, or security vulnerabilities."
+      "question": "What is the difference between Undefined Behavior (UB) and Implementation-Defined Behavior in ISO C?",
+      "answer": "For UB, the standard imposes no requirements and compilers may assume it never occurs; for implementation-defined behavior, the compiler must choose a consistent behavior and document it."
     },
     {
       "id": "note:teach/c17/glossary:1",
-      "question": "How does implementation-defined behavior differ from undefined behavior?",
-      "answer": "It is unspecified behavior where each conforming implementation must document how the choice is made, such as the size of `long` or the representation of signed negative numbers."
+      "question": "What is Unspecified Behavior in ISO C?",
+      "answer": "Behavior where the standard provides two or more valid possibilities (such as function argument evaluation order) and imposes no requirement on which is chosen."
     },
     {
       "id": "note:teach/c17/glossary:2",
-      "question": "What is unspecified behavior?",
-      "answer": "Behavior where the standard provides two or more possibilities and imposes no requirement on which is chosen in any instance, such as the order of evaluation of function arguments."
+      "question": "What is the Strict Aliasing Rule in C?",
+      "answer": "A compiler optimization rule stating that two pointers of different types (with specific exceptions like char* and uint8_t*) cannot point to the same memory location, permitting reordering of memory accesses."
     },
     {
       "id": "note:teach/c17/glossary:3",
-      "question": "What is a sequence point?",
-      "answer": "A point in the execution sequence at which all side effects of previous evaluations are complete and no side effects from subsequent evaluations have taken place. In C11/C17 this is formalized as the sequenced-before partial order."
+      "question": "What is a Flexible Array Member (FAM) in C17, and where must it appear in a struct?",
+      "answer": "An incomplete array declared as the last member of a struct (e.g. int data[];), used to dynamically allocate contiguous memory for a header and trailing payload."
     },
     {
       "id": "note:teach/c17/glossary:4",
-      "question": "What does the strict aliasing rule allow a compiler to assume?",
-      "answer": "Two pointers of different types (with exceptions such as `char*`) cannot point to the same memory location, so the compiler may reorder reads and writes across them."
+      "question": "What runtime defects are detected by AddressSanitizer (ASan) versus UndefinedBehaviorSanitizer (UBSan)?",
+      "answer": "ASan detects memory errors (buffer overflows, use-after-free, leaks), whereas UBSan detects language-level undefined behavior (signed integer overflow, null-pointer dereference, misaligned accesses)."
     },
     {
       "id": "note:teach/c17/glossary:5",
-      "question": "What is alignment?",
-      "answer": "A requirement that an object of a given type be stored at a memory address that is a multiple of a certain integer value, such as a 4-byte integer at an address divisible by 4."
-    },
-    {
-      "id": "note:teach/c17/glossary:6",
-      "question": "What is a flexible array member (FAM)?",
-      "answer": "An unbounded array defined as the last member of a struct, such as `int data[]`. C99/C11/C17 use it to allocate dynamically sized structures in a single contiguous memory block."
-    },
-    {
-      "id": "note:teach/c17/glossary:7",
-      "question": "What do ASan and UBSan each detect?",
-      "answer": "AddressSanitizer (`-fsanitize=address`) instruments memory accesses to detect out-of-bounds accesses, use-after-free, double-free, and leaks. UndefinedBehaviorSanitizer (`-fsanitize=undefined`) catches runtime UB such as signed integer overflow, null pointer dereference, and misaligned pointers."
+      "question": "What is Array Decay in C, and in which expressions does it NOT occur?",
+      "answer": "Array decay is the implicit conversion of an array expression T[N] into a pointer T* to its first element; it occurs in all contexts except with sizeof, _Alignof, and &."
     }
   ]
 }

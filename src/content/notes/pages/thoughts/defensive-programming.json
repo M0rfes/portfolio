@@ -18,5 +18,81 @@
   "vaultPath": "Thoughts/Defensive Programming.md",
   "folder": "Thoughts",
   "markdown": "# Defensive Programming\n\nThere is a time and a place for [defensive programming](./).\n\n## Validating User Input\n\nThe advice is not to trust user input and be defensive there. We put validators on form values; we put validators on the HTTP request body and query.\n\n## Internal Boundaries and Backend Services\n\nBut we should draw a line at putting validators on responses to [services](../../architecture/coupling/) managed by our own BE team. If you need to be defensive against the code of your own team members, you have gone too far; these will introduce too many edge cases.\n\n## Invariants and UI Failures\n\nThe attitude that, no matter what, the UI should not break is one I push back against. If the BE starts returning a string instead of what should be an array, the FE should not be the one validating it and falling back to an empty array; the UI can show an error using error boundary or simply break cause your invariants have broken.\n\n## Team Dynamics\n\nAlso, if you see the BE as an antagonist to your code, you will soon start to see the BE devs as antagonists to you.\n",
-  "linkedFrom": []
+  "linkedFrom": [
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "glossary"
+      ],
+      "href": "/notes/teach/c17/glossary/",
+      "title": "C17 Glossary"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "c17"
+      ],
+      "href": "/notes/teach/c17/c17/",
+      "title": "C17 Hub"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "resources"
+      ],
+      "href": "/notes/teach/c17/resources/",
+      "title": "C17 Resources"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "notes"
+      ],
+      "href": "/notes/teach/c17/notes/",
+      "title": "C17 Teacher Notes"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "lessons",
+        "0002-binary-file-io-and-rom-loading"
+      ],
+      "href": "/notes/teach/c17/lessons/0002-binary-file-io-and-rom-loading/",
+      "title": "Lesson 0002: Safe Binary File I/O & ROM Loading into Memory at 0x200"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "learning-records",
+        "0004-stdio-conventions-and-fread-mechanics"
+      ],
+      "href": "/notes/teach/c17/learning-records/0004-stdio-conventions-and-fread-mechanics/",
+      "title": "LR-0004: Standard I/O Return Conventions & fread Parameters"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "mission"
+      ],
+      "href": "/notes/teach/c17/mission/",
+      "title": "Mission: C17 Systems Mastery via CHIP-8 Emulator"
+    },
+    {
+      "slug": [
+        "teach",
+        "c17",
+        "reference",
+        "standard-io-and-binary-file-streams"
+      ],
+      "href": "/notes/teach/c17/reference/standard-io-and-binary-file-streams/",
+      "title": "Standard I/O & Binary File Streams in C17"
+    }
+  ]
 }

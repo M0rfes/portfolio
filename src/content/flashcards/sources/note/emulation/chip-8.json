@@ -15,44 +15,38 @@
   "cards": [
     {
       "id": "note:emulation/chip-8:0",
-      "question": "Where are CHIP-8 programs loaded into memory, and why?",
-      "answer": "Programs load at address 0x200 (512 decimal) because the lower 512 bytes (0x000–0x1FF) were historically reserved for the CHIP-8 interpreter and built-in font data."
+      "question": "Why must CHIP-8 ROM files be loaded at memory address 0x200 (512 decimal) instead of 0x000?",
+      "answer": "Memory from 0x000 to 0x1FF is reserved for the built-in hexadecimal fontset and interpreter memory; program execution begins at 0x200."
     },
     {
       "id": "note:emulation/chip-8:1",
-      "question": "Why does the CHIP-8 instruction 7XNN (add immediate) differ from 8XY4 (add register) regarding the flag register VF?",
-      "answer": "7XNN adds NN to VX without modifying VF on overflow, whereas 8XY4 explicitly sets VF to 1 if an 8-bit overflow occurs (>255) and 0 otherwise."
+      "question": "What is the maximum allowed file size for a CHIP-8 ROM in standard 4KB RAM systems?",
+      "answer": "3,584 bytes (4096 - 512 = 3584), since total addressable memory is 4,096 bytes and the first 512 bytes are reserved."
     },
     {
       "id": "note:emulation/chip-8:2",
-      "question": "How does the borrow/carry flag VF behave during CHIP-8 subtraction instructions (8XY5 and 8XY7)?",
-      "answer": "VF is set to 1 when no borrow occurs (minuend >= subtrahend), and set to 0 when an underflow occurs and a borrow is needed (minuend < subtrahend)."
+      "question": "How are 16-bit CHIP-8 opcodes fetched from the byte-oriented memory array?",
+      "answer": "By combining two successive big-endian bytes from memory at PC using bitwise shift and OR: uint16_t opcode = (memory[PC] << 8) | memory[PC + 1];."
     },
     {
       "id": "note:emulation/chip-8:3",
-      "question": "How do CHIP-8 sprite coordinates handle screen boundary wrapping versus clipping during DXYN draw calls?",
-      "answer": "The sprite's initial starting coordinate wraps modulo the display dimensions (VX % 64, VY % 32), but sprite pixels extending beyond the right or bottom edges are clipped and do not wrap."
+      "question": "How does the addition instruction 7XNN differ from 8XY4 regarding the VF flag register?",
+      "answer": "7XNN adds an immediate value to VX without modifying VF on overflow, whereas 8XY4 adds VY to VX and sets VF = 1 if the sum exceeds 255 (carry) and 0 otherwise."
     },
     {
       "id": "note:emulation/chip-8:4",
-      "question": "How is sprite collision detected during a DXYN draw operation in CHIP-8?",
-      "answer": "Sprites draw by XOR bit-flipping screen pixels; VF is set to 1 if and only if any active screen pixel is flipped from ON (1) to OFF (0), otherwise VF is set to 0."
+      "question": "How does the borrow/carry flag VF work for the subtraction instruction 8XY5 (VX = VX - VY)?",
+      "answer": "VF is set to 1 if there is no borrow (VX >= VY), and set to 0 if a borrow occurs (VX < VY)."
     },
     {
       "id": "note:emulation/chip-8:5",
-      "question": "What must happen to timers during the blocking key-wait instruction FX0A in a CHIP-8 emulator?",
-      "answer": "While instruction execution halts until a key is pressed, both the delay timer and sound timer must continue decrementing at 60 Hz."
+      "question": "How does the DXYN display instruction handle screen rendering and collision detection?",
+      "answer": "It draws an N-byte tall sprite using bitwise XOR on the 64x32 monochrome display, setting VF = 1 if any lit pixel is toggled off (collision) and 0 otherwise."
     },
     {
       "id": "note:emulation/chip-8:6",
-      "question": "What is the key architectural difference between COSMAC VIP and modern CHIP-48/SUPER-CHIP implementations of shift instructions (8XY6 and 8XYE)?",
-      "answer": "COSMAC VIP copies VY into VX before shifting VX and setting VF to the shifted-out bit, whereas modern implementations shift VX in place and completely ignore VY."
-    },
-    {
-      "id": "note:emulation/chip-8:7",
-      "question": "How does the FX33 (Binary-Coded Decimal) instruction unpack the byte in register VX into memory?",
-      "answer": "It extracts the three decimal digits of VX (0–255) and stores the hundreds digit at memory address I, the tens digit at I + 1, and the units digit at I + 2."
+      "question": "How do coordinate wrapping and sprite clipping differ in the DXYN instruction?",
+      "answer": "The starting (X, Y) coordinate wraps around the screen using modulo (X % 64, Y % 32), but sprite pixels extending past the right or bottom edges are clipped rather than wrapped."
     }
   ]
 }
-

@@ -4,48 +4,39 @@
     "id": "teach/c17/lessons/0001-c17-standards-and-modern-toolchain",
     "title": "Lesson 0001: ISO C17 Standards, Compiler Diagnostics & CMake with SDL2",
     "href": "/notes/teach/c17/lessons/0001-c17-standards-and-modern-toolchain/",
-    "tags": ["teach/c17", "lesson", "cmake", "toolchain", "chip-8"]
+    "tags": [
+      "teach/c17",
+      "lesson",
+      "cmake",
+      "toolchain",
+      "chip-8"
+    ]
   },
   "cards": [
     {
       "id": "note:teach/c17/lessons/0001-c17-standards-and-modern-toolchain:0",
-      "question": "What kind of release is C17 relative to C11?",
-      "answer": "C17 is the bug-fix and refinement release of C11. It introduced no new language features, but resolved over 40 technical defect reports."
+      "question": "What was the primary focus of the ISO C17 standard release compared to C11?",
+      "answer": "C17 was a defect-fix and clarification release that addressed over 40 technical defect reports without introducing new language features."
     },
     {
       "id": "note:teach/c17/lessons/0001-c17-standards-and-modern-toolchain:1",
-      "question": "What is the C17 value of `__STDC_VERSION__`?",
-      "answer": "`201710L`."
+      "question": "Why is void init() in C fundamentally different from void init(void), and how can the compiler enforce correct usage?",
+      "answer": "void init() declares a function with an unspecified number of arguments (a legacy C89 rule), whereas void init(void) strictly declares zero arguments; -Wstrict-prototypes enforces this."
     },
     {
       "id": "note:teach/c17/lessons/0001-c17-standards-and-modern-toolchain:2",
-      "question": "In C, how does `void foo()` differ from `void foo(void)`?",
-      "answer": "`void foo()` takes an unspecified number of arguments, a C89 leftover. `void foo(void)` declares a function that takes zero arguments."
+      "question": "Why is set(CMAKE_C_EXTENSIONS OFF) recommended in modern CMake projects?",
+      "answer": "It disables vendor-specific compiler extensions (like -std=gnu17) and forces strict ISO C conformance (-std=c17), ensuring portability across compilers."
     },
     {
       "id": "note:teach/c17/lessons/0001-c17-standards-and-modern-toolchain:3",
-      "question": "Which compiler flag enforces empty-parameter prototypes?",
-      "answer": "`-Wstrict-prototypes`."
+      "question": "What value does the preprocessor macro __STDC_VERSION__ evaluate to in an ISO C17 conforming compiler?",
+      "answer": "201710L."
     },
     {
       "id": "note:teach/c17/lessons/0001-c17-standards-and-modern-toolchain:4",
-      "question": "What does AddressSanitizer detect?",
-      "answer": "Buffer overflows, stack/heap out-of-bounds access, and memory leaks."
-    },
-    {
-      "id": "note:teach/c17/lessons/0001-c17-standards-and-modern-toolchain:5",
-      "question": "What does UndefinedBehaviorSanitizer detect at runtime?",
-      "answer": "Integer overflows, null-pointer dereferences, and misalignment."
-    },
-    {
-      "id": "note:teach/c17/lessons/0001-c17-standards-and-modern-toolchain:6",
-      "question": "How does CMake enforce ISO C17 without compiler extensions?",
-      "answer": "Set `CMAKE_C_STANDARD` to 17, `CMAKE_C_STANDARD_REQUIRED` to `ON`, and `CMAKE_C_EXTENSIONS` to `OFF`."
-    },
-    {
-      "id": "note:teach/c17/lessons/0001-c17-standards-and-modern-toolchain:7",
-      "question": "What is the runtime effect of `-fsanitize=address,undefined`?",
-      "answer": "It instruments memory reads/writes and arithmetic. Out-of-bounds writes, buffer overruns, or signed overflow halt the program with a stack trace instead of silently corrupting memory."
+      "question": "What do the compilation flags -fsanitize=address,undefined provide during development?",
+      "answer": "They instrument the binary with AddressSanitizer and UndefinedBehaviorSanitizer to immediately halt on buffer overflows, use-after-free, memory leaks, and undefined operations with exact stack traces."
     }
   ]
 }

@@ -4,23 +4,27 @@
     "id": "teach/c17/learning-records/0004-stdio-conventions-and-fread-mechanics",
     "title": "LR-0004: Standard I/O Return Conventions & fread Parameters",
     "href": "/notes/teach/c17/learning-records/0004-stdio-conventions-and-fread-mechanics/",
-    "tags": ["teach/c17", "learning-record", "stdio"]
+    "tags": [
+      "teach/c17",
+      "learning-record",
+      "stdio"
+    ]
   },
   "cards": [
     {
       "id": "note:teach/c17/learning-records/0004-stdio-conventions-and-fread-mechanics:0",
-      "question": "What return convention does `fseek` use?",
-      "answer": "The Unix status convention: `0` means success and non-zero means error."
+      "question": "What return convention does fseek() follow in ISO C to indicate success versus failure?",
+      "answer": "It uses status return: 0 indicates success, and any non-zero value indicates an error."
     },
     {
       "id": "note:teach/c17/learning-records/0004-stdio-conventions-and-fread-mechanics:1",
-      "question": "Why does `fread` separate `size` from `nmemb`?",
-      "answer": "`size` is the size of a single element and `nmemb` is the element count, which enables structured record-based reading."
+      "question": "What does the return value of fread(buf, size, nmemb, file) represent?",
+      "answer": "It returns the number of whole elements (nmemb) of size size successfully transferred, which may be less than nmemb if an error or EOF occurs."
     },
     {
       "id": "note:teach/c17/learning-records/0004-stdio-conventions-and-fread-mechanics:2",
-      "question": "What does `fread` return?",
-      "answer": "The count of complete records transferred, not the raw byte count."
+      "question": "When reading raw binary ROM bytes into memory, how should size and nmemb be configured in fread?",
+      "answer": "size should be sizeof(uint8_t) (1 byte) and nmemb should be the total byte count (file_size), so fread returns the exact number of bytes read."
     }
   ]
 }

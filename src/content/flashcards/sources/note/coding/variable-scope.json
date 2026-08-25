@@ -13,18 +13,18 @@
   "cards": [
     {
       "id": "note:coding/variable-scope:0",
-      "question": "What does the scope of a variable specify?",
-      "answer": "The scope of a variable specifies where it can be accessed within a file."
+      "question": "What is the definition of variable scope in C?",
+      "answer": "The region of source code text where an identifier is visible and can be referenced by the compiler."
     },
     {
       "id": "note:coding/variable-scope:1",
-      "question": "What are examples of block scope in C?",
-      "answer": "Block scope includes a function body, an if/else statement body, a loop, or any region between curly braces {}."
+      "question": "What is the difference between block scope and file scope in C?",
+      "answer": "Block scope limits an identifier visibility to within the enclosing {} braces, whereas file scope makes an identifier visible from its declaration point to the end of the translation unit."
     },
     {
       "id": "note:coding/variable-scope:2",
-      "question": "What defines a globally scoped variable?",
-      "answer": "A globally scoped variable is defined outside of any function and can be accessed anywhere in the file."
+      "question": "What happens when an inner block declares a variable with the same identifier as an outer block or global variable in C?",
+      "answer": "The inner declaration shadows (hides) the outer variable within that block scope; compiler flag -Wshadow warns about this."
     }
   ]
 }
